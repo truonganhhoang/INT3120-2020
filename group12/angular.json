@@ -177,7 +177,8 @@
   },
   "cli": {
     "defaultCollection": "@ionic/angular-toolkit",
-    "analytics": false
+    "analytics": false,
+    "packageManager": "yarn"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

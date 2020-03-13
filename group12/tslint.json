@@ -12,6 +12,20 @@
       true,
       "rxjs/Rx"
     ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "no-trailing-whitespace": [
+      true,
+      "ignore-comments",
+      "ignore-jsdoc",
+      "ignore-template-strings",
+      "ignore-blank-lines"
+    ],
+    "trailing-comma": [
+      false
+    ],
     "interface-name": false,
     "max-classes-per-file": false,
     "member-access": false,
