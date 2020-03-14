@@ -6,6 +6,7 @@
 
 ```shell
 yarn global add @ionic/cli @angular/cli cordova
+ionic config set -g npmClient=yarn
 ```
 
 - Khởi tạo app
@@ -46,7 +47,7 @@ ionic cdv platform add android
 ng config cli.packageManager=yarn
 ```
 
-- Build và run app trên thiết bị Android. Nếu không được, hãy thử cài lại `@angular/cli` trước, thậm chí xóa `node_modules` để cài lại toàn bộ package
+- Build và run app trên thiết bị Android. Nếu không được, hãy thử cài lại `@angular/cli`(local) trước, thậm chí xóa `node_modules` để cài lại toàn bộ package
 
 ```shell
 # cách làm từng bước
