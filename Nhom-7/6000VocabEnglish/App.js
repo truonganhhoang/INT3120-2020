@@ -1,19 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/screens/HomeScreen';
+import CategoryScreen from './src/screens/CategoryScreen';
 
-export default function App() {
+const GLOBAL = require('./src/utils/Globals');
+
+//create Stack
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+        />
+        <Stack.Screen 
+          name="Category" 
+          component={CategoryScreen} 
+          options={
+            ({ route }) => ({ 
+              title: route.params.categoryTitle,
+              headerTitleStyle: {color: GLOBAL.COLOR.ORANGE, fontWeight: 'bold'},
+              headerTitleAlign: 'center',
+              // headerStyleInterpolator: {color: GLOBAL.COLOR.LIGHTBLUE}
+            })
+          }
+          />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
