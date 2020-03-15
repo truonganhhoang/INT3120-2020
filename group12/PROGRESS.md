@@ -2,7 +2,7 @@
 
 ## 2020-03-12
 
-- Cài đặt Angular, Ionic, Cordova
+- Cài đặt Angular, Ionic, Cordova, Android Studio
 
 ```shell
 yarn global add @ionic/cli @angular/cli cordova
@@ -23,6 +23,11 @@ yarn start
 ```
 
 - Update Ionic và Angular lên phiên bản mới nhất
+
+```shell
+ng update
+```
+
 - Cài và cấu hình Prettier
 
 ## 2020-03-13
@@ -47,7 +52,7 @@ ionic cdv platform add android
 ng config cli.packageManager=yarn
 ```
 
-- Build và run app trên thiết bị Android. Nếu không được, hãy thử cài lại `@angular/cli`(local) trước, thậm chí xóa `node_modules` để cài lại toàn bộ package
+- Build và run app trên thiết bị Android(cần cắm cap USB nối điện thoại và máy tính). Nếu không được, hãy thử cài lại `@angular/cli`(local) trước, thậm chí xóa `node_modules` để cài lại toàn bộ package
 
 ```shell
 # cách làm từng bước
