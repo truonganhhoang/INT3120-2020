@@ -1,36 +1,26 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './src/screens/HomeScreen';
-import CategoryScreen from './src/screens/CategoryScreen';
+import "react-native-gesture-handler";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./src/screens/HomeScreen";
+import CategoryScreen from "./src/screens/CategoryScreen";
+import FavoriteScreen from "./src/screens/FavoriteScreen";
 
-const GLOBAL = require('./src/utils/Globals');
+const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
-const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
+      <HomeStack.Navigator initialRouteName="Home">
+        <HomeStack.Screen name="Home" component={HomeScreen} />
+        <HomeStack.Screen name="Category" component={CategoryScreen}
+          options={CategoryScreen.navigationOptions}
         />
-        <Stack.Screen 
-          name="Category" 
-          component={CategoryScreen} 
-          options={
-            ({ route }) => ({ 
-              title: route.params.categoryTitle,
-              headerTitleStyle: {color: GLOBAL.COLOR.ORANGE, fontWeight: 'bold'},
-              headerTitleAlign: 'center',
-              // headerStyleInterpolator: {color: GLOBAL.COLOR.LIGHTBLUE}
-            })
-          }
-          />
-      </Stack.Navigator>
+        <HomeStack.Screen name="Favorite" component={FavoriteScreen} options={FavoriteScreen.navigationOptions}/>
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 }

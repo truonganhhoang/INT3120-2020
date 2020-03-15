@@ -1,4 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
+
+var FONT_CATEGORY_NAME = 24;
+var FONT_CATEGORY_DESCRIPTIOIN = 20;
+
+if(PixelRatio.get() <= 2 ){
+  FONT_CATEGORY_NAME -= 4;
+  FONT_CATEGORY_DESCRIPTIOIN -= 4;
+}
+
 
 const StyleCategoryItem = StyleSheet.create({
   container: {
@@ -25,6 +34,7 @@ const StyleCategoryItem = StyleSheet.create({
     height: 64
   },
   textRight: {
+    // paddingLeft: '10%',
     width: "50%",
     alignItems: "center"
   },
@@ -33,10 +43,12 @@ const StyleCategoryItem = StyleSheet.create({
     color: "white"
   },
   title: {
-    fontSize: 24
+    // fontSize: 24
+    fontSize: FONT_CATEGORY_NAME
   },
   description: {
-    fontSize: 20
+    // fontSize: 20
+    fontSize: FONT_CATEGORY_DESCRIPTIOIN
   },
   horizontalLine: {
     marginTop: 5,
