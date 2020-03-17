@@ -11,7 +11,7 @@ export default class FavoriteScreen extends React.Component {
       color: GLOBAL.COLOR.ORANGE,
       fontWeight: "bold"
     },
-    headerTitleAlign: "center"
+    headerTitleAlign: "center",
   };
 
   render() {
