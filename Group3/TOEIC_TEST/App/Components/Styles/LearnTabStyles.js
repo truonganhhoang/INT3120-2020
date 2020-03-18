@@ -19,6 +19,6 @@ export default StyleSheet.create({
     color:'white'
   },
   iconRight:{
-    marginRight: 15,
+    marginRight: 20,
   }
 })
