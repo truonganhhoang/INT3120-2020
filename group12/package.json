@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "format": "prettier --config ./.prettierrc --list-different 'src/**/*{.ts,.js,.json,.css,.scss,.html}' --write 'src/**/*{.ts,.js,.json,.css,.scss,.html}'"
+    "format": "prettier --config ./.prettierrc --write 'src/**/*{.ts,.js,.json,.css,.scss,.html}'"
   },
   "private": true,
   "dependencies": {

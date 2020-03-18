@@ -13,6 +13,7 @@ ionic config set -g npmClient=yarn
 
 ```shell
 ionic start coursera-vnu tabs --type=angular
+ng config -g cli.packageManager yarn
 ```
 
 - Chạy thử
@@ -25,7 +26,8 @@ yarn start
 - Update Ionic và Angular lên phiên bản mới nhất
 
 ```shell
-ng update
+ng update @angular/core@~9 @angular/cli@~9
+yarn add @ionic-native/core @ionic-native/splash-screen @ionic-native/status-bar @ionic/angular
 ```
 
 - Cài và cấu hình Prettier
@@ -63,6 +65,15 @@ ionic cdv run android -l
 
 # NHƯNG thực ra chỉ cần chạy lệnh này là đủ
 ionic cdv run android -l
-# cần option -l để sử dụng tính năng live-reload
+# cần option -l để sử dụng tính năng live reload
 # nếu bỏ option -l, app có thể chạy mà không cần development server
+```
+
+# 2020-03-17
+
+- Tạo app icon và ảnh cho splash screen, lần lượt là các file `resources/icon.png` và `resources/splash.png`
+- Chạy lệnh sau để generate ảnh cho nhiều kích thước khác nhau:
+
+```shell
+ionic cdv resources
 ```
