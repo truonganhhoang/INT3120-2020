@@ -7,11 +7,15 @@ import {
     FlatList,
     ScrollView,
     SafeAreaView,
+    TouchableOpacity,
 } from 'react-native'
 import { Icon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { words } from '../Data/word'
 class SearchTab extends Component {
+    static navigationOptions = {
+        headerShown: false
+    }
     constructor(props) {
         super(props)
         this.state = {
@@ -54,11 +58,14 @@ class SearchTab extends Component {
                         onChangeText={input => this.onChangeText(input)}
                         value={this.state.input}
                     />
-                    <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
-                        containerStyle={styles.iconRight}
-                    />
+                    <TouchableOpacity
+                        onPress={()=>{this.props.navigation.navigate('Meaning',{data: 'text'})}}
+                    >
+                        <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
+                            containerStyle={styles.iconRight}
+                        />
+                    </TouchableOpacity>
                 </View>
-
                 <View>
                     <Text>{this.state.input}</Text>
                 </View>

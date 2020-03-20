@@ -5,6 +5,7 @@ import {
     View,
     Text,
     FlatList,
+    TouchableOpacity
 } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
@@ -35,10 +36,14 @@ export default class LearnTab extends Component {
                 <View style={styles.linearGradient}>
                     <Icon name='search' size={24} type='FontAwesome' color='transparent' />
                     <Text style={styles.title}>TỪ VỰNG TOEIC</Text>
-                    <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
-                        containerStyle={styles.iconRight} 
-                        onPress={()=>{this.props.navigation.navigate('Search')}}
+                    <TouchableOpacity
+                        onPress={() => { this.props.navigation.navigate('Search') }}
+                    >
+                        <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
+                            containerStyle={styles.iconRight}
                         />
+                    </TouchableOpacity>
+
                 </View>
                 <ButtonGroup
                     onPress={this.updateIndex}
