@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Button } from "react-native";
 import { StyleSheet } from "react-native";
-import StyleHomeScreen from "../themes/StyleHomeScreen";
 import SecondMenu from "../components/SecondMenu";
+import ProgressBarAnimated from "react-native-progress-bar-animated";
 export class OverviewTopicItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      favorite: false
+      favorite: false,
+      progressComplete: 40
     };
   }
 
   handlePressFavorite = () => {
-    console.log(this.state.favorite);
     this.setState({ favorite: !this.state.favorite });
   };
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.childContainer}>
-          <View style={{ flexDirection: "row", position: "relative" }}>
+          <View style={{ flexDirection: "row" }}>
             <TouchableOpacity onPress={this.handlePressFavorite}>
               <Image
                 source={
@@ -32,16 +33,26 @@ export class OverviewTopicItem extends Component {
                 style={{ width: 25, height: 25 }}
               />
             </TouchableOpacity>
-
             <Image
               source={require("../assets/uet-logo.png")}
               style={styles.mainImage}
             />
           </View>
-          <View style={StyleHomeScreen.StyleCategoryItem.horizontalLine} />
+          <ProgressBarAnimated
+            style={styles.progressBar}
+            width={100}
+            height={8}
+            backgroundColor="orange"
+            value={this.state.progressComplete}
+          ></ProgressBarAnimated>
+          <Text>{this.props.topicName}</Text>
+          <Text>{this.props.topicNameVi}</Text>
           <Text>{this.props.description}</Text>
         </View>
         <SecondMenu style={styles.secondMenu}></SecondMenu>
+        <TouchableOpacity color="red">
+          <Button color="lightblue" title="CHI TIẾT"></Button>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -52,16 +63,20 @@ export default OverviewTopicItem;
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    position: "relative",
-    flexDirection: "row",
     alignItems: "center",
-    paddingLeft: 30
+    position: "relative",
+    paddingLeft: 30,
+    width: 300,
+    borderColor: "red",
+    borderWidth: 1
   },
   childContainer: {
+    flex: 1,
     justifyContent: "center",
-    borderRadius: 5,
-    backgroundColor: "#fff",
-    height: 300
+    borderRadius: 20,
+    alignContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
   mainImage: {
     borderRadius: 50,
@@ -70,8 +85,7 @@ const styles = StyleSheet.create({
     height: 200,
     marginRight: 20
   },
-  secondMenu: {
-    alignSelf: "center",
-    alignContent: "center"
+  buttonDetail: {
+    backgroundColor: "black"
   }
 });
