@@ -1,4 +1,5 @@
 import React from "react";
+import {View} from "react-native";
 import FavoriteWordsScreen from "../screens/FavoriteWordsScreen";
 import FavoriteLessonsScreen from "../screens/FavoriteLessonsScreen";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -10,11 +11,10 @@ function MyTabs() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        // indicatorStyle: {backgroundColor: 'red'},
+        indicatorStyle: {backgroundColor: GLOBAL.COLOR.ORANGE } ,
         activeTintColor: GLOBAL.COLOR.ORANGE,
         inactiveTintColor: "gray",
         labelStyle: { fontSize: 14 },
-        indicatorStyle: { color: GLOBAL.COLOR.ORANGE },
         style: { backgroundColor: "white" },
         labelStyle: {
           fontWeight: "bold"

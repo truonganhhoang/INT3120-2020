@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import MyTabs from "../navigators/FavoriteTabNavigator"
+import MyTabs from "../navigators/FavoriteTabNavigator";
 
 const GLOBAL = require('../utils/Globals')
 
