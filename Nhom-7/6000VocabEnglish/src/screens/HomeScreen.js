@@ -20,7 +20,7 @@ export default class CategoriesScreen extends React.Component {
   };
 
   _onPressButtonFavorite = () => {
-    Alert.alert("favor")
+    this.props.navigation.navigate("Favorite");
   };
 
   //Space between 2 CategoryItem
@@ -83,8 +83,9 @@ export default class CategoriesScreen extends React.Component {
               <CategoryItem
                 item={item}
                 pressed={() =>
-                  navigation.navigate("Category", {
-                    categoryTitle: item.title
+                  navigation.push("Category", {
+                    categoryTitle: item.title,
+                    categoryId: item.key
                   })
                 }
               ></CategoryItem>
