@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
 const GLOBAL = require("../utils/Globals");
 import { Text, View, StyleSheet, FlatList, ScrollView } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
@@ -20,10 +19,10 @@ export default class CategoryScreen extends Component {
 
   render() {
     const {categoryId} = this.props.route.params;
-    return (
+    return (    
       <ScrollView horizontal={true} contentContainerStyle={styles.container}>
         <OverviewTopicItem
-          topicName="Body"
+          topicName="Body Haaaaaaaa"
           topicNameVi="Thân thể"
           description="Giúp bạn nắm vững 28 từ liên quan đến Cơ thể trong tiếng Anh"
         ></OverviewTopicItem>
