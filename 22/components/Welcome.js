@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
           Không học mỗi ngày là không được đâu đấy
         </Text>
         <View style={styles.button}>
-          <Button title='Bắt Đầu Học' color="#ffffff" onPress/>
+          <Button title='Bắt Đầu Học' color="#ffffff"/>
         </View>
       </View>
     );
