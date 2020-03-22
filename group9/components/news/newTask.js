@@ -16,6 +16,20 @@ class NewTask extends React.Component {
     }
   
   render () {
+      const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = date => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
     return (
     <View style={{ flex: 1, backgroundColor:'#fff'}}>
       <Header
@@ -67,6 +81,7 @@ class NewTask extends React.Component {
        }}
       />
       <View style={{padding:10}}/>
+
       <TextInput
         style={{padding:10, fontSize: 15}}
         underlineColorAndroid="transparent"
