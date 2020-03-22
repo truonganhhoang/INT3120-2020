@@ -32,7 +32,6 @@ export default StyleSheet.create({
     fontSize: 18
   },
   view: {
-    flex: 1,
     padding: 20,
   },
   en: {

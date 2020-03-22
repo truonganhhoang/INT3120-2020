@@ -18,8 +18,21 @@ export default StyleSheet.create({
     fontSize: 20,
     color: 'white'
   },
-  iconRight: {
-    marginRight: 15,
+  item: {
+    backgroundColor: '#F5F5F5',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    elevation: 5,
+    borderRadius: 10,
+  },
+  part: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 10,
+    paddingLeft: 20,
+  },
+  name: {
+    paddingLeft: 20,
   }
-
 })

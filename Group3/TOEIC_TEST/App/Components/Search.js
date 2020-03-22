@@ -14,7 +14,12 @@ import {
 import { Icon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { words } from '../Data/word'
+import { StackActions, NavigationActions } from 'react-navigation'
 
+const resetAction = StackActions.reset({
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: 'MainBody' })],
+})
 class SearchTab extends Component {
     static navigationOptions = {
         headerShown: false
@@ -27,7 +32,11 @@ class SearchTab extends Component {
         }
     }
     componentDidMount() {
-        this.setState({ data: words,input:'' })
+        this.setState({ data: words })
+    }
+    Back = () => {
+        this.props.navigation.dispatch(resetAction)
+        this.props.navigation.navigate("MainBody")
     }
     renderItem = ({ item }) => {
         return (
@@ -74,17 +83,17 @@ class SearchTab extends Component {
         this.setState({ input })
     }
     translate = () => {
+        var count = 0
         for (var i = 0; i < this.state.data.length; i++) {
             if (this.state.input.trim().toLocaleLowerCase() === this.state.data[i].en.trim().toLocaleLowerCase()) {
                 this.setState({ data: this.state.data[i] })
-                this.props.navigation.navigate("Meaning", { dataSearch: this.state.data[i] })
-                break;
-            }
-            else {
-                setTimeout(() => ToastAndroid.show("Không tìm thấy kết quả", ToastAndroid.SHORT), 1000)
+                count++
+                break
             }
         }
-        
+        if (count !== 0) this.props.navigation.navigate("Meaning", { dataSearch: this.state.data[i] })
+        else ToastAndroid.show("Không tìm thấy kết quả", ToastAndroid.LONG)
+
     }
     render() {
         return (
@@ -92,7 +101,7 @@ class SearchTab extends Component {
                 <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
                 <View style={styles.linearGradient}>
                     <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
-                        onPress={() => { this.props.navigation.navigate("MainBody") }}
+                        onPress={() => { this.Back() }}
                         style={styles.iconLeft}
                     />
                     <TextInput

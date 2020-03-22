@@ -16,9 +16,27 @@ export default StyleSheet.create({
     alignContent: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    color:'white'
+    color: 'white'
   },
-  iconRight:{
+  iconRight: {
     marginRight: 20,
+  },
+  item: {
+    backgroundColor: '#F5F5F5',
+    paddingBottom: 10,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    elevation: 5,
+    borderRadius: 10,
+
+  },
+  lession:{
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 10,
+  },
+  number:{
+    paddingLeft: 10,
   }
+  
 })
