@@ -1,37 +1,37 @@
 const words = [
     {
         id: 1,
-        en: "hello",
+        en: "Hello",
         vi:"xin chào",
         transcription:"test"
     },
     {
         id: 2,
-        en: "agreement",
+        en: "Agreement",
         vi:"sự thỏa thuận",
         transcription:"test"
     },
     {
         id: 3,
-        en: "compare",
+        en: "Compare",
         vi:"so sánh",
         transcription:"test"
     },
     {
         id: 4,
-        en: "determine",
+        en: "Determine",
         vi:"quyết định",
         transcription:"test"
     },
     {
         id: 5,
-        en: "delete",
+        en: "Delete",
         vi:"xóa",
         transcription:"test"
     },
     {
         id: 6,
-        en: "access",
+        en: "Access",
         vi:"sự truy cập",
         transcription:"test"
     },

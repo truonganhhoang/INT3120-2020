@@ -32,7 +32,7 @@ export default StyleSheet.create({
     fontSize: 18
   },
   item:{
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'red',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,

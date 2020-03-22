@@ -25,10 +25,22 @@ export default StyleSheet.create({
   },
   input: {
     height: 40,
-    width: Dimensions.get('screen').width-130,
+    width: Dimensions.get('screen').width - 130,
     borderColor: '#808080',
     borderBottomWidth: 1,
-    color:'white',
+    color: 'white',
     fontSize: 18
+  },
+  view: {
+    flex: 1,
+    padding: 20,
+  },
+  en: {
+    fontSize: 18,
+    fontWeight: "600"
+  },
+  vi: {
+    fontSize: 16,
+    fontWeight:'bold'
   }
 })
