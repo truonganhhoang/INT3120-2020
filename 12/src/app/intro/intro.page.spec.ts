@@ -9,7 +9,7 @@ describe('IntroPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IntroPage ],
+      declarations: [IntroPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

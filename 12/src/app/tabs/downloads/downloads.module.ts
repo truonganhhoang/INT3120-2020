@@ -9,12 +9,7 @@ import { DownloadsPageRoutingModule } from './downloads-routing.module';
 import { DownloadsPage } from './downloads.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    DownloadsPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, DownloadsPageRoutingModule],
   declarations: [DownloadsPage]
 })
 export class DownloadsPageModule {}

@@ -9,7 +9,7 @@ describe('RecommendedPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecommendedPage ],
+      declarations: [RecommendedPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

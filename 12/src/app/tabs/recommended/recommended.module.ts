@@ -9,12 +9,7 @@ import { RecommendedPageRoutingModule } from './recommended-routing.module';
 import { RecommendedPage } from './recommended.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RecommendedPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, RecommendedPageRoutingModule],
   declarations: [RecommendedPage]
 })
 export class RecommendedPageModule {}
