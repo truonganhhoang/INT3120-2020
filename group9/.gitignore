@@ -57,3 +57,31 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+
+# Expo
+.expo
+__generated__
+
+# Expo Client builds
+/client-builds
+
+# Expo web env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# Emacs
+*~
+
+# Vim
+.*.swp
+.*.swo
+.*.swn
+.*.swm
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace

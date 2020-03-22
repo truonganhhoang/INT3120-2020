@@ -1,18 +1,18 @@
-import auth from "@react-native-firebase/auth";
+import auth from '@react-native-firebase/auth'
 
 const anonymousLogin = async () => {
   try {
-    return await auth().signInAnonymously();
+    return await auth().signInAnonymously()
   } catch (e) {
     switch (e.code) {
-      case "auth/operation-not-allowed":
-        console.log("Enable anonymous in your firebase console.");
-        break;
+      case 'auth/operation-not-allowed':
+        console.log('Enable anonymous in your firebase console.')
+        break
       default:
-        console.error(e);
-        break;
+        console.error(e)
+        break
     }
   }
-};
+}
 
-export default anonymousLogin;
+export default anonymousLogin

@@ -1,7 +1,4 @@
-import * as React from 'react';
-import ViewTask from './viewTask';
+import * as React from 'react'
+import ViewTask from './viewTask'
 
-export {
-  ViewTask,
-}
-
+export { ViewTask }
