@@ -5,22 +5,24 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
+import ExamScreen from "./src/screens/ExamScreen";
 
 const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
-const HomeStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <HomeStack.Navigator initialRouteName="Home">
-        <HomeStack.Screen name="Home" component={HomeScreen} />
-        <HomeStack.Screen name="Category" component={CategoryScreen}
+      <Stack.Navigator initialRouteName="Exam">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Category" component={CategoryScreen}
           options={CategoryScreen.navigationOptions}
         />
-        <HomeStack.Screen name="Favorite" component={FavoriteScreen} options={FavoriteScreen.navigationOptions}/>
-      </HomeStack.Navigator>
+        <Stack.Screen name="Favorite" component={FavoriteScreen} options={FavoriteScreen.navigationOptions}/>
+        <Stack.Screen name="Exam" component={ExamScreen} options={ExamScreen.navigationOptions}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

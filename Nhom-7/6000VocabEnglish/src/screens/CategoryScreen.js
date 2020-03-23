@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
 const GLOBAL = require("../utils/Globals");
-import { Text, View, StyleSheet, FlatList, ScrollView } from "react-native";
+import { StyleSheet, FlatList, ScrollView } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
 
 export default class CategoryScreen extends Component {
