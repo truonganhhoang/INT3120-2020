@@ -80,7 +80,7 @@ ionic cdv resources
 
 # 2020-03-19
 
-- Generate 5 tabs cho app: *learn*, *explore*, *recommended*, *download*, *profile* và cập nhật component tab bar
+- Generate 5 tabs cho app: `learn`, `explore`, `recommended`, `downloads`, `profile` và cập nhật component tab bar
 
 ```shell
 ionic g page home -f
@@ -91,3 +91,17 @@ ionic g page profile -f
 ```
 
 - Đổi tên thư mục từ `group12` thành `12`
+
+# 2020-03-21
+
+- Chuyển 5 thư mục `app/{learn,explore,recommended,downloads,profile}` vào thư mục `app/tabs`.
+- Thêm 3 pages: `intro`, `sign in`, `sign up`
+
+# 2020-03-22
+
+- Cài đặt husky/githooks
+
+# 2020-03-23
+
+- Update prettier, thêm rules trailingComma
+- Update angular từ 9.0.6 lên 9.0.7
