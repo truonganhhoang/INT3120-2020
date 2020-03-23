@@ -1,98 +1,128 @@
-import React from 'react';
-import {View, Text,Picker,TextInput,} from 'react-native';
-import {Header,Input} from 'react-native-elements';
-import {Ionicons } from '@expo/vector-icons';
+import React from 'react'
+import { View, Text, Picker, TextInput, KeyboardAvoidingView } from 'react-native'
+import { Header, Input, Button } from 'react-native-elements'
+import { Ionicons } from '@expo/vector-icons'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 class NewTask extends React.Component {
-    state={
-      table:[
-        {name:"Toan"},
-        {name:"Tieng Viet"},
-        {name:"Tieng Anh"}
-      ],
-      selectedLesson:'',
-      selectedType:'',
+  state = {
+    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
+    selectedLesson: '',
+    selectedType: '',
+    isDateTimePickerVisible: false,
+    datePicked: 'Pick a Date',
+  }
 
-    }
-  
-  render () {
-      const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true })
+  }
 
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
-  };
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false })
+  }
 
-  const hideDatePicker = () => {
-    setDatePickerVisibility(false);
-  };
+  handleDatePicked = (date) => {
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear()
+    this.setState({ datePicked: day })
+    this.hideDateTimePicker()
+  }
 
-  const handleConfirm = date => {
-    console.warn("A date has been picked: ", date);
-    hideDatePicker();
-  };
+  render() {
     return (
-    <View style={{ flex: 1, backgroundColor:'#fff'}}>
-      <Header
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+        <Header
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
-          centerComponent={{ text: 'New Tasks', style: { color: '#fff', fontSize:25, paddingTop:30 } }}
+          leftComponent={
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              style={{ color: 'white', top: -15, paddingLeft: '20%' }}
+            />
+          }
+          rightComponent={
+            <Ionicons
+              name="ios-create"
+              size={30}
+              style={{ color: 'white', top: -15, paddingRight: '18%' }}
+            />
+          }
+          centerComponent={{
+            text: 'New Task',
+            style: { color: '#fff', fontSize: 25, paddingTop: '10%' },
+          }}
           containerStyle={{
-            backgroundColor: '#000',
-            height:120,
+            backgroundColor: '#222222',
+            height: '17%',
             justifyContent: 'center',
           }}
-      />
-      <View style={{padding:10}}/>
-      <Input
-        placeholder='Set name for Task'
-        leftIcon={
-          <Ionicons name='md-checkbox-outline' size={30} style={{ paddingRight:20 }} />
-        }
-      />
-      <View style={{padding:10}}/>
-      <View style={{flexDirection: 'row'}}>
-        <Ionicons name='ios-list-box' size={30} style={{padding: 10, marginLeft: 15}} />
-        <Picker
-          selectedValue={this.state.selectedLesson} 
-          style={{height: 50, width: 130 }}
-          onValueChange={(itemValue, itemIndex) =>
-            this.setState({selectedLesson:itemValue})
-          }>
-          {this.state.table.map((item,i)=>(  
-            <Picker.Item label={item.name} value={item.name} key={i}/>
-          ))}
-        </Picker>
-        <Ionicons name='ios-browsers' size={30} style={{padding: 10, marginLeft: 15}} />
-        <Picker
-          selectedValue={this.state.selectedType}
-          style={{height: 50, width: 140 }}
-          onValueChange={(itemValue, itemIndex) =>
-            this.setState({selectedType:itemValue})
-          }>
-          <Picker.Item label="Task" value="Task" />
-          <Picker.Item label="Exam" value="Exam" />
-        </Picker>
+        />
+        <View style={{ padding: 10 }} />
+        <Input
+          placeholder="Set name for Task"
+          leftIcon={<Ionicons name="md-checkbox-outline" size={30} style={{ paddingRight: 20 }} />}
+        />
+        <View style={{ padding: 10 }} />
+        <View style={{ flexDirection: 'row' }}>
+          <Ionicons name="ios-list-box" size={30} style={{ padding: 10, marginLeft: 15 }} />
+          <Picker
+            selectedValue={this.state.selectedLesson}
+            style={{ height: 50, width: '35%' }}
+            onValueChange={(itemValue, itemIndex) => this.setState({ selectedLesson: itemValue })}
+          >
+            {this.state.table.map((item, i) => (
+              <Picker.Item label={item.name} value={item.name} key={i} />
+            ))}
+          </Picker>
+          <Ionicons name="ios-browsers" size={30} style={{ padding: 10 }} />
+          <Picker
+            selectedValue={this.state.selectedType}
+            style={{ height: 50, width: '35%' }}
+            onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
+          >
+            <Picker.Item label="Task" value="Task" />
+            <Picker.Item label="Exam" value="Exam" />
+          </Picker>
+        </View>
+        <View
+          style={{
+            marginLeft: '2.5%',
+            marginRight: '2.5%',
+            borderBottomColor: '#B7B7B7',
+            borderBottomWidth: 1.75,
+          }}
+        />
+        <View style={{ padding: 10 }} />
+        <View>
+          <Button
+            title={this.state.datePicked}
+            icon={
+              <Ionicons
+                name="ios-calendar"
+                size={30}
+                style={{ color: '#fff', paddingRight: '2.5%' }}
+              />
+            }
+            onPress={this.showDateTimePicker}
+            buttonStyle={{ backgroundColor: '#222222', marginRight: '2.5%', marginLeft: '2.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+          />
+        </View>
+        <TextInput
+          style={{ padding: '2.5%', fontSize: 20 }}
+          underlineColorAndroid="transparent"
+          placeholder="Description"
+          placeholderTextColor="grey"
+          numberOfLines={2}
+          multiline={true}
+        />
       </View>
-      <View
-        style={{
-        marginLeft:10, marginRight:10,
-        borderBottomColor: '#B7B7B7',
-        borderBottomWidth: 1.75,
-       }}
-      />
-      <View style={{padding:10}}/>
-
-      <TextInput
-        style={{padding:10, fontSize: 15}}
-        underlineColorAndroid="transparent"
-        placeholder="Description"
-        placeholderTextColor="grey"
-        numberOfLines={10}
-        multiline={true}
-      />
-    </View>
-  );
+    )
   }
 }
 
-export default NewTask;
+export default NewTask
