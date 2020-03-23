@@ -10,7 +10,7 @@ class Greeting extends Component {
     <View style={{backgroundColor:'#E6E6E6'}}>
       <View style={styles.loaixe}>
         <Text style={{fontSize:15}}>{this.props.name}</Text>
-        <Text style={{marginLeft:30,fontSize:15,color:'#A4A4A4'}}>{this.props.tai}</Text>
+        <Text style={{marginLeft:31,fontSize:15,color:'#A4A4A4'}}>{this.props.tai}</Text>
       </View>
     </View>
       
