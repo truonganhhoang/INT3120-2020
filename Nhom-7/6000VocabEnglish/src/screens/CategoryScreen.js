@@ -11,17 +11,20 @@ export default class CategoryScreen extends Component {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold"
       },
-      headerTitleAlign: "center"
+      headerTitleAlign: "center",
       //title: navigation.getParam("categoryTitle", "A Nested Details Screen")
     };
   };
 
   render() {
+
     const { categoryId } = this.props.route.params;
-    return (
+
+    return (    
       <ScrollView horizontal={true} contentContainerStyle={styles.container}>
         <OverviewTopicItem
-          topicName="Body"
+
+          topicName="Body Haaaaaaaa"
           topicNameVi="Thân thể"
           description="Giúp bạn nắm vững 28 từ liên quan đến Cơ thể trong tiếng Anh"
         ></OverviewTopicItem>
