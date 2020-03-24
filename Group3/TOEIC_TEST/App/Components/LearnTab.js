@@ -57,7 +57,7 @@ export default class LearnTab extends Component {
         const buttons = ['Bài học', 'Từ đánh dấu', 'Từ nhắc nhở']
         const { selectedIndex } = this.state
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{flex: 1}}>
                 <View style={styles.linearGradient}>
                     <Icon name='search' size={24} type='FontAwesome' color='transparent' />
                     <Text style={styles.title}>TỪ VỰNG TOEIC</Text>
@@ -69,7 +69,6 @@ export default class LearnTab extends Component {
                         />
                     </TouchableOpacity>
                 </View>
-
                 <ButtonGroup
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
