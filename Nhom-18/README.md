@@ -1,8 +1,14 @@
-# INT3120-2020
-Môn học Phát triển ứng dụng di động 2020
+## NHÓM 18
 
-# Nộp bài tuần 2
-Mô tả: đây là giao diện 'Hello World' đơn giản.
+# Ứng dụng [Ôn thi GPLX (chỉ trong 3 ngày)](https://play.google.com/store/apps/details?id=com.vietdevpro.onthigiaypheplaixe.oto)
+# Thành viên nhóm 18
+- Phạm Hùng Mạnh
+- Vũ Thanh Thiên
+- Nguyễn Bá Hiệp
 
-![alt](./image/tuan2.jpg)
+# Mô tả ứng dụng
+* Đây là ứng dụng giúp bạn học và thi lấy các loại bằng lái xe một cách dễ dàng
+* Ứng dụng giúp bạn học lý thuyết để chuẩn bị cho kỳ thi sát hạch lý thuyết lái xe chỉ trong 3 ngày.
+
+
 
