@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const HOST = 'http://192.168.2.170:5000/api'
+export const HOST = 'http://42.112.17.55:8888/backendapp'
 
 export const requestGET = async(URL) => {
     return await axios({
