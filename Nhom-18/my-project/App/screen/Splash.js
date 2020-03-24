@@ -5,7 +5,6 @@ export default class Splash extends Component  {
     render(){
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#66bb6a', }}>
-              {/* <ImageBackground source={require('./App/img/splash.jpg')}></ImageBackground> */}
               <Text style={{color:'white', fontSize:20,}}>HẠNG A1,A2..,B1,B2,C,D,E..</Text>
               <Text style={{color:'white', fontSize:15,}}>ÔN THI GIẤY PHÉP LÁI XE</Text>
             </View>

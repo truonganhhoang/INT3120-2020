@@ -56,7 +56,7 @@ export default class Home extends Component  {
                </View>
 
                <View style={{backgroundColor:'#31edd1', flex:3.5}}>
-                 <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('C:/ProjectExpo/myMobile/App/img/img1.jpg')}/>
+                 <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('D:/Github/INT3120-2020/Nhom-18/my-project/App/img/img1.jpg')}/>
                </View>
 
                <View style={styles.list}>
@@ -70,13 +70,12 @@ export default class Home extends Component  {
                 />
               </View>
               <View style={{flex:3}}>
-                <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('C:/ProjectExpo/myMobile/App/img/img2.jpg')}/>
+                <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('D:/Github/INT3120-2020/Nhom-18/my-project/App/img/img2.jpg')}/>
                 <TouchableOpacity style={styles.addButton}>
                   <Text style={styles.iconButton}>+</Text>
                 </TouchableOpacity>
               </View>
-                  
-               
+              
             </View>
            );
      }
