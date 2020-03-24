@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   linearGradient: {
     flexDirection: 'row',
@@ -18,5 +18,4 @@ export default StyleSheet.create({
     fontSize: 20,
     color: 'white'
   },
-
 })

@@ -28,7 +28,6 @@ export default StyleSheet.create({
     marginHorizontal: 16,
     elevation: 5,
     borderRadius: 10,
-
   },
   lession:{
     fontWeight: 'bold',
