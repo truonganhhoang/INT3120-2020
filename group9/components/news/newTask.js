@@ -37,24 +37,25 @@ class NewTask extends React.Component {
             <Ionicons
               name="ios-arrow-back"
               size={30}
-              style={{ color: 'white', top: -15, paddingLeft: '20%' }}
+              style={{ top: -15, paddingLeft: '20%' }}
             />
           }
           rightComponent={
             <Ionicons
               name="ios-create"
               size={30}
-              style={{ color: 'white', top: -15, paddingRight: '18%' }}
+              style={{top: -15, paddingRight: '18%' }}
             />
           }
           centerComponent={{
             text: 'New Task',
-            style: { color: '#fff', fontSize: 25, paddingTop: '10%' },
+            style: {fontSize: 25, paddingTop: '10%' },
           }}
           containerStyle={{
-            backgroundColor: '#222222',
+            backgroundColor: '#fff',
             height: '17%',
-            justifyContent: 'center',
+            borderBottomColor:'#000',
+            borderBottomWidth:1
           }}
         />
         <View style={{ padding: 10 }} />
@@ -104,7 +105,7 @@ class NewTask extends React.Component {
               />
             }
             onPress={this.showDateTimePicker}
-            buttonStyle={{ backgroundColor: '#222222', marginRight: '2.5%', marginLeft: '2.5%' }}
+            buttonStyle={{ backgroundColor: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
           />
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
