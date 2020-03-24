@@ -17,3 +17,4 @@ Thông tin Ứng dụng:
   + Tự thêm từ vựng mới vào danh sách
   + Tìm kiếm từ vựng
   
+Framework : React Native
