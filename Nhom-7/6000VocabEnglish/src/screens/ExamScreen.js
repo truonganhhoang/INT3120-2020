@@ -16,15 +16,20 @@ const widthScreen = Dimensions.get("screen").width;
 const statusBarHeight = 16;
 
 class ImageHeart extends Component {
-    //   iconHeart = this.state.turn
-//     ? require("../assets/icon/heart-active.png")
-//     : require("../assets/icon/heart-inactive.png");
-//   heart = (<Image source={require("../assets/icon/heart-active.png")} />);
+  //   iconHeart = this.state.turn
+  //     ? require("../assets/icon/heart-active.png")
+  //     : require("../assets/icon/heart-inactive.png");
+  //   heart = (<Image source={require("../assets/icon/heart-active.png")} />);
 
-  render(){
-      return(
-          <View style={{margin: 2}}><Image style={{width: 16, height: 16}} source={require("../assets/icon/heart-active.png")} /></View>
-      )
+  render() {
+    return (
+      <View style={{ margin: 2 }}>
+        <Image
+          style={{ width: 16, height: 16 }}
+          source={require("../assets/icon/heart-active.png")}
+        />
+      </View>
+    );
   }
 }
 
@@ -36,12 +41,11 @@ export default class ExamScreen extends Component {
       progress: 0,
       turn: 3
     };
-
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      this.setState({seconds: this.state.seconds - 1})
+      this.setState({ seconds: this.state.seconds - 1 });
     }, 1000);
   }
 
@@ -60,15 +64,18 @@ export default class ExamScreen extends Component {
   };
 
   render() {
-    const barWidth = Dimensions.get("screen").width*0.6;
+    const barWidth = widthScreen * 0.6;
 
     return (
       <View style={styles.container}>
         <View style={styles.statusBar}>
-          <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>{Math.floor(this.state.seconds/60)}:{Math.floor(this.state.seconds%60)}</Text>
+          <View>
+            <Text style={styles.timeText}>
+              {Math.floor(this.state.seconds / 60)}:
+              {Math.floor(this.state.seconds % 60)}
+            </Text>
           </View>
-          <View style={styles.progressContainer}>
+          <View>
             <ProgressBarAnimated
               backgroundColor="orange"
               underlyingColor="#148cF0"
@@ -83,21 +90,32 @@ export default class ExamScreen extends Component {
               }}
             />
           </View>
-
           <View style={styles.heartsContainer}>
-            <ImageHeart/>
-            <ImageHeart/>
-            <ImageHeart/>
+            <ImageHeart />
+            <ImageHeart />
+            <ImageHeart />
           </View>
         </View>
-        <View style={styles.buttonContainer}>
+
+        <View style={styles.question}>
+          <Text style={styles.questionText}>Chọn hình ảnh đúng</Text>
+        </View>
+        <View style={styles.word}>
+          <Text style={styles.wordText}>head</Text>
+        </View>
+        
+        <View style={styles.imagesContainer}>
+
+
+        </View>
+        {/* <View style={styles.buttonContainer}>
           <View style={styles.buttonInner}>
             <Button
               title="Increase 20%"
               onPress={this.increase.bind(this, "progress", 20)}
             />
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -111,21 +129,39 @@ const styles = StyleSheet.create({
     paddingVertical: 25
   },
   statusBar: {
+    margin: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around"
   },
-  timeContainer: {
-  },
   timeText: {
-    fontWeight: 'bold',
-    color: 'orange',
+    fontWeight: "bold",
+    color: "orange",
     fontSize: 16
-  },
-  progressContainer: {
   },
   heartsContainer: {
     flexDirection: "row"
+  },
+  question: {
+    margin: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  }, 
+  questionText: {
+    fontWeight: 'bold',
+  },
+  word: {
+    margin: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  }, 
+  wordText: {
+    fontSize: 30
+  },  
+  imagesContainer: {
+    flex: 1,
+    margin: 30,
+    backgroundColor: 'gray'
   },
   buttonContainer: {
     marginTop: 15

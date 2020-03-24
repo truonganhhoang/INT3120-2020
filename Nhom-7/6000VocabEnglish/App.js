@@ -15,13 +15,23 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Exam">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Category" component={CategoryScreen}
+        <Stack.Screen
+          name="Category"
+          component={CategoryScreen}
           options={CategoryScreen.navigationOptions}
         />
-        <Stack.Screen name="Favorite" component={FavoriteScreen} options={FavoriteScreen.navigationOptions}/>
-        <Stack.Screen name="Exam" component={ExamScreen} options={ExamScreen.navigationOptions}/>
+        <Stack.Screen
+          name="Favorite"
+          component={FavoriteScreen}
+          options={FavoriteScreen.navigationOptions}
+        />
+        <Stack.Screen
+          name="Exam"
+          component={ExamScreen}
+          options={ExamScreen.navigationOptions}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
