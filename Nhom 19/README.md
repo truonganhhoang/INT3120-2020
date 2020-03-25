@@ -5,3 +5,5 @@ App của chúng em có tên là "Luyện tập toán tiểu học" trong ứng 
 Giải các bài toán tiểu học bằng cách chọn đáp án hoặc nhập đáp án từ bàn phím
 Có đánh giá từng bài kiểm tra
 Giúp bé luyện tập các bài toán đơn giản
+
+Sử dụng CSDL Firebase
