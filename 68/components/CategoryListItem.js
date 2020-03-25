@@ -8,8 +8,9 @@ import {
 import soccer from '../assets/cup.png';
 
 export default function CategoryListItem (props){
+    const {category} = props;
     return <View style={styles.container}>
-        <Text style={styles.title}>Tiền Trung cấp 1</Text>
+    <Text style={styles.title}>{category.name}</Text>
         {/* <Image source={soccer} style={styles.categoryImage}></Image> */}
     </View>
 }
