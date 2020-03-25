@@ -17,3 +17,11 @@ class HomeSetting extends Component {
 }
 
 export default HomeSetting;
+
+var styles = StyleSheet.create({
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15
+    },
+})
