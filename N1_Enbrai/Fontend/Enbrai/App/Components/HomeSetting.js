@@ -9,7 +9,7 @@ class HomeSetting extends Component {
                 <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
                 <LinearGradient
                     style={styles.linearGradient}
-                    colors={['#0592D2', '#40DA6C']}
+                    colors={['#0592D2', '#39D57F']}
                 />
             </View>
         );
@@ -18,7 +18,7 @@ class HomeSetting extends Component {
 
 export default HomeSetting;
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
         paddingLeft: 15,

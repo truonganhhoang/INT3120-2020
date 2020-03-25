@@ -12,7 +12,7 @@ class Account extends Component {
                 <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
                 <LinearGradient
                     style={styles.linearGradient}
-                    colors={['#0592D2', '#40DA6C']}
+                    colors={['#0592D2', '#39D57F']}
                 />
             </View>
         );
