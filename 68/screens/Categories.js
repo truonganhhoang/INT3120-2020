@@ -6,6 +6,14 @@ import {
 } from 'react-native';
 import CategoryListItem from '../components/CategoryListItem'
 export default class Categories extends React.Component {
+        static navigationOptions = {
+            title: 'Home',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                textAlign: 'center',
+                alignSelf: 'center'
+            }
+          };
   constructor(props){
     super(props);
       this.state = {
@@ -26,7 +34,7 @@ export default class Categories extends React.Component {
             data={categories}
             renderItem = {({item}) => <CategoryListItem category={item}/>}
             keyExtractor= {item => `${item.id}`}
-            contentContainerStyle={{paddingLeft:16, paddingRight: 16}}
+            contentContainerStyle={styles.container}
           />
       </View>
     );
@@ -35,12 +43,8 @@ export default class Categories extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'stretch',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-end',
     paddingLeft: 16,
     paddingRight: 16,
-    marginBottom: 40
-  },
+    paddingTop: 30
+  }
 });
