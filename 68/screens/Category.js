@@ -1,14 +1,13 @@
 import React from 'react';
 import { 
   StyleSheet,
-  Text,
+  FlatList,
   View 
 } from 'react-native';
 export default class Category extends React.Component {
-
   render(){
     return (
-      <View>Category</View>
+     <View>Category</View>
     );
   }
 }
