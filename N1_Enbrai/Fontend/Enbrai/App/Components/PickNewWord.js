@@ -36,7 +36,7 @@ export default class PickNewWord extends Component {
           </View>
           <View style={{ flex: 1 }}>
             <Text textStyle={{ color: '#fff' }}>Đã chọn 6 chủ đề</Text>
-            <Icon name='edit' color='#fff' />
+            {/* <Icon name='edit' color='#fff' /> */}
           </View>
 
         </LinearGradient>
