@@ -10,6 +10,6 @@ export default StyleSheet.create({
     tabs: {
       height: 60,
       flexDirection: 'row',
-      backgroundColor: '#03A9F4',
+      backgroundColor: '#0592D2',
     },
   });
