@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {View} from 'react-native'
+import { View, StyleSheet, StatusBar } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 class HomeSetting extends Component {
     render() {
