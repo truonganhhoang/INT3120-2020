@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "My Mobile",
+    "name": "Blank Template",
     "slug": "my-project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -28,6 +28,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

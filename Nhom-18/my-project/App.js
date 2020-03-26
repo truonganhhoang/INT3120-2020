@@ -1,9 +1,9 @@
 /*This is an Example of Animated Splash Screen*/
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, AppRegistry } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-import Splash from './App/screen/Splash'
-import Home from './App/screen/Home'
+import Splash from './screens/Splash'
+import Index from './screens/Index'
 
 
 export default class App extends Component {
@@ -13,14 +13,13 @@ export default class App extends Component {
     this.state = {startScreen: 'Splash'};
     setTimeout(() => {
       console.log('Loading Splash')
-      this.setState({startScreen: 'Home'})
-    }, 5000)
+      this.setState({startScreen: 'Index'})
+    }, 3000)
   }
 
   render() {
-      
       const { startScreen } = this.state
-      let mainScreen = startScreen === 'Splash' ? <Splash/> : <Home/>
+      let mainScreen = startScreen === 'Splash' ? <Splash/> : <Index/>
       return mainScreen    
   }
 }
