@@ -8,14 +8,12 @@
  * @format
  */
 
-import React, { Component } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
-
-import { StartScreen } from './src/android/components/Screen/Start'; 
+import * as React from 'react';
+import { MyApp } from './src/android/navigation'; 
 
 const App = () => {
   return (
-    <StartScreen />
+    <MyApp />
   );
 };
 

@@ -19,9 +19,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const CardExtend = (props: { nameCard: any; }) => {
+const CardExtend = (props: { nameCard?: any; navigation?: any; }) => {
   const { nameCard }  = props; 
+  const { navigation } = props; 
+
   const onPress = () => {
+    navigation.navigate('WordGroupScreen'); 
     console.log('OKOKOKOK'); 
   }
   return (
