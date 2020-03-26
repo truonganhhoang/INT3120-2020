@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
 import { View, Text, StyleSheet, StatusBar, Image, FlatList, Alert, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+
 import { TouchableOpacity } from 'react-native';
-
-
-
-
 
 class List extends Component{
   render() {
@@ -28,12 +25,12 @@ export default class Home extends Component  {
   
     this.state = {
       GridListItems: [
-        { key: "THI SÁT HẠNH" },
-        { key: "HỌC LÝ THUYẾT" },
-        { key: "BIỂN BÁO ĐƯỜNG BỘ" },
-        { key: "MẸO THI KẾT QUẢ CAO" },
-        { key: "TRA CỨU LUẬT (NĐ 100/2019/" },
-        { key: "CÁC CÂU HAY SAI" },
+        {icon:"", key: "THI SÁT HẠNH" },
+        {icon:"", key: "HỌC LÝ THUYẾT" },
+        {icon:"", key: "BIỂN BÁO ĐƯỜNG BỘ" },
+        {icon:"", key: "MẸO THI KẾT QUẢ CAO" },
+        {icon:"", key: "TRA CỨU LUẬT (NĐ 100/2019/" },
+        {icon:"", key: "CÁC CÂU HAY SAI" },
       ]
     };
   }
@@ -50,13 +47,13 @@ export default class Home extends Component  {
                   translucent = {false}
                />
                <View style={styles.Header}>
-                 <Icon name='ios-menu' size={40} color='white'/>
+                 <Icon name='ios-menu' size={40} color='white' onPress={() => this.props.navigation.openDrawer()} />
                  <Text style={styles.textHeader}>Ôn thi giấy phép lái xe</Text>
-                 <Icon name='ios-finger-print' size={40} color='white'/>
+                 {/* <Icon name='ios-finger-print' size={40} color='white'/>  Test icon*/} 
                </View>
 
                <View style={{backgroundColor:'#31edd1', flex:3.5}}>
-                 <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('D:/Github/INT3120-2020/Nhom-18/my-project/App/img/img1.jpg')}/>
+                 <Image source={require('../image/img1.jpg')} style={{width:'100%', height: '100%', resizeMode:'cover'}}/>
                </View>
 
                <View style={styles.list}>
@@ -64,13 +61,14 @@ export default class Home extends Component  {
                     data={ this.state.GridListItems }
                     renderItem={ ({item}) =>
                       <View style={styles.GridViewContainer}>
+                        <Image />
                         <Text style={styles.GridViewTextLayout} onPress={this.GetGridViewItem.bind(this, item.key)} > {item.key} </Text>
                       </View> }
                     numColumns={3}
                 />
               </View>
               <View style={{flex:3}}>
-                <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('D:/Github/INT3120-2020/Nhom-18/my-project/App/img/img2.jpg')}/>
+                <Image style={{width:'100%', height: '100%', resizeMode:'cover'}} source={require('../image/img2.jpg')}/>
                 <TouchableOpacity style={styles.addButton}>
                   <Text style={styles.iconButton}>+</Text>
                 </TouchableOpacity>
@@ -90,11 +88,10 @@ export default class Home extends Component  {
      flexDirection: 'row',
      height: '10%',
      alignItems: 'center',
-     justifyContent:'space-between',
      paddingHorizontal: 15,
    },
    textHeader:{
-     left:-20,
+     left:20,
      fontSize: 22,
      color: 'white',
    },
