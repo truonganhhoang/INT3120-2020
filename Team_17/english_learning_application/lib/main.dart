@@ -1,8 +1,8 @@
+import 'package:englishlearningapplication/CauPage/views/CauPageView.dart';
+import 'package:englishlearningapplication/TuDienPage/views/TuDienPageView.dart';
+import 'package:englishlearningapplication/TuPage/views/TuPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'CauPage.dart';
-import 'TuPage.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,105 +16,92 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  List<Widget> listHomeState = [CauPage(), TuPage()];
+  List<Widget> listTabs = [CauPageView(), TuPageView()];
+  List<String> listTitleTab = [
+    CauPageView().title,
+    TuPageView().title,
+  ];
   final controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Container(
-          padding: EdgeInsets.only(top: 0.0),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlatButton(
-                    child: Text("Câu", style: TextStyle(fontSize: 20.0),),
-                    onPressed: (){
-                      setState(() {
-                        controller.animateToPage(0, duration: Duration(milliseconds: 500), curve: Curves.ease);
-                      });
-                    },
+    return DefaultTabController(
+      length: listTabs.length,
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            title: TabBar(
+              indicatorColor: Colors.lightGreen,
+              isScrollable: false,
+              tabs: [
+                for (final tab in listTitleTab)
+                  Tab(
+                    child: Text(tab),
                   ),
-                  FlatButton(
-                    child: Text("Từ", style: TextStyle(fontSize: 20.0),),
-                    onPressed: (){
-                      setState(() {
-                        controller.animateToPage(1, duration: Duration(milliseconds: 500), curve: Curves.ease);
-                      });
-                    },
-                  )
-                ],
-              ),
-              Center(
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: 2,
-                  effect: SlideEffect(
-                    spacing: 0.0,
-                    dotWidth: 90.0,
-                    dotHeight: 2.0,
-                    dotColor: Colors.green,
-                    activeDotColor: Colors.white,
-                  ),),
-              )
+              ],
+            ),
+          ),
+          drawer: Drawer(
+            child: ListView(
+              children: <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(color: Colors.green),
+                  child: ListTile(
+                    title: Text("Tutorial English App"),
+                    subtitle: Text("Contaxt: Team 17, K61N-UET-VNU"),
+                  ),
+                ),
+                ListTile(
+                  title: Text("Ngữ pháp"),
+                  onTap: () => Navigator.pop(context),
+                ),
+                ListTile(
+                  title: Text("Tra từ"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) {
+                          return TuDienPageView();
+                        }));
+                  },
+                ),
+                ListTile(
+                  title: Text("More App"),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ),
+          ),
+          backgroundColor: Colors.grey,
+          body: TabBarView(
+            children: [
+              for (final tab in listTabs)
+                Center(
+                  child: tab,
+                ),
             ],
-          )
-        )
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
-              child: ListTile(
-                title: Text("Tutorial English App"),
-                subtitle: Text("Contaxt: Team 17, K61N-UET-VNU"),
-              ),
-            ),
-            ListTile(
-              title: Text("Ngữ pháp"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("Tra từ"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("More App"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        ),
-      ),
-      backgroundColor: Colors.grey,
-      body: PageView.builder(
-        controller: controller,
-        itemBuilder: (context, position) {
-          return listHomeState[position];
-        },
-        itemCount: listHomeState.length,
-      ),
+          )),
+//      body: PageView.builder(
+//        controller: controller,
+//        itemBuilder: (context, position) {
+//          return listTabs[position];
+//        },
+//        itemCount: listTabs.length,
+//      ),
     );
   }
 
-  void goToMenuScreen() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Menu"),
-        ),
-      );
-    }));
-  }
+//  void goToMenuScreen() {
+//    Navigator.of(context)
+//        .push(MaterialPageRoute(builder: (BuildContext context) {
+//      return Scaffold(
+//        appBar: AppBar(
+//          title: Text("Menu"),
+//        ),
+//      );
+//    }));
+//  }
 }
