@@ -3,9 +3,6 @@ import {View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import {withNavigation} from 'react-navigation'
 class Account extends Component {
-    constructor(props){
-        super(props);
-    }
     render() {
         return (
             <View style ={{flex: 1}}>
@@ -18,9 +15,12 @@ class Account extends Component {
                     onPress = {()=>{this.props.navigation.navigate('SignInScreen')}}
                 >                      
                 </Button>
+                </View>
             </View>
-            </View>
+
         );
     }
 }
-export default withNavigation(Account);
+
+export default  withNavigation( Account);
+

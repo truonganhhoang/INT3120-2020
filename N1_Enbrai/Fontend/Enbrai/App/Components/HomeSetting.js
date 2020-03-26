@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-import {View} from 'react-native'
+import { View, StyleSheet, StatusBar } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 class HomeSetting extends Component {
     render() {
         return (
             <View style ={{flex: 1}}>
-                
+                <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+                <LinearGradient
+                    style={styles.linearGradient}
+                    colors={['#0592D2', '#40DA6C']}
+                />
             </View>
         );
     }
 }
 
 export default HomeSetting;
+
+var styles = StyleSheet.create({
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15
+    },
+})
