@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "coursera-vnu-int3120": {
+      "hosting": {
+        "app": [
+          "coursera-vnu-int3120"
+        ]
+      }
+    }
+  }
+}

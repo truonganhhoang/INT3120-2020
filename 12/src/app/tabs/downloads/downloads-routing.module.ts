@@ -7,6 +7,18 @@ const routes: Routes = [
   {
     path: '',
     component: DownloadsPage
+  },
+  {
+    path: 'downloaded-courses-list',
+    loadChildren: () =>
+      import('./downloaded-courses-list/downloaded-courses-list.module').then((m) => m.DownloadedCoursesListPageModule)
+  },
+  {
+    path: 'downloaded-course-details',
+    loadChildren: () =>
+      import('./downloaded-course-details/downloaded-course-details.module').then(
+        (m) => m.DownloadedCourseDetailsPageModule
+      )
   }
 ];
 

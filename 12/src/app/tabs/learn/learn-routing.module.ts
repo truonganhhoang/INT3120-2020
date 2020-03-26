@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: LearnPage
+  },
+  {
+    path: 'my-courses',
+    loadChildren: () => import('./my-courses/my-courses.module').then((m) => m.MyCoursesPageModule)
+  },
+  {
+    path: 'my-course-details',
+    loadChildren: () => import('./my-course-details/my-course-details.module').then((m) => m.MyCourseDetailsPageModule)
   }
 ];
 
