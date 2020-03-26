@@ -17,10 +17,8 @@ class Account extends Component {
                 </Button>
                 </View>
             </View>
-
         );
     }
 }
-
 export default  withNavigation( Account);
 
