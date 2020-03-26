@@ -1,8 +1,8 @@
+import 'package:englishlearningapplication/CauPage/views/CauPageView.dart';
+import 'package:englishlearningapplication/TuDienPage/views/TuDienPageView.dart';
+import 'package:englishlearningapplication/TuPage/views/TuPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_indicator/page_indicator.dart';
-import 'CauPage.dart';
-import 'TuPage.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,92 +16,92 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  List<Widget> listHomeState = [CauPage(), TuPage()];
+  List<Widget> listTabs = [CauPageView(), TuPageView()];
+  List<String> listTitleTab = [
+    CauPageView().title,
+    TuPageView().title,
+  ];
+  final controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-//        title: Row(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          children: <Widget>[
-//            ButtonTheme(
-//              minWidth: 30,
-//              child: RaisedButton(
-//                  onPressed: () {},
-//                  color: Colors.green,
-//                  textColor: Colors.white,
-//                  child: Text("Câu")),
-//            ),
-//            ButtonTheme(
-//              minWidth: 30,
-//              child: RaisedButton(
-//                  onPressed: () {},
-//                  color: Colors.green,
-//                  textColor: Colors.white,
-//                  child: Text("Từ")),
-//            ),
-//          ],
-//        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
-              child: ListTile(
-                title: Text("Tutorial English App"),
-                subtitle: Text("Contaxt: Team 17, K61N-UET-VNU"),
-              ),
+    return DefaultTabController(
+      length: listTabs.length,
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            title: TabBar(
+              indicatorColor: Colors.lightGreen,
+              isScrollable: false,
+              tabs: [
+                for (final tab in listTitleTab)
+                  Tab(
+                    child: Text(tab),
+                  ),
+              ],
             ),
-            ListTile(
-              title: Text("Ngữ pháp"),
-              onTap: () {
-                Navigator.pop(context);
-              },
+          ),
+          drawer: Drawer(
+            child: ListView(
+              children: <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(color: Colors.green),
+                  child: ListTile(
+                    title: Text("Tutorial English App"),
+                    subtitle: Text("Contaxt: Team 17, K61N-UET-VNU"),
+                  ),
+                ),
+                ListTile(
+                  title: Text("Ngữ pháp"),
+                  onTap: () => Navigator.pop(context),
+                ),
+                ListTile(
+                  title: Text("Tra từ"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) {
+                          return TuDienPageView();
+                        }));
+                  },
+                ),
+                ListTile(
+                  title: Text("More App"),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
             ),
-            ListTile(
-              title: Text("Tra từ"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("More App"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        ),
-      ),
-      backgroundColor: Colors.grey,
-      body: PageIndicatorContainer(
-        key: GlobalKey(),
-        child: PageView.builder(
-          itemBuilder: (context, position) {
-            return listHomeState[position];
-          },
-          itemCount: listHomeState.length,
-        ),
-        align: IndicatorAlign.top,
-        length: 2,
-        indicatorColor: Colors.grey,
-        indicatorSelectorColor: Colors.red,
-        indicatorSpace: 10.0,
-      ),
+          ),
+          backgroundColor: Colors.grey,
+          body: TabBarView(
+            children: [
+              for (final tab in listTabs)
+                Center(
+                  child: tab,
+                ),
+            ],
+          )),
+//      body: PageView.builder(
+//        controller: controller,
+//        itemBuilder: (context, position) {
+//          return listTabs[position];
+//        },
+//        itemCount: listTabs.length,
+//      ),
     );
   }
 
-  void goToMenuScreen() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Menu"),
-        ),
-      );
-    }));
-  }
+//  void goToMenuScreen() {
+//    Navigator.of(context)
+//        .push(MaterialPageRoute(builder: (BuildContext context) {
+//      return Scaffold(
+//        appBar: AppBar(
+//          title: Text("Menu"),
+//        ),
+//      );
+//    }));
+//  }
 }

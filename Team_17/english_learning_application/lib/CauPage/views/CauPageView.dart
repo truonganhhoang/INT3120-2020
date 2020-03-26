@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TuPage extends StatelessWidget {
+class CauPageView extends StatelessWidget {
+  final title = "Câu";
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -10,7 +11,7 @@ class TuPage extends StatelessWidget {
           return Card(
               child: ListTile(
                   title: Text(index.toString()),
-                  trailing: Icon(Icons.favorite_border, color: Colors.green),
+                  trailing: Icon(Icons.favorite, color: Colors.red),
                   subtitle: Text("Đây là subtitle của " + index.toString()),
                   onTap: () {}));
         },
@@ -18,3 +19,10 @@ class TuPage extends StatelessWidget {
     );
   }
 }
+
+//              setState(() {
+//                if (isTym) {
+//                  setTym.remove(index);
+//                } else {
+//                  setTym.add(index);
+//                }
