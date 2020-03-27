@@ -6,15 +6,17 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-// import soccer from '../assets/cup.png';
+import rightArrow from '../assets/right-arrow.png'
 
 export default function WordListItem (props){
     const {words} = props;
     return (
         <TouchableOpacity activeOpacity={0.5}>
             <View style={styles.container}>
-                <Text style={styles.title}>{words.name}</Text>
-                
+                <View style={styles.header}>
+                    <Text style={styles.title}>{words.name}</Text>
+                    <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
+                </View>
             </View>
         </TouchableOpacity>
     )
@@ -32,9 +34,19 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         marginBottom: 30
     },
+    header: {
+        flex: 1, 
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
     title: {
         fontSize: 17,
         marginBottom: 8,
         color: '#006265'
+    },
+    rightArrowImage: {
+        width: 13,
+        height: 13,
+        marginTop: 3,
     }
 });
