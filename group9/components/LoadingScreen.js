@@ -25,7 +25,7 @@ class LoadingScreen extends Component {
     )
   }
 }
-export default LoadingScreen
+export default LoadingScreen;
 
 const styles = StyleSheet.create({
   container: {

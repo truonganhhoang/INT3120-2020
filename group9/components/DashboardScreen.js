@@ -11,7 +11,7 @@ import { ViewExam } from './exams'
 
 const Tab = createBottomTabNavigator()
 
-export default class DashboardScreen extends Component {
+class DashboardScreen extends Component {
   render() {
     return (
       <NavigationContainer>
@@ -49,3 +49,5 @@ export default class DashboardScreen extends Component {
     )
   }
 }
+
+export default DashboardScreen;
