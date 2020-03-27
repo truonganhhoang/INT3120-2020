@@ -3,16 +3,22 @@ import {
     Image,
     Text,
     View,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native'
 // import soccer from '../assets/cup.png';
 
 export default function CategoryListItem (props){
-    const {category} = props;
-    return <View style={styles.container}>
-    <Text style={styles.title}>{category.name}</Text>
-        {/* <Image source={soccer} style={styles.categoryImage}></Image> */}
-    </View>
+    const {category, onPress} = props;
+    return (
+        <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
+            <View style={styles.container}>
+                <Text style={styles.title}>{category.name}</Text>
+                {/* <Image source={soccer} style={styles.categoryImage}></Image> */}
+            </View>
+        </TouchableOpacity>
+    )
+    
 }
 const styles = StyleSheet.create({
     container: {
