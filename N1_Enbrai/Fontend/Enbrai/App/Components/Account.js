@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
-import {withNavigation} from 'react-navigation'
+import {withNavigation} from 'react-navigation';
+
 class Account extends Component {
     render() {
         return (
