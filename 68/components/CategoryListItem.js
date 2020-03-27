@@ -25,12 +25,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 16,
         borderRadius: 40,
+        elevation: 3,
         backgroundColor:'#006265',
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
+        shadowColor: 'black',
+        shadowOpacity: 1,
+        shadowOffset: {width: 10, height: 10},
         shadowRadius: 10,
-        shadowOffset: {width: 0, height: 0},
-        marginBottom: 30
+        marginBottom: 30,
     },
     // categoryImage: {
     //     width: 64,
