@@ -50,4 +50,4 @@ class DashboardScreen extends Component {
   }
 }
 
-export default DashboardScreen;
+export default DashboardScreen

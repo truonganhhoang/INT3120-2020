@@ -1,21 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from react-native
-import { createSwitchNavigator } from 'react-navigation'
+import { StyleSheet, Text, View } from 'react-native'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import LoginScreen from './components/LoginScreen'
+import LoadingScreen from './components/LoadingScreen'
+import DashboardScreen from './components/DashboardScreen'
+
+import * as firebase from 'firebase';
+import { firebaseConfig } from './config';
+firebase.initializeApp(firebaseConfig);
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>
-
-        </Text>
-      </View>
-    )
+    return <AppNavigator />;
   }
 }
 
-const AppSwitchNavigator = createSwitchNavigator ({
+const AppSwitchNavigator = createSwitchNavigator({
   LoadingScreen: LoadingScreen,
   LoginScreen: LoginScreen,
   DashboardScreen: DashboardScreen
-})
+});
+
+const AppNavigator = createAppContainer(AppSwitchNavigator);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
