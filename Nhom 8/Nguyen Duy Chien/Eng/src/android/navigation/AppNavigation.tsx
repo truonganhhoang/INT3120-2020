@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { createStackNavigator } from '@react-navigation/stack'; 
+import { createDrawerNavigator } from '@react-navigation/drawer'; 
 import { NavigationContainer } from '@react-navigation/native';
 
 import { FavoriteScreen } from '../screens/FavoriteScreen';
@@ -7,17 +7,22 @@ import { SettingScreen } from '../screens/SettingScreen';
 import { StartScreen } from '../screens/StartScreen'; 
 import { WordGroupScreen } from '../screens/WordGroupScreen'; 
 
-const Stack = createStackNavigator(); 
+const Drawer = createDrawerNavigator(); 
 
 function MyApp() {
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="StartScreen">
-        <Stack.Screen name="StartScreen" component={StartScreen}/>
-        <Stack.Screen name="SettingScreen" component={SettingScreen} />
-        <Stack.Screen name="FavoriteScreen" component={FavoriteScreen} />
-        <Stack.Screen name="WordGroupScreen" component={WordGroupScreen} />
-      </Stack.Navigator>
+      <Drawer.Navigator
+        drawerStyle={{
+          backgroundColor: '#c6cbef',
+          width: 0,
+        }}
+      >
+        <Drawer.Screen name="StartScreen" component={StartScreen}/>
+        <Drawer.Screen name="SettingScreen" component={SettingScreen} />
+        <Drawer.Screen name="FavoriteScreen" component={FavoriteScreen} />
+        <Drawer.Screen name="WordGroupScreen" component={WordGroupScreen} />
+      </Drawer.Navigator>  
     </NavigationContainer>
   )
 }

@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
+
 import { CardExtend } from '../../components/Card';
+import { SettingButton } from '../../components/SettingButton'; 
+import { StarButton } from '../../components/StarButton'; 
 
 const styles = StyleSheet.create({
   stretch: {
@@ -49,6 +52,8 @@ const StartScreen = (props: { navigation: any }) => {
   const { navigation } = props; 
   return (
     <ScrollView>
+      <SettingButton navigation={navigation}/>
+      <StarButton navigation={navigation} /> 
       {cardProps.map(e =>
         <CardExtend nameCard={e.name} navigation={navigation}/>
       )}
