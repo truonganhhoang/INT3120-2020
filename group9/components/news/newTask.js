@@ -12,7 +12,8 @@ class NewTask extends React.Component {
     selectedType: '',
     isDateTimePickerVisible: false,
     datePicked: 'Pick a Date',
-    name: handleDatePicked(Date.now()),
+    date: Date.now(),
+    name: '',
   }
 
   showDateTimePicker = () => {
@@ -25,8 +26,20 @@ class NewTask extends React.Component {
 
   handleDatePicked = (date) => {
     const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear()
+    this.setState({date: date});
     this.setState({ datePicked: day })
     this.hideDateTimePicker()
+  }
+
+  createTask = () => {
+    let task = {
+      name: this.state.name,
+      lesson: this.state.selectedLesson,
+      type: this.state.selectedType,
+      date: this.state.date,
+      description: "",
+    } 
+    addTask(task);
   }
 
   render() {
@@ -43,9 +56,7 @@ class NewTask extends React.Component {
               name="ios-create"
               size={30}
               style={{ top: -15, paddingRight: '18%' }}
-              onPress={() => {
-                name: this.state.name
-              }}
+              onPress={this.createTask}
             />
           }
           centerComponent={{

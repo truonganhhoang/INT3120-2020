@@ -11,6 +11,12 @@ import { firebaseConfig } from './config';
 firebase.initializeApp(firebaseConfig);
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    //if(!this.firebase)  this.firebase.initializeApp(firebaseConfig);
+  }
+  
   render() {
     return <AppNavigator />;
   }
