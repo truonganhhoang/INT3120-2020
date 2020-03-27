@@ -13,6 +13,7 @@ const Tab = createBottomTabNavigator()
 
 class DashboardScreen extends Component {
   render() {
+    console.log(this.props.navigation.getParam('curUser'));
     return (
       <NavigationContainer>
         <Tab.Navigator

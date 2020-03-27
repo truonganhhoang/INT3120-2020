@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import firebase from 'firebase'
+import * as Facebook from 'expo-facebook'
 
 class LoginScreen extends Component {
   signInWithFacebook = async () => {
