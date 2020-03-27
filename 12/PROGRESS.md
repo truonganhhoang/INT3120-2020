@@ -105,3 +105,33 @@ ionic g page profile -f
 
 - Update prettier, thêm rules trailingComma
 - Update angular từ 9.0.6 lên 9.0.7
+
+# 2020-03-26
+
+- Update angular từ 9.0.7 lên 9.1.0
+- Tích hợp với firebase, cài đặt `@angular/fire`
+- Thêm các màn hình cho 5 tabs:
+  - explore:
+    - overview
+    - trending courses
+    - popular courses
+    - top rated courses
+    - search
+    - course details
+  - recommended:
+    - courses
+    - course details
+  - learn
+    - courses
+    - course details
+  - downloads
+    - courses
+    - course details
+  - profile
+    - my profile
+    - settings
+
+# 2020-03-27
+
+- Cài đặt `tslint-plugin-prettier`, tự động format khi sử dụng linter.
+- Nested routes trong tab
