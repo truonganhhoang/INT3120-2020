@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, FlatList, Text, Image, Alert } from "react-native";
+import Spinner from "react-native-loading-spinner-overlay";
 
 //Import Components
 import CategoryItem from "../components/CategogyItem";
@@ -28,6 +29,7 @@ export default class CategoriesScreen extends React.Component {
     super(props);
 
     this.state = {
+      isLoading: true,
       categoryList: []
     };
   }
@@ -56,7 +58,7 @@ export default class CategoriesScreen extends React.Component {
           data.push(doc.data());
         });
 
-        this.setState({ categoryList: data });
+        this.setState({ categoryList: data, isLoading: !this.state.isLoading });
       })
       .catch(err => {
         console.log("Error getting documents", err);
@@ -109,6 +111,11 @@ export default class CategoriesScreen extends React.Component {
 
     return (
       <View style={StyleHomeScreen.StyleMain.container}>
+        <Spinner
+          visible={this.state.isLoading}
+          textContent={"Loading..."}
+          textStyle={{ color: "#fff" }}
+        />
         <FlatList
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={this.renderSeparator}
