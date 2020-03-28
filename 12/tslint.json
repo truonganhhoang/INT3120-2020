@@ -78,6 +78,14 @@
       "app",
       "page",
       "kebab-case"
-    ]
+    ],
+    "variable-name": {
+      "options": [
+        "check-format",
+        "allow-pascal-case",
+        "allow-leading-underscore",
+        "ban-keywords"
+      ]
+    }
   }
 }

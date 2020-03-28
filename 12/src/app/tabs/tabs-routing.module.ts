@@ -154,7 +154,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/learn',
+    redirectTo: '/tabs/learn/courses',
     pathMatch: 'full'
   }
 ];
