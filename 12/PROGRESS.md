@@ -135,3 +135,8 @@ ionic g page profile -f
 
 - Cài đặt `tslint-plugin-prettier`, tự động format khi sử dụng linter.
 - Nested routes trong tab
+
+# 2020-03-28
+
+- Thêm html cho trang intro.
+- Gắn link đến trang đăng ký và đăng nhập.

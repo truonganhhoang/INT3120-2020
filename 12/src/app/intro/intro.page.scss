@@ -1,0 +1,24 @@
+ion-header,
+ion-content,
+ion-footer {
+  padding: 30px 40px;
+}
+
+ion-header {
+  &::after {
+    background-image: none;
+  }
+}
+
+ion-content ion-slide {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ion-footer {
+  &::before {
+    background-image: none;
+  }
+}
