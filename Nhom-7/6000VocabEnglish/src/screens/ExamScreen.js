@@ -20,20 +20,59 @@ const widthScreen = Dimensions.get("screen").width;
 const statusBarHeight = 16;
 
 class ImageHeart extends Component {
-  //   iconHeart = this.state.turn
-  //     ? require("../assets/icon/heart-active.png")
-  //     : require("../assets/icon/heart-inactive.png");
-  //   heart = (<Image source={require("../assets/icon/heart-active.png")} />);
+  constructor(props) {
+    super(props);
+    this.status = this.props.status;
+  }
 
   render() {
+    let iconHeart =
+      this.status === "active"
+        ? require("../assets/icon/heart-active.png")
+        : require("../assets/icon/heart-inactive.png");
+    // heart = <Image source={require("../assets/icon/heart-active.png")} />;
     return (
       <View style={{ margin: 2 }}>
-        <Image
-          style={{ width: 16, height: 16 }}
-          source={require("../assets/icon/heart-active.png")}
-        />
+        <Image style={{ width: 16, height: 16 }} source={iconHeart} />
       </View>
     );
+  }
+}
+
+class TurnCounter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      turn: 3
+    };
+  }
+
+  decreaseTurn = () => {
+    this.setState(prevState => {
+      return { turn: prevState.turn - 1 };
+    });
+  };
+
+  render() {
+    let turns = [];
+    // console.log(`${turns}`)
+    for (let i = 1; i <= 3; i++) {
+      if (i <= this.state.turn) {
+        turns.push(
+          <View key={i}>
+            <ImageHeart status="active" />
+          </View>
+        );
+      } else {
+        turns.push(
+          <View key={i}>
+            <ImageHeart status="inactive" />
+          </View>
+        );
+      }
+    }
+
+    return <View style={styles.heartsContainer}>{turns}</View>;
   }
 }
 
@@ -137,24 +176,69 @@ class ImageWord extends Component {
 class Question extends Component {
   constructor(props) {
     super(props);
+    //ref
+    this.imgWordRefs = {};
+    this.questionData = this.props.data;
   }
 
   render() {
-    return <View></View>;
+    return (
+      <View>
+        <View style={styles.word}>
+          <Text style={styles.wordText}>{this.questionData.word}</Text>
+        </View>
+        <View>
+          <FlatList
+            data={this.questionData.options}
+            renderItem={({ item, index }) => (
+              <TouchableHighlight
+                underlayColor="transparent"
+                onPress={() => {
+                  this.imgWordRefs[index].updateState(item.correct);
+                  item.correct
+                    ? this.props.markAsCorrect()
+                    : this.props.answerIncorrect();
+                }}
+              >
+                <ImageWord
+                  ref={ImageWord => {
+                    this.imgWordRefs[index] = ImageWord;
+                  }}
+                  imageSource={item.image}
+                />
+              </TouchableHighlight>
+            )}
+            //Setting the number of column
+            numColumns={Math.floor(Math.sqrt(this.questionData.options.length))}
+            keyExtractor={(item, index) => index.toString()}
+            contentContainerStyle={
+              this.questionData.options.length < 4
+                ? { width: "60%", alignSelf: "center" }
+                : null
+            }
+          />
+        </View>
+      </View>
+    );
   }
 }
 
 export default class ExamScreen extends Component {
   constructor(props) {
     super(props);
-    //ref
-    this.imgWordRefs = {};
+    this.turnsRef = React.createRef();
     this.state = {
-      seconds: 100,
-      progress: 0,
-      turn: 3,
-      dataSource: [
-        [
+      seconds: 100, //time
+      progress: 0, //progress
+      turn: 3, //number of turns
+      current: 0, //current question
+      correct: false
+    };
+    this.dataSource = [
+      {
+        id: 1,
+        word: "dog",
+        options: [
           {
             word: "dog",
             image:
@@ -166,8 +250,12 @@ export default class ExamScreen extends Component {
             image:
               "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg"
           }
-        ],
-        [
+        ]
+      },
+      {
+        id: 2,
+        word: "cat",
+        options: [
           {
             word: "cat",
             image:
@@ -180,10 +268,26 @@ export default class ExamScreen extends Component {
               "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg"
           }
         ]
-      ]
-      // dataSource: [{}, {}, {}, {}]
-      // dataSource: [{}, {},{}, {},{}, {},{}, {},{}]
-    };
+      }
+    ];
+    // dataSource: [{}, {}, {}, {}]
+    // dataSource: [{}, {},{}, {},{}, {},{}, {},{}]
+
+    this.markAsCorrect = this.markAsCorrect.bind(this);
+    this.answerIncorrect = this.answerIncorrect.bind(this);
+  }
+
+  answerIncorrect() {
+    // this.setState(prevState => {
+    //   return { turn: prevState.turn - 1 };
+    // });
+    this.turnsRef.current.decreaseTurn();
+  }
+
+  markAsCorrect() {
+    this.setState({
+      correct: true
+    });
   }
 
   reset() {
@@ -196,7 +300,6 @@ export default class ExamScreen extends Component {
 
   componentDidMount() {
     //load questions data from api here
-    //load questions[0]
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -217,9 +320,27 @@ export default class ExamScreen extends Component {
     };
   };
 
+  handleWhenPressCorrectAnswer = () => {
+    this.increase("progress", Math.ceil(100 / this.dataSource.length));
+    this.state.current + 1 === this.dataSource.length
+      ? this.showModal("PASS")
+      : this.setState(prevState => {
+          return { current: prevState.current + 1 };
+        });
+
+    this.setState(prevState => {
+      return { correct: !prevState.correct };
+    });
+  };
+
+  showModal = status => {
+    if (status === "PASS") {
+      Alert.alert("Hoan thanh", "Xin chuc mung");
+    }
+  };
+
   render() {
     const barWidth = widthScreen * 0.6;
-
     return (
       <View style={styles.container}>
         <View style={styles.statusBar}>
@@ -239,48 +360,25 @@ export default class ExamScreen extends Component {
               }}
             />
           </View>
-          <View style={styles.heartsContainer}>
-            <ImageHeart />
-            <ImageHeart />
-            <ImageHeart />
+          <View>
+            <TurnCounter ref={this.turnsRef} />
           </View>
         </View>
 
         <View style={styles.question}>
           <Text style={styles.questionText}>Chọn hình ảnh đúng</Text>
         </View>
-        <View style={styles.word}>
-          <Text style={styles.wordText}>{this.state.dataSource[0].word}</Text>
-        </View>
 
-        <View style={styles.imagesContainer}>
-          <FlatList
-            data={this.state.dataSource}
-            renderItem={({ item, index }) => (
-              <TouchableHighlight
-                underlayColor="transparent"
-                onPress={() => {
-                  this.imgWordRefs[index].updateState(item.correct);
-                }}
-              >
-                <ImageWord
-                  ref={ImageWord => {
-                    this.imgWordRefs[index] = ImageWord;
-                  }}
-                  imageSource={item.image}
-                />
-              </TouchableHighlight>
-            )}
-            //Setting the number of column
-            numColumns={Math.floor(Math.sqrt(this.state.dataSource.length))}
-            keyExtractor={(item, index) => index.toString()}
-            contentContainerStyle={
-              this.state.dataSource.length < 4
-                ? { width: "60%", alignSelf: "center" }
-                : {}
-            }
+        {this.state.correct ? (
+          this.handleWhenPressCorrectAnswer()
+        ) : (
+          <Question
+            data={this.dataSource[this.state.current]}
+            markAsCorrect={this.markAsCorrect}
+            answerIncorrect={this.answerIncorrect}
           />
-        </View>
+        )}
+
         {/* <View style={styles.buttonContainer}>
           <View style={styles.buttonInner}>
             <Button
@@ -336,11 +434,11 @@ const styles = StyleSheet.create({
   wordText: {
     fontSize: 30
   },
-  imagesContainer: {
-    flex: 1,
-    margin: 30
-    // backgroundColor: "lightblue"
-  },
+  // imagesContainer: {
+  //   flex: 1,
+  //   margin: 30,
+  //   backgroundColor: "lightblue"
+  // },
   buttonContainer: {
     marginTop: 15
   }
