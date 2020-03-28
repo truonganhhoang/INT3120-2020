@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
+import { View, Text, StyleSheet, ActivityIndicator,Image } from 'react-native'
 import firebase from 'firebase'
 
 class LoadingScreen extends Component {
@@ -27,7 +27,11 @@ class LoadingScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>LoadingScreen</Text>
+        <Image 
+          source={require('../image/icon.png')}  
+          style={{width: 100, height: 100}} 
+        />  
+        <Text style={styles.text}> Time Table </Text> 
       </View>
     )
   }
@@ -40,4 +44,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    fontSize: 25,
+    margin: 10,
+  }
 })

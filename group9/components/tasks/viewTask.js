@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+import {View, Text, TouchableHighlight, StyleSheet, TouchableOpacity } from 'react-native'
 import Swipeout from 'react-native-swipeout'
 import {Header, CheckBox} from 'react-native-elements' 
 
@@ -37,14 +37,19 @@ export default class ViewTask extends React.Component {
     ]}
 
     deleteItem = (id) => {
+      console.log(id);
       this.state.data.splice(id,1);
       this.setState({data: this.state.data.filter(i => i!== id)});
     } 
     
     handleChange = (id) => {
       let newState = Object.assign({}, this.state);
-      newState.data[id].done = true;
+      newState.data[id].done = !newState.data[id].done;
       this.setState(newState); 
+    };
+
+    showContent = (item) => {
+      console.log(item);
     };
 
     renderRow = (item,id) => {
@@ -62,13 +67,17 @@ export default class ViewTask extends React.Component {
         style={styles.block}
         backgroundColor= 'transparent'>
           <View>
+            <TouchableOpacity
+              onPress={() => this.showContent(item) }
+            >
             <View style={styles.rowContainer}>
               <CheckBox 
                 checked={this.state.data[id].done}
-                onPress={(id) => this.handleChange(id).bind(this)}
+                onPress={() => this.handleChange(id)}
               />
               <Text style={styles.note}>{id+1}. {item.name}</Text>
             </View>
+            </TouchableOpacity>
         </View>
       </Swipeout>
     )
