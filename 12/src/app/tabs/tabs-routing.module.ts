@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'learn',
+        loadChildren: () => import('./learn/my-courses/my-courses.module').then((m) => m.MyCoursesPageModule),
         children: [
           {
             path: 'courses',
@@ -29,6 +30,10 @@ const routes: Routes = [
       },
       {
         path: 'recommended',
+        loadChildren: () =>
+          import('./recommended/my-recommended-list/my-recommended-list.module').then(
+            (m) => m.MyRecommendedListPageModule
+          ),
         children: [
           {
             path: 'courses',
@@ -53,6 +58,10 @@ const routes: Routes = [
       },
       {
         path: 'downloads',
+        loadChildren: () =>
+          import('./downloads/downloaded-courses-list/downloaded-courses-list.module').then(
+            (m) => m.DownloadedCoursesListPageModule
+          ),
         children: [
           {
             path: 'courses',
@@ -77,6 +86,7 @@ const routes: Routes = [
       },
       {
         path: 'explore',
+        loadChildren: () => import('./explore/overview/overview.module').then((m) => m.OverviewPageModule),
         children: [
           {
             path: 'overview',
@@ -123,6 +133,7 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        loadChildren: () => import('./profile/my-profile/my-profile.module').then((m) => m.MyProfilePageModule),
         children: [
           {
             path: 'settings',
@@ -137,7 +148,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/learn'
+        redirectTo: '/tabs/learn/courses'
       }
     ]
   },
