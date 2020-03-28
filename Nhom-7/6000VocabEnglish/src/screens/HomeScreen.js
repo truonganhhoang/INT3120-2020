@@ -16,7 +16,6 @@ if (!global.atob) {
 }
 //Import Style
 import StyleHomeScreen from "../themes/StyleHomeScreen";
-
 //Import Data local
 // import categoryList from "../../data/CategoryName";
 

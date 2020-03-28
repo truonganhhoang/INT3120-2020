@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TouchableHighlight
 } from "react-native";
+import icons from "../assets/iconList";
 
 //Style
 import StyleHomeScreen from "../themes/StyleHomeScreen";
@@ -30,7 +31,7 @@ export default class CategoryItem extends Component {
               style={StyleHomeScreen.StyleCategoryItem.image}
             >
               <Image
-                source={{ uri: "../src/assets/icon/" + iconCategory }}
+                source={icons[iconCategory]}
                 style={StyleHomeScreen.StyleCategoryItem.icon}
               />
               <View style={StyleHomeScreen.StyleCategoryItem.textRight}>
