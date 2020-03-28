@@ -38,14 +38,14 @@ class ImageHeart extends Component {
 }
 
 class CountDown extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       seconds: this.props.seconds
-    }
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.interval = setInterval(() => {
       this.state.seconds === 0
         ? this.setState({ seconds: this.state.seconds })
@@ -53,14 +53,16 @@ class CountDown extends Component {
     }, 1000);
   }
 
-  render(){
-    return(
+  render() {
+    const timeTextStyle =
+      this.state.seconds <= 10 ? styles.dangerText : styles.timeText;
+    return (
       <View>
-            <Text style={styles.timeText}>
-              {Math.floor(this.state.seconds / 60)}:
-              {Math.floor(this.state.seconds % 60)}
-            </Text>
-          </View>
+        <Text style={timeTextStyle}>
+          {Math.floor(this.state.seconds / 60)}:
+          {Math.floor(this.state.seconds % 60)}
+        </Text>
+      </View>
     );
   }
 }
@@ -73,11 +75,9 @@ class ImageWord extends Component {
       answered: false,
       answerCorrect: false
     };
-    // this.updateState = updateState.bind(this);
-    // this.updateState1 = updateState1.bind(this);
   }
 
-  updateState = (answerCorrect) => {
+  updateState = answerCorrect => {
     this.setState({
       answered: true,
       answerCorrect: answerCorrect
@@ -85,7 +85,7 @@ class ImageWord extends Component {
   };
 
   render() {
-    console.log(`answered: ${this.state.answered} answerCorrect:  ${this.state.answerCorrect}`)
+    // console.log(`answered: ${this.state.answered} answerCorrect:  ${this.state.answerCorrect}`)
     const imageSource = {
       uri: this.state.imageURI
     };
@@ -134,27 +134,52 @@ class ImageWord extends Component {
   }
 }
 
+class Question extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <View></View>;
+  }
+}
+
 export default class ExamScreen extends Component {
   constructor(props) {
     super(props);
     //ref
-    this.imgWord = React.createRef();
+    this.imgWordRefs = {};
     this.state = {
       seconds: 100,
       progress: 0,
       turn: 3,
       dataSource: [
-        {
-          word: "dog",
-          image:
-            "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg",
-          correct: true
-        },
-        {
-          word: "cat",
-          image:
-            "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg"
-        }
+        [
+          {
+            word: "dog",
+            image:
+              "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg",
+            correct: true
+          },
+          {
+            word: "cat",
+            image:
+              "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg"
+          }
+        ],
+        [
+          {
+            word: "cat",
+            image:
+              "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg",
+            correct: true
+          },
+          {
+            word: "dog",
+            image:
+              "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg"
+          }
+        ]
       ]
       // dataSource: [{}, {}, {}, {}]
       // dataSource: [{}, {},{}, {},{}, {},{}, {},{}]
@@ -170,16 +195,13 @@ export default class ExamScreen extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => {
-      this.state.seconds === 0
-        ? this.setState({ seconds: this.state.seconds })
-        : this.setState({ seconds: this.state.seconds - 1 });
-    }, 1000);
+    //load questions data from api here
+    //load questions[0]
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return true;
+  // }
 
   increase = (key, value) => {
     this.setState({
@@ -195,31 +217,13 @@ export default class ExamScreen extends Component {
     };
   };
 
-  checkAnswer = correct => {
-    //If user choose a incorrect image
-    if (!correct) {
-      this.handlePressImageWord({ answerCorrect: false });
-    }
-    //If user choose a correct image
-    if (correct) {
-      this.handlePressImageWord({ answerCorrect: true });
-    }
-  };
-
   render() {
-    console.log(`bla bla`)
     const barWidth = widthScreen * 0.6;
 
     return (
       <View style={styles.container}>
         <View style={styles.statusBar}>
-          {/* <View>
-            <Text style={styles.timeText}>
-              {Math.floor(this.state.seconds / 60)}:
-              {Math.floor(this.state.seconds % 60)}
-            </Text>
-          </View> */}
-            <CountDown seconds="100"/>
+          <CountDown seconds="100" />
           <View>
             <ProgressBarAnimated
               backgroundColor="orange"
@@ -252,14 +256,19 @@ export default class ExamScreen extends Component {
         <View style={styles.imagesContainer}>
           <FlatList
             data={this.state.dataSource}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <TouchableHighlight
                 underlayColor="transparent"
                 onPress={() => {
-                  this.imgWord.current.updateState(true);
+                  this.imgWordRefs[index].updateState(item.correct);
                 }}
               >
-                <ImageWord ref={this.imgWord} imageSource={item.image} />
+                <ImageWord
+                  ref={ImageWord => {
+                    this.imgWordRefs[index] = ImageWord;
+                  }}
+                  imageSource={item.image}
+                />
               </TouchableHighlight>
             )}
             //Setting the number of column
@@ -302,6 +311,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "orange",
     fontSize: 16
+  },
+  dangerText: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "red"
   },
   heartsContainer: {
     flexDirection: "row"
