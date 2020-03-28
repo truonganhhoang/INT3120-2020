@@ -4,6 +4,9 @@ import { View, Text, Image, Button } from "react-native";
 import { StyleSheet } from "react-native";
 import SecondMenu from "../components/SecondMenu";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
+import starOutline from "../assets/icon/star-outline.png";
+import starFillColor from "../assets/icon/star-fill-color.png";
+
 export class OverviewTopicItem extends Component {
   constructor(props) {
     super(props);
@@ -26,11 +29,7 @@ export class OverviewTopicItem extends Component {
           <View style={{ flexDirection: "row" }}>
             <TouchableOpacity onPress={this.handlePressFavorite}>
               <Image
-                source={
-                  !this.state.favorite
-                    ? require("../assets/icon/star-outline.png")
-                    : require("../assets/icon/star-fill-color.png")
-                }
+                source={!this.state.favorite ? starOutline : starFillColor}
                 style={{ width: 25, height: 25 }}
               />
             </TouchableOpacity>

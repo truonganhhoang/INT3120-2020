@@ -8,7 +8,9 @@ export default class CategoryScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      topicItems: []
+    };
   }
 
   static navigationOptions = ({ route }) => {
@@ -50,7 +52,7 @@ export default class CategoryScreen extends Component {
             this._carousel = c;
           }}
           layout={"default"}
-          data={itemTopicPeople}
+          data={this.state.topicItems}
           renderItem={this._renderItem}
           sliderWidth={1000}
           itemWidth={350}

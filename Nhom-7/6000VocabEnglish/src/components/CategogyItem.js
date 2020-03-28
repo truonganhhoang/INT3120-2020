@@ -10,11 +10,10 @@ import {
 //Style
 import StyleHomeScreen from "../themes/StyleHomeScreen";
 
-export default class CategoryListItem extends Component {
+export default class CategoryItem extends Component {
   render() {
-    const images = this.props.item.images;
-    const iconCategory = images[0].icon;
-    const backgroundCategory = images[0].background;
+    const iconCategory = this.props.item.icon;
+    const backgroundCategory = this.props.item.background;
 
     return (
       <TouchableHighlight
@@ -30,15 +29,30 @@ export default class CategoryListItem extends Component {
               imageStyle={StyleHomeScreen.StyleCategoryItem.backgroundImage}
               style={StyleHomeScreen.StyleCategoryItem.image}
             >
-              <Image source={iconCategory} style={StyleHomeScreen.StyleCategoryItem.icon} />
+              <Image
+                source={{ uri: "../src/assets/icon/" + iconCategory }}
+                style={StyleHomeScreen.StyleCategoryItem.icon}
+              />
               <View style={StyleHomeScreen.StyleCategoryItem.textRight}>
-                <Text style={[StyleHomeScreen.StyleCategoryItem.title, StyleHomeScreen.StyleCategoryItem.textRightStyle]}>
+                <Text
+                  style={[
+                    StyleHomeScreen.StyleCategoryItem.title,
+                    StyleHomeScreen.StyleCategoryItem.textRightStyle
+                  ]}
+                >
                   {this.props.item.title}
                 </Text>
-                <Text style={[StyleHomeScreen.StyleCategoryItem.description, StyleHomeScreen.StyleCategoryItem.textRightStyle]}>
+                <Text
+                  style={[
+                    StyleHomeScreen.StyleCategoryItem.description,
+                    StyleHomeScreen.StyleCategoryItem.textRightStyle
+                  ]}
+                >
                   {this.props.item.description}
                 </Text>
-                <View style={StyleHomeScreen.StyleCategoryItem.horizontalLine} />
+                <View
+                  style={StyleHomeScreen.StyleCategoryItem.horizontalLine}
+                />
               </View>
             </ImageBackground>
           </View>

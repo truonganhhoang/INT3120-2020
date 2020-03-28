@@ -5,18 +5,36 @@ import { View, FlatList, Text, Image, Alert } from "react-native";
 //Import Components
 import CategoryItem from "../components/CategogyItem";
 import LogoTitle from "../components/LogoTitle";
+import { decode, encode } from "base-64";
 
+if (!global.btoa) {
+  global.btoa = encode;
+}
+
+if (!global.atob) {
+  global.atob = decode;
+}
 //Import Style
 import StyleHomeScreen from "../themes/StyleHomeScreen";
 
 //Import Data local
-import categoryList from "../../data/CategoryName";
+// import categoryList from "../../data/CategoryName";
+
+import db from "../../config/configFirebase";
 
 const GLOBAL = require("../utils/Globals");
 
 export default class CategoriesScreen extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      categoryList: []
+    };
+  }
+
   _onPressButtonSetting = () => {
-    Alert.alert("setting")
+    Alert.alert("setting");
   };
 
   _onPressButtonFavorite = () => {
@@ -28,6 +46,23 @@ export default class CategoriesScreen extends React.Component {
     return <View style={StyleHomeScreen.StyleMain.separator} />;
   };
 
+  componentDidMount() {
+    let categoryRef = db.collection("/topic/");
+    let data = [];
+    let allCities = categoryRef
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, "=>", doc.data());
+          data.push(doc.data());
+        });
+
+        this.setState({ categoryList: data });
+      })
+      .catch(err => {
+        console.log("Error getting documents", err);
+      });
+  }
   render() {
     const { navigation } = this.props;
 
@@ -40,7 +75,9 @@ export default class CategoriesScreen extends React.Component {
       headerTitle: props => (
         <View style={StyleHomeScreen.StyleHeader.headerTitle}>
           <LogoTitle {...props} />
-          <Text style={StyleHomeScreen.StyleHeader.textAds}>No Ads. Enjoy it!</Text>
+          <Text style={StyleHomeScreen.StyleHeader.textAds}>
+            No Ads. Enjoy it!
+          </Text>
         </View>
       ),
 
@@ -77,7 +114,7 @@ export default class CategoriesScreen extends React.Component {
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={this.renderSeparator}
           contentContainerStyle={StyleHomeScreen.StyleMain.listItems}
-          data={categoryList}
+          data={this.state.categoryList}
           renderItem={({ item, index }) => {
             return (
               <CategoryItem
