@@ -40,7 +40,7 @@ export default class Category extends React.Component {
   }
   render(){
     return (
-       <View>
+       <View style={styles.container}>
           <FlatList
               data={this.state.wordsList}
               renderItem = {({item}) => 
@@ -55,12 +55,6 @@ export default class Category extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'stretch',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-end',
-    paddingLeft: 16,
-    paddingRight: 16,
-    marginBottom: 40
+    marginTop: 3
   },
 });

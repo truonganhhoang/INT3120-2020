@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 10, height: 10},
         shadowRadius: 10,
         marginBottom: 30,
+        borderWidth: 0
     },
     // categoryImage: {
     //     width: 64,

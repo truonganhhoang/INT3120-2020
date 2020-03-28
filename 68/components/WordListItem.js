@@ -7,35 +7,64 @@ import {
     TouchableOpacity
 } from 'react-native'
 import rightArrow from '../assets/right-arrow.png'
+import WordItem  from '../components/WordItem'
 
 export default function WordListItem (props){
     const {words} = props;
     return (
         <TouchableOpacity activeOpacity={0.5}>
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.title}>{words.name}</Text>
-                    <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
+                <View>
+                    <View style={styles.header}>
+                        <Text style={styles.title}>{words.name}</Text>
+                        <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
+                    </View>
+                    <View style={styles.listItem}>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                        <WordItem/>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>
     )
-    
 }
 const styles = StyleSheet.create({
     container: {
         padding: 16,
-        height: 150,
         marginHorizontal: 8,
-        shadowOffset: {width: 10, height: 10},
-        shadowColor: 'black',
-        shadowOpacity: 1,
-        elevation: 4,
-        shadowRadius: 10,
-        marginBottom: 30
+        shadowColor: "#000",
+        shadowOffset: {
+	        width: 0,
+	        height: 2,
+            },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 2,
+        marginBottom: 12,
+        borderWidth: 0,
     },
     header: {
-        flex: 1, 
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
@@ -47,6 +76,10 @@ const styles = StyleSheet.create({
     rightArrowImage: {
         width: 13,
         height: 13,
-        marginTop: 3,
+        marginTop: 4,
+    },
+    listItem: {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     }
 });
