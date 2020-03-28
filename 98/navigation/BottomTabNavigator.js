@@ -5,6 +5,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Setting from '../screens/Setting';
+import TrafficSignList from '../components/TrafficSignList';
+//import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,7 +42,7 @@ class BottomTabNavigator extends Component {
                     />
                     <Tab.Screen
                         name="Setting"
-                        component={Setting}
+                        component={TrafficSignList}
                         options={{
                             tabBarLabel: 'Setting',
                             tabBarIcon: ({ color, size }) => (
