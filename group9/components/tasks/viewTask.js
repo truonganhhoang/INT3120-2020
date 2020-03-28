@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableHighlight, StyleSheet } from 'react-native'
 import Swipeout from 'react-native-swipeout'
-import {Header, CheckBox} from 'react-native-elements'
+import {Header, CheckBox} from 'react-native-elements' 
 
 const styles = StyleSheet.create({
   container: {
@@ -30,16 +30,22 @@ export default class ViewTask extends React.Component {
   
     state = {
       data:[
-        {name:'here is an title 1', lesson: 'toan', date: '25 3 1019', description:'here is an description'  }, 
-        {name:'here is an title 2', lesson: 'van', date: '24 3 1019', description:'here is an description'  },
-        {name:'here is an title 3', lesson: 'anh', date: '25 3 2020', description:'here is an description'  },
-        {name:'here is an title 4', lesson: 'ly', date: '25 9 1019', description:'here is an description'  },
+        {name:'here is an title 1', lesson: 'toan', date: '25 3 1019', description:'here is an description', done: false  }, 
+        {name:'here is an title 2', lesson: 'van', date: '24 3 1019', description:'here is an description', done: false  },
+        {name:'here is an title 3', lesson: 'anh', date: '25 3 2020', description:'here is an description', done: false  },
+        {name:'here is an title 4', lesson: 'ly', date: '25 9 1019', description:'here is an description', done: false  },
     ]}
 
     deleteItem = (id) => {
       this.state.data.splice(id,1);
       this.setState({data: this.state.data.filter(i => i!== id)});
     } 
+    
+    handleChange = (id) => {
+      let newState = Object.assign({}, this.state);
+      newState.data[id].done = true;
+      this.setState(newState); 
+    };
 
     renderRow = (item,id) => {
     let swipeBtns = [{
@@ -57,8 +63,9 @@ export default class ViewTask extends React.Component {
         backgroundColor= 'transparent'>
           <View>
             <View style={styles.rowContainer}>
-              <CheckBox
-                checked={this.state.checked}
+              <CheckBox 
+                checked={this.state.data[id].done}
+                onPress={(id) => this.handleChange(id).bind(this)}
               />
               <Text style={styles.note}>{id+1}. {item.name}</Text>
             </View>
