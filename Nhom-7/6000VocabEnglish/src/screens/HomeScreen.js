@@ -54,8 +54,9 @@ export default class CategoriesScreen extends React.Component {
       .get()
       .then(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc.id, "=>", doc.data());
+          // console.log(doc.id, "=>", doc.data());
           data.push(doc.data());
+          // console.log(data);
         });
 
         this.setState({ categoryList: data, isLoading: !this.state.isLoading });
@@ -128,7 +129,7 @@ export default class CategoriesScreen extends React.Component {
                 pressed={() =>
                   navigation.push("Category", {
                     categoryTitle: item.title,
-                    categoryId: item.key
+                    categoryId: item.title
                   })
                 }
               ></CategoryItem>

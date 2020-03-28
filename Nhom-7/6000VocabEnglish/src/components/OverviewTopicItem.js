@@ -6,23 +6,24 @@ import SecondMenu from "../components/SecondMenu";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
 import starOutline from "../assets/icon/star-outline.png";
 import starFillColor from "../assets/icon/star-fill-color.png";
-
+import imageList from "../assets/imageList";
 export class OverviewTopicItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       favorite: false,
-      progressComplete: 40
+      progressComplete: 0
     };
   }
 
   handlePressFavorite = () => {
-    console.log(this.state.favorite);
+    // console.log(this.state.favorite);
     this.setState({ favorite: !this.state.favorite });
   };
 
   render() {
+    let { image, topicName, topicNameVi, description } = this.props.item;
     return (
       <View style={styles.container}>
         <View style={styles.childContainer}>
@@ -33,10 +34,7 @@ export class OverviewTopicItem extends Component {
                 style={{ width: 25, height: 25 }}
               />
             </TouchableOpacity>
-            <Image
-              source={require("../assets/image/people.png")}
-              style={styles.mainImage}
-            />
+            <Image source={imageList[image]} style={styles.mainImage} />
           </View>
           <ProgressBarAnimated
             style={styles.progressBar}
@@ -46,9 +44,9 @@ export class OverviewTopicItem extends Component {
             value={this.state.progressComplete}
           ></ProgressBarAnimated>
           <View style={{ alignItems: "center" }}>
-            <Text style={styles.topicName}>{this.props.topicName}</Text>
-            <Text style={styles.topicNameVi}>{this.props.topicNameVi}</Text>
-            <Text style={styles.description}>{this.props.description}</Text>
+            <Text style={styles.topicName}>{topicName}</Text>
+            <Text style={styles.topicNameVi}>{topicNameVi}</Text>
+            <Text style={styles.description}>{description}</Text>
           </View>
         </View>
         <SecondMenu style={styles.secondMenu}></SecondMenu>
@@ -115,7 +113,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 200,
     height: 200,
-    marginRight: 20
+    marginRight: 20,
+    backgroundColor: "#fff"
   },
   progressBar: {
     margin: 5
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   topicNameVi: {
-    textTransform: "none",
+    textTransform: "capitalize",
     fontSize: 20,
     color: "#F57F17",
     fontWeight: "bold"

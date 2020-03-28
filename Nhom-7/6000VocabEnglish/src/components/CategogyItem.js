@@ -12,6 +12,14 @@ import icons from "../assets/iconList";
 import StyleHomeScreen from "../themes/StyleHomeScreen";
 
 export default class CategoryItem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      listChildTopic: []
+    };
+  }
+
   render() {
     const iconCategory = this.props.item.icon;
     const backgroundCategory = this.props.item.background;
