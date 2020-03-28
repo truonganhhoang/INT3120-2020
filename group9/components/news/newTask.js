@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Picker, TextInput, KeyboardAvoidingView } from 'react-native'
+import { View, Text, Picker, TextInput, StyleScheet } from 'react-native'
 import { Header, Input, Button } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
