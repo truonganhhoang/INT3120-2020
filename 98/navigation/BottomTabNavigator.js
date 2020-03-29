@@ -1,12 +1,13 @@
-import * as React from 'react';
+﻿import React, { Component } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import Test from '../screens/Test';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Home from '../screens/Home';
+import Profile from '../screens/Profile';
+import TrafficSigns from '../screens/TrafficSigns';
+//import HomeNavigator from './HomeNavigator';
 
-const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -17,35 +18,39 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
+          name="Trang chủ"
+          component={Home}
+          options={{
+              tabBarLabel: 'Trang chủ',
+              tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="home" color={color} size={size} />
+              ),
+          }}
       />
-  
-         <BottomTab.Screen
-        name="Test"
-        component={Test}
-        options={{
-          title: 'Test',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
-        }}
-      />
+      <BottomTab.Screen
+                        name="Profile"
+                        component={Profile}
+                        options={{
+                            tabBarLabel: 'Profile',
+                            tabBarIcon: ({ color, size }) => (
+                                <MaterialCommunityIcons name="account" color={color} size={size} />
+                            ),
+                        }}
+                    />
+                    <BottomTab.Screen
+                        name="Biển báo"
+                        component={TrafficSigns}
+                        options={{
+                            tabBarLabel: 'Biển báo',
+                            tabBarIcon: ({ color, size }) => (
+                                <MaterialCommunityIcons name="bell" color={color} size={size} />
+                            ),
+                        }}
+                    />
+        
     </BottomTab.Navigator>
   );
+
 }
 
-function getHeaderTitle(route) {
-  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
-
-  switch (routeName) {
-    case 'Home':
-      return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
-      case 'Test':
-        return 'Test';
-  }
-}
+export default BottomTabNavigator;

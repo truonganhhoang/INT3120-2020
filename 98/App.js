@@ -1,12 +1,7 @@
-import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { SplashScreen } from 'expo';
-import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
+﻿import React, { Component } from 'react';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
+
 import useLinking from './navigation/useLinking';
 
 import LinksScreen from './screens/LinksScreen';
@@ -59,11 +54,13 @@ export default function App(props) {
       </View>
     );
   }
+
+import TrafficSigns from './screens/TrafficSigns';
+import Home from './screens/Home';
+import Profile from './screens/Profile';
+import { Icon } from 'react-native-elements';
+
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+export default App;
