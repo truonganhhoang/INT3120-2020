@@ -4,45 +4,34 @@ import {
     Text,
     View,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    YellowBox
 } from 'react-native'
 import rightArrow from '../assets/right-arrow.png'
 import WordItem  from '../components/WordItem'
 
+YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 export default function WordListItem (props){
-    const {words} = props;
+    //console.log("okok",props.kanji);
+    const {kanji} = props; 
     return (
         <TouchableOpacity activeOpacity={0.5}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.header}>
-                        <Text style={styles.title}>{words.name}</Text>
+    <Text style={styles.title}>{kanji?kanji.item.groupName:"Kanji"}</Text>
                         <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
                     </View>
                     <View style={styles.listItem}>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
+                        {
+                            kanji?kanji.item.kanjiList.map((object, index)=>{
+                                console.log(index)
+                                return(
+                                    <WordItem key={index} text={object.kanji}/>
+                                )
+                            }):<Text></Text>
+                        }
+                   
                     </View>
                 </View>
             </View>

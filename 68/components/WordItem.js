@@ -8,11 +8,12 @@ import {
 } from 'react-native'
 
 
-export default function WordItem (props){
+export default function WordItem ({text}){
+    //console.log(text)
     return (
         <TouchableOpacity activeOpacity={0.5}>
             <View style={styles.container}>
-                <Text style={styles.title}>字</Text>
+                <Text style={styles.title}>{text}</Text>
             </View>
         </TouchableOpacity>
     )
