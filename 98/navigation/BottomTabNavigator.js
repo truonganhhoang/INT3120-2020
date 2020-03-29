@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
-import Setting from '../screens/Setting';
-import TrafficSignList from '../components/TrafficSignList';
+import TrafficSigns from '../screens/TrafficSigns';
 //import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -15,16 +14,16 @@ class BottomTabNavigator extends Component {
         return (
             <NavigationContainer>
                 <Tab.Navigator
-                    initialRouteName='Home'
+                    initialRouteName='Trang chủ'
                     screenOptions={{
                         activeTintColor: '#1e63e9',
                     }}
                 >
                     <Tab.Screen
-                        name="Home"
+                        name="Trang chủ"
                         component={Home}
                         options={{
-                            tabBarLabel: 'Home',
+                            tabBarLabel: 'Trang chủ',
                             tabBarIcon: ({ color, size }) => (
                                 <MaterialCommunityIcons name="home" color={color} size={size} />
                             ),
@@ -41,10 +40,10 @@ class BottomTabNavigator extends Component {
                         }}
                     />
                     <Tab.Screen
-                        name="Setting"
-                        component={TrafficSignList}
+                        name="Biển báo"
+                        component={TrafficSigns}
                         options={{
-                            tabBarLabel: 'Setting',
+                            tabBarLabel: 'Biển báo',
                             tabBarIcon: ({ color, size }) => (
                                 <MaterialCommunityIcons name="bell" color={color} size={size} />
                             ),
