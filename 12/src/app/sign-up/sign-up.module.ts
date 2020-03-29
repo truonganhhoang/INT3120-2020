@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +20,8 @@ import { SignUpPage } from './sign-up.page';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
     SignUpPageRoutingModule
   ],
   declarations: [SignUpPage]

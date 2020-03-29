@@ -145,3 +145,7 @@ ionic g page profile -f
 
 - Thêm html cho trang đăng nhập và đăng ký, sử dụng Angular Material.
 - Thêm ảnh.
+
+# 2020-03-20
+
+- Validate form đăng ký và đăng nhập.

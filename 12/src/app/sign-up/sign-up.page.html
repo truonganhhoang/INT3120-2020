@@ -4,27 +4,42 @@
     <div>Create New Account</div>
   </div>
 
-  <div class="sign-up-form-container">
+  <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Full Name (Required)</mat-label>
-      <input matInput="true" />
+      <input matInput="true" [formControl]="fullName" />
+      <mat-error>
+        <div *ngIf="fullName.errors">
+          <div *ngIf="fullName.errors.required">Please enter your full name.</div>
+        </div>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
-      <input matInput="true" />
+      <input matInput="true" [formControl]="email" />
+      <mat-error>
+        <div *ngIf="email.errors">
+          <div *ngIf="email.errors.email">Email address format is invalid.</div>
+        </div>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Password (Required)</mat-label>
-      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" />
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" />
       <button mat-icon-button matSuffix="true" (click)="togglePassword()">
         <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
+      <mat-error>
+        <div *ngIf="password.errors">
+          <div *ngIf="password.errors.minlength">Password must be at least 8 characters.</div>
+        </div>
+      </mat-error>
     </mat-form-field>
 
-    <ion-button expand="full" color="primary" mat-flat-button="true">
-      CREATE NEW ACCOUNT
+    <ion-button type="submit" expand="full" color="primary" mat-flat-button="true">
+      Create new account
     </ion-button>
 
     <div class="text-divider">or</div>
@@ -36,7 +51,7 @@
     <div class="terms-and-policies">
       By creating an account, you accout Coursera's <a href="https://www.coursera.org/about/terms" target="_blank"><strong color="primary">Terms of Service</strong></a> and <a href="https://www.coursera.org/about/privacy" target="_blank"><strong>Privacy Policy</strong></a>
     </div>
-  </div>
+  </form>
 
   <div class="footer">
     <ion-img [src]="'/assets/shapes.png'"></ion-img>

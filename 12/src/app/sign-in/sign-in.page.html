@@ -4,29 +4,36 @@
     <div>Log into your account</div>
   </div>
 
-  <div class="sign-in-form-container">
+  <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
-      <input matInput="true" />
+      <input matInput="true" [formControl]="email" />
+      <mat-error *ngIf="email.errors">
+        <div *ngIf="email.errors.required">Please enter your email address.</div>
+        <div *ngIf="email.errors.email">Email address format is in valid.</div>
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password (Required)</mat-label>
-      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" />
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" />
       <button mat-icon-button="true" matSuffix="true" (click)="togglePassword()">
         <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
+      <mat-error *ngIf="password.errors">
+        <div *ngIf="password.errors.required">Please enter your password</div>
+      </mat-error>
       <mat-hint align="end" color="primary">Forgot Password?</mat-hint>
     </mat-form-field>
 
     <br />
     <br />
     <br />
-    <ion-button expand="full">Login</ion-button>
+    <ion-button type="submit" expand="full">Login</ion-button>
 
     <div class="text-divider">or</div>
 
     <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
-  </div>
+  </form>
 
   <div class="footer">
     <ion-img [src]="'/assets/shapes.png'"></ion-img>
