@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, Image, StatusBar, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+
+
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack'
 
 import Home1 from './Home1'
 import Home from './Home'
@@ -44,44 +47,44 @@ function CustomDrawerContent(props) {
         />
         <DrawerItem
           label='Hướng dẫn sử dụng'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='information-outline' />}
         />
         <DrawerItem
           label='Email hỗ trợ'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='email' />}
         />
         <DrawerItem
           label='Cài đặt'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='settings-outline' />}
         />
       </View>
       <View style={styles.textMenu2}>
         <DrawerItem
           label='Kỹ năng lái xe'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='car' />}
         />
         <DrawerItem
           label='Các ứng dụng khác'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='download' />}
         />
         <DrawerItem
           label='Chia sẻ ứng dụng'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='share-variant' />}
         />
         <DrawerItem
           label='Đánh giá ứng dụng'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='comment-account-outline' />}
         />
         <DrawerItem
           label='Chính sách và điều khoản'
-          onPress={() => props.navigation.navigate('Home1')}
+          onPress={() => props.navigation.navigate('Setting')}
           icon={() => <Icon style={styles.menuIcon} name='contacts' />}
         />
       </View>
@@ -89,15 +92,35 @@ function CustomDrawerContent(props) {
   );
 }
 
-
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+function MyStack({navigation}) {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerTintColor: '#fff',
+        headerStyle:{
+          backgroundColor: '#66bb6a',
+        },
+    }}>
+      <Stack.Screen name="Home" component={Home} options={{
+        title: 'Ôn thi giấy phép lái xe',
+        headerLeft:() =>(
+          <Icon name='menu' size={30} style={{left:15}} color='white' onPress={() => {navigation.openDrawer()}}/>
+        )
+      }}/>
+      <Stack.Screen name="Setting" component={Setting} options={{
+        title: 'Chọn hạng bằng thi',
+      }}/>
+    </Stack.Navigator>
+  );
+}
 
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerStyle={{ width: '80%', }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Home1" component={Home1} />
+      <Drawer.Screen name="Home" component={MyStack} />
     </Drawer.Navigator>
   );
 }
