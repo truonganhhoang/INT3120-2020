@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Image } from "react-native";
 import { StyleSheet } from "react-native";
-
+const GLOBAL = require("../utils/Globals");
 export class SecondMenu extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style]}>
         <TouchableOpacity style={styles.containIcon}>
           <Image
             source={require("../assets/icon/slideshow.png")}
@@ -46,8 +46,7 @@ export default SecondMenu;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "orange",
-    borderColor: "#fff",
+    backgroundColor: GLOBAL.COLOR.ORANGE,
     borderRadius: 10,
     justifyContent: "center",
     height: 130,
