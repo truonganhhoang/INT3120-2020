@@ -5,7 +5,6 @@
   * Nguyễn Thị Linh       -17020858
   * Bùi Khánh Ngọc Anh    -17020563
 ## App
-* Từ điển Anh Việt - Dict Box
 * Link: https://play.google.com/store/apps/details?id=com.grandsons.dictbox&hl=vi
 ## Mô tả sản phẩm:
   * App từ điển Anh-Việt, được thiết kế cho việc tra cứu từ, dịch từ, dịch câu, dịch văn bản, dịch tiếng Anh sang tiếng Việt và ngược lại. Phát âm offline, dịch văn bản, câu, cụm từ.
