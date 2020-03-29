@@ -8,9 +8,9 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import Home1 from '../screens/Home1'
-import Home from '../screens/Home'
-import Menu from '../screens/Menu'
+import Home1 from './Home1'
+import Home from './Home'
+import Setting from './Setting'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 // function Feed({ navigation }) {
