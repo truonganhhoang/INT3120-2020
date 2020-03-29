@@ -1,7 +1,7 @@
 # Nhóm 98
-- Đỗ Tuấn Bắc
-- Thức Nguyễn
-- Vũ Thị Thanh Mai
+- Đỗ Tuấn Bắc - 17020602
+- Vũ Thị Thanh Mai - 17020877
+- Nguyễn Anh Tuấn - 17021104
 
 # :motorcycle: Bằng B2 - 450 câu hỏi học & thi sát hạch B2<br>
 ### :clipboard: Mô tả ứng dụng
