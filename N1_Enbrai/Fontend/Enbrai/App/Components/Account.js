@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {View, Text} from 'react-native';
+import {Button} from 'react-native-elements';
+import {withNavigation} from 'react-navigation';
 
 class Account extends Component {
-
     render() {
         return (
-            <View style={{
-                flex: 1
-            }}>
-                <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
-                <LinearGradient
-                    style={styles.linearGradient}
-                    colors={['#0592D2', '#40DA6C']}
-                />
+            <View style ={{flex: 1}}>
+                <View style = {{marginTop : "50%"}}>
+                <Text style = {{textAlign : "center", color : "gray"}}>Tạo một tài khoản để bảo vệ dữ liệu của bạn</Text>
+                <Button 
+                    containerStyle = {{margin: "5%", width : "40%", marginLeft : "30%"}} 
+                    buttonStyle = {{alignContent:'center'}} 
+                    title = "Tạo một tài khoản"
+                    onPress = {()=>{this.props.navigation.navigate('SignUpScreen')}}
+                >                      
+                </Button>
+                </View>
             </View>
         );
     }
 }
+export default  withNavigation( Account);
 
-export default Account;
-
-var styles = StyleSheet.create({
-    linearGradient: {
-        flex: 1,
-        paddingLeft: 15,
-        paddingRight: 15
-    },
-})
