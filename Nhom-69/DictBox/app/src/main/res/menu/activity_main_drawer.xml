@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_bookmark"
+            android:icon="@drawable/ic_bookmark_border"
+            android:title="Bookmark" />
+    </group>
+    <item android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/nav_translate"
+                android:icon="@drawable/ic_translate"
+                android:title="Dich" />
+            <item
+                android:id="@+id/nav_camera"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Tra tu voi camera" />
+            <item
+                android:id="@+id/nav_vocabulary"
+                android:icon="@drawable/ic_format_list_bulleted"
+                android:title="Hoc tu vung" />
+            <item
+                android:id="@+id/nav_reminder"
+                android:icon="@drawable/ic_alarm"
+                android:title="Nhac nho tu vung" />
+            <item
+                android:id="@+id/nav_voice"
+                android:icon="@drawable/ic_record_voice_over"
+                android:title="Dich giong noi" />
+            <item
+                android:id="@+id/nav_image"
+                android:icon="@drawable/ic_image"
+                android:title="Dich hinh anh" />
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_settings"
+                android:title="Thiet lap" />
+            <item
+                android:id="@+id/nav_email"
+                android:icon="@drawable/ic_mail_outline"
+                android:title="Email nha phat trien" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Chia se DictBox" />
+
+        </menu>
+    </item>
+
+</menu>
