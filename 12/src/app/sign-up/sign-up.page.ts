@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.page.scss']
 })
 export class SignUpPage implements OnInit {
+  hidePassword = true;
+
   constructor() {}
 
   ngOnInit() {}
+
+  togglePassword() {
+    this.hidePassword = !this.hidePassword;
+  }
 }

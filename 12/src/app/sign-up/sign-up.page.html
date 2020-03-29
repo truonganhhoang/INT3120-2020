@@ -1,7 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sign-up</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="header">
+    <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
+    <div>Create New Account</div>
+  </div>
 
-<ion-content> </ion-content>
+  <div class="sign-up-form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name (Required)</mat-label>
+      <input matInput="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail (Required)</mat-label>
+      <input matInput="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password (Required)</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" />
+      <button mat-icon-button matSuffix="true" (click)="togglePassword()">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <ion-button expand="full" color="primary" mat-flat-button="true">
+      CREATE NEW ACCOUNT
+    </ion-button>
+
+    <div class="text-divider">or</div>
+
+    <ion-button expand="full" fill="clear">
+      Continue with Facebook
+    </ion-button>
+
+    <div class="terms-and-policies">
+      By creating an account, you accout Coursera's <a href="https://www.coursera.org/about/terms" target="_blank"><strong color="primary">Terms of Service</strong></a> and <a href="https://www.coursera.org/about/privacy" target="_blank"><strong>Privacy Policy</strong></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ion-img [src]="'/assets/shapes.png'"></ion-img>
+  </div>
+</ion-content>

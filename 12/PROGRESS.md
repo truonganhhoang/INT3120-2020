@@ -140,3 +140,8 @@ ionic g page profile -f
 
 - Thêm html cho trang intro.
 - Gắn link đến trang đăng ký và đăng nhập.
+
+# 2020-03-29
+
+- Thêm html cho trang đăng nhập và đăng ký, sử dụng Angular Material.
+- Thêm ảnh.

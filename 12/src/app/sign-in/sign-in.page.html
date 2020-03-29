@@ -1,7 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sign-in</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="header">
+    <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
+    <div>Log into your account</div>
+  </div>
 
-<ion-content> </ion-content>
+  <div class="sign-in-form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail (Required)</mat-label>
+      <input matInput="true" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password (Required)</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" />
+      <button mat-icon-button="true" matSuffix="true" (click)="togglePassword()">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-hint align="end" color="primary">Forgot Password?</mat-hint>
+    </mat-form-field>
+
+    <br />
+    <br />
+    <br />
+    <ion-button expand="full">Login</ion-button>
+
+    <div class="text-divider">or</div>
+
+    <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+  </div>
+
+  <div class="footer">
+    <ion-img [src]="'/assets/shapes.png'"></ion-img>
+  </div>
+</ion-content>
