@@ -47,7 +47,6 @@ class Auth extends Component {
         .catch((error) => {
           // Handle Errors here.
         });
-      userAsyncStorage(curUser);
     }
   };
 
@@ -55,10 +54,9 @@ class Auth extends Component {
     curUser = this.firebase
       .auth()
       .signInAnonymously()
-      .catch(function(error) {
+      .catch(function (error) {
         // Handle Errors here.
       });
-    userAsyncStorage(curUser);
   };
 }
 
