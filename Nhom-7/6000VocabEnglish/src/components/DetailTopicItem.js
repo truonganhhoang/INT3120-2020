@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, Image } from "react-native";
 import { StyleSheet } from "react-native";
-import { Audio } from "expo-av";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import starOutline from "../assets/icon/star-outline.png";
 import starFillColor from "../assets/icon/star-fill-color.png";
 import GLOBAL from "../utils/Globals";
-
 export class DetailTopicItem extends Component {
   constructor(props) {
     super(props);
@@ -14,17 +12,8 @@ export class DetailTopicItem extends Component {
     this.state = {};
   }
 
-  playAudioSpelling = async () => {
-    const soundObject = new Audio.Sound();
-    try {
-      await soundObject.loadAsync(require("../assets/sounds/background.mp3"));
-      await soundObject.playAsync();
-      // Your sound is playing!
-    } catch (error) {
-      // An error occurred!
-    }
-  };
   render() {
+    const { word, spelling, meaning } = this.props.item;
     return (
       <View style={styles.container}>
         <View style={styles.leftColumn}>
@@ -44,18 +33,18 @@ export class DetailTopicItem extends Component {
           </View>
         </View>
         <View style={styles.rightColumn}>
-          <Text style={styles.word}>abdomen</Text>
-          <Text style={styles.spelling}>neck</Text>
+          <Text style={styles.word}>{word}</Text>
+          <Text style={styles.spelling}>{spelling}</Text>
           <TouchableOpacity
             style={styles.iconSpeaker}
-            onPress={this.playAudioSpelling}
+            onPress={this.props.playSound}
           >
             <Image
               style={{ width: 24, height: 24 }}
               source={require("../assets/icon/speaker.png")}
             />
           </TouchableOpacity>
-          <Text style={styles.meaning}>bụng</Text>
+          <Text style={styles.meaning}>{meaning}</Text>
         </View>
       </View>
     );
@@ -66,8 +55,8 @@ export default DetailTopicItem;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
-    marginBottom: 0,
+    margin: 0,
+    marginBottom: 10,
     backgroundColor: "#fff",
     padding: 10,
     flexDirection: "row",

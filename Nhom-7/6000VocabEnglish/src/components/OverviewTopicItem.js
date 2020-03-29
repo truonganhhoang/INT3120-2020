@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   childContainer: {
     borderRadius: 20,
     backgroundColor: "#fff",
-    height: "85%",
+    height: 420,
     justifyContent: "space-around",
     margin: 20,
     padding: 12,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    bottom: 50,
+    top: 430,
     left: 15,
     width: "100%"
   },

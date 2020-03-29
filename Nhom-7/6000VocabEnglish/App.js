@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
-import DetailTopic from "./src/screens/DetailTopicScreen";
+import DetailTopicScreen from "./src/screens/DetailTopicScreen";
 const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
@@ -28,7 +28,8 @@ function App() {
         />
         <HomeStack.Screen
           name="DetailTopic"
-          component={DetailTopic}
+          component={DetailTopicScreen}
+          options={DetailTopicScreen.navigationOptions}
         ></HomeStack.Screen>
       </HomeStack.Navigator>
     </NavigationContainer>

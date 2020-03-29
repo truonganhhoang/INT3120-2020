@@ -43,23 +43,26 @@ export default class CategoryScreen extends Component {
       >
         <OverviewTopicItem
           item={item}
-          handleGotoDetail={this.handleGotoDetail}
+          handleGotoDetail={this.handleGotoDetail(item.topicName)}
         ></OverviewTopicItem>
       </View>
     );
   };
 
-  handleGotoDetail = () => {
+  handleGotoDetail(topicName) {
+    // console.log("TItle" + topicName);
+    return () => {
+      this.props.navigation.navigate("DetailTopic", { titleTopic: topicName });
+    };
     // console.log("View detal");
-    this.props.navigation.navigate("DetailTopic");
-  };
+  }
   componentDidMount() {
     this.fetchData();
   }
 
   fetchData() {
     const { categoryId } = this.props.route.params;
-    console.log(categoryId);
+    // console.log(categoryId);
 
     let data = [];
     db.collection("/topic/")
