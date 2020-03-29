@@ -51,7 +51,11 @@ export class OverviewTopicItem extends Component {
         </View>
         <SecondMenu style={styles.secondMenu}></SecondMenu>
         <View style={styles.viewBtnDeail}>
-          <TouchableOpacity style={styles.btnDetail} activeOpacity={0.9}>
+          <TouchableOpacity
+            style={styles.btnDetail}
+            activeOpacity={0.9}
+            onPress={this.props.handleGotoDetail}
+          >
             <Text style={styles.textBtnDetail}>Chi tiết</Text>
           </TouchableOpacity>
         </View>

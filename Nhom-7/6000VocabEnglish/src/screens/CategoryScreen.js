@@ -25,7 +25,9 @@ export default class CategoryScreen extends Component {
         fontWeight: "bold",
         textTransform: "capitalize"
       },
-      headerTitleAlign: "center"
+      headerTitleAlign: "center",
+      headerTintColor: GLOBAL.COLOR.ORANGE
+
       //title: navigation.getParam("categoryTitle", "A Nested Details Screen")
     };
   };
@@ -39,11 +41,18 @@ export default class CategoryScreen extends Component {
           alignItems: "center"
         }}
       >
-        <OverviewTopicItem item={item}></OverviewTopicItem>
+        <OverviewTopicItem
+          item={item}
+          handleGotoDetail={this.handleGotoDetail}
+        ></OverviewTopicItem>
       </View>
     );
   };
 
+  handleGotoDetail = () => {
+    // console.log("View detal");
+    this.props.navigation.navigate("DetailTopic");
+  };
   componentDidMount() {
     this.fetchData();
   }

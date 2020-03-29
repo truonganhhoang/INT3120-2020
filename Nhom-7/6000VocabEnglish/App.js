@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
-
+import DetailTopic from "./src/screens/DetailTopicScreen";
 const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
@@ -16,10 +16,20 @@ function App() {
     <NavigationContainer>
       <HomeStack.Navigator initialRouteName="Home">
         <HomeStack.Screen name="Home" component={HomeScreen} />
-        <HomeStack.Screen name="Category" component={CategoryScreen}
+        <HomeStack.Screen
+          name="Category"
+          component={CategoryScreen}
           options={CategoryScreen.navigationOptions}
         />
-        <HomeStack.Screen name="Favorite" component={FavoriteScreen} options={FavoriteScreen.navigationOptions}/>
+        <HomeStack.Screen
+          name="Favorite"
+          component={FavoriteScreen}
+          options={FavoriteScreen.navigationOptions}
+        />
+        <HomeStack.Screen
+          name="DetailTopic"
+          component={DetailTopic}
+        ></HomeStack.Screen>
       </HomeStack.Navigator>
     </NavigationContainer>
   );
