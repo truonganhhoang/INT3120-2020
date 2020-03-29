@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\images",
+    "\\components",
+    "\\navigation",
+    "\\screens"
   ],
-  "SelectedNode": "\\App.js",
+  "SelectedNode": "\\screens\\TrafficSignDetail.js",
   "PreviewInSolutionExplorer": false
 }
