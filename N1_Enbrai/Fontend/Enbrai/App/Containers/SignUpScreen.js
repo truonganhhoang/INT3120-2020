@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import SignIn from '../Components/SignIn'
+import SignUp from '../Components/SignUp'
 export default class SignUpScreen extends Component {
     render() {
         return (
-            <SignIn {...this.props}/>
+            <SignUp {...this.props}/>
         )
     }
 }

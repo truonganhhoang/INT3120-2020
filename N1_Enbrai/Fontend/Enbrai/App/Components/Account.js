@@ -13,7 +13,7 @@ class Account extends Component {
                     containerStyle = {{margin: "5%", width : "40%", marginLeft : "30%"}} 
                     buttonStyle = {{alignContent:'center'}} 
                     title = "Tạo một tài khoản"
-                    onPress = {()=>{this.props.navigation.navigate('SignInScreen')}}
+                    onPress = {()=>{this.props.navigation.navigate('SignUpScreen')}}
                 >                      
                 </Button>
                 </View>
