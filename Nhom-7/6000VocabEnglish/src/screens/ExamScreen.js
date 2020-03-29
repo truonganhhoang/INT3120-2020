@@ -56,6 +56,7 @@ class TurnCounter extends Component {
   render() {
     let turns = [];
     // console.log(`${turns}`)
+    //Chua disable heart when turn is down
     for (let i = 1; i <= 3; i++) {
       if (i <= this.state.turn) {
         turns.push(
