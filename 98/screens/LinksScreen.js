@@ -25,6 +25,7 @@ export default function LinksScreen() {
         onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
         isLastOption
       />
+      
     </ScrollView>
   );
 }
