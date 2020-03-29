@@ -4,8 +4,12 @@ import { Card, Button, Icon } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const CardExtend = (props: { nameCard?: any; imageCard?: any; icon?: any; navigation?: any; vi?: any }) => {
-  const { nameCard, navigation, icon, vi, imageCard } = props;
+const CardExtend = (props: { nameCard?: any; imageCard?: any; 
+  icon?: any; navigation?: any; vi?: any 
+  wordGroups?: any
+}) => {
+
+  const { nameCard, navigation, icon, vi, imageCard, wordGroups } = props;
 
   const users = [
     {
@@ -14,7 +18,8 @@ const CardExtend = (props: { nameCard?: any; imageCard?: any; icon?: any; naviga
     },
   ]
   const onPress = () => {
-    navigation.navigate('WordGroupScreen');
+    console.log(nameCard)
+    navigation.navigate('WordGroupScreen', {nameTopic: nameCard, wordGroups: wordGroups});
   }
   return (
     <TouchableHighlight onPress={() => { onPress() }}>

@@ -1,1 +1,1 @@
-export { default as WordGroupScreen } from './Word'; 
+export { default as WordGroupScreen } from './WordGroup'; 

@@ -1,0 +1,68 @@
+{
+  "topics" : [
+    {
+      "topic_name": "People",
+      "vn_name": "Con Người",  
+      "topic_img": "../../../../images/cards/people.jpg", 
+      "topic_icon": "users", 
+      "word_groups": [
+        {
+          "word_group_name": "Body", 
+          "wg_vn_name": "Thân Thể", 
+          "words": [
+            {
+              "en_meaning": "chest", 
+              "vn_meaning": "ngực", 
+              "spelling": "/CHest/"
+            }, 
+            {
+              "en_meaning": "neck", 
+              "vn_meaning": "cổ", 
+              "spelling": "/nek/"
+            }
+          ]  
+        }, 
+        {
+          "word_group_name": "Face", 
+          "wg_vn_name": "Khuôn Mặt", 
+          "words": [
+            {
+              "en_meaning": "hair", 
+              "vn_meaning": "tóc", 
+              "spelling": "/her/"
+            }, 
+            {
+              "en_meaning": "skin", 
+              "vn_meaning": "da", 
+              "spelling": "/skin/"
+            }
+          ]
+        }
+      ]
+    }, 
+    {
+      "topic_name": "Home", 
+      "vn_name": "Nhà cửa", 
+      "topic_img": "../../../../images/cards/home.jpg", 
+      "topic_icon": "home",
+      "word_groups": [
+        {
+          "word_group_name": "House", 
+          "wg_vn_name": "Nhà ở", 
+          "words": [
+            {
+              "en_meaning": "chimney", 
+              "vn_meaning": "ống khói", 
+              "spelling": "/ˈCHimnē/"
+            }, 
+            {
+              "en_meaning": "roof", 
+              "vn_meaning": "mái nhà", 
+              "spelling": "/ro͞of,ro͝of/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
