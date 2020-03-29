@@ -1,27 +1,18 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
-import firebase from 'firebase'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import * as FirebaseApi from './firebaseApi';
 
 class LoadingScreen extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.firebase_auth = FirebaseApi.Auth();
   }
   componentDidMount() {
-    this.checkIfLoggedIn()
-  }
-
-  checkIfLoggedIn = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      // console.log(user);
-      if (user) {
-        this.props.navigation.setParams({
-          curUser: user,
-        })
-        this.props.navigation.navigate('DashboardScreen', { curUser: user })
-      } else {
-        this.props.navigation.navigate('LoginScreen')
-      }
-    })
+    if (this.firebase_auth.checkIfLoggedIn()) {
+      this.props.navigation.navigate('DashboardScreen');
+    } else {
+      this.props.navigation.navigate('LoginScreen');
+    }
   }
 
   render() {
@@ -29,10 +20,10 @@ class LoadingScreen extends Component {
       <View style={styles.container}>
         <Text>LoadingScreen</Text>
       </View>
-    )
+    );
   }
 }
-export default LoadingScreen
+export default LoadingScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -40,4 +31,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
+});

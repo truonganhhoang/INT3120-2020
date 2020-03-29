@@ -1,6 +1,6 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-import { Header } from 'react-native-elements'
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Header } from 'react-native-elements';
 
 class ViewTask extends React.Component {
   render() {
@@ -16,8 +16,8 @@ class ViewTask extends React.Component {
           }}
         />
       </View>
-    )
+    );
   }
 }
 
-export default ViewTask
+export default ViewTask;

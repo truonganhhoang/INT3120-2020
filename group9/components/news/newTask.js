@@ -1,11 +1,17 @@
-import React from 'react'
-import { View, Text, Picker, TextInput, KeyboardAvoidingView } from 'react-native'
-import { Header, Input, Button } from 'react-native-elements'
-import { Ionicons } from '@expo/vector-icons'
-import DateTimePicker from 'react-native-modal-datetime-picker'
-import { addTask } from '../api/task'
+import React from 'react';
+import { View, Text, Picker, TextInput, KeyboardAvoidingView } from 'react-native';
+import { Header, Input, Button } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { addTask } from '../firebaseApi/task';
 
 class NewTask extends React.Component {
+  constructor(props) {
+    super(props);
+    this.user_id = this.props;
+    console.log(this.user_id);
+  }
+
   state = {
     table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
     selectedLesson: '',
@@ -14,22 +20,22 @@ class NewTask extends React.Component {
     datePicked: 'Pick a Date',
     date: Date.now(),
     name: '',
-  }
+  };
 
   showDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: true })
-  }
+    this.setState({ isDateTimePickerVisible: true });
+  };
 
   hideDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: false })
-  }
+    this.setState({ isDateTimePickerVisible: false });
+  };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear()
-    this.setState({date: date});
-    this.setState({ datePicked: day })
-    this.hideDateTimePicker()
-  }
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    this.setState({ date: date });
+    this.setState({ datePicked: day });
+    this.hideDateTimePicker();
+  };
 
   createTask = () => {
     let task = {
@@ -37,10 +43,10 @@ class NewTask extends React.Component {
       lesson: this.state.selectedLesson,
       type: this.state.selectedType,
       date: this.state.date,
-      description: "",
-    } 
-    addTask(task);
-  }
+      description: '',
+    };
+    addTask(this.user_id, task);
+  };
 
   render() {
     return (
@@ -79,8 +85,8 @@ class NewTask extends React.Component {
               size={30}
               style={{ paddingRight: 20 }}
               onChangeText={(text) => {
-                this.setState({ name: text })
-                console.log(this.state.name)
+                this.setState({ name: text });
+                console.log(this.state.name);
               }}
             />
           }
@@ -144,8 +150,8 @@ class NewTask extends React.Component {
           multiline={true}
         />
       </View>
-    )
+    );
   }
 }
 
-export default NewTask
+export default NewTask;

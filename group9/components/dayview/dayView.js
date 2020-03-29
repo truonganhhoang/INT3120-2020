@@ -1,8 +1,8 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { ListItem } from 'react-native-elements'
-import TouchableScale from 'react-native-touchable-scale'
-import { Icon } from 'react-native-elements'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { ListItem } from 'react-native-elements';
+import TouchableScale from 'react-native-touchable-scale';
+import { Icon } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   contructor: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-})
+});
 
 class DayView extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class DayView extends React.Component {
       { start: '13:00', end: '15:00', lesson: 'Toan' },
       { start: '15:00', end: '17:00', lesson: 'Van' },
     ],
-  }
+  };
 
   render() {
     return (
@@ -45,8 +45,8 @@ class DayView extends React.Component {
           />
         ))}
       </View>
-    )
+    );
   }
 }
 
-export default DayView
+export default DayView;

@@ -1,4 +1,4 @@
-import * as React from 'react'
-import Calendar from './calendar'
+import * as React from 'react';
+import Calendar from './calendar';
 
-export { Calendar }
+export { Calendar };
