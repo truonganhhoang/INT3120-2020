@@ -2,7 +2,16 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+  },
+  containerModal: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    margin: 20,
+    minHeight: 100,
+    padding: 30
   },
   linearGradient: {
     flexDirection: 'row',
@@ -13,23 +22,17 @@ export default StyleSheet.create({
     backgroundColor: '#1976D2'
   },
   title: {
-    alignContent: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'white'
+    color: '#f0f0f0'
   },
   iconRight: {
     marginRight: 20,
   },
-  item: {
-    backgroundColor: '#F5F5F5',
-    paddingBottom: 10,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    elevation: 5,
-    borderRadius: 10,
+  iconLeft: {
+    paddingStart: 20,
   },
-  item2: {
+  item: {
     flexDirection: 'row',
     backgroundColor: '#F5F5F5',
     marginVertical: 6,
@@ -45,15 +48,6 @@ export default StyleSheet.create({
   number: {
     paddingLeft: 10,
   },
-  containerModal: {
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
-    margin: 20,
-    minHeight: 100,
-    padding: 30
-  },
   viewModal: {
     backgroundColor: '#1976D2',
     padding: 10,
@@ -63,7 +57,7 @@ export default StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center'
   },
-  lession: {
+  lession:{
     fontWeight: 'bold',
     fontSize: 20,
     padding: 10,

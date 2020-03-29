@@ -1,7 +1,7 @@
 const learn = [
     {
         "id": 1,
-        "name": "Contracsts",
+        "name": "Contracts",
         "number": 12,
         "sourceImage": "https://lh3.googleusercontent.com/SysIFSMFB2NNuURNG4WfMHIxpWIotUTMQbRqmhia2gcsXsN-iRfE-Dr67ciJ5P3kFpM0sZ-GRWVjexEFkrruvezE02QWZy-3of9rDYED-yMQgdpQUa4P8MNlAmrhMYxh1m06zTp2i9rohJub0yvXa-UbjLiL5pTHFsmsIukOmjidVNh0bk1rMhS7Tw4mQgs6iE2qfHKOB4Ek7nXUj7APtOV1FeuwDYcSXFjsDcf02p6eTAOk9Y1s3dFFzZMu83hzO6Gj02O0jF9meVuHjqsz0PoVg33NmUTFzvre_h-BD2j6-StnP8FPLm867NSZaUDVbYKCyqMSWO9fjYAgofpl_p0p3LAF5_FrZJSsjfa1WYedRzjVTLYDlSjkNfkMk3kyt4470Y4LN2Obw-VOMNButNYdKLQ_K79rXqHDZS6ceFCWFHNZHrAoB48YwRHWeIWZMVqFvOlxBNYIhkiTNwiscoD4AMD1VbhGfbFA8KO7G7We2mYOaETOOyOgF_IUmsteRbqggJfPW3DHIXKp5q1xwoU6dsd92feUZN_cbviK86_tTCHzd4VcOB39EU3icJ0J-025rpOTrvZECwYhCTymdCOM0zGQF8lnQZkJ89N7N-tuAVVLYLrgeo8UoPZvMDTfKSG1WcQ3pMrrPl7EMz13nX0ae27467bXLauomP9edSten3pA2MRRrrCJV-_KaQ=w645-h451-no",
     },
