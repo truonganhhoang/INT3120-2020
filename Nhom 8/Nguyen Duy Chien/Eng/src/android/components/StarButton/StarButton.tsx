@@ -1,20 +1,18 @@
-import React from 'react'; 
-import { Button, Icon } from 'react-native-elements';  
+import React from 'react';
+import { Button, Icon } from 'react-native-elements';
 
 const StarButton = (props: { navigation?: any }) => {
-  const { navigation } = props; 
+  const { navigation } = props;
   const onPress = () => {
-    navigation.navigate('FavoriteScreen'); 
+    navigation.navigate('FavoriteScreen');
   }
-  return(
-    <Button icon={
-      <Icon 
-        name="star"
-        type='font-awesome'
-        color='#f50'
-        onPress={onPress}
-      />
-    }/>
+  return (
+    <Icon
+      name="star"
+      type='font-awesome'
+      color='white'
+      onPress={onPress}
+    />
   )
 }
 
