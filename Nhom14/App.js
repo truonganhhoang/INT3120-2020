@@ -1,50 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import CategoryListItem from './components/CategoryListItem'
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.viewTitle} >
-        <Text style={styles.textTitle}>THI TOEIC - TLAT</Text>
-      </View>
-      
-      <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-        <CategoryListItem/>
-      </ScrollView>
-      
-    </View>
-  );
-}
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#d2d6d9',
-    alignItems: 'center',
-  },
-  scrollview:{
-    width: '100%',
-    paddingLeft:16,
-    paddingRight:16
-  },
-  viewTitle: {
-    width:'100%',
-    paddingTop:50,
-    paddingBottom:20,
-    backgroundColor: '#0c87cf',
-    alignItems:'center'
-  },
-  textTitle: {
-    textTransform: 'uppercase',
-    fontSize: 20,
-    color:'white'
+import Home from './Screens/Home';
+import Word from './Screens/Word';
+
+const Navigator = createStackNavigator({
+  Home: { screen: Home },
+  Word: { screen: Word },
+},
+{
+  defaultNavigationOptions: {
+    headerShown: false
   }
-});
+},
+);
+
+const App = createAppContainer(Navigator);
+
+export default App;

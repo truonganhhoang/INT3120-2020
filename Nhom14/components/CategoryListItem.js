@@ -1,28 +1,76 @@
-import React from 'react'
+import React,{Component} from 'react'
+import {ListItem} from 'react-native-elements'
 import{
     Text,
+    Image,
     View,
     StyleSheet
 } from 'react-native'
 
-export default function CategoryListItem(props){
-    return (
-    <View style={styles.item}>
-        <Text>ITEM</Text>
-    </View>
-    );
+const list = [
+    {
+      title: 'Từ vựng Toeic',
+      icon: 'assignment'
+    },
+    {
+      title: 'Part I',
+      icon: 'school'
+    },
+    {
+        title: 'Part II',
+        icon: 'school'
+    },
+    {
+        title: 'Part III',
+        icon: 'school'
+    },
+    {
+        title: 'Part IV',
+        icon: 'school'
+    },
+    {
+        title: 'Part V',
+        icon: 'school'
+    },
+    {
+        title: 'Câu yêu thích',
+        icon: 'star'
+    },
+    {
+        title: 'Câu làm gần đây',
+        icon: 'timelapse'
+    },
+    {
+        title: 'Phần mềm học tiếng anh',
+        icon: 'laptop'
+    },
+    {
+        title: 'Cài đặt',
+        icon: 'settings'
+    }
+  ]
+
+export default class CategoryListItem extends Component{
+    render(){
+        const { navigate } = this.props.navigation;
+        return (
+            <View>
+            {
+                list.map((item, i) => (
+                <ListItem
+                    onPress={()=> navigate(
+                        'Word',{name:'Word'}
+                    )}
+                    key={i}
+                    title={item.title}
+                    leftIcon={{ name: item.icon }}
+                    bottomDivider
+                    chevron
+                />
+                ))
+            }
+            </View>
+          )
+    }
 }
 
-const styles = StyleSheet.create({
-    item: {
-        backgroundColor: 'white',
-        marginTop: 8,
-        marginBottom: 8,
-        paddingTop:20,
-        paddingBottom:20,
-        alignItems:'center',
-        width:'100%',
-        borderRadius:4,
-        
-    }
-});
