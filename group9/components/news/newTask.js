@@ -78,12 +78,11 @@ class NewTask extends React.Component {
               name="md-checkbox-outline"
               size={30}
               style={{ paddingRight: 20 }}
-              onChangeText={(text) => {
-                this.setState({ name: text })
-                console.log(this.state.name)
-              }}
             />
           }
+              onChangeText={(text) => {
+                this.setState({ name: text })
+              }}
         />
         <View style={{ padding: 10 }} />
         <View style={{ flexDirection: 'row' }}>

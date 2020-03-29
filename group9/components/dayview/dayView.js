@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import TouchableScale from 'react-native-touchable-scale'
 import { Icon } from 'react-native-elements'
@@ -22,13 +22,29 @@ class DayView extends React.Component {
       { start: '9:00', end: '11:00', lesson: 'The Duc' },
       { start: '13:00', end: '15:00', lesson: 'Toan' },
       { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
+      { start: '15:00', end: '17:00', lesson: 'Van' },
     ],
   }
 
   render() {
     return (
       <View style={styles.contructor}>
-        {this.state.schedule.map((item, i) => (
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
+        {this.state.schedule.map((item, i) => {return (
           <ListItem
             key={i}
             Component={TouchableScale}
@@ -43,7 +59,8 @@ class DayView extends React.Component {
             chevron
             style={styles.listItem}
           />
-        ))}
+        )})}
+      </ScrollView>
       </View>
     )
   }
