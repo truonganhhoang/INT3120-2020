@@ -1,7 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, Text, StatusBar } from 'react-native';
+import { View, StyleSheet, Text, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { getStatusBarHeight } from '../utils/StatusBar';
+
+const ReverseIcon = () => {
+  return (
+    <Animated.View>
+      
+    </Animated.View>
+  )
+}
 
 const Navigation = () => {
   return (
@@ -16,6 +24,7 @@ const styles = StyleSheet.create({
   navContainer: {
     flexDirection: 'row',
     backgroundColor: '#00BCD4',
+    alignItems: 'flex-end',
     paddingTop: getStatusBarHeight()
   },
   navIcon: {
@@ -27,12 +36,11 @@ const styles = StyleSheet.create({
   }, 
   navHeader: {
     flex: 6,
-    fontSize: 24,
+    fontSize: 20,
     color: '#ffffff',
     fontWeight: '600',
     height: 50,
-    paddingTop: 10,
-    letterSpacing: 1
+    paddingTop: 11
   }
 })
 
