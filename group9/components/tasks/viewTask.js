@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Header } from 'react-native-elements';
+import { getTasks } from '../firebaseApi/task'
 
 class ViewTask extends React.Component {
   render() {
+    console.log(getTasks());
     return (
       <View style={{ flex: 1 }}>
         <Header

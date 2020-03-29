@@ -1,16 +1,19 @@
 import firebase from './firebaseInit';
 
-export function getTasks(uid) {
-  const preObject = document.getElementById('task');
-
-  const data = firebase.firestore().collection(`tasks/${uid}`).get() | [];
-  console.log(data);
+const getTasks = () => {
+  const uid = firebase.auth().currentUser.uid;
+  const data =
+    firebase
+      .firestore()
+      .collection(`tasks/${uid}/listTasks`)
+      .get() | [];
   return data;
-}
+};
 
-export function addTask(uid, task) {
-  console.log(uid, task);
-  var myRef = firebase.firestore().collection(`tasks/${uid}/${task.name}`);
+const addTask = (task) => {
+  console.log(task);
+  const uid = firebase.auth().currentUser.uid;
+  var myRef = firebase.firestore().collection(`tasks/${uid}/listTasks`);
 
   var newData = {
     name: task.name,
@@ -19,6 +22,7 @@ export function addTask(uid, task) {
     date: task.date,
     description: task.description,
   };
+  return Promise.resolve().then(() => myRef.doc().set(newData));
+};
 
-  myRef.add(newData);
-}
+export { getTasks, addTask };

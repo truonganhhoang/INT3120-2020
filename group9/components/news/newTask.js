@@ -8,8 +8,6 @@ import { addTask } from '../firebaseApi/task';
 class NewTask extends React.Component {
   constructor(props) {
     super(props);
-    this.user_id = this.props;
-    console.log(this.user_id);
   }
 
   state = {
@@ -45,7 +43,7 @@ class NewTask extends React.Component {
       date: this.state.date,
       description: '',
     };
-    addTask(this.user_id, task);
+    addTask(task);
   };
 
   render() {

@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import * as FirebaseApi from './firebaseApi';
+import firebase from './firebaseApi/firebaseInit';
 
 class LoadingScreen extends Component {
   constructor(props) {
     super(props);
-    this.firebase_auth = FirebaseApi.Auth();
   }
   componentDidMount() {
-    if (this.firebase_auth.checkIfLoggedIn()) {
-      this.props.navigation.navigate('DashboardScreen');
-    } else {
-      this.props.navigation.navigate('LoginScreen');
-    }
+    this.checkIfLoggedIn();
   }
+
+  checkIfLoggedIn = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.props.navigation.navigate('DashboardScreen');
+      } else {
+        this.props.navigation.navigate('LoginScreen');
+      }
+    });
+  };
 
   render() {
     return (
