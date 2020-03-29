@@ -10,39 +10,25 @@ import rightArrow from '../assets/right-arrow.png'
 import WordItem  from '../components/WordItem'
 
 export default function WordListItem (props){
-    const {words} = props;
+    //console.log("okok",props.kanji);
+    const {kanji} = props; 
     return (
         <TouchableOpacity activeOpacity={0.5}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.header}>
-                        <Text style={styles.title}>{words.name}</Text>
+    <Text style={styles.title}>{kanji?kanji.item.groupName:"Kanji"}</Text>
                         <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
                     </View>
                     <View style={styles.listItem}>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
-                        <WordItem/>
+                        {
+                            kanji?kanji.item.kanjiList.map((object)=>{
+                                return(
+                                    <WordItem text={object.kanji}/>
+                                )
+                            }):""
+                        }
+                   
                     </View>
                 </View>
             </View>

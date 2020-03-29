@@ -6,10 +6,17 @@ import {
   createAppContainer
 } from 'react-navigation'
 import AppNavigator from './AppNavigator'
+import AddData from './screens/Adddata';
+import {decode, encode} from 'base-64'
+
+if (!global.btoa) {  global.btoa = encode }
+
+if (!global.atob) { global.atob = decode }
 const AppContainer  =  createAppContainer(AppNavigator);
 export default class App extends React.Component {
   
   render(){
+    //return(<AddData/>)
     return (
       <AppContainer/>
     );

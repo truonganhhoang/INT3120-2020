@@ -6,7 +6,9 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
-import WordsListItem from '../components/WordListItem'
+import firebase from './../config/firebase';
+import WordsListItem from '../components/WordListItem';
+const db = firebase.firestore();
 export default class Category extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
@@ -24,27 +26,39 @@ export default class Category extends React.Component {
   constructor(props){
     super(props);
       this.state = {
-        wordsList: [
-          {id: 1, name: 'Kanji cơ bản 1'},
-          {id: 2, name: 'Kanji cơ bản 2'},
-          {id: 3, name: 'Số đếm'},
-          {id: 4, name: 'Kanji cơ bản 3'},
-          {id: 5, name: 'Kanji các bộ'},
-          {id: 6, name: 'Kanji cơ bản 4'},
-          {id: 7, name: 'Kanji cơ bản 5'},
-          {id: 8, name: 'Kanji về tính từ 1'},
-          {id: 9, name: ' Kanji về động từ'},
-          {id: 10, name: 'Kanji về thời gian'},
-        ]
+        lsGroup:[]
       }
   }
+  componentDidMount = ()=>{
+    db.collection("kanjiProject").get().then((data, index)=>{
+      data.docs.forEach(doc => {console.log(doc.data(),'\n-------------------', index)})
+    })
+    var docRef = db.collection("kanjiProject").doc("data");
+    docRef.get().then((doc)=>{
+      if (doc.exists) {
+          let data = doc.data();
+          this.setState({ lsGroup: data.kanjiGroup})
+          
+      } else {
+          console.log("No such document!");
+      }
+    }).catch((error)=> {
+      console.log("Error getting document:", error);
+    }); 
+  }
   render(){
+    //if(this.state)
+    //console.log(JSON.stringify(this.state))
     return (
        <View style={styles.container}>
           <FlatList
-              data={this.state.wordsList}
-              renderItem = {({item}) => 
-            <WordsListItem words={item}/>
+              data={this.state.lsGroup}
+              renderItem = {(obj) =>{
+
+                return <WordsListItem kanji={obj}/>
+
+
+              } 
           }
           keyExtractor= {item => `${item.id}`}
         />
