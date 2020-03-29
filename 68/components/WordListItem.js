@@ -4,11 +4,13 @@ import {
     Text,
     View,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    YellowBox
 } from 'react-native'
 import rightArrow from '../assets/right-arrow.png'
 import WordItem  from '../components/WordItem'
 
+YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 export default function WordListItem (props){
     //console.log("okok",props.kanji);
     const {kanji} = props; 
@@ -22,11 +24,12 @@ export default function WordListItem (props){
                     </View>
                     <View style={styles.listItem}>
                         {
-                            kanji?kanji.item.kanjiList.map((object)=>{
+                            kanji?kanji.item.kanjiList.map((object, index)=>{
+                                console.log(index)
                                 return(
-                                    <WordItem text={object.kanji}/>
+                                    <WordItem key={index} text={object.kanji}/>
                                 )
-                            }):""
+                            }):<Text></Text>
                         }
                    
                     </View>

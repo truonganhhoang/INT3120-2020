@@ -1,10 +1,10 @@
 import React from 'react';
 import { 
-  StyleSheet
+  StyleSheet,YellowBox
 } from 'react-native';
 import {
   createAppContainer
-} from 'react-navigation'
+} from 'react-navigation';
 import AppNavigator from './AppNavigator'
 import AddData from './screens/Adddata';
 import {decode, encode} from 'base-64'
@@ -12,6 +12,8 @@ import {decode, encode} from 'base-64'
 if (!global.btoa) {  global.btoa = encode }
 
 if (!global.atob) { global.atob = decode }
+YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
+
 const AppContainer  =  createAppContainer(AppNavigator);
 export default class App extends React.Component {
   

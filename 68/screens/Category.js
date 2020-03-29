@@ -30,9 +30,9 @@ export default class Category extends React.Component {
       }
   }
   componentDidMount = ()=>{
-    db.collection("kanjiProject").get().then((data, index)=>{
-      data.docs.forEach(doc => {console.log(doc.data(),'\n-------------------', index)})
-    })
+    // db.collection("kanjiProject").get().then((data, index)=>{
+    //   data.docs.forEach(doc => {console.log(doc.data(),'\n-------------------', index)})
+    // })
     var docRef = db.collection("kanjiProject").doc("data");
     docRef.get().then((doc)=>{
       if (doc.exists) {
@@ -53,14 +53,14 @@ export default class Category extends React.Component {
        <View style={styles.container}>
           <FlatList
               data={this.state.lsGroup}
-              renderItem = {(obj) =>{
+              renderItem = {(obj, index) =>{
 
-                return <WordsListItem kanji={obj}/>
+                return <WordsListItem kanji={obj} key={index}/>
 
 
               } 
           }
-          keyExtractor= {item => `${item.id}`}
+          keyExtractor= {(obj, index) => `${index}`}
         />
        </View>
     );
