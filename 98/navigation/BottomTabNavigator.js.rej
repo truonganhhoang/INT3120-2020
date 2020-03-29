@@ -1,9 +1,0 @@
-diff a/98/navigation/BottomTabNavigator.js b/98/navigation/BottomTabNavigator.js	(rejected hunks)
-@@ -14,6 +14,7 @@
-         return (
-             <NavigationContainer>
-                 <Tab.Navigator
-+                    initialRouteName='Trang chủ'
-                     screenOptions={{
-                         activeTintColor: '#1e63e9',
-                     }}
