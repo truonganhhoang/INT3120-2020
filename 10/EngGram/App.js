@@ -45,6 +45,7 @@ const App: () => React$Node = () => {
                 Suphit phommachan{'\n'}
                 Cao Quy Dang{'\n'}
                 Nguyen Xuan Duong
+                Arm
               </Text>
             </View>
             
