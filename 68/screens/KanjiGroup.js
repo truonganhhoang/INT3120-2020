@@ -6,10 +6,10 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
-import firebase from './../config/firebase';
+import firebase from '../config/firebase';
 import WordsListItem from '../components/WordListItem';
 const db = firebase.firestore();
-export default class Category extends React.Component {
+export default class kanjiGroup extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
         title: navigation.getParam('categoryName'),
@@ -55,7 +55,9 @@ export default class Category extends React.Component {
               data={this.state.lsGroup}
               renderItem = {(obj, index) =>{
 
-                return <WordsListItem kanji={obj} key={index}/>
+                return <WordsListItem kanji={obj} key={index} 
+                onPress={() => navigation.navigate('KanjiLearning')}
+                />
 
 
               } 

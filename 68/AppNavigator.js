@@ -2,14 +2,18 @@ import React from  'react'
 import {
     createStackNavigator
 } from 'react-navigation-stack'
-import Categories from './screens/Categories'
-import Category from './screens/Category'
+import Levels from './screens/Levels'
+import KanjiGroup from './screens/KanjiGroup'
+import KanjiLearning from './screens/KanjiLearning'
 const Appnavigator = createStackNavigator({
-    Categories: {
-        screen: Categories
+    Levels: {
+        screen: Levels
     },
-    Category: {
-        screen: Category
+    KanjiGroup: {
+        screen: KanjiGroup
+    },
+    KanjiLearning: {
+        screen: KanjiLearning
     }
 })
 export default Appnavigator;

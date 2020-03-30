@@ -5,7 +5,7 @@ import {
   View 
 } from 'react-native';
 import CategoryListItem from '../components/CategoryListItem'
-export default class Categories extends React.Component {
+export default class Levels extends React.Component {
         static navigationOptions = {
             title: 'Chọn Level',
             headerTitleStyle: {
@@ -32,8 +32,8 @@ export default class Categories extends React.Component {
       <View>
           <FlatList 
             data={categories}
-            renderItem = {({item}) => <CategoryListItem category={item} onPress={() => navigation.navigate('Category', {
-              categoryName: item.name
+            renderItem = {({item}) => <CategoryListItem level={item} onPress={() => navigation.navigate('KanjiGroup', {
+              kanjiGroupName: item.name
             })}/>}
             keyExtractor= {item => `${item.id}`}
             contentContainerStyle={styles.container}
