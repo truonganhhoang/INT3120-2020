@@ -50,9 +50,15 @@ export default class Word extends React.Component{
     };
 
     keyExtractor = (item, index) => index.toString()
+    
+    _onPress = (item) => {
+      this.props.navigation.navigate(
+        'NewWordList', {name:'NewWordList'}
+    )}
 
     renderItem = ({ item }) => (
     <ListItem
+        onPress = {() => this._onPress(item)}
         style={styles.listitem}
         title={item.name}
         subtitle={item.subtitle}
