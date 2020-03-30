@@ -8,7 +8,9 @@ import HomeSettingScreen from '../Containers/HomeSettingScreen'
 import HomeUpdateScreen from '../Containers/HomeUpdateScreen'
 import PickNewWordScreen from '../Containers/PickNewWordScreen'
 import ChangeLanguageScreen from '../Containers/ChangeLanguageScreen'
-
+import TopicScreen from '../Containers/TopicScreen'
+import SetNumberWordScreen from '../Containers/SetNumberWordScreen'
+import NotificationScreen from '../Containers/NotificationScreen'
 const AppNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -31,6 +33,15 @@ const AppNavigator = createStackNavigator(
     },
     ChangeLanguageScreen: {
       screen: ChangeLanguageScreen
+    },
+    TopicScreen: {
+      screen: TopicScreen
+    },
+    SetNumberWordScreen: {
+      screen: SetNumberWordScreen
+    },
+    NotificationScreen:{
+      screen: NotificationScreen
     }
   },
   {
