@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grammarandvocabulary/screens/grammar/grammar_detail.dart';
+import 'package:englishlearningapplication/screens/grammar/grammar_detail.dart';
 
 class Sentence {
   String title;
