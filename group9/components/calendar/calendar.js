@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Text, View, Dimensions, TouchableOpacity, Alert, StyleSheet } from 'react-native'
-import { Agenda } from 'react-native-calendars'
-import { Header } from 'react-native-elements'
+import React, { Component } from 'react';
+import { Text, View, Dimensions, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { Agenda } from 'react-native-calendars';
+import { Header } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   item: {
@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-})
+});
 
 export default class Calendar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       items: {
@@ -32,7 +32,7 @@ export default class Calendar extends Component {
         '2020-03-20': [{ name: 'tieng anh', start: '3:00', end: '15:00' }],
       },
       isVisible: true,
-    }
+    };
   }
 
   renderItem(item) {
@@ -43,7 +43,7 @@ export default class Calendar extends Component {
       >
         <Text>{item.name}</Text>
       </TouchableOpacity>
-    )
+    );
   }
 
   renderEmptyDate() {
@@ -51,11 +51,11 @@ export default class Calendar extends Component {
       <View style={styles.emptyDate}>
         <Text>This is empty date!</Text>
       </View>
-    )
+    );
   }
 
   rowHasChanged(r1, r2) {
-    return r1.name !== r2.name
+    return r1.name !== r2.name;
   }
 
   render() {
@@ -79,6 +79,6 @@ export default class Calendar extends Component {
           rowHasChanged={this.rowHasChanged.bind(this)}
         />
       </View>
-    )
+    );
   }
 }
