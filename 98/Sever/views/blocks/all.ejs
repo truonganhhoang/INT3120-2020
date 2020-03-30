@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="en">
+<%- include('head'); -%>
+<body>
+    <div class="dashboard-main-wrapper">
+        <%- include('navbar'); -%>
+        <%- include('slidebar'); -%>
+
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <%- include('pageHead'); -%>
+              
+ 
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        
+                            <%- body %>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <%- include('footer'); -%>
+        </div>
+    </div>
+     <%- include('javascript'); -%>
+</body>
+ 
+</html>
