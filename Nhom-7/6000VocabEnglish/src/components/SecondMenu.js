@@ -7,7 +7,10 @@ export class SecondMenu extends Component {
   render() {
     return (
       <View style={[styles.container, this.props.style]}>
-        <TouchableOpacity style={styles.containIcon}>
+        <TouchableOpacity
+          style={styles.containIcon}
+          onPress={this.props.gotoSlide}
+        >
           <Image
             source={require("../assets/icon/slideshow.png")}
             style={styles.icon}
@@ -19,7 +22,10 @@ export class SecondMenu extends Component {
             borderBottomWidth: 1
           }}
         />
-        <TouchableOpacity style={styles.containIcon}>
+        <TouchableOpacity
+          style={styles.containIcon}
+          onPress={this.props.gotoPractice}
+        >
           <Image
             source={require("../assets/icon/edit.png")}
             style={styles.icon}
@@ -31,7 +37,10 @@ export class SecondMenu extends Component {
             borderBottomWidth: 1
           }}
         />
-        <TouchableOpacity style={styles.containIcon}>
+        <TouchableOpacity
+          style={styles.containIcon}
+          onPress={this.props.gotoExam}
+        >
           <Image
             source={require("../assets/icon/medal.png")}
             style={styles.icon}

@@ -233,7 +233,7 @@ class Question extends Component {
             keyExtractor={(item, index) => index.toString()}
             contentContainerStyle={
               this.questionData.options.length < 4
-                ? { width: "60%", alignSelf: "center" }
+                ? { width: "50%", alignSelf: "center" }
                 : null
             }
           />
@@ -327,7 +327,7 @@ export default class ExamScreen extends Component {
 
   static navigationOptions = ({ route }) => {
     return {
-      // title: route.params.categoryTitle,
+      title: route.params.titleTopic,
       headerTitleStyle: StyleCommon.StyleHeaderCommon.headerTitle,
       headerTitleAlign: "center"
     };
@@ -440,11 +440,6 @@ const styles = StyleSheet.create({
   wordText: {
     fontSize: 30
   },
-  // imagesContainer: {
-  //   flex: 1,
-  //   margin: 30,
-  //   backgroundColor: "lightblue"
-  // },
   buttonContainer: {
     marginTop: 15
   }

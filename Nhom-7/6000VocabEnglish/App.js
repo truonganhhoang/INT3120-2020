@@ -6,33 +6,41 @@ import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
 import ExamScreen from "./src/screens/ExamScreen";
+import DetailTopicScreen from "./src/screens/DetailTopicScreen";
+import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
 
 const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
-const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
+      <HomeStack.Navigator initialRouteName="Home">
+        <HomeStack.Screen name="Home" component={HomeScreen} />
+        <HomeStack.Screen
           name="Category"
           component={CategoryScreen}
           options={CategoryScreen.navigationOptions}
         />
-        <Stack.Screen
+        <HomeStack.Screen
           name="Favorite"
           component={FavoriteScreen}
           options={FavoriteScreen.navigationOptions}
         />
-        <Stack.Screen
-          name="Exam"
-          component={ExamScreen}
-          options={ExamScreen.navigationOptions}
-        />
-      </Stack.Navigator>
+        <HomeStack.Screen
+          name="DetailTopic"
+          component={DetailTopicScreen}
+          options={DetailTopicScreen.navigationOptions}
+        ></HomeStack.Screen>
+        <HomeStack.Screen
+          name="SlideshowByTopic"
+          component={SlideshowTopicScreen}
+          options={SlideshowTopicScreen.navigationOptions}
+        ></HomeStack.Screen>
+        <HomeStack.Screen name = "Exam" component={ExamScreen} options={ExamScreen.navigationOptions}/>
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 }
