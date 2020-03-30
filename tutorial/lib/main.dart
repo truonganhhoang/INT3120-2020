@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Startup Name Generator',
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: RandomWords(),
     );
   }
@@ -75,16 +78,16 @@ class RandomWordsState extends State<RandomWords> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+        actions : <Widget>[
+        IconButton(icon: Icon(Icons.list),onPressed: _pushSaved),
         ],
       ),
       body: _buildSuggestions(),
     );
   }
   // #enddocregion RWS-build
-
-  void _pushSaved() {
+  // #docregion RWS-var
+   void _pushSaved() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         // Add 20 lines from here...
@@ -117,6 +120,8 @@ class RandomWordsState extends State<RandomWords> {
   // #docregion RWS-var
 }
 // #enddocregion RWS-var
+
+
 
 class RandomWords extends StatefulWidget {
   @override
