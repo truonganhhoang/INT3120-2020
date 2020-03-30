@@ -6,6 +6,8 @@ import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
 import DetailTopicScreen from "./src/screens/DetailTopicScreen";
+import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
+
 const GLOBAL = require("./src/utils/Globals");
 
 //create Stack
@@ -30,6 +32,11 @@ function App() {
           name="DetailTopic"
           component={DetailTopicScreen}
           options={DetailTopicScreen.navigationOptions}
+        ></HomeStack.Screen>
+        <HomeStack.Screen
+          name="SlideshowByTopic"
+          component={SlideshowTopicScreen}
+          options={SlideshowTopicScreen.navigationOptions}
         ></HomeStack.Screen>
       </HomeStack.Navigator>
     </NavigationContainer>

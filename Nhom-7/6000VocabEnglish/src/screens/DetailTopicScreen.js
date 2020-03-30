@@ -38,26 +38,30 @@ export class DetailTopicScreen extends Component {
   fetchData() {
     const { titleTopic } = this.props.route.params;
     console.log(titleTopic);
-
     let data = [];
-    db.collection("/topic/")
-      .doc("people")
-      .collection("people")
-      .doc(titleTopic)
-      .collection(titleTopic)
-      .get()
-      .then(docs => {
-        docs.forEach(doc => {
-          // console.log(doc.id, "=>", doc.data());
-          data.push(doc.data());
-          // console.log(data);
-        });
 
-        this.setState({ listWord: data, isLoading: !this.state.isLoading });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
+    if (titleTopic !== undefined) {
+      db.collection("/topic/")
+        .doc("people")
+        .collection("people")
+        .doc(titleTopic)
+        .collection(titleTopic)
+        .get()
+        .then(docs => {
+          docs.forEach(doc => {
+            // console.log(doc.id, "=>", doc.data());
+            data.push(doc.data());
+            // console.log(data);
+          });
+
+          this.setState({ listWord: data, isLoading: !this.state.isLoading });
+        })
+        .catch(err => {
+          console.log("Error getting documents", err);
+        });
+    } else {
+      this.setState({ isLoading: false });
+    }
   }
 
   playAudioSpelling(word) {

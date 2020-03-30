@@ -16,10 +16,12 @@
     "@react-navigation/stack": "^5.1.1",
     "base-64": "^0.1.0",
     "expo": "~36.0.0",
+    "expo-av": "~8.0.0",
     "firebase": "^7.12.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-flip-component": "^1.0.6",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-loading-spinner-overlay": "^1.1.0",
     "react-native-progress-bar-animated": "^1.0.6",
@@ -30,8 +32,7 @@
     "react-native-sound": "^0.11.0",
     "react-native-sound-player": "^0.10.4",
     "react-native-tab-view": "^2.13.0",
-    "react-native-web": "~0.11.7",
-    "expo-av": "~8.0.0"
+    "react-native-web": "~0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

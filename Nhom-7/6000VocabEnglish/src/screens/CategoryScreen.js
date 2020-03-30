@@ -44,11 +44,38 @@ export default class CategoryScreen extends Component {
         <OverviewTopicItem
           item={item}
           handleGotoDetail={this.handleGotoDetail(item.topicName)}
+          gotoSlide={this.gotoSlide(item.topicName)}
+          gotoExam={this.gotoExam()}
+          gotoPractice={this.gotoPractice()}
         ></OverviewTopicItem>
       </View>
     );
   };
 
+  gotoSlide(topicName) {
+    return () => {
+      console.log("Go to slide show!");
+      this.props.navigation.navigate("SlideshowByTopic", {
+        titleTopic: topicName
+      });
+    };
+  }
+  gotoExam(topicName) {
+    return () => {
+      console.log("Go to slide show!");
+      this.props.navigation.navigate("SlideshowByTopic", {
+        titleTopic: topicName
+      });
+    };
+  }
+  gotoPractice(topicName) {
+    return () => {
+      console.log("Go to slide show!");
+      this.props.navigation.navigate("SlideshowByTopic", {
+        titleTopic: topicName
+      });
+    };
+  }
   handleGotoDetail(topicName) {
     // console.log("TItle" + topicName);
     return () => {
@@ -65,22 +92,24 @@ export default class CategoryScreen extends Component {
     // console.log(categoryId);
 
     let data = [];
-    db.collection("/topic/")
-      .doc(categoryId)
-      .collection(categoryId)
-      .get()
-      .then(docs => {
-        docs.forEach(doc => {
-          // console.log(doc.id, "=>", doc.data());
-          data.push(doc.data());
-          // console.log(data);
-        });
+    if (categoryId !== undefined) {
+      db.collection("/topic/")
+        .doc(categoryId)
+        .collection(categoryId)
+        .get()
+        .then(docs => {
+          docs.forEach(doc => {
+            // console.log(doc.id, "=>", doc.data());
+            data.push(doc.data());
+            // console.log(data);
+          });
 
-        this.setState({ topicItems: data, isLoading: !this.state.isLoading });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
+          this.setState({ topicItems: data, isLoading: !this.state.isLoading });
+        })
+        .catch(err => {
+          console.log("Error getting documents", err);
+        });
+    }
   }
   render() {
     const { categoryId } = this.props.route.params;

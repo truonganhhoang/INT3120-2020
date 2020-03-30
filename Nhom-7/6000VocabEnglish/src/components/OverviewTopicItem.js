@@ -49,7 +49,12 @@ export class OverviewTopicItem extends Component {
             <Text style={styles.description}>{description}</Text>
           </View>
         </View>
-        <SecondMenu style={styles.secondMenu}></SecondMenu>
+        <SecondMenu
+          style={styles.secondMenu}
+          gotoSlide={this.props.gotoSlide}
+          gotoPractice={this.props.gotoPractice}
+          gotoExam={this.props.gotoExam}
+        ></SecondMenu>
         <View style={styles.viewBtnDeail}>
           <TouchableOpacity
             style={styles.btnDetail}
