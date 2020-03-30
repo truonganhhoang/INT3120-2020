@@ -49,9 +49,18 @@ export class OverviewTopicItem extends Component {
             <Text style={styles.description}>{description}</Text>
           </View>
         </View>
-        <SecondMenu style={styles.secondMenu}></SecondMenu>
+        <SecondMenu
+          style={styles.secondMenu}
+          gotoSlide={this.props.gotoSlide}
+          gotoPractice={this.props.gotoPractice}
+          gotoExam={this.props.gotoExam}
+        ></SecondMenu>
         <View style={styles.viewBtnDeail}>
-          <TouchableOpacity style={styles.btnDetail} activeOpacity={0.9}>
+          <TouchableOpacity
+            style={styles.btnDetail}
+            activeOpacity={0.9}
+            onPress={this.props.handleGotoDetail}
+          >
             <Text style={styles.textBtnDetail}>Chi tiết</Text>
           </TouchableOpacity>
         </View>
@@ -71,7 +80,7 @@ const styles = StyleSheet.create({
   childContainer: {
     borderRadius: 20,
     backgroundColor: "#fff",
-    height: "85%",
+    height: 420,
     justifyContent: "space-around",
     margin: 20,
     padding: 12,
@@ -96,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    bottom: 50,
+    top: 430,
     left: 15,
     width: "100%"
   },
