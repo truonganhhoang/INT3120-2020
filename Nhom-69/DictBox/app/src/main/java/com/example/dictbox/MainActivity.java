@@ -20,12 +20,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     MenuItem menuSetting;
+    Toolbar toolbar;
+
+    DBHelper dbHelper;
 
     DictionaryFragment dictionaryFragment;
     BookmarkFragment bookmarkFragment;
@@ -34,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        dbHelper = new DBHelper(this);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,
@@ -104,23 +112,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String id = Global.getState(this, "dic_type");
         if (id != null) {
             onOptionsItemSelected(menu.findItem(Integer.valueOf(id)));
-        } else
-            dictionaryFragment.resetDataSource(DB.getData(R.id.action_eng_vi));
+        } else {
+            ArrayList<String> source = dbHelper.getWord(R.id.action_eng_vi);
+            dictionaryFragment.resetDataSource(source);
+        }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (R.id.action_settings == id)
+            return true;
         Global.saveState(this, "dic_type", String.valueOf(id));
-        String[] source = DB.getData(id);
+        ArrayList<String> source = dbHelper.getWord(id);
 
         if (id == R.id.action_eng_vi) {
             dictionaryFragment.resetDataSource(source);
-            menuSetting.setIcon(getDrawable(R.drawable.eng_vi));
+            menuSetting.setIcon(R.drawable.eng_vi);
         } else if (id == R.id.action_vi_eng) {
             dictionaryFragment.resetDataSource(source);
-            menuSetting.setIcon(getDrawable(R.drawable.vi_eng));
+            menuSetting.setIcon(R.drawable.vi_eng);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -131,7 +143,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_bookmark) {
-            goToFragment(bookmarkFragment, false);
+            String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
+            if (activeFragment.equals(BookmarkFragment.class.getSimpleName())) {
+                goToFragment(bookmarkFragment, false);
+            }
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -148,5 +164,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.addToBackStack(null);
         }
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
+        if (activeFragment.equals(BookmarkFragment.class.getSimpleName())) {
+            menuSetting.setVisible(false);
+            toolbar.findViewById(R.id.edit_search).setVisibility(View.GONE);
+            toolbar.setTitle("Bookmark");
+        } else {
+            menuSetting.setVisible(true);
+            toolbar.findViewById(R.id.edit_search).setVisibility(View.VISIBLE);
+            toolbar.setTitle("");
+        }
+        return true;
     }
 }

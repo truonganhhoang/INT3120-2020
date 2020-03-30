@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DictionaryFragment extends Fragment {
@@ -24,6 +25,7 @@ public class DictionaryFragment extends Fragment {
     private  FragmentListener listener;
     ArrayAdapter<String> adapter;
     ListView dictList;
+    private ArrayList<String> mSource = new ArrayList<String>();
 
     public DictionaryFragment() {
         // Required empty public constructor
@@ -44,30 +46,23 @@ public class DictionaryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Button myButton = (Button)view.findViewById(R.id.myBtn);
-//        myButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if (listener!=null){
-//                    listener.onItemClick(value);
-//                }
-//            }
-//        });
+
         dictList = view.findViewById(R.id.dictionaryList);
-        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getListOfWords());
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mSource);
         dictList.setAdapter(adapter);
         dictList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(listener != null){
-                    listener.onItemClick(getListOfWords()[position]);
+                    listener.onItemClick(mSource.get(position));
                 }
             }
         });
     }
 
-    public void resetDataSource(String[] source) {
-        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, source);
+    public void resetDataSource(ArrayList<String> source) {
+        mSource = source;
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mSource);
         dictList.setAdapter(adapter);
     }
 
@@ -80,33 +75,6 @@ public class DictionaryFragment extends Fragment {
                 break;
             }
         }
-    }
-
-    String[] getListOfWords(){
-        String[] source = new String[]{
-                "a"
-                ,"aa"
-                ,"aaa"
-                ,"ash"
-                ,"a"
-                ,"aa"
-                ,"aaa"
-                ,"ash"
-                ,"a"
-                ,"aa"
-                ,"aaa"
-                ,"ash"
-                ,"a"
-                ,"aa"
-                ,"aaa"
-                ,"ash"
-                ,"a"
-                ,"aa"
-                ,"aaa"
-                ,"ash"
-        };
-
-        return source;
     }
 
     @Override

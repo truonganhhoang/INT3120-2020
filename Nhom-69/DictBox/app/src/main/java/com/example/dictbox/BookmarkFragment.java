@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,15 +42,7 @@ public class BookmarkFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Button myButton = (Button)view.findViewById(R.id.myBtn);
-//        myButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if (listener!=null){
-//                    listener.onItemClick(value);
-//                }
-//            }
-//        });
+        setHasOptionsMenu(true);
 
         ListView bookmarkList = (ListView) view.findViewById(R.id.bookmarkList);
         final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), getListOfWords());
@@ -112,5 +106,10 @@ public class BookmarkFragment extends Fragment {
         };
 
         return source;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_clear, menu);
     }
 }
