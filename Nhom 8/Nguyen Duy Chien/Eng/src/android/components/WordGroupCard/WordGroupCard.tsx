@@ -3,9 +3,14 @@ import styles from './styles';
 import { Card, Button, Icon } from 'react-native-elements';  
 import { Text } from 'react-native';
 
-const CardWordGroup = (props: {data?: any}) => {
+const CardWordGroup = (props: {data?: any; navigation?: any}) => {
   const { data } = props; 
-  console.log(data); 
+  const { navigation } = props; 
+
+  const onPress = () => {
+    navigation.navigate('DetailWordGroupScreen', {data: data}); 
+  }
+
   return (
     <Card
       title={data.word_group_name}
@@ -20,6 +25,7 @@ const CardWordGroup = (props: {data?: any}) => {
       <Button
         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
         title='DETAIL'
+        onPress={onPress}
       />
     </Card>
   )

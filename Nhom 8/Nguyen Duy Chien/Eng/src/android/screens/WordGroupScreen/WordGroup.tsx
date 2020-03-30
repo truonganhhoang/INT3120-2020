@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header, Card, Icon } from 'react-native-elements';
-import { View, ScrollView, Text } from 'react-native';
+import { Header } from 'react-native-elements';
+import { View, ScrollView } from 'react-native';
 import { Back } from '../../components/Back';
-import { CardWordGroup } from '../../components/CardWordGroup'; 
+import { WordGroupCard } from '../../components/WordGroupCard'; 
 import styles from './styles'; 
 
 
@@ -21,8 +21,8 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       />
       <ScrollView horizontal={true}>
         {
-          wordGroups.map( e =>
-            <CardWordGroup data={e}/>
+          wordGroups.map( (e: any) =>
+            <WordGroupCard data={e} navigation={navigation}/>
           )
         }
       </ScrollView>

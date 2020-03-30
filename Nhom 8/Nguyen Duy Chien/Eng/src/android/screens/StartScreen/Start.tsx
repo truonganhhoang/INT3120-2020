@@ -23,7 +23,7 @@ const StartScreen = (props: { navigation: any }) => {
         rightComponent={ <StarButton navigation={navigation} />}
       />
       <ScrollView>
-        {Data.topics.map(e =>
+        {Data.topics.map((e: { topic_name: string | number | undefined; topic_img: any; topic_icon: any; vn_name: any; word_groups: any; }) =>
           <CardExtend
             nameCard={e.topic_name}
             imageCard={e.topic_img}

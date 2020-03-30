@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 const StarButton = (props: { navigation?: any }) => {
   const { navigation } = props;

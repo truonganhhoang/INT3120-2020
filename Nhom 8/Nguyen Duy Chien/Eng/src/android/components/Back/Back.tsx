@@ -1,17 +1,25 @@
 import React from 'react';
 import { Icon } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
 
-const Back = (props: {navigation?: any }) => {
+const Back = (props: {navigation?: any; backScreen?: any; color?: any}) => {
   const { navigation } = props;
-  const onPress = () => {
-    navigation.navigate('StartScreen');
+  let { backScreen, color } = props;
+  if ( backScreen == null ) {
+    backScreen = 'StartScreen'
+  } 
+  if ( color == null) {
+    color = '#FFF'
   }
+  
+  const onPress = () => {
+    navigation.navigate(backScreen);
+  }
+  
   return (
     <Icon
       name="arrow-left"
       type='font-awesome'
-      color='#FFF'
+      color={color}
       size={20}
       onPress={onPress}
     />
