@@ -49,13 +49,14 @@ export default class Category extends React.Component {
   render(){
     //if(this.state)
     //console.log(JSON.stringify(this.state))
+    const navigation = this.props.navigation;
     return (
        <View style={styles.container}>
           <FlatList
               data={this.state.lsGroup}
               renderItem = {(obj, index) =>{
 
-                return <WordsListItem kanji={obj} key={index}/>
+                return <WordsListItem kanji={obj} key={index} navigation={navigation}/>
 
 
               } 
