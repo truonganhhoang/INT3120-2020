@@ -13,12 +13,13 @@ import {decode, encode} from 'base-64'
 if (!global.btoa) {  global.btoa = encode }
 
 if (!global.atob) { global.atob = decode }
-YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 
 const AppContainer  =  createAppContainer(AppNavigator);
 export default class App extends React.Component {
   
   render(){
+  
+YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
     //return(<KanjiScreen/>)
     return (
       <AppContainer/>
