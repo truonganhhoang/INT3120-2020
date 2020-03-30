@@ -1,6 +1,6 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { Header } from 'react-native-elements';
 
 const list = [
@@ -53,9 +53,10 @@ export default class Home extends React.Component{
     render(){
         const {navigate} = this.props.navigation;
         return(
+            
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
+                    leftComponent={{ icon: 'menu', color: '#fff'}}
                     centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
                     rightComponent={{ icon: 'home', color: '#fff' }}
                 />
