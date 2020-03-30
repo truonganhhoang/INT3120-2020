@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 class UserScreen extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.user = this.props.navigation.getParam('curUser');
   }
   render() {
@@ -11,10 +11,10 @@ class UserScreen extends Component {
       <View style={styles.container}>
         <Text>{this.user.uid}</Text>
       </View>
-    )
+    );
   }
 }
-export default UserScreen
+export default UserScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
+});

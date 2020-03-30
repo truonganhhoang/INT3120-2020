@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-class ViewExam extends React.Component {
+class NewExam extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>ViewExam</Text>
+        <Text>NewExam</Text>
       </View>
     );
   }
 }
 
-export default ViewExam;
+export default NewExam;

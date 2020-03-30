@@ -1,4 +1,4 @@
-import * as React from 'react'
-import ViewExam from './viewExam'
+import * as React from 'react';
+import ViewExam from './viewExam';
 
-export { ViewExam }
+export { ViewExam };

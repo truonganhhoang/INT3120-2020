@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 import React from 'react'
 import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-native'
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import { addTask } from '../api/task'
+=======
+import React from 'react';
+import { View, Text, Picker, TextInput } from 'react-native';
+import { Header, Input, Button } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { addTask } from '../firebaseApi/task';
+>>>>>>> 12505c6637aa744878c95c19e75f1384845fe423
 
 let widthPhone = Dimensions.get('window').width;
 
 class NewTask extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
     selectedLesson: '',
@@ -16,22 +29,22 @@ class NewTask extends React.Component {
     datePicked: 'Pick a Date',
     date: Date.now(),
     name: '',
-  }
+  };
 
   showDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: true })
-  }
+    this.setState({ isDateTimePickerVisible: true });
+  };
 
   hideDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: false })
-  }
+    this.setState({ isDateTimePickerVisible: false });
+  };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear()
-    this.setState({date: date});
-    this.setState({ datePicked: day })
-    this.hideDateTimePicker()
-  }
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    this.setState({ date: date });
+    this.setState({ datePicked: day });
+    this.hideDateTimePicker();
+  };
 
   createTask = () => {
     let task = {
@@ -39,10 +52,10 @@ class NewTask extends React.Component {
       lesson: this.state.selectedLesson,
       type: this.state.selectedType,
       date: this.state.date,
-      description: "",
-    } 
+      description: '',
+    };
     addTask(task);
-  }
+  };
 
   updateIndex = (selectedIndex) => {
     if (selectedIndex==0) this.props.navigation.navigate('NewLessonScreen');
@@ -85,6 +98,7 @@ class NewTask extends React.Component {
         <View style={{ padding: 10 }} />
         <Input
           placeholder="Set name for Task"
+<<<<<<< HEAD
           leftIcon={
             <Ionicons
               name="md-checkbox-outline"
@@ -95,6 +109,12 @@ class NewTask extends React.Component {
               onChangeText={(text) => {
                 this.setState({ name: text })
               }}
+=======
+          leftIcon={<Ionicons name="md-checkbox-outline" size={30} style={{ paddingRight: 20 }} />}
+          onChangeText={(text) => {
+            this.setState({ name: text });
+          }}
+>>>>>>> 12505c6637aa744878c95c19e75f1384845fe423
         />
         <View style={{ padding: 10 }} />
         <View style={{ flexDirection: 'row' }}>
@@ -155,8 +175,8 @@ class NewTask extends React.Component {
           multiline={true}
         />
       </View>
-    )
+    );
   }
 }
 
-export default NewTask
+export default NewTask;
