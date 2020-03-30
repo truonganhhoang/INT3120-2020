@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
 import FlipComponent from "react-native-flip-component";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import starOutline from "../assets/icon/star-outline.png";
@@ -13,30 +13,38 @@ export class SlideshowTopicItem extends Component {
       isFlipped: false
     };
   }
+  handleOnPress = () => {
+    this.setState({ isFlipped: !this.state.isFlipped });
+  };
   render() {
     return (
       <View>
         <FlipComponent
           isFlipped={this.state.isFlipped}
+          scale={1}
+          rotateDuration={600}
           frontView={
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({ isFlipped: !this.state.isFlipped });
-              }}
-            >
-              <View>
-                <Text style={{ textAlign: "center" }}>Front Side</Text>
+            <TouchableOpacity onPress={this.handleOnPress} activeOpacity={1}>
+              <View style={styles.container}>
+                <Image source={require("../assets/image/face.jpg")} />
               </View>
             </TouchableOpacity>
           }
           backView={
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({ isFlipped: !this.state.isFlipped });
-              }}
-            >
-              <View>
-                <Text style={{ textAlign: "center" }}>Front Side</Text>
+            <TouchableOpacity onPress={this.handleOnPress} activeOpacity={1}>
+              <View style={styles.container}>
+                <Text>Face</Text>
+                <Text>/fai/</Text>
+                <TouchableOpacity
+                  style={styles.iconSpeaker}
+                  onPress={this.props.playSound}
+                >
+                  <Image
+                    style={{ width: 64, height: 64 }}
+                    source={require("../assets/icon/speaker.png")}
+                  />
+                </TouchableOpacity>
+                <Text>mặt</Text>
               </View>
             </TouchableOpacity>
           }
@@ -49,5 +57,13 @@ export class SlideshowTopicItem extends Component {
 export default SlideshowTopicItem;
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {
+    width: 300,
+    height: 420,
+    padding: 12,
+    borderRadius: 20,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
