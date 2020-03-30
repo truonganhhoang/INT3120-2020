@@ -12,7 +12,7 @@ const db = firebase.firestore();
 export default class kanjiGroup extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
-        title: navigation.getParam('categoryName'),
+        title: navigation.getParam('kanjiGroupName'),
         headerTitleStyle: {
           textAlign: 'center',
           color: 'white',
@@ -56,10 +56,9 @@ export default class kanjiGroup extends React.Component {
               data={this.state.lsGroup}
               renderItem = {(obj, index) =>{
 
-                return <WordsListItem kanji={obj} key={index} 
-                onPress={() => navigation.navigate('KanjiLearning')}
+                return <WordsListItem kanji={obj} key={index}
+                navigation={navigation}
                 />
-
               } 
           }
           keyExtractor= {(obj, index) => `${index}`}

@@ -34,12 +34,10 @@ export default class KanjiLearning extends React.Component {
             <Image source={loadBar} style={styles.loadBar}></Image>
          </View>
          <View style={styles.container}>
-           <ScrollView>
               <KanjiLearn/>
               <KanjiLearn/>
               <KanjiLearn/>
               <KanjiLearn/>
-            </ScrollView>
          </View>
        </View>
     );
