@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
   container: {
@@ -33,6 +33,8 @@ export default StyleSheet.create({
     paddingStart: 20,
   },
   item: {
+    flex: 1,
+    width: Dimensions.get("window").width-30,
     flexDirection: 'row',
     backgroundColor: '#F5F5F5',
     marginVertical: 6,
@@ -57,7 +59,7 @@ export default StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center'
   },
-  lession:{
+  lession: {
     fontWeight: 'bold',
     fontSize: 20,
     padding: 10,

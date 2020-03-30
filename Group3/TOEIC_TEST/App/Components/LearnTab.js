@@ -9,7 +9,9 @@ import {
     ScrollView,
     SafeAreaView,
     ImageBackground,
-    Image
+    Image,
+    Dimensions,
+    ToastAndroid
 } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
@@ -35,20 +37,82 @@ export default class LearnTab extends Component {
         this.updateIndex = this.updateIndex.bind(this)
     }
     componentDidMount() {
-        this.setState({ selectedIndex: 0, deviceId: DeviceInfo.getDeviceId() })
+        this.setState({ selectedIndex: 0 })
         this.fetchLession()
     }
     fetchLession = async () => {
-        let data = await requestGET(`${HOST}/lessons/listLesson`)
-        this.setState({ data: data.data })
+        this.setState({ data: [] })
+        let data = await requestGET(`${HOST}/lessons/listLesson/client_id=${DeviceInfo.getDeviceId()}`)
+        this.setState({ data: data.data.list_lessons })
+    }
+    fetchBookmark = async () => {
+        this.setState({ data: [] })
+        let data = await requestGET(`${HOST}/lessons/listLesson?client_id=${DeviceInfo.getDeviceId()}`)
+        this.setState({ data: data.data.list_bookmarks })
+    }
+    fetchRemind = async () => {
+        this.setState({ data: [] })
+        let data = await requestGET(`${HOST}/lessons/listLesson?client_id=${DeviceInfo.getDeviceId()}`)
+        this.setState({ data: data.data.list_reminds })
+    }
+    deleteBookmark = async (id) => {
+        var dataDetele = {
+            client_id: DeviceInfo.getDeviceId(),
+            item_id: id,//id của từ
+            item_type: 2,//từ trong bài học
+            bookmark_type: 1,//ưa thích
+        }
+        var postData = await requestPOST(`${HOST}/bookmarks/deleteBookmark`, dataDetele).then(res => { return res })
+        this.setState({ visibleModal: false })
+        this.fetchBookmark()
+        ToastAndroid.show("Đã xóa đánh dấu", ToastAndroid.SHORT)
+    }
+    deleteRemind = async (id) => {
+        var dataDetele = {
+            client_id: DeviceInfo.getDeviceId(),
+            item_id: id,//id của từ
+            item_type: 2,//từ trong bài học
+            bookmark_type: 2,//ghi nhớ
+        }
+        var postData = await requestPOST(`${HOST}/bookmarks/deleteBookmark`, dataDetele).then(res => { return res })
+        this.setState({ visibleModal2: false })
+        this.fetchRemind()
+        ToastAndroid.show("Đã xóa ghi nhớ", ToastAndroid.SHORT)
+    }
+    bookmark = async (id) => {
+        var newBookmark = {
+            client_id: DeviceInfo.getDeviceId(),
+            item_id: id,//id của từ
+            item_type: 2,//từ trong bài học
+            bookmark_type: 1,//ưa thích
+        }
+        var postData = await requestPOST(`${HOST}/bookmarks/bookmark`, newBookmark).then(res => { return res })
+        this.setState({ visibleModal2: false })
+        ToastAndroid.show("Đã đánh dấu", ToastAndroid.SHORT)
+    }
+    remind = async (id) => {
+        var newRemind = {
+            client_id: DeviceInfo.getDeviceId(),
+            item_id: id,//id của từ
+            item_type: 2,//từ trong bài học
+            bookmark_type: 2,//ghi nhớ
+        }
+        var postData = await requestPOST(`${HOST}/bookmarks/bookmark`, newRemind).then(res => { return res })
+        console.log("post remind: " + postData.status)
+        this.setState({ visibleModal: false })
+        ToastAndroid.show("Đã ghi nhớ", ToastAndroid.SHORT)
     }
     updateIndex(selectedIndex) {
         this.setState({ selectedIndex: selectedIndex })
         if (selectedIndex === 0) {
             this.fetchLession()
         }
-        else if (selectedIndex === 1) this.setState({ data: words })
-        else if (selectedIndex === 2) this.setState({ data: words })
+        else if (selectedIndex === 1) {
+            this.fetchBookmark()
+        }
+        else if (selectedIndex === 2) {
+            this.fetchRemind()
+        }
     }
     renderItem = ({ item, index }) => {
         var url = `${item.thumbnail}`
@@ -70,7 +134,7 @@ export default class LearnTab extends Component {
         )
     }
     renderItem1 = ({ item, index }) => {
-        var url = `${item.sourceImage}`
+        var url = `${item.thumbnail}`
         return (
             <Animatable.View animation='zoomIn' >
                 <TouchableOpacity
@@ -78,14 +142,14 @@ export default class LearnTab extends Component {
                 >
                     <View style={styles.item2}>
                         <View style={{ flexDirection: 'column', justifyContent: "center" }}>
-                            <Image source={require("../Images/Warranty.jpg")}
+                            <Image source={{ uri: url }}
                                 style={{ width: 150, height: 100, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, resizeMode: 'stretch' }}
                             />
                         </View>
-                        <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center' }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.en}</Text>
-                            <Text>[{item.transcription}]</Text>
-                            <Text>{item.vi}</Text>
+                        <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.word}</Text>
+                            <Text>[{item.sound}]</Text>
+                            <Text >{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -93,7 +157,7 @@ export default class LearnTab extends Component {
         )
     }
     renderItem2 = ({ item, index }) => {
-        var url = `${item.sourceImage}`
+        var url = `${item.thumbnail}`
         return (
             <Animatable.View delay={index * 110} animation='zoomInRight' >
                 <TouchableOpacity
@@ -101,14 +165,14 @@ export default class LearnTab extends Component {
                 >
                     <View style={styles.item2}>
                         <View style={{ flexDirection: 'column', justifyContent: "center" }}>
-                            <Image source={require("../Images/marketing.jpg")}
+                            <Image source={{ uri: url }}
                                 style={{ width: 150, height: 100, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, resizeMode: 'stretch' }}
                             />
                         </View>
-                        <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center' }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.en}</Text>
-                            <Text>[{item.transcription}]</Text>
-                            <Text>{item.vi}</Text>
+                        <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.word}</Text>
+                            <Text>[{item.sound}]</Text>
+                            <Text>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -163,26 +227,31 @@ export default class LearnTab extends Component {
                 </SafeAreaView>
             )
     }
-    renderModalContent1 = () => {
+    renderModalContent1 = () => { //Modal Bookmark
         const { detail, visibleModal } = this.state
         if (visibleModal) {
+            console.log(detail.id)
             return (
                 <View style={styles.containerModal}>
                     <TouchableOpacity
-                        onPress={() => { Tts.speak(`${detail.en}`) }}
+                        onPress={() => { Tts.speak(`${detail.word}`) }}
                     >
                         <View style={styles.viewModal}>
                             <Icon name='volume-up' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity
+                        onPress={() => { this.remind(detail.id) }}
+                    >
                         <View style={styles.viewModal}>
                             <Icon name='clock-o' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Nhắc nhở</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity
+                        onPress={() => { this.deleteBookmark(detail.id) }}
+                    >
                         <View style={styles.viewModal}>
                             <Icon name="inbox" size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
@@ -192,26 +261,30 @@ export default class LearnTab extends Component {
             )
         }
     }
-    renderModalContent2 = () => {
+    renderModalContent2 = () => { // Modal Remind
         const { detail2, visibleModal2 } = this.state
         if (visibleModal2) {
             return (
                 <View style={styles.containerModal}>
                     <TouchableOpacity
-                        onPress={() => { Tts.speak(`${detail2.en}`) }}
+                        onPress={() => { Tts.speak(`${detail2.word}`) }}
                     >
                         <View style={styles.viewModal}>
                             <Icon name='volume-up' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity
+                        onPress={() => { this.bookmark(detail2.id) }}
+                    >
                         <View style={styles.viewModal}>
                             <Icon name='heart' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Đánh giấu</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity
+                        onPress={() => { this.deleteRemind(detail2.id) }}
+                    >
                         <View style={styles.viewModal}>
                             <Icon name="inbox" size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
                             <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
@@ -244,7 +317,6 @@ export default class LearnTab extends Component {
                     containerStyle={{ height: 40, borderRadius: 20 }}
                 />
                 {this.renderBody(selectedIndex)}
-
             </SafeAreaView >
         )
     }

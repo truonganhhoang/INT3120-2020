@@ -13,7 +13,6 @@ import LearnTab from './LearnTab'
 import TestTab from './TestTab'
 import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
-import DeviceInfo from 'react-native-device-info';
 
 class MainBody extends Component {
     static navigationOptions = {
