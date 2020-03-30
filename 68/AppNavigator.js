@@ -5,6 +5,7 @@ import {
 import Levels from './screens/Levels'
 import KanjiGroup from './screens/KanjiGroup'
 import KanjiLearning from './screens/KanjiLearning'
+import KanjiDetail from './screens/KanjiDetail';
 const Appnavigator = createStackNavigator({
     Levels: {
         screen: Levels
@@ -14,6 +15,9 @@ const Appnavigator = createStackNavigator({
     },
     KanjiLearning: {
         screen: KanjiLearning
-    }
+    },
+    KanjiDetail :{
+        screen : KanjiDetail
+    },
 })
 export default Appnavigator;

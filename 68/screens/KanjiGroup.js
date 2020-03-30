@@ -49,6 +49,7 @@ export default class kanjiGroup extends React.Component {
   render(){
     //if(this.state)
     //console.log(JSON.stringify(this.state))
+    const navigation = this.props.navigation;
     return (
        <View style={styles.container}>
           <FlatList
@@ -58,7 +59,6 @@ export default class kanjiGroup extends React.Component {
                 return <WordsListItem kanji={obj} key={index} 
                 onPress={() => navigation.navigate('KanjiLearning')}
                 />
-
 
               } 
           }

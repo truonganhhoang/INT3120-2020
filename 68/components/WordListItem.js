@@ -27,7 +27,7 @@ export default function WordListItem (props){
                             kanji?kanji.item.kanjiList.map((object, index)=>{
                                 console.log(index)
                                 return(
-                                    <WordItem key={index} text={object.kanji}/>
+                                    <WordItem key={index} text={object.kanji} navigation={props.navigation}/>
                                 )
                             }):<Text></Text>
                         }
