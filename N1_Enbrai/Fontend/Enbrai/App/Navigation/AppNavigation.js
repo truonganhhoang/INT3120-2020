@@ -1,6 +1,5 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-
 import HomeScreen from '../Containers/HomeScreen'
 import AccountScreen from '../Containers/AccountScreen'
 import HomeStudyScreen from '../Containers/HomeStudyScreen'
@@ -11,6 +10,9 @@ import ChangeLanguageScreen from '../Containers/ChangeLanguageScreen'
 import TopicScreen from '../Containers/TopicScreen'
 import SetNumberWordScreen from '../Containers/SetNumberWordScreen'
 import NotificationScreen from '../Containers/NotificationScreen'
+import SignUpScreen from '../Containers/SignUpScreen'
+import SignInScreen from '../Containers/SignInScreen'
+
 const AppNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -42,7 +44,14 @@ const AppNavigator = createStackNavigator(
     },
     NotificationScreen:{
       screen: NotificationScreen
-    }
+    },
+    SignUpScreen: {
+      screen : SignUpScreen
+    },
+    SignInScreen: {
+      screen : SignInScreen
+    },
+
   },
   {
     headerMode: 'none',
