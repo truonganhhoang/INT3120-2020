@@ -21,16 +21,6 @@ class HomeTabBar extends Component {
     var logoFilled = ['person', 'lightbulb-outline', 'settings'];
     return (
       <View style={[styles.tabs, this.props.style,]}>
-        {/* <LinearGradient
-          colors={['transparent', 'rgba(0,0,0,0.1)']}
-          style={{
-            left: 0,
-            right: 0,
-            height: 1,
-            top: -1,
-            position: 'absolute'
-          }}
-        /> */}
         {this.props.tabs.map((tab, i) => {
           icon = logo[i]
           iconFilled = logoFilled[i]
