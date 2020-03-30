@@ -34,8 +34,7 @@ const AppNavigator = createStackNavigator(
     },
     SignInScreen: {
       screen : SignInScreen
-    },
-
+    }
   },
   {
     headerMode: 'none',
