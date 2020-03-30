@@ -149,3 +149,4 @@ ionic g page profile -f
 # 2020-03-20
 
 - Validate form đăng ký và đăng nhập.
+- Dialog cho tính năng forgot password.

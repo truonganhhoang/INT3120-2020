@@ -15,9 +15,9 @@ export class SignUpPage implements OnInit {
     password: ['', Validators.minLength(8)]
   });
 
-  fullName = this.signUpForm.controls.fullName;
-  email = this.signUpForm.controls.email;
-  password = this.signUpForm.controls.password;
+  fullName = this.signUpForm.get('fullName');
+  email = this.signUpForm.get('email');
+  password = this.signUpForm.get('password');
 
   constructor(private formBuilder: FormBuilder) {}
 

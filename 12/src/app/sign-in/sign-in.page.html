@@ -22,8 +22,10 @@
       <mat-error *ngIf="password.errors">
         <div *ngIf="password.errors.required">Please enter your password</div>
       </mat-error>
-      <mat-hint align="end" color="primary">Forgot Password?</mat-hint>
     </mat-form-field>
+    <div style="text-align: right;">
+      <ion-text color="primary" ion-button (click)="openDialog()">Forgot Password</ion-text>
+    </div>
 
     <br />
     <br />

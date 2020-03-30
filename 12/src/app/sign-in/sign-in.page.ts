@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,15 +17,19 @@ export class SignInPage implements OnInit {
     password: ['', Validators.required]
   });
 
-  email = this.signInForm.controls.email;
-  password = this.signInForm.controls.password;
+  email = this.signInForm.get('email');
+  password = this.signInForm.get('password');
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   ngOnInit() {}
 
   togglePassword() {
     this.hidePassword = !this.hidePassword;
+  }
+
+  openDialog() {
+    this.dialog.open(ForgotPasswordComponent);
   }
 
   handleSubmit() {
