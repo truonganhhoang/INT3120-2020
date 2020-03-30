@@ -13,10 +13,11 @@ import WordItem  from '../components/WordItem'
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 export default function WordListItem (props){
     //console.log("okok",props.kanji);
-    const {kanji} = props; 
+    const {kanji,} = props; 
     return (
-        <TouchableOpacity activeOpacity={0.5} onPress={()=>props.navigation.navigate('KanjiLearning')}
-        >
+        <TouchableOpacity activeOpacity={0.5} onPress={()=>{
+            props.navigation.navigate('KanjiLearning', {kanjiLearningName: kanji.item.groupName})
+        }}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.header}>
@@ -28,7 +29,8 @@ export default function WordListItem (props){
                             kanji?kanji.item.kanjiList.map((object, index)=>{
                                 console.log(index)
                                 return(
-                                    <WordItem key={index} text={object.kanji} navigation={props.navigation}/>
+                                    <WordItem key={index} text={object.kanji}
+                                     navigation={props.navigation}/>
                                 )
                             }):<Text></Text>
                         }
