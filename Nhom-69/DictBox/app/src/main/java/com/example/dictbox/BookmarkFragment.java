@@ -66,8 +66,8 @@ public class BookmarkFragment extends Fragment {
         adapter.setOnItemDeleteClick(new ListItemListener() {
             @Override
             public void onItemClick(int position) {
-                String value = String.valueOf(adapter.getItem(position));
-                Toast.makeText(getContext(), value + " item is deleted", Toast.LENGTH_SHORT).show();
+                adapter.removeItem(position);
+                adapter.notifyDataSetChanged();
             }
         });
     }
