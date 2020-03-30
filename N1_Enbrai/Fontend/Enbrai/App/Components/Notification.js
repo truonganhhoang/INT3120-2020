@@ -48,10 +48,10 @@ const Notification = props => {
             maximumTrackTintColor="#E0E0E0"
           />
           </View>
-          <View>
-          <Text  style={{fontSize: 16}}>{time}</Text>
-          </View>
         </View>
+        <View style = {{marginTop: 10, justifyContent: 'center', alignItems: 'center'}}>
+          <Text  style={{fontSize: 16}}>{time}:00</Text>
+          </View>
       </View>
       <View
         style={{
