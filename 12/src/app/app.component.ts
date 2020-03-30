@@ -31,10 +31,13 @@ export class AppComponent implements OnInit {
   }
 
   async authenticate(): Promise<void> {
-    console.log(this.router);
-    // const currentUrl = window.location.pathname;
-    // if (!localStorage.getItem('token')) {
-    //  this.router.navigate(['/intro']);
-    // }
+    const currentUrl = window.location.pathname;
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/intro']);
+    } else {
+      if (/^\/(intro|sign\-in|sign\-up)/.test(currentUrl)) {
+        this.router.navigate(['/tabs/learn']);
+      }
+    }
   }
 }

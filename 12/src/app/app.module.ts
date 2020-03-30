@@ -10,11 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,11 +19,6 @@ import { MatCardModule } from '@angular/material/card';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
     ReactiveFormsModule,
     FormsModule
   ],
