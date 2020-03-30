@@ -15,7 +15,7 @@ class HomeStudy extends Component {
                 >
                     <View style={{ flex: 1, display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
                         <Button
-                            title='CHỌN 8 TỪ MỚI CHO HÔM NAY'
+                            title='CHỌN 4 TỪ MỚI CHO HÔM NAY'
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25}}
