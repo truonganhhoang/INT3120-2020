@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grammarandvocabulary/screens/dictionary/dictionary.dart';
-import 'package:grammarandvocabulary/screens/home/home.dart';
-import 'package:grammarandvocabulary/screens/wrapper.dart';
+import 'package:englishlearningapplication/screens/dictionary/dictionary.dart';
+import 'package:englishlearningapplication/screens/home/home.dart';
+import 'package:englishlearningapplication/screens/wrapper.dart';
 
 
 void main() => runApp(MyApp());

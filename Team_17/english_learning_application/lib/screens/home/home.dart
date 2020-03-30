@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grammarandvocabulary/screens/grammar/sentence.dart';
-import 'package:grammarandvocabulary/screens/grammar/word.dart';
+import 'package:englishlearningapplication/screens/grammar/sentence.dart';
+import 'package:englishlearningapplication/screens/grammar/word.dart';
 
 class Home extends StatelessWidget {
   @override
