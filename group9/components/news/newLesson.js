@@ -198,7 +198,7 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
 <<<<<<< HEAD
-        <Text style={{paddingLeft:20, color:'red', fontSize:20,paddingTop:5}}>
+        <Text style={{paddingLeft:20, color:'blue', fontSize:20,paddingTop:5}}>
           select date & time
         </Text>
         </View>
