@@ -7,6 +7,7 @@ import {
 } from 'react-navigation';
 import AppNavigator from './AppNavigator'
 import AddData from './screens/Adddata';
+import KanjiScreen from './screens/KanjiDetail'
 import {decode, encode} from 'base-64'
 
 if (!global.btoa) {  global.btoa = encode }
@@ -18,7 +19,7 @@ const AppContainer  =  createAppContainer(AppNavigator);
 export default class App extends React.Component {
   
   render(){
-    //return(<AddData/>)
+    //return(<KanjiScreen/>)
     return (
       <AppContainer/>
     );
