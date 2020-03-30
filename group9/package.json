@@ -38,8 +38,10 @@
     "babel-preset-expo": "~8.0.0",
     "@babel/core": "^7.0.0"
   },
-  "rnpm":{
-    "assets": ["assets"]
+  "rnpm": {
+    "assets": [
+      "assets"
+    ]
   },
   "private": true
 }

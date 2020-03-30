@@ -2,7 +2,6 @@ import React ,{useState} from 'react'
 import { View, Text, Picker, TextInput, StyleScheet } from 'react-native'
 import { Header, Input, Button,Switch} from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
-import { addTask } from '../api/task'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
