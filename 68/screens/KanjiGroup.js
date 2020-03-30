@@ -11,6 +11,7 @@ import WordsListItem from '../components/WordListItem';
 const db = firebase.firestore();
 export default class kanjiGroup extends React.Component {
   static navigationOptions = ({navigation}) => {
+    console.log(navigation.getParam('categoryName'))
     return {
         title: navigation.getParam('categoryName'),
         headerTitleStyle: {
@@ -57,7 +58,7 @@ export default class kanjiGroup extends React.Component {
               renderItem = {(obj, index) =>{
 
                 return <WordsListItem kanji={obj} key={index} 
-                onPress={() => navigation.navigate('KanjiLearning')}
+                navigation={navigation}
                 />
 
               } 
