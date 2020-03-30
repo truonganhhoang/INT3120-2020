@@ -10,7 +10,6 @@ import {
 
 export default function WordItem ({text, navigation}){
     //console.log(text)
-    const {onPress} = props;
     return (
         <TouchableOpacity activeOpacity={0.5} onPress={()=>navigation.navigate("KanjiDetail")}>
             <View style={styles.container}>
