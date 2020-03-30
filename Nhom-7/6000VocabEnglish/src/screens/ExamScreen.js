@@ -7,6 +7,7 @@ import {
   StyleSheet,
   FlatList,
   Button,
+  Modal,
   Alert
 } from "react-native";
 
@@ -22,12 +23,24 @@ const statusBarHeight = 16;
 class ImageHeart extends Component {
   constructor(props) {
     super(props);
-    this.status = this.props.status;
+    this.state = {
+      active: true
+    };
+    this.changeStatusActive = this.changeStatusActive.bind(this);
+    // this.status = this.props.status;
   }
+
+  changeStatusActive = () => {
+    this.setState(prevState => {
+      return {
+        active: !prevState.active
+      };
+    });
+  };
 
   render() {
     let iconHeart =
-      this.status === "active"
+      this.state.active === true
         ? require("../assets/icon/heart-active.png")
         : require("../assets/icon/heart-inactive.png");
     // heart = <Image source={require("../assets/icon/heart-active.png")} />;
@@ -39,9 +52,11 @@ class ImageHeart extends Component {
   }
 }
 
+function showModal(){}
 class TurnCounter extends Component {
   constructor(props) {
     super(props);
+    this.heartRefs = {};
     this.state = {
       turn: 3
     };
@@ -51,29 +66,33 @@ class TurnCounter extends Component {
     this.setState(prevState => {
       return { turn: prevState.turn - 1 };
     });
+
+    this.heartRefs[this.state.turn].changeStatusActive();
   };
 
   render() {
-    let turns = [];
-    // console.log(`${turns}`)
-    //Chua disable heart when turn is down
-    for (let i = 1; i <= 3; i++) {
-      if (i <= this.state.turn) {
-        turns.push(
-          <View key={i}>
-            <ImageHeart status="active" />
-          </View>
-        );
-      } else {
-        turns.push(
-          <View key={i}>
-            <ImageHeart status="inactive" />
-          </View>
-        );
-      }
-    }
+    // if(this.state.turn === 0){
 
-    return <View style={styles.heartsContainer}>{turns}</View>;
+    // }
+    return (
+      <View style={styles.heartsContainer}>
+        <ImageHeart
+          ref={ImageHeart => {
+            this.heartRefs[1] = ImageHeart;
+          }}
+        />
+        <ImageHeart
+          ref={ImageHeart => {
+            this.heartRefs[2] = ImageHeart;
+          }}
+        />
+        <ImageHeart
+          ref={ImageHeart => {
+            this.heartRefs[3] = ImageHeart;
+          }}
+        />
+      </View>
+    );
   }
 }
 
@@ -279,9 +298,6 @@ export default class ExamScreen extends Component {
   }
 
   answerIncorrect() {
-    // this.setState(prevState => {
-    //   return { turn: prevState.turn - 1 };
-    // });
     this.turnsRef.current.decreaseTurn();
   }
 
@@ -302,10 +318,6 @@ export default class ExamScreen extends Component {
   componentDidMount() {
     //load questions data from api here
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return true;
-  // }
 
   increase = (key, value) => {
     this.setState({
@@ -337,6 +349,8 @@ export default class ExamScreen extends Component {
   showModal = status => {
     if (status === "PASS") {
       Alert.alert("Hoan thanh", "Xin chuc mung");
+    } else if (status === "FAIL") {
+      Alert.alert("Khong dat", "Vui long Thu lai");
     }
   };
 
@@ -379,15 +393,6 @@ export default class ExamScreen extends Component {
             answerIncorrect={this.answerIncorrect}
           />
         )}
-
-        {/* <View style={styles.buttonContainer}>
-          <View style={styles.buttonInner}>
-            <Button
-              title="Increase 20%"
-              onPress={this.increase.bind(this, "progress", 20)}
-            />
-          </View>
-        </View> */}
       </View>
     );
   }

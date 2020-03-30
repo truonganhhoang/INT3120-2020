@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 const GLOBAL = require("../utils/Globals");
-import { StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, FlatList, ScrollView } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
 import Carousel from "react-native-snap-carousel";
 import itemTopicPeople from "../../data/CategoryItemByTopic";
@@ -53,22 +53,22 @@ export default class CategoryScreen extends Component {
     console.log(categoryId);
 
     let data = [];
-    db.collection("/topic/")
-      .doc(categoryId)
-      .collection(categoryId)
-      .get()
-      .then(docs => {
-        docs.forEach(doc => {
-          // console.log(doc.id, "=>", doc.data());
-          data.push(doc.data());
-          // console.log(data);
-        });
+    // db.collection("/topic/")
+    //   .doc(categoryId)
+    //   .collection(categoryId)
+    //   .get()
+    //   .then(docs => {
+    //     docs.forEach(doc => {
+    //       console.log(doc.id, "=>", doc.data());
+    //       data.push(doc.data());
+    //       console.log(data);
+    //     });
 
-        this.setState({ topicItems: data, isLoading: !this.state.isLoading });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
+    //     this.setState({ topicItems: data, isLoading: !this.state.isLoading });
+    //   })
+    //   .catch(err => {
+    //     console.log("Error getting documents", err);
+    //   });
   }
   render() {
     const { categoryId } = this.props.route.params;
