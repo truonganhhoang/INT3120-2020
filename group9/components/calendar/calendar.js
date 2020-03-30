@@ -66,7 +66,7 @@ export default class Calendar extends Component {
           barStyle="light-content"
           centerComponent={{ text: 'Calendar', style: { color: '#fff', fontSize: 25 } }}
           containerStyle={{
-            backgroundColor: '#3D6DCC',
+            backgroundColor: '#1976D2',
             justifyContent: 'center',
           }}
         />

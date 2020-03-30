@@ -95,7 +95,7 @@ export default class ViewTask extends React.Component {
           style: { fontSize: 25, color: '#fff'},
         }}
         containerStyle={{
-          backgroundColor: '#5c6bc0',
+          backgroundColor: '#1976D2',
           height: '12%',
         }}
       />
@@ -104,10 +104,10 @@ export default class ViewTask extends React.Component {
         </ScrollView>
           <Modalize
             ref={this.modal}
-            adjustToContentHeight 
+            modalHeight={550}
           >
           <View> 
-            <View style={{flexDirection: 'row',borderBottomColor: '#000',borderBottomWidth: 1.75, paddingTop: 15 }} > 
+            <View style={styles.content_header} > 
               <CheckBox 
                 checked={this.state.dataSelected.done}
                 onPress={() => {
@@ -118,6 +118,7 @@ export default class ViewTask extends React.Component {
                 size={30}
               />
               <Text style={{fontSize:25, paddingTop: 10}}>{this.state.dataSelected.name}</Text>
+              
             </View>
             <View style={{flexDirection: 'row'}}>
               <Ionicons
@@ -150,7 +151,14 @@ export default class ViewTask extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8e99f3',
+    backgroundColor: '#1976D2',
+  },
+  content_header: {
+    padding: 15,
+    paddingBottom: 0,
+    flexDirection: 'row', 
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
   modalTitle:{
     paddingTop: 25,

@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, Text, Picker, TextInput, StyleScheet } from 'react-native'
-import { Header, Input, Button } from 'react-native-elements'
+import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-native'
+import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import { addTask } from '../api/task'
+
+let widthPhone = Dimensions.get('window').width;
 
 class NewTask extends React.Component {
   state = {
@@ -42,32 +44,42 @@ class NewTask extends React.Component {
     addTask(task);
   }
 
+  updateIndex = (selectedIndex) => {
+    if (selectedIndex==0) this.props.navigation.navigate('NewLessonScreen');
+  }
+
   render() {
+    const buttons = ['New Lesson', 'New Task']
+
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Header
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
           leftComponent={
-            <Ionicons name="ios-arrow-back" size={30} style={{ top: -15, paddingLeft: '20%' }} />
+            <Ionicons name="ios-arrow-back" size={30} style={{ top: -15, paddingLeft: '20%', color:'#fff' }} />
           }
           rightComponent={
             <Ionicons
               name="ios-create"
               size={30}
-              style={{ top: -15, paddingRight: '18%' }}
+              style={{ top: -22, paddingRight: '18%', color:'#fff' }}
               onPress={this.createTask}
             />
           }
-          centerComponent={{
-            text: 'New Task',
-            style: { fontSize: 25, paddingTop: '10%' },
-          }}
+          centerComponent={
+            <ButtonGroup
+              onPress={this.updateIndex}         
+              selectedIndex={1}
+              buttons={buttons}
+              containerStyle={{backgroundColor:'#1976D2', marginTop: 60, width : widthPhone, borderColor:'#1976D2' }}
+              textStyle={{color:'#fff', fontSize: 19 }}
+              selectedTextStyle={{fontWeigth:'900'}}
+            />
+          }
           containerStyle={{
-            backgroundColor: '#fff',
-            height: '17%',
-            borderBottomColor: '#000',
-            borderBottomWidth: 1,
+            backgroundColor: '#1976D2',
+            height:120,
           }}
         />
         <View style={{ padding: 10 }} />
@@ -77,7 +89,7 @@ class NewTask extends React.Component {
             <Ionicons
               name="md-checkbox-outline"
               size={30}
-              style={{ paddingRight: 20 }}
+              style={{ paddingRight: 20, color:'#1976D2' }}
             />
           }
               onChangeText={(text) => {
@@ -86,7 +98,7 @@ class NewTask extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <View style={{ flexDirection: 'row' }}>
-          <Ionicons name="ios-list-box" size={30} style={{ padding: 10, marginLeft: 15 }} />
+          <Ionicons name="ios-list-box" size={30} style={{ padding: 10, marginLeft: 15, color:'#1976D2' }} />
           <Picker
             selectedValue={this.state.selectedLesson}
             style={{ height: 50, width: '35%' }}
@@ -96,7 +108,7 @@ class NewTask extends React.Component {
               <Picker.Item label={item.name} value={item.name} key={i} />
             ))}
           </Picker>
-          <Ionicons name="ios-browsers" size={30} style={{ padding: 10 }} />
+          <Ionicons name="ios-browsers" size={30} style={{ padding: 10, color: '#1976D2' }} />
           <Picker
             selectedValue={this.state.selectedType}
             style={{ height: 50, width: '35%' }}

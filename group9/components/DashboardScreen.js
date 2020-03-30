@@ -3,18 +3,33 @@ import { View, Text, Block } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { Calendar } from './calendar'
 import { DayView } from './dayview'
-import { NewTask } from './news'
+import { NewTask, NewLesson, News } from './news'
 import { ViewTask } from './tasks'
 import { ViewExam } from './exams'
+import * as Font from 'expo-font'
 
 const Tab = createBottomTabNavigator()
 
+const SwitchLessonTask = createSwitchNavigator({  
+  NewTaskScreen: NewTask,
+  NewLessonScreen: NewLesson,
+});
+
+export const AppSwitchLessonTask = createAppContainer(SwitchLessonTask);
+
 class DashboardScreen extends Component {
-  render() {
-    console.log(this.props.navigation.getParam('curUser'));
-    return (
+  
+  componentDidMount() {
+    Font.loadAsync({
+      'SanFrancisco': require('../assets/fonts/SanFrancisco.otf'),
+    });
+  }
+  
+  render () {  
+  return (
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -36,13 +51,13 @@ class DashboardScreen extends Component {
             },
           })}
           tabBarOptions={{
-            activeTintColor: 'tomato',
+            activeTintColor: '#1976D2',
             inactiveTintColor: 'gray',
           }}
         >
           <Tab.Screen name="Calendar" component={Calendar} />
           <Tab.Screen name="DayView" component={DayView} />
-          <Tab.Screen name="New" component={NewTask} />
+          <Tab.Screen name="New" component={News} />
           <Tab.Screen name="Task" component={ViewTask} />
           <Tab.Screen name="Exam" component={ViewExam} />
         </Tab.Navigator>
