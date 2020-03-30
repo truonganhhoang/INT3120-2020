@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { View, Dimensions } from 'react-native';
-import { Card, Text, Icon, Button } from 'react-native-elements'
+import { Card, Text, Icon, Button } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
 const NewWordCard = (props) => {
+
+  const [selected, setSelected] = useState(false)
+
+  const handleClick = async() => {
+    if (props.numWord < 3) {
+      var numberWords = props.numWord;
+      props.updateNumWord(numberWords + 1)
+      setSelected(true)
+    }
+    else {
+      props.navigation.getParam('handleReady')()
+      props.navigation.setParams({isReady: true})
+      props.navigation.navigate('HomeScreen')
+    }
+  }
 
   useEffect(() => {
     return () => {
@@ -22,7 +38,7 @@ const NewWordCard = (props) => {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        marginRight: windowWidth*0.05
+        marginRight: windowWidth * 0.05
       }}>
         <Card
           containerStyle={{
@@ -70,7 +86,12 @@ const NewWordCard = (props) => {
             width: '100%'
           }}>
             <Button title='ĐÃ BIẾT' type="clear" titleStyle={{ color: '#cacaca' }} />
-            <Button title='LỰA CHỌN' type="clear" titleStyle={{ color: '#feb52b' }} />
+            <Button
+              title='LỰA CHỌN'
+              type="clear"
+              titleStyle={{ color: '#feb52b' }}
+              disabled={selected}
+              onPress={handleClick} />
           </View>
         </Card>
       </View>
@@ -79,4 +100,4 @@ const NewWordCard = (props) => {
   )
 }
 
-export default NewWordCard;
+export default withNavigation(NewWordCard);

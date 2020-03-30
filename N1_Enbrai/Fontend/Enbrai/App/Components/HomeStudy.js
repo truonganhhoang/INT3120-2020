@@ -1,11 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { withNavigation } from 'react-navigation';
 
-class HomeStudy extends Component {
-    render() {
+const HomeStudy = (props) => {
+    const [isReady, setIsReady] = useState(false)
+    const handleReady = () => {
+        setIsReady(true)
+    }
+    useEffect(() => {
+    }, [isReady])
+
+    if (isReady) {
+        return (
+            <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
+                <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+                <LinearGradient
+                    style={styles.linearGradient}
+                    colors={['#0592D2', '#39D57F']}
+                >
+                    <View style={{ flex: 1, display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
+                        <Button
+                            title='HỌC TỪ MỚI HÔM NAY'
+                            buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
+                            titleStyle={{ color: '#0592D2', fontSize: 15 }}
+                            containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
+                        />
+                    </View>
+                </LinearGradient>
+            </View>
+        )
+    } else {
         return (
             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
                 <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
@@ -18,8 +44,8 @@ class HomeStudy extends Component {
                             title='CHỌN 4 TỪ MỚI CHO HÔM NAY'
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
-                            containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25}}
-                            onPress={() => this.props.navigation.navigate('PickNewWordScreen')}
+                            containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
+                            onPress={() => props.navigation.navigate('PickNewWordScreen', { handleReady: handleReady })}
                         />
                         <Button
                             title='TÌM KIẾM MỘT TỪ'
