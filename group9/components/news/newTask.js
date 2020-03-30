@@ -1,11 +1,15 @@
-import React from 'react'
-import { View, Text, Picker, TextInput, StyleScheet } from 'react-native'
-import { Header, Input, Button } from 'react-native-elements'
-import { Ionicons } from '@expo/vector-icons'
-import DateTimePicker from 'react-native-modal-datetime-picker'
-import { addTask } from '../api/task'
+import React from 'react';
+import { View, Text, Picker, TextInput } from 'react-native';
+import { Header, Input, Button } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { addTask } from '../firebaseApi/task';
 
 class NewTask extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
     selectedLesson: '',
@@ -14,22 +18,22 @@ class NewTask extends React.Component {
     datePicked: 'Pick a Date',
     date: Date.now(),
     name: '',
-  }
+  };
 
   showDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: true })
-  }
+    this.setState({ isDateTimePickerVisible: true });
+  };
 
   hideDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: false })
-  }
+    this.setState({ isDateTimePickerVisible: false });
+  };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear()
-    this.setState({date: date});
-    this.setState({ datePicked: day })
-    this.hideDateTimePicker()
-  }
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    this.setState({ date: date });
+    this.setState({ datePicked: day });
+    this.hideDateTimePicker();
+  };
 
   createTask = () => {
     let task = {
@@ -37,10 +41,10 @@ class NewTask extends React.Component {
       lesson: this.state.selectedLesson,
       type: this.state.selectedType,
       date: this.state.date,
-      description: "",
-    } 
+      description: '',
+    };
     addTask(task);
-  }
+  };
 
   render() {
     return (
@@ -73,16 +77,10 @@ class NewTask extends React.Component {
         <View style={{ padding: 10 }} />
         <Input
           placeholder="Set name for Task"
-          leftIcon={
-            <Ionicons
-              name="md-checkbox-outline"
-              size={30}
-              style={{ paddingRight: 20 }}
-            />
-          }
-              onChangeText={(text) => {
-                this.setState({ name: text })
-              }}
+          leftIcon={<Ionicons name="md-checkbox-outline" size={30} style={{ paddingRight: 20 }} />}
+          onChangeText={(text) => {
+            this.setState({ name: text });
+          }}
         />
         <View style={{ padding: 10 }} />
         <View style={{ flexDirection: 'row' }}>
@@ -143,8 +141,8 @@ class NewTask extends React.Component {
           multiline={true}
         />
       </View>
-    )
+    );
   }
 }
 
-export default NewTask
+export default NewTask;
