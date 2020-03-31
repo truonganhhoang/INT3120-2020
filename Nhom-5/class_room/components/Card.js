@@ -16,7 +16,7 @@ export default function Card(props) {
       activeOpacity={0.7}
       onPress={() => {
         Alert.alert('clicked!');
-    }}>
+      }}>
       <View style={styles.card}>
         <Text style={styles.cardText}>{card.text}</Text>
         <Image style={styles.cardImage} source={questionImage} />
@@ -25,10 +25,10 @@ export default function Card(props) {
   );
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: '#3498db',
+    backgroundColor: '#FFF',
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
