@@ -77,7 +77,7 @@ class NewTask extends React.Component {
               buttons={buttons}
               containerStyle={{backgroundColor:'#1976D2', marginTop: 60, width : widthPhone, borderColor:'#1976D2' }}
               textStyle={{color:'#fff', fontSize: 19 }}
-              selectedTextStyle={{fontWeigth:'900'}}
+              selectedTextStyle={{fontWeight:'900'}}
             />
           }
           containerStyle={{
