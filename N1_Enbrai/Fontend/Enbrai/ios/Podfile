@@ -38,6 +38,16 @@ target 'Enbrai' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+
+  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
   target 'EnbraiTests' do
     inherit! :search_paths
     # Pods for testing
