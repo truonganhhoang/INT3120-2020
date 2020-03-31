@@ -7,13 +7,13 @@ class QuestionQuiz{
     "Từ nhà Hùng đến trường mất 10 cây số. Hỏi cả đi cả về hùng đi bao nhiêu cây số"
   ];
   var choices = [
-    ["1 quả","5 quả","7 quả","10 quả"],
-    ["4 quả","2 quả","12 quả","8 quả"],
-    ["2 cây số","43 cây số","15 cây số","20 cây số"]
+    ["1","5","7","10"],
+    ["4","2","12","8"],
+    ["2","43","15","20"]
   ];
 
   var answers = [
-    "10 quả", "8 quả","20 cây số"
+    "10", "8","20"
   ];
 }
 
@@ -199,6 +199,16 @@ class QuizState extends State<Quiz> {
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.done,
                         style: TextStyle(fontSize: 22.0),
+                        onEditingComplete: (){
+                          if (_controller.text == quiz.answers[questionNumber]){
+                            debugPrint("Câu trả lời chính xác");
+                            finalScore++;
+                          }
+                          else{
+                            debugPrint("Câu trả lời chưa chính xác");
+                          }
+                          updateQuestion();
+                        },
                       ),
                     ),
 
