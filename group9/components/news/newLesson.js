@@ -2,7 +2,11 @@ import React from 'react'
 import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-native'
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
+<<<<<<< HEAD
 import DateTimePicker from 'react-native-modal-datetime-picker'
+=======
+import DateTimePicker from '@react-native-community/datetimepicker';
+>>>>>>> 87320ee9179112c587ec242f1a967c7904705a60
 
 let widthPhone = Dimensions.get('window').width;
 

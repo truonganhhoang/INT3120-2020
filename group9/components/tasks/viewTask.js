@@ -168,7 +168,6 @@ export default class ViewTask extends React.Component {
   };
 
   render() {
-<<<<<<< HEAD
     return (  
       <SafeAreaView style={styles.container}> 
       <Header
@@ -193,35 +192,6 @@ export default class ViewTask extends React.Component {
           <View> 
             <View style={styles.content_header} > 
               <CheckBox 
-=======
-    console.log(getTasks());
-    return (
-      <SafeAreaView style={styles.container}>
-        <Header
-          statusBarProps={{ barStyle: 'light-content' }}
-          barStyle="light-content"
-          centerComponent={{
-            text: 'List Task',
-            style: { fontSize: 25, color: '#fff' },
-          }}
-          containerStyle={{
-            backgroundColor: '#5c6bc0',
-            height: '12%',
-          }}
-        />
-        <ScrollView>{this.state.data.map((item) => this.renderRow(item))}</ScrollView>
-        <Modalize ref={this.modal} adjustToContentHeight>
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                borderBottomColor: '#000',
-                borderBottomWidth: 1.75,
-                paddingTop: 15,
-              }}
-            >
-              <CheckBox
->>>>>>> 12505c6637aa744878c95c19e75f1384845fe423
                 checked={this.state.dataSelected.done}
                 onPress={() => {
                   let select = this.state.dataSelected;
@@ -230,12 +200,7 @@ export default class ViewTask extends React.Component {
                 }}
                 size={30}
               />
-<<<<<<< HEAD
               <Text style={{fontSize:25, paddingTop: 10}}>{this.state.dataSelected.name}</Text>
-              
-=======
-              <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
->>>>>>> 12505c6637aa744878c95c19e75f1384845fe423
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20 }} />
