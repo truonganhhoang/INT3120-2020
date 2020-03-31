@@ -1,5 +1,5 @@
 import React, { Component , useState, useEffect } from 'react';
-import {View, Text,TextInput, Alert,Dimensions, StatusBar, ToastAndroid} from 'react-native';
+import {View, Text,TextInput, Alert,Dimensions, StatusBar, ToastAndroid, AsyncStorage} from 'react-native';
 import {Input, Icon, Button, Header} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
@@ -7,41 +7,26 @@ const SignIn = props =>{
     const [email,setEmail] = useState('');
     const [pass,setPass] = useState('');
 
-    const handleSignIn = (email, pass, confirm) => {
-      if(email =='' || pass==''||confirm ==''){
+    const handleSignIn = (email, pass) => {
+      if(email =='' || pass==''){
         ToastAndroid.showWithGravity(
           'Điền đầy đủ thông tin',
           ToastAndroid.SHORT,
           ToastAndroid.CENTER,
         )
       }
-      else if (pass.length < 8 ) {
-        ToastAndroid.showWithGravity(
-          'Mật khẩu có ít nhất 8 kí tự',
-          ToastAndroid.SHORT,
-          ToastAndroid.CENTER,
-        )
-      }
-      else if (pass != confirm){
-        ToastAndroid.showWithGravity(
-          'Mật khẩu không khớp',
-          ToastAndroid.SHORT,
-          ToastAndroid.CENTER,
-        )
-      } 
       else { 
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email,pass)
-        .then(() =>{
-          ToastAndroid.showWithGravity(
-            'Đăng kí thành công.',
-            ToastAndroid.SHORT,
-            ToastAndroid.CENTER,
-          )
-          setTimeout(()=> props.navigation.navigate('HomeScreen'), 1000)
-      }) 
-        .catch(error => console.log(error))
+        firebase
+      .auth()
+      .signInWithEmailAndPassword(email, pass)
+      .then(() => {
+        props.navigation.navigate('HomeScreen')
+      })
+      .catch(error => ToastAndroid.showWithGravity(
+        'Tài khoản mật khẩu không chính xác!',
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER,
+      ))
     }}
     return (    
       <View style = {{flex : 1}}>
@@ -93,7 +78,7 @@ const SignIn = props =>{
           <Button
             title = 'Đăng nhập'
             buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
-            onPress={()=>{handleSignIn(email,pass,confimPass)}}
+            onPress={()=>{handleSignIn(email,pass)}}
           />
           <Text style ={{marginTop: 10,marginBottom:10, color: '#9E9E9E'}}>--Hoặc--</Text>
           <Button

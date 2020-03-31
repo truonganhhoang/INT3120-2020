@@ -24,14 +24,13 @@ const ChangeLanguage = props => {
     {label: 'Tiếng Anh', value: 1},
   ];
   const saveData = async (value) => {
-    console.log(value)
     value = value.toString()
     try {
       const result = await AsyncStorage.setItem('Language',value);
-      props.navigation.navigate('HomeScreen');
     } catch (error) {
       console.log(error)
     }
+    props.navigation.navigate('HomeScreen');
   };
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>

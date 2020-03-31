@@ -1,11 +1,39 @@
-import React, {Component} from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import React, {Component,useState, useEffect} from 'react';
+import {View, Text, Dimensions,Á} from 'react-native';
 import {Button, Icon} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
-
+import firebase from 'react-native-firebase'
 const Account = props => {
     const maxWidth = Dimensions.get('window').width;
-  return (
+    const [login, setLogin] = useState()
+    useEffect(() => {
+      setLogin(props.login)
+      console.log(props.login)
+      return () => {
+        
+      }
+    }, [props.login])
+    if(login!=false){
+      return(
+          <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <Button
+            buttonStyle={{height:50, borderRadius: 25,backgroundColor:'#FFB74D'}}
+            title="Đăng xuất"
+            titleStyle = {{fontSize: 20, marginHorizontal:20}}
+            onPress={() => {
+              firebase
+              .auth()
+              .signOut()
+              .then(() => {
+                props.navigation.navigate('HomeScreen');
+              })
+              .catch(error => console.log(error))
+              
+            }}></Button>
+          </View>
+      )
+    }else {
+    return (
     <View style={{flex: 1, flexDirection: 'column'}}>
       <View style={{flex: 1, alignItems: 'center', marginTop: 10}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -32,5 +60,6 @@ const Account = props => {
       </View>
     </View>
   );
+  }
 };
 export default withNavigation(Account);

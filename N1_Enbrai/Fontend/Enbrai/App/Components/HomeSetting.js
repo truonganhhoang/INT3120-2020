@@ -22,7 +22,6 @@ const HomeSetting = props=> {
     useEffect(()=>{
       const fetchData = async ()=>{
         var data = await AsyncStorage.multiGet(["Language", "Topic","NumberWord","Voice", "Time"]);
-        console.log(data[0][1])
         if(data[0][1] !=null) {
           setLanguage(parseInt(data[0][1]))
         } else {setLanguage(0)}
@@ -43,6 +42,7 @@ const HomeSetting = props=> {
         } else {setTime(20)}
       }
       fetchData();
+      return()=>{}
     });
     const radio_props = [
         {label: 'US', value: 0 },

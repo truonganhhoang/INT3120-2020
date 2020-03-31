@@ -5,14 +5,9 @@ import HomeSetting from './HomeSetting'
 import HomeStudy from './HomeStudy'
 import HomeTabBar from './HomeTabBar'
 import Account from './Account'
-
-
-
+import firebase from 'react-native-firebase'
 const Home = () => {
-    useEffect(() => {
-        return () => {
-        }
-    }, [])
+    var user =firebase.auth().currentUser
     return (
         <View style={{ flex: 1 }}>
             <ScrollableTabView
@@ -21,7 +16,7 @@ const Home = () => {
                 initialPage={1}
                 renderTabBar={() => <HomeTabBar />}
             >
-                <Account />
+                <Account login ={user?true:false}/>
                 <HomeStudy/>
                 <HomeSetting />
             </ScrollableTabView>

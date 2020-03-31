@@ -9,10 +9,16 @@ const Topic = props => {
   const [dataTopic, setDataTopic] = useState([]);
   const buttons = ['TẤT CẢ CHỦ ĐỀ', 'CÁC CHỦ ĐỀ ĐÃ CHỌN']
   useEffect(()=>{
-    
+    setDataTopic(TOPIC)
   },[])
   const updateIndex =(index)=> {
     setIndex(index)
+    if(index==0){
+      setDataTopic(TOPIC)
+    }else{
+      var newdata = TOPIC.filter(item=>item.checked == true);
+      setDataTopic(newdata)
+    }
   }
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
@@ -30,15 +36,25 @@ const Topic = props => {
         />
         </View>
         <ScrollView style={{marginTop: 10}}>
-          {TOPIC.map((item,key) =>{
+          {dataTopic.map((item,key) =>{
               return(
                 <View style ={{flexDirection: 'row', alignItems: 'center'}}>
                 <CheckBox
                     size= {18}
                     checked={item.checked}
                     onPress = {()=>{
-                    }
+                      var ind = dataTopic.findIndex(items => items.id == item.id);
+                     
+                      var newdata = [...dataTopic];
+                      var temp = newdata[ind];
+                      temp.checked = !item.checked
+                      newdata.slice(ind,1,{...temp});
+                      if(index==1){
+                        newdata.splice(ind,1)
                       }
+                      console.log()
+                      setDataTopic(newdata)
+                    }}
                 />
                 <Text style={{fontSize: 16}}>{item.name}</Text>
                 </View>
