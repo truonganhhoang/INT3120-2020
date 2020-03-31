@@ -1,9 +1,21 @@
-import React from 'react';
-import Hello from './Greet'; 
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * Generated with the TypeScript template
+ * https://github.com/react-native-community/react-native-template-typescript
+ *
+ * @format
+ */
 
-export default function App() {
+import * as React from 'react';
+import { MyApp } from './src/android/navigation'; 
+
+const App = () => {
   return (
-    <Hello />
+    <MyApp />
   );
-}
+};
 
+
+export default App;
