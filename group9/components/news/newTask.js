@@ -3,6 +3,7 @@ import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-nat
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
+import { addTask } from '../firebaseApi/task'
 
 let widthPhone = Dimensions.get('window').width;
 

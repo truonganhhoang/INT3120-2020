@@ -168,6 +168,7 @@ export default class ViewTask extends React.Component {
   };
 
   render() {
+    console.log(getTasks());
     return (  
       <SafeAreaView style={styles.container}> 
       <Header

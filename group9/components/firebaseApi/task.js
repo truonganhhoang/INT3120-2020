@@ -1,9 +1,12 @@
 import firebase from './firebaseInit';
 
-const getTasks = () => {
+const getTasks = async () => {
   const uid = firebase.auth().currentUser.uid;
-  const data = firebase.firestore().collection(`tasks/${uid}/listTasks`).get() | [];
-  return data;
+  const data = await firebase.firestore().collection(`tasks/${uid}/listTasks`).get();
+  let ret = [];
+  data.forEach(doc => {ret.push(doc.data())});
+  console.log(ret);
+  return ret;
 };
 
 const addTask = (task) => {
