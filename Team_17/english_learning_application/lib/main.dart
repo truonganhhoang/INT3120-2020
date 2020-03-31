@@ -1,107 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_indicator/page_indicator.dart';
-import 'CauPage.dart';
-import 'TuPage.dart';
+import 'package:englishlearningapplication/screens/dictionary/dictionary.dart';
+import 'package:englishlearningapplication/screens/home/home.dart';
+import 'package:englishlearningapplication/screens/wrapper.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: HomePage(),
-  ));
-}
 
-class HomePage extends StatefulWidget {
-  @override
-  HomePageState createState() => HomePageState();
-}
+void main() => runApp(MyApp());
 
-class HomePageState extends State<HomePage> {
-  List<Widget> listHomeState = [CauPage(), TuPage()];
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-//        title: Row(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          children: <Widget>[
-//            ButtonTheme(
-//              minWidth: 30,
-//              child: RaisedButton(
-//                  onPressed: () {},
-//                  color: Colors.green,
-//                  textColor: Colors.white,
-//                  child: Text("Câu")),
-//            ),
-//            ButtonTheme(
-//              minWidth: 30,
-//              child: RaisedButton(
-//                  onPressed: () {},
-//                  color: Colors.green,
-//                  textColor: Colors.white,
-//                  child: Text("Từ")),
-//            ),
-//          ],
-//        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
-              child: ListTile(
-                title: Text("Tutorial English App"),
-                subtitle: Text("Contaxt: Team 17, K61N-UET-VNU"),
-              ),
-            ),
-            ListTile(
-              title: Text("Ngữ pháp"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("Tra từ"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("More App"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        ),
-      ),
-      backgroundColor: Colors.grey,
-      body: PageIndicatorContainer(
-        key: GlobalKey(),
-        child: PageView.builder(
-          itemBuilder: (context, position) {
-            return listHomeState[position];
-          },
-          itemCount: listHomeState.length,
-        ),
-        align: IndicatorAlign.top,
-        length: 2,
-        indicatorColor: Colors.grey,
-        indicatorSelectorColor: Colors.red,
-        indicatorSpace: 10.0,
-      ),
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Wrapper(),
+        '/home': (context) => Home(),
+        '/dictionary': (context) => Dictionary(),
+      },
     );
-  }
-
-  void goToMenuScreen() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Menu"),
-        ),
-      );
-    }));
   }
 }
