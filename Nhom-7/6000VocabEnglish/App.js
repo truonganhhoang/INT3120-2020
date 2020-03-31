@@ -9,8 +9,6 @@ import ExamScreen from "./src/screens/ExamScreen";
 import DetailTopicScreen from "./src/screens/DetailTopicScreen";
 import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
 
-const GLOBAL = require("./src/utils/Globals");
-
 //create Stack
 const HomeStack = createStackNavigator();
 

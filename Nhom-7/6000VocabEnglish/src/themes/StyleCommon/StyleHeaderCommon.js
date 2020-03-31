@@ -6,6 +6,7 @@ const StyleHeaderCommon = StyleSheet.create({
   headerTitle: {
     color: GLOBAL.COLOR.ORANGE,
     fontWeight: "bold",
+    textTransform: "capitalize"
   }
 });
 

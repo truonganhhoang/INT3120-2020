@@ -16,6 +16,7 @@ import StyleCommon from "../themes/StyleCommon";
 
 import ProgressBarAnimated from "react-native-progress-bar-animated";
 import { ScrollView, TouchableHighlight } from "react-native-gesture-handler";
+import db from "../../config/configFirebase";
 
 const widthScreen = Dimensions.get("screen").width;
 const statusBarHeight = 16;
@@ -51,8 +52,6 @@ class ImageHeart extends Component {
     );
   }
 }
-
-function showModal(){}
 class TurnCounter extends Component {
   constructor(props) {
     super(props);
@@ -136,12 +135,12 @@ class ImageWord extends Component {
     };
   }
 
-  updateState = answerCorrect => {
+  updateState(answerCorrect) {
     this.setState({
       answered: true,
       answerCorrect: answerCorrect
     });
-  };
+  }
 
   render() {
     // console.log(`answered: ${this.state.answered} answerCorrect:  ${this.state.answerCorrect}`)
@@ -316,7 +315,42 @@ export default class ExamScreen extends Component {
   }
 
   componentDidMount() {
-    //load questions data from api here
+    let data = this.fetchData();
+    let gen  = this.genarateQuestions(data);
+  }
+
+  genarateQuestions(data){
+    // for(const element in data){
+    //   console.log(element);
+    // }
+    console.log(Object.entries(data)) 
+  }
+
+  fetchData() {
+    const { titleTopic } = this.props.route.params;
+    let data = [];
+
+    if (titleTopic !== undefined) {
+      db.collection("/topic/")
+        .doc("people")
+        .collection("people")
+        .doc(titleTopic)
+        .collection(titleTopic)
+        .get()
+        .then(docs => {
+          docs.forEach(doc => {
+            // console.log(doc.id, "=>", doc.data());
+            data.push(doc.data());
+            // console.log(data);
+          });
+
+          // this.setState({ listWord: data, isLoading: !this.state.isLoading });
+        })
+        .catch(err => {
+          console.log("Error getting documents", err);
+        });
+    } 
+    return data;
   }
 
   increase = (key, value) => {
@@ -346,7 +380,7 @@ export default class ExamScreen extends Component {
     });
   };
 
-  showModal = status => {
+  showModal(status){
     if (status === "PASS") {
       Alert.alert("Hoan thanh", "Xin chuc mung");
     } else if (status === "FAIL") {
@@ -371,7 +405,7 @@ export default class ExamScreen extends Component {
               value={this.state.progress}
               backgroundColorOnComplete="orange"
               onComplete={() => {
-                Alert.alert("Hey!", "onComplete event fired!");
+                // Alert.alert("Hey!", "onComplete event fired!");
               }}
             />
           </View>

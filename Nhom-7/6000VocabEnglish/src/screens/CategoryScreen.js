@@ -51,33 +51,6 @@ export default class CategoryScreen extends Component {
     );
   };
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    const { categoryId } = this.props.route.params;
-    console.log(categoryId);
-
-    let data = [];
-    db.collection("/topic/")
-      .doc(categoryId)
-      .collection(categoryId)
-      .get()
-      .then(docs => {
-        docs.forEach(doc => {
-          console.log(doc.id, "=>", doc.data());
-          data.push(doc.data());
-          console.log(data);
-        });
-
-        this.setState({ topicItems: data, isLoading: !this.state.isLoading });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
-  }
-
   gotoSlide(topicName) {
     return () => {
       console.log("Go to slide show!");
