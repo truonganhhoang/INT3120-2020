@@ -1,0 +1,43 @@
+<ion-content>
+  <div class="header">
+    <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
+    <div>Log into your account</div>
+  </div>
+
+  <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail (Required)</mat-label>
+      <input matInput="true" [formControl]="email" />
+      <mat-error *ngIf="email.errors">
+        <div *ngIf="email.errors.required">Please enter your email address.</div>
+        <div *ngIf="email.errors.email">Email address format is in valid.</div>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password (Required)</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" />
+      <button mat-icon-button="true" matSuffix="true" (click)="togglePassword()">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.errors">
+        <div *ngIf="password.errors.required">Please enter your password</div>
+      </mat-error>
+    </mat-form-field>
+    <div style="text-align: right;">
+      <ion-text color="primary" ion-button (click)="openDialog()">Forgot Password</ion-text>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <ion-button type="submit" expand="full">Login</ion-button>
+
+    <div class="text-divider">or</div>
+
+    <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+  </form>
+
+  <div class="footer">
+    <ion-img [src]="'/assets/shapes.png'"></ion-img>
+  </div>
+</ion-content>

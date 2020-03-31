@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="header">
+    <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
+    <div>Create New Account</div>
+  </div>
+
+  <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name (Required)</mat-label>
+      <input matInput="true" [formControl]="fullName" />
+      <mat-error *ngIf="fullName.errors">
+        <div *ngIf="fullName.errors.required">Please enter your full name.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail (Required)</mat-label>
+      <input matInput="true" [formControl]="email" />
+      <mat-error *ngIf="email.errors">
+        <div *ngIf="email.errors.email || email.errors.required">Email address format is invalid.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password (Required)</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" />
+      <button mat-icon-button matSuffix="true" (click)="togglePassword()">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.errors">
+        <div *ngIf="password.errors.minlength || password.errors.required">Password must be at least 8 characters.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <ion-button type="submit" [disabled]="isSubmitting" expand="full" color="primary" mat-flat-button="true">
+      Create new account
+      <ion-spinner *ngIf="isSubmitting"></ion-spinner>
+    </ion-button>
+
+    <div class="text-divider">or</div>
+
+    <ion-button expand="full" fill="clear">
+      Continue with Facebook
+    </ion-button>
+
+    <div class="terms-and-policies">
+      By creating an account, you accout Coursera's <a href="https://www.coursera.org/about/terms" target="_blank"><strong color="primary">Terms of Service</strong></a> and <a href="https://www.coursera.org/about/privacy" target="_blank"><strong>Privacy Policy</strong></a>
+    </div>
+  </form>
+
+  <div class="footer">
+    <ion-img [src]="'/assets/shapes.png'"></ion-img>
+  </div>
+</ion-content>

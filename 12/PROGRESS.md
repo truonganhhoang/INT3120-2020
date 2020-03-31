@@ -80,7 +80,7 @@ ionic cdv resources
 
 # 2020-03-19
 
-- Generate 5 tabs cho app: *learn*, *explore*, *recommended*, *download*, *profile* và cập nhật component tab bar
+- Generate 5 tabs cho app: `learn`, `explore`, `recommended`, `downloads`, `profile` và cập nhật component tab bar
 
 ```shell
 ionic g page home -f
@@ -91,3 +91,69 @@ ionic g page profile -f
 ```
 
 - Đổi tên thư mục từ `group12` thành `12`
+
+# 2020-03-21
+
+- Chuyển 5 thư mục `app/{learn,explore,recommended,downloads,profile}` vào thư mục `app/tabs`.
+- Thêm 3 pages: `intro`, `sign in`, `sign up`
+
+# 2020-03-22
+
+- Cài đặt husky/githooks
+
+# 2020-03-23
+
+- Update prettier, thêm rules trailingComma
+- Update angular từ 9.0.6 lên 9.0.7
+
+# 2020-03-26
+
+- Update angular từ 9.0.7 lên 9.1.0
+- Tích hợp với firebase, cài đặt `@angular/fire`
+- Thêm các màn hình cho 5 tabs:
+  - explore:
+    - overview
+    - trending courses
+    - popular courses
+    - top rated courses
+    - search
+    - course details
+  - recommended:
+    - courses
+    - course details
+  - learn
+    - courses
+    - course details
+  - downloads
+    - courses
+    - course details
+  - profile
+    - my profile
+    - settings
+
+# 2020-03-27
+
+- Cài đặt `tslint-plugin-prettier`, tự động format khi sử dụng linter.
+- Nested routes trong tab
+
+# 2020-03-28
+
+- Thêm html cho trang intro.
+- Gắn link đến trang đăng ký và đăng nhập.
+
+# 2020-03-29
+
+- Thêm html cho trang đăng nhập và đăng ký, sử dụng Angular Material.
+- Thêm ảnh.
+
+# 2020-03-30
+
+- Validate form đăng ký và đăng nhập.
+- Dialog cho tính năng forgot password.
+
+# 2020-03-31
+
+- Thêm config cho firebase.
+- Thêm các module auth, database và firestore `vào app.module`.
+- Tạo các services đăng ký, đăng nhập.
+- Tính năng đăng ký với email và mật khẩu.
