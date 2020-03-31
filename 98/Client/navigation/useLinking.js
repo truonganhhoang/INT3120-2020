@@ -10,6 +10,8 @@ export default function(containerRef) {
         screens: {
           Home: 'home',
           Links: 'links',
+            Question: 'Question',
+          TrafficSign: 'TFS',
           Settings: 'settings',
         },
       },
