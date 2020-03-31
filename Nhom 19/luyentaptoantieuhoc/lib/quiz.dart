@@ -190,14 +190,13 @@ class QuizState extends State<Quiz> {
                   
                       margin: const EdgeInsets.only(left: 150.0, right: 150.0,top: 15.0),
                       
-                      child: new TextField(
+                      child: new TextFormField(
                         textAlign: TextAlign.center,
                         controller: _controller,
                         decoration: InputDecoration(
-                          hintText: 'Số',
+                          hintText: "Số",
                         ),
                         keyboardType: TextInputType.number,
-                        textInputAction: TextInputAction.done,
                         style: TextStyle(fontSize: 22.0),
                         onEditingComplete: (){
                           if (_controller.text == quiz.answers[questionNumber]){
@@ -207,30 +206,54 @@ class QuizState extends State<Quiz> {
                           else{
                             debugPrint("Câu trả lời chưa chính xác");
                           }
+                          _controller.clearComposing();
                           updateQuestion();
                         },
                       ),
                     ),
-
+              
 
               // Exit Button    
-              new Padding(padding: EdgeInsets.all(15.0)),
+              new Padding(padding: EdgeInsets.all(30.0)),
                 new Container(
                   alignment: Alignment.bottomCenter,
                   child:  new MaterialButton(
-                      minWidth: 240.0,
+                      minWidth: 80.0,
                       height: 30.0,
-                      color: Colors.red,
-                      onPressed: resetQuiz,
-                      child: new Text("Thoát",
+                      color: Colors.blueAccent,
+                      onPressed: (){
+                        if (_controller.text == quiz.answers[questionNumber]){
+                            debugPrint("Câu trả lời chính xác");
+                            finalScore++;
+                          }
+                          else{
+                            debugPrint("Câu trả lời chưa chính xác");
+                          }
+                          _controller.clear();
+                          updateQuestion();
+                      },
+                      child: new Text("OK",
                         style: new TextStyle(
                             fontSize: 18.0,
                             color: Colors.white
                         ),)
                   )
                 ),
-
-
+                
+                new Container(
+                  alignment: Alignment.bottomCenter,
+                  child:  new MaterialButton(
+                      minWidth: 180.0,
+                      height: 30.0,
+                      color: Colors.red,
+                      onPressed: resetQuiz,
+                      child: new Text("Thoát",
+                        style: new TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.white
+                        ),)
+                  )
+                ),
 
             ],
           ),
