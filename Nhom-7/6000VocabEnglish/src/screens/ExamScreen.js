@@ -233,7 +233,7 @@ class Question extends Component {
             contentContainerStyle={
               this.questionData.options.length < 4
                 ? { width: "50%", alignSelf: "center" }
-                : null
+                : { flex: 1, margin: 30 }
             }
           />
         </View>
@@ -256,35 +256,69 @@ export default class ExamScreen extends Component {
     this.dataSource = [
       {
         id: 1,
-        word: "dog",
+        word: "abdomen",
         options: [
           {
-            word: "dog",
+            word: "ankle",
             image:
-              "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg",
-            correct: true
+              "https://www.pedifix.com/images/Foottopsprain.JPG"
           },
           {
-            word: "cat",
+            word: "abdomen",
             image:
-              "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg"
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg",
+            correct: true
           }
         ]
       },
       {
         id: 2,
-        word: "cat",
+        word: "ankle",
         options: [
           {
-            word: "cat",
+            word: "ankle",
             image:
-              "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg",
+              "https://www.pedifix.com/images/Foottopsprain.JPG",
             correct: true
           },
           {
-            word: "dog",
+            word: "abdomen",
             image:
-              "https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg"
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
+          }
+        ]
+      },
+      {
+        id: 3,
+        word: "arm",
+        options: [
+          {
+            word: "abdomen",
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
+          },
+          {
+            word: "arm",
+            image:
+              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg",
+            correct: true
+          }
+        ]
+      },
+      {
+        id: 4,
+        word: "chest",
+        options: [
+          {
+            word: "chest",
+            image:
+              "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg",
+            correct: true
+          },
+          {
+            word: "arm",
+            image:
+              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
           }
         ]
       }
@@ -314,44 +348,36 @@ export default class ExamScreen extends Component {
     });
   }
 
-  componentDidMount() {
-    let data = this.fetchData();
-    let gen  = this.genarateQuestions(data);
-  }
+  // componentDidMount() {
+  //   let data = this.fetchData();
+  // }
 
-  genarateQuestions(data){
-    // for(const element in data){
-    //   console.log(element);
-    // }
-    console.log(Object.entries(data)) 
-  }
+  // fetchData() {
+  //   const { titleTopic } = this.props.route.params;
+  //   let data = [];
 
-  fetchData() {
-    const { titleTopic } = this.props.route.params;
-    let data = [];
+  //   if (titleTopic !== undefined) {
+  //     db.collection("/topic/")
+  //       .doc("people")
+  //       .collection("people")
+  //       .doc(titleTopic)
+  //       .collection(titleTopic)
+  //       .get()
+  //       .then(docs => {
+  //         docs.forEach(doc => {
+  //           // console.log(doc.id, "=>", doc.data());
+  //           data.push(doc.data());
+  //           // console.log(data);
+  //         });
 
-    if (titleTopic !== undefined) {
-      db.collection("/topic/")
-        .doc("people")
-        .collection("people")
-        .doc(titleTopic)
-        .collection(titleTopic)
-        .get()
-        .then(docs => {
-          docs.forEach(doc => {
-            // console.log(doc.id, "=>", doc.data());
-            data.push(doc.data());
-            // console.log(data);
-          });
-
-          // this.setState({ listWord: data, isLoading: !this.state.isLoading });
-        })
-        .catch(err => {
-          console.log("Error getting documents", err);
-        });
-    } 
-    return data;
-  }
+  //         // this.setState({ listWord: data, isLoading: !this.state.isLoading });
+  //       })
+  //       .catch(err => {
+  //         console.log("Error getting documents", err);
+  //       });
+  //   }
+  //   return data;
+  // }
 
   increase = (key, value) => {
     this.setState({
@@ -380,13 +406,15 @@ export default class ExamScreen extends Component {
     });
   };
 
-  showModal(status){
+  showModal(status) {
     if (status === "PASS") {
-      Alert.alert("Hoan thanh", "Xin chuc mung");
+      Alert.alert("Hoàn thành", "Chúc mừng bạn đã hoàn thành bài kiểm tra",  [  
+        {text: 'Tiếp tục', onPress: () => this.props.navigation.goBack()},  
+    ]  );
     } else if (status === "FAIL") {
       Alert.alert("Khong dat", "Vui long Thu lai");
     }
-  };
+  }
 
   render() {
     const barWidth = widthScreen * 0.6;

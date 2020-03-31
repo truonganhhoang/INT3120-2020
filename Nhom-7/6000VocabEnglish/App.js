@@ -13,6 +13,7 @@ import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
 const HomeStack = createStackNavigator();
 
 function App() {
+  console.disableYellowBox = true;
   return (
     <NavigationContainer>
       <HomeStack.Navigator initialRouteName="Home">
