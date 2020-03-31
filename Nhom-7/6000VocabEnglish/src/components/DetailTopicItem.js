@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import starOutline from "../assets/icon/star-outline.png";
 import starFillColor from "../assets/icon/star-fill-color.png";
+import imageList from "../assets/imageList";
 import GLOBAL from "../utils/Globals";
 export class DetailTopicItem extends Component {
   constructor(props) {
@@ -26,10 +27,7 @@ export class DetailTopicItem extends Component {
             </TouchableOpacity>
           </View>
           <View>
-            <Image
-              style={styles.mainImage}
-              source={require("../assets/image/body.png")}
-            />
+            <Image style={styles.mainImage} source={imageList[word]} />
           </View>
         </View>
         <View style={styles.rightColumn}>
@@ -73,7 +71,8 @@ const styles = StyleSheet.create({
   mainImage: {
     borderWidth: 0,
     width: 150,
-    height: 150
+    height: 150,
+    backgroundColor: "#fff"
   },
   leftColumn: {
     flex: 1
