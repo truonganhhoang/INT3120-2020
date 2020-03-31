@@ -29,7 +29,7 @@ const datasSentences = [
     text: "3.Câu ước"
   },
   {
-    route: "Header4",
+    route: "Wish",
     text: "4.Câu gián tiếp"
   },
   {
@@ -45,7 +45,7 @@ const datasSentences = [
     text: "7.Mệnh đề quan hệ"
   },
   {
-    route: "Header8",
+    route: "RelativeClause",
     text: "8.Câu cảm thán"
   },
   {
@@ -69,18 +69,18 @@ const datasSentences = [
      text: "13.Công thức viết lại câu"
   },
   {
-     route: "HeaderTransparent",
+     route: "Rewrite",
      text: "14.Thành ngữ, tục ngữ"
   },
   {
-     route: "HeaderTransparent",
+     route: "Rewrite",
      text: "15.Câu đồng tình"
   }
 ];
 
 const datasWords = [
   {
-    route: "Header1",
+    route: "Noun",
     text: "1.Bảng động từ bất quy tắc"
   },
   {
@@ -104,19 +104,19 @@ const datasWords = [
     text: "6.Giới từ"
   },
   {
-    route: "Header7",
+    route: "Preposition",
     text: "7.Quy tắc trọng âm"
   },
   {
-    route: "Header8",
+    route: "Preposition",
     text: "8.Cách phát âm 's/es' "
   },
   {
-    route: "HeaderSpan",
+    route: "Preposition",
     text: "9.Cách phát âm 'ed'"
   },
   {
-    route: "HeaderNoShadow",
+    route: "Preposition",
     text: "10.Vị trí của danh từ, động từ, tính từ"
   }
 ];
