@@ -1,221 +1,327 @@
-import React ,{useState} from 'react'
-import { View, Text, Picker, TextInput, StyleScheet } from 'react-native'
-import { Header, Input, Button,Switch} from 'react-native-elements'
+import React from 'react'
+import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-native'
+import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
-import { addTask } from '../api/task'
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
+let widthPhone = Dimensions.get('window').width;
 
-const NewLesson = () => {
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(false);
+class NewLesson extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
-  };
-
-  const showMode = currentMode => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode('date');
-  };
-
-  const showTimepicker = () => {
-    showMode('time');
-  };
-  const state = {
-    
+  state = {
+    selectedLesson: '',
     selectedType: '',
     isDateTimePickerVisible: false,
-    datePicked: 'Time Start',
+    isDateTimePickerVisible1: false,
+    isTimePickerVisible: false,
+    isTimePickerVisible1:false,
+    datePicked: 'Pick Start Date',
+    datePicked1: 'Pick End Date',
     date: Date.now(),
+    date1: Date.now(),
     name: '',
+    timePicked: 'Pick Time Start',
+    timePicked1: 'Pick Time End',
+    time: new Date().getHours(),
+    time1: new Date().getHours(), 
+
   };
-  
+
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = (date) => {
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    this.setState({ date: date });
+    this.setState({ datePicked: day });
+    this.hideDateTimePicker();
+  };
+  showDateTimePicker1 = () => {
+    this.setState({ isDateTimePickerVisible1: true });
+  };
+
+  hideDateTimePicker1 = () => {
+    this.setState({ isDateTimePickerVisible1: false });
+  };
+
+  handleDatePicked1 = (date) => {
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    this.setState({ date1: date });
+    this.setState({ datePicked1: day });
+    this.hideDateTimePicker1();
+  };
+  showTimePicker = () => {
+    this.setState({ isTimePickerVisible: true });
+  };
+
+  hideTimePicker = () => {
+    this.setState({ isTimePickerVisible: false });
+  };
+
+  handleTimePicked = (time) => {
+    const timeP = time.getHours() + ":" + time.getMinutes()
+    this.setState({ time: time });
+    this.setState({ timePicked: timeP });
+    this.hideTimePicker();
+  };
+  showTimePicker1 = () => {
+    this.setState({ isTimePickerVisible1: true });
+  };
+
+  hideTimePicker1 = () => {
+    this.setState({ isTimePickerVisible1: false });
+  };
+
+  handleTimePicked1 = (time) => {
+    const timeP = time.getHours() + ":" + time.getMinutes()
+   this.setState({ time1: time });
+    this.setState({ timePicked1: timeP });
+    this.hideTimePicker1();
+  };
+
   
 
- return (
-    
-   <View>
-     <View >
-      <Header 
+  updateIndex = (selectedIndex) => {
+    if (selectedIndex==1) this.props.navigation.navigate('NewTaskScreen');
+  }
+
+  render() {
+    const buttons = ['New Lesson', 'New Task']
+
+    return (
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+        <Header
+          statusBarProps={{ barStyle: 'light-content' }}
+          barStyle="light-content"
           leftComponent={
-            <Ionicons name="ios-arrow-back" size={35} style={{ paddingTop:5, paddingLeft: '20%' }} 
-            onPress={()=> alert('back!')}
-          />
+            <Ionicons name="ios-arrow-back" size={30} style={{ top: -15, paddingLeft: '20%', color:'#fff' }} />
           }
           rightComponent={
-            <Button
-               title='Save'
-              buttonStyle={{backgroundColor:'#1976D2', paddingTop:5, paddingRight: '18%',width:80,height:50 }}
-              onPress={()=> alert('do not save')}
+            <Ionicons
+              name="ios-create"
+              size={30}
+              style={{ top: -22, paddingRight: '18%', color:'#fff' }}
+              onPress={this.createTask}
             />
           }
-          centerComponent={{
-            text: 'New Lesson',
-            style: { fontSize: 25, paddingTop: '2%', color:'white'},
-          }}
+          centerComponent={
+            <ButtonGroup
+              onPress={this.updateIndex}         
+              selectedIndex={0}
+              buttons={buttons}
+              containerStyle={{backgroundColor:'#1976D2', marginTop: 60, width : widthPhone, borderColor:'#1976D2' }}
+              textStyle={{color:'#fff', fontSize: 19 }}
+          
+            />
+          }
           containerStyle={{
             backgroundColor: '#1976D2',
-            height: '25%',
-            borderBottomColor: '#ffffff',
-            borderBottomWidth: 1,
-            paddingTop:20
+            height:120,
           }}
         />
-        <View style={{ padding: 5 }} />
+        <View style={{ padding: 10 }} />
         <Input
-          placeholder='Subject'
-          style={{flex:1, paddingBottom:1,borderTopWidth:0}}
-          />
-          <View style={{ padding: 5 }} />
-          <Input
-          placeholder='Abbreviation'
-          style={{flex:1, paddingBottom:1}}
-          />
-          <View style={{ padding: 5}} />
-        <Input
-          placeholder="Type"
+          placeholder="Subject"
           leftIcon={
             <Ionicons
-              name="ios-information-circle"
+              name="md-cog"
               size={30}
-              style={{ paddingRight: 20 }}
-              onChangeText={(text) => {
-                this.setState({ name: text })
-                console.log(this.state.name)
-              }}
+              style={{ paddingRight: 20, color:'#1976D2' }}
             />
           }
+              onChangeText={(text) => {
+                this.setState({ name: text })
+              }}
         />
-        <View style={{ padding: 5 }} />
+          <View style={{ padding: 10 }} />
+        <Input
+          placeholder="Abbreviation"
+          leftIcon={
+            <Ionicons
+              name="ios-color-palette"
+              size={30}
+              style={{ paddingRight: 20, color:'#1976D2' }}
+            />
+          }
+              onChangeText={(text) => {
+                this.setState({ name: text })
+              }}
+        />
+          <View style={{ padding: 10 }} />
         <Input
           placeholder="Teacher"
           leftIcon={
             <Ionicons
-              name="md-person"
+              name="ios-person"
               size={30}
-              style={{ paddingRight: 20 }}
-              onChangeText={(text) => {
-                this.setState({ name: text })
-                console.log(this.state.name)
-              }}
+              style={{ paddingRight: 20, color:'#1976D2' }}
             />
           }
+              onChangeText={(text) => {
+                this.setState({ name: text })
+              }}
         />
-        <View style={{ padding: 5 }} />
+          <View style={{ padding: 10 }} />
         <Input
           placeholder="Place"
           leftIcon={
             <Ionicons
-              name="md-pin"
+              name="ios-pin"
               size={30}
-              style={{ paddingRight: 20 }}
-              onChangeText={(text) => {
-                this.setState({ name: text })
-                console.log(this.state.name)
-              }}
+              style={{ paddingRight: 20, color:'#1976D2',paddingLeft:8 }}
             />
           }
+              onChangeText={(text) => {
+                this.setState({ name: text })
+              }}
         />
+      
         <View style={{ padding: 10 }} />
-        <Text style={{paddingLeft:20, color:'blue', fontSize:20,paddingTop:5}}>
-          select date & time
-        </Text>
+        <View style={{ flexDirection: 'row'  }}>
+          <Ionicons name="ios-browsers" size={30} style={{ paddingLeft:22, color: '#1976D2' , top:5}} />
+          <Picker
+            selectedValue={this.state.selectedType}
+            style={{ height: 50, width: '50%' }}
+            onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
+          >
+            <Picker.Item label="Theory" value="Theory" />
+            <Picker.Item label="Practice" value="Practice" />
+          </Picker>
         </View>
-
-      <View style={{flexDirection: 'row',justifyContent: 'space-between', borderBottomWidth:0,  paddingLeft:30,paddingRight:30,}}>
-        <View>
-        <Button 
-        buttonStyle={{backgroundColor:'#1976D2',width:150, height:40}}
-        onPress={showTimepicker} 
-        title='Time Start'
-        
+        <View
+          style={{
+            marginLeft: '2.5%',
+            marginRight: '2.5%',
+            borderBottomColor: '#B7B7B7',
+            borderBottomWidth: 1.75,
+          }}
         />
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          timeZoneOffsetInMinutes={0}
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-      <View >
-        <Button 
-        buttonStyle={{backgroundColor:'#1976D2',width:150, height:40}}
-        onPress={showDatepicker} 
-        title="Date Start!" />
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          timeZoneOffsetInMinutes={0}
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-      </View>
-      <View style={{flexDirection: 'row',justifyContent: 'space-between', borderBottomWidth:0.5,  paddingLeft:30,paddingRight:30, paddingTop:20, paddingBottom:30}}>
-      <View >
-        <Button 
-        buttonStyle={{backgroundColor:'#1976D2',width:150, height:40}}
-        onPress={showTimepicker} 
-        title='Time Finish'/>
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          timeZoneOffsetInMinutes={0}
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-      <View >
-        <Button 
-        buttonStyle={{backgroundColor:'#1976D2',width:150, height:40}}
-        onPress={showDatepicker} 
-        title="Date Finish!" />
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          timeZoneOffsetInMinutes={0}
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-      </View>
-      <View style={{ padding: 10 }} />
-        <Text>Batch mode</Text>
         <View style={{ padding: 10 }} />
-        <Text style={{  fontSize: 15, color:'#9E9E9E' }}>
-          when enabled using "Save" won't close this screen, allowing you to create miltiple similar lessons without re-entering everything again ang again
+        <Text style={{ paddingLeft:110, fontSize:17}}>
+          Set date and time
+        </Text>
+        <View style={{ padding: 10 }} />
+        <View style={{flexDirection: 'row',justifyContent: 'space-between', paddingLeft:10,paddingRight:15,
+            marginLeft: '2.5%',
+            marginRight: '2.5%',
+            borderBottomColor: '#B7B7B7',
+            borderBottomWidth: 1.75,
+          }}>
+        <View>
+          <Button
+            title={this.state.datePicked}
+            icon={
+              <Ionicons
+                name="ios-calendar"
+                size={30}
+                style={{ color: '#1976D2', paddingRight: '2.5%' }}
+              />
+            }
+            type= "clear"
+            onPress={this.showDateTimePicker}
+            buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+          />
+        </View>
+        <View>
+          <Button
+            title={this.state.datePicked1}
+            icon={
+              <Ionicons
+                name="ios-calendar"
+                size={30}
+                style={{ color: '#1976D2', paddingRight: '2.5%' }}
+              />
+            }
+            type= "clear"
+            onPress={this.showDateTimePicker1}
+            buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible1}
+            onConfirm={this.handleDatePicked1}
+            onCancel={this.hideDateTimePicker1}
+            
+          />
+        </View>
+        </View>
+        <View style={{ padding: 10 }} />
+        <View style={{flexDirection: 'row',justifyContent: 'space-between', paddingLeft:10,paddingRight:15,
+            marginLeft: '2.5%',
+            marginRight: '2.5%',
+            borderBottomColor: '#B7B7B7',
+            borderBottomWidth: 1.75,
+          }}>
+        <View>
+          <Button
+            title={this.state.timePicked}
+            icon={
+              <Ionicons
+                name="ios-clock"
+                size={30}
+                style={{ color: '#1976D2', paddingRight: '2.5%' }}
+              />
+            }
+            type= "clear"
+            onPress={this.showTimePicker}
+            buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isTimePickerVisible}
+            onConfirm={this.handleTimePicked}
+            onCancel={this.hideTimePicker}
+            mode="time"
+            is24Hour={true}
+            display="clock"
+          />
+        </View>
+        <View>
+          <Button
+            title={this.state.timePicked1}
+            icon={
+              <Ionicons
+                name="ios-clock"
+                size={30}
+                style={{ color: '#1976D2', paddingRight: '2.5%' }}
+              />
+            }
+            type= "clear"
+            onPress={this.showTimePicker1}
+            buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isTimePickerVisible1}
+            onConfirm={this.handleTimePicked1}
+            onCancel={this.hideTimePicker1}
+            mode="time"
+            is24Hour={true}
+            display="clock"
+            
+          />
+        </View>
+        </View>
+        <View style={{ padding: 10 }} />
+        <Text style={{ color:'#a9a9a9',paddingLeft:15, fontSize:15}}>
+          When enabled using"save" won't close this screen, allowing you to create multiple similar lessons without re-entering everything again and again
         </Text>
 
-
-
-
-    </View>
-  );
-};
+      </View>
+    );
+  }
+}
 
 export default NewLesson;
+
+
