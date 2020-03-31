@@ -61,34 +61,7 @@ export default class TrangChu extends Component{
                         this.props.navigation.navigate('de1')
                     }>Đề thi thử số 8</Text>
                 </View>
-                <View style={styles.Lythuyet}> 
-                    <Image source={book} style={styles.img}/> 
-                    <Text style={styles.text}
-                    onPress={() =>
-                        this.props.navigation.navigate('de1')
-                    }>Đề thi thử số 9</Text>
-                </View>
-                <View style={styles.Lythuyet}> 
-                    <Image source={book} style={styles.img}/> 
-                    <Text style={styles.text}
-                    onPress={() =>
-                        this.props.navigation.navigate('de1')
-                    }>Đề thi thử số 10</Text>
-                </View>
-                <View style={styles.Lythuyet}> 
-                    <Image source={book} style={styles.img}/> 
-                    <Text style={styles.text}
-                    onPress={() =>
-                        this.props.navigation.navigate('de1')
-                    }>Đề thi thử số 11</Text>
-                </View>
-                <View style={styles.Lythuyet}> 
-                    <Image source={book} style={styles.img}/> 
-                    <Text style={styles.text}
-                    onPress={() =>
-                        this.props.navigation.navigate('de1')
-                    }>Đề thi thử số 12</Text>
-                </View>
+                
                 
             </ScrollView>
         );

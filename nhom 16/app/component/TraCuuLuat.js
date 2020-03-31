@@ -25,12 +25,7 @@ export default class TrangChu extends Component{
                 <Greeting name="Đi vào đường cấm, đi ngược chiều" value="500.000 - 1000.000 vnđ"/>
                 <Greeting name="điều khiển xe máy trên cao tốc" value="300.000 - 400.000 vnđ"/>
                 <Greeting name="Vượt xe trong trường hợp cấm vượt" value="500.000 - 1.000.000 vnđ"/>
-                <Greeting name="Không giữ khoảng cách" value="60.000 - 80.000 vnđ"/>
-                <Greeting name="Không giảm tốc độ khi ra từ ngõ" value="100.000 - 200.000 vnđ"/>
-                <Greeting name="chạy xe dàn hàng ngang" value="80.000 - 100.000 vnđ"/>
-                <Greeting name="sử dụng đèn sai" value="80.000 - 100.000 vnđ"/>
-                <Greeting name="bấm còi rú ga" value="100.000 - 200.000 vnđ"/>
-                
+               
                 
             </ScrollView>
         );
