@@ -12,6 +12,7 @@ const Back = (props: {navigation?: any; backScreen?: any; color?: any}) => {
   }
   
   const onPress = () => {
+    console.log(backScreen); 
     navigation.navigate(backScreen);
   }
   

@@ -19,7 +19,11 @@ function MyApp() {
       >
         <Drawer.Screen name="StartScreen" component={StartScreen}/>
         <Drawer.Screen name="SettingScreen" component={SettingScreen}/>
-        <Drawer.Screen name="FavoriteScreen" component={FavoriteScreen} />
+        <Drawer.Screen 
+          name="FavoriteScreen" 
+          component={FavoriteScreen} 
+      
+        />
         <Drawer.Screen name="WordGroupScreen" component={WordGroupScreen} />
         <Drawer.Screen name="DetailWordGroupScreen" component={DetailWordGroupScreen} /> 
       </Drawer.Navigator>  

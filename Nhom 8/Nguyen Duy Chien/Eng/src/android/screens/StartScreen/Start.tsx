@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
-
+import {  ScrollView, View, Image } from 'react-native';
 import { CardExtend } from '../../components/Card';
 import { SettingButton } from '../../components/SettingButton';
 import { StarButton } from '../../components/StarButton';
