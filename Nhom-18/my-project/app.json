@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "My Mobile",
+    "name": "Blank Template",
     "slug": "my-project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -9,9 +9,6 @@
       "android",
       "web"
     ],
-    "androidStatusBar": {
-      "backgroundColor": ""
-    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
