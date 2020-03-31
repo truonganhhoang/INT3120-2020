@@ -32,8 +32,9 @@
       </mat-error>
     </mat-form-field>
 
-    <ion-button type="submit" expand="full" color="primary" mat-flat-button="true">
+    <ion-button type="submit" [disabled]="isSubmitting" expand="full" color="primary" mat-flat-button="true">
       Create new account
+      <ion-spinner *ngIf="isSubmitting"></ion-spinner>
     </ion-button>
 
     <div class="text-divider">or</div>

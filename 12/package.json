@@ -37,7 +37,7 @@
     "@ionic/angular": "^5.0.5",
     "cordova-android": "^8.1.0",
     "core-js": "^3.6.4",
-    "firebase": ">= 5.5.7 <8",
+    "firebase": "^7.13.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.3"

@@ -146,7 +146,14 @@ ionic g page profile -f
 - Thêm html cho trang đăng nhập và đăng ký, sử dụng Angular Material.
 - Thêm ảnh.
 
-# 2020-03-20
+# 2020-03-30
 
 - Validate form đăng ký và đăng nhập.
 - Dialog cho tính năng forgot password.
+
+# 2020-03-31
+
+- Thêm config cho firebase.
+- Thêm các module auth, database và firestore `vào app.module`.
+- Tạo các services đăng ký, đăng nhập.
+- Tính năng đăng ký với email và mật khẩu.

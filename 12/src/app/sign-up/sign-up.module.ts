@@ -5,11 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { IonicModule } from '@ionic/angular';
 
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 import { SignUpPage } from './sign-up.page';
+import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
 
 @NgModule({
   imports: [
@@ -20,10 +22,11 @@ import { SignUpPage } from './sign-up.page';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     SignUpPageRoutingModule
   ],
-  declarations: [SignUpPage]
+  declarations: [SignUpPage, SignUpFailedComponent]
 })
 export class SignUpPageModule {}

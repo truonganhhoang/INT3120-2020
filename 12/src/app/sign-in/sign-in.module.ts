@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignInPageRoutingModule } from './sign-in-routing.module';
 import { SignInPage } from './sign-in.page';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SignInService } from '../services/firebase/sign-in.service';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
     SignInPageRoutingModule
   ],
-  declarations: [SignInPage, ForgotPasswordComponent]
+  declarations: [SignInPage, ForgotPasswordComponent],
+  providers: [SignInService]
 })
 export class SignInPageModule {}
