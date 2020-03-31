@@ -7,7 +7,7 @@
   <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
-      <input matInput="true" [formControl]="email" />
+      <input type="email" matInput="true" [formControl]="email" />
       <mat-error *ngIf="email.errors">
         <div *ngIf="email.errors.required">Please enter your email address.</div>
         <div *ngIf="email.errors.email">Email address format is in valid.</div>
@@ -36,8 +36,4 @@
 
     <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
   </form>
-
-  <div class="footer">
-    <ion-img [src]="'/assets/shapes.png'"></ion-img>
-  </div>
 </ion-content>
