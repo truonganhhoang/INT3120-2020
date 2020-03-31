@@ -13,8 +13,8 @@ export default class kanjiGroup extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
         title: navigation.getParam('kanjiGroupName'),
+        headerTitleAlign: 'center',
         headerTitleStyle: {
-          textAlign: 'center',
           color: 'white',
         },
         headerTintColor: 'white',
