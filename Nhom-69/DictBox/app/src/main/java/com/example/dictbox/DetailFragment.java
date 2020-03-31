@@ -24,14 +24,18 @@ public class DetailFragment extends Fragment {
     private TextView tvWord;
     private ImageButton btnBookmark, btnVolumn;
     private WebView tvWordTranslate;
+    private DBHelper mDBHelper;
+    private int mDictype;
 
     public DetailFragment() {
         // Required empty public constructor
     }
 
-    public static DetailFragment getNewInstance(String value){
+    public static DetailFragment getNewInstance(String value, DBHelper dbHelper, int dicType){
         DetailFragment fragment = new DetailFragment();
         fragment.value = value;
+        fragment.mDBHelper = dbHelper;
+        fragment.mDictype = dicType;
         return fragment;
     }
 
@@ -55,7 +59,16 @@ public class DetailFragment extends Fragment {
         btnBookmark = (ImageButton) view.findViewById(R.id.btnBookmark);
         btnVolumn = (ImageButton) view.findViewById(R.id.btnVolumn);
 
-        btnBookmark.setTag(0);
+        final Word word = mDBHelper.getWord(value, mDictype);
+        tvWord.setText(word.key);
+        tvWordTranslate.loadDataWithBaseURL(null, word.value, "text/html", "utf-8", null);
+
+        Word bookmarkWord = mDBHelper.getWordFromBookmark(value);
+        int isMark = bookmarkWord == null? 0:1;
+        btnBookmark.setTag(isMark);
+
+        int icon = bookmarkWord == null? R.drawable.ic_bookmark_border:R.drawable.ic_bookmark_fill;
+        btnBookmark.setImageResource(icon);
 
         btnBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +77,11 @@ public class DetailFragment extends Fragment {
                 if (i == 0) {
                     btnBookmark.setImageResource(R.drawable.ic_bookmark_fill);
                     btnBookmark.setTag(1);
+                    mDBHelper.addBookmark(word);
                 } else if (i == 1) {
                     btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
                     btnBookmark.setTag(0);
+                    mDBHelper.removeBookmark(word);
                 }
             }
         });

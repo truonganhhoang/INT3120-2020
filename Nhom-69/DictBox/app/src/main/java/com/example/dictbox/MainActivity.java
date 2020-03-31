@@ -55,22 +55,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         dictionaryFragment = new DictionaryFragment();
-        bookmarkFragment = new BookmarkFragment();
+        bookmarkFragment = BookmarkFragment.getNewInstance(dbHelper);
         goToFragment(dictionaryFragment, true);
 
         dictionaryFragment.setOnFragmentListener(new FragmentListener(){
             @Override
             void onItemClick(String value) {
-                Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
-                goToFragment(DetailFragment.getNewInstance(value), false);
+                String id = Global.getState(MainActivity.this, "dic_type");
+                int dicType = id ==null?R.id.action_eng_vi:Integer.valueOf(id);
+                goToFragment(DetailFragment.getNewInstance(value, dbHelper, dicType), false);
             }
         });
 
         bookmarkFragment.setOnFragmentListener(new FragmentListener(){
             @Override
             void onItemClick(String value) {
-                Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
-                goToFragment(DetailFragment.getNewInstance(value), false);
+                String id = Global.getState(MainActivity.this, "dic_type");
+                int dicType = id ==null?R.id.action_eng_vi:Integer.valueOf(id);
+                goToFragment(DetailFragment.getNewInstance(value, dbHelper, dicType), false);
             }
         });
 

@@ -21,9 +21,12 @@ import android.widget.Toast;
 public class BookmarkFragment extends Fragment {
 
     private FragmentListener listener;
+    private DBHelper mDbHelper;
 
-    public BookmarkFragment() {
-
+    public static BookmarkFragment getNewInstance(DBHelper dbHelper) {
+        BookmarkFragment fragment = new BookmarkFragment();
+        fragment.mDbHelper = dbHelper;
+        return fragment;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class BookmarkFragment extends Fragment {
         setHasOptionsMenu(true);
 
         ListView bookmarkList = (ListView) view.findViewById(R.id.bookmarkList);
-        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), getListOfWords());
+        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDbHelper.getAllWordFromBookmark());
         bookmarkList.setAdapter(adapter);
 
         adapter.setOnItemClick(new ListItemListener() {
@@ -79,33 +82,6 @@ public class BookmarkFragment extends Fragment {
 
     public void setOnFragmentListener(FragmentListener listener) {
         this.listener = listener;
-    }
-
-    String[] getListOfWords() {
-        String[] source = new String[]{
-                "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-        };
-
-        return source;
     }
 
     @Override

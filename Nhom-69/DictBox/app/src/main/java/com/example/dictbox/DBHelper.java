@@ -126,9 +126,9 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public ArrayList<String> getAllWordFromBookmark(String key) {
+    public ArrayList<String> getAllWordFromBookmark() {
         String q = "SELECT * FROM bookmark ORDER BY [date] DESC;";
-        Cursor result = myDB.rawQuery(q, new String[]{key });
+        Cursor result = myDB.rawQuery(q, null);
 
         ArrayList<String> source = new ArrayList<>();
         while (result.moveToNext()) {
@@ -138,16 +138,17 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean isWordMark(Word word) {
-        String q = "SELECT * FROM bookmark WHERE [key] = [?] AND [value] = ?";
+        String q = "SELECT * FROM bookmark WHERE [key] = ? AND [value] = ?";
         Cursor result = myDB.rawQuery(q, new String[]{word.key, word.value});
         return result.getCount() > 0;
     }
 
     public Word getWordFromBookmark(String key) {
-        String q = "SELECT * FROM bookmark WHERE [key] = [?]";
-        Cursor result = myDB.rawQuery(q, null);
-        Word word = new Word();
+        String q = "SELECT * FROM bookmark WHERE [key] = ?";
+        Cursor result = myDB.rawQuery(q, new String[]{key});
+        Word word = null;
         while (result.moveToNext()) {
+            word = new Word();
             word.key = result.getString(result.getColumnIndex(COL_KEY));
             word.value = result.getString(result.getColumnIndex(COL_VALUE));
         }
