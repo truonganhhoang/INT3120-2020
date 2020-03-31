@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 
-export default class Index extends Component {
+export default class Test extends Component {
   render() {
     return (
       <View>
-        <Button title="Open drawer" onPress={() => this.props.navigation.openDrawer()} />
-        <Text>Hello Word!</Text>
+        <Text>Hello Word!gsdssd</Text>
       </View>
     );
   }
