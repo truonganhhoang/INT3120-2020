@@ -56,9 +56,7 @@ export default class Home extends React.Component{
             
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff'}}
                     centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
                 />
       
                 <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>

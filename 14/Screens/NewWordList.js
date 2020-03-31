@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList, Image } from 'react-native';
-import { ListItem, Header } from 'react-native-elements'
-import newWord from './../data/new-word/index'
+import { StyleSheet, View, Text, Button, FlatList, Image ,TouchableWithoutFeedback} from 'react-native';
+import { ListItem, Header,Icon } from 'react-native-elements';
+import newWord from './../data/new-word/index';
+
 
 export default class NewWordList extends React.Component{
+    
   static navigationOptions = ({navigation}) => {
       return{
           title: navigation.getParam('name'),
@@ -11,15 +13,21 @@ export default class NewWordList extends React.Component{
   };
 
   keyExtractor = (item, index) => index.toString()
+  
 
   renderItem = ({ item }) => (
 		<View style = {styles.container}>
 			<Image style = {styles.image} source = {{uri: item.picture_url}}/>
 			<View style = {styles.content}>
 				<Text style = {styles.englishWord}>{item.eng}</Text>
-        <Text>{item.pronounce}</Text>
+                <Text>{item.pronounce}</Text>
 				<Text>{item.vie}</Text>
-      </View>
+                
+            </View>
+            <View style={styles.add}>
+            <Icon name='menu' iconStyle={styles.add}/>
+            </View>
+            
 		</View>
   )
 
@@ -32,8 +40,8 @@ export default class NewWordList extends React.Component{
                   centerComponent={{ text: 'Thể thao', style: { color: '#fff' } }}
               />
               <FlatList
-									style={styles.flatlist}
-									contentContainerStyle={{ paddingBottom: 80}}
+				    style={styles.flatlist}
+					contentContainerStyle={{ paddingBottom: 80}}
                   keyExtractor={this.keyExtractor}
                   data={newWord.sports}
                   renderItem={this.renderItem}
@@ -71,5 +79,10 @@ const styles = StyleSheet.create({
 	englishWord:{
 		fontSize: 20,
 		color: 'blue'
-	}
+    },
+    add:{
+        right:2,
+        top:4,
+        position:'absolute'
+    }
 });

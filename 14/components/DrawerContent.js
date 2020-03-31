@@ -22,6 +22,18 @@ export default class DrawerContent extends React.Component{
                 <View style={[styles.item, (this.props.activeItemKey=='Word')?styles.activeBackground:null]}>
                     <Text  onPress={this.navigateToScreen('Word')}>Từ vựng</Text>
                 </View>
+                <View style={[styles.item, (this.props.activeItemKey=='')?styles.activeBackground:null]}>
+                    <Text  onPress={this.navigateToScreen('')}>Part I</Text>
+                </View>
+                <View style={[styles.item, (this.props.activeItemKey=='')?styles.activeBackground:null]}>
+                    <Text  onPress={this.navigateToScreen('')}>Part II</Text>
+                </View>
+                <View style={[styles.item, (this.props.activeItemKey=='')?styles.activeBackground:null]}>
+                    <Text  onPress={this.navigateToScreen('')}>Part III</Text>
+                </View>
+                <View style={[styles.item, (this.props.activeItemKey=='')?styles.activeBackground:null]}>
+                    <Text  onPress={this.navigateToScreen('')}>Cài đặt</Text>
+                </View>
             </ImageBackground>
         
     )
