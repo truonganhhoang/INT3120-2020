@@ -1,12 +1,14 @@
 {
   "extends": [
     "tslint:recommended",
+    "tslint-plugin-prettier",
     "tslint-config-prettier"
   ],
   "rulesDirectory": [
     "codelyzer"
   ],
   "rules": {
+    "prettier": [true, "./.prettierrc", { "ignorePath": "./.prettierignore" }],
     "array-type": false,
     "deprecation": {
       "severity": "warn"
@@ -76,6 +78,14 @@
       "app",
       "page",
       "kebab-case"
-    ]
+    ],
+    "variable-name": {
+      "options": [
+        "check-format",
+        "allow-pascal-case",
+        "allow-leading-underscore",
+        "ban-keywords"
+      ]
+    }
   }
 }

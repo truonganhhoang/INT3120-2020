@@ -1,28 +1,28 @@
-<ion-tabs>
+<ion-tabs (ionTabsDidChange)="handleChangeTab($event)">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="explore">
       <ion-icon name="search"></ion-icon>
-      <ion-label>Explore</ion-label>
+      <ion-label *ngIf="currentTab === 'explore'">Explore</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="recommended">
       <ion-icon name="star"></ion-icon>
-      <ion-label>Recommended</ion-label>
+      <ion-label *ngIf="currentTab === 'recommended'">Recommended</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="learn">
       <ion-icon name="book"></ion-icon>
-      <ion-label>Learn</ion-label>
+      <ion-label *ngIf="currentTab === 'learn' || !currentTab">Learn</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="downloads">
       <ion-icon name="cloud-download"></ion-icon>
-      <ion-label>Downloads</ion-label>
+      <ion-label *ngIf="currentTab === 'downloads'">Downloads</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="profile">
       <ion-icon name="person-circle-outline"></ion-icon>
-      <ion-label>Profile</ion-label>
+      <ion-label *ngIf="currentTab === 'profile'">Profile</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
