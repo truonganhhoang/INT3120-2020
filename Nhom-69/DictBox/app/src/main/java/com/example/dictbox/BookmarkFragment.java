@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,9 +21,16 @@ import android.widget.Toast;
 public class BookmarkFragment extends Fragment {
 
     private FragmentListener listener;
+    private DBHelper mDBHelper;
 
     public BookmarkFragment() {
 
+    }
+
+    public static BookmarkFragment getNewInstance(DBHelper dbHelper){
+        BookmarkFragment fragment = new BookmarkFragment();
+        fragment.mDBHelper = dbHelper;
+        return fragment;
     }
 
     @Override
@@ -40,24 +49,16 @@ public class BookmarkFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Button myButton = (Button)view.findViewById(R.id.myBtn);
-//        myButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if (listener!=null){
-//                    listener.onItemClick(value);
-//                }
-//            }
-//        });
+        setHasOptionsMenu(true);
 
         ListView bookmarkList = (ListView) view.findViewById(R.id.bookmarkList);
-        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), getListOfWords());
+        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDBHelper.getAllWordFromBookMark());
         bookmarkList.setAdapter(adapter);
 
         adapter.setOnItemClick(new ListItemListener() {
             @Override
             public void onItemClick(int position) {
-                if (listener != null) {
+                if (listener != null){
                     listener.onItemClick(String.valueOf(adapter.getItem(position)));
                 }
             }
@@ -66,8 +67,8 @@ public class BookmarkFragment extends Fragment {
         adapter.setOnItemDeleteClick(new ListItemListener() {
             @Override
             public void onItemClick(int position) {
-                String value = String.valueOf(adapter.getItem(position));
-                Toast.makeText(getContext(), value + " item is deleted", Toast.LENGTH_SHORT).show();
+                adapter.removeItem(position);
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -87,30 +88,8 @@ public class BookmarkFragment extends Fragment {
         this.listener = listener;
     }
 
-    String[] getListOfWords() {
-        String[] source = new String[]{
-                "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-                , "a"
-                , "aa"
-                , "aaa"
-                , "ash"
-        };
-
-        return source;
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_clear, menu);
     }
 }

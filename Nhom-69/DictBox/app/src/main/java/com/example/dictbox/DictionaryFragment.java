@@ -16,12 +16,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DictionaryFragment extends Fragment {
 
     private String value = "Hello";
-    private  FragmentListener listener;
+    private FragmentListener listener;
+    ListView dictList;
+    ArrayAdapter<String> adapter;
+
+    private ArrayList<String> mSource = new ArrayList<>();
 
     public DictionaryFragment() {
         // Required empty public constructor
@@ -42,53 +47,34 @@ public class DictionaryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Button myButton = (Button)view.findViewById(R.id.myBtn);
-//        myButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if (listener!=null){
-//                    listener.onItemClick(value);
-//                }
-//            }
-//        });
-        ListView dictList = view.findViewById(R.id.dictionaryList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getListOfWords());
+        dictList = view.findViewById(R.id.dictionaryList);
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mSource);
         dictList.setAdapter(adapter);
         dictList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(listener != null){
-                    listener.onItemClick(getListOfWords()[position]);
-                }
+            if (listener != null) {
+                listener.onItemClick(mSource.get(position));
+            }
             }
         });
     }
 
-    String[] getListOfWords(){
-        String[] source = new String[]{
-             "a"
-             ,"aa"
-             ,"aaa"
-             ,"ash"
-            ,"a"
-            ,"aa"
-            ,"aaa"
-            ,"ash"
-            ,"a"
-            ,"aa"
-            ,"aaa"
-            ,"ash"
-            ,"a"
-            ,"aa"
-            ,"aaa"
-            ,"ash"
-            ,"a"
-            ,"aa"
-            ,"aaa"
-            ,"ash"
-        };
+    public void resetDataSource(ArrayList<String> source){
+        mSource = source;
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, source);
+        dictList.setAdapter(adapter);
+    }
 
-        return source;
+    public void filterValue(String value) {
+        //adapter.getFilter().filter(value);
+        int size = adapter.getCount();
+        for (int i = 0; i < size; i++) {
+            if (adapter.getItem(i).startsWith(value)){
+                dictList.setSelection(i);
+                break;
+            }
+        }
     }
 
     @Override
@@ -102,7 +88,7 @@ public class DictionaryFragment extends Fragment {
         super.onDetach();
     }
 
-    public  void setOnFragmentListener(FragmentListener listener){
+    public void setOnFragmentListener(FragmentListener listener) {
         this.listener = listener;
     }
 }
