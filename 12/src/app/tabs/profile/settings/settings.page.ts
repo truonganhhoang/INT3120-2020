@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-settings',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.page.scss']
 })
 export class SettingsPage implements OnInit {
-  constructor() {}
+  constructor(private _location: Location) {}
 
   ngOnInit() {}
+
+  goBack() {
+    this._location.back();
+  }
 }
