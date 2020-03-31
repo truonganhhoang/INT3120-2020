@@ -18,8 +18,8 @@ export default class KanjiLearning extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
         title: navigation.getParam('kanjiLearningName'),
+        headerTitleAlign: 'center',
         headerTitleStyle: {
-          textAlign: 'center',
           color: 'white',
         },
         headerTintColor: 'white',

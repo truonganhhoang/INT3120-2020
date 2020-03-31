@@ -9,6 +9,7 @@ class DetailsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
             title: navigation.getParam('categoryName'),
+            headerTitleAlign: 'center',
             headerTitleStyle: {
                 textAlign: 'center',
                 color: 'white',

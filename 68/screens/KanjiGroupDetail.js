@@ -11,8 +11,8 @@ export default class KanjiGroupDetail extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
         title:'Kanji cơ bản 1',
+        headerTitleAlign: 'center',
         headerTitleStyle: {
-          textAlign: 'center',
           color: 'white',
         },
         headerTintColor: 'white',
