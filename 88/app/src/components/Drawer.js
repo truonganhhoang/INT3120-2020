@@ -12,7 +12,7 @@ const Drawer = () => {
             <Text style={styles.signOut}>SIGN OUT</Text>
           </View>
         </ImageBackground>
-        <Image source={require('../assets/img/google-background.jpg')} resizeMode='cover' style={styles.userIcon} />
+        <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
       </View>
       {/* <View style={styles.featureContainer}>
         <Text>abcdefgh</Text>
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     height: 65,
     borderRadius: 40,
     marginTop: 40,
-    marginLeft: 15
+    marginLeft: 15,
+    backgroundColor: '#ff7777'
   },
   userFooter: {
     flexDirection: 'row',
