@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, FlatList, Image ,TouchableWithoutFeedback} from 'react-native';
-import { ListItem, Header,Icon } from 'react-native-elements';
+import { Header,Icon } from 'react-native-elements';
+import { SwipeListView } from 'react-native-swipe-list-view';
 import newWord from './../data/new-word/index';
 
 
@@ -29,7 +30,26 @@ export default class NewWordList extends React.Component{
             </View>
             
 		</View>
-  )
+  );
+
+  renderHiddenItem = () => (
+    <View>
+      <View>
+        <Icon
+          name='favorite'
+          type='material'
+        />
+        <Icon
+          name='alarm'
+          type='material'
+        />
+        <Icon
+          name='comment'
+          type='material'
+        />
+      </View>
+    </View>
+);
 
   render(){
       const {navigate,state} = this.props.navigation;
@@ -39,14 +59,19 @@ export default class NewWordList extends React.Component{
                   leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Word') }}
                   centerComponent={{ text: 'Thể thao', style: { color: '#fff' } }}
               />
-              <FlatList
-				    style={styles.flatlist}
-					contentContainerStyle={{ paddingBottom: 80}}
+              <SwipeListView
+				          style={styles.flatlist}
+					        contentContainerStyle={{ paddingBottom: 80}}
                   keyExtractor={this.keyExtractor}
                   data={newWord.sports}
                   renderItem={this.renderItem}
+                  renderHiddenItem={this.renderHiddenItem}
+                  leftOpenValue={0}
+                  rightOpenValue={-200}
                   showsVerticalScrollIndicator={true}
+                  disableRightSwipe={true}
               />
+              <SwipeListView />
           </View>
       );
   }
