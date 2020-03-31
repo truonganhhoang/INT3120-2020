@@ -1,13 +1,18 @@
 import React from 'react';
 import {
   Image,
-  ScrollView,
+  FlatList,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import loadBar from '../assets/loading.png'
 import persen from '../assets/percentage.png'
+import menu from '../assets/menu.png'
+import flashcard from '../assets/wallet.png'
+import test from '../assets/test.png'
+import challenge1 from '../assets/mission.png'
+import challenge2 from '../assets/top.png'
 import KanjiLearn from '../components/KanjiLearn'
 export default class KanjiLearning extends React.Component {
   static navigationOptions = ({navigation}) => {
@@ -23,7 +28,24 @@ export default class KanjiLearning extends React.Component {
         },
     };
   };
+  constructor(props){
+    super(props);
+      this.state = {
+        images: [
+          {id: 1, url: menu, name: 'Kanji chi tiết'},
+          {id: 2, url: flashcard, name: 'Học với Flashcards'},
+          {id: 3, url: test, name: 'Luyện tập qua bài Tests'},
+          {id: 4, url: challenge1, name: 'Thử thách Kanji 1'},
+          {id: 5, url: challenge2, name: 'Thử thách Kanji 2'}
+        ]
+      }
+  }
+
   render(){
+    const {images} = this.state;
+    const {navigation} =  this.props;
+    const groupKanji = navigation.getParam('kanjiGroup');
+
     return (
        <View>
          <View style={styles.persen}>
@@ -34,10 +56,13 @@ export default class KanjiLearning extends React.Component {
             <Image source={loadBar} style={styles.loadBar}></Image>
          </View>
          <View style={styles.container}>
-              <KanjiLearn/>
-              <KanjiLearn/>
-              <KanjiLearn/>
-              <KanjiLearn/>
+         <FlatList 
+            data={images}
+            renderItem = {({item}) => <KanjiLearn image={item} 
+            onPress={()=> navigation.navigate('KanjiGroupDetail',{kanjiList : groupKanji.item.kanjiList})}/>}
+            keyExtractor= {item => `${item.id}`}
+            contentContainerStyle={styles.container}
+          />
          </View>
        </View>
     );
@@ -45,7 +70,7 @@ export default class KanjiLearning extends React.Component {
 }
 const styles = StyleSheet.create({
   container: {
-    marginTop: '8%',
+    marginTop: '3%',
     marginHorizontal: 8
   },
   ImagePersen: {

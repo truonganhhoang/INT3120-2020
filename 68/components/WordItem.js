@@ -7,10 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 
-
 export default function WordItem ({text, navigation, object}){
-    //console.log(object)
-    
     return (
         <TouchableOpacity activeOpacity={0.5} onPress={()=>{
             //console.log(object)

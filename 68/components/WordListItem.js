@@ -13,16 +13,19 @@ import WordItem  from '../components/WordItem'
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 console.disableYellowBox = true;
 export default function WordListItem(props){
-    const {kanji} = props; 
-   
+    const {kanji} = props;
     return (
         <TouchableOpacity activeOpacity={0.5} onPress={()=>{
-            props.navigation.navigate('KanjiLearning', {kanjiLearningName: kanji.item.groupName})
+            props.navigation.navigate('KanjiLearning',
+            {
+                kanjiGroup : kanji,
+                kanjiLearningName: kanji.item.groupName
+            })
         }}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.header}>
-    <Text style={styles.title}>{kanji?kanji.item.groupName:"Kanji"}</Text>
+                        <Text style={styles.title}>{kanji?kanji.item.groupName:"Kanji"}</Text>
                         <Image source={rightArrow} style={styles.rightArrowImage}></Image> 
                     </View>
                     <View style={styles.listItem}>

@@ -6,14 +6,15 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-import challenge from '../assets/mission.png'
+import challenge1 from '../assets/mission.png'
 
 export default function KanjiLearn (props){
+    const {image, onPress} = props;
     return (
-        <TouchableOpacity activeOpacity={0.5}>
+        <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
             <View style={styles.container}>
-                <Image source={challenge} style={styles.ImageChallenge}></Image>
-                <Text style={styles.title}>Thử thách 1</Text>
+                <Image source={image.url} style={styles.ImageChallenge}></Image>
+                <Text style={styles.title}>{image.name}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -26,15 +27,16 @@ const styles = StyleSheet.create({
         elevation: 4,
         borderRadius: 5,
         backgroundColor:'white',
-        marginBottom: 30,
+        marginBottom: 11,
         borderWidth: 0,
         flexDirection: 'row',
         
     },
     title: {
-        fontSize: 21,
+        fontSize: 19,
         color: '#006265',
-        marginLeft: '20%'
+        marginLeft: '15%',
+        textAlign: 'center'
     },
     ImageChallenge: {
         width: 30,
