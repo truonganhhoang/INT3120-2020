@@ -30,6 +30,7 @@ Link ứng dụng: [https://play.google.com/store/apps/details?id=com.ffff.tudie
   - [[features/f10.1] ](https://github.com/balanced-team/envidict/pull/12)
   - [[features/f12.1] ](https://github.com/balanced-team/envidict/pull/13)
   - [[features/f11.1] ](https://github.com/balanced-team/envidict/pull/14)
+  - Video giới thiệu: https://www.youtube.com/watch?v=IYvAej2m4zo
 - Tuần 4: Hoàn thành thêm 2 màn hình, kết nối với backend.
 - Tuần 5: Hoàn thành thêm 2 màn hình, kết nối với backend, bắt đầu hoàn thiện sản phẩm.
 - Tuần 6: Hoàn thiện sản phẩm, refactor code.
