@@ -28,29 +28,16 @@ class TestBar extends Component {
                     onPress={() => { console.log({ index }) }}
                 >
                     <View style={styles.item}>
-                        <View style={{ flexDirection: 'row', alignItems:'center' }}>
-                            <Icon name={item.icon} size={45} style={{padding: 10}}/>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Icon name={item.icon} size={45} style={{ padding: 10 }} />
                             <View style={{ flexDirection: 'column' }}>
                                 <Text style={styles.part}>Part {item.part}</Text>
                                 <Text style={styles.name}>{item.name}</Text>
                             </View>
                         </View>
                     </View>
-
-
                 </TouchableOpacity>
             </Animatable.View >
-        )
-    }
-    renderBody = () => {
-        return (
-            <View >
-                <FlatList
-                    data={this.state.data}
-                    renderItem={this.renderItem}
-                    keyExtractor={(item, index) => index.toString()}
-                />
-            </View>
         )
     }
     render() {
@@ -59,9 +46,11 @@ class TestBar extends Component {
                 <View style={styles.linearGradient}>
                     <Text style={styles.title}>KIỂM TRA</Text>
                 </View>
-                <ScrollView>
-                    {this.renderBody()}
-                </ScrollView>
+                <FlatList
+                    data={this.state.data}
+                    renderItem={this.renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
             </SafeAreaView>
         )
     }
