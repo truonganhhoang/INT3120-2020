@@ -44,15 +44,15 @@ export default class Home extends Component {
 
         <View style={styles.gridList}>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Test')}>
               <Image style={styles.imageButton}  source={require('../image/home/img1.png')}/>
               <Text style={styles.button1}>THI SÁT HẠNH</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Learn')}>
               <Image style={styles.imageButton}  source={require('../image/home/img2.png')}/>
               <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('upload')}>
               <Image style={styles.imageButton}  source={require('../image/home/img3.png')}/>
               <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
             </TouchableOpacity>
@@ -125,11 +125,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 1,
+    margin: 0.5,
     padding: 2
   },
   imageButton: {
     resizeMode: 'cover',
+    marginBottom:10
   },
   button1: {
     fontSize: 15,

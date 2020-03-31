@@ -14,7 +14,7 @@ export default class App extends Component {
     setTimeout(() => {
       console.log('Loading Splash')
       this.setState({startScreen: 'Index'})
-    }, 3000)
+    }, 5)
   }
 
   render() {

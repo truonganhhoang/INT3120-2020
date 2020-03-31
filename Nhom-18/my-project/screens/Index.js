@@ -11,10 +11,17 @@ import {
 } from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack'
 
-import Home1 from './Home1'
 import Home from './Home'
 import Setting from './Setting'
+import Test from './Test'
+import Learn from './Learn'
+import Tutorial from './Tutorial'
+import Skill from './Skill'
+import upload from './upload'
+
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import imageUpload from './upload';
 
 // function Feed({ navigation }) {
 //   return (
@@ -47,7 +54,7 @@ function CustomDrawerContent(props) {
         />
         <DrawerItem
           label='Hướng dẫn sử dụng'
-          onPress={() => props.navigation.navigate('Setting')}
+          onPress={() => props.navigation.navigate('Tutorial')}
           icon={() => <Icon style={styles.menuIcon} name='information-outline' />}
         />
         <DrawerItem
@@ -64,7 +71,7 @@ function CustomDrawerContent(props) {
       <View style={styles.textMenu2}>
         <DrawerItem
           label='Kỹ năng lái xe'
-          onPress={() => props.navigation.navigate('Setting')}
+          onPress={() => props.navigation.navigate('Skill')}
           icon={() => <Icon style={styles.menuIcon} name='car' />}
         />
         <DrawerItem
@@ -109,8 +116,26 @@ function MyStack({navigation}) {
           <Icon name='menu' size={30} style={{left:15}} color='white' onPress={() => {navigation.openDrawer()}}/>
         )
       }}/>
+      <Stack.Screen name="Tutorial" component={Tutorial} options={{
+        title: 'Hướng dẫn chi tiết',
+      }}/>
+      <Stack.Screen name="Skill" component={Skill} options={{
+        title: 'Kỹ năng và kinh nghiệm lái xe',
+      }}/>
+
+
+
       <Stack.Screen name="Setting" component={Setting} options={{
         title: 'Chọn hạng bằng thi',
+      }}/>
+      <Stack.Screen name="Test" component={Test} options={{
+        title: 'Thi sát hạnh',
+      }}/>
+      <Stack.Screen name="Learn" component={Learn} options={{
+        title: 'Học lý thuyết',
+      }}/>
+      <Stack.Screen name="upload" component={upload} options={{
+        title: 'Biển báo đường bộ',
       }}/>
     </Stack.Navigator>
   );
