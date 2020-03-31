@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
 const Stack = createStackNavigator();
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName="Home" >
         <Stack.Screen name="Home" component={Menu} />
         <Stack.Screen name="Chọn mục bằng thi" component={TrangChu} />
         <Stack.Screen name="Lithuyet" component={LiThuyet} />
