@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { Image, View, Text } from 'react-native';
 import { Dimensions } from 'react-native'
-const deviceWidth = Dimensions.get('window').width
+const deviceWidth = Dimensions.get('window').width;
+import persen from '../assets/icons8-speaker-40.png'
+
 
 class DetailsScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = ({ navigation, }) => {
+        
         return {
-            title: navigation.getParam('categoryName'),
+            title: "Kanji Chi Tiết",
             headerTitleStyle: {
                 textAlign: 'center',
                 color: 'white',
@@ -29,6 +30,13 @@ class DetailsScreen extends React.Component {
         };
     };
     render() {
+        const {navigation} = this.props;
+        const example = navigation.getParam('example');
+        const on = navigation.getParam('on');
+        const kun = navigation.getParam('kun');
+        const kanji = navigation.getParam('kanji');
+
+        
         const widthElement = deviceWidth * 45 / 100;
         return (
             <View>
@@ -60,7 +68,7 @@ class DetailsScreen extends React.Component {
                 }}><Text style={{
                     color: '#006265',
                     fontSize: 100,
-                }}>字</Text></View>
+                }}>{kanji}</Text></View>
                 </View>
                 <View style={{
                     height: 420,
@@ -85,24 +93,21 @@ class DetailsScreen extends React.Component {
                             }}>Âm Kun</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
-                            <View style={{
-                            }}>
-                                <Text style={{
-                                    borderRadius: 10,
-                                    marginLeft: 10,
-                                    backgroundColor: '#006265',
-                                    color: 'white'
-                                }}>あぶら</Text>
-                            </View>
-                            <View>
-                                <Text style={{
-                                    padding: 2,
-                                    borderRadius: 10,
-                                    marginLeft: 10,
-                                    backgroundColor: '#006265',
-                                    color: 'white'
-                                }}>あぶら</Text>
-                            </View>
+                            {
+                                kun.map((kunItem, index)=>
+                                    <View key={index}>
+                                        <Text style={{
+                                             borderRadius: 10,
+                                             minWidth:40,
+                                             textAlign:'center',
+                                             marginLeft: 10,
+                                             backgroundColor: '#006265',
+                                             color: 'white'
+                                        }}>{kunItem}</Text>
+                                    </View> 
+                                )
+                            }
+                        
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10, marginLeft: 10 }}>
@@ -113,23 +118,22 @@ class DetailsScreen extends React.Component {
                             }}>Âm On</Text>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
-                            <View style={{
-                            }}>
-                                <Text style={{
-                                    borderRadius: 10,
-                                    marginLeft: 10,
-                                    backgroundColor: '#006265',
-                                    color: 'white'
-                                }}>あぶら</Text>
-                            </View>
-                            <View>
-                                <Text style={{
-                                    borderRadius: 10,
-                                    marginLeft: 10,
-                                    backgroundColor: '#006265',
-                                    color: 'white'
-                                }}>あぶら</Text>
-                            </View>
+                        {
+                                on.map((onItem, index)=>
+                                    <View key={index}>
+                                        <Text style={{
+                                            borderRadius: 10,
+                                            minWidth:40,
+                                            textAlign:'center',
+                                            marginLeft: 10,
+                                            backgroundColor: '#006265',
+                                            color: 'white'
+                                        }}>{onItem}</Text>
+                                    </View> 
+                                )
+                            }
+                            
+                           
                         </View>
                     </View>
 
@@ -141,42 +145,21 @@ class DetailsScreen extends React.Component {
                         </View>
  
                         <View style={{flexDirection: 'column',marginTop:10, height:280}}>
-                           
-                            <View style={{flex:1}}>    
-                                <Text style={{color:  '#006265', }}>ひ</Text>
-                                <View style={{flexDirection: 'row',alignItems: 'center'}}>
-                                    <Text style={{color:'#006265', flex: 8, fontSize:30}}>日</Text>
-                                    <Text style={{color:'#006265',height:25, flex:8}}>ngày</Text>
-                                    <Text style={{color:'#006265', flex: 3}}>loa</Text>
-                                </View>
-                            </View>
-
-                            <View style={{flex:1}}>    
-                                <Text style={{color:  '#006265'}}>ひ</Text>
-                                <View style={{flexDirection: 'row',alignItems: 'center'}}>
-                                    <Text style={{color:'#006265', flex: 8, fontSize:30}}>日</Text>
-                                    <Text style={{color:'#006265',height:25, flex:8}}>ngày</Text>
-                                    <Text style={{color:'#006265', flex: 3}}>loa</Text>
-                                </View>
-                            </View>
-
-                            <View style={{flex:1}}>    
-                                <Text style={{color:  '#006265', }}>ひ</Text>
-                                <View style={{flexDirection: 'row',alignItems: 'center'}}>
-                                    <Text style={{color:'#006265', flex: 8, fontSize:30}}>日</Text>
-                                    <Text style={{color:'#006265',height:25, flex:8}}>ngày</Text>
-                                    <Text style={{color:'#006265', flex: 3}}>loa</Text>
-                                </View>
-                            </View>
-                            <View style={{flex:1}}>    
-                                <Text style={{color:  '#006265', }}>ひ</Text>
-                                <View style={{flexDirection: 'row',alignItems: 'center'}}>
-                                    <Text style={{color:'#006265', flex: 8, fontSize:30}}>日</Text>
-                                    <Text style={{color:'#006265',height:25, flex:8}}>ngày</Text>
-                                    <Text style={{color:'#006265', flex: 3}}>loa</Text>
-                                </View>
-                            </View>
-
+                            {
+                                example.map((exampleItem, index)=>
+                                    <View style={{flex:1}} key={index}>    
+                                        <Text style={{color:  '#006265',fontSize:12}}>{exampleItem.hiragana}</Text>
+                                        <View style={{flexDirection: 'row',alignItems: 'center',marginRight:10}}>
+                            <Text style={{color:'#006265', flex: 8, fontSize:30}}>{exampleItem.ja}</Text>
+                            <Text style={{color:'#006265', flex:8}}>{exampleItem.vi}</Text>
+                                            
+                                                 
+                            <Image source={persen} style={{ width: 30,height: 30}}/>
+                                        
+                                        </View>
+                                    </View>
+                                )
+                            }
                         </View>
                     
                     </View>

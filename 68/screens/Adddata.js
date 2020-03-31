@@ -18,200 +18,214 @@ const data = {
                     kun: ["ニチ","ニ"],
                     example: [
                         {
+                            hiragana: "ひ",
                             vi: "Mặt Trời",
                             ja: "日"
                         },
-                        {
+                        {   
+                            hiragana: "みっか",
                             vi: "3 Ngày",
-                            ja: "日"
+                            ja: "三日"
                         },
                         {
+                            hiragana: "にほん",
                             vi: "Nhật Bản",
-                            ja: "日"
+                            ja: "日本"
                         },
                         {
+                            hiragana: "にちようび",
                             vi: "Chủ Nhật",
-                            ja: "日"
+                            ja: "日曜日"
                         },
                     ]
                 },
                 {
                     kanji: "月",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["ゲツ","ガツ"],
+                    kun: ["つき"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "つき",
+                            vi: "Mặt Trăng",
+                            ja: "月"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "げつようび",
+                            vi: "Thứ Hai",
+                            ja: "月曜日"
                         },
                         {
-                            vi: "Nhật Bản",
-                            ja: "日"
+                            hiragana: "いちがつ",
+                            vi: "Tháng Một",
+                            ja: "１月"
                         },
                         {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                            hiragana: "いっかがつ",
+                            vi: "Một Tháng",
+                            ja: "一ケ月"
                         },
                     ]
                 },
                 {
                     kanji: "木",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["モク"],
+                    kun: ["き"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "き",
+                            vi: "Cây",
+                            ja: "木"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "きむら",
+                            vi: "kimura (tên Riêng Của Nhật)",
+                            ja: "木村"
                         },
                         {
+                            hiragana: "もくようび",
                             vi: "Nhật Bản",
-                            ja: "日"
-                        },
-                        {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                            ja: "木曜日"
                         },
                     ]
                 },
                 {
                     kanji: "山",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["ザン","サン"],
+                    kun: ["やま"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "やま",
+                            vi: "Núi",
+                            ja: "山"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "ふじさん",
+                            vi: "Núi Phú Sĩ",
+                            ja: "富士山"
                         },
                         {
-                            vi: "Nhật Bản",
-                            ja: "日"
-                        },
-                        {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                            hiragana: "かざん",
+                            vi: "Núi Lửa",
+                            ja: "火山"
                         },
                     ]
                 },
                 {
                     kanji: "川",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["セン"],
+                    kun: ["かわ","がわ"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "かわ",
+                            vi: "Sông",
+                            ja: "川"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "ナイルがわ",
+                            vi: "Sông Nile",
+                            ja: "ナイル川"
                         },
                         {
-                            vi: "Nhật Bản",
-                            ja: "日"
-                        },
-                        {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                            hiragana: "かわも",
+                            vi: "Mặt Sông",
+                            ja: "川面"
                         },
                     ]
                 }, 
                 {
                     kanji: "田",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["デン"],
+                    kun: ["た","だ"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "たんぼ",
+                            vi: "Cánh Đồng lúa",
+                            ja: "田んぼ"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "たなか",
+                            vi: "Tanaka (Tên riêng)",
+                            ja: "田中"
                         },
                         {
-                            vi: "Nhật Bản",
-                            ja: "日"
+                            hiragana: "やまだ",
+                            vi: "Yamada (Tên riêng)",
+                            ja: "山田"
                         },
                         {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                            hiragana: "すいでん",
+                            vi: "Cánh đồng lúa nước ",
+                            ja: "水田"
                         },
                     ]
                 },
                 {
                     kanji: "人",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["ニン","ジン"],
+                    kun: ["ひと"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "ひと",
+                            vi: "Người",
+                            ja: "人"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "にほんじん",
+                            vi: "Người Nhật",
+                            ja: "日本人"
                         },
-                        {
-                            vi: "Nhật Bản",
-                            ja: "日"
-                        },
-                        {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                        {                            hiragana: "さんにん",
+
+                            vi: "3 Người",
+                            ja: "三人"
                         },
                     ]
                 }, 
                 {
                     kanji: "口",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["コウ"],
+                    kun: ["くち","ぐち"],
                     example: [
                         {
+                            hiragana: "くち",
                             vi: "Mặt Trời",
-                            ja: "日"
+                            ja: "口"
                         },
                         {
+                            hiragana: "でぐち",
                             vi: "3 Ngày",
-                            ja: "日"
+                            ja: "出口"
                         },
                         {
+                            hiragana: "はいりぐち",
                             vi: "Nhật Bản",
-                            ja: "日"
+                            ja: "入り口"
                         },
-                        {
-                            vi: "Chủ Nhật",
-                            ja: "日"
+                        {   hiragana: "じんぐち",
+                            vi: "じんぐち",
+                            ja: "人口"
                         },
                     ]
                 },
                 {
                     kanji: "車",
-                    on:["ひ","び","か"],
-                    kun: ["ニチ","ニ"],
+                    on:["シャ"],
+                    kun: ["くるま"],
                     example: [
                         {
-                            vi: "Mặt Trời",
-                            ja: "日"
+                            hiragana: "くるま",
+                            vi: "Ô tô",
+                            ja: "車"
                         },
                         {
-                            vi: "3 Ngày",
-                            ja: "日"
+                            hiragana: "でんしゃ",
+                            vi: "Tàu Điện",
+                            ja: "電車"
                         },
                         {
-                            vi: "Nhật Bản",
-                            ja: "日"
+                            hiragana: "じてんしゃ",
+                            vi: "Xe Đạp",
+                            ja: "自転車"
                         },
                         {
                             vi: "Chủ Nhật",

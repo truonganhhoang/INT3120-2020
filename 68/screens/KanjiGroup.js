@@ -11,7 +11,6 @@ import WordsListItem from '../components/WordListItem';
 const db = firebase.firestore();
 export default class kanjiGroup extends React.Component {
   static navigationOptions = ({navigation}) => {
-    console.log(navigation.getParam('categoryName'))
     return {
         title: navigation.getParam('kanjiGroupName'),
         headerTitleStyle: {
@@ -31,9 +30,7 @@ export default class kanjiGroup extends React.Component {
       }
   }
   componentDidMount = ()=>{
-    // db.collection("kanjiProject").get().then((data, index)=>{
-    //   data.docs.forEach(doc => {console.log(doc.data(),'\n-------------------', index)})
-    // })
+    
     var docRef = db.collection("kanjiProject").doc("data");
     docRef.get().then((doc)=>{
       if (doc.exists) {
@@ -48,8 +45,6 @@ export default class kanjiGroup extends React.Component {
     }); 
   }
   render(){
-    //if(this.state)
-    //console.log(JSON.stringify(this.state))
     const navigation = this.props.navigation;
     return (
        <View style={styles.container}>

@@ -8,11 +8,14 @@ import {
 } from 'react-native'
 
 
-export default function WordItem ({text, navigation}){
-    //console.log(text)
+export default function WordItem ({text, navigation, object}){
+    //console.log(object)
     
     return (
-        <TouchableOpacity activeOpacity={0.5} onPress={()=>navigation.navigate("KanjiDetail")}>
+        <TouchableOpacity activeOpacity={0.5} onPress={()=>{
+            //console.log(object)
+
+            navigation.navigate("KanjiDetail", object);}}>
             <View style={styles.container}>
                 <Text style={styles.title}>{text}</Text>
             </View>

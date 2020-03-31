@@ -15,12 +15,13 @@ if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
 const AppContainer  =  createAppContainer(AppNavigator);
+import firebase from './config/firebase';
 export default class App extends React.Component {
   
   render(){
   
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
-    //return(<KanjiScreen/>)
+    //return(<AddData/>)
     return (
       <AppContainer/>
     );
