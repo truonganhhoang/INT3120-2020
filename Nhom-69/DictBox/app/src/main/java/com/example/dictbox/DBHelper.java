@@ -1,7 +1,6 @@
 package com.example.dictbox;
 
 import android.content.Context;
-import android.content.SyncStats;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.logging.FileHandler;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -30,7 +28,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private final String COL_KEY = "key";
     private final String COL_VALUE = "value";
-
 
     public SQLiteDatabase mDB;
 
@@ -78,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
 
     }
 

@@ -53,9 +53,9 @@ public class DictionaryFragment extends Fragment {
         dictList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if (listener != null) {
-                listener.onItemClick(mSource.get(position));
-            }
+              if (listener != null) {
+                  listener.onItemClick(mSource.get(position));
+              }
             }
         });
     }

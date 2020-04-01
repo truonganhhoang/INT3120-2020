@@ -50,7 +50,6 @@ public class DB {
                 ,"dwd"
                 ,"ajds"
                 ,"kja"
-
         };
         return source;
     }

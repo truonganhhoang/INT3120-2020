@@ -23,8 +23,10 @@ public class BookmarkFragment extends Fragment {
     private FragmentListener listener;
     private DBHelper mDBHelper;
 
-    public BookmarkFragment() {
-
+    public static BookmarkFragment getNewInstance(DBHelper dbHelper) {
+        BookmarkFragment fragment = new BookmarkFragment();
+        fragment.mDbHelper = dbHelper;
+        return fragment;
     }
 
     public static BookmarkFragment getNewInstance(DBHelper dbHelper){
@@ -52,7 +54,8 @@ public class BookmarkFragment extends Fragment {
         setHasOptionsMenu(true);
 
         ListView bookmarkList = (ListView) view.findViewById(R.id.bookmarkList);
-        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDBHelper.getAllWordFromBookMark());
+        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDbHelper.getAllWordFromBookmark());
+
         bookmarkList.setAdapter(adapter);
 
         adapter.setOnItemClick(new ListItemListener() {

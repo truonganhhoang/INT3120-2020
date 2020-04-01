@@ -73,16 +73,16 @@ public class DetailFragment extends Fragment {
         btnBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            int i = (int)btnBookmark.getTag();
-            if(i == 0){
-                btnBookmark.setImageResource(R.drawable.ic_bookmark);
-                btnBookmark.setTag(1);
-                mDBHelper.addBookMark(word);
-            }else if(i == 1){
-                btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
-                btnBookmark.setTag(0);
-                mDBHelper.removeBookMark(word);
-            }
+              int i = (int)btnBookmark.getTag();
+              if(i == 0){
+                  btnBookmark.setImageResource(R.drawable.ic_bookmark);
+                  btnBookmark.setTag(1);
+                  mDBHelper.addBookMark(word);
+              }else if(i == 1){
+                  btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
+                  btnBookmark.setTag(0);
+                  mDBHelper.removeBookMark(word);
+              }
             }
         });
     }
