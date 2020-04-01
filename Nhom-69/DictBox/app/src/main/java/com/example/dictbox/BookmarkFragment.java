@@ -29,12 +29,6 @@ public class BookmarkFragment extends Fragment {
         return fragment;
     }
 
-    public static BookmarkFragment getNewInstance(DBHelper dbHelper){
-        BookmarkFragment fragment = new BookmarkFragment();
-        fragment.mDBHelper = dbHelper;
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
