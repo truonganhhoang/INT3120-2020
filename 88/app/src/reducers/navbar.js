@@ -31,4 +31,4 @@ const navbarReducer = (state = initialState, action) => {
   }
 }
 
-export default navbarReducer
+export default navbarReducer;

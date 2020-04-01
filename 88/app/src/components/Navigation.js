@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback, ClippingRectangle } from 'react-native';
+import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
@@ -7,10 +7,9 @@ import { changeNavIcon } from '../actions/navbarActions';
 import useAnimation from '../utils/animationHook';
 
 const RotateAndChangeView = (props) => {
-  const { duration, angleValue, opacityValue, children } = props;
+  const { direction, opacityRange, children } = props;
 
-  const animation = useAnimation({ duration });
-  console.log('abc')
+  const animation = useAnimation({ doAnimation: direction, duration: 300 });
 
   return (
     <Animated.View style={{
@@ -18,12 +17,12 @@ const RotateAndChangeView = (props) => {
       transform: [{
         rotate: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [...angleValue]
+          outputRange: direction ? ['0deg', '180deg'] : ['360deg', '180deg']
         })
       }],
       opacity: animation.interpolate({
         inputRange: [0, 1],
-        outputRange: [...opacityValue]
+        outputRange: opacityRange
       })
     }}>
       {children}
@@ -35,7 +34,9 @@ const Navigation = (props) => {
   const navbar = useSelector(state => state.navbar, shallowEqual);
   
   const dispatch = useDispatch();
+
   const changeIcon = () => {
+    // props.openDrawer();
     dispatch(changeNavIcon(!navbar.isArrow));
   }
 
@@ -49,10 +50,10 @@ const Navigation = (props) => {
             style={{backgroundColor: 'red'}}
           >
             <View style={{width: 25, height: 25 }}>
-              <RotateAndChangeView style={styles.navIcon} angleValue={navbar.isArrow ? ['0deg', '180deg'] : ['180deg', '360deg']} opacityValue={navbar.isArrow ? [1, 0] : [0, 1]} >
+              <RotateAndChangeView style={styles.navIcon} direction={navbar.isArrow} opacityRange={[1, 0]} duration={300} >
                 <Icon name='menu' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
-              <RotateAndChangeView style={styles.navIcon} angleValue={navbar.isArrow ? ['0deg', '180deg'] : ['180deg', '360deg']} opacityValue={navbar.isArrow ? [0, 1] : [1, 0]} >
+              <RotateAndChangeView style={styles.navIcon} direction={navbar.isArrow} opacityRange={[0, 1]} duration={300} >
                 <Icon name='arrow-right' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
             </View>

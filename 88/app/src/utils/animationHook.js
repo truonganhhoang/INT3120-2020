@@ -2,23 +2,18 @@ import { Animated } from 'react-native';
 import { useState, useEffect } from 'react';
 
 const useAnimation = (animation) => {
-	const [variable, setVariable] = useState(new Animated.Value(0));
+	const { doAnimation, duration } = animation;
 
-	const { duration } = animation;
+	const [variable] = useState(new Animated.Value(0));
 
-	console.log('def')
-	
 	useEffect(() => {
 		Animated.timing(variable, {
-			toValue: 1,
+			toValue: doAnimation ? 1 : 0,
 			duration,
 			useNativeDriver: true
 		}).start();
 
-		return () => {
-			setVariable(new Animated.Value(0));
-		}
-	}, []);
+	}, [doAnimation]);
 
 	return variable;
 }
