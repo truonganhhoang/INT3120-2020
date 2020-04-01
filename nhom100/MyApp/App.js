@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 import 'react-native-gesture-handler';
-import Router from './src/components/Router';
+import MenuFooter from './src/components/screens/MenuTab';
 export default class App extends Component {
   render() {
     return (
       <View style={{flex:1}}>
-          <Router></Router>
+        <MenuFooter></MenuFooter>
       </View>
     )
   }

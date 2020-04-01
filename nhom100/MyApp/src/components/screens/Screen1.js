@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import Menuf from './Menuf'
+import { View, Text, Button, Image } from 'react-native'
 import Provideo from '../components/Provideo'
 import Header from '../components/Header'
 
@@ -12,10 +11,10 @@ export default class Screen1 extends Component {
                     <Header></Header>
                 </View>
                 <View style={{flex: 8, flexDirection: "row", backgroundColor: "#ddd"}}>
+                    <Text style={{fontSize: 30}}>Màn hình home</Text>
                    <Provideo />
                    <Provideo />
                 </View>
-                <Menuf></Menuf>
             </View>
         )
     }
