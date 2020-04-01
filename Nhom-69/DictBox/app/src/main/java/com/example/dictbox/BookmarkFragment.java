@@ -25,7 +25,7 @@ public class BookmarkFragment extends Fragment {
 
     public static BookmarkFragment getNewInstance(DBHelper dbHelper) {
         BookmarkFragment fragment = new BookmarkFragment();
-        fragment.mDbHelper = dbHelper;
+        fragment.mDBHelper = dbHelper;
         return fragment;
     }
 
@@ -48,7 +48,7 @@ public class BookmarkFragment extends Fragment {
         setHasOptionsMenu(true);
 
         ListView bookmarkList = (ListView) view.findViewById(R.id.bookmarkList);
-        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDbHelper.getAllWordFromBookmark());
+        final BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), mDBHelper.getAllWordFromBookMark());
 
         bookmarkList.setAdapter(adapter);
 
