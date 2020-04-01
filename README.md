@@ -1,13 +1,10 @@
 # INT3120-2020
 Môn học Phát triển ứng dụng di động 2020
-## Bài tập của nhóm 68
-Nội dung bài tập: Poro - Học Kanji N4 N5: Hỗ trợ người Kanji(tiếng Nhật) mức độ N4, N5.
-## Môn học: Phát triển ứng dụng di động
-Lớp: INT3120 4, học kỳ 2, năm học 2019-2020
-Giảng viên: PGS.TS Trương Anh Hoàng
-## Thành viên trong nhóm 68:
-Nguyễn Thế Anh, mã sinh viên 17021148
-Nguyễn Văn Tú, mã sinh viễn 17021096
-## Công nghệ được sử dụng:
-ReactNative
-Firebase
+
+# Chú ý
+Mỗi nhóm tạo 1 thư mục với số của nhóm để đưa code của nhóm vào trong thư mục đó. Các thư mục này PHẢI CÓ readme.md mô tả các thông tin về app.
+
+# Nộp bài hàng tuần
+Các nhóm nộp bài hàng tuần bằng cách tạo 1 pull request nộp bài chung cho cả nhóm. Có nghĩa các thành viên sẽ đóng góp thông qua repo của 1 người forked ra từ repo này. 
+
+Mọi thành viên tự commit code của mình, không commit hộ, để thống kê trên github thể hiện được đóng góp của từng cá nhân.

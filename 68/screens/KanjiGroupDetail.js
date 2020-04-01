@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Image,
   FlatList,
+  ScrollView,
   StyleSheet,
   Text,
   View,Dimensions
@@ -26,11 +27,15 @@ export default class KanjiGroupDetail extends React.Component {
   render(){
     const kanjiList = this.props.navigation.getParam('kanjiList')
     return (
+      <ScrollView>
        <View style={styles.listItem}>
+       
          {
            kanjiList.map((kanjiItem, index)=><KanjiCard kanjiText={kanjiItem.kanji}/>)
          }
+        
        </View>
+       </ScrollView>
     );
   }
 }
@@ -63,8 +68,6 @@ const styles = StyleSheet.create({
   },
   listItem: {
     flexDirection: 'row',
-    width: '85%',
-    marginLeft: '7.5%',
     flexWrap: 'wrap'
 }
 });
