@@ -21,7 +21,8 @@ app.set("views","./views/pages");
 
 
 //Models
-var TFS=require('./models/trafficsSign');
+var TFS=require('./models/TrafficSign');
+var TFSC=require('./models/trafficSignCategory');
 var mySQL=require('./models/MySQL');
 
 //End models
@@ -58,6 +59,29 @@ app.get("/admin/trafficsigns/json",function(req,res)
 app.post('/admin/addtrafficsigns', (req, res) => {
  
   TFS.add(req,res,con);
+
+});
+//////////////
+
+//Admin traffic signs categories
+app.get("/admin/trafficsignsCategories",function(req,res)
+{
+  res.render("admin/trafficsignsCategories/listtrafficsignsCategories");
+})
+app.get("/admin/addtrafficsignsCategories",function(req,res)
+{
+  res.render("admin/trafficsignsCategories/addtrafficsignsCategories");
+})
+
+app.get("/admin/trafficsignsCategories/json/:name",function(req,res)
+{
+
+res.send('User name có tên: '+ req.params.name);
+ // TFSC.list(con,res);
+})
+app.post('/admin/addtrafficsignsCategories', (req, res) => {
+ 
+  //TFSC.add(req,res,con);
 
 });
 //////////////
