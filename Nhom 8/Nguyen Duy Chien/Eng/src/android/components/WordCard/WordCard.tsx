@@ -5,12 +5,12 @@ import styles from './styles';
 
 
 
-const Word = (props: {data?: any}) => {
+const Word = (props: {data?: any; colorS: any}) => {
   const { data } = props; 
-  const [colorStar, setColorStar] = useState('white')
+  const { colorS } = props;
+  const [colorStar, setColorStar] = useState(colorS)
   console.log(data); 
   const onPressStar = () => {
-    console.log('Star is Ready!'); 
     if (colorStar == 'white'){
       setColorStar('yellow'); 
     } 

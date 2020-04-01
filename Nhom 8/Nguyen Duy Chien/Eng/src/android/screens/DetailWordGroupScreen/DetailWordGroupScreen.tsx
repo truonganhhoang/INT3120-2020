@@ -10,14 +10,13 @@ import styles from './styles';
 const Screen = (props : {navigation?: any; route?: any}) => {
   const { navigation, route } = props; 
   const { data } = route.params; 
-  console.log('Welcome to Detail Word Group Screen'); 
-
+  console.log(data.words);   
   return (
     <View>
       <Header 
         containerStyle={styles.header}
         leftComponent={
-          <Back navigation={navigation} backScreen={'WordGroupScreen'} color={'#ff5e00'}/>
+          <Back navigation={navigation} color={'#ff5e00'}/>
         }
         rightComponent={
           <MenuButton />
@@ -27,7 +26,10 @@ const Screen = (props : {navigation?: any; route?: any}) => {
       <ScrollView>
         {
           data.words.map( (e: any) =>
-            <WordCard data={e}/>
+            <WordCard data={e}
+              colorS='white'
+              key={e.en_meaning}
+            />
           )
         }
       </ScrollView>
