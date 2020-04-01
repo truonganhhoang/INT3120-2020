@@ -157,3 +157,7 @@ ionic g page profile -f
 - Thêm các module auth, database và firestore `vào app.module`.
 - Tạo các services đăng ký, đăng nhập.
 - Tính năng đăng ký với email và mật khẩu.
+
+# 2020-04-01
+
+- Thêm service quên mật khẩu và đặt vào trang đăng nhập.

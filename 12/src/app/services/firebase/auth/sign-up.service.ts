@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SignUpService {
-  constructor(private firebaseAuth: AngularFireAuth) {}
+  constructor(private ngFireAuth: AngularFireAuth) {}
 
   signUpWithEmailAndPassword(email: string, password: string, fullName: string) {
     return new Observable((observer) => {
-      this.firebaseAuth.auth
+      this.ngFireAuth.auth
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
           if (user) {

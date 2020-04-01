@@ -23,17 +23,16 @@
         <div *ngIf="password.errors.required">Please enter your password</div>
       </mat-error>
     </mat-form-field>
-    <div style="text-align: right;">
+    <div class="forgot-password-btn">
       <ion-text color="primary" ion-button (click)="openDialog()">Forgot Password</ion-text>
     </div>
 
-    <br />
-    <br />
-    <br />
-    <ion-button type="submit" expand="full">Login</ion-button>
+    <div class="login-btn-area">
+      <ion-button type="submit" expand="full">Login</ion-button>
 
-    <div class="text-divider">or</div>
+      <div class="text-divider">or</div>
 
-    <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+      <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+    </div>
   </form>
 </ion-content>

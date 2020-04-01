@@ -70,4 +70,15 @@ ion-content {
       margin-left: 0.5em;
     }
   }
+
+  .forgot-password-btn {
+    text-align: right;
+    ion-text {
+      cursor: pointer;
+    }
+  }
+
+  .login-btn-area {
+    margin-top: 30px;
+  }
 }
