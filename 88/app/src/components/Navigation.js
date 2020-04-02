@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 
-import { changeNavIcon } from '../actions/navbarActions';
 import useAnimation from '../utils/animationHook';
 
 /**

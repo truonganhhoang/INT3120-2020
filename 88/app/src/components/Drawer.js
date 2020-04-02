@@ -1,16 +1,65 @@
 import React from 'react';
-import { Text, View, StyleSheet, ImageBackground, Image } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Feather';
+import { Text, View, StyleSheet, ImageBackground, Image, ScrollView, FlatList } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 import { TouchableNativeFeedback } from 'react-native';
 
+const listContent = [
+  {
+    iconName: 'list',
+    title: 'Home'
+  },
+  {
+    iconName: 'code',
+    title: 'Code Playground'
+  },
+  {
+    iconName: 'message-square',
+    title: 'Q&A Discussion'
+  },
+  {
+    iconName: 'award',
+    title: 'Leaderboard'
+  },
+  {
+    iconName: 'grid',
+    title: 'Similar Courses'
+  },
+  {
+    iconName: 'book',
+    title: 'Glossary'
+  },
+  {
+    iconName: 'user-plus',
+    title: 'Invite Friend'
+  },
+  {
+    iconName: '',
+    title: ''
+  },
+  {
+    iconName: 'settings',
+    title: 'Settings'
+  },
+  {
+    iconName: 'star',
+    title: 'Rate'
+  }
+];
+
 const DrawerItem = (props) => {
-  const { iconName, title } = props;
+  const { iconName, title, selected } = props;
 
   return (
-    <View>
-      <Icon name={iconName} />
-      <Text>{title}</Text>
-    </View>
+    iconName ? 
+    (<TouchableNativeFeedback
+      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', false)}
+    >
+      <View style={selected ? {...styles.itemContainer, backgroundColor: '#e0e0e0'} : styles.itemContainer} >
+        <Icon name={iconName} style={{...styles.icon, color: selected ? '#00bcd4' : '#757575'}} />
+        <Text style={{color: selected ? '#00bcd4' : '#757575'}}>{title}</Text>
+      </View>
+    </TouchableNativeFeedback>)
+    : (<View style={{height: 2, backgroundColor: '#e0e0e0', marginVertical: 8}} />)
   );
 }
 
@@ -34,9 +83,9 @@ const Drawer = () => {
           </ImageBackground>
         </View>
       </TouchableNativeFeedback>
-      <View style={styles.featureContainer}>
-        <Text>abcdefgh</Text>
-      </View>
+      <ScrollView style={styles.featureContainer}>
+        {listContent.map((value, index) => <DrawerItem key={index} iconName={value.iconName} title={value.title} selected />)}
+      </ScrollView>
     </View>
   );
 }
@@ -71,7 +120,6 @@ const styles = StyleSheet.create({
   },
   userName: {
     color: '#fff',
-    // fontWeight: '700',
     letterSpacing: 0.5
   },
   userEmail: {
@@ -82,9 +130,18 @@ const styles = StyleSheet.create({
     fontWeight: '700'
   },
   featureContainer: {
-    marginTop: 10,
-    flex: 1,
-    backgroundColor: '#ffc5c5'
+    marginTop: 8,
+    flex: 1
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    height: 48,
+    alignItems: 'center',
+  },
+  icon: {
+    width: 56,
+    textAlign: 'center',
+    fontSize: 22,
   }
 });
 
