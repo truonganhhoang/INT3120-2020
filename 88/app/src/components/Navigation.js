@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useSelector, shallowEqual } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
 import useAnimation from '../utils/animationHook';
+import { openDrawer } from '../actions/drawer'
 
 /**
  * Animation of icon
@@ -35,29 +36,30 @@ const RotateAndChangeView = (props) => {
   )
 }
 
-const Navigation = (props) => {
-  const navbar = useSelector(state => state.navbar, shallowEqual);
-
+const Navigation = () => {
+  const navigation = useSelector(state => state.navigation, shallowEqual);
+  const dispatch = useDispatch();
+  
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
         <View style={styles.iconContainer}>
           <TouchableNativeFeedback
             background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', true)}
-            onPress={props.openDrawer}
+            onPress={() => dispatch(openDrawer(true))}
           >
             <View style={{width: 25, height: 25 }}>
-              <RotateAndChangeView style={styles.navIcon} direction={navbar.isArrow} opacityRange={[1, 0]} duration={300} >
+              <RotateAndChangeView style={styles.navIcon} direction={navigation.isArrow} opacityRange={[1, 0]} duration={300} >
                 <Icon name='menu' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
-              <RotateAndChangeView style={styles.navIcon} direction={navbar.isArrow} opacityRange={[0, 1]} duration={300} >
+              <RotateAndChangeView style={styles.navIcon} direction={navigation.isArrow} opacityRange={[0, 1]} duration={300} >
                 <Icon name='arrow-right' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
             </View>
           </TouchableNativeFeedback>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.navHeader}>{navbar.header}</Text>
+          <Text style={styles.navHeader}>{navigation.header}</Text>
         </View>
       </View>
     </View>

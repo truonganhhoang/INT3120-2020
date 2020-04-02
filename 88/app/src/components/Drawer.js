@@ -2,7 +2,14 @@ import React from 'react';
 import { Text, View, StyleSheet, ImageBackground, Image, ScrollView, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { TouchableNativeFeedback } from 'react-native';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
+import { selectDrawerItem, openDrawer } from '../actions/drawer';
+import { changeNavHeader } from '../actions/navigation';
+
+/**
+ * List features of this app
+ */
 const listContent = [
   {
     iconName: 'list',
@@ -33,7 +40,7 @@ const listContent = [
     title: 'Invite Friend'
   },
   {
-    iconName: '',
+    iconName: '',   // gray bar
     title: ''
   },
   {
@@ -46,20 +53,36 @@ const listContent = [
   }
 ];
 
+/**
+ * 
+ * @param {Object} props 
+ * @property {number} id - index of item in list
+ * @property {String} iconName - name of icon (see more at {@link https://oblador.github.io/react-native-vector-icons/})
+ * @property {String} title - title of item
+ * @property {boolean} selected - item is focused
+ */
 const DrawerItem = (props) => {
-  const { iconName, title, selected } = props;
+  const { id, iconName, title, selected } = props;
+  const dispatch = useDispatch();
+
+  const onPress = () => {
+    dispatch(selectDrawerItem(id));
+    dispatch(changeNavHeader(title === 'Home' ? 'JavaScript Tutorial' : title));
+    dispatch(openDrawer(false));
+  }
 
   return (
     iconName ? 
     (<TouchableNativeFeedback
       background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', false)}
+      onPress={onPress}
     >
       <View style={selected ? {...styles.itemContainer, backgroundColor: '#e0e0e0'} : styles.itemContainer} >
         <Icon name={iconName} style={{...styles.icon, color: selected ? '#00bcd4' : '#757575'}} />
         <Text style={{color: selected ? '#00bcd4' : '#757575'}}>{title}</Text>
       </View>
     </TouchableNativeFeedback>)
-    : (<View style={{height: 2, backgroundColor: '#e0e0e0', marginVertical: 8}} />)
+    : (<View style={{height: 2, backgroundColor: '#e0e0e0', marginVertical: 8}} />/* gray bar */)
   );
 }
 
@@ -67,6 +90,8 @@ const DrawerItem = (props) => {
  * All contents of drawer.
  */
 const Drawer = () => {
+  const drawer = useSelector(state => state.drawer, shallowEqual);
+
   return (
     <View style={styles.container}>
       <TouchableNativeFeedback 
@@ -84,7 +109,7 @@ const Drawer = () => {
         </View>
       </TouchableNativeFeedback>
       <ScrollView style={styles.featureContainer}>
-        {listContent.map((value, index) => <DrawerItem key={index} iconName={value.iconName} title={value.title} selected />)}
+        {listContent.map((value, index) => <DrawerItem key={index} id={index} iconName={value.iconName} title={value.title} selected={drawer.selectedIndex === index} />)}
       </ScrollView>
     </View>
   );

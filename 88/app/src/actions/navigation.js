@@ -11,9 +11,7 @@ import {
 export const changeNavIcon = (isArrow) => {
   return {
     type: CHANGE_NAV_ICON,
-    payload: {
-      arrow: isArrow
-    }
+    payload: isArrow
   }
 }
 
@@ -24,9 +22,7 @@ export const changeNavIcon = (isArrow) => {
 export const changeNavHeader = (header) => {
   return {
     type: CHANGE_NAV_HEADER,
-    payload: {
-      header
-    }
+    payload: header
   }
 }
 

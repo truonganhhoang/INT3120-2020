@@ -15,19 +15,24 @@ const initialState = {
   header: 'JavaScript Tutorial'
 };
 
-const navbarReducer = (state = initialState, action) => {
+/**
+ * Change status of nav bar
+ * @param {Object} state - have structure of initial state
+ * @param {Object} action 
+ */
+const navigationReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_NAV_ICON:
       return {
         ...state,
-        isArrow: action.payload.arrow
+        isArrow: action.payload
       }
     case CHANGE_NAV_HEADER:
       return {
         ...state,
-        header: action.payload.header
+        header: action.payload
       }
-    case CHANGE_NAV_ICON:
+    case CHANGE_NAV:
       return {
         isArrow: action.payload.arrow,
         header: action.payload.header
@@ -37,4 +42,4 @@ const navbarReducer = (state = initialState, action) => {
   }
 }
 
-export default navbarReducer;
+export default navigationReducer;
