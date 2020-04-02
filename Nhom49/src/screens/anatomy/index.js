@@ -168,6 +168,7 @@ class Anatomy extends Component {
                 dataArray={datasSentences}
                 renderRow={data =>
                   <ListItem
+
                     button
                     onPress={() => this.props.navigation.navigate(data.route)}
                   >

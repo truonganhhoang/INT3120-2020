@@ -437,7 +437,7 @@ export default (variables /*: * */ = variable) => {
     marginLeft: variables.listItemPadding + 6,
     borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
     backgroundColor: variables.listBg,
-    borderColor: variables.listBorderColor
+    borderColor: variables.listBorderColor,
   };
 
   return listItemTheme;
