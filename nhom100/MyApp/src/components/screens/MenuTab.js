@@ -1,5 +1,6 @@
 import * as React from 'react';
-// import { Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screen1 from './Screen1';
@@ -11,30 +12,31 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={{height:200}}>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: 'tomato',
+          activeTintColor: 'hotpink',
           inactiveTintColor: 'gray',
-          activeBackgroundColor: 'aqua',
-          inactiveBackgroundColor: '#932645',
+          activeBackgroundColor: 'pink',
+          inactiveBackgroundColor: '#eee',
         }}
-        // screenOptions={({ route }) => ({
-        //   tabBarIcon: ({ focused, color, size }) => {
-        //     let iconName;
-
-        //     if (route.name === 'Home') {
-        //       iconName = focused
-        //         ? 'ios-information-circle'
-        //         : 'ios-information-circle-outline';
-        //     } else if (route.name === 'Cart') {
-        //       iconName = focused ? 'ios-list-box' : 'ios-list';
-        //     }
-
-        //     // You can return any component that you like here!
-        //     return <Ionicons name={iconName} size={size} color={color} />;
-        //   },
-        // })}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({color, size }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = 'home';
+            } else if (route.name === 'D/M') {
+              iconName = 'th';
+            }else if (route.name === 'Cart') {
+              iconName = 'shopping-cart';
+            }else if (route.name === 'T/B') {
+              iconName = 'bell';
+            }else if (route.name === 'Acc') {
+              iconName = 'user';
+            }
+            return <FontAwesome5 name={iconName} size={size} color={color} />;
+          },
+        })}
       >
         <Tab.Screen name="Home" component={Screen1} />
         <Tab.Screen name="D/M" component={Screen2} />
