@@ -10,19 +10,22 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Động từ khuyết thiếu"
+    text: "Động từ khuyết thiếu",
+    subtitle: "Cấu trúc, cách sử dụng, lưu ý,..."
   },
   {
     route: "Header2",
-    text: "Nội động từ và ngoại động từ"
+    text: "Nội động từ và ngoại động từ",
+    subtitle: "Nội động từ, ngoại động từ,..."
   }
 ];
 
@@ -44,22 +47,22 @@ class Verb extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

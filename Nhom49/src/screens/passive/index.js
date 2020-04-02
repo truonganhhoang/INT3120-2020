@@ -10,7 +10,8 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
+  CardItem,
+  Card,
   List
 } from "native-base";
 import styles from "./styles";
@@ -18,11 +19,13 @@ import styles from "./styles";
 const datas = [
   {
     route: "Header1",
-    text: "Cấu trúc ngữ pháp"
+    text: "Cấu trúc ngữ pháp",
+    subtitle: "Tổng hợp cấu trúc ngữ pháp câu bị động"
   },
   {
     route: "Header2",
-    text: "Các trường hợp đặc biệt"
+    text: "Các trường hợp đặc biệt",
+    subtitle: "Các cấu trúc ngữ pháp đặc biệt của câu bị động"
   }
 ];
 
@@ -44,22 +47,22 @@ class Passive extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

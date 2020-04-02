@@ -10,23 +10,27 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Câu ước loại 1 (Tương lai)"
+    text: "Câu ước loại 1 (Tương lai)",
+    subtitle: "Định nghĩa, công thức, ví dụ về câu ước loại 1"
   },
   {
     route: "Header2",
-    text: "Câu ước loại 2 (Hiện tại)"
+    text: "Câu ước loại 2 (Hiện tại)",
+    subtitle: "Định nghĩa, công thức, ví dụ về câu ước loại 1"
   },
   {
     route: "Header2",
-    text: "Câu ước loại 3 (Quá khứ)"
+    text: "Câu ước loại 3 (Quá khứ)",
+    subtitle: "Định nghĩa, công thức, ví dụ về câu ước loại 3"
   }
 ];
 
@@ -48,22 +52,22 @@ class Wish extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

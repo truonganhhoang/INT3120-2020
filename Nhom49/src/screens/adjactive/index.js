@@ -10,7 +10,8 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
+  CardItem,
+  Card,
   List
 } from "native-base";
 import styles from "./styles";
@@ -18,7 +19,7 @@ import styles from "./styles";
 const datas = [
   {
     route: "Header1",
-    text: "Vị trí tính từ"
+    title: "Vị trí tính từ"
   },
   {
     route: "Header2",
@@ -56,22 +57,23 @@ class Adjactive extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text>
+                    {data.text}
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

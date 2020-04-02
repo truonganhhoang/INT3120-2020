@@ -10,19 +10,22 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Đại từ quan hệ, trạng từ quan hệ"
+    text: "Đại từ quan hệ, trạng từ quan hệ",
+    subtitle: "Đại từ quan hệ Who, Which, Whose,..."
   },
   {
     route: "Header2",
-    text: "Rút gọn mệnh đề, lược bỏ đại từ"
+    text: "Rút gọn mệnh đề, lược bỏ đại từ",
+    subtitle: "Các cách rút gọn mệnh đề, loại bỏ đại từ,..."
   }
 ];
 
@@ -44,22 +47,22 @@ class RelativeClause extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );
