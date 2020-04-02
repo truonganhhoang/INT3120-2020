@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 import { SignUpPage } from './sign-up.page';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
-import { SignUpService } from '../services/firebase/auth/sign-up.service';
+import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 
 @NgModule({
   imports: [

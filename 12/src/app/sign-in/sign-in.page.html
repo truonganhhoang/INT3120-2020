@@ -24,11 +24,14 @@
       </mat-error>
     </mat-form-field>
     <div class="forgot-password-btn">
-      <ion-text color="primary" ion-button (click)="openDialog()">Forgot Password</ion-text>
+      <ion-text color="primary" ion-button (click)="openForgotPasswordDialog()">Forgot Password</ion-text>
     </div>
 
     <div class="login-btn-area">
-      <ion-button type="submit" expand="full">Login</ion-button>
+      <ion-button type="submit" [disabled]="isSubmitting" expand="full">
+        Login
+        <ion-spinner *ngIf="isSubmitting"></ion-spinner>
+      </ion-button>
 
       <div class="text-divider">or</div>
 

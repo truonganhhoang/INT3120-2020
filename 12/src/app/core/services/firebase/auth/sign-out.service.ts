@@ -5,15 +5,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SignInService {
+export class SignOutService {
   constructor(private ngFireAuth: AngularFireAuth) {}
 
-  signInWithEmailAndPassword(email: string, password: string) {
+  signOut() {
     return new Observable((observer) => {
       this.ngFireAuth.auth
-        .signInWithEmailAndPassword(email, password)
-        .then((userCredentials) => {
-          observer.next(userCredentials.user.toJSON());
+        .signOut()
+        .then(() => {
+          observer.next();
           observer.complete();
         })
         .catch((err) => {

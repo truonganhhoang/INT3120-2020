@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { ToastController } from '@ionic/angular';
 
-import { SignUpService } from '../services/firebase/auth/sign-up.service';
+import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
 
 @Component({

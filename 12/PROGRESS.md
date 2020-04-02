@@ -161,3 +161,9 @@ ionic g page profile -f
 # 2020-04-01
 
 - Thêm service quên mật khẩu và đặt vào trang đăng nhập.
+
+# 2020-04-03
+
+- Xử lý lỗi tại service đăng nhập, đăng ký.
+- Sử dụng dialog để hiển thị lỗi khi đăng nhập.
+- Di chuyển các services đến thư mục `core`.

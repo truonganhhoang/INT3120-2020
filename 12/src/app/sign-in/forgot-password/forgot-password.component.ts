@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastController } from '@ionic/angular';
-import { ForgotPasswordService } from 'src/app/services/firebase/auth/forgot-password.service';
+import { ForgotPasswordService } from '../../core/services/firebase/auth/forgot-password.service';
 
 @Component({
   selector: 'app-forgot-password',

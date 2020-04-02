@@ -3,7 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { SignInService } from '../services/firebase/auth/sign-in.service';
+import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
+import { SignInService } from '../core/services/firebase/auth/sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,6 +13,7 @@ import { SignInService } from '../services/firebase/auth/sign-in.service';
 })
 export class SignInPage implements OnInit {
   hidePassword = true;
+  isSubmitting = false;
 
   signInForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -29,16 +31,27 @@ export class SignInPage implements OnInit {
     this.hidePassword = !this.hidePassword;
   }
 
-  openDialog() {
+  openForgotPasswordDialog() {
     this.dialog.open(ForgotPasswordComponent);
   }
 
   handleSubmit() {
     if (this.signInForm.valid) {
+      this.isSubmitting = true;
       this.signIn.signInWithEmailAndPassword(this.email.value, this.password.value).subscribe({
         next: console.log,
-        complete: console.log,
-        error: console.error
+        complete: () => {
+          this.isSubmitting = false;
+          // go to main page
+        },
+        error: (message) => {
+          this.isSubmitting = false;
+          this.dialog.open(SignInFailedComponent, {
+            data: {
+              message: message
+            }
+          });
+        }
       });
     }
   }
