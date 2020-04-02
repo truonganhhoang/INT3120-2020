@@ -48,6 +48,8 @@ target 'Enbrai' do
 
   pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
 
+  pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
+
   target 'EnbraiTests' do
     inherit! :search_paths
     # Pods for testing

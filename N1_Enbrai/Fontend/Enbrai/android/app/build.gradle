@@ -179,6 +179,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-sqlite-storage')
     implementation project(':react-native-safe-area-context')
     implementation project(':react-native-reanimated')
     implementation project(':react-native-tts')
