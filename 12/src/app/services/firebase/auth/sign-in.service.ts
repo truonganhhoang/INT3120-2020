@@ -12,8 +12,8 @@ export class SignInService {
     return new Observable((observer) => {
       this.ngFireAuth.auth
         .signInWithEmailAndPassword(email, password)
-        .then((value) => {
-          observer.next(value);
+        .then((userCredentials) => {
+          observer.next(userCredentials.user.toJSON());
           observer.complete();
         })
         .catch((err) => {

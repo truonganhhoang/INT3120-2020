@@ -31,11 +31,14 @@ export class AppComponent implements OnInit {
   }
 
   async authenticate(): Promise<void> {
+    const allowAnonymousPaseRegex = /^\/(intro|sign\-in|sign\-up)/;
     const currentUrl = window.location.pathname;
     if (!localStorage.getItem('token')) {
-      this.router.navigate(['/intro']);
+      if (!allowAnonymousPaseRegex.test(currentUrl)) {
+        this.router.navigate(['/intro']);
+      }
     } else {
-      if (/^\/(intro|sign\-in|sign\-up)/.test(currentUrl)) {
+      if (allowAnonymousPaseRegex.test(currentUrl)) {
         this.router.navigate(['/tabs/learn']);
       }
     }

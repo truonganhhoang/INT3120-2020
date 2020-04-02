@@ -42,12 +42,15 @@ export class SignUpPage {
   handleSubmit() {
     if (this.signUpForm.valid) {
       this.isSubmitting = true;
-      // next, error and complete
       this.signUp.signUpWithEmailAndPassword(this.email.value, this.password.value, this.fullName.value).subscribe({
         next: () => {},
-        error: () => {
+        error: (err: string) => {
           this.isSubmitting = false;
-          this.dialog.open(SignUpFailedComponent);
+          this.dialog.open(SignUpFailedComponent, {
+            data: {
+              message: err
+            }
+          });
         },
         complete: () => {
           this.isSubmitting = false;
