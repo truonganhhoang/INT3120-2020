@@ -44,11 +44,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }, 
   star_icon: {
-    position: "absolute"
+    position: "absolute",
+    right:0,
+    fontSize:25,
+    zIndex:2
   }, 
   voice_icon: {
     marginTop: 5, 
-    marginLeft: 120, 
+    marginLeft: 200, 
     textAlign: "center", 
   }
 })

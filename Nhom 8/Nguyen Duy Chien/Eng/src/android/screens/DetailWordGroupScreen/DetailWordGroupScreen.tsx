@@ -1,22 +1,22 @@
-import React from 'react'; 
-import { View, ScrollView } from 'react-native'; 
+import React from 'react';
+import { View, ScrollView } from 'react-native';
 import { Header } from 'react-native-elements';
-import { Back } from '../../components/Back'; 
-import { WordCard } from '../../components/WordCard'; 
-import { MenuButton } from '../../components/Menu'; 
+import { Back } from '../../components/Back';
+import { WordCard } from '../../components/WordCard';
+import { MenuButton } from '../../components/Menu';
 
-import styles from './styles'; 
+import styles from './styles';
 
-const Screen = (props : {navigation?: any; route?: any}) => {
-  const { navigation, route } = props; 
-  const { data } = route.params; 
-  console.log(data.words);   
+const Screen = (props: { navigation?: any; route?: any }) => {
+  const { navigation, route } = props;
+  const { data } = route.params;
+  console.log(data.words);
   return (
     <View>
-      <Header 
+      <Header
         containerStyle={styles.header}
         leftComponent={
-          <Back navigation={navigation} color={'#ff5e00'}/>
+          <Back navigation={navigation} color={'#ff5e00'} />
         }
         rightComponent={
           <MenuButton />
@@ -25,9 +25,9 @@ const Screen = (props : {navigation?: any; route?: any}) => {
       />
       <ScrollView>
         {
-          data.words.map( (e: any) =>
+          data.words.map((e: any) =>
             <WordCard data={e}
-              colorS='white'
+              icon="staro"
               key={e.en_meaning}
             />
           )
