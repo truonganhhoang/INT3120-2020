@@ -38,16 +38,17 @@ class _GrammarDetailState extends State<GrammarDetail> {
         body: Padding(
             padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
             child: StreamBuilder(
-                stream: Firestore.instance.collection("Sentence1").snapshots(),
+                stream:
+                    Firestore.instance.collection(data['child']).snapshots(),
                 builder: (context, snapshot) {
-                  if (!snapshot.hasData) return Text("Loading...");
+                  if (!snapshot.hasData) return Text("");
                   return ListView.builder(
                       itemCount: snapshot.data.documents.length,
                       itemBuilder: (context, index) {
                         return Card(
                           child: ListTile(
-                            title: Text(snapshot.data.documents[index]['name']),
-//                  subtitle: Text(details[index].subTitle),
+                            title: Text(snapshot.data.documents[index]['title']),
+                            subtitle: Text(snapshot.data.documents[index]['subtitle']),
                             trailing: Icon(Icons.arrow_forward_ios),
                             onTap: () {
                               Navigator.push(
@@ -56,9 +57,7 @@ class _GrammarDetailState extends State<GrammarDetail> {
                                     builder: (context) => GrammarResult(),
                                     settings: RouteSettings(arguments: {
                                       'title': snapshot.data.documents[index]
-                                          ['name'],
-                                      'subTitle': snapshot.data.documents[index]
-                                          ['detail']
+                                          ['title']
                                     })),
                               );
                             },
