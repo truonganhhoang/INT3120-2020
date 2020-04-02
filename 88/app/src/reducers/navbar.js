@@ -4,9 +4,15 @@ import {
   CHANGE_NAV
 } from '../constants/actionTypes';
 
+/**
+ * Initial state of navigation bar
+ * @type {Object}
+ * @property {boolean} isArrow - navbar icon is arrow (menu icon in the remaining case)
+ * @property {string} header - header on the navbar
+ */
 const initialState = {
   isArrow: false,
-  header: ''
+  header: 'JavaScript Tutorial'
 };
 
 const navbarReducer = (state = initialState, action) => {

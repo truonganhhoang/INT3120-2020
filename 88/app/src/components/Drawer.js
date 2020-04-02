@@ -1,22 +1,42 @@
 import React from 'react';
 import { Text, View, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Icon } from 'react-native-vector-icons/Feather';
+import { TouchableNativeFeedback } from 'react-native';
 
+const DrawerItem = (props) => {
+  const { iconName, title } = props;
+
+  return (
+    <View>
+      <Icon name={iconName} />
+      <Text>{title}</Text>
+    </View>
+  );
+}
+
+/**
+ * All contents of drawer.
+ */
 const Drawer = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.userContainer}>
-        <ImageBackground source={require('../assets/img/google-background.jpg')} style={styles.userBackground} resizeMode='cover' >
-          <Text style={styles.userName}>Vũ Chức</Text>
-          <View style={styles.userFooter}>
-            <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
-            <Text style={styles.signOut}>SIGN OUT</Text>
-          </View>
-        </ImageBackground>
-        <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
-      </View>
-      {/* <View style={styles.featureContainer}>
+      <TouchableNativeFeedback 
+        background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .2)', false)}
+      >
+        <View style={styles.userContainer}>
+          <ImageBackground source={require('../assets/img/google-background.jpg')} imageStyle={{ opacity: 0.7 }} style={styles.userBackground} resizeMode='cover' >
+            <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
+            <Text style={styles.userName}>Vũ Chức</Text>
+            <View style={styles.userFooter}>
+              <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
+              <Text style={styles.signOut}>SIGN OUT</Text>
+            </View>
+          </ImageBackground>
+        </View>
+      </TouchableNativeFeedback>
+      <View style={styles.featureContainer}>
         <Text>abcdefgh</Text>
-      </View> */}
+      </View>
     </View>
   );
 }
@@ -34,17 +54,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     paddingBottom: 15,
-    paddingHorizontal: 15,
-    opacity: 0.8
+    paddingHorizontal: 15
   },
   userIcon: {
-    position: 'absolute',
     width: 65,
     height: 65,
     borderRadius: 40,
-    marginTop: 40,
-    marginLeft: 15,
-    backgroundColor: '#ff7777'
+    backgroundColor: '#ff7777',
+    marginBottom: 17
   },
   userFooter: {
     flexDirection: 'row',
@@ -54,7 +71,7 @@ const styles = StyleSheet.create({
   },
   userName: {
     color: '#fff',
-    fontWeight: '700',
+    // fontWeight: '700',
     letterSpacing: 0.5
   },
   userEmail: {
@@ -65,7 +82,9 @@ const styles = StyleSheet.create({
     fontWeight: '700'
   },
   featureContainer: {
-    backgroundColor: 'blue'
+    marginTop: 10,
+    flex: 1,
+    backgroundColor: '#ffc5c5'
   }
 });
 

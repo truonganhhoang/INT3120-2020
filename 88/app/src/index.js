@@ -1,14 +1,27 @@
 import React, { useRef } from 'react';
 import { SafeAreaView, StyleSheet, StatusBar, DrawerLayoutAndroid } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { changeNavIcon } from '../src/actions/navbarActions';
 
 import Navigation from './components/Navigation';
-import Drawer from './components/Drawer'
+import Drawer from './components/Drawer';
+
+
 
 const Main = () => {
   const drawer = useRef(null);
+  const dispatch = useDispatch();
 
   const openDrawer = () => {
     drawer.current.openDrawer();
+  }
+
+  const onDrawerOpen = () => {
+    dispatch(changeNavIcon(true));
+  }
+
+  const onDrawerClose = () => {
+    dispatch(changeNavIcon(false));
   }
 
   return (
@@ -20,6 +33,8 @@ const Main = () => {
           drawerBackgroundColor='#ddd'
           renderNavigationView={Drawer}
           ref={drawer}
+          // onDrawerOpen={onDrawerOpen}
+          // onDrawerClose={onDrawerClose}
         >
           <Navigation openDrawer={openDrawer}/>
         </DrawerLayoutAndroid>

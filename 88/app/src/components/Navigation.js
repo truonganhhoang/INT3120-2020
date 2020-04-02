@@ -6,6 +6,12 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { changeNavIcon } from '../actions/navbarActions';
 import useAnimation from '../utils/animationHook';
 
+/**
+ * Animation of icon
+ * @param {Object} props
+ * @property {boolean} direction - direction of icon 
+ * @property {number[start, end]} opacityRange - range of opacity value  
+ */
 const RotateAndChangeView = (props) => {
   const { direction, opacityRange, children } = props;
 
@@ -32,22 +38,14 @@ const RotateAndChangeView = (props) => {
 
 const Navigation = (props) => {
   const navbar = useSelector(state => state.navbar, shallowEqual);
-  
-  const dispatch = useDispatch();
-
-  const changeIcon = () => {
-    // props.openDrawer();
-    dispatch(changeNavIcon(!navbar.isArrow));
-  }
 
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
         <View style={styles.iconContainer}>
           <TouchableNativeFeedback
-            background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .32)', true)}
-            onPress={changeIcon}
-            style={{backgroundColor: 'red'}}
+            background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', true)}
+            onPress={props.openDrawer}
           >
             <View style={{width: 25, height: 25 }}>
               <RotateAndChangeView style={styles.navIcon} direction={navbar.isArrow} opacityRange={[1, 0]} duration={300} >
@@ -60,7 +58,7 @@ const Navigation = (props) => {
           </TouchableNativeFeedback>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.navHeader}>JavaScript Tutorial</Text>
+          <Text style={styles.navHeader}>{navbar.header}</Text>
         </View>
       </View>
     </View>
@@ -91,7 +89,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   navHeader: {
-    fontSize: 25,
+    fontSize: 24,
     color: '#ffffff',
     fontWeight: '600',
   }
