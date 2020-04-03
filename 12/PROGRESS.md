@@ -167,3 +167,4 @@ ionic g page profile -f
 - Xử lý lỗi tại service đăng nhập, đăng ký.
 - Sử dụng dialog để hiển thị lỗi khi đăng nhập.
 - Di chuyển các services đến thư mục `core`.
+- Chia `tab-routing.module` thành 5 routing submodules.
