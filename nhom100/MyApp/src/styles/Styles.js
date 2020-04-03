@@ -8,13 +8,13 @@ const Styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     vbox : {
-        width: 160,
+        width: 210,
         height: 250,
-        borderWidth: 1,
-        borderColor: "gray",
+        // borderWidth: 1,
+        // borderColor: "gray",
         borderRadius: 8,
-        margin: 6,
-        backgroundColor: "#eee"
+        marginRight: 10,
+        backgroundColor: "#fff"
     },
     avt: {
         width: 70,
@@ -34,6 +34,21 @@ const Styles = StyleSheet.create({
         // justifyContent: "center",
         paddingHorizontal: 30,
     },
+    list2s: {
+        // flex: 1,
+        borderWidth: 1,
+        padding: 12,
+        borderColor: "gray",
+        borderRadius: 5,
+        marginTop: 5,
+        marginBottom: 5,
+        marginHorizontal: 10,
+        // width: "100%",
+        fontSize: 22,
+        fontWeight: "600",
+        // textAlign: "center",
+        // justifyContent: "center"
+    },
     h1text: {
         fontSize: 30,
         fontWeight: "bold",
@@ -45,7 +60,15 @@ const Styles = StyleSheet.create({
     h3text: {
         fontSize: 20,
         fontWeight: "bold",
-        // marginLeft: 30,
     },
+    h4text: {
+        fontSize: 16,
+        fontWeight: "700",
+    },
+    minimg: {
+        width: 210,
+        height: 150,
+        borderRadius: 8
+    }
 });
 export default Styles;

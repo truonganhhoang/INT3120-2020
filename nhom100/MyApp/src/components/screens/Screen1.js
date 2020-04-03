@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image } from 'react-native'
-import Provideo from '../components/Provideo'
-import Header from '../components/Header'
-
+import { View, Text, Slider, ScrollView } from 'react-native';
+import Header from '../components/Header';
+import SliderHome from '../components/SliderHome';
+import { Styles } from '../../styles';
+import Provideo from '../components/Provideo';
 export default class Screen1 extends Component {
     render() {
         return (
-            <View style={{flex:1}}>
-                <View style={{flex: 1.5}}>
+            <View style={{flex:1, margin: 10, backgroundColor: "#eee"}}>
+                <ScrollView>
                     <Header></Header>
-                </View>
-                <View style={{flex: 8, flexDirection: "row", backgroundColor: "#ddd"}}>
-                    <Text style={{fontSize: 30}}>Màn hình home</Text>
-                   <Provideo />
-                   <Provideo />
-                </View>
+                    <SliderHome />
+                    <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Khuyến mại</Text>
+                    <Provideo />
+                    <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Top bán chạy</Text>
+                    <Provideo />
+                    <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Đánh giá cao</Text>
+                    <Provideo />
+                    <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Mới nhất</Text>
+                    <Provideo />
+
+                </ScrollView>
             </View>
         )
     }

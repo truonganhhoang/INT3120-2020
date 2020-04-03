@@ -11,31 +11,31 @@ export default class Screen5 extends Component {
                     <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="user-circle" size={30} color="gray"/>
+                    <FontAwesome5 name="user-circle" size={25} color="gray"/>
                     <Text style={[Styles.h3text, localStyles.text]}>Thiết lập tài khoản</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="unlock-alt"  size={30} color="gray" />
+                    <FontAwesome5 name="unlock-alt"  size={25} color="gray" />
                     <Text style={[Styles.h3text, localStyles.text]}>Kích hoạt khóa học</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="list-alt"  size={30} color="gray" />
+                    <FontAwesome5 name="list-alt"  size={25} color="gray" />
                     <Text style={[Styles.h3text, localStyles.text]}>Điều khoản chính sách</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="question-circle"  size={30} color="gray"/>
+                    <FontAwesome5 name="question-circle"  size={25} color="gray"/>
                     <Text style={[Styles.h3text, localStyles.text]}>Trợ giúp</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="star"  size={30} color="gray"/>
+                    <FontAwesome5 name="star"  size={25} color="gray"/>
                     <Text style={[Styles.h3text, localStyles.text]}>Đánh giá Edumall</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="power-off"  size={30} color="hotpink" />
+                    <FontAwesome5 name="power-off"  size={25} color="hotpink" />
                     <Text style={[Styles.h3text, localStyles.text]}>Đăng xuất</Text>
                 </View>
                 <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <Text>phiên bản</Text>
+                    <Text>Phiên bản: 0.0.1</Text>
                 </View>
             </View>
         )
