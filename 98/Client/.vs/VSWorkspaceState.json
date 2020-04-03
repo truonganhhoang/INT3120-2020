@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
     "\\components",
     "\\components\\Home",
+    "\\components\\TFS",
     "\\screens",
-    "\\screens\\Home"
+    "\\screens\\TFS"
   ],
-  "SelectedNode": "\\App.js",
+  "SelectedNode": "\\components\\TFS\\TFSList.js",
   "PreviewInSolutionExplorer": false
 }

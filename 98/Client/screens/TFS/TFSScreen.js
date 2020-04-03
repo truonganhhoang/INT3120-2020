@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View,Button } from 'react-native';
-import TrafficSignList from '../../components/TFS/TFSList';
+import TrafficSignListCategories from '../../components/TFS/TFSListCategories';
 
 export default function TrafficSignScreen(props) {
   const {navigation}=props;
@@ -8,7 +8,7 @@ export default function TrafficSignScreen(props) {
   return (
     <View  > 
           
-        <TrafficSignList   navigation={navigation} /> 
+          <TrafficSignListCategories   navigation={navigation} /> 
 
     </View>
   

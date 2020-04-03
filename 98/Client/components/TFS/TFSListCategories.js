@@ -58,10 +58,10 @@ function Item( props) {
     );
 }
 
-export default function TrafficSignList(props) {
+export default function TrafficSignListCategories(props) {
     const {navigation}=props;
     return (
-        <View>
+        <View >
      
             <FlatList
                 horizontal={false}
