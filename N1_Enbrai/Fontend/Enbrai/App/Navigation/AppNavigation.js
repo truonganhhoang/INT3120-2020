@@ -8,6 +8,8 @@ import HomeUpdateScreen from '../Containers/HomeUpdateScreen'
 import PickNewWordScreen from '../Containers/PickNewWordScreen'
 import SignUpScreen from '../Containers/SignUpScreen'
 import SignInScreen from '../Containers/SignInScreen'
+import ReadyScreen from '../Containers/ReadyScreen'
+import ChooseCorrespondingScreen from '../Containers/ChooseCorrespondingScreen'
 
 const AppNavigator = createStackNavigator(
   {
@@ -34,6 +36,12 @@ const AppNavigator = createStackNavigator(
     },
     SignInScreen: {
       screen : SignInScreen
+    },
+    ReadyScreen: {
+      screen: ReadyScreen
+    },
+    ChooseCorrespondingScreen: {
+      screen: ChooseCorrespondingScreen
     }
   },
   {

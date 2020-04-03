@@ -56,6 +56,7 @@ const PickNewWord = (props) => {
               updateNumWord={updateNumWord}
               numWord={numWord}
               navigation={props.navigation}
+              data={data}
             ></NewWordCard>}
             layout={'default'}
             sliderWidth={windowWidth}

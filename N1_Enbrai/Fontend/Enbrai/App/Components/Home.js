@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, AsyncStorage } from 'react-native';
+import { View } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import HomeSetting from './HomeSetting'
 import HomeStudy from './HomeStudy'
 import HomeTabBar from './HomeTabBar'
 import Account from './Account'
 
-
-
-const Home = () => {
+const Home = ( props ) => {
     useEffect(() => {
         return () => {
         }
-    }, [])
+    }, [props])
     return (
         <View style={{ flex: 1 }}>
             <ScrollableTabView
@@ -22,7 +20,7 @@ const Home = () => {
                 renderTabBar={() => <HomeTabBar />}
             >
                 <Account />
-                <HomeStudy/>
+                <HomeStudy />
                 <HomeSetting />
             </ScrollableTabView>
         </View>
