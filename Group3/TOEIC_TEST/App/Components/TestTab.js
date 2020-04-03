@@ -4,7 +4,6 @@ import {
     View,
     Text,
     SafeAreaView,
-    ScrollView,
     FlatList,
     TouchableOpacity
 } from 'react-native'
@@ -25,7 +24,7 @@ class TestBar extends Component {
         return (
             <Animatable.View delay={index * 300} animation='zoomInLeft' >
                 <TouchableOpacity
-                    onPress={() => { console.log({ index }) }}
+                    onPress={() => this.props.navigation.navigate('TestList', { name: item.name })}
                 >
                     <View style={styles.item}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -37,7 +36,7 @@ class TestBar extends Component {
                         </View>
                     </View>
                 </TouchableOpacity>
-            </Animatable.View >
+             </Animatable.View >
         )
     }
     render() {

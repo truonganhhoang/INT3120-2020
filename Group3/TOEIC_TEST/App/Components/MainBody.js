@@ -13,7 +13,7 @@ import LearnTab from './LearnTab'
 import TestTab from './TestTab'
 import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
-
+console.disableYellowBox = true;
 class MainBody extends Component {
     static navigationOptions = {
         headerShown: false

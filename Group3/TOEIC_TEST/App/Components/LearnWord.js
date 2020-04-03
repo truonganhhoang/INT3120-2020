@@ -14,7 +14,6 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { StackActions, NavigationActions } from 'react-navigation'
-import { words } from '../Data/word'
 import Modal from 'react-native-modal'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Tts from 'react-native-tts'
