@@ -1,5 +1,5 @@
 {
-  "name": "NativebaseKitchenSink",
+  "name": "EnglishGrammar",
   "version": "2.12.0",
   "private": true,
   "devDependencies": {
@@ -31,8 +31,9 @@
     ]
   },
   "dependencies": {
+    "@react-native-firebase/firestore": "^6.3.4",
     "color": "1.0.3",
-    "expo-cli": "^3.16.1",
+    "expo-cli": "^3.17.11",
     "global": "^4.4.0",
     "lodash": "4.17.13",
     "moment": "2.19.3",
