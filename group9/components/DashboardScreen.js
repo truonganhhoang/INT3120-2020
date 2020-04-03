@@ -1,19 +1,20 @@
-import React, { Component } from 'react'
-import { View, Text, Block } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native'
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
-import { Calendar } from './calendar'
-import { DayView } from './dayview'
-import { NewTask, NewLesson, News } from './news'
-import { ViewTask } from './tasks'
-import { ViewExam } from './exams'
-import * as Font from 'expo-font'
+import React, { Component } from 'react';
+import { View, Text, Block } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { Calendar } from './calendar';
+import { DayView } from './dayview';
+import { NewTask, NewLesson, News } from './news';
+import { ViewTask } from './tasks';
+import { ViewExam } from './exams';
+import auth from './firebaseApi/auth';
+import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 
-const SwitchLessonTask = createSwitchNavigator({  
+const SwitchLessonTask = createSwitchNavigator({
   NewTaskScreen: NewTask,
   NewLessonScreen: NewLesson,
 });
@@ -21,20 +22,19 @@ const SwitchLessonTask = createSwitchNavigator({
 export const AppSwitchLessonTask = createAppContainer(SwitchLessonTask);
 
 class DashboardScreen extends Component {
-  
   componentDidMount() {
     Font.loadAsync({
-      'SanFrancisco': require('../assets/fonts/SanFrancisco.otf'),
+      SanFrancisco: require('../assets/fonts/SanFrancisco.otf'),
     });
   }
-  
+
   constructor(props) {
     super(props);
     this.user_id = this.props.navigation.getParam('curUser');
   }
-  
-  render () {  
-  return (
+
+  render() {
+    return (
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import { signInWithFacebook, signInAnonymously } from './firebaseApi/auth';
+import auth from './firebaseApi/auth';
 
 class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Sign In With Facebook" onPress={() => signInWithFacebook()} />
-        <Button title="Sign In Anonymously" onPress={() => signInAnonymously()} />
+        <Button title="Sign In With Facebook" onPress={() => auth.signInWithFacebook()} />
+        <Button title="Sign In Anonymously" onPress={() => auth.signInAnonymously()} />
       </View>
     );
   }
