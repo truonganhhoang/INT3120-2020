@@ -37,7 +37,7 @@ class NewTask extends React.Component {
     this.hideDateTimePicker();
   };
 
-  createTask = () => {
+  createTask = async () => {
     let task = {
       name: this.state.name,
       lesson: this.state.selectedLesson,
@@ -45,7 +45,8 @@ class NewTask extends React.Component {
       date: this.state.date,
       description: '',
     };
-    addTask(task);
+    let ret = await addTask(task);
+    console.log(ret);
   };
 
   updateIndex = (selectedIndex) => {
