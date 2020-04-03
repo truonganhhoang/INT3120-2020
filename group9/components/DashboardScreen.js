@@ -9,6 +9,7 @@ import { DayView } from './dayview'
 import { NewTask, NewLesson, News } from './news'
 import { ViewTask } from './tasks'
 import { ViewExam } from './exams'
+import { Setting } from './setting'
 import * as Font from 'expo-font'
 
 const Tab = createBottomTabNavigator();
@@ -43,8 +44,8 @@ class DashboardScreen extends Component {
 
               if (route.name === 'Calendar') {
                 ionicon = focused ? 'md-calendar' : 'ios-calendar';
-              } else if (route.name === 'DayView') {
-                ionicon = focused ? 'md-journal' : 'ios-today';
+              } else if (route.name === 'Setting') {
+                ionicon = focused ? 'md-cog' : 'md-cog';
               } else if (route.name === 'New') {
                 ionicon = focused ? 'md-add' : 'md-add-circle-outline';
               } else if (route.name === 'Task') {
@@ -61,10 +62,10 @@ class DashboardScreen extends Component {
           }}
         >
           <Tab.Screen name="Calendar" component={Calendar} />
-          <Tab.Screen name="DayView" component={DayView} />
-          <Tab.Screen name="New" component={News} />
           <Tab.Screen name="Task" component={ViewTask} />
+          <Tab.Screen name="New" component={News} />
           <Tab.Screen name="Exam" component={ViewExam} />
+          <Tab.Screen name="Setting" component={Setting} />
         </Tab.Navigator>
       </NavigationContainer>
     );
