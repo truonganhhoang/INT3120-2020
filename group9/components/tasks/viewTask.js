@@ -169,30 +169,25 @@ export default class ViewTask extends React.Component {
 
   render() {
     console.log(getTasks());
-    return (  
-      <SafeAreaView style={styles.container}> 
-      <Header
-        statusBarProps={{ barStyle: 'light-content' }}
-        barStyle="light-content"
-        centerComponent={{
-          text: 'List Task',
-          style: { fontSize: 25, color: '#fff'},
-        }}
-        containerStyle={{
-          backgroundColor: '#1976D2',
-          height: '12%',
-        }}
-      />
-        <ScrollView>
-        {this.state.data.map((item) => this.renderRow(item))}  
-        </ScrollView>
-          <Modalize
-            ref={this.modal}
-            modalHeight={550}
-          >
-          <View> 
-            <View style={styles.content_header} > 
-              <CheckBox 
+    return (
+      <SafeAreaView style={styles.container}>
+        <Header
+          statusBarProps={{ barStyle: 'light-content' }}
+          barStyle="light-content"
+          centerComponent={{
+            text: 'List Task',
+            style: { fontSize: 25, color: '#fff' },
+          }}
+          containerStyle={{
+            backgroundColor: '#1976D2',
+            height: '12%',
+          }}
+        />
+        <ScrollView>{this.state.data.map((item) => this.renderRow(item))}</ScrollView>
+        <Modalize ref={this.modal} modalHeight={550}>
+          <View>
+            <View style={styles.content_header}>
+              <CheckBox
                 checked={this.state.dataSelected.done}
                 onPress={() => {
                   let select = this.state.dataSelected;
@@ -201,7 +196,7 @@ export default class ViewTask extends React.Component {
                 }}
                 size={30}
               />
-              <Text style={{fontSize:25, paddingTop: 10}}>{this.state.dataSelected.name}</Text>
+              <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20 }} />
@@ -236,7 +231,7 @@ const styles = StyleSheet.create({
   content_header: {
     padding: 15,
     paddingBottom: 0,
-    flexDirection: 'row', 
+    flexDirection: 'row',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },
