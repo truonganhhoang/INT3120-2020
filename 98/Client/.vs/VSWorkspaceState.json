@@ -2,12 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\assets",
+    "\\assets\\images",
+    "\\assets\\images\\home",
     "\\components",
     "\\components\\Home",
     "\\components\\TFS",
     "\\screens",
     "\\screens\\TFS"
   ],
-  "SelectedNode": "\\components\\TFS\\TFSList.js",
+  "SelectedNode": "\\App.js",
   "PreviewInSolutionExplorer": false
 }

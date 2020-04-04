@@ -16,7 +16,7 @@ function Item(props) {
 
                 <View>
                     <Image
-                        source={sourceImage}
+                        source={{ uri: 'https://images-na.ssl-images-amazon.com/images/I/51SamzvzhPL._SY450_.jpg' }}
                         style={styles.item_image}
                     />
                 </View>
@@ -95,11 +95,6 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         fontWeight: 'bold',
     },
-    img: {
-        width: 20,
-        height: 20,
-        alignItems: 'center',
-    },
     detail: {
         height: 50,
         justifyContent: 'center',
@@ -132,8 +127,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     item_image: {
-        height: 50,
-        width: 50,
+        marginTop: 10,
+        height: 100,
+        justifyContent: 'center',
+        resizeMode: 'center',
     },
     tinyLogo: {
         height: 33,
