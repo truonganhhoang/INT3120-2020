@@ -8,35 +8,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#FDFDFD"
+        android:elevation="1.46dp"
         android:orientation="horizontal"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:elevation="1.46dp"
-        android:background="#FDFDFD">
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/tvWord"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:text="A"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:gravity="center_vertical"/>
+            android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/btnVolumn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/btnVolume"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="?actionBarItemBackground"
-            android:src="@drawable/ic_volume"/>
+            android:src="@drawable/ic_volume_up" />
 
         <ImageButton
             android:id="@+id/btnBookmark"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="?actionBarItemBackground"
-            android:src="@drawable/ic_bookmark_border"/>
+            android:src="@drawable/ic_bookmark_border" />
 
     </LinearLayout>
 
@@ -48,8 +48,8 @@
             android:id="@+id/tvWordTranslate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello blank fragment"
             android:background="#fff"/>
+
     </ScrollView>
 
 </LinearLayout>

@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,10 +21,10 @@ public class DetailFragment extends Fragment {
 
     private  String value = "";
     private TextView tvWord;
-    private ImageButton btnBookmark, btnVolumn;
+    private ImageButton btnBookmark, btnVolume;
     private WebView tvWordTranslate;
-    private DBHelper mDBHelper;
-    private int mDictype;
+    private  DBHelper mDBHelper;
+    private  int mDicType;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -35,7 +34,7 @@ public class DetailFragment extends Fragment {
         DetailFragment fragment = new DetailFragment();
         fragment.value = value;
         fragment.mDBHelper = dbHelper;
-        fragment.mDictype = dicType;
+        fragment.mDicType = dicType;
         return fragment;
     }
 
@@ -54,38 +53,38 @@ public class DetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvWord = (TextView) view.findViewById(R.id.tvWord);
-        tvWordTranslate = (WebView) view.findViewById(R.id.tvWordTranslate);
-        btnBookmark = (ImageButton) view.findViewById(R.id.btnBookmark);
-        btnVolumn = (ImageButton) view.findViewById(R.id.btnVolumn);
+        tvWord = view.findViewById(R.id.tvWord);
+        tvWordTranslate = view.findViewById(R.id.tvWordTranslate);
+        btnBookmark = view.findViewById(R.id.btnBookmark);
+        btnVolume = view.findViewById(R.id.btnVolume);
 
-        final Word word = mDBHelper.getWord(value, mDictype);
+        final Word word = mDBHelper.getWord(value, mDicType);
         tvWord.setText(word.key);
-        tvWordTranslate.loadDataWithBaseURL(null, word.value, "text/html", "utf-8", null);
+        tvWordTranslate.loadDataWithBaseURL(null,  word.value, "text/html", "utf-8", null);
 
-        Word bookmarkWord = mDBHelper.getWordFromBookmark(value);
-        int isMark = bookmarkWord == null? 0:1;
+        Word bookmarkWord = mDBHelper.getWordFromBookMark(value);
+        int isMark = bookmarkWord == null? 0: 1;
+
         btnBookmark.setTag(isMark);
 
-        int icon = bookmarkWord == null? R.drawable.ic_bookmark_border:R.drawable.ic_bookmark_fill;
+        int icon = bookmarkWord == null ? R.drawable.ic_bookmark_border : R.drawable.ic_bookmark;
         btnBookmark.setImageResource(icon);
 
         btnBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                int i = (int)btnBookmark.getTag();
-                if (i == 0) {
-                    btnBookmark.setImageResource(R.drawable.ic_bookmark_fill);
-                    btnBookmark.setTag(1);
-                    mDBHelper.addBookmark(word);
-                } else if (i == 1) {
-                    btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
-                    btnBookmark.setTag(0);
-                    mDBHelper.removeBookmark(word);
-                }
+            public void onClick(View v) {
+              int i = (int)btnBookmark.getTag();
+              if(i == 0){
+                  btnBookmark.setImageResource(R.drawable.ic_bookmark);
+                  btnBookmark.setTag(1);
+                  mDBHelper.addBookMark(word);
+              }else if(i == 1){
+                  btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
+                  btnBookmark.setTag(0);
+                  mDBHelper.removeBookMark(word);
+              }
             }
         });
-
     }
 
     @Override

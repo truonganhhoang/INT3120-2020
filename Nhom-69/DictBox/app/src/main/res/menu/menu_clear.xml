@@ -5,5 +5,5 @@
         android:id="@+id/action_clear"
         android:title="CLEAR"
         android:orderInCategory="100"
-        app:showAsAction="always" />
+        app:showAsAction="always"/>
 </menu>

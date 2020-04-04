@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,8 +44,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        dbHelper = new DBHelper(this);
-
+        try {
+            dbHelper = new DBHelper(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+      
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
@@ -58,20 +63,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bookmarkFragment = BookmarkFragment.getNewInstance(dbHelper);
         goToFragment(dictionaryFragment, true);
 
-        dictionaryFragment.setOnFragmentListener(new FragmentListener(){
+        dictionaryFragment.setOnFragmentListener(new FragmentListener() {
             @Override
             void onItemClick(String value) {
                 String id = Global.getState(MainActivity.this, "dic_type");
-                int dicType = id ==null?R.id.action_eng_vi:Integer.valueOf(id);
+                int dicType = id == null ? R.id.action_eng_vi : Integer.valueOf(id);
                 goToFragment(DetailFragment.getNewInstance(value, dbHelper, dicType), false);
             }
         });
 
-        bookmarkFragment.setOnFragmentListener(new FragmentListener(){
+        bookmarkFragment.setOnFragmentListener(new FragmentListener() {
             @Override
             void onItemClick(String value) {
                 String id = Global.getState(MainActivity.this, "dic_type");
-                int dicType = id ==null?R.id.action_eng_vi:Integer.valueOf(id);
+                int dicType = id == null ? R.id.action_eng_vi : Integer.valueOf(id);
                 goToFragment(DetailFragment.getNewInstance(value, dbHelper, dicType), false);
             }
         });
@@ -79,17 +84,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         EditText edit_search = findViewById(R.id.edit_search);
         edit_search.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                dictionaryFragment.filterValue(charSequence.toString());
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                dictionaryFragment.filterValue(s.toString());
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
 
             }
         });
@@ -124,17 +129,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (R.id.action_settings == id)
-            return true;
+        if(R.id.action_settings == id) return true;
+
         Global.saveState(this, "dic_type", String.valueOf(id));
         ArrayList<String> source = dbHelper.getWord(id);
 
         if (id == R.id.action_eng_vi) {
             dictionaryFragment.resetDataSource(source);
-            menuSetting.setIcon(R.drawable.eng_vi);
+            menuSetting.setIcon(getDrawable(R.drawable.eng_vi));
         } else if (id == R.id.action_vi_eng) {
             dictionaryFragment.resetDataSource(source);
-            menuSetting.setIcon(R.drawable.vi_eng);
+            menuSetting.setIcon(getDrawable(R.drawable.vi_eng));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -146,10 +151,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_bookmark) {
             String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
-            if (activeFragment.equals(BookmarkFragment.class.getSimpleName())) {
+            if (!activeFragment.equals(BookmarkFragment.class.getSimpleName())){
                 goToFragment(bookmarkFragment, false);
             }
-
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

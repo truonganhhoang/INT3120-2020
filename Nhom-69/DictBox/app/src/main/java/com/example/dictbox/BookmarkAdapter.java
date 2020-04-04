@@ -20,8 +20,8 @@ public class BookmarkAdapter extends BaseAdapter {
     ArrayList<String> mSource;
 
     public BookmarkAdapter(Context context, ArrayList<String> source){
-        this.mContext = context;
         this.mSource = source;
+        this.mContext = context;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class BookmarkAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void removeItem(int position) {
+    public void removeItem(int position){
         mSource.remove(position);
     }
 

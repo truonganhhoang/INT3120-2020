@@ -22,10 +22,11 @@ import java.util.Arrays;
 public class DictionaryFragment extends Fragment {
 
     private String value = "Hello";
-    private  FragmentListener listener;
-    ArrayAdapter<String> adapter;
+    private FragmentListener listener;
     ListView dictList;
-    private ArrayList<String> mSource = new ArrayList<String>();
+    ArrayAdapter<String> adapter;
+
+    private ArrayList<String> mSource = new ArrayList<>();
 
     public DictionaryFragment() {
         // Required empty public constructor
@@ -46,31 +47,30 @@ public class DictionaryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         dictList = view.findViewById(R.id.dictionaryList);
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mSource);
         dictList.setAdapter(adapter);
         dictList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(listener != null){
-                    listener.onItemClick(mSource.get(position));
-                }
+              if (listener != null) {
+                  listener.onItemClick(mSource.get(position));
+              }
             }
         });
     }
 
-    public void resetDataSource(ArrayList<String> source) {
+    public void resetDataSource(ArrayList<String> source){
         mSource = source;
-        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mSource);
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, source);
         dictList.setAdapter(adapter);
     }
 
     public void filterValue(String value) {
-//        adapter.getFilter().filter(value);
+        //adapter.getFilter().filter(value);
         int size = adapter.getCount();
-        for(int i=0; i<size; i++) {
-            if (adapter.getItem(i).startsWith(value)) {
+        for (int i = 0; i < size; i++) {
+            if (adapter.getItem(i).startsWith(value)){
                 dictList.setSelection(i);
                 break;
             }
@@ -88,7 +88,7 @@ public class DictionaryFragment extends Fragment {
         super.onDetach();
     }
 
-    public  void setOnFragmentListener(FragmentListener listener){
+    public void setOnFragmentListener(FragmentListener listener) {
         this.listener = listener;
     }
 }

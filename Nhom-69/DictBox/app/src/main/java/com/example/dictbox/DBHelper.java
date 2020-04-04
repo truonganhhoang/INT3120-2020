@@ -15,51 +15,46 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private Context mContext;
-
-    public static final String DATABASE_NAME = "my_dictionary.db";
-    public static final int DATABSE_VERSION = 1;
+    private Context context;
+    public static final String DATABASE_NAME = "dict_hh.db";
+    public static final int DATABASE_VERSION = 1;
 
     private String DATABASE_LOCATION = "";
     private String DATABASE_FULL_PATH = "";
 
-    private final String TBL_ENG_VN = "av";
-    private final String TBL_VN_ENG = "va";
+    private final String TBL_AV = "av";
+    private final String TBL_VA = "va";
     private final String TBL_BOOKMARK = "bookmark";
 
     private final String COL_KEY = "key";
     private final String COL_VALUE = "value";
 
-    public SQLiteDatabase myDB;
+    public SQLiteDatabase mDB;
 
-    public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABSE_VERSION);
-        mContext = context;
+    public DBHelper(Context context) throws IOException {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
 
-        DATABASE_LOCATION = "data/data/"+mContext.getPackageName()+"/database/";
+        DATABASE_LOCATION = "data/data/" + context.getPackageName() + "/database";
         DATABASE_FULL_PATH = DATABASE_LOCATION + DATABASE_NAME;
 
         if (!isExistingDB()) {
             try {
                 File dbLocation = new File(DATABASE_LOCATION);
                 dbLocation.mkdirs();
+
                 extractAssetToDatabaseDirectory(DATABASE_NAME);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        myDB = SQLiteDatabase.openOrCreateDatabase(DATABASE_FULL_PATH, null);
-    }
-
-    boolean isExistingDB() {
-        File file = new File(DATABASE_FULL_PATH);
-        return file.exists();
+        mDB = SQLiteDatabase.openOrCreateDatabase(DATABASE_FULL_PATH, null);
     }
 
     public void extractAssetToDatabaseDirectory(String fileName) throws IOException {
         int length;
-        InputStream sourceDatabase = this.mContext.getAssets().open(fileName);
+        InputStream sourceDatabase = this.context.getAssets().open(fileName);
         File destinationPath = new File(DATABASE_FULL_PATH);
         OutputStream destination = new FileOutputStream(destinationPath);
 
@@ -73,95 +68,112 @@ public class DBHelper extends SQLiteOpenHelper {
         destination.close();
     }
 
+    boolean isExistingDB() {
+        File file = new File(DATABASE_FULL_PATH);
+        return file.exists();
+    }
+
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
+
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
-    public ArrayList<String> getWord(int dicType) {
-        String tableName = getTableName(dicType);
-        String q = "SELECT * FROM " + tableName;
-        Cursor result = myDB.rawQuery(q, null);
+    public ArrayList<String> getWord(int dicTyp) {
+        String tableName = getTableName(dicTyp);
+        String q = "SELECT [key], [value] FROM " + tableName;
+        Cursor result = mDB.rawQuery(q, null);
 
         ArrayList<String> source = new ArrayList<>();
-        while (result.moveToNext()) {
+        while ((result.moveToNext())) {
             source.add(result.getString(result.getColumnIndex(COL_KEY)));
+
         }
         return source;
     }
 
-    public Word getWord(String key, int dicType) {
-        String tableName = getTableName(dicType);
-        String q = "SELECT * FROM " + tableName + " WHERE [key] = ?";
-        Cursor result = myDB.rawQuery(q, new String[]{key });
+    public Word getWord(String key, int dicTyp) {
+        String tableName = getTableName(dicTyp);
+        String q = "SELECT [key], [value] FROM " + tableName + " WHERE upper([key]) = upper(?)";
+        Cursor result = mDB.rawQuery(q, new String[]{key});
 
         Word word = new Word();
-        while (result.moveToNext()) {
+
+        while ((result.moveToNext())) {
             word.key = result.getString(result.getColumnIndex(COL_KEY));
             word.value = result.getString(result.getColumnIndex(COL_VALUE));
         }
+
         return word;
     }
 
-    public void addBookmark(Word word) {
+    public void addBookMark(Word word) {
         try {
-            String q = "INSERT INTO bookmark(["+ COL_KEY + "], [" + COL_VALUE +"]) VALUES(?, ?);";
-            myDB.execSQL(q, new Object[]{word.key, word.value});
-        }catch (SQLException ex) {
+            String q = "INSERT INTO bookmark ([" + COL_KEY + "],[" + COL_VALUE + "]) VALUES (?, ?);";
+            mDB.execSQL(q, new Object[]{word.key, word.value});
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
-    public void removeBookmark(Word word) {
+    public void removeBookMark(Word word) {
         try {
-            String q = "DELETE FROM bookmark WHERE (["+COL_KEY+"] = ? AND [" +COL_VALUE+"]) = ?;";
-            myDB.execSQL(q, new Object[]{word.key, word.value});
-        }catch (SQLException ex) {
+            String q = "DELETE FROM bookmark WHERE upper(["+COL_KEY+"]) = upper(?) AND ["+COL_VALUE+"] = ?;";
+            mDB.execSQL(q, new Object[]{word.key, word.value});
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    }
-
-    public ArrayList<String> getAllWordFromBookmark() {
-        String q = "SELECT * FROM bookmark ORDER BY [date] DESC;";
-        Cursor result = myDB.rawQuery(q, null);
-
-        ArrayList<String> source = new ArrayList<>();
-        while (result.moveToNext()) {
-            source.add(result.getString(result.getColumnIndex(COL_KEY)));
-        }
-        return source;
-    }
-
-    public boolean isWordMark(Word word) {
-        String q = "SELECT * FROM bookmark WHERE [key] = ? AND [value] = ?";
-        Cursor result = myDB.rawQuery(q, new String[]{word.key, word.value});
-        return result.getCount() > 0;
-    }
-
-    public Word getWordFromBookmark(String key) {
-        String q = "SELECT * FROM bookmark WHERE [key] = ?";
-        Cursor result = myDB.rawQuery(q, new String[]{key});
-        Word word = null;
-        while (result.moveToNext()) {
-            word = new Word();
-            word.key = result.getString(result.getColumnIndex(COL_KEY));
-            word.value = result.getString(result.getColumnIndex(COL_VALUE));
-        }
-        return word;
     }
 
     public String getTableName(int dicType) {
         String tableName = "";
         if (dicType == R.id.action_eng_vi) {
-            tableName = TBL_ENG_VN;
-        } else if(dicType == R.id.action_vi_eng) {
-            tableName = TBL_VN_ENG;
+            tableName = TBL_AV;
+        } else if (dicType == R.id.action_vi_eng) {
+            tableName = TBL_VA;
         }
         return tableName;
+    }
+
+    public ArrayList<String> getAllWordFromBookMark() {
+        String q = "SELECT * FROM bookmark ORDER BY [date] DESC;";
+        Cursor result = mDB.rawQuery(q, null);
+
+        Word word = new Word();
+
+        ArrayList<String> source = new ArrayList<>();
+
+        while ((result.moveToNext())) {
+            source.add(result.getString(result.getColumnIndex(COL_KEY)));
+        }
+
+        return source;
+    }
+
+    public boolean isWordMark(Word word){
+        String q = "SELECT * FROM bookmark WHERE upper([key]) = upper (?) AND [value] = ?";
+        Cursor result = mDB.rawQuery(q, new String[]{word.key, word.value});
+
+        return result.getCount() > 0;
+    }
+
+    public Word getWordFromBookMark(String key){
+        String q = "SELECT * FROM bookmark WHERE upper([key]) = upper (?)";
+        Cursor result = mDB.rawQuery(q, new String[]{key});
+
+        Word word = null;
+        while ((result.moveToNext())) {
+            word = new Word();
+            word.key = result.getString(result.getColumnIndex(COL_KEY));
+            word.value = result.getString(result.getColumnIndex(COL_VALUE));
+        }
+        return word;
     }
 }
