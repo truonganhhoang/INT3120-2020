@@ -51,7 +51,7 @@ export default class TrangChu extends Component{
                                 onPress={() =>
                                     this.props.navigation.navigate('Mẹo thi kết quả cao')
                                 }
-                                >mẹo thi kết quả cao</Text>
+                                >mẹo thi lí thuyết</Text>
                             </View>
                     </View>
                     <View style={{backgroundColor:"#D8D8D8",flex:1,flexDirection:"row",marginTop:10}}>
@@ -93,13 +93,15 @@ const styles = StyleSheet.create({
         marginBottom:10,
         alignItems:"center",
       },
-      anh:{
-        marginTop:15,
-       width:130, 
-       height:120
+      anh:{marginTop:20,
+          flex:3,
+        width:'70%',
+        height:"30%",
+       
       },
       text:{
-          marginTop:20,
+          flex:1,
+          marginTop:"5%",
           fontSize:20,
           backgroundColor:"#FFFFFF",
           color:"#0040FF",

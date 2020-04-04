@@ -21,6 +21,7 @@ import {
 import CauHaySai from './component/CauHaySai';
 
 import anh from './assets/anh.jpg';
+
 import thuHanh from './component/thuHanh';
 
 import biencam from './bienbao/biencam';
@@ -29,6 +30,13 @@ import bienhieulenh from './bienbao/bienhieulenh';
 import bienchidan from './bienbao/bienchidan';
 import bienbaophu from './bienbao/bienbaophu';
 import vachkeduong from './bienbao/vachkeduong';
+
+import xemay from './tracuuluat/xemay';
+import oto from './tracuuluat/oto';
+import xekeo from './tracuuluat/xekeo';
+import xedap from './tracuuluat/xedap';
+import dibo from './tracuuluat/dibo';
+import bo from './tracuuluat/bo';
 
 
 function CustomDrawerContent(props) {
@@ -110,11 +118,24 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
 
+function luattab({navigate}){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name="xe máy"  component={xemay}/>
+      <Tab.Screen name="oto" component={oto}/>
+      <Tab.Screen name="xe keo" component={xekeo}/>
+      <Tab.Screen name="người đi bộ" component={xedap}/>
+      <Tab.Screen name="gia xúc" component={dibo}/>
+      <Tab.Screen name="xe đạp" component={bo}/>
+
+    </Tab.Navigator>
+  )
+}
 
 function mytab({navigate}){
   return(
     <Tab.Navigator>
-      <Tab.Screen name="Biển báo cấm" component={biencam}/>
+      <Tab.Screen name="Biển báo cấm"  component={biencam}/>
       <Tab.Screen name="Biển báo nguy hiểm " component={biennguyhiem}/>
       <Tab.Screen name="Biển báo hiệu lệnh" component={bienhieulenh}/>
       <Tab.Screen name="Biển báo chỉ đường" component={bienchidan}/>
@@ -156,7 +177,7 @@ function Mystack({navigation}) {
         <Stack.Screen name="Thi Sat Hach" component={ThiSatHach} />
         <Stack.Screen name="Bien bao" component={mytab} />
         <Stack.Screen name="Mẹo thi kết quả cao" component={tab} />
-        <Stack.Screen name="Tra cứu luật nhanh" component={TraCuuLuat} />
+        <Stack.Screen name="Tra cứu luật nhanh" component={luattab} />
         <Stack.Screen name="Câu hỏi hay sai" component={CauHaySai} />
         <Stack.Screen name="de1" component={de1} />
         
