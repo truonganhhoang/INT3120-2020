@@ -128,7 +128,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('13. Câi gián tiếp',style: TextStyle(fontSize: 17)),
+              title: Text('13. Câu gián tiếp',style: TextStyle(fontSize: 17)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai13(),
                 )),
