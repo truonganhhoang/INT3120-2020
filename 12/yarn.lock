@@ -1360,24 +1360,31 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
-"@ionic-native/core@^5.22.0":
-  version "5.22.0"
-  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.22.0.tgz#4ecd16ee33dd83d80ec48eec2743b3f10202202e"
-  integrity sha512-zX4EUDDDkCBtZVmu00V+SVbpuqDGhxe0Fri75neAjsG1oHvP3l470EOGHJgLW5edJtIcStlqvDE49RUcwT4mlA==
+"@ionic-native/core@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.23.0.tgz#69bb05a5491c94c1f8656246a237d4caa2e41d41"
+  integrity sha512-AQ+l9GnRVLnnbXWhAImywTxk62GNtOfmX2U0hJw/dtRAjZZn8C3u9Pszcbw9pN0I/yc1PKFvNqxa8nFP7XrzRQ==
   dependencies:
     "@types/cordova" latest
 
-"@ionic-native/splash-screen@^5.22.0":
-  version "5.22.0"
-  resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-5.22.0.tgz#2c5bb7b94ba027194779f6ea369cb034b597f396"
-  integrity sha512-cJC93eCsxYAhC9kn4GMA09pbCcpihiKXhMedelkUpeeBa2w0QBG0RiCIUFQ8G4G963vT991gxzwQO625xoCekQ==
+"@ionic-native/keyboard@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/keyboard/-/keyboard-5.23.0.tgz#094d7f48a7274de1fa65e9f573f7bf18ab6f35ed"
+  integrity sha512-n1RPlNCG3xX7/Te1HuXVJxZ3O2oJ79CJ8sOmfMAc8jLc6WBbgnNr8y5oj5G31kC3ECzxdW6cBRw4DdTTlbYiow==
   dependencies:
     "@types/cordova" latest
 
-"@ionic-native/status-bar@^5.22.0":
-  version "5.22.0"
-  resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-5.22.0.tgz#0d499886557216ba4b406b53aa4f8501fceb4490"
-  integrity sha512-CVb/HjNZdYMmUHK/H2q1uo6uIt+KOG/NnOgn4jUNTiw5XiGWvT+hqrMNTBrRk1nG573ky5OhW0f0oe+GqWaxOg==
+"@ionic-native/splash-screen@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-5.23.0.tgz#58522f6276ac8b1550a957d2c6c173696624e06c"
+  integrity sha512-IGrdFqSUHyYPpFx9H+DbF3YOgmDM2+cR6VP8Eis1IjivUB0+LtWcXQi9EGPbbcR+Z0Uxm8e7uncNZGUhRqOVng==
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/status-bar@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-5.23.0.tgz#5dccba2a129a484395999a1e379587420b190089"
+  integrity sha512-sF5xiS1juvRQqMTlrrhzTvmloh+k9L6CG4D3aKSyddVhlwmerhdF7vGfqZ+txTJ1/lxhRs54K3/AloLA5YAKXg==
   dependencies:
     "@types/cordova" latest
 
