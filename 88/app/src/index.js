@@ -23,7 +23,7 @@ const Main = () => {
           ref={drawer}
         >
           <Navigation openDrawer={openDrawer}/>
-          <TabBar />
+          {/* <TabBar /> */}
         </DrawerLayoutAndroid>
       </SafeAreaView>
     </> 
