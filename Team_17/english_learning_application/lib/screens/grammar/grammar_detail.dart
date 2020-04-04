@@ -57,7 +57,9 @@ class _GrammarDetailState extends State<GrammarDetail> {
                                     builder: (context) => GrammarResult(),
                                     settings: RouteSettings(arguments: {
                                       'title': snapshot.data.documents[index]
-                                          ['title']
+                                          ['title'],
+                                      'context': snapshot.data.documents[index]
+                                      ['context']
                                     })),
                               );
                             },
