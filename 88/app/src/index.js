@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { SafeAreaView, StyleSheet, StatusBar, DrawerLayoutAndroid } from 'react-native';
 
 import Navigation from './components/Navigation';
-import Drawer from './components/Drawer'
+import Drawer from './components/Drawer';
+import TabBar from './components/TabBar';
 
 const Main = () => {
   const drawer = useRef(null);
@@ -22,6 +23,7 @@ const Main = () => {
           ref={drawer}
         >
           <Navigation openDrawer={openDrawer}/>
+          <TabBar />
         </DrawerLayoutAndroid>
       </SafeAreaView>
     </> 
