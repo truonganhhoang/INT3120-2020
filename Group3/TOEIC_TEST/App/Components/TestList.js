@@ -27,16 +27,16 @@ class TestList extends Component {
         return (
             <View style={styles.containerFlatList}>
                 <TouchableOpacity
-                    onPress={()=>this.props.navigation.navigate('TestBody')}
+                    onPress={() => this.props.navigation.navigate('TestBody')}
                 >
-                <Text style={{ fontSize: 17, fontWeight: "bold" }}>{item.title}</Text>
-                <View style={{ flexDirection: 'row', paddingTop: 10, paddingBottom: 10 }}>
-                    <Icon name="eye" size={18} />
-                    <Text style={{ paddingLeft: 10 }}>{item.date}</Text>
-                    <Text style={{ paddingLeft: 10 }}>{item.time}</Text>
-                    <Text style={{ paddingLeft: Dimensions.get("screen").width - 250 }}>{item.progress}</Text>
-                </View>
-                <Progress.Bar progress={item.progress_bar} width={Dimensions.get("screen").width - 50} />
+                    <Text style={{ fontSize: 17, fontWeight: "bold" }}>{item.title}</Text>
+                    <View style={{ flexDirection: 'row', paddingTop: 10, paddingBottom: 10 }}>
+                        <Icon name="eye" size={18} />
+                        <Text style={{ paddingLeft: 10 }}>{item.date}</Text>
+                        <Text style={{ paddingLeft: 10 }}>{item.time}</Text>
+                        <Text style={{ paddingLeft: Dimensions.get("screen").width - 250 }}>{item.progress}</Text>
+                    </View>
+                    <Progress.Bar progress={item.progress_bar} width={Dimensions.get("screen").width - 50} />
                 </TouchableOpacity>
             </View>
         )

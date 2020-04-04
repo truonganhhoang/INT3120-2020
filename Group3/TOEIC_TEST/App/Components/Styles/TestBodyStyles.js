@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#E0E0E0"
   },
   linearGradient: {
     flexDirection: 'row',
@@ -22,16 +23,15 @@ export default StyleSheet.create({
     paddingStart: 20,
   },
   containerFlatList: {
-    flex: 1,
+    flex:1,
     width: Dimensions.get("window").width - 30,
     backgroundColor: '#F5F5F5',
     marginVertical: 6,
     marginHorizontal: 15,
-    elevation: 5,
+    elevation: 6,
     borderRadius: 10,
     padding: 10
   },
-
   slide1: {
     flex: 1,
     padding: 10,
@@ -63,20 +63,17 @@ export default StyleSheet.create({
     backgroundColor: '#97CAE5',
     borderRadius: 20,
     alignSelf: 'center',
-    marginTop: -60,
+    // marginTop: -60,
     marginBottom: 20,
     alignItems: 'center',
     padding: 10,
     width: 120,
   },
   iconStart: {
-    marginTop: 10,
-    marginLeft: Dimensions.get("screen").width - 230
+    marginLeft: Dimensions.get("screen").width - 260
   },
   iconBookmark: {
     marginLeft: 30,
-    marginTop: 10,
-
   },
   content: {
     fontSize: 20,
