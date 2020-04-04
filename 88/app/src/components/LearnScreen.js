@@ -1,15 +1,10 @@
 import * as React from 'react';
 import { Button, Text, View, Alert, StyleSheet } from 'react-native';
+import CustomListview from './CustomView';
 
 const LearnScreen = () => {
     return (
-      <View style={styles.screenStyle}>
-        <Text>Learn screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => Alert.alert('Change Screen')}
-        />
-      </View>
+        <CustomListview />
     );
 }
 
