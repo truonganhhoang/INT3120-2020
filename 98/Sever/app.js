@@ -45,17 +45,28 @@ app.get("/admin",function(req,res)
 //Admin traffic signs
 app.get("/admin/trafficsigns",function(req,res)
 {
+  
   res.render("admin/TrafficSigns/listTrafficSigns");
 })
+
 app.get("/admin/addtrafficsigns",function(req,res)
 {
-  res.render("admin/TrafficSigns/addtrafficsigns");
-})
-
-app.get("/admin/trafficsigns/json",function(req,res)
+TFS.listCategoriesId(con,function(result)
 {
-  TFS.list(con,res);
+ res.render("admin/TrafficSigns/addtrafficsigns",{result});
 })
+ 
+});
+
+app.get("/admin/trafficsigns/json/:name",function(req,res)
+{
+  var category=req.params.name;
+  TFS.list(con,res,category);
+});
+
+
+
+
 app.post('/admin/addtrafficsigns', (req, res) => {
  
   TFS.add(req,res,con);
@@ -64,24 +75,24 @@ app.post('/admin/addtrafficsigns', (req, res) => {
 //////////////
 
 //Admin traffic signs categories
-app.get("/admin/trafficsignsCategories",function(req,res)
+app.get("/admin/trafficsignCategories",function(req,res)
 {
-  res.render("admin/trafficsignsCategories/listtrafficsignsCategories");
+  res.render("admin/trafficsignCategories/listtrafficsignCategories");
 })
-app.get("/admin/addtrafficsignsCategories",function(req,res)
+app.get("/admin/addtrafficsignCategories",function(req,res)
 {
-  res.render("admin/trafficsignsCategories/addtrafficsignsCategories");
+  res.render("admin/trafficsignCategories/addtrafficsignCategories");
 })
 
-app.get("/admin/trafficsignsCategories/json/:name",function(req,res)
+app.get("/admin/trafficsignCategories/json/",function(req,res)
 {
 
-res.send('User name có tên: '+ req.params.name);
- // TFSC.list(con,res);
+//res.send('User name có tên: '+ req.params.name);
+  TFSC.list(con,res);
 })
-app.post('/admin/addtrafficsignsCategories', (req, res) => {
+app.post('/admin/addtrafficsignCategories', (req, res) => {
  
-  //TFSC.add(req,res,con);
+  TFSC.add(req,res,con);
 
 });
 //////////////

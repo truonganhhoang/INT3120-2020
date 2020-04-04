@@ -10,11 +10,11 @@ exports.add=function(req,res,con)
         var name = req.body.TFS_name;
         var category = req.body.TFS_category;
         var content =  req.body.TFS_content;
-        mkdirp.sync('./public/images/'+category);
-        file.mv("./public/images/"+category+"/"+filename);
+        mkdirp.sync('./public/images/trafficsigns/'+category);
+        file.mv("./public/images/trafficsigns/"+category+"/"+filename);
         
         var sql = "INSERT INTO trafficsigns (tfs_category_id, tfs_name,tfs_image,tfs_content) VALUES (?,?,?,?)";
-        con.query(sql,[category,name,"/public/images/"+category+"/"+filename,content], function (err, result) {
+        con.query(sql,[category,name,"/public/images/trafficsigns/"+category+"/"+filename,content], function (err, result) {
          if (err) throw err;
          res.send("Thành công");
 
@@ -24,9 +24,9 @@ exports.add=function(req,res,con)
 }
 
 
-exports.list=function(con,res)
+exports.list=function(con,res,category)
 {
-    var temp= con.query("SELECT * FROM trafficsigns", function (err, result, fields) {
+    var temp= con.query("SELECT * FROM trafficsigns WHERE tfs_category_id =?",category, function (err, result, fields) {
         if (err) throw err;
         var test = 
         {
@@ -36,4 +36,15 @@ exports.list=function(con,res)
       });
     
 
+}
+
+exports.listCategoriesId=function(con,cb)
+{
+     con.query("SELECT tfsc_id,tfsc_name FROM trafficsign_categories", function (err, result, fields) {
+        if (err) throw err;
+       
+        cb(result)
+
+      });
+     
 }

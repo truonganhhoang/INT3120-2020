@@ -11,7 +11,9 @@ export default function Detail  () {
       .then((json) => setData(json.data))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  });
+  }
+
+  );
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
