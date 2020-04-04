@@ -1,40 +1,44 @@
-const words = [
+const data = [
     {
-        id: 1,
-        en: "Hello",
-        vi:"xin chào",
-        transcription:"test"
+        "question": "Question: jsalkdfjsldkfjlsakfdjl;sajflsajfdl;jslfj;sajdflsakjdf;l;sdfj;sadfsdflksdfljlksajfdlalsfjlksdfjklsdfls_______dfllsdlfjs",
+        a: {
+            name: "alskdjflskdjflsdkjflsjd",
+            visible: "false"
+        },
+        b: {
+            name: "aslkdfjlsdjf",
+            visible: "false"
+        },
+        c: {
+            name: "lasdkfjlsdjfjdfljdfj",
+            visible: "false"
+        },
+        d: {
+            name: "laskdjflsjdfsdf",
+            visible: "false"
+        },
+
     },
     {
-        id: 2,
-        en: "Agreement",
-        vi:"sự thỏa thuận",
-        transcription:"test"
-    },
-    {
-        id: 3,
-        en: "Compare",
-        vi:"so sánh",
-        transcription:"test"
-    },
-    {
-        id: 4,
-        en: "Determine",
-        vi:"quyết định",
-        transcription:"test"
-    },
-    {
-        id: 5,
-        en: "Delete",
-        vi:"xóa",
-        transcription:"test"
-    },
-    {
-        id: 6,
-        en: "Access",
-        vi:"sự truy cập",
-        transcription:"test"
-    },
+        "question": "Question: jsalkdfjsldkfjlsakfdjl;sajflsajfdl;jslfj;sajdflsakjdf;l;sdfj;sadfsdflksdfljlksajfdlalsfjlksdfjklsdfls_______dfllsdlfjs",
+        a: {
+            name: "alskdjflskdjflsdkjflsjd",
+            visible: "false"
+        },
+        b: {
+            name: "aslkdfjlsdjf",
+            visible: "false"
+        },
+        c: {
+            name: "lasdkfjlsdjfjdfljdfj",
+            visible: "false"
+        },
+        d: {
+            name: "laskdjflsjdfsdf",
+            visible: "false"
+        },
+
+    }
 ]
 
-export {words}
+export {data}
