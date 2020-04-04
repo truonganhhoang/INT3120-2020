@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
-import { FlatList, ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
-import { AppConfig } from './firebase/config';
+import { ScrollView } from 'react-native-gesture-handler';
+import { AppConfig } from '../firebase/config';
 import { ListItem } from 'react-native-elements';
-
 
 
 const rootRef = AppConfig.database().ref();
 const animalRef = rootRef.child('sign/ban');
 
-export default class upload extends Component {
+export default class Ban extends Component {
   constructor(props) {
     super(props);
     this.state = ({
       animals: [],
-      inputName: '',
       loading: false,
     })
   }
@@ -25,6 +23,7 @@ export default class upload extends Component {
         animals.push({
           key: doc.key,
           name1: doc.toJSON().name,
+          content1: doc.toJSON().content,
           imageout: doc.toJSON().image,
         });
         this.setState({
@@ -42,14 +41,16 @@ export default class upload extends Component {
           this.state.animals.map((item, index) => (
             <ListItem
               key={index}
-              leftAvatar={{ source: { uri: item.imageout } }}
+              leftAvatar={{ source: { uri: item.imageout }, size:80}}
               title={item.name1}
-              // subtitle={l.subtitle}
+              titleStyle={{ fontWeight: 'bold'}}
+              subtitle={item.content1}
+              subtitleStyle={{}}
               bottomDivider
             />
           ))
         }
-        
+
       </ScrollView>
     )
   }
