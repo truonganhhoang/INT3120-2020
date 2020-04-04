@@ -1,39 +1,13 @@
 import * as React from 'react';
-import { Button, Text, View, Alert, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { Button, Text, View, Alert, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import LearnScreen from './LearnScreen';
+import PlayScreen from './PlayScreen';
 
-
-function LearnScreen() {
-  return (
-    <View style={styles.screenStyle}>
-      <Text>Learn screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => Alert.alert('Change Screen')}
-      />
-    </View>
-  );
-}
-
-function PlayScreen() {
-  return (
-    <View style={styles.screenStyle}>
-      <Text style={styles.textStyle}>Play Section Moved</Text>
-      <Text style={styles.textStyle, {fontSize: 15, textAlign: 'center', margin: 6, marginBottom: 20}}>Challenge peers, gain XP, and get better in our free all-in-one app!</Text>
-      <Button
-        title="              INSTALL FROM THE STORE              "
-        color="#53c653"
-        style={{overflow: 'hidden'}}
-        onPress={() => Alert.alert('Please install SoloLearn')}
-      />
-    </View>
-  );
-}
 
 const Tab = createMaterialTopTabNavigator();
-
-const Menu = () => {
+const TabBar = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -56,18 +30,5 @@ const Menu = () => {
   );
 };
 
-
-const styles = StyleSheet.create({
-  screenStyle:{
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center',
-  },
-  textStyle: {
-    fontSize: 21, 
-    color: 'gray'
-  },
-
-})
-export default Menu;
+export default TabBar;
   

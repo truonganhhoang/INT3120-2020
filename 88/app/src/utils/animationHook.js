@@ -6,7 +6,7 @@ const useAnimation = (animation) => {
 
 	const { duration } = animation;
 
-	console.log('def')
+	// console.log('def')
 	
 	useEffect(() => {
 		Animated.timing(variable, {

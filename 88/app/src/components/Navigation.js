@@ -10,7 +10,7 @@ const RotateAndChangeView = (props) => {
   const { duration, angleValue, opacityValue, children } = props;
 
   const animation = useAnimation({ duration });
-  console.log('abc')
+  // console.log('abc')
 
   return (
     <Animated.View style={{
