@@ -1,10 +1,11 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { SafeAreaView, StyleSheet, StatusBar, DrawerLayoutAndroid } from 'react-native';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 import Navigation from './components/Navigation';
 import Drawer from './components/Drawer';
-import { openDrawer } from './actions/drawer'
+import { openDrawer } from './actions/drawer';
 
 /**
  * Contains all components of this application
@@ -22,8 +23,9 @@ const Main = () => {
     <>
       <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
       <SafeAreaView style={styles.mainContainer}>
-        <DrawerLayoutAndroid
+        <DrawerLayout
           drawerWidth={280}
+          drawerType='front'
           drawerBackgroundColor='#ddd'
           renderNavigationView={() => <Drawer/>}
           ref={drawer}
@@ -31,7 +33,7 @@ const Main = () => {
           onDrawerClose={() => dispatch(openDrawer(false))}
         >
           <Navigation />
-        </DrawerLayoutAndroid>
+        </DrawerLayout>
       </SafeAreaView>
     </> 
   );

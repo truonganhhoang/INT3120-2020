@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, ImageBackground, Image, ScrollView, FlatList } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { TouchableNativeFeedback } from 'react-native';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { selectDrawerItem, openDrawer } from '../actions/drawer';

@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback } from 'react-native';
+import { View, StyleSheet, Text, Animated, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 import useAnimation from '../utils/animationHook';
-import { openDrawer } from '../actions/drawer'
+import { openDrawer } from '../actions/drawer';
+import { getStatusBarHeight } from '../utils/StatusBar';
 
 /**
  * Animation of icon
@@ -68,7 +70,7 @@ const Navigation = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: getStatusBarHeight(),
     backgroundColor: '#00BCD4'
   },
   navContainer: {
