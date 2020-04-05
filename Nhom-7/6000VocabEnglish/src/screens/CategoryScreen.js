@@ -13,7 +13,7 @@ export default class CategoryScreen extends Component {
 
     this.state = {
       isLoading: true,
-      topicItems: []
+      topicItems: [],
     };
   }
 
@@ -23,10 +23,10 @@ export default class CategoryScreen extends Component {
       headerTitleStyle: {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
       },
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
 
       //title: navigation.getParam("categoryTitle", "A Nested Details Screen")
     };
@@ -38,10 +38,11 @@ export default class CategoryScreen extends Component {
         style={{
           justifyContent: "center",
           alignContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
-        <OverviewTopicItem item={item} 
+        <OverviewTopicItem
+          item={item}
           handleGotoDetail={this.handleGotoDetail(item.topicName)}
           gotoSlide={this.gotoSlide(item.topicName)}
           gotoPractice={this.gotoPractice(item.topicName)}
@@ -55,14 +56,14 @@ export default class CategoryScreen extends Component {
     return () => {
       console.log("Go to slide show!");
       this.props.navigation.navigate("SlideshowByTopic", {
-        titleTopic: topicName
+        titleTopic: topicName,
       });
     };
   }
   gotoExam(topicName) {
     return () => {
       this.props.navigation.navigate("Exam", {
-        titleTopic: topicName
+        titleTopic: topicName,
       });
     };
   }
@@ -70,7 +71,7 @@ export default class CategoryScreen extends Component {
     return () => {
       console.log("Go to exam!");
       this.props.navigation.navigate("SlideshowByTopic", {
-        titleTopic: topicName
+        titleTopic: topicName,
       });
     };
   }
@@ -95,8 +96,8 @@ export default class CategoryScreen extends Component {
         .doc(categoryId)
         .collection(categoryId)
         .get()
-        .then(docs => {
-          docs.forEach(doc => {
+        .then((docs) => {
+          docs.forEach((doc) => {
             // console.log(doc.id, "=>", doc.data());
             data.push(doc.data());
             // console.log(data);
@@ -104,7 +105,7 @@ export default class CategoryScreen extends Component {
 
           this.setState({ topicItems: data, isLoading: !this.state.isLoading });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error getting documents", err);
         });
     }
@@ -119,7 +120,7 @@ export default class CategoryScreen extends Component {
           textStyle={{ color: "#fff" }}
         />
         <Carousel
-          ref={c => {
+          ref={(c) => {
             this._carousel = c;
           }}
           layout={"default"}
@@ -135,10 +136,11 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 30,
     backgroundColor: "lightgrey",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });
