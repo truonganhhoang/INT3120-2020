@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 // import 'dart:async';
-import 'package:englishlearningapplication/service/word_search.dart';
+import 'package:englishlearningapplication/services/word_search.dart';
 
 class Dictionary extends StatefulWidget {
   @override
