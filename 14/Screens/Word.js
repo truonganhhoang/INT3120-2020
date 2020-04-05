@@ -105,7 +105,7 @@ export default class Word extends React.Component{
         return(
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Home') }}
+                    leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Danh mục', style: { color: '#fff' } }}
                 />
                 <ButtonGroup

@@ -6,9 +6,9 @@ export default class Setting extends React.Component{
     render(){
         const {navigate,state} = this.props.navigation;
         return(
-            <View style={{backgroundColor:'#d2d6d9'}}>
+            <View style={{backgroundColor:'#d2d6d9',height:'100%'}}>
                 <Header
-                        leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Home') }}
+                        leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                         centerComponent={{ text: 'Setting', style: { color: '#fff' } }}
                     />
                 <ScrollView>

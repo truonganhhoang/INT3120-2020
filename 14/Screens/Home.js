@@ -66,6 +66,7 @@ export default class Home extends React.Component{
             
             <View style={styles.container}>
                 <Header
+                    style={{height:20}}
                     centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
                 />
       

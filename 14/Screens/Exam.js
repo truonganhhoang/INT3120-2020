@@ -51,7 +51,7 @@ export default class Exam extends React.Component{
         return(
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Home') }}
+                    leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Exam', style: { color: '#fff' } }}
                 />
                 <ScrollView>
@@ -78,6 +78,6 @@ export default class Exam extends React.Component{
 
 const styles = StyleSheet.create({
     container:{
-        marginBottom:90
+        marginBottom:75
     },
 });

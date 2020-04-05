@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Image , Alert} from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
+import IconFont from 'react-native-vector-icons/FontAwesome';
 import data from '../data/new-word/index'
 
 export default class Words extends React.Component {
@@ -58,7 +59,7 @@ export default class Words extends React.Component {
 				<Text>{item.vie}</Text>  
       </View>
       <View style={styles.add}>
-        <Icon name='menu' iconStyle={styles.add}/>
+        <IconFont name='exchange' iconStyle={styles.add}/>
       </View>
 		</View>
   );
@@ -114,7 +115,7 @@ export default class Words extends React.Component {
           renderItem={this.renderItem}
           renderHiddenItem={this.renderHiddenItem}
           leftOpenValue={0}
-          rightOpenValue={-200}
+          rightOpenValue={-150}
           disableRightSwipe={true}
           refreshing={true}
         />
@@ -127,7 +128,8 @@ export default class Words extends React.Component {
 const styles = StyleSheet.create({
   swipeListView:{
       paddingLeft: 10,
-      paddingRight: 10
+      paddingRight: 10,
+      height:'100%'
   },
   listitem:{
       marginTop: 8,
@@ -160,5 +162,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginLeft: 'auto',
+    marginRight:15,
+    marginTop:15
   }
 });

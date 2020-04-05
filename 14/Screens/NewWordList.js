@@ -5,7 +5,7 @@ import { SwipeListView } from 'react-native-swipe-list-view';
 import newWords from './../data/new-word/index';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
-
+import IconFont from 'react-native-vector-icons/FontAwesome';
 
 export default class NewWordList extends React.Component{
 
@@ -66,7 +66,7 @@ export default class NewWordList extends React.Component{
 				<Text>{item.vie}</Text>  
       </View>
       <View style={styles.add}>
-        <Icon name='menu' iconStyle={styles.add}/>
+        <IconFont name='exchange' size={18} iconStyle={styles.add}/>
       </View>
 		</View>
   );
@@ -75,7 +75,7 @@ export default class NewWordList extends React.Component{
     <View style={styles.iconContainer}>
       <TouchableOpacity onPress={() => this.favoriteSwitch(item)}>
       <Icon
-          style={styles.icon}
+          iconStyle={styles.icon}
           name={item.favorite ? 'heart' : 'heart-outline'}
           type='material-community'
           color='red'
@@ -84,7 +84,7 @@ export default class NewWordList extends React.Component{
       </TouchableOpacity>
       <TouchableOpacity onPress={() => this.remindSwitch(item)}>
         <Icon
-        style={styles.icon}
+        iconStyle={styles.icon}
         name='alarm'
         type='material-community'
         color={item.remind ? 'green': 'gray'}
@@ -93,7 +93,7 @@ export default class NewWordList extends React.Component{
       </TouchableOpacity>
       <TouchableOpacity onPress={() => this.showWordExample(item)}>
         <Icon
-        style={styles.icon}
+        iconStyle={styles.icon}
         name='comment-text'
         type='material-community'
         color='#457fe1'
@@ -108,7 +108,7 @@ export default class NewWordList extends React.Component{
       return(
           <View>
               <Header
-                  leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Word') }}
+                  leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Word') }}
                   centerComponent={{ text: 'Thể thao', style: { color: '#fff' } }}
               />
               <SwipeListView
@@ -119,7 +119,7 @@ export default class NewWordList extends React.Component{
                   renderItem={this.renderItem}
                   renderHiddenItem={this.renderHiddenItem}
                   leftOpenValue={0}
-                  rightOpenValue={-200}
+                  rightOpenValue={-150}
                   showsVerticalScrollIndicator={true}
                   disableRightSwipe={true}
               />
@@ -158,13 +158,17 @@ const styles = StyleSheet.create({
 		color: 'blue'
   },
   add:{
-    right:2,
-    top:4,
+    right:8,
+    top:8,
     position:'absolute'
   },
   iconContainer: {
     flex: 1,
     flexDirection: 'row',
     marginLeft: 'auto',
+    marginTop:18
+  },
+  icon:{
+    marginRight:4,
   }
 });
