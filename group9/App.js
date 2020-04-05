@@ -6,6 +6,7 @@ import LoadingScreen from './components/LoadingScreen';
 import DashboardScreen from './components/DashboardScreen';
 import UserScreen from './components/UserScreen';
 import HelloScreen from './components/helloScreen'
+import SignUpScreen from './components/signupScreen'
 
 // ========== Fix annoying bug, fk react ==========
 // https://github.com/expo/expo/issues/7507#issuecomment-605316962
@@ -87,6 +88,7 @@ const AppSwitchNavigator = createSwitchNavigator({
   HelloScreen: HelloScreen,
   LoginScreen: LoginScreen,
   DashboardScreen: DashboardScreen,
+  SignUpScreen : SignUpScreen,
   UserScreen: UserScreen,
 });
 

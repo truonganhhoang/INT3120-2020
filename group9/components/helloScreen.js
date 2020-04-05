@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 import { Button } from 'react-native-elements'
 import { LinearGradient } from 'expo-linear-gradient';
+import auth from './firebaseApi/auth';
 
 export default class HelloScreen extends React.Component {
   constructor(props) {
@@ -12,6 +13,9 @@ export default class HelloScreen extends React.Component {
     this.props.navigation.navigate('LoginScreen');
   }
   
+  signup = () => {
+    this.props.navigation.navigate('SignUpScreen');
+  }
   
   render() {
     return(
@@ -38,6 +42,7 @@ export default class HelloScreen extends React.Component {
             title='SIGN UP'  
             titleStyle={{fontWeight:'bold', letterSpacing: 1, color:'#23a6d5', fontSize:18}}
             buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#fff'}}
+            onPress={()=> this.signup()}
           />
         <View style={{marginTop:'9%'}} />
           <Text 
