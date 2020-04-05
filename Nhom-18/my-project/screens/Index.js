@@ -17,11 +17,11 @@ import Test from './Test'
 import Learn from './Learn'
 import Tutorial from './Tutorial'
 import Skill from './Skill'
-import upload from './upload'
+import Signs from './Signs'
 
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import imageUpload from './upload';
+import imageSigns from './Signs';
 
 // function Feed({ navigation }) {
 //   return (
@@ -134,7 +134,7 @@ function MyStack({navigation}) {
       <Stack.Screen name="Learn" component={Learn} options={{
         title: 'Học lý thuyết',
       }}/>
-      <Stack.Screen name="upload" component={upload} options={{
+      <Stack.Screen name="Signs" component={Signs} options={{
         title: 'Biển báo đường bộ',
       }}/>
     </Stack.Navigator>
