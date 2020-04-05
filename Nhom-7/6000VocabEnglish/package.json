@@ -32,7 +32,10 @@
     "react-native-snap-carousel": "^3.8.4",
     "react-native-sound": "^0.11.0",
     "react-native-sound-player": "^0.10.4",
-    "react-native-tab-view": "^2.13.0"
+    "react-native-tab-view": "^2.13.0",
+    "react-native-web": "~0.11.7",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
