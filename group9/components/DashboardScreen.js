@@ -14,7 +14,7 @@ import * as Font from 'expo-font'
 
 const Tab = createBottomTabNavigator();
 
-const SwitchLessonTask = createSwitchNavigator({  
+const SwitchLessonTask = createSwitchNavigator({
   NewTaskScreen: NewTask,
   NewLessonScreen: NewLesson,
 });
@@ -22,20 +22,19 @@ const SwitchLessonTask = createSwitchNavigator({
 export const AppSwitchLessonTask = createAppContainer(SwitchLessonTask);
 
 class DashboardScreen extends Component {
-  
   componentDidMount() {
     Font.loadAsync({
-      'SanFrancisco': require('../assets/fonts/SanFrancisco.otf'),
+      SanFrancisco: require('../assets/fonts/SanFrancisco.otf'),
     });
   }
-  
+
   constructor(props) {
     super(props);
     this.user_id = this.props.navigation.getParam('curUser');
   }
-  
-  render () {  
-  return (
+
+  render() {
+    return (
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({

@@ -200,7 +200,7 @@ export default class ViewTask extends React.Component {
                 }}
                 size={30}
               />
-              <Text style={{fontSize:25, paddingTop: 10}}>{this.state.dataSelected.name}</Text>
+              <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20 }} />
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   content_header: {
     padding: 15,
     paddingBottom: 0,
-    flexDirection: 'row', 
+    flexDirection: 'row',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },

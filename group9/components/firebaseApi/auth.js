@@ -30,4 +30,8 @@ const signInAnonymously = async () => {
     });
 };
 
-export { signInWithFacebook, signInAnonymously };
+const signOut = async () => {
+  await firebase.auth().signOut();
+};
+
+export default { signInWithFacebook, signInAnonymously, signOut };
