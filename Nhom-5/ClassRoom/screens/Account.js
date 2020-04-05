@@ -1,38 +1,53 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Avatar } from 'react-native-elements';
+import { Avatar, Button } from 'react-native-elements';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { MonoText } from '../components/StyledText';
 
-export default class Account extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Nguyễn Hoàng Tuyên",
-    };
-  }
+import {AuthContext} from '../Context';
 
-  render() {
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <Avatar size={100} rounded title={getName(this.state.name).charAt(0)} style={styles.avatar} overlayContainerStyle={{backgroundColor: '#3498db'}}/>
-        <Text style={styles.userName}>{this.state.name}</Text>
-      </ScrollView>
-    );
-  }
+export default function Account({navigation}) {
+  const {signOut} = React.useContext(AuthContext);
+  const user = {
+    name: "Nguyen Hoang Tuyen"
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.info}>
+        <Avatar size={100} rounded title={getName(user.name).charAt(0)} style={styles.avatar} overlayContainerStyle={{backgroundColor: '#3498db'}}/>
+        <Text style={styles.userName}>{user.name}</Text>
+      </View>
+      <View style={styles.footer}>
+        <Button  
+          title="Sign out"
+          type="clear"
+          titleStyle={{
+            color: '#e74c3c'
+          }}
+          onPress={() => signOut()}
+        />
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: '100%',
     backgroundColor: '#fff',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
-  contentContainer: {
+  info: {
+    flexDirection: 'column',
     alignItems: 'center',
-    marginTop: 10,
+  },
+  footer: {
     marginBottom: 20,
-    paddingTop: 15,
+    alignItems: 'center',
   },
   avatar: {
     width: 100,

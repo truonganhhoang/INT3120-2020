@@ -15,10 +15,10 @@ export default function Class(props) {
       </View>
       <View style={styles.leftPart}>
         <View style={styles.title}>
-          <Text style={styles.titleText}>Toán 1 (Thứ 2, tiết 1-3)</Text>
+          <Text style={styles.titleText}>{props.name}</Text>
         </View>
         <View style={styles.code}>
-          <Text style={styles.codeText}>ABC123</Text>
+          <Text style={styles.codeText}>Mã lớp: {props.id.toUpperCase()}</Text>
         </View>
       </View>
     </TouchableOpacity>

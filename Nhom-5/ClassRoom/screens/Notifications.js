@@ -13,15 +13,6 @@ export default class Notifications extends React.Component {
           label: "Hệ thống",
           content: "Chào mừng đến với Classroom",
         },
-        {
-          key: "b1",
-          label: "Lớp Toán",
-          content: "3 bài tập sẽ hết hạn ngày hôm nay",
-        },{
-          key: "b2",
-          label: "Lớp Văn",
-          content: "Còn 3 bài dài ít nhất 1 trang miêu tả 1 con vật nuôi to nhất trong nhà",
-        },
       ], 
     };
   }
@@ -41,7 +32,7 @@ export default class Notifications extends React.Component {
   };
 }
 
-function   OptionButton({icon, label, content}) {
+function   OptionButton({label, content}) {
   return (
     <RectButton style={[styles.option]}>
       <View style={{flex:1}}>
@@ -65,8 +56,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   option: {
-    marginLeft: 20,
-    marginRight: 20,
+    paddingLeft: 40,
+    paddingRight: 40,
     paddingHorizontal: 15,
     paddingVertical: 15,
     borderWidth: StyleSheet.hairlineWidth,
