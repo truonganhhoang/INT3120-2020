@@ -34,16 +34,19 @@ export default class NewWordList extends React.Component{
 
   renderHiddenItem = () => (
     <View>
-      <View>
+      <View style={styles.swipe}>
         <Icon
+          iconStyle={styles.swipeIcon}
           name='favorite'
           type='material'
         />
         <Icon
+          iconStyle={styles.swipeIcon}
           name='alarm'
           type='material'
         />
         <Icon
+          iconStyle={styles.swipeIcon}
           name='comment'
           type='material'
         />
@@ -109,5 +112,15 @@ const styles = StyleSheet.create({
         right:2,
         top:4,
         position:'absolute'
-    }
+    },
+  swipe:{
+    marginRight:50,
+    marginTop:30,
+    flexDirection:'row',
+    justifyContent:'flex-end'
+  },
+  swipeIcon:{
+    marginLeft:8,
+    marginRight:8
+  }
 });

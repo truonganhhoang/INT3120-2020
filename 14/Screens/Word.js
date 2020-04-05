@@ -59,7 +59,7 @@ export default class Word extends React.Component{
     renderItem = ({ item }) => (
     <ListItem
         onPress = {() => this._onPress(item)}
-        style={styles.listitem}
+        
         title={item.name}
         subtitle={item.subtitle}
         leftAvatar={{ source: { uri: item.avatar_url } }}
@@ -71,7 +71,7 @@ export default class Word extends React.Component{
     render(){
         const {navigate,state} = this.props.navigation;
         return(
-            <View>
+            <View style={styles.container}>
                 <Header
                     leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Danh mục', style: { color: '#fff' } }}
@@ -89,6 +89,9 @@ export default class Word extends React.Component{
 }
 
 const styles = StyleSheet.create({
+    container: {
+      backgroundColor: '#d2d6d9',
+    },
     flatlist:{
         paddingLeft: 16,
         paddingRight: 16
