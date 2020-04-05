@@ -168,3 +168,7 @@ ionic g page profile -f
 - Sử dụng dialog để hiển thị lỗi khi đăng nhập.
 - Di chuyển các services đến thư mục `core`.
 - Chia `tab-routing.module` thành 5 routing submodules.
+
+# 2020-04-05
+
+- Thêm 4 tabs tại `/tab/learn/course/:courseId`: `overview`, `grades`, `forums`, `info`.

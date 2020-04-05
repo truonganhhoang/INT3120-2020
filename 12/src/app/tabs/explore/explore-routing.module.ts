@@ -12,18 +12,15 @@ const routes: Routes = [
   },
   {
     path: 'popular',
-    loadChildren: () =>
-      import('./popular-courses-list/popular-courses-list.module').then((m) => m.PopularCoursesListPageModule)
+    loadChildren: () => import('./popular-courses/popular-courses.module').then((m) => m.PopularCoursesPageModule)
   },
   {
     path: 'top-rated',
-    loadChildren: () =>
-      import('./top-rated-courses-list/top-rated-courses-list.module').then((m) => m.TopRatedCoursesListPageModule)
+    loadChildren: () => import('./top-rated-courses/top-rated-courses.module').then((m) => m.TopRatedCoursesPageModule)
   },
   {
     path: 'trending',
-    loadChildren: () =>
-      import('./trending-courses-list/trending-courses-list.module').then((m) => m.TrendingCoursesListPageModule)
+    loadChildren: () => import('./trending-courses/trending-courses.module').then((m) => m.TrendingCoursesPageModule)
   },
   {
     path: 'course/:courseId',
@@ -33,6 +30,10 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'overview'
+  },
+  {
+    path: 'topic',
+    loadChildren: () => import('./topic/topic.module').then((m) => m.TopicPageModule)
   }
 ];
 

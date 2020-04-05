@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'courses',
     loadChildren: () =>
-      import('./downloaded-courses-list/downloaded-courses-list.module').then((m) => m.DownloadedCoursesListPageModule)
+      import('./downloaded-courses/downloaded-courses.module').then((m) => m.DownloadedCoursesListPageModule)
   },
   {
     path: 'course/:courseId',
