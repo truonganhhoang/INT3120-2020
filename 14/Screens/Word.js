@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
-import { ListItem, Header } from 'react-native-elements'
+import { ListItem, Header, ButtonGroup } from 'react-native-elements';
+import Words from '../components/Words';
 
 const list = [
     {
@@ -43,6 +44,18 @@ const list = [
 
 
 export default class Word extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedIndex: 0
+    }
+    this.updateIndex = this.updateIndex.bind(this)
+  }
+
+  updateIndex (selectedIndex) {
+    this.setState({selectedIndex})
+  }
+
     static navigationOptions = ({navigation}) => {
         return{
             title: navigation.getParam('name'),
@@ -55,6 +68,23 @@ export default class Word extends React.Component{
       this.props.navigation.navigate(
         'NewWordList', {name:'NewWordList'}
     )}
+
+    renderSelectedCaterory = selectedIndex => {
+      if (selectedIndex == 0){
+        return (<FlatList
+          style={styles.flatlist}
+          keyExtractor={this.keyExtractor}
+          data={list}
+          renderItem={this.renderItem}
+          showsVerticalScrollIndicator={false}
+        />)
+      }
+      else if (selectedIndex == 1){
+        return <Words type='favorite'/>
+      } else if (selectedIndex == 2){
+        return <Words type='remind'/>
+      }
+    }
 
     renderItem = ({ item }) => (
     <ListItem
@@ -70,19 +100,20 @@ export default class Word extends React.Component{
 
     render(){
         const {navigate,state} = this.props.navigation;
+        const buttons = ['Từ vựng', 'Từ yêu thích', 'Từ nhắc nhở']
+        const { selectedIndex } = this.state
         return(
             <View style={styles.container}>
                 <Header
                     leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Danh mục', style: { color: '#fff' } }}
                 />
-                <FlatList
-                    style={styles.flatlist}
-                    keyExtractor={this.keyExtractor}
-                    data={list}
-                    renderItem={this.renderItem}
-                    showsVerticalScrollIndicator={false}
+                <ButtonGroup
+                  onPress={this.updateIndex}
+                  selectedIndex={selectedIndex}
+                  buttons={buttons}
                 />
+                {this.renderSelectedCaterory(selectedIndex)}
             </View>
         );
     }

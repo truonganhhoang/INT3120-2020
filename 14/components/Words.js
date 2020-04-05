@@ -1,13 +1,12 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image , Alert} from 'react-native';
-import { Header,Icon } from 'react-native-elements';
+import React from 'react'
 import { SwipeListView } from 'react-native-swipe-list-view';
-import newWords from './../data/new-word/index';
+import { StyleSheet, View, Text, Image , Alert} from 'react-native';
+import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
+import data from '../data/new-word/index'
 
-
-export default class NewWordList extends React.Component{
+export default class Words extends React.Component {
 
   constructor(props){
     super(props)
@@ -15,20 +14,13 @@ export default class NewWordList extends React.Component{
       update: false
     }
   }
-    
-  static navigationOptions = ({navigation}) => {
-      return{
-          title: navigation.getParam('name'),
-      };
-  };
 
   keyExtractor = (item, index) => index.toString()
-
   showWordExample = word => {
     Alert.alert(word.eng, word.example, [{text: 'Đã xem'}]);
   }
 
-  speakWord = (word) => {
+  speakWord = word => {
     Speech.speak(word);
   }
 
@@ -57,7 +49,7 @@ export default class NewWordList extends React.Component{
 			<Image style = {styles.image} source = {{uri: item.picture_url}}/>
 			<View style = {styles.content}>
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <Text style = {styles.englishWord}>{item.eng}</Text>
+          <Text style = {styles.englishWord}>{item.eng} </Text>
           <Icon name='volume-high' type='material-community' onPress={() => this.speakWord(item.eng)}/>
         </View>
         <Text>
@@ -102,44 +94,46 @@ export default class NewWordList extends React.Component{
       </TouchableOpacity>
     </View>
   );
-
   render(){
-      const {navigate,state} = this.props.navigation;
-      return(
-          <View>
-              <Header
-                  leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Word') }}
-                  centerComponent={{ text: 'Thể thao', style: { color: '#fff' } }}
-              />
-              <SwipeListView
-				          style={styles.flatlist}
-					        contentContainerStyle={{ paddingBottom: 80}}
-                  keyExtractor={this.keyExtractor}
-                  data={newWords.sports}
-                  renderItem={this.renderItem}
-                  renderHiddenItem={this.renderHiddenItem}
-                  leftOpenValue={0}
-                  rightOpenValue={-200}
-                  showsVerticalScrollIndicator={true}
-                  disableRightSwipe={true}
-              />
-              <SwipeListView />
-          </View>
-      );
+    let filterData = null;
+    if (this.props.type=='favorite'){
+      filterData = data.sports.filter(item => item.favorite);
+    } else if (this.props.type=='remind') {
+      filterData = data.sports.filter(item => item.remind);
+    } else {
+      filterData = data.sports
+    }
+    
+    return (
+      <View>
+        <SwipeListView
+          style={styles.swipeListView}
+          keyExtractor={this.keyExtractor}
+          contentContainerStyle={{paddingBottom: 240}}
+          data={filterData}
+          renderItem={this.renderItem}
+          renderHiddenItem={this.renderHiddenItem}
+          leftOpenValue={0}
+          rightOpenValue={-200}
+          disableRightSwipe={true}
+          refreshing={true}
+        />
+        <SwipeListView />
+      </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  flatlist:{
+  swipeListView:{
       paddingLeft: 10,
-			paddingRight: 10
+      paddingRight: 10
   },
   listitem:{
       marginTop: 8,
       marginBottom: 8
 	},
 	container:{
-		flex: 1,
 		backgroundColor: 'white', // Set your own custom Color
 		flexDirection: 'row',
 		marginBottom: 10
