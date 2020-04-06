@@ -1,44 +1,35 @@
 <!-- Head -->
-<%  title ="Add traffic signs" %>
-<% page2="Traffic Signs" %>
+<%  title ="Add traffic sign categories" %>
+<% page2="Traffic Sign Categories" %>
 <% page3="Add" %>
 <% link2="#" %>
 
 <!-- Page content -->
+
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card">
-        <h5 class="card-header">Addition traffic Signs</h5>
+        <h5 class="card-header">Addition traffic Sign categoies</h5>
         <div class="card-body">
             <form id="validationform" data-parsley-validate="" novalidate="" action ="" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Name</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="TFS_name">
+                        <input type="text" required=""  class="form-control" name="TFSC_name">
                     </div>
                 </div>
         
-                <div class="form-group row">
-                    <label class="col-12 col-sm-3 col-form-label text-sm-right" for="input-select">Category</label>
-                    <div class="col-12 col-sm-8 col-lg-6">
-                        <select class="form-control" id="input-select" name="TFS_category">
-                            <% result.forEach(function(id) { %>
-                                <option value="<%= id.tfsc_id %>"><%= id.tfsc_name %></option> 
-                            <% }); %>
-                     
-                        </select>
-                    </div>
-                </div>
+            
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Content</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <textarea required="" class="form-control" name  ="TFS_content"></textarea>
+                        <textarea required="" class="form-control" name  ="TFSC_content"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                 
                         <label class="col-12 col-sm-3 col-form-label text-sm-right">Example file input</label>
                         <div class="col-12 col-sm-8 col-lg-6">
-                            <input type="file" class="form-control-file" name ="TFS_file">
+                            <input type="file" class="form-control-file" name ="TFSC_file">
                         </div>
                            
                     
@@ -46,14 +37,10 @@
                 <div class="form-group row text-right">
                     <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                         <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                        <button class="btn btn-space btn-secondary">Cancel</button>
+                        <a class="btn btn-space btn-secondary" href="/admin/trafficsignCategories">Cancel</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
-

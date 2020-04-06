@@ -1,0 +1,57 @@
+<!-- Head -->
+<%  title ="List traffic signs" %>
+<% page2="Traffic Signs" %>
+<% page3="List" %>
+<% link2="#" %>
+
+<!-- Page content -->
+<div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Traffic signs</h5>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered first text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category_ID</th>
+                                <th>Name</th>
+                                <th>Content</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <% result.forEach(function(id) { %>
+                                <tr>
+                                    <td><%= id.tfs_id %></td>
+                                    <td>  <%= id.tfs_category_id %></td>
+                                    <td>  <%= id.tfs_name %></td>
+                                    <td>  <%= id.tfs_content %></td>
+                                    <td>  <a href="<%= id.tfs_image %>">Click</a></td>
+                                    <td> <a  href="/admin/trafficsigns/delete/<%= id.tfs_id %>"><i class="icon-trash"></i> </a>
+                                    <a href="/admin/trafficsigns/change/<%= id.tfs_id %>"><i class="icon-pencil"></i></a></td>
+                                </tr>
+                              
+                             <% }); %>
+                    
+                        </tbody>
+                     
+                    </table>
+                </div>
+             
+        
+              
+            </div>
+            
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table  -->
+    <!-- ============================================================== -->
+</div>
