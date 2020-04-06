@@ -17,6 +17,17 @@ class QuestionQuiz{
   ];
 }
 
+
+
+
+  Map<String, Color> btncolor = {
+    "a": Colors.indigoAccent,
+    "b": Colors.indigoAccent,
+    "c": Colors.indigoAccent,
+    "d": Colors.indigoAccent
+  };
+  String x = "normal";
+
 var finalScore = 0; //Tổng điểm
 var questionNumber = 0; //Chạy câu hỏi
 var quiz = new QuestionQuiz();
@@ -74,7 +85,7 @@ class QuizState extends State<Quiz> {
                   //button1
                   new MaterialButton(
                     minWidth: 120.0,
-                    color: Colors.redAccent,
+                    color: btncolor["a"],
                     child: new Text(quiz.choices[questionNumber][0],
                       style: new TextStyle(
                         fontSize: 20.0,
@@ -82,21 +93,26 @@ class QuizState extends State<Quiz> {
                       ),
                     ),
                     onPressed: () {
-
+                      setState(() {
                       if (quiz.choices[questionNumber][0] == quiz.answers[questionNumber]){
                         debugPrint("Câu trả lời chính xác");
+                        btncolor["a"] = Colors.greenAccent;
                         finalScore++;
-                      }
-                      else{
+                        }
+                        else{
                         debugPrint("Câu trả lời chưa chính xác");
-                      }
-                      updateQuestion();
+                        btncolor["a"] = Colors.redAccent;
+                        }                        
+                      });
+                      Future.delayed(const Duration(milliseconds: 1500), (){
+                        updateQuestion();
+                      });
                     }
                   ),
                   //button 2
                   new MaterialButton(
                     minWidth: 120.0,
-                    color: Colors.redAccent,
+                    color: btncolor["b"],
                     child: new Text(quiz.choices[questionNumber][1],
                       style: new TextStyle(
                         fontSize: 20.0,
@@ -105,14 +121,21 @@ class QuizState extends State<Quiz> {
                     ),
                     onPressed: () {
 
+                      setState(() {
                       if (quiz.choices[questionNumber][1] == quiz.answers[questionNumber]){
                         debugPrint("Câu trả lời chính xác");
+                        btncolor["b"] = Colors.greenAccent;
                         finalScore++;
-                      }
-                      else{
+                        }
+                        else{
                         debugPrint("Câu trả lời chưa chính xác");
-                      }
-                      updateQuestion();
+                        btncolor["b"] = Colors.redAccent;
+                        }                        
+                      });
+                      Future.delayed(const Duration(milliseconds: 1500), (){
+                        updateQuestion();
+                      });
+                      // updateQuestion();
                     }
                   ),
 
@@ -127,7 +150,7 @@ class QuizState extends State<Quiz> {
                   //button3
                   new MaterialButton(
                     minWidth: 120.0,
-                    color: Colors.redAccent,
+                    color: btncolor["c"],
                     child: new Text(quiz.choices[questionNumber][2],
                       style: new TextStyle(
                         fontSize: 20.0,
@@ -136,20 +159,27 @@ class QuizState extends State<Quiz> {
                     ),
                     onPressed: () {
 
+                      setState(() {
                       if (quiz.choices[questionNumber][2] == quiz.answers[questionNumber]){
                         debugPrint("Câu trả lời chính xác");
+                        btncolor["c"] = Colors.greenAccent;
                         finalScore++;
-                      }
-                      else{
+                        }
+                        else{
                         debugPrint("Câu trả lời chưa chính xác");
-                      }
-                      updateQuestion();
+                        btncolor["c"] = Colors.redAccent;
+                        }                        
+                      });
+                      Future.delayed(const Duration(milliseconds: 1500), (){
+                        updateQuestion();
+                      });
+                      // updateQuestion();
                     }
                   ),
                   //button 4
                   new MaterialButton(
                     minWidth: 120.0,
-                    color: Colors.redAccent,
+                    color: btncolor["d"],
                     child: new Text(quiz.choices[questionNumber][3],
                       style: new TextStyle(
                         fontSize: 20.0,
@@ -158,14 +188,21 @@ class QuizState extends State<Quiz> {
                     ),
                     onPressed: () {
 
+                      setState(() {
                       if (quiz.choices[questionNumber][3] == quiz.answers[questionNumber]){
                         debugPrint("Câu trả lời chính xác");
+                        btncolor["d"] = Colors.greenAccent;
                         finalScore++;
-                      }
-                      else{
+                        }
+                        else{
                         debugPrint("Câu trả lời chưa chính xác");
-                      }
-                      updateQuestion();
+                        btncolor["d"] = Colors.redAccent;
+                        }                        
+                      });
+                      Future.delayed(const Duration(milliseconds: 1500), (){
+                        updateQuestion();
+                      });
+                      // updateQuestion();
                     }
                   ),
 
@@ -201,6 +238,7 @@ class QuizState extends State<Quiz> {
     
   }
 
+
   void resetQuiz(){
       setState(() {
       Navigator.pop(context);
@@ -209,8 +247,14 @@ class QuizState extends State<Quiz> {
     });
   }
 
+
   void updateQuestion(){
+
     setState(() {
+      btncolor["a"] = Colors.indigoAccent;
+      btncolor["b"] = Colors.indigoAccent;
+      btncolor["c"] = Colors.indigoAccent;
+      btncolor["d"] = Colors.indigoAccent;
       if (questionNumber == quiz.questions.length -1){
         Navigator.push(context, new MaterialPageRoute(builder: (context) => new Summary(score : finalScore)));
       }
