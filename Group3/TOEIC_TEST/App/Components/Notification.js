@@ -10,7 +10,7 @@ class Notification extends Component {
         super(props)
     }
 
-        componentDidMount() {
+    componentDidMount() {
         fcmService.register(this.onRegister, this.onNotification, 
         this.onOpenNotification)
     }
