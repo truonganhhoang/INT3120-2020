@@ -1,24 +1,30 @@
 import { Animated } from 'react-native';
 import { useState, useEffect } from 'react';
 
+/**
+ * @typedef {Object} Animation - Contains parameters of animation
+ * @property {boolean} doAnimation - Animation will be trigger if this prop are different with local state
+ * @property {number} duration - Animation duration
+ */
+
+/**
+ * Make a variable change in a period time
+ * @param {Animation} animation
+ * @returns {Animated.Value} - Time variable
+ */
 const useAnimation = (animation) => {
-	const [variable, setVariable] = useState(new Animated.Value(0));
+	const { doAnimation, duration } = animation;
 
-	const { duration } = animation;
+	const [variable] = useState(new Animated.Value(0));
 
-	// console.log('def')
-	
 	useEffect(() => {
 		Animated.timing(variable, {
-			toValue: 1,
+			toValue: doAnimation ? 1 : 0,
 			duration,
 			useNativeDriver: true
 		}).start();
 
-		return () => {
-			setVariable(new Animated.Value(0));
-		}
-	}, []);
+	}, [doAnimation]);
 
 	return variable;
 }
