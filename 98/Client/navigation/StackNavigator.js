@@ -5,7 +5,9 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import LinksScreen from '../screens/Profile/LinksScreen';
 import TFSScreen from '../screens/TFS/TFSScreen';
 import DetailScreen from '../screens/TFS/DetailScreen';
-import QuestionScreen from '../screens/Question/QuestionScreen';
+import QuestionPractice from '../screens/Question/QuestionPractice';
+import QuestionSet from '../screens/Question/QuestionSet';
+import MemoryTricks from '../screens/Question/MemoryTricks';
 
 const Stack = createStackNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -23,6 +25,33 @@ export default function StackNavigator() {
         }}
       />
       <Stack.Screen
+        name="QuestionPractice"
+        component={QuestionPractice}
+        options={{
+          title: 'Ôn tập câu hỏi',
+        }}
+      />
+      <Stack.Screen 
+        name="QuestionSet" 
+        component={QuestionSet} 
+        options={{ 
+          title: 'Ôn tập Khái Niệm', 
+        }} 
+      />
+      <Stack.Screen
+        name="MemoryTricks"
+        component={MemoryTricks}
+        initialParams={{ modalVisible: false, questionSet: 7}}
+      />
+       <Stack.Screen
+        name="Detail"
+        component={DetailScreen}
+        options={{
+          title: 'Danh sách',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />
+            <Stack.Screen
         name="Link"
         component={LinksScreen}
         options={{
@@ -38,25 +67,6 @@ export default function StackNavigator() {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />
-       <Stack.Screen
-        name="Detail"
-        component={DetailScreen}
-        options={{
-          title: 'Danh sách',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-      <Stack.Screen
-        name="Question"
-        component={QuestionScreen}
-        options={{
-          title: 'This link',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-           
-
-    
 
     </Stack.Navigator>
   );
