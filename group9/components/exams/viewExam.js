@@ -16,84 +16,22 @@ import { getTasks } from '../firebaseApi/task';
 
 export default class ViewExam extends React.Component {
   state = {
-    data: [
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 1',
-        lesson: 'toan',
-        date: '25 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 2',
-        lesson: 'van',
-        date: '24 3 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 3',
-        lesson: 'anh',
-        date: '25 3 2020',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 4',
-        lesson: 'ly',
-        date: '25 9 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 4',
-        lesson: 'ly',
-        date: '25 9 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 4',
-        lesson: 'ly',
-        date: '25 9 1019',
-        description: 'here is an description',
-      },
-      {
-        name: 'here is an title 4',
-        lesson: 'ly',
-        date: '25 9 1019',
-        description: 'here is an description',
-      },
-    ],
+    data: [],
     dataSelected: { name: '', lesson: '', date: '', description: '' },
   };
 
   modal = React.createRef();
+
+  componentDidMount = async () => {  
+    let ret = await getTasks();
+    ret.map((item) => {
+        const date = new Date(item.date.seconds * 1000);
+        const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+        item.date = day;
+    })
+    this.setState({data: ret.filter(item => item.type=="Exam")});
+    console.log(this.state.data);
+  };
 
   openModal = (item) => {
     this.setState({ dataSelected: item });

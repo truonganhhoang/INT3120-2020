@@ -7,7 +7,6 @@ const getTasks = async () => {
   data.forEach((doc) => {
     ret.push(doc.data());
   });
-  console.log(ret);
   return ret;
 };
 
@@ -22,6 +21,7 @@ const addTask = async (task) => {
     type: task.type,
     date: task.date,
     description: task.description,
+    done: task.done,
   };
   try {
     await ref.add(newTask);

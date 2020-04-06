@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Picker, TextInput, StyleScheet, Dimensions } from 'react-native';
+import { View, Text, Picker, TextInput, StyleScheet, Dimensions, Alert } from 'react-native';
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -20,6 +20,7 @@ class NewTask extends React.Component {
     datePicked: 'Pick a Date',
     date: Date.now(),
     name: '',
+    description: '',
   };
 
   showDateTimePicker = () => {
@@ -43,7 +44,8 @@ class NewTask extends React.Component {
       lesson: this.state.selectedLesson,
       type: this.state.selectedType,
       date: this.state.date,
-      description: '',
+      description: this.state.description,
+      done: false,
     };
     let ret = await addTask(task);
     console.log(ret);
@@ -73,7 +75,15 @@ class NewTask extends React.Component {
               name="ios-create"
               size={30}
               style={{ top: -22, paddingRight: '18%', color: '#fff' }}
-              onPress={this.createTask}
+              onPress={() => Alert.alert(
+                'Create New Task',
+                'Do You Want Create New Task?',
+                [
+                  {text: 'YES', onPress: this.createTask},
+                  {text: 'NO'}
+                ],
+                { cancelable: false }
+              )}
             />
           }
           centerComponent={
@@ -116,6 +126,7 @@ class NewTask extends React.Component {
             style={{ height: 50, width: '35%' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedLesson: itemValue })}
           >
+            <Picker.Item label="Choose ..." value ='' />
             {this.state.table.map((item, i) => (
               <Picker.Item label={item.name} value={item.name} key={i} />
             ))}
@@ -126,6 +137,7 @@ class NewTask extends React.Component {
             style={{ height: 50, width: '35%' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
           >
+            <Picker.Item label="Choose..." value='' />
             <Picker.Item label="Task" value="Task" />
             <Picker.Item label="Exam" value="Exam" />
           </Picker>
@@ -165,6 +177,7 @@ class NewTask extends React.Component {
           placeholderTextColor="grey"
           numberOfLines={2}
           multiline={true}
+          onChangeText={(text)=> this.setState({description: text})}
         />
       </View>
     );
