@@ -3,7 +3,8 @@ import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-nat
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
-
+import { addLesson } from '../firebaseApi/lesson'
+import auth from '../firebaseApi/auth'
 let widthPhone = Dimensions.get('window').width;
 
 class NewLesson extends React.Component {
@@ -12,8 +13,12 @@ class NewLesson extends React.Component {
   }
 
   state = {
-    selectedLesson: '',
+    
     selectedType: '',
+    name: '',
+    abbreviation:'',
+    teacher:'',
+    place:'',
     isDateTimePickerVisible: false,
     isDateTimePickerVisible1: false,
     isTimePickerVisible: false,
@@ -22,7 +27,6 @@ class NewLesson extends React.Component {
     datePicked1: 'Pick End Date',
     date: Date.now(),
     date1: Date.now(),
-    name: '',
     timePicked: 'Pick Time Start',
     timePicked1: 'Pick Time End',
     time: new Date().getHours(),
@@ -76,6 +80,7 @@ class NewLesson extends React.Component {
   };
 
   hideTimePicker1 = () => {
+
     this.setState({ isTimePickerVisible1: false });
   };
 
@@ -85,6 +90,24 @@ class NewLesson extends React.Component {
     this.setState({ timePicked1: timeP });
     this.hideTimePicker1();
   };
+
+  createLesson = async () => {
+    let lesson = {
+      name: this.state.name,
+      abbreviation: this.state.abbreviatiob,
+      teacher:this.state.teacher,
+      place:this.state.place,
+      type: this.state.selectedType,
+      date: this.state.date,
+      date1: this.state.date1,
+      time: this.state.time,
+      time1: this.state.time1,
+      
+    };
+    let ret = await addLesson(lesson);
+    console.log(ret);
+  };
+
 
   updateIndex = (selectedIndex) => {
     if (selectedIndex == 1) this.props.navigation.navigate('NewTaskScreen');
@@ -110,7 +133,7 @@ class NewLesson extends React.Component {
               name="ios-create"
               size={30}
               style={{ top: -22, paddingRight: '18%', color: '#fff' }}
-              onPress={this.createTask}
+              onPress={this.createLesson}
             />
           }
           centerComponent={
@@ -153,7 +176,7 @@ class NewLesson extends React.Component {
             />
           }
           onChangeText={(text) => {
-            this.setState({ name: text });
+            this.setState({ abbreviation: text });
           }}
         />
         <View style={{ padding: 10 }} />
@@ -163,7 +186,7 @@ class NewLesson extends React.Component {
             <Ionicons name="ios-person" size={30} style={{ paddingRight: 20, color: '#1976D2' }} />
           }
           onChangeText={(text) => {
-            this.setState({ name: text });
+            this.setState({ teacher: text });
           }}
         />
         <View style={{ padding: 10 }} />
@@ -173,11 +196,11 @@ class NewLesson extends React.Component {
             <Ionicons
               name="ios-pin"
               size={30}
-              style={{ paddingRight: 20, color: '#1976D2', paddingLeft: 8 }}
+              style={{ paddingRight: 20, color: '#1976D2', paddingLeft: 5 }}
             />
           }
           onChangeText={(text) => {
-            this.setState({ name: text });
+            this.setState({ place: text });
           }}
         />
 
@@ -186,7 +209,7 @@ class NewLesson extends React.Component {
           <Ionicons
             name="ios-browsers"
             size={30}
-            style={{ paddingLeft: 22, color: '#1976D2', top: 5 }}
+            style={{ paddingLeft: 30, color: '#1976D2', top:5 }}
           />
           <Picker
             selectedValue={this.state.selectedType}
@@ -332,3 +355,4 @@ class NewLesson extends React.Component {
 }
 
 export default NewLesson;
+            
