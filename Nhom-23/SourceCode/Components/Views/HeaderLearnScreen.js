@@ -9,8 +9,8 @@ export default class HeaderHomeScreen extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: "center",alignItems: "center" }}>
-                <Text style={commonColor.mainColor}>This is settings view</Text>
+            <View style={{ flex: 1 }}>
+                <Text style={commonColor.mainColor}>abc</Text>
             </View>
         )
     }

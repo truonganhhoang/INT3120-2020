@@ -108,7 +108,7 @@ var styles = StyleSheet.create({
         flex: 2
     },
     section_3: {
-        flex: 6
+        flex: 5
     }
 })
 

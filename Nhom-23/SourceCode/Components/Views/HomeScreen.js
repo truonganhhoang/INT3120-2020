@@ -5,9 +5,9 @@ import {View, Text, StyleSheet} from "react-native";
 //library
 import { SearchBar } from 'react-native-elements'
 
-//View
-import Header from './Header'
-import Content from './Content'
+//Layout
+import Header from '../Layout/Header'
+import Content from '../Layout/Content'
 
 export default class HomeScreen extends Component{
     render(){
@@ -18,8 +18,6 @@ export default class HomeScreen extends Component{
                 </View>
                 <View style={mainLayout.content}>
                     <Content />
-                </View>
-                <View style={mainLayout.footer}>
                 </View>
             </View>
         )
