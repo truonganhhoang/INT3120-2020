@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { selectDrawerItem, openDrawer } from '../actions/drawer';
+import { selectDrawerItem } from '../actions/drawer';
 import { changeNavHeader } from '../actions/navigation';
 
 /**
@@ -66,9 +66,9 @@ const DrawerItem = (props) => {
   const dispatch = useDispatch();
 
   const onPress = () => {
+    props.closeDrawer();
     dispatch(selectDrawerItem(id));
     dispatch(changeNavHeader(title === 'Home' ? 'JavaScript Tutorial' : title));
-    dispatch(openDrawer(false));
   }
 
   return (
@@ -89,7 +89,7 @@ const DrawerItem = (props) => {
 /**
  * All contents of drawer.
  */
-const Drawer = () => {
+const Drawer = (props) => {
   const drawer = useSelector(state => state.drawer, shallowEqual);
 
   return (
@@ -109,7 +109,7 @@ const Drawer = () => {
         </View>
       </TouchableNativeFeedback>
       <ScrollView style={styles.featureContainer}>
-        {listContent.map((value, index) => <DrawerItem key={index} id={index} iconName={value.iconName} title={value.title} selected={drawer.selectedIndex === index} />)}
+        {listContent.map((value, index) => <DrawerItem key={index} id={index} iconName={value.iconName} title={value.title} selected={drawer.selectedIndex === index} closeDrawer={props.closeDrawer} />)}
       </ScrollView>
     </View>
   );

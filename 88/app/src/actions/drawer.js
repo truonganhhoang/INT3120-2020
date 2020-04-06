@@ -1,17 +1,6 @@
 import { SELECT_DRAWER_ITEM, CHANGE_DRAWER_STATUS } from '../constants/actionTypes';
 
 /**
- * Make drawer open or close
- * @param {boolean} isOpen
- */
-export const openDrawer = (isOpen) => {
-  return {
-    type: CHANGE_DRAWER_STATUS,
-    payload: isOpen
-  }
-}
-
-/**
  * Change drawer item is focused
  * @param {number} index 
  */

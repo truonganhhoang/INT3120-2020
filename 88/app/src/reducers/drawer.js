@@ -6,7 +6,7 @@ import { SELECT_DRAWER_ITEM, CHANGE_DRAWER_STATUS } from '../constants/actionTyp
  * @property {number} selectedIndex - index of focused item
  */
 const initialState = {
-  isOpen: false,
+  // isOpen: false,
   selectedIndex: 0
 }
 
@@ -21,11 +21,6 @@ const selectDrawerItem = (state = initialState, action) => {
       return {
         ...state,
         selectedIndex: action.payload
-      };
-    case CHANGE_DRAWER_STATUS:
-      return {
-        ...state,
-        isOpen: action.payload
       };
     default:
       return state;

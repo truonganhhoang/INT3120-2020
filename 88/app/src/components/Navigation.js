@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text, Animated, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 import useAnimation from '../utils/animationHook';
-import { openDrawer } from '../actions/drawer';
 import { getStatusBarHeight } from '../utils/StatusBar';
 
 /**
@@ -38,9 +37,9 @@ const RotateAndChangeView = (props) => {
   )
 }
 
-const Navigation = () => {
+const Navigation = (props) => {
   const navigation = useSelector(state => state.navigation, shallowEqual);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   
   return (
     <View style={styles.container}>
@@ -48,7 +47,7 @@ const Navigation = () => {
         <View style={styles.iconContainer}>
           <TouchableNativeFeedback
             background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', true)}
-            onPress={() => dispatch(openDrawer(true))}
+            onPress={() => props.openDrawer()}
           >
             <View style={{width: 25, height: 25 }}>
               <RotateAndChangeView style={styles.navIcon} direction={navigation.isArrow} opacityRange={[1, 0]} duration={300} >

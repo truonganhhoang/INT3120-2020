@@ -1,23 +1,23 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { SafeAreaView, StyleSheet, StatusBar, DrawerLayoutAndroid } from 'react-native';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 import Navigation from './components/Navigation';
 import Drawer from './components/Drawer';
-import { openDrawer } from './actions/drawer';
 
 /**
  * Contains all components of this application
  */
 const Main = () => {
   const drawer = useRef(null);
-  const drawerState = useSelector(state => state.drawer, shallowEqual);
-  const dispatch = useDispatch();
 
-  useLayoutEffect(() => {
-    drawerState.isOpen ? drawer.current.openDrawer() : drawer.current.closeDrawer();
-  }, [drawerState.isOpen]);
+  const openDrawer = () => {
+    drawer.current.openDrawer();
+  }
+  
+  const closeDrawer = () => {
+    drawer.current.closeDrawer();
+  }
 
   return (
     <>
@@ -27,12 +27,10 @@ const Main = () => {
           drawerWidth={280}
           drawerType='front'
           drawerBackgroundColor='#ddd'
-          renderNavigationView={() => <Drawer/>}
+          renderNavigationView={() => <Drawer closeDrawer={closeDrawer}/>}
           ref={drawer}
-          onDrawerOpen={() => dispatch(openDrawer(true))}
-          onDrawerClose={() => dispatch(openDrawer(false))}
         >
-          <Navigation />
+          <Navigation openDrawer={openDrawer}/>
         </DrawerLayout>
       </SafeAreaView>
     </> 
