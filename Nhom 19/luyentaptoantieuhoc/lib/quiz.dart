@@ -7,13 +7,13 @@ class QuestionQuiz{
     "Từ nhà Hùng đến trường mất 10 cây số. Hỏi cả đi cả về hùng đi bao nhiêu cây số"
   ];
   var choices = [
-    ["1 quả","5 quả","7 quả","10 quả"],
-    ["4 quả","2 quả","12 quả","8 quả"],
-    ["2 cây số","43 cây số","15 cây số","20 cây số"]
+    ["1","5","7","10"],
+    ["4","2","12","8"],
+    ["2","43","15","20"]
   ];
 
   var answers = [
-    "10 quả", "8 quả","20 cây số"
+    "10", "8","20"
   ];
 }
 
@@ -190,37 +190,70 @@ class QuizState extends State<Quiz> {
                   
                       margin: const EdgeInsets.only(left: 150.0, right: 150.0,top: 15.0),
                       
-                      child: new TextField(
+                      child: new TextFormField(
                         textAlign: TextAlign.center,
                         controller: _controller,
                         decoration: InputDecoration(
-                          hintText: 'Số',
+                          hintText: "Số",
                         ),
                         keyboardType: TextInputType.number,
-                        textInputAction: TextInputAction.done,
                         style: TextStyle(fontSize: 22.0),
+                        onEditingComplete: (){
+                          if (_controller.text == quiz.answers[questionNumber]){
+                            debugPrint("Câu trả lời chính xác");
+                            finalScore++;
+                          }
+                          else{
+                            debugPrint("Câu trả lời chưa chính xác");
+                          }
+                          _controller.clearComposing();
+                          updateQuestion();
+                        },
                       ),
                     ),
-
+              
 
               // Exit Button    
-              new Padding(padding: EdgeInsets.all(15.0)),
+              new Padding(padding: EdgeInsets.all(30.0)),
                 new Container(
                   alignment: Alignment.bottomCenter,
                   child:  new MaterialButton(
-                      minWidth: 240.0,
+                      minWidth: 80.0,
                       height: 30.0,
-                      color: Colors.red,
-                      onPressed: resetQuiz,
-                      child: new Text("Thoát",
+                      color: Colors.blueAccent,
+                      onPressed: (){
+                        if (_controller.text == quiz.answers[questionNumber]){
+                            debugPrint("Câu trả lời chính xác");
+                            finalScore++;
+                          }
+                          else{
+                            debugPrint("Câu trả lời chưa chính xác");
+                          }
+                          _controller.clear();
+                          updateQuestion();
+                      },
+                      child: new Text("OK",
                         style: new TextStyle(
                             fontSize: 18.0,
                             color: Colors.white
                         ),)
                   )
                 ),
-
-
+                
+                new Container(
+                  alignment: Alignment.bottomCenter,
+                  child:  new MaterialButton(
+                      minWidth: 180.0,
+                      height: 30.0,
+                      color: Colors.red,
+                      onPressed: resetQuiz,
+                      child: new Text("Thoát",
+                        style: new TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.white
+                        ),)
+                  )
+                ),
 
             ],
           ),
