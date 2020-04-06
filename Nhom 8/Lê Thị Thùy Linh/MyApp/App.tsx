@@ -35,9 +35,9 @@ var Firebase = require('firebase');
 class App extends React.Component {
   constructor(props) {
     super(props);
-    var root = new Firebase("https://english-2015a.firebaseio.com/");
+    var root = new Firebase("https://english-uet-team.firebaseio.com/");
     this.itemsRef = root
-    
+    //console.log(root); 
 
   }
   //them, sua
@@ -78,15 +78,16 @@ class App extends React.Component {
   addData(userId1, userId2, userId3,Id){
     
     
-    this.itemsRef.child(userId1+"/"+userId2+"/"+userId3+"/"+Id).on("value", function(snapshot){
+    this.itemsRef.child(userId1+"/"+userId2+"/"+userId3).on("value", function(snapshot){
       alert(snapshot.val())
+      console.log(snapshot.val())
     })
   }
    
   render() {
     return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <TouchableOpacity onPress={()=>this.saveSet("People","Body","neck","/goo/","co")}>
+      <TouchableOpacity onPress={()=>this.saveSet("Home","House","roof","ru:f","mai nha")}>
       <Text>ghi</Text>
       </TouchableOpacity>
         
