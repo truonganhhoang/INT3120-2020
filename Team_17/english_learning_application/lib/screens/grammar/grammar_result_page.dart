@@ -24,7 +24,7 @@ class _GrammarResultState extends State<GrammarResult> {
         ),
         body: ListView.builder(
           scrollDirection: Axis.vertical,
-          padding: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
+          padding: EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 20.0),
           itemCount: listText.length,
           itemBuilder: (context, index) {
             return listText.elementAt(index);
@@ -80,14 +80,15 @@ class _GrammarResultState extends State<GrammarResult> {
       }
     }
 //    text += "\n";
-    listText.add(RichText(
+    listText.add(Padding(padding: EdgeInsets.only(bottom: 20.0),
+    child: RichText(
       text: TextSpan(
           text: text,
           style: TextStyle(
             color: Colors.orange,
             fontSize: 30.0,
           )),
-    ));
+    ),));
     startIndex++;
     return startIndex;
   }
@@ -146,13 +147,14 @@ class _GrammarResultState extends State<GrammarResult> {
             text: text,
             style: TextStyle(
               color: Colors.black,
-              fontSize: 22.0,
+              fontSize: 25.0,
             )));
       }
       startIndex++;
     }
 
-    listText.add(RichText(text: TextSpan(children: listTextSpan)));
+    listText.add(Padding(padding: EdgeInsets.only(bottom: 20.0),
+    child: RichText(text: TextSpan(children: listTextSpan)),));
     return startIndex;
   }
 
@@ -217,7 +219,7 @@ class _GrammarResultState extends State<GrammarResult> {
     }
 
     listText.add(Padding(
-      padding: EdgeInsets.only(left: 20.0),
+      padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
       child: RichText(text: TextSpan(children: listTextSpan)),
     ));
     return startIndex;
@@ -256,22 +258,24 @@ class _GrammarResultState extends State<GrammarResult> {
       startIndex++;
     }
     text += "";
-    listText.add(RichText(
-      text: TextSpan(
-          text: text,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
-            fontSize: 22.0,
-          )),
-    ));
+    listText.add(Padding(padding: EdgeInsets.only(bottom: 10.0),
+    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[RichText(
+        text: TextSpan(
+            text: text,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+              fontSize: 20.0,
+            )),
+      )],),));
     startIndex++;
     return startIndex;
   }
 
   void addEmptyLine() {
     listText.add(SizedBox(
-      height: 20.0,
+      height: 10.0,
     ));
   }
 }
