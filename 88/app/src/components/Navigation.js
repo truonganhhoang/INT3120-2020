@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback, ClippingRectangle } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text, Animated, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
-import { changeNavIcon } from '../actions/navbarActions';
 import useAnimation from '../utils/animationHook';
+import { openDrawer } from '../actions/drawer';
+import { getStatusBarHeight } from '../utils/StatusBar';
 
+/**
+ * Animation of icon
+ * @param {Object} props
+ * @property {boolean} direction - direction of icon 
+ * @property {number[start, end]} opacityRange - range of opacity value  
+ */
 const RotateAndChangeView = (props) => {
-  const { duration, angleValue, opacityValue, children } = props;
+  const { direction, opacityRange, children } = props;
 
-  const animation = useAnimation({ duration });
-  // console.log('abc')
+  const animation = useAnimation({ doAnimation: direction, duration: 300 });
 
   return (
     <Animated.View style={{
@@ -18,12 +25,12 @@ const RotateAndChangeView = (props) => {
       transform: [{
         rotate: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [...angleValue]
+          outputRange: direction ? ['0deg', '180deg'] : ['360deg', '180deg']
         })
       }],
       opacity: animation.interpolate({
         inputRange: [0, 1],
-        outputRange: [...opacityValue]
+        outputRange: opacityRange
       })
     }}>
       {children}
@@ -31,35 +38,30 @@ const RotateAndChangeView = (props) => {
   )
 }
 
-const Navigation = (props) => {
-  const navbar = useSelector(state => state.navbar, shallowEqual);
-  
+const Navigation = () => {
+  const navigation = useSelector(state => state.navigation, shallowEqual);
   const dispatch = useDispatch();
-  const changeIcon = () => {
-    dispatch(changeNavIcon(!navbar.isArrow));
-  }
-
+  
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
         <View style={styles.iconContainer}>
           <TouchableNativeFeedback
-            background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .32)', true)}
-            onPress={changeIcon}
-            style={{backgroundColor: 'red'}}
+            background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', true)}
+            onPress={() => dispatch(openDrawer(true))}
           >
             <View style={{width: 25, height: 25 }}>
-              <RotateAndChangeView style={styles.navIcon} angleValue={navbar.isArrow ? ['0deg', '180deg'] : ['180deg', '360deg']} opacityValue={navbar.isArrow ? [1, 0] : [0, 1]} >
+              <RotateAndChangeView style={styles.navIcon} direction={navigation.isArrow} opacityRange={[1, 0]} duration={300} >
                 <Icon name='menu' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
-              <RotateAndChangeView style={styles.navIcon} angleValue={navbar.isArrow ? ['0deg', '180deg'] : ['180deg', '360deg']} opacityValue={navbar.isArrow ? [0, 1] : [1, 0]} >
+              <RotateAndChangeView style={styles.navIcon} direction={navigation.isArrow} opacityRange={[0, 1]} duration={300} >
                 <Icon name='arrow-right' size={25} style={{color: '#fff'}} />
               </RotateAndChangeView>
             </View>
           </TouchableNativeFeedback>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.navHeader}>JavaScript Tutorial</Text>
+          <Text style={styles.navHeader}>{navigation.header}</Text>
         </View>
       </View>
     </View>
@@ -68,7 +70,7 @@ const Navigation = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: getStatusBarHeight(),
     backgroundColor: '#00BCD4'
   },
   navContainer: {
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   navHeader: {
-    fontSize: 25,
+    fontSize: 24,
     color: '#ffffff',
     fontWeight: '600',
   }

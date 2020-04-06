@@ -1,22 +1,116 @@
 import React from 'react';
-import { Text, View, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
+import { selectDrawerItem, openDrawer } from '../actions/drawer';
+import { changeNavHeader } from '../actions/navigation';
+
+/**
+ * List features of this app
+ */
+const listContent = [
+  {
+    iconName: 'list',
+    title: 'Home'
+  },
+  {
+    iconName: 'code',
+    title: 'Code Playground'
+  },
+  {
+    iconName: 'message-square',
+    title: 'Q&A Discussion'
+  },
+  {
+    iconName: 'award',
+    title: 'Leaderboard'
+  },
+  {
+    iconName: 'grid',
+    title: 'Similar Courses'
+  },
+  {
+    iconName: 'book',
+    title: 'Glossary'
+  },
+  {
+    iconName: 'user-plus',
+    title: 'Invite Friend'
+  },
+  {
+    iconName: '',   // gray bar
+    title: ''
+  },
+  {
+    iconName: 'settings',
+    title: 'Settings'
+  },
+  {
+    iconName: 'star',
+    title: 'Rate'
+  }
+];
+
+/**
+ * 
+ * @param {Object} props 
+ * @property {number} id - index of item in list
+ * @property {String} iconName - name of icon (see more at {@link https://oblador.github.io/react-native-vector-icons/})
+ * @property {String} title - title of item
+ * @property {boolean} selected - item is focused
+ */
+const DrawerItem = (props) => {
+  const { id, iconName, title, selected } = props;
+  const dispatch = useDispatch();
+
+  const onPress = () => {
+    dispatch(selectDrawerItem(id));
+    dispatch(changeNavHeader(title === 'Home' ? 'JavaScript Tutorial' : title));
+    dispatch(openDrawer(false));
+  }
+
+  return (
+    iconName ? 
+    (<TouchableNativeFeedback
+      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', false)}
+      onPress={onPress}
+    >
+      <View style={selected ? {...styles.itemContainer, backgroundColor: '#e0e0e0'} : styles.itemContainer} >
+        <Icon name={iconName} style={{...styles.icon, color: selected ? '#00bcd4' : '#757575'}} />
+        <Text style={{color: selected ? '#00bcd4' : '#757575'}}>{title}</Text>
+      </View>
+    </TouchableNativeFeedback>)
+    : (<View style={{height: 2, backgroundColor: '#e0e0e0', marginVertical: 8}} />/* gray bar */)
+  );
+}
+
+/**
+ * All contents of drawer.
+ */
 const Drawer = () => {
+  const drawer = useSelector(state => state.drawer, shallowEqual);
+
   return (
     <View style={styles.container}>
-      <View style={styles.userContainer}>
-        <ImageBackground source={require('../assets/img/google-background.jpg')} style={styles.userBackground} resizeMode='cover' >
-          <Text style={styles.userName}>Vũ Chức</Text>
-          <View style={styles.userFooter}>
-            <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
-            <Text style={styles.signOut}>SIGN OUT</Text>
-          </View>
-        </ImageBackground>
-        <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
-      </View>
-      {/* <View style={styles.featureContainer}>
-        <Text>abcdefgh</Text>
-      </View> */}
+      <TouchableNativeFeedback 
+        background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .2)', false)}
+      >
+        <View style={styles.userContainer}>
+          <ImageBackground source={require('../assets/img/google-background.jpg')} imageStyle={{ opacity: 0.7 }} style={styles.userBackground} resizeMode='cover' >
+            <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
+            <Text style={styles.userName}>Vũ Chức</Text>
+            <View style={styles.userFooter}>
+              <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
+              <Text style={styles.signOut}>SIGN OUT</Text>
+            </View>
+          </ImageBackground>
+        </View>
+      </TouchableNativeFeedback>
+      <ScrollView style={styles.featureContainer}>
+        {listContent.map((value, index) => <DrawerItem key={index} id={index} iconName={value.iconName} title={value.title} selected={drawer.selectedIndex === index} />)}
+      </ScrollView>
     </View>
   );
 }
@@ -34,17 +128,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     paddingBottom: 15,
-    paddingHorizontal: 15,
-    opacity: 0.8
+    paddingHorizontal: 15
   },
   userIcon: {
-    position: 'absolute',
     width: 65,
     height: 65,
     borderRadius: 40,
-    marginTop: 40,
-    marginLeft: 15,
-    backgroundColor: '#ff7777'
+    backgroundColor: '#ff7777',
+    marginBottom: 17
   },
   userFooter: {
     flexDirection: 'row',
@@ -54,7 +145,6 @@ const styles = StyleSheet.create({
   },
   userName: {
     color: '#fff',
-    fontWeight: '700',
     letterSpacing: 0.5
   },
   userEmail: {
@@ -65,7 +155,18 @@ const styles = StyleSheet.create({
     fontWeight: '700'
   },
   featureContainer: {
-    backgroundColor: 'blue'
+    marginTop: 8,
+    flex: 1
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    height: 48,
+    alignItems: 'center',
+  },
+  icon: {
+    width: 56,
+    textAlign: 'center',
+    fontSize: 22,
   }
 });
 

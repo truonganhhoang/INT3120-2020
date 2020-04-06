@@ -1,9 +1,14 @@
 import { combineReducers } from 'redux';
 
-import navbarReducer from './navbar';
+import navigationReducer from './navigation';
+import drawerReducer from './drawer';
 
+/**
+ * Combine reducers
+ */
 const rootReducer = combineReducers({
-  navbar: navbarReducer
+  navigation: navigationReducer,
+  drawer: drawerReducer
 });
 
 export default rootReducer;
