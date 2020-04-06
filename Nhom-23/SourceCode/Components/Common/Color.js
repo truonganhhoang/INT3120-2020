@@ -10,7 +10,18 @@ var commonColor = StyleSheet.create({
     },
     mainColor:{
         color: "#00BFFF"
+    },
+    textSize:{
+        fontSize: 24
     }
 })
 
-export {commonColor}
+var commonStyle = StyleSheet.create({
+    title: {
+        color: "#483D8B",
+        fontSize: 24,
+        fontWeight: "bold"
+    }
+})
+
+export {commonColor, commonStyle}

@@ -8,6 +8,9 @@ import { ScrollView } from "react-native-gesture-handler";
 //Layout
 import Header from '../Layout/Header'
 
+// style color
+import {commonColor} from '../Common/Color';
+
 
 
 export default class HomeScreen extends Component {
@@ -59,7 +62,6 @@ var mainLayout = StyleSheet.create({
     },
     content: {
         flex: 12,
-        height: "80%"
     },
 
 })
