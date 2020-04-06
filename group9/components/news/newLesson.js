@@ -3,7 +3,7 @@ import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-nat
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import DateTimePicker from 'react-native-modal-datetime-picker'
-
+import { addTask } from '../firebaseApi/task'
 let widthPhone = Dimensions.get('window').width;
 
 class NewLesson extends React.Component {
@@ -77,6 +77,7 @@ class NewLesson extends React.Component {
   };
 
   hideTimePicker1 = () => {
+
     this.setState({ isTimePickerVisible1: false });
   };
 
@@ -86,8 +87,17 @@ class NewLesson extends React.Component {
     this.setState({ timePicked1: timeP });
     this.hideTimePicker1();
   };
-
-  
+  createTask = async () => {
+    let task = {
+      name: this.state.name,
+      lesson: this.state.selectedLesson,
+      type: this.state.selectedType,
+      date: this.state.date,
+      description: '',
+    };
+    let ret = await addTask(task);
+    console.log(ret);
+  };
 
   updateIndex = (selectedIndex) => {
     if (selectedIndex==1) this.props.navigation.navigate('NewTaskScreen');
