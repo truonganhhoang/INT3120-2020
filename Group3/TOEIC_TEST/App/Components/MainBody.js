@@ -1,13 +1,11 @@
 import React, { useEffect, useState, Component } from 'react'
 import {
     View,
-    Text,
     SafeAreaView,
     StatusBar
 } from 'react-native'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 import styles from './Styles/MainBodyStyles'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import TabBar from './TabBar'
 import LearnTab from './LearnTab'
 import TestTab from './TestTab'

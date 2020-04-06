@@ -16,7 +16,7 @@ export default StyleSheet.create({
   title: {
     alignContent: 'center',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 24,
     color: 'white'
   },
   iconLeft: {
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     backgroundColor: '#F5F5F5',
     marginVertical: 6,
     marginHorizontal: 15,
-    elevation: 6,
+    elevation: 4,
     borderRadius: 10,
     padding: 10
   },
@@ -68,6 +68,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     width: 120,
+    elevation: 6,
   },
   iconStart: {
     marginLeft: Dimensions.get("screen").width - 260

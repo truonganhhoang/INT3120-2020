@@ -27,7 +27,6 @@ export default StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
     elevation: 5,
-    borderRadius: 10,
   },
   item2: {
     flexDirection: 'row',
