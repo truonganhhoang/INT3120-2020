@@ -7,7 +7,7 @@ class Bienbaocam extends Component{
         return(
            <View>
                 <View style={{flexDirection:'row'}}>
-                <View style={{flex:1,height:80}}><Image source={{uri: this.props.item.Img}}  style={{marginTop:10,width:"100%",height:"91%",paddingBottom:10} }>
+                <View style={{flex:1,height:80,marginTop:5}}><Image source={{uri: this.props.item.Img}}  style={{marginTop:10,width:"100%",height:"91%",paddingBottom:10} }>
                     </Image></View>
                     <View style={{flex:2.7,marginTop:5,marginRight:10,marginLeft:10}}>
                         <Text style={{fontSize:20}}>{this.props.item.Name}</Text>

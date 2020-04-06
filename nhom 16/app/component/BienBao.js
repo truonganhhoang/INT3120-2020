@@ -1,27 +1,55 @@
 import React, { Component } from 'react';
-import { Text, View ,StyleSheet} from 'react-native';
+import { Text, View ,StyleSheet,Image} from 'react-native';
 import biencam from '../bienbao/BienCam';
 import BienNguyHiem from '../bienbao/BienNguyHiem';
-import bienhieulenh from '../bienbao/BienHieuLenh';
-import bienchidan from '../bienbao/BienChiDan';
-import bienbaophu from '../bienbao/BienBaoPhu';
-import vachkeduong from '../bienbao/VachKeDuong';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import BienHieuLenh from '../bienbao/BienHieuLenh';
+import BienChiDan from '../bienbao/BienChiDan';
+import BienBaoPhu from '../bienbao/BienBaoPhu';
+import VachKeDuong from '../bienbao/VachKeDuong';
 import BienCam from '../bienbao/BienCam';
-const Tab = createMaterialTopTabNavigator();
-export default class TrangChu extends Component{
-    render(){
-        return(
-            <Tab.Navigator>
-                <Tab.Screen name="Biển báo cấm"  component={BienCam}/>
-                <Tab.Screen name="Biển báo nguy hiểm " component={BienNguyHiem}/>
-                <Tab.Screen name="Biển báo hiệu lệnh" component={bienhieulenh}/>
-                <Tab.Screen name="Biển báo chỉ đường" component={bienchidan}/>
-                <Tab.Screen name="Biển báo phụ" component={bienbaophu}/>
-                <Tab.Screen name="vạch kẻ đường" component={vachkeduong}/>
-            </Tab.Navigator>
-        );
-    }
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+
+export default () => {
+  return <ScrollableTabView
+   
+    tabBarTextStyle={{ fontSize: 17, fontWeight: 'bold'}}
+    tabBarBackgroundColor='#04B431'
+    tabBarActiveTextColor='#0101DF'
+    tabBarInactiveTextColor='#fff'
+    initialPage={0}
+    renderTabBar={() => <ScrollableTabBar />}
+  >
+    <View tabLabel='Biển cấm'>
+        <View style={{marginTop:7}}>
+            <BienCam/>
+        </View>
+    </View>
+    <View tabLabel='Biển báo nguy hiểm'>
+        <View style={{marginTop:7}}>
+            <BienNguyHiem/>
+        </View>
+    </View>
+    <View tabLabel='Biển báo hiệu lệnh'>
+        <View style={{marginTop:7}}>
+            <BienHieuLenh/>
+        </View>
+    </View>
+    <View tabLabel='Biển báo chỉ dẫn'>
+        <View style={{marginTop:7}}>
+            <BienChiDan/>
+        </View>
+        
+    </View>
+    <View tabLabel='Biển báo phụ'>
+        <View style={{marginTop:7}}>
+            <BienBaoPhu/>
+        </View>
+    </View>
+    <View tabLabel='Vạch kẻ đường'>
+        <View style={{marginTop:7}}>
+            <VachKeDuong/>
+        </View>
+    </View>
     
-   }
+  </ScrollableTabView>;
+}

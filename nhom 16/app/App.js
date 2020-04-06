@@ -54,18 +54,18 @@ function CustomDrawerContent(props) {
           <DrawerItem
               style={{marginTop:-3}}
               label='thi sát hạch '
-              onPress={() => props.navigation.navigate('Lithuyet')}
+              onPress={() => props.navigation.navigate('Thi Sat Hach')}
               icon={() => <Icon  name='book' style={{fontSize:35,color:"#A4A4A4"}}/>}
             />
           
             <DrawerItem
               label='các biển báo đường bộ'
-              onPress={() => props.navigation.navigate('Lithuyet')}
+              onPress={() => props.navigation.navigate('Bien bao')}
               icon={() => <Icon  name='caretright' style={{fontSize:35}}/>}
             />
             <DrawerItem
               label='Mẹo thi kết quả cao'
-              onPress={() => props.navigation.navigate('Lithuyet')}
+              onPress={() => props.navigation.navigate('Mẹo thi kết quả cao')}
               icon={() => <Icon  name='balance-scale' style={{fontSize:35}}/>}
             />
             <DrawerItem
