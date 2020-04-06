@@ -35,7 +35,7 @@ export default class CategoriesScreen extends React.Component {
   }
 
   _onPressButtonSetting = () => {
-    Alert.alert("setting");
+    this.props.navigation.navigate("SettingOption");
   };
 
   _onPressButtonFavorite = () => {
