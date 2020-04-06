@@ -12,7 +12,7 @@ const DATA = [
         content: 'Danh sách 450 câu hỏi được chia dựa theo các phần học trong sách lý thuyết xe hạng B2.',
         button: 'ÔN LUYỆN',
         image:require('../../assets/images/home/ontap.jpg'),
-        route:"Link",
+        route:"QuestionPractice",
     },
    
     {
@@ -21,7 +21,7 @@ const DATA = [
         content: 'Tổng hợp tất cả mẹo làm nhanh bài thi cho 450 câu hỏi.',
         button: 'MẸO LÀM ĐỀ',
         image:require('../../assets/images/home/meoghinho.jpg'),
-         route:"TFS",
+         route:"MemoryTricks",
     },
     {
         id: '3',
