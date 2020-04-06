@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
@@ -11,7 +12,7 @@ import { SignInService } from '../core/services/firebase/auth/sign-in.service';
   templateUrl: './sign-in.page.html',
   styleUrls: ['./sign-in.page.scss']
 })
-export class SignInPage implements OnInit {
+export class SignInPage implements OnDestroy {
   hidePassword = true;
   isSubmitting = false;
 
@@ -23,9 +24,13 @@ export class SignInPage implements OnInit {
   email = this.signInForm.get('email');
   password = this.signInForm.get('password');
 
-  constructor(public dialog: MatDialog, private formBuilder: FormBuilder, private signIn: SignInService) {}
+  signInSubscription?: Subscription;
 
-  ngOnInit() {}
+  constructor(public dialog: MatDialog, private formBuilder: FormBuilder, private signInService: SignInService) {}
+
+  ngOnDestroy() {
+    this.signInSubscription?.unsubscribe();
+  }
 
   togglePassword() {
     this.hidePassword = !this.hidePassword;
@@ -38,21 +43,23 @@ export class SignInPage implements OnInit {
   handleSubmit() {
     if (this.signInForm.valid) {
       this.isSubmitting = true;
-      this.signIn.signInWithEmailAndPassword(this.email.value, this.password.value).subscribe({
-        next: console.log,
-        complete: () => {
-          this.isSubmitting = false;
-          // go to main page
-        },
-        error: (message) => {
-          this.isSubmitting = false;
-          this.dialog.open(SignInFailedComponent, {
-            data: {
-              message: message
-            }
-          });
-        }
-      });
+      this.signInSubscription = this.signInService
+        .signInWithEmailAndPassword(this.email.value, this.password.value)
+        .subscribe({
+          next: console.log,
+          complete: () => {
+            this.isSubmitting = false;
+            // go to main page
+          },
+          error: (message) => {
+            this.isSubmitting = false;
+            this.dialog.open(SignInFailedComponent, {
+              data: {
+                message: message
+              }
+            });
+          }
+        });
     }
   }
 }

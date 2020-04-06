@@ -30,14 +30,13 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/learn/courses'
+        redirectTo: 'learn'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/learn/courses',
-    pathMatch: 'full'
+    redirectTo: 'tabs'
   }
 ];
 
