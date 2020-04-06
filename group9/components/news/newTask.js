@@ -1,8 +1,9 @@
-import React from 'react'
-import { View, Text, Picker, TextInput, StyleScheet, Dimensions} from 'react-native'
-import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
-import { Ionicons } from '@expo/vector-icons'
-import DateTimePicker from 'react-native-modal-datetime-picker'
+import React from 'react';
+import { View, Text, Picker, TextInput, StyleScheet, Dimensions } from 'react-native';
+import { Header, Input, Button, ButtonGroup } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { addTask } from '../firebaseApi/task';
 
 let widthPhone = Dimensions.get('window').width;
 
@@ -36,7 +37,7 @@ class NewTask extends React.Component {
     this.hideDateTimePicker();
   };
 
-  createTask = () => {
+  createTask = async () => {
     let task = {
       name: this.state.name,
       lesson: this.state.selectedLesson,
@@ -44,15 +45,16 @@ class NewTask extends React.Component {
       date: this.state.date,
       description: '',
     };
-    addTask(task);
+    let ret = await addTask(task);
+    console.log(ret);
   };
 
   updateIndex = (selectedIndex) => {
-    if (selectedIndex==0) this.props.navigation.navigate('NewLessonScreen');
-  }
+    if (selectedIndex == 0) this.props.navigation.navigate('NewLessonScreen');
+  };
 
   render() {
-    const buttons = ['New Lesson', 'New Task']
+    const buttons = ['New Lesson', 'New Task'];
 
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -60,29 +62,32 @@ class NewTask extends React.Component {
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
           leftComponent={
-            <Ionicons name="ios-arrow-back" size={30} style={{ top: -15, paddingLeft: '20%', color:'#fff' }} />
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              style={{ top: -15, paddingLeft: '20%', color: '#fff' }}
+            />
           }
           rightComponent={
             <Ionicons
               name="ios-create"
               size={30}
-              style={{ top: -22, paddingRight: '18%', color:'#fff' }}
+              style={{ top: -22, paddingRight: '18%', color: '#fff' }}
               onPress={this.createTask}
             />
           }
           centerComponent={
             <ButtonGroup
-              onPress={this.updateIndex}         
+              onPress={this.updateIndex}
               selectedIndex={1}
               buttons={buttons}
               containerStyle={{backgroundColor:'#1976D2', marginTop: 60, width : widthPhone, borderColor:'#1976D2' }}
               textStyle={{color:'#fff', fontSize: 19 }}
-              selectedTextStyle={{fontWeigth:'900'}}
             />
           }
           containerStyle={{
             backgroundColor: '#1976D2',
-            height:120,
+            height: 120,
           }}
         />
         <View style={{ padding: 10 }} />
@@ -92,16 +97,20 @@ class NewTask extends React.Component {
             <Ionicons
               name="md-checkbox-outline"
               size={30}
-              style={{ paddingRight: 20, color:'#1976D2' }}
+              style={{ paddingRight: 20, color: '#1976D2' }}
             />
           }
-              onChangeText={(text) => {
-                this.setState({ name: text })
-              }}
+          onChangeText={(text) => {
+            this.setState({ name: text });
+          }}
         />
         <View style={{ padding: 10 }} />
         <View style={{ flexDirection: 'row' }}>
-          <Ionicons name="ios-list-box" size={30} style={{ padding: 10, marginLeft: 15, color:'#1976D2' }} />
+          <Ionicons
+            name="ios-list-box"
+            size={30}
+            style={{ padding: 10, marginLeft: 15, color: '#1976D2' }}
+          />
           <Picker
             selectedValue={this.state.selectedLesson}
             style={{ height: 50, width: '35%' }}
