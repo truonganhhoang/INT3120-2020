@@ -4,8 +4,8 @@ import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TrangChu from './component/TrangChu';
 import LiThuyet from './component/LiThuyet';
+import BienBao from './component/BienBao';
 import ThiSatHach from './component/ThiSatHach';
-import BienBao from './component/bienbao';
 import MeoThi from './component/MeoThi';
 import TraCuuLuat from './component/TraCuuLuat';
 import de1 from './component/de1';
@@ -19,17 +19,9 @@ import {
 } from '@react-navigation/drawer';
 
 import CauHaySai from './component/CauHaySai';
-
 import anh from './assets/anh.jpg';
-
 import thuHanh from './component/thuHanh';
 
-import biencam from './bienbao/biencam';
-import biennguyhiem from './bienbao/biennguyhiem';
-import bienhieulenh from './bienbao/bienhieulenh';
-import bienchidan from './bienbao/bienchidan';
-import bienbaophu from './bienbao/bienbaophu';
-import vachkeduong from './bienbao/vachkeduong';
 
 import xemay from './tracuuluat/xemay';
 import oto from './tracuuluat/oto';
@@ -38,6 +30,10 @@ import xedap from './tracuuluat/xedap';
 import dibo from './tracuuluat/dibo';
 import bo from './tracuuluat/bo';
 
+import khainiem from './HocLiThuyet/KhaiNiem';
+import bienbao from './HocLiThuyet/bienBao';
+import sahinh from './HocLiThuyet/sahinh';
+import vanhoa from './HocLiThuyet/vanHoa';
 
 function CustomDrawerContent(props) {
   return (
@@ -120,7 +116,26 @@ const Tab = createMaterialTopTabNavigator();
 
 function luattab({navigate}){
   return(
-    <Tab.Navigator>
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'oto') {
+          iconName = focused
+            ? require('./assets/car.png')
+            : require('./assets/carblack.png');
+        } 
+
+        // You can return any component that you like here!
+        return <Image source={iconName}  style={{width:20,height:20}} resizeMethod="contain" />;
+      },
+    })}
+    tabBarOptions={{
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    }}
+    >
       <Tab.Screen name="xe máy"  component={xemay}/>
       <Tab.Screen name="oto" component={oto}/>
       <Tab.Screen name="xe keo" component={xekeo}/>
@@ -132,23 +147,37 @@ function luattab({navigate}){
   )
 }
 
-function mytab({navigate}){
-  return(
-    <Tab.Navigator>
-      <Tab.Screen name="Biển báo cấm"  component={biencam}/>
-      <Tab.Screen name="Biển báo nguy hiểm " component={biennguyhiem}/>
-      <Tab.Screen name="Biển báo hiệu lệnh" component={bienhieulenh}/>
-      <Tab.Screen name="Biển báo chỉ đường" component={bienchidan}/>
-      <Tab.Screen name="Biển báo phụ" component={bienbaophu}/>
-      <Tab.Screen name="vạch kẻ đường" component={vachkeduong}/>
-    </Tab.Navigator>
-  );
-}
+
 function tab({navigate}) {
   return (
 
-      <Tab.Navigator>
-        <Tab.Screen name="Li Thuyet" component={MeoThi} />
+      <Tab.Navigator  screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name ==='Li Thuyet') {
+            iconName = focused
+              ? require('./assets/car.png')
+              : require('./assets/carblack.png');
+          } else if (route.name ==='Thực Hành') {
+            iconName = focused 
+            ? require('./assets/craneblack.png') 
+            : require('./assets/crane.png');
+          }
+
+          // You can return any component that you like here!
+          return <Image source ={iconName} size={{width:20,height:20}} 
+           resizeMethod="contain" />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: 'blue',
+        inactiveTintColor: '#A4A4A4',
+        labelStyle: {
+          fontSize: 17,
+        },
+      }}>
+        <Tab.Screen name="Li Thuyet" component={MeoThi}  />
         <Tab.Screen name="Thực Hành" component={thuHanh} />
       </Tab.Navigator>
   );
@@ -175,11 +204,15 @@ function Mystack({navigation}) {
         }}/>
         <Stack.Screen name="Lithuyet" component={LiThuyet} />
         <Stack.Screen name="Thi Sat Hach" component={ThiSatHach} />
-        <Stack.Screen name="Bien bao" component={mytab} />
+        <Stack.Screen name="Bien bao" component={BienBao} />
         <Stack.Screen name="Mẹo thi kết quả cao" component={tab} />
         <Stack.Screen name="Tra cứu luật nhanh" component={luattab} />
         <Stack.Screen name="Câu hỏi hay sai" component={CauHaySai} />
         <Stack.Screen name="de1" component={de1} />
+        <Stack.Screen name="Khái Niệm và quy tắc" component={khainiem} />
+        <Stack.Screen name="Hệ thống các biển báo đường bộ" component={bienbao} />
+        <Stack.Screen name="Các thế sa hình" component={sahinh} />
+        <Stack.Screen name="Văn hóa đạo đức nghề nghiệp " component={vanhoa} />
         
       </Stack.Navigator>
   );

@@ -51,7 +51,7 @@ export default class TrangChu extends Component{
                                 onPress={() =>
                                     this.props.navigation.navigate('Mẹo thi kết quả cao')
                                 }
-                                >mẹo thi lí thuyết</Text>
+                                >Mẹo Thi</Text>
                             </View>
                     </View>
                     <View style={{backgroundColor:"#D8D8D8",flex:1,flexDirection:"row",marginTop:10}}>

@@ -5,21 +5,30 @@ export default class TrangChu extends Component{
     render(){
         return(
             <View style={{backgroundColor:"#D8D8D8",flex:1}}>
-                <View style={style.icon}>
+                <View style={style.icon}
+                >
                    <Icon style={style.pad} name='circle' />
-                   <Text style={{fontSize:17,flex:4,marginTop:27}}>Khái niệm và quy tắc (75 câu)</Text>
+                   <Text style={{fontSize:17,flex:4,marginTop:27}} onPress={() =>
+                    this.props.navigation.navigate('Khái Niệm và quy tắc')
+                } >Khái niệm và quy tắc (75 câu)</Text>
                 </View>
                 <View style={style.icon}>
                    <Icon style={style.pad} name='circle' />
-                   <Text style={{fontSize:17,flex:4,marginTop:27}}>Hệ thống biển báo đường bộ (35 câu)</Text>
+                   <Text style={{fontSize:17,flex:4,marginTop:27}} onPress={() =>
+                    this.props.navigation.navigate('Hệ thống các biển báo đường bộ')
+                } >Hệ thống biển báo đường bộ (35 câu)</Text>
                 </View>
                 <View style={style.icon}>
                    <Icon style={style.pad} name='circle' />
-                   <Text style={{fontSize:17,flex:4,marginTop:27}}>Các thế sa hình (35 câu)</Text>
+                   <Text style={{fontSize:17,flex:4,marginTop:27}} onPress={() =>
+                    this.props.navigation.navigate('Các thế sa hình')
+                }>Các thế sa hình (35 câu)</Text>
                 </View>
                 <View style={style.icon}>
                    <Icon style={style.pad} name='circle' />
-                   <Text style={{fontSize:17,flex:4,marginTop:27}}>Văn hóa đạo đức nghề nghiệp người lái xe (5 câu)</Text>
+                   <Text style={{fontSize:17,flex:4,marginTop:27}} onPress={() =>
+                    this.props.navigation.navigate('Văn hóa đạo đức nghề nghiệp ')
+                }>Văn hóa đạo đức nghề nghiệp người lái xe (5 câu)</Text>
                 </View>
             </View>
         );
