@@ -46,7 +46,7 @@ class SignUpScreen extends Component {
                 />
               }
               onChangeText={(text) => {
-                this.setState({ name: text });
+                this.setState({ email: text });
               }}
             />
           <View style={{height:20}} />
@@ -79,7 +79,7 @@ class SignUpScreen extends Component {
                 />
               }
               onChangeText={(text) => {
-                this.setState({ name: text });
+                this.setState({ password: text });
               }}
             />
 
@@ -90,6 +90,7 @@ class SignUpScreen extends Component {
                 title="SIGN UP"
                 titleStyle={{fontWeight:'bold', letterSpacing:1,}}
                 buttonStyle={{ borderRadius: 30, height:55, backgroundColor:'#23a6d5'}}
+                onPress={()=> auth.signUpWithEmail(this.state.email, this.state.password)}
               />
             </View>
             <View style={{height:10}}/>
