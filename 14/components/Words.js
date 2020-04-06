@@ -14,6 +14,7 @@ export default class Words extends React.Component {
     this.state = {
       update: false
     }
+    this.filterData = data.sports
   }
 
   keyExtractor = (item, index) => index.toString()
@@ -96,13 +97,10 @@ export default class Words extends React.Component {
     </View>
   );
   render(){
-    let filterData = null;
     if (this.props.type=='favorite'){
-      filterData = data.sports.filter(item => item.favorite);
+      this.filterData = data.sports.filter(item => item.favorite);
     } else if (this.props.type=='remind') {
-      filterData = data.sports.filter(item => item.remind);
-    } else {
-      filterData = data.sports
+      this.filterData = data.sports.filter(item => item.remind);
     }
     
     return (
@@ -111,7 +109,7 @@ export default class Words extends React.Component {
           style={styles.swipeListView}
           keyExtractor={this.keyExtractor}
           contentContainerStyle={{paddingBottom: 240}}
-          data={filterData}
+          data={this.filterData}
           renderItem={this.renderItem}
           renderHiddenItem={this.renderHiddenItem}
           leftOpenValue={0}

@@ -66,7 +66,7 @@ export default class Word extends React.Component{
     
     _onPress = (item) => {
       this.props.navigation.navigate(
-        'NewWordList', {name:'NewWordList'}
+        'NewWordList', {type: item.subtitle}
     )}
 
     renderSelectedCaterory = selectedIndex => {
