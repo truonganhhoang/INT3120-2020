@@ -10,22 +10,14 @@ export const styles = StyleSheet.create({
     },
     textHeader: {
         color: '#708090',
-        fontSize: 30,
     },
     textContent: {
-        fontSize: 20
+        marginLeft: 0,
     },
-    title: {
-        backgroundColor: '#6495ed',
-        color: 'white',
-        fontSize: 24
+    margin: {
+        marginLeft: 8
     },
-    padding: {
-        padding: 8
-    },
-    input: {
-      borderBottomColor: 'green',
-      borderBottomWidth:1,
-      fontSize: 24
-    },
+    selected: {
+        backgroundColor: '#1E90FF'
+    }
   });
