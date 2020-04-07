@@ -1,6 +1,13 @@
 ion-content {
-  min-height: 100vh;
-  position: relative;
+  --background: none;
+  background-color: transparent;
+  background-image: url("/assets/shapes.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  @media (min-width: 500px) {
+    background: none;
+  }
 }
 
 .header {
@@ -68,10 +75,4 @@ ion-content {
       text-decoration: none;
     }
   }
-}
-
-.footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
 }

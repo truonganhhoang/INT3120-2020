@@ -1,24 +1,24 @@
-ion-header,
-ion-content,
-ion-footer {
-  padding: 30px 40px;
-}
+ion-content {
+  text-align: center;
 
-ion-header {
-  &::after {
-    background-image: none;
+  & > * {
+    padding-left: 40px;
+    padding-right: 40px;
   }
-}
 
-ion-content ion-slide {
-  padding: 20px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  & > ion-img {
+    padding-top: 30px;
+    height: 120px;
+  }
 
-ion-footer {
-  &::before {
-    background-image: none;
+  ion-slide {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .action-buttons {
+    padding-bottom: 30px;
   }
 }

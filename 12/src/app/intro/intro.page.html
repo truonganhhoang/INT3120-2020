@@ -1,8 +1,5 @@
-<ion-header translucent="true">
-  <ion-img [src]="'/assets/coursera-logo.png'"></ion-img>
-</ion-header>
-
 <ion-content>
+  <ion-img [src]="'/assets/coursera-logo.png'"></ion-img>
   <ion-slides [pager]="true">
     <ion-slide>
       <ion-img [src]="'/assets/intro/courses.png'"></ion-img>
@@ -17,10 +14,9 @@
       <div>Earn employer-recognized credentials and take your career to the next level.</div>
     </ion-slide>
   </ion-slides>
+  <div class="action-buttons">
+    <ion-button [routerLink]="'/sign-up'" expand="full" color="primary">CREATE NEW ACCOUNT</ion-button>
+    <div style="height: 15px;"></div>
+    <ion-button [routerLink]="'/sign-in'" expand="full" fill="clear">LOG IN</ion-button>
+  </div>
 </ion-content>
-
-<ion-footer>
-  <ion-button [routerLink]="'/sign-up'" expand="full" color="primary">CREATE NEW ACCOUNT</ion-button>
-  <div style="height: 15px;"></div>
-  <ion-button [routerLink]="'/sign-in'" expand="full" fill="clear">LOG IN</ion-button>
-</ion-footer>
