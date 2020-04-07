@@ -12,6 +12,7 @@ import SetNumberWordScreen from '../Containers/SetNumberWordScreen'
 import NotificationScreen from '../Containers/NotificationScreen'
 import SignUpScreen from '../Containers/SignUpScreen'
 import SignInScreen from '../Containers/SignInScreen'
+import ForgetPassScreen from '../Containers/ForgetPassScreen'
 
 const AppNavigator = createStackNavigator(
   {
@@ -50,6 +51,9 @@ const AppNavigator = createStackNavigator(
     },
     SignInScreen: {
       screen : SignInScreen
+    },
+    ForgetPassScreen: {
+      screen : ForgetPassScreen
     }
   },
   {

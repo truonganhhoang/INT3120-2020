@@ -3,30 +3,15 @@ import {View, Text,TextInput, Alert,Dimensions, StatusBar, ToastAndroid, AsyncSt
 import {Input, Icon, Button, Header} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
-const SignIn = props =>{
-    const [email,setEmail] = useState('');
-    const [pass,setPass] = useState('');
-    const handleSignIn = (email, pass) => {
-      if(email =='' || pass==''){
-        ToastAndroid.showWithGravity(
-          'Điền đầy đủ thông tin',
-          ToastAndroid.SHORT,
-          ToastAndroid.CENTER,
-        )
-      }
-      else { 
-        firebase
-      .auth()
-      .signInWithEmailAndPassword(email, pass)
-      .then(() => {
-        props.navigation.navigate('HomeScreen')
-      })
-      .catch(error => ToastAndroid.showWithGravity(
-        'Tài khoản mật khẩu không chính xác!',
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER,
-      ))
-    }}
+const UpdatePass = props =>{
+   const [newpass,setNewpass] = useState('');
+   const [confirmpass,setConfirmpass] = useState('');
+   const handleConfirm = (pass,confirmpass) => {
+        if (pass === confirmpass) {
+          ToastAndroid.CENTER('Thay đổi mật khẩu thành công')
+          props.navigation.navigate('HomeScreen')}
+        else ToastAndroid.CENTER('Mật khẩu xác nhận chưa đúng!')
+   }
     return (    
       <View style = {{flex : 1}}>
         <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
@@ -39,26 +24,25 @@ const SignIn = props =>{
                 containerStyle ={{}}
                 onPress = {()=>props.navigation.goBack()}
             />
-            <Text style = {{marginLeft: 30, fontSize: 20, color: '#fff'}}> Đăng nhập</Text>
+            <Text style = {{marginLeft: 30, fontSize: 20, color: '#fff'}}>Thay đổi mật khẩu</Text>
             </View>
         </View>
         <View style = {{flex: 4,flexDirection: 'column',justifyContent:'flex-end'}}>
         <Input
-          placeholder='Email'
+          placeholder='Mật khẩu mới'
           leftIcon={
             <Icon
-              name='email'
+              name='lock'
               size={20}
               color='#E0E0E0'
             />
           }
-          keyboardType = 'email-address'
           leftIconContainerStyle = {{marginLeft:0}}
           inputContainerStyle = {{width: '80%', marginLeft: '10%'}}
-          onChangeText = {value => setEmail(value)}
+          onChangeText = {value => setNewpass(value)}
         />
         <Input
-          placeholder='Mật khẩu'
+          placeholder='Xác nhận mật khẩu'
           leftIcon={
             <Icon
               name='lock'
@@ -68,25 +52,20 @@ const SignIn = props =>{
           }
           secureTextEntry
           leftIconContainerStyle = {{marginLeft:0}}
-          inputContainerStyle = {{width:  '80%', marginTop: 10, marginLeft: '10%'}}
-          onChangeText = {value => setPass(value)}
+          inputContainerStyle = {{width:'80%', marginTop: 10, marginLeft: '10%'}}
+          onChangeText = {value => setConfirmpass(value)}
         />
         </View>
         <View style = {{flex: 5,marginTop: 40, flexDirection: 'column',alignItems: 'center'}}>
           <Button
-            title = 'Đăng nhập'
-            buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
-            onPress={()=>{handleSignIn(email,pass)}}
-          />
-          <Button
-            title = 'Quên mật khẩu'
+            title = 'Xác nhận'
             type= 'clear'
             buttonStyle = {{width: 300}}
-            onPress={()=>props.navigation.navigate('ForgetPassScreen')}
+            onPress = {handleConfirm(pass,confirmpass)}
           />
         </View>
       </View>
     );
   }
 
-export default withNavigation( SignIn);
+export default withNavigation(UpdatePass);
