@@ -2,6 +2,9 @@ import * as React from 'react';
 import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import Ban from './signs/Ban'
+import Command from './signs/Command'
+import Danger from './signs/Danger'
+import Instruction from './signs/Instruction'
 
 export default class Signs extends React.Component {
 
@@ -11,17 +14,23 @@ export default class Signs extends React.Component {
       tabBarBackgroundColor='#66bb6a'
       tabBarTextStyle={{ fontSize: 15, fontWeight: 'bold'}}
       tabBarActiveTextColor='#fff'
-      tabBarInactiveTextColor='#C0DF16'
-      tabBarUnderlineStyle={{backgroundColor:'#fff',height: 2, width: '10%', marginHorizontal:Dimensions.get("screen").width/10}}
+      tabBarInactiveTextColor='green'
+      tabBarUnderlineStyle={{backgroundColor:'#fff',height: 0}}
       renderTabBar={() => <ScrollableTabBar />}
       // scrollWithoutAnimation={true}
     >
       <View tabLabel='Biển báo cấm'>
         <Ban />
       </View>
-      <Text tabLabel='Biển báo cấm'>Biển báo cấm1</Text>
-      <Text tabLabel='Biển báo cấm'>Biển báo cấm2</Text>
-      <Text tabLabel='Biển báo cấm'>Biển báo cấm3</Text>
+      <View tabLabel='Biển báo nguy hiểm'>
+        <Danger />
+      </View>
+      <View tabLabel='Biển báo chỉ dẫn'>
+        <Instruction />
+      </View>
+      <View tabLabel='Biển báo hiệu lệnh'>
+        <Command />
+      </View>
       
     </ScrollableTabView>
   }

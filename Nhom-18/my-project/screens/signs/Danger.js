@@ -4,11 +4,9 @@ import { rootRef } from '../firebase/config';
 import { ListItem } from 'react-native-elements';
 
 
+const animalRef = rootRef.child('danger');
 
-const animalRef = rootRef.child('ban');
-console.log(animalRef);
-export default class Ban extends Component {
-  
+export default class Danger extends Component {
   constructor(props) {
     super(props);
     this.state = ({
@@ -27,13 +25,13 @@ export default class Ban extends Component {
           imageout: doc.toJSON().image,
         });
         setTimeout(() => {
+          console.log('timeout database3')
           this.setState({
             animals: animals,
             loading: false,
           })
         }, 3)
       })
-      console.log(animals);
     })
   }
 

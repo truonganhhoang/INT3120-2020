@@ -44,22 +44,22 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 //     </View>
 //   );
 // }
-// function Theory() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-//   );
-// }
+function Theory1() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Notifications Screen</Text>
+    </View>
+  );
+}
 
 
-// function Practice() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-//   );
-// }
+function Practice1() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Notifications Screen</Text>
+    </View>
+  );
+}
 
 
 
@@ -147,6 +147,9 @@ function MyTabs() {
       activeTintColor: '#fff',
       labelStyle: { fontSize: 12, fontWeight: 'bold' },
       style: { backgroundColor: '#66bb6a' },
+      pressColor:'green',
+      scrollEnabled: false,
+      indicatorStyle:{backgroundColor:'#fff'}
     }}>
       <Tab.Screen name="Mẹo lý thuyết" component={Theory} />
       <Tab.Screen name="Mẹo thực hành" component={Practice} />
