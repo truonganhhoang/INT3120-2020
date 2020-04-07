@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Screen1 from './Screen1';
@@ -10,9 +10,9 @@ import Screen5 from './Screen5';
 import Screen4 from './Screen4';
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialTopTabNavigator();
-export default function App() {
+export default function MenuTab() {
   return (
-    <NavigationContainer>
+    // <NavigationContainer>
       <Tab.Navigator
         tabBarPosition = "bottom"
         tabBarOptions={{
@@ -61,8 +61,6 @@ export default function App() {
           ),}}
         />
       </Tab.Navigator>
-     </NavigationContainer>
-
-
+    //  </NavigationContainer>
   );
 }

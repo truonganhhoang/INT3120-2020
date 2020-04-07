@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
-import { View, Text} from 'react-native'
+import { View, Text, ScrollView} from 'react-native'
+import { Styles } from '../../styles'
+import Moikhoahoc from '../components/Moikhoahoc'
 export default class Screen3 extends Component {
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: "#FF5733", alignItems: "center"}}>
-                <Text style={{fontSize: 30}}>Màn Hình 3</Text>
+            <View style={Styles.container}>
+                <Text style={Styles.h1text}>Giỏ hàng</Text>
+                <ScrollView>
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                    <Moikhoahoc />
+                </ScrollView>
+                
             </View>
         )
     }

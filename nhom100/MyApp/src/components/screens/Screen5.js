@@ -6,6 +6,7 @@ export default class Screen5 extends Component {
     render() {
         return (
             <View style={Styles.container}>
+                <Text style={Styles.h1text}>Cá nhân</Text>
                 <View style={localStyles.header}>
                     <View style={Styles.avt}></View>
                     <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>

@@ -21,7 +21,8 @@ export default function Screen2() {
         {danhmuc: "Phong thủy", key: "15"},
     ])
     return (
-        <View style={{flex: 1}}>
+        <View style={Styles.container}>
+            <Text style={Styles.h1text}>Danh mục</Text>
             <ScrollView>
                 {danhmuc.map( (value) =>(
                         <View key={value.key}>

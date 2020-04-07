@@ -6,12 +6,11 @@ const Styles = StyleSheet.create({
         marginHorizontal: 10,
         margin: 20,
         paddingHorizontal: 10,
+        backgroundColor: "#eee"
     },
     vbox : {
         width: 210,
         height: 250,
-        // borderWidth: 1,
-        // borderColor: "gray",
         borderRadius: 8,
         marginRight: 10,
         backgroundColor: "#fff"
@@ -31,23 +30,17 @@ const Styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: "gray",
         alignItems:"center",
-        // justifyContent: "center",
         paddingHorizontal: 30,
     },
     list2s: {
-        // flex: 1,
         borderWidth: 1,
         padding: 12,
         borderColor: "gray",
         borderRadius: 5,
         marginTop: 5,
         marginBottom: 5,
-        marginHorizontal: 10,
-        // width: "100%",
         fontSize: 22,
         fontWeight: "600",
-        // textAlign: "center",
-        // justifyContent: "center"
     },
     h1text: {
         fontSize: 30,
@@ -59,7 +52,7 @@ const Styles = StyleSheet.create({
     },
     h3text: {
         fontSize: 20,
-        fontWeight: "bold",
+        fontWeight: "600",
     },
     h4text: {
         fontSize: 16,
