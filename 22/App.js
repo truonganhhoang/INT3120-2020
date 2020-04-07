@@ -1,17 +1,25 @@
 import * as React from 'react';
-import { StackNavigator, SwitchNavigator } from 'react-navigation';
+import { SwitchNavigator,StackNavigator } from 'react-navigation';
 import styles from './assets/css/css';
 import Welcome from './components/Welcome';
-import Menu from './components/Menu';
+import Menu2 from './components/Menu2';
 import AddWord from './components/AddWord';
+import ListWords2 from './components/ListWords2';
+import Tutorial from './components/Tutorial';
+import TickWords from './components/TickWords';
+import SearchWords from './components/SearchWords';
 
 export default SwitchNavigator(
   {
-     Home: Welcome,
-     Start: Menu,
+     Welcome:Welcome,
+     Menu: Menu2,
      Add:AddWord,
+     List:ListWords2,
+     Tutorial:Tutorial,
+     Tick:TickWords,
+     Search:SearchWords,
   },
   {
-    initialRouteName: 'Add',
+    initialRouteName: 'Menu',
   }
 );

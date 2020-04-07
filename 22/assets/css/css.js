@@ -3,29 +3,40 @@ import {StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
-  TextInput: {
-    width: '100%',
-    height: 40,
-    paddingLeft: 5,
-    borderWidth: 1,
-    marginTop: 15,
-    borderColor: '#606070',
+  text_banner:{
+    fontSize: 25,
+    fontFamily: 'Times New Roman',
+    color:'#ffffff',
+    flexDirection: "row",
   },
+  text:{
+    fontFamily: 'Times New Roman',
+    fontSize: 20,
+    padding:15,
+    color:'#ffffff',
+  },
+  text_button:{
+    fontFamily: 'Times New Roman',
+    fontSize: 20,
+    padding:5,
+    color:'#ffffff',
+  },
+  
   container: {
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#f7f7f7',
     height:'100%',
   },
   paragraph: {
+    fontFamily: 'Times New Roman',
     color: 'white',
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   banner:{
     paddingTop: Constants.statusBarHeight,
-    height:50,
-    backgroundColor:'#0cbb66',
+    backgroundColor:'#65a844',
   },
   
   button:{
@@ -34,8 +45,15 @@ const styles = StyleSheet.create({
     height:50,
     marginTop:10,
     flexDirection:'row',
-    borderRadius:5,
     alignItems: 'center',
+    color:'#ffffff',
+  },
+  icon_back:{
+    marginLeft:10,
+    height:20,
+    width:20,
+    paddingBottom:7,
+    flexDirection: "row",
   },
   icon:{
     marginLeft:10,
@@ -50,7 +68,6 @@ const styles = StyleSheet.create({
     marginTop:20,
     backgroundColor:'#ffffff',
     borderColor: 'grey',
-    borderRadius: 5,
     borderWidth: 1,
     borderStyle: 'dashed',
   },
@@ -58,18 +75,19 @@ const styles = StyleSheet.create({
     marginHorizontal:24,
     paddingBottom: 50,
     fontSize: 16,
+    fontFamily: 'Times New Roman',
     textAlign: 'center',
   },
   logo2: {
     height: 200,
     width: 200,
-    borderRadius:10,
+    
     marginBottom:10,
     marginTop:10,
   }, 
    button2:{
-    backgroundColor:'#36d2da',
-    borderRadius:'50%',
+    backgroundColor:'#65a844',
+    alignItems: 'center',
     justifyContent:'center',
     margin:-40,
   },
