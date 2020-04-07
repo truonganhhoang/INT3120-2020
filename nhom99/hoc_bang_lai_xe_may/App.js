@@ -26,12 +26,15 @@ function App() {
         <Stack.Screen
           name="homeScreen"
           component={HomeScreen}
-          options={{ title: "Ôn thi giấy phép lái xe" }}
+          options={{
+            title: "Ôn thi giấy phép lái xe",
+            headerTitleAlign: "center",
+          }}
         />
         <Stack.Screen
           name="lawScreen"
           component={TrafficLaws}
-          options={{ title: "Luật giao thông" }}
+          options={{ title: "Luật giao thông", headerTitleAlign: "center" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
