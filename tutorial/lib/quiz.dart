@@ -232,20 +232,20 @@ class QuizState extends State<Quiz> {
                 ),
                   new Padding(padding: EdgeInsets.all(15.0)),
 
-                  new Container(
-                    alignment: Alignment.bottomCenter,
-                    child:  new MaterialButton(
-                        minWidth: 240.0,
-                        height: 30.0,
-                        color: Colors.red,
-                        onPressed: resetQuiz,
-                        child: new Text("Thoát",
-                          style: new TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.white
-                          ),)
-                    )
-                  ),
+                  // new Container(
+                  //   alignment: Alignment.bottomCenter,
+                  //   child:  new MaterialButton(
+                  //       minWidth: 240.0,
+                  //       height: 30.0,
+                  //       color: Colors.red,
+                  //       onPressed: resetQuiz,
+                  //       child: new Text("Thoát",
+                  //         style: new TextStyle(
+                  //             fontSize: 18.0,
+                  //             color: Colors.white
+                  //         ),)
+                  //   )
+                  // ),
     
               ],
             ),
@@ -312,15 +312,15 @@ class Summary extends StatelessWidget{
               
               new Padding(padding: EdgeInsets.all(10.0)),
 
-              new MaterialButton(
-                color: Colors.redAccent,
-                onPressed: (){
-                  questionNumber = 0;
-                  finalScore = 0;
-                  Navigator.pop(context);
-                },
-                child: new Text("Làm lại"),
-              )
+              // new MaterialButton(
+              //   color: Colors.redAccent,
+              //   onPressed: (){
+              //     questionNumber = 0;
+              //     finalScore = 0;
+              //     Navigator.pop(context);
+              //   },
+              //   child: new Text("Làm lại"),
+              // )
             ],
           )
         ),
