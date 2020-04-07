@@ -10,13 +10,14 @@ class DetailsScreen extends React.Component {
         
         return {
             title: "Kanji Chi Tiết",
+            headerTitleAlign: 'center',
+
             headerTitleStyle: {
                 textAlign: 'center',
                 color: 'white',
             },
             headerTintColor: 'white',
             headerStyle: {
-                
                 height: 100,
                 backgroundColor: '#006265',
                 borderBottomWidth: 0,
