@@ -25,13 +25,21 @@ class TestBody extends Component {
             data2: [],
             question_id: [],
             answer_id: [],
-            done_answers: [0][0],
-            done_answers: [0][0],
+            done_answers: [],
         }
     }
     componentDidMount() {
-        this.fetchData()
-        console.log(this.state.done_answers)
+        this.fetchData();
+        var newData = []
+        var done_answer = [
+            {
+                question_id:'question_id',
+                answer_id:'answer_id'
+            }
+        ]   
+        newData.push(done_answer)
+        // newData.push(done_answer)   
+        console.log(newData)
     }
 
     fetchData = async () => {
@@ -41,12 +49,6 @@ class TestBody extends Component {
         this.setState({ data: newData.data.questions })
     }
     submit = () => {
-        // var dataSubmit = {
-        //     client_id: 'sm6150',
-        //     exercise_id: 1,
-        //done_answers[0][question_id]: 1,
-        //     done_answers[0][answer_id]: 1,
-        // }
         var data = new FormData();
         // var uri = i.uri
         // var namevideo = uri.substr(-20,20)
@@ -62,10 +64,10 @@ class TestBody extends Component {
         // var question_id = [1, 2]
         // client_id
         // 
-        var done_answers = [0][1]
-        data.append('client_id', 'sm6150')
-        data.append(done_answers, 1)
-        console.log(data)
+        // console.log(this.state.question_id)
+        // data.append('client_id', 'sm6150')
+        // console.log(data)
+        // console.log(this.state.done_answers)
     }
     setVisibleA = (item, index) => {
         if (item.answers[0].visible == false) {
@@ -286,3 +288,4 @@ class TestBody extends Component {
 }
 
 export default TestBody
+
