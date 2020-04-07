@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 const GLOBAL = require("../utils/Globals");
-import { View, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, FlatList, ScrollView, Alert } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
 import Carousel from "react-native-snap-carousel";
 import itemTopicPeople from "../../data/CategoryItemByTopic";
@@ -13,7 +13,7 @@ export default class CategoryScreen extends Component {
 
     this.state = {
       isLoading: true,
-      topicItems: []
+      topicItems: [],
     };
   }
 
@@ -23,10 +23,10 @@ export default class CategoryScreen extends Component {
       headerTitleStyle: {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
       },
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
 
       //title: navigation.getParam("categoryTitle", "A Nested Details Screen")
     };
@@ -38,7 +38,7 @@ export default class CategoryScreen extends Component {
         style={{
           justifyContent: "center",
           alignContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <OverviewTopicItem
@@ -56,22 +56,22 @@ export default class CategoryScreen extends Component {
     return () => {
       console.log("Go to slide show!");
       this.props.navigation.navigate("SlideshowByTopic", {
-        titleTopic: topicName
+        titleTopic: topicName,
       });
     };
   }
   gotoExam(topicName) {
     return () => {
       this.props.navigation.navigate("Exam", {
-        titleTopic: topicName
+        titleTopic: topicName,
       });
     };
   }
   gotoPractice(topicName) {
     return () => {
-      console.log("Go to exam!");
-      this.props.navigation.navigate("SlideshowByTopic", {
-        titleTopic: topicName
+      // console.log("Go to exam!");
+      this.props.navigation.navigate("Practice", {
+        titleTopic: topicName,
       });
     };
   }
@@ -83,7 +83,17 @@ export default class CategoryScreen extends Component {
     // console.log("View detal");
   }
   componentDidMount() {
-    this.fetchData();
+    const { categoryId } = this.props.route.params;
+    if (categoryId !== "people") {
+      Alert.alert(
+        "Ứng dụng đang trong quá trình phát triển!",
+        "Các bạn vui lòng lựa chọn chủ đề People/Body để trải nghiệm. \nXin cảm ơn!"
+      );
+      this.setState({ isLoading: false });
+    } else {
+      this.fetchData();
+    }
+    // this.fetchData();
   }
 
   fetchData() {
@@ -96,8 +106,8 @@ export default class CategoryScreen extends Component {
         .doc(categoryId)
         .collection(categoryId)
         .get()
-        .then(docs => {
-          docs.forEach(doc => {
+        .then((docs) => {
+          docs.forEach((doc) => {
             // console.log(doc.id, "=>", doc.data());
             data.push(doc.data());
             // console.log(data);
@@ -105,7 +115,7 @@ export default class CategoryScreen extends Component {
 
           this.setState({ topicItems: data, isLoading: !this.state.isLoading });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error getting documents", err);
         });
     }
@@ -120,7 +130,7 @@ export default class CategoryScreen extends Component {
           textStyle={{ color: "#fff" }}
         />
         <Carousel
-          ref={c => {
+          ref={(c) => {
             this._carousel = c;
           }}
           layout={"default"}
@@ -136,10 +146,11 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 30,
     backgroundColor: "whitesmoke",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });
