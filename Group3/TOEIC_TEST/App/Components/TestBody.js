@@ -6,13 +6,14 @@ import {
     FlatList,
     TouchableOpacity,
     ScrollView,
+    Dimensions,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './Styles/TestBodyStyles'
 import { requestGET, HOST } from '../Services/Servies'
 import DeviceInfo from 'react-native-device-info'
-
+import Carousel from 'react-native-snap-carousel'
 class TestBody extends Component {
     static navigationOptions = {
         headerShown: false
@@ -22,10 +23,15 @@ class TestBody extends Component {
         this.state = {
             data: [],
             data2: [],
+            question_id: [],
+            answer_id: [],
+            done_answers: [0][0],
+            done_answers: [0][0],
         }
     }
     componentDidMount() {
         this.fetchData()
+        console.log(this.state.done_answers)
     }
 
     fetchData = async () => {
@@ -33,6 +39,33 @@ class TestBody extends Component {
         var id = this.props.navigation.getParam('id').toString()
         var newData = await requestGET(`${HOST}/tests/viewExercise/${id}?client_id=${deviceId}`)
         this.setState({ data: newData.data.questions })
+    }
+    submit = () => {
+        // var dataSubmit = {
+        //     client_id: 'sm6150',
+        //     exercise_id: 1,
+        //done_answers[0][question_id]: 1,
+        //     done_answers[0][answer_id]: 1,
+        // }
+        var data = new FormData();
+        // var uri = i.uri
+        // var namevideo = uri.substr(-20,20)
+        // arr = arr + "<media><type>Video</type><name>"+ namevideo +"</name><base64>"+ "/gopy/Video/test/" +"</base64></media>"
+        // data.append("File", {
+        //     uri: i.uri,
+        //     name: namevideo,
+        //     type: i.type
+        // });
+        // data.append("site","gopy");
+        // data.append("doclib","Video");
+        //append(key,value)
+        // var question_id = [1, 2]
+        // client_id
+        // 
+        var done_answers = [0][1]
+        data.append('client_id', 'sm6150')
+        data.append(done_answers, 1)
+        console.log(data)
     }
     setVisibleA = (item, index) => {
         if (item.answers[0].visible == false) {
@@ -42,6 +75,10 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
+            console.log("A: " + newData[index].answers[0].id)
+            var id = [...this.state.question_id]
+            id.push(newData[index].answers[0].id)
+            this.setState({ question_id: id })
             this.setState({ data: newData })
         }
         else {
@@ -62,6 +99,7 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
+            console.log("B: " + newData[index].answers[1].id)
             this.setState({ data: newData })
         }
         else {
@@ -82,6 +120,7 @@ class TestBody extends Component {
             newData[index].answers[2].visible = true
             newData[index].answers[3].visible = false
             newData[index].visible = true
+            console.log("C: " + newData[index].answers[2].id)
             this.setState({ data: newData })
         }
         else {
@@ -102,6 +141,7 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = true
             newData[index].visible = true
+            console.log("D: " + newData[index].answers[3].id)
             this.setState({ data: newData })
         }
         else {
@@ -182,7 +222,6 @@ class TestBody extends Component {
         )
     }
     renderItem2 = ({ item, index }) => {
-        console.log(item.visible)
         return (
             <View style={{
                 flex: 1,
@@ -212,11 +251,20 @@ class TestBody extends Component {
                     <Text style={styles.title}>{this.props.navigation.getParam('description')}</Text>
                     <Icon name='search' size={27} color='transparent' />
                 </View>
-                <FlatList
+                {/* <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
                     keyExtractor={(item, index) => item.toString()}
                     horizontal={true}
+                /> */}
+                <Carousel
+                    ref={(c) => { this._carousel = c }}
+                    data={this.state.data}
+                    renderItem={this.renderItem}
+                    sliderWidth={1000}
+                    itemWidth={1000}
+                    layout={'tinder'}
+                    layoutCardOffset={`10`}
                 />
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <FlatList
@@ -226,10 +274,12 @@ class TestBody extends Component {
                         horizontal={true}
                     />
                 </View>
+                <TouchableOpacity onPress={() => this.submit()}>
+                    <View style={styles.submit}>
+                        <Text style={styles.text}>Submit</Text>
+                    </View>
+                </TouchableOpacity>
 
-                <View style={styles.submit}>
-                    <Text style={styles.text}>Submit</Text>
-                </View>
             </SafeAreaView>
         )
     }
