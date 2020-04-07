@@ -4,6 +4,7 @@ import auth from './firebaseApi/auth';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
+import { signInWithEmail } from './firebaseApi/auth'
 
 class LoginScreen extends Component {
   constructor(props) {

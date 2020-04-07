@@ -49,6 +49,7 @@ class NewTask extends React.Component {
     };
     let ret = await addTask(task);
     console.log(ret);
+    this.forceUpdate();
   };
 
   updateIndex = (selectedIndex) => {

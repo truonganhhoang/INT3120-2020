@@ -44,13 +44,12 @@ export default class HelloScreen extends React.Component {
             buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#fff'}}
             onPress={()=> this.signup()}
           />
-        <View style={{marginTop:'9%'}} />
+        <View style={{marginTop:'9%', alignItems:'center', flex: 1,}} />
           <Text 
             onPress={() => auth.signInAnonymously()} 
             style={{fontSize:17, color:'#fff', fontWeight:'bold'}}
           >
-            Use Anonymous? Sign In Anonymously
-        </Text>    
+            Use Anonymous? Sign In Anonymously</Text>    
         </View>
         </LinearGradient>
       </View>

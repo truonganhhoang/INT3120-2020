@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 class SignUpScreen extends Component { 
   constructor(props) {
     super(props);
-  }
+  };
 
   back = () => {
     this.props.navigation.navigate('HelloScreen');
@@ -51,22 +51,6 @@ class SignUpScreen extends Component {
             />
           <View style={{height:20}} />
             <Input
-              label='Name'
-              labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
-              placeholder="Michelle Obama"
-              leftIcon={
-                <Ionicons
-                  name="ios-contact"
-                  size={30}
-                  style={{ paddingRight: 20, color: '#1976D2' }}
-                />
-              }
-              onChangeText={(text) => {
-                this.setState({ name: text });
-              }}
-            />
-          <View style={{height:20}} />
-            <Input
               label='Password'
               labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
               placeholder="Password"
@@ -82,6 +66,23 @@ class SignUpScreen extends Component {
                 this.setState({ password: text });
               }}
             />
+          <View style={{height:20}} />
+            <Input
+              label='Retype Password'
+              labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
+              placeholder="Password"
+              secureTextEntry={true}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                this.setState({ password1: text });
+              }}
+            />
 
           <View style={{alignItems:'center'}}>
             <View style={{height:20}}/>
@@ -90,7 +91,11 @@ class SignUpScreen extends Component {
                 title="SIGN UP"
                 titleStyle={{fontWeight:'bold', letterSpacing:1,}}
                 buttonStyle={{ borderRadius: 30, height:55, backgroundColor:'#23a6d5'}}
-                onPress={()=> auth.signUpWithEmail(this.state.email, this.state.password)}
+                onPress={()=> {
+                  if (this.state.password == this.state.password1){
+                    auth.signUpWithEmail(this.state.email, this.state.password)}
+                  else alert('Password is incorrect!');
+                }}
               />
             </View>
             <View style={{height:10}}/>

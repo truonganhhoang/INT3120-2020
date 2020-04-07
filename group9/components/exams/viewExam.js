@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  RefreshControl,
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 import { Header, CheckBox } from 'react-native-elements';
@@ -18,6 +19,7 @@ export default class ViewExam extends React.Component {
   state = {
     data: [],
     dataSelected: { name: '', lesson: '', date: '', description: '' },
+    refreshing: false,
   };
 
   modal = React.createRef();
@@ -30,8 +32,12 @@ export default class ViewExam extends React.Component {
         item.date = day;
     })
     this.setState({data: ret.filter(item => item.type=="Exam")});
-    console.log(this.state.data);
   };
+
+  onRefresh = () => {
+    setTimeout(() => this.setState({ refreshing: false }), 3000);
+    this.componentDidMount();
+  }
 
   openModal = (item) => {
     this.setState({ dataSelected: item });
@@ -104,7 +110,13 @@ export default class ViewExam extends React.Component {
           height: 100,
         }}
       />
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+            />}
+        >
         {this.state.data.map((item) => this.renderRow(item))}  
         </ScrollView>
           <Modalize
