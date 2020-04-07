@@ -1,13 +1,30 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import Text from "../../sharedComponents/Text";
 import appIcons from "../../constants/appIcons";
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default function() {
+export default function ({ navigation }) {
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => navigation.navigate("lawScreen")}
+      >
+        <Image
+          source={appIcons.icon_law}
+          style={styles.iconStyle}
+          resizeMode="stretch"
+        />
+        <Text style={{ paddingTop: 5 }}>TRA CỨU LUẬT</Text>
+      </TouchableOpacity>
       <View style={styles.item}>
         <Image
           source={appIcons.icon_test}
@@ -40,14 +57,7 @@ export default function() {
         />
         <Text style={{ paddingTop: 5 }}>MẸO THI</Text>
       </View>
-      <View style={styles.item}>
-        <Image
-          source={appIcons.icon_law}
-          style={styles.iconStyle}
-          resizeMode="stretch"
-        />
-        <Text style={{ paddingTop: 5 }}>TRA CỨU LUẬT</Text>
-      </View>
+
       <View style={styles.item}>
         <Image
           source={appIcons.icon_wrong}
@@ -65,7 +75,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     borderTopWidth: 1,
     borderLeftWidth: 1,
-    borderColor: "gray"
+    borderColor: "gray",
   },
   item: {
     width: "33.33%",
@@ -75,10 +85,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "gray",
     borderRightColor: "gray",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   iconStyle: {
     width: "60%",
-    height: "50%"
-  }
+    height: "50%",
+  },
 });
