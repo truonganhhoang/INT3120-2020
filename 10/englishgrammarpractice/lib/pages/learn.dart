@@ -32,7 +32,7 @@ class Learn extends StatelessWidget{
           children: <Widget>[
             ListTile(
               leading:Icon(Icons.library_books, color: Colors.lightBlue),
-              title:Text('1. Các thì trong tiếng Anh',style: TextStyle(fontSize: 17)),
+              title:Text('1. Các thì trong tiếng Anh',style: TextStyle(fontSize: 20)),
               onTap: () =>Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai1(),
                   )),
@@ -40,7 +40,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books, color: Colors.lightBlue),
-              title: Text('2. Sự hòa hợp giữa chủ ngữ & động từ',style: TextStyle(fontSize: 17)),
+              title: Text('2. Sự hòa hợp giữa chủ ngữ-động từ',style: TextStyle(fontSize: 20)),
               onTap: () =>Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai2(),
                   )),
@@ -48,7 +48,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books, color: Colors.lightBlue),
-              title: Text('3. Danh động từ và động từ nguyên thể',style: TextStyle(fontSize: 17)),
+              title: Text('3. Danh động từ-động từ nguyên thể',style: TextStyle(fontSize: 20)),
               onTap: () =>Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai3(),
                   )),
@@ -56,7 +56,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('4. Danh từ và đại từ',style: TextStyle(fontSize: 17)),
+              title: Text('4. Danh từ và đại từ',style: TextStyle(fontSize: 20)),
               onTap: () =>Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai4(),
                   )),
@@ -64,7 +64,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('5. Sự cấu tạo từ',style: TextStyle(fontSize: 17)),
+              title: Text('5. Sự cấu tạo từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai5(),
                 )),
@@ -72,7 +72,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('6. Tính từ trạng từ',style: TextStyle(fontSize: 17)),
+              title: Text('6. Tính từ trạng từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai6(),
                 )),
@@ -80,7 +80,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('7. Các phép so sánh',style: TextStyle(fontSize: 17)),
+              title: Text('7. Các phép so sánh',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai7(),
                 )),
@@ -96,7 +96,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('9. Động từ khuyết thiếu',style: TextStyle(fontSize: 17)),
+              title: Text('9. Động từ khuyết thiếu',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai9(),
                 )),
@@ -104,7 +104,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('10. Câu điều kiện',style: TextStyle(fontSize: 17)),
+              title: Text('10. Câu điều kiện',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai10(),
                 )),
@@ -112,7 +112,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('11. Câu giả định',style: TextStyle(fontSize: 17)),
+              title: Text('11. Câu giả định',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai11(),
                 )),
@@ -120,7 +120,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('12. Câu bị động',style: TextStyle(fontSize: 17)),
+              title: Text('12. Câu bị động',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai12(),
                 )),
@@ -128,7 +128,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('13. Câu gián tiếp',style: TextStyle(fontSize: 17)),
+              title: Text('13. Câu gián tiếp',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai13(),
                 )),
@@ -136,7 +136,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('14. Mệnh đề quan hệ',style: TextStyle(fontSize: 17)),
+              title: Text('14. Mệnh đề quan hệ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai14(),
                 )),
@@ -144,7 +144,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('15. Mệnh đề trạng từ',style: TextStyle(fontSize: 17)),
+              title: Text('15. Mệnh đề trạng từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai15(),
                 )),
@@ -152,7 +152,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('16. Liên từ trạng từ',style: TextStyle(fontSize: 17)),
+              title: Text('16. Liên từ trạng từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai16(),
                 )),
@@ -160,7 +160,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('17. Giới từ',style: TextStyle(fontSize: 17)),
+              title: Text('17. Giới từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai17(),
                 )),
@@ -168,7 +168,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('18. Lượng từ',style: TextStyle(fontSize: 17)),
+              title: Text('18. Lượng từ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai18(),
                 )),
@@ -176,7 +176,7 @@ class Learn extends StatelessWidget{
             ),
             ListTile(
               leading: Icon(Icons.library_books,color: Colors.lightBlue),
-              title: Text('19. Câu đảo ngữ',style: TextStyle(fontSize: 17)),
+              title: Text('19. Câu đảo ngữ',style: TextStyle(fontSize: 20)),
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => Bai19(),
                 )),
