@@ -24,14 +24,11 @@ var quiz = new QuestionQuiz();
 class Quiz extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    
     return new QuizState();
       }
     
   }
     
-
-
 class QuizState extends State<Quiz> {
   TextEditingController _controller = new TextEditingController();
   @override
@@ -75,115 +72,6 @@ class QuizState extends State<Quiz> {
                       style: TextStyle(fontSize:20.0),
                       ),
     
-                  // // Answer 1 and 2
-                  // new Padding(padding: EdgeInsets.all(50.0)),
-                  //   new Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: <Widget>[
-                  //     //button1
-                  //     new MaterialButton(
-                  //       minWidth: 120.0,
-                  //       color: Colors.redAccent,
-                  //       child: new Text(quiz.choices[questionNumber][0],
-                  //         style: new TextStyle(
-                  //           fontSize: 20.0,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       onPressed: () {
-    
-                  //         if (quiz.choices[questionNumber][0] == quiz.answers[questionNumber]){
-                  //           debugPrint("Câu trả lời chính xác");
-                  //           finalScore++;
-                  //         }
-                  //         else{
-                  //           debugPrint("Câu trả lời chưa chính xác");
-                  //         }
-                  //         updateQuestion();
-                  //       }
-                  //     ),
-                      
-                  //     //button 2
-                  //     new MaterialButton(
-                  //       minWidth: 120.0,
-                  //       color: Colors.redAccent,
-                  //       child: new Text(quiz.choices[questionNumber][1],
-                  //         style: new TextStyle(
-                  //           fontSize: 20.0,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       onPressed: () {
-    
-                  //         if (quiz.choices[questionNumber][1] == quiz.answers[questionNumber]){
-                  //           debugPrint("Câu trả lời chính xác");
-                  //           finalScore++;
-                  //         }
-                  //         else{
-                  //           debugPrint("Câu trả lời chưa chính xác");
-                  //         }
-                  //         updateQuestion();
-                  //       }
-                  //     ),
-    
-    
-                  //   ],
-                  // ),
-                  
-                  // // Answer 3 and 4
-                  // new Padding(padding: EdgeInsets.all(10.0)),
-                  //   new Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: <Widget>[
-                  //     //button3
-                  //     new MaterialButton(
-                  //       minWidth: 120.0,
-                  //       color: Colors.redAccent,
-                  //       child: new Text(quiz.choices[questionNumber][2],
-                  //         style: new TextStyle(
-                  //           fontSize: 20.0,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       onPressed: () {
-    
-                  //         if (quiz.choices[questionNumber][2] == quiz.answers[questionNumber]){
-                  //           debugPrint("Câu trả lời chính xác");
-                  //           finalScore++;
-                  //         }
-                  //         else{
-                  //           debugPrint("Câu trả lời chưa chính xác");
-                  //         }
-                  //         updateQuestion();
-                  //       }
-                  //     ),
-                  //     //button 4
-                  //     new MaterialButton(
-                  //       minWidth: 120.0,
-                  //       color: Colors.redAccent,
-                  //       child: new Text(quiz.choices[questionNumber][3],
-                  //         style: new TextStyle(
-                  //           fontSize: 20.0,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       onPressed: () {
-    
-                  //         if (quiz.choices[questionNumber][3] == quiz.answers[questionNumber]){
-                  //           debugPrint("Câu trả lời chính xác");
-                  //           finalScore++;
-                  //         }
-                  //         else{
-                  //           debugPrint("Câu trả lời chưa chính xác");
-                  //         }
-                  //         updateQuestion();
-                  //       }
-                  //     ),
-    
-    
-                  //   ],
-                  // ),
-
 
                   // Text Answer
                     new Container(
@@ -206,7 +94,7 @@ class QuizState extends State<Quiz> {
                           else{
                             debugPrint("Câu trả lời chưa chính xác");
                           }
-                          _controller.clearComposing();
+                          _controller.clear();
                           updateQuestion();
                         },
                       ),
@@ -218,6 +106,7 @@ class QuizState extends State<Quiz> {
                 new Container(
                   alignment: Alignment.bottomCenter,
                   child:  new MaterialButton(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                       minWidth: 80.0,
                       height: 30.0,
                       color: Colors.blueAccent,
@@ -242,16 +131,18 @@ class QuizState extends State<Quiz> {
                 
                 new Container(
                   alignment: Alignment.bottomCenter,
-                  child:  new MaterialButton(
-                      minWidth: 180.0,
-                      height: 30.0,
-                      color: Colors.red,
-                      onPressed: resetQuiz,
-                      child: new Text("Thoát",
-                        style: new TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.white
-                        ),)
+                  child:  new MaterialButton(                      
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                    minWidth: 180.0,
+                    height: 30.0,
+                    color: Colors.red,
+                    onPressed: resetQuiz,
+                    child: new Text("Thoát",
+                      style: new TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white
+                      ),
+                    )
                   )
                 ),
 
