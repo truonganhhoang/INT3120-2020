@@ -7,7 +7,7 @@
   <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
-      <input matInput="true" [formControl]="email" />
+      <input type="email" matInput="true" [formControl]="email" />
       <mat-error *ngIf="email.errors">
         <div *ngIf="email.errors.required">Please enter your email address.</div>
         <div *ngIf="email.errors.email">Email address format is in valid.</div>
@@ -23,21 +23,19 @@
         <div *ngIf="password.errors.required">Please enter your password</div>
       </mat-error>
     </mat-form-field>
-    <div style="text-align: right;">
-      <ion-text color="primary" ion-button (click)="openDialog()">Forgot Password</ion-text>
+    <div class="forgot-password-btn">
+      <ion-text color="primary" ion-button (click)="openForgotPasswordDialog()">Forgot Password</ion-text>
     </div>
 
-    <br />
-    <br />
-    <br />
-    <ion-button type="submit" expand="full">Login</ion-button>
+    <div class="login-btn-area">
+      <ion-button type="submit" [disabled]="isSubmitting" expand="full">
+        Login
+        <ion-spinner *ngIf="isSubmitting"></ion-spinner>
+      </ion-button>
 
-    <div class="text-divider">or</div>
+      <div class="text-divider">or</div>
 
-    <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+      <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+    </div>
   </form>
-
-  <div class="footer">
-    <ion-img [src]="'/assets/shapes.png'"></ion-img>
-  </div>
 </ion-content>

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="content">
   <div class="header">
     <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
     <div>Create New Account</div>
@@ -7,7 +7,7 @@
   <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Full Name (Required)</mat-label>
-      <input matInput="true" [formControl]="fullName" />
+      <input type="text" matInput="true" [formControl]="fullName" />
       <mat-error *ngIf="fullName.errors">
         <div *ngIf="fullName.errors.required">Please enter your full name.</div>
       </mat-error>
@@ -15,7 +15,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
-      <input matInput="true" [formControl]="email" />
+      <input type="email" matInput="true" [formControl]="email" />
       <mat-error *ngIf="email.errors">
         <div *ngIf="email.errors.email || email.errors.required">Email address format is invalid.</div>
       </mat-error>
@@ -47,8 +47,4 @@
       By creating an account, you accout Coursera's <a href="https://www.coursera.org/about/terms" target="_blank"><strong color="primary">Terms of Service</strong></a> and <a href="https://www.coursera.org/about/privacy" target="_blank"><strong>Privacy Policy</strong></a>
     </div>
   </form>
-
-  <div class="footer">
-    <ion-img [src]="'/assets/shapes.png'"></ion-img>
-  </div>
 </ion-content>

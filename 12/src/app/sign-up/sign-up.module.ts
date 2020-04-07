@@ -12,6 +12,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 import { SignUpPage } from './sign-up.page';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
+import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component
     ReactiveFormsModule,
     SignUpPageRoutingModule
   ],
-  declarations: [SignUpPage, SignUpFailedComponent]
+  declarations: [SignUpPage, SignUpFailedComponent],
+  providers: [SignUpService]
 })
 export class SignUpPageModule {}

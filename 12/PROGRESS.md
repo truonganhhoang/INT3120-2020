@@ -157,3 +157,24 @@ ionic g page profile -f
 - Thêm các module auth, database và firestore `vào app.module`.
 - Tạo các services đăng ký, đăng nhập.
 - Tính năng đăng ký với email và mật khẩu.
+
+# 2020-04-01
+
+- Thêm service quên mật khẩu và đặt vào trang đăng nhập.
+
+# 2020-04-03
+
+- Xử lý lỗi tại service đăng nhập, đăng ký.
+- Sử dụng dialog để hiển thị lỗi khi đăng nhập.
+- Di chuyển các services đến thư mục `core`.
+- Chia `tab-routing.module` thành 5 routing submodules.
+
+# 2020-04-05
+
+- Thêm 4 tabs tại `/tab/learn/course/:courseId`: `overview`, `grades`, `forums`, `info`.
+- Unsubscribe khi sử dụng sign in, sign up services.
+
+# 2020-04-06
+
+- Thêm tính năng đăng nhập.
+- Router Guard cho route `/tabs/...`
