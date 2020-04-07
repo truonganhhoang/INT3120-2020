@@ -5,6 +5,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import FavoriteScreen from "./src/screens/FavoriteScreen";
+import SettingOptionScreen from "./src/screens/SettingOptionScreen";
+import SettingScreen from "./src/screens/SettingScreen";
 import Exam2Screen from "./src/screens/Exam2Screen";
 import DetailTopicScreen from "./src/screens/DetailTopicScreen";
 import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
@@ -32,9 +34,19 @@ export default class App extends Component {
               options={CategoryScreen.navigationOptions}
             />
             <HomeStack.Screen
+              name="SettingScreen"
+              component={SettingScreen}
+              options={SettingScreen.navigationOptions}
+            />
+            <HomeStack.Screen
               name="Favorite"
               component={FavoriteScreen}
               options={FavoriteScreen.navigationOptions}
+            />
+            <HomeStack.Screen
+              name="SettingOption"
+              component={SettingOptionScreen}
+              options={SettingOptionScreen.navigationOptions}
             />
             <HomeStack.Screen
               name="DetailTopic"
