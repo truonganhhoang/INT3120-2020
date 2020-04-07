@@ -11,7 +11,7 @@ App của chúng em có tên là "Bài Tập Ngữ Pháp Tiếng Anh Có Giải 
 - Kiểm tra, ghi nhớ ngữ pháp lâu hơn thông qua các bài kiểm tra tổng hợp
 
 Cách cài đặt ứng dụng:
-chúng ta có thể tải về tệp apk ở thư mục gốc của nhóm để cài vào điện thoại android
+	chúng ta có thể tải về tệp apk ở thư mục gốc của nhóm để cài vào điện thoại android
 
 Hướng dẫn nhanh:
 Bước 1: Chọn Cài đặt.
