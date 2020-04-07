@@ -12,13 +12,13 @@
                 android:id="@+id/action_eng_vi"
                 android:icon="@drawable/eng_vi"
                 android:orderInCategory="100"
-                android:title="Eng-Vi"
+                android:title="English - Vietnamese"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/action_vi_eng"
                 android:icon="@drawable/vi_eng"
                 android:orderInCategory="100"
-                android:title="Vi-Eng"
+                android:title="Vietnamese - English"
                 app:showAsAction="never" />
         </menu>
     </item>

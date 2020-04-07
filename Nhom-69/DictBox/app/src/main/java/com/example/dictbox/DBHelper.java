@@ -132,6 +132,16 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void removeBookMark(String key) {
+        try {
+            String q = "DELETE FROM bookmark WHERE upper(["+COL_KEY+"]) = upper(?)";
+            mDB.execSQL(q, new Object[]{key});
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String getTableName(int dicType) {
         String tableName = "";
         if (dicType == R.id.action_eng_vi) {
@@ -175,5 +185,15 @@ public class DBHelper extends SQLiteOpenHelper {
             word.value = result.getString(result.getColumnIndex(COL_VALUE));
         }
         return word;
+    }
+
+    public void clearBookmark() {
+        try {
+            String q = "DELETE FROM bookmark";
+            mDB.execSQL(q);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

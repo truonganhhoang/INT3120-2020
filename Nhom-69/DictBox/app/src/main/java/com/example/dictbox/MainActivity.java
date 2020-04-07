@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } catch (IOException e) {
             e.printStackTrace();
         }
-      
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         menuSetting = menu.findItem((R.id.action_settings));
@@ -133,17 +134,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(R.id.action_settings == id) return true;
-
-        Global.saveState(this, "dic_type", String.valueOf(id));
-        ArrayList<String> source = dbHelper.getWord(id);
 
         if (id == R.id.action_eng_vi) {
+            Global.saveState(this, "dic_type", String.valueOf(id));
+            ArrayList<String> source = dbHelper.getWord(id);
             dictionaryFragment.resetDataSource(source);
             menuSetting.setIcon(getDrawable(R.drawable.eng_vi));
+            return true;
         } else if (id == R.id.action_vi_eng) {
+            Global.saveState(this, "dic_type", String.valueOf(id));
+            ArrayList<String> source = dbHelper.getWord(id);
             dictionaryFragment.resetDataSource(source);
             menuSetting.setIcon(getDrawable(R.drawable.vi_eng));
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -155,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_bookmark) {
             String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
-            if (!activeFragment.equals(BookmarkFragment.class.getSimpleName())){
+            if (!activeFragment.equals(BookmarkFragment.class.getSimpleName())) {
                 goToFragment(bookmarkFragment, false);
             }
         }
