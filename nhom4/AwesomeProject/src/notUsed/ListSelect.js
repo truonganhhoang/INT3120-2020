@@ -80,6 +80,7 @@ const styles=StyleSheet.create({
         backgroundColor:'#1687cb',
     },
     textHeader:{
+        color:'#fff',
         fontSize:20,
     },
     iconBack:{
@@ -103,10 +104,11 @@ const styles=StyleSheet.create({
         justifyContent:'flex-end',
     },
     image:{
-        resizeMode:'stretch'
+        resizeMode:'repeat'
     },
     textSelect:{
         paddingTop:10,
         fontSize: 20,
+        color:'#fff'
     }
 });
