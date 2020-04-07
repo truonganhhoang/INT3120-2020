@@ -1,10 +1,16 @@
-# INT3120-2020
-Môn học Phát triển ứng dụng di động 2020
+# flutterapp10
 
-# Chú ý
-Mỗi nhóm tạo 1 thư mục với số của nhóm để đưa code của nhóm vào trong thư mục đó. Các thư mục này PHẢI CÓ readme.md mô tả các thông tin về app.
+A new Flutter application.
 
-# Nộp bài hàng tuần
-Các nhóm nộp bài hàng tuần bằng cách tạo 1 pull request nộp bài chung cho cả nhóm. Có nghĩa các thành viên sẽ đóng góp thông qua repo của 1 người forked ra từ repo này. 
+## Getting Started
 
-Mọi thành viên tự commit code của mình, không commit hộ, để thống kê trên github thể hiện được đóng góp của từng cá nhân.
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
