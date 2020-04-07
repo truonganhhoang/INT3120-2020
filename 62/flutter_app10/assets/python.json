@@ -1,0 +1,609 @@
+[
+  {
+    "1": "Khái niệm đường bộ được hiểu thế nào là đúng",
+    "2": "Vạch kẻ đường được hiểu thế nào là đúng",
+    "3": "Khái niệm phần đường xe chạy được hiểu thế nào là đúng",
+    "4": "Khái niệm làn đường được hiểu thế nào là đúng",
+    "5": "Khái niệm đường phố được hiểu thế nào là đúng",
+    "6": "Khái niệm dải phân cách được hiểu thế nào là đúng",
+    "7": "Dải phân cách trên đường bộ gồm những loại nào",
+    "8": "Khái niệm đường ưu tiên được hiểu thế nào là đúng",
+    "9": "Phương tiện giao thông đường bộ gồm những loại nào",
+    "10": "Phương tiện giao thông cơ giới đường bộ gồm những loại nào",
+    "11":"Phương tiện tham gia giao thông đường bộ” gồm những loại nào?",
+    "12":"Người tham gia giao thông đường bộ” gồm những đối tượng nào?",
+    "13":" Khái niệm “người điều khiển giao thông” được hiểu như thế nào là đúng?",
+    "14":"Hành vi nào ghi ở dưới đây bị nghiêm cấm?",
+    "15":"Những hành vi nào ghi ở dưới đây bị nghiêm cấm?",
+    "16":"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?",
+    "17":"Người điều khiển xe ô tô, xe máy kéo, xe máy chuyên dùng trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá bao nhiêu thì bị cấm?",
+    "18":"Người điều khiển xe mô tô, xe gắn máy trên đường mà trong máu có nồng độ cồn vượt quá bao nhiêu thì bị cấm?",
+    "19":"Người điều khiển xe mô tô, xe gắn máy trên đường mà trong khí thở có nồng độ cồn vượt quá bao nhiêu thì bị cấm ?",
+    "20":"Hành vi giao xe cơ giới, xe máy chuyên dùng cho người không đủ điều kiện để điều khiển xe tham gia giao thông có bị nghiêm cấm hay không?",
+    "21":"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có bị nghiêm cấm hay không?",
+    "22":"Những hành vi nào sau đây bị cấm?",
+    "23":"Các hành vi nào sau đây bị nghiêm cấm?",
+    "24":"Hành vi bỏ trốn sau khi gây tai nạn để trốn tránh trách nhiệm hoặc khi có điều kiện mà cố ý không cứu giúp người bị tai nạn giao thông có bị nghiêm cấm hay không?",
+    "25":"Khi xảy ra tai nạn giao thông, những hành vi nào ghi ở dưới đây bị nghiêm cấm?",
+    "26":"Việc sản xuất, mua bán, sử dụng biển xe cơ giới, xe máy chuyên dùng được quy định như thế nào trong Luật giao thông đường bộ ?",
+    "27": "Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?",
+    "28":"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo, đẩy các xe khác, vật khác khi tham gia giao thông không?",
+    "29":"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông không được thực hiện những hành vi nào sau đây?",
+    "30":"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
+    "31":"Khi điều khiển xe mô tô hai bánh, mô tô ba bánh, xe gắn máy những hành vi nào không được phép?",
+    "32":"Bảo đảm trật tự an toàn giao thông đường bộ là trách nhiệm của ai?",
+    "33":"Tại nơi đường giao nhau, khi đèn điều khiển giao thông có tín hiệu vàng, người điều khiển phương tiện như thế nào?",
+    "34":"Biển báo hiệu đường bộ gồm những nhóm nào, ý nghĩa của từng nhóm?",
+    "35":"Tại nơi đường giao nhau, khi người điều khiển giao thông ra hiệu lệnh bằng hai tay hoặc một tay giang ngang để báo hiệu thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
+    "36":"Tại nơi đường giao nhau, khi người điều khiển giao thông ra hiệu lệnh tay giơ thẳng đứng để báo hiệu thì người tham gia giao thông phải đi như thế nào?",
+    "37":"Tại nơi đường giao nhau, khi người điều khiển giao thông ra hiệu lệnh bằng tay phải giơ về phía trước để báo hiệu thì người tham gia giao thông phải đi như thế nào?",
+    "38":"Trên đường giao thông, khi hiệu lệnh của người điều khiển giao thông trái với hiệu lệnh của đèn hoặc biển báo hiệu thì người tham gia giao thông phải chấp hành theo hiệu lệnh nào?",
+    "39":"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấphành hiệu lệnh của báo hiệu nào?",
+    "40":"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường,người điều khiển phương tiện phải cho xe đi như thế nào?",
+    "41":"Trên đường một chiều có vạch kẻ phân làn đường, xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
+    "42":"Trên đường có nhiều làn đường, người điều khiển phương tiện tham gia giao thông sử dụng lànđường như thế nào là đúng?",
+    "43":"Xe sau có thể vượt lên bên phải xe khác đang chạy phía trước trong trường hợp nào? ",
+    "44":"Người lái xe phải làm gì khi quay đầu xe trên cầu,gầm cầu vượt, đường ngầm hay khu vực đường bộ giao nhau cùng mức với đường sắt?",
+    "45":"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào?",
+    "46":"Khi tránh xe đi ngược chiều, các xe phải nhường đường nhe thế nào là đúng?",
+    "47":"Ban đêm xe cơ giới đi ngược chiều gặp nhau, đèn chiếu sáng phải sử dụng như thế nào?",
+    "48":"Khi có tín hiệu của xe ưu tiên, người tham gia giao thông phải làm gì?",
+    "49":"Tại nơi đường giao nhau có báo hiệu đi theo vòng xuyến người điều khiển phương tiện phải nhường đường như thế nào?",
+    "50":"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải nhường đường nhưthế nào?",
+    "51":"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
+    "52":"Trên đoạn đường bộ giao nhau cùng mức với đường sắt, cầu đường bộ đi chung với đường sắt thì loại phương tiện nào được quyền ưu tiên đi trước?",
+    "53":"Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi dừng lại ngay và giữ khoảng cách tối thiểu bao nhiêu mét tính từ ray gần nhất?",
+    "54":"Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?",
+    "55":"Người lái xe phải làm gì khi điều khiển x era khỏi làn đường cao tốc?",
+    "56":"Những trường hợp nào ghi ở dưới đây không được đi vào đường cao tốc trừ người, phương tiện,thiết bị phục vụ cho việc quản lí, bảo trì đường cao tốc?",
+    "57":"Người điều khiển phương tiện tham gia giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào ghi ở dưới đây?",
+    "58":"Người ngồi trên xe mô tô 2 bánh, xe mô tô 3 bánh, xe gắn máy phải đội mũ bảo hiểm có cài quay đúng quy cách khi nào?",
+    "59":"Khi điều khiển xe mô tô 2 bánh, xe gắn máy được phép chở tối đa 2 người trong những trường hợp nào?",
+    "60":"Người điều khiển xe mô tô 2 bánh, xe mô tô 3 bánh, xe gắn máy không được thực hiện những hành vi nào ghi ở dưới đây?",
+    "61":"Người điều khiển, người ngồi trên xe đạp máy phải đội mũ bảo hiểm có cài quay đúng quy cách khi nào?",
+    "62":"Cơ quan nào quy định các đoạn đường cấm đi, đường đi một chiều, nơi cấm dừng, cấm đỗ, cấm quay đầu xe, lắp đặt báo hiệu đường bộ thuộc địa phương quản lí?",
+    "63":"Người điều khiển phương tiện và những người liên quan trực tiếp đến vụ tai nạn có trách nhiệm gì?",
+    "64":"Những người có mặt tại nơi xảy ra tai nạn giao thông có trách nhiệm gì?",
+    "65":"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy tờ gì?",
+    "66":"Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe mô tô 2 bánh, xe mô tô 3 bánh có dung tích xilanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự, xe ô tô tải, máy kéo có trọng tải dưới 3,5 tấn; xe ô tô chở người dưới 9 chỗ ngồi?",
+    "67":"Tại ngã ba hoặc ngã tư không có đảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
+    "68":"Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?",
+    "69":"Khi phát hiện hành vi giả khai báo mất hoặc tẩy xóa, làm sai lệch các thông tin trên giấy phép lái xe; sử dụng giấy phép lái xe hoặc đổi hồ sơ giả; có hành vi cố tình gian dối để được đổi, cấp mới, cấp lại giấy phép lái xe, ngoài việc bị cơ quan quản lý giấy phép lái xe quyết định thu hồi giấy phép lái xe và hồ sơ gốc còn phải chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
+    "70":"Người lái xe mô tô xử lý như thế nào khi cho xe mô tô phía sau vượt? ",
+    "71":"Trong các trường hợp dưới đây, để đảm bảo an toàn khi tham gia giao thông, người lái xe mô tôcần thực hiện như thế nào?",
+    "72":"Đường bộ trong khu vực đông dân cư gồm những đường nào?",
+    "73":"Trên đường bộ trong khu vực đông dân cư, xe mô tô hai bánh, xe gắn máy tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
+    "74":"Trên đường bộ trong khu vực đông dân cư, loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 40 km/h?",
+    "75":"Trên đường bộ ngoài khu đông dân cư, loại xe nào tham gia giao thông với tốc độ tối đa cho phéplà 50 km/h?",
+    "76":"Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
+    "77":"Người lái xe cố tình vi phạm Luật giao thông đường bộ, không phân biệt làn đường, vạch phân làn,phóng nhanh, vượt ẩu, vượt đèn đỏ, đi vào đường cấm, đường một chiều được coi là hành vi nào trong các hành vi sau đây?",
+    "78":"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
+    "79":"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
+    "80":"Người có văn hóa giao thông, khi điều khiển xe cơ giới tham gia giao thông đường bộ phải đảm bảo các điều kiện gì?",
+    "81":"Biển nào cấm người đi bộ?",
+    "82":"Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
+    "83":"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
+    "84":"Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
+    "85":"Biển nào báo hiệu sắp đến chỗ giao nhau với đường sắt có rào chắn",
+    "86":"Biển nào báo hiệu giao nhau có tín hiệu đèn",
+    "87":"Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
+    "88":"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?",
+    "89":"Biển nào báo hiệu “Hết đoạn đường ưu tiên”?",
+    "90":"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nha",
+    "91":"Biển nào báo hiệu giao nhau với đường không ưu tiên?",
+    "91":"Biển nào báo hiệu giao nhau với đường ưu tiên?",
+    "93":"Biển nào báo hiệu giao nhau với đường ưu tiên?",
+    "94":"Biển nào báo hiệu “Đường giao nhau” của các tuyến đường cùng cấp?",
+    "95":"Biển nào báo hiệu giao nhau với đường không ưu tiên?",
+    "96":"Biển nào báo hiệu đường hai chiều?",
+    "97":"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp",
+    "98":"Biển nào chỉ dẫn được ưu tiên qua đường hẹp?",
+    "99":"Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?",
+    "100":"Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
+    "101":"Khai gặp biển nào thì xe mô tô hai bánh được đi vào?",
+    "102":"Biển nào xe mô tô hai bánh được đi vào?",
+    "103":"Biển nào xe mô tô hai bánh không được đi vào?",
+    "104":"Ba biển này có ý nghĩa hiệu lực như thế nào?",
+    "105":"Biển nào cấm quay xe?",
+    "106":"Biển nào cấm xe rẽ trái?",
+    "107":"Khi gặp biển nào xe được rẽ trái?",
+    "108":"Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lạ",
+    "109":"Khi đến chỗ giao nhau, gặp biển nào thì người lái xe không được cho xe đi thẳng, phải rẽ sang hướng khác?",
+    "110":"Khi gặp biển này, xe lam và mô tô ba bánh có được phép rẽ trái hay rẽ phải hay không?",
+    "111":"Biển này có hiệu lực đối với xe mô tô hai, ba bánh không",
+    "112":"Biển nào báo hiệu cầu vượt liên thông?",
+    "113":"Biển nào báo hiệu đoạn đường hay xảy ra tai nạn?",
+    "114":"Biển nào báo hiệu tuyến đường cầu vượt cắt qua?",
+    "115":"Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?"
+
+  },
+  {
+    "1": {
+      "a": "Đường bộ, cầu đường bộ",
+      "b": "Hầm đường bộ, bến phà đường bộ",
+      "c": "Đường bộ, cầu đường bộ, Hầm đường bộ, bến phà đường bộ và các công trình phụ trợ khác"
+    },
+    "2": {
+      "a": "Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại",
+      "b": "Vạch kẻ đường là vạch chỉ sự phân biệt vị trí dừng, đỗ trên đường",
+      "c": "Tất cả các ý nêu trên"
+    },
+    "3": {
+      "a": "Là phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại",
+      "b": "Là phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại, dải đất dọc hai bên đường để đảm bảo an toàn giao thông",
+      "c": "Là phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại, các công trình, thiết bị phụ trợ khác và dải đất dọc hai bên đường để đảm bảo an toàn giao thông"
+    },
+    "4": {
+      "a": "Là một phần của đường xe chạy được chia theo chiều ngang của đường, có bề rộng đủ cho các xe chạy an toàn",
+      "b": "Là một phần của đường xe chạy được chia theo chiều dọc của đường, có bề rộng đủ cho các xe chạy an toàn",
+      "c": "Cả 02 ý nêu trên"
+    },
+    "5": {
+      "a": "Đường phố là đường đô thị, gồm lòng đường và hè phố",
+      "b": "Đường phố là đường đi bộ ngoài đô thị có lòng đường đủ rộng cho các phương tiện giao thông qua lại",
+      "c": "Cả 02 ý nêu trên"
+    },
+    "6": {
+      "a": "Là bộ phận của đường để phân chia mặt đường thành hai chiều xe chạy riêng biệt hoặc để phân chia đường của xe cơ giới và xe thô sơ",
+      "b": "Là bộ phận của đường đẻ xác định ranh giới của đất dành cho người đi bộ theo chiều ngang của đường",
+      "c": "Là bộ phần của đường để ngăn cách không cho các loại xe vào những nơi không được phép"
+    },
+    "7": {
+      "a": "Loại cố định",
+      "b": "Loại di động",
+      "c": "Cả hai ý trên"
+    },
+    "8": {
+      "a": "Đường ưu tiên là đường mà trên đó phương tiện tham gia giao thông đường bộ phải nhường đường cho các phương tiện đến từ hướng khác khi qua nơi đường giao nhau, có thể được cắm biển báo hiệu đường ưu tiên",
+      "b": "Đường ưu tiên là đường mà trên đó phương tiện tham gia giao thông đường bộ được các phương tiện đến từ hướng khác nhường đường khi qua nơi đường giao nhau, có thể được cắm biển báo hiệu đường ưu tiên",
+      "c": "Đường ưu tiên là đường chỉ dành cho một số loại phương tiện tham gia giao thông, được cắm biển báo hiệu đường ưu tiên"
+    },
+    "9": {
+      "a": "Phương tiện giao thông cơ giới đường bộ, phương tiện tham gia giao thông thô sơ đường bộ",
+      "b": "Phương tiện giao thông cơ giới đường bộ, phương tiện tham gia giao thông thô sơ đường bộ",
+      "c": "Cả hai ý trên"
+    },
+    "10": {
+      "a": "Gồm ô tô, máy kéo, xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, xe cơ giới dành cho người khuyết tật và xe máy chuyên dùng",
+      "b": "Gồm xe mô tô, máy kéo, rơ mooc được kéo bởi xe ô tô, máy kéo và xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy(kể cả xe máy điện) và các loại xe tương tự",
+      "c": "Cả hai ý trên"
+    },
+    "11": {
+      "a": "Phương tiện giao thông cơ giới đường bộ.",
+      "b": "Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng.",
+      "c": ""
+    },
+
+    "12": {
+      "a": "Người điều khiển, người sử dụng phương tiện tham gia giao thông đường bộ",
+      "b": "Người điều khiển, dẫn dắt súc vật, người đi bộ trên đường bộ",
+      "c": ""
+    },
+    "13": {
+      "a": "Là người điều khiển phương tiện tham gia giao thông.",
+      "b": "Là người được giao nhiệm vụ hướng dẫn giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt.",
+      "c": "Là cảnh sát giao thông."
+    },
+    "14": {
+      "a": "Phá hoại đường, cầu, hầm, bến phà đường bộ, phá hoại đèn tín hiệu, cọc tiêu, biển báo hiệu, gương cầu, dải phân cách.",
+      "b": " Phá hoại hệ thống thoát nước và các công trình, thiết bị khác thuộc kết cấu hạ tầng giao thông đường bộ.",
+      "c": ""
+    },
+
+    "15": {
+      "a": "Đua xe, cổ vũ đua xe, tổ chức đua xe trái phép.",
+      "b": " Lạng lách, đánh võng.",
+      "c": ""
+    },
+    "16": {
+      "a": "Bị nghiêm cấm.",
+      "b": " Không bị nghiêm cấm.",
+      "c": ""
+
+    },
+
+    "17": {
+      "a": "Người điều khiển xe ô tô, máy kéo, xe máy chuyên dùng mà trong máu có nồng độ cồn vượt quá 50 miligam/100 mililit máu hoặc 0.25 miligam/1 lit khí thở.",
+      "b": " Người điều khiển xe ô tô, máy kéo, xe máy chuyên dùng trên đường mà trong máu hoặc hơi thở có nồng độ cồn.",
+      "c": "Người điều khiển xe ô tô, máy kéo, xe máy chuyên dùng trên đường mà trong máu có nồng độ cồn vượt quá 80 miligam/100 mililit máu hoặc 40 miligam/1 lit khí thở."
+
+    },
+    "18": {
+      "a": "Nồng độ cồn vượt quá 50 miligam/100 mililit máu.",
+      "b": "Nồng độ cồn vượt quá 40 miligam/100 mililit máu.",
+      "c": "Nồng độ cồn vượt quá 30 miligam/100 mililit máu."
+    },
+    "19": {
+      "a": "Nồng độ cồn vượt quá 0.25 miligam/1 lit khí thở.",
+      "b": "Nồng độ cồn vượt quá 0.20 miligam/1 lit khí thở.",
+      "c": "Nồng độ cồn vượt quá 0.15 miligam/1 lit khí thở."
+    },
+    "20": {
+      "a": "Không bị nghiêm cấm.",
+      "b": "Bị nghiêm cấm.",
+      "c": "Nghiêm cấm tùy từng trường hợp."
+    },
+    "21": {
+      "a": " Bị nghiêm cấm.",
+      "b": "Không bị nghiêm cấm.",
+      "c": "Bị nghiêm cấm tùy từng trường hợp."
+    },
+    "22": {
+      "a": "Bấm còi, rú ga liên tục, bấm còi trong thời gian từ 22 giờ đến 5 giờ.",
+      "b": "Bấm còi hơi, sử dụng đèn chiếu xa trong khu đô thị và khu dân cư, trừ các xe ưu tiên khi đang làm nhiệm vụ.",
+      "c": ""
+    },
+    "23": {
+      "a": "Lắp đặt, sử dụng còi, đèn không đúng thiết kế của nhà sản xuất đối với từng loại xe cơ giới.",
+      "b": "Sử dụng thiết bị âm thanh gây mất trật tự an toàn giao thông, trật tự công cộng.",
+      "c": ""
+    },
+    "24": {
+      "a": " Không bị nghiêm cấm.",
+      "b": "Nghiêm cấm tùy từng trường hợp cụ thể.",
+      "c": "Bị nghiêm cấm."
+    },
+    "25": {
+      "a": "Xâm phạm tính mạng, sức khỏe, tài sản của người bị tai nạn giao thông, xâm phạm tính mạng, sức khỏe, tài sản của người gây tai nạn giao thông.",
+      "b": " Lợi dụng việc xảy ra tai nạn giao thông để hành hung, đe dọa, xúi giục, gây sức ép, làm mất trật tự, cản trở việc xử lý tai nạn giao thông.",
+      "c": ""
+    },
+    "26": {
+      "a": "Nghiêm cấm sản xuất, được phép sử dụng.",
+      "b": "Nghiêm cấm mua bán,cho phép sử dụng.",
+      "c": "Nghiêm cấm sản xuất, mua bán, sử dụng trái phép."
+    },
+    "27": {
+      "a": "Trên cầu hẹp có một làn xe, nơi đường giao nhau, đường bộ giao nhau cùng mức với đường sắt",
+      "b": "Điều kiện thời tiết hoặc đường không đảm bảo an toàn cho việc vượt, xe ưu tiên đang phát tín hiệu ưu tiên làm nhiệm vụ.",
+      "c": ""
+    },
+    "28": {
+      "a": "Được phép.",
+      "b": "Tùy trường hợp",
+      "c": " Không được phép."     
+    },
+    "29": {
+      "a": "Đội mũ bảo hiểm và cài quai đúng cách",
+      "b": "Sử dụng ô; bấm, kéo hoặc đẩy các phương tiện khác.",
+      "c": "Đứng trên yên, giá đèo hàng hoặc ngồi trên tay lái, các hành vi khác gây mất trật tự an toàn giao thông"
+    },
+    "30": {
+      "a": "Được mang, vác tùy trường hợp cụ thể.",
+      "b": "Không được mang, vác.",
+      "c": "Được mang, vác nhưng phải đảm bảo an toàn"
+    },
+    "31": {
+      "a": "Buông cả hai tay hoặc đi xe bằng một bánh đối với xe hai bánh, bằng hai bánh đối với xe ba bánh, chạy quá tốc độ quy định.",
+      "b": "Sử dụng xe để kéo, đẩy xe khác, vật khác và chở vật cồng kềnh, để chân chống quẹt xuống đất và cá hành vi khác gây mất trật tự an toàn giao thông.",
+      "c": "Chạy đúng tốc độ quy định và chấp hành đúng quy tắc giao thông đường bộ."
+    },
+    "32": {
+      "a": "Là trách nhiệm của ngành giao thông vận tải và ngành công an. ",
+      "b": "Là trách nhiệm của cơ quan, tổ chức, cá nhân.",
+      "c": "Là trách nhiệm của cảnh sát giao thông"
+    },
+    "33": {
+      "a": "Phải cho xe dừng lại trước vạch dừng,trừ trường hợp đã đi quá vạch dừng thì được đi tiếp; trong trường hợp tín hiệu vàng nhấp nháy là được đi nhưng phải giảm tốc độ, chú ý quan sát, nhường đường cho người đi bộ qua đường.",
+      "b": "Phải cho xe nhanh chóng vượt qua vạch dừng để đi qua đường giao nhau và chú ý đảm bảo an toàn; khi đèn tín hiệu vàng nhấp nháy là được đi nhưng phải giảm tốc độ, chú ý quan sát người đi bộ để đảm bảo an toàn.",
+      "c": "Cả 2 ý nêu trên."
+    },
+    "34": {
+      "a": "Nhóm biển báo cấm để biểu thị các điều cấm; nhóm biển báo hiệu nguy hiểm để cảnh báo các tình huống nguy hiểm có thể xảy ra, nhóm biển hiệu lệnh để báo hiệu các hiệu lệnh phải thi hành.",
+      "b": "Nhóm biển chỉ dẫn để chỉ dẫn hướng đi hoặc các điều biết; nhóm biển phụ để thuyết minh bổ sung các loại biển báo cấm, biển báo nguy hiểm, biển hiệu lệnh và biển chỉ dẫn.",
+      "c": ""
+    },
+    "35": {
+      "a": "Người tham gia giao thông ở phía trước và ở phía sau người điều khiển giao thông phải dừng lại; người tham gia giao thông ở phía bên phải và bên trái người điều khiển được đi.",
+      "b": "- Người tham gia giao thông ở phía trước và ở phía sau người điều khiển giao thông được đi thẳng; người tham gia giao thông ở phía bên phải và bên trái người điều khiển giao thông được đi thẳng và rẽ phải.",
+      "c": ""
+    },
+    "36": {
+      "a": "Người tham gia giao thông ở phía trước và ở phía sau người điều khiển giao thông phải dừng lại, người tham gia giao thông ở phía bên phải và bên trái người điều khiển được đi.",
+      "b": "Người tham gia giao thông ở các hướng phải dừng lại. ",
+      "c": "Tất cả các trường hợp trên"
+    },
+    "37": {
+      "a": "Người tham gia giao thông ở phía sau người điều khiển phải dừng lại; người ở phía trước người điều khiển được rẽ trái; người ở bên trái người điều khiển được rẽ trái; người đi bộ qua đường phải dừng lại sau lưng người điều khiển giao thông",
+      "b": "Người tham giao giao thông ở phía sau và bên phải người điều khiển phải dừng lại; người ở phía trước người điều khiển được rẽ phải; người ở phía bên trái người điều khiển giao thông được đi tất cả các hướng; người đi bộ qua đường phải đi sau lưng người điều khiển giao thông",
+      "c": ""
+    },
+    "38": {
+      "a": "Hiệu lệnh của người điều khiển giao thông. ",
+      "b": "Hiệu lệnh của đèn điều khiển giao thông.",
+      "c": "Hiệu lệnh của biển báo hiệu đường bộ."
+    },
+    "39": {
+      "a": "Biển báo hiệu cố định",
+      "b": "Báo hiệu tạm thời.",
+      "c": ""
+    },
+    "40": {
+      "a": "Cho xe đi trên bất kì làn đường nào,khi cần thiết phải chuyển làn đường, người lái xe phải có đèn tín hiệu báo trước và phải bảo đảm an toàn",
+      "b": "Phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép; khi chuyển làn phải có tín hiệu báo trước và phải đảm bảo an toàn",
+      "c": "Phải cho xe đi trong một làn, khi chuyển làn đường phải có tín hiệu báo trước, chú ý quan sát để bảo đảm an toàn."
+    },
+    "41": {
+      "a": "Xe thô sơ phải đi làn đường bên trái trong cùng; xe cơ giới, xe máy chuyên dùng phải đi trên làn đường bên phải.",
+      "b": "Xe thô sơ phải đi trên làn đường bên phải trong cùng, xe cơ giới, xe máy chuyên dùng phải đi trên làn đường bên trái.",
+      "c": "Xe thô sơ phải đi trên làn đường phù hợp không gây cản trở giao thông, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải."
+    },
+    "42": {
+      "a": "Trên đường có nhiều làn đườngcho xe đi cùng chiều được phân biêt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép ; khi chuyển làn đường phải có tín hiệu báo trước và đảm bảo an toàn",
+      "b": "Phương tiện tham gia giao thông đường bộ di chuyển tốc độ thấp hơn đi về bên trái.",
+      "c": "Trên đường một chiều có vạch kẻ phân làn đường, xe thô sơ phải đi trên làn đường bên phải trong cùng xe cơ giới, xe máy chuyên dùng đi trên làn đường bên trái, phương tiện tham gia giao thông đường bộ di chuyển tốc độ thấp hơn đi về bên phải."
+    },
+    "43": {
+      "a": "Khi xe phía trước có tín hiệu rẽ trái hoặc đang rẽ trái; khi xe điện đang chạy giữa đường. ",
+      "b": "Khi xe chuyên dùng đang làm việc trên đường mà không thể vượt bên trái được.",
+      "c": "Khi có đủ khoảng trống để vượt xe."
+    },
+    "44": {
+      "a": "Không được quay đầu xe.",
+      "b": "Lợi dụng chỗ trống và phải có người làm tín hiệu sau xe để đảm bảo an toàn. ",
+      "c": "Lợi dụng chỗ trống có thể quay đầu được để quay đầu xe cho an toàn"
+    },
+    "45": {
+      "a": "- Người điều khiển phương tiện phải tăng tốc độ và có tín hiệu báo hướng để rẽ.",
+      "b": "Người điều khiển phương tiện phải giảm tốc độ và có tín hiệu báo hướng rẽ, chỉ cho rẽ chuyển hướng khi quan sát thấy không gây trở ngại hoặc nguy hiểm cho người và phương tiện khác.",
+      "c": "- Trong khi chuyển hướng, người lái xe, người điều khiển xe máy chuyên dùng phải nhường quyền đi trước cho người đi bộ, người đi xe đạp đang đi trên phần đường dành riêng cho họ, nhường đường cho các xe đi ngược chiều."
+    },
+    "46": {
+      "a": "Nơi đường hẹp chỉ đủ cho một xe chạy và có chỗ tránh xe thì xe nào ở gần chỗ tránh hơn phải vào vị trí tránh nhường đường cho xe kia đi",
+      "b": "Xe xuống dốc phải nhường đường cho xe đang lên dốc, xe nào có chướng ngại vật phía trước phải nhường đường cho xe không có chướng ngại vật đi trước",
+      "c": "Xe lên dốc phải nhường đường cho xe xuống dốc."
+    },
+    "47": {
+      "a": "Phải chuyến từ đèn chiếu gần sang đèn chiếu xa.",
+      "b": " Phải chuyển từ đèn chiếu xa sang đèn chiếu gần",
+      "c": ""
+    },
+    "48": {
+      "a": "Phải nhanh chống giảm tốc độ, tránh hoặc dừng lại sát lề đường bên trái để nhường đường",
+      "b": "Phải nhanh chống tăng tốc độ, tránh sát lề đường để nhường đường cho xe ưu tiên. Cấm các hành vi gây cản trở xe ưu tiên.",
+      "c": "Phải nhanh chống giảm tốc độ, tránh hoặc dừng lại sát lề đường bên phải để nhường đường. Không được gây cản trở xe được quyền ưu tiên."
+    },
+    "49": {
+      "a": "- Phải nhường đường cho xe đi bên phải.",
+      "b": "Xe báo hiệu xin đường trước xe đó được đi trước. ",
+      "c": "Phải nhường đường cho xe đi bên trái."
+    },
+    "50": {
+      "a": "Là người điều khiển phương tiện tham gia giao thông.",
+      "b": "Nhường đường cho xe đi ở bên trái mình tới.",
+      "c": "Nhường đường cho xe đi trên đường ưu tiên hoặc đường chính đi từ bất kì hướng nào tới"
+    },
+    "51": {
+      "a": "Phải nhường đường cho xe đi từ bên phải.",
+      "b": "Xe báo hiệu xin đường trước xe đó được đi trước. ",
+      "c": "Phải nhường đường cho xe đi từ bên trái."
+    },
+    "52": {
+      "a": "Phương tiện nào bên phải không vướng.",
+      "b": " Phương tiện nào ra tín hiệu xin đường trước. ",
+      "c": "Phương tiện giao thông đường sắt."
+    },
+    "53": {
+      "a": "5.00m",
+      "b": "3.00m",
+      "c": "4.00m."
+    },
+    "54": {
+      "a": "Phải có tín hiệu xin vào và phải nhường đường cho xe đang chạy trên đường, khi thấy an toàn mới cho xe nhập vào dòng xe ở làn đường sát mép ngoài.",
+      "b": "Phải có tín hiệu và tăng tốc độ vào đường cao tốc.",
+      "c": "Nếu có làn đường tăng tốc thì phải cho xe chạy trên làn đường đó trước khi vào làn đường của đường cao tốc"
+    },
+    "55": {
+      "a": "Phải thực hiện chuyển dần sang làn đường phía bên phải, nếu có làn đường giảm tốc thì phải cho xe chạy trên làn đường đó trước khi rời khỏi đường cao tốc.",
+      "b": "Phải thực hiện chuyển ngay sang các làn đường phía bên phải, nếu có làn đường giảm tốc thì phải cho xe chạy trên làn đường đó trước khi rời khỏi đường cao tốc.",
+      "c": ""
+    },
+    "56": {
+      "a": "Người đi bộ, xe thô sơ, xe gắn máy và xe ô tô.",
+      "b": "Xe mô tô và xe máy chuyên dùng có tốc độ thiết kế lớn hơn 70km/h",
+      "c": "- Người đi bộ, xe thô sơ, xe gắn máy, xe mô tô và xe máy chuyên dùng có tốc độ thiết kế nhỏ hơn 70km/h."
+    },
+    "57": {
+      "a": "Xe cơ giới, xe máy chuyên dùng phải bật đèn, xe thô sơ phải bật đèn hoặc có vật sáng báo hiệu, chỉ được dừng xe, đỗ xe ở nơi quy định. ",
+      "b": "Xe cơ giới phải bật đèn ngay cả khi đường hầm sáng, phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết..",
+      "c": "Xe máy chuyên dùng phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết"
+    },
+    "58": {
+      "a": "Khi tham gia giao thông đường bộ.",
+      "b": "Chỉ khi đi trên đường cao tốc.",
+      "c": ""
+    },
+    "59": {
+      "a": "Chở người bệnh đi cấp cứu, trẻ em dưới 14 tuổi. ",
+      "b": "Áp giải người có hành vi vi phạm pháp luật.",
+      "c": ""
+    },
+    "60": {
+      "a": "Đi xe dàng hàng ngang.",
+      "b": "Đi xe vào phần đường dành cho người đi bộ và phương tiện khác, sử dụng ô, điện thoại di động, thiết bị âm thanh( trừ thiết bị trợ thính)",
+      "c": "Chở người bệnh đi cấp cứu, trẻ em dưới 14 tuổi, áp giải người có hành vi vi phạm pháp luật."
+    },
+    "61": {
+      "a": "Đi xe dàng hàng ngang.",
+      "b": "Chỉ khi tham gia giao thông trên đường quốc lộ, khu vực đô thị. ",
+      "c": ""
+    },
+    "62": {
+      "a": "Cơ quan quản lý giao thông vận tải. ",
+      "b": "Uỷ ban nhân dân cấp tỉnh.",
+      "c": "Cơ quan cảnh sát giao thông đường bộ"
+    },
+    "63": {
+      "a": "Dừng ngay phương tiện, giữ nguyên hiện trường, cấp cứu người bị nạn và phải có mặt khi cơ quan có thẩm quyền yêu cầu, cung cấp thông tin xác thực về vụ tai nạn cho cơ quan có thẩm quyền",
+      "b": "Ở lại nơi xảy ra tai nạn cho đến khi người của cơ quan công an đến, trừ trường hợp người điều khiển phương tiện cũng bị thương phải đưa đi cấp cứu hoặc phải đưa người bị nạn đi cấp cứu hoặc vì lý do đe dọa đến tính mạng nhưng phải đến trình báo ngay với cơ quan công an gần nhất.",
+      "c": "Rời khỏi hiện trường nơi xảy ra tai nạn giao thông"
+    },
+    "64": {
+      "a": "Bảo vệ hiện trường, giúp đỡ, cứu chữa người bị nạn, bảo vệ tài sản của người bị nạn",
+      "b": "Báo tin ngay cho cơ quan công an, y tế hoặc Uỷ ban nhân dân nơi gần nhất, cung cấp thông tin xác thực về vụ tai nạn theo yêu cầu của cơ quan có thẩm quyền.",
+      "c": ""
+    },
+    "65": {
+      "a": "Giấy phép lái xe, đăng kí xe, giấy phép lưu hành xe.  ",
+      "b": "Lệnh vận chuyển, đăng kí xe, giấy phép lưu hành xe",
+      "c": "Giấy phép lái xe phù hợp với loại xe đó, đăng kí xe, giấy chứng nhận kiểm định kĩ thuật và bảo vệ môi trường, giấy chứng nhận trách nhiệm bảo hiểm trách nhiệm dân sự của chủ xe cơ giới và giấy phép vận chuyển (nếu loại xe đó cần phải có)."
+    },
+    "66": {
+      "a": "16 tuổi ",
+      "b": "18 tuổi.",
+      "c": "17 tuổi."
+    },
+    "67": {
+      "a": "Nhường đường cho xe đi trên đường nhánh từ bất kỳ hướng nào tới.  ",
+      "b": "Nhường đường cho người đi bộ đang đi trên phần đường dành cho người đi bộ sang đường",
+      "c": "Nhường đường cho xe đi trên đường ưu tiên, đường chính đi từ bất kì hướng nào tới, nhường đường cho xe ưu tiên, nhường đường cho xe đi từ bên phải đến."
+    },
+    "68": {
+      "a": "Xe mô tô hai bánh có dung tích xilanh từ 50 cm3 trở lên.  ",
+      "b": "Xe gắn máy có dung tích xilanh từ 50 cm3 trở xuống.",
+      "c": "Xe ô tô tải dưới 3,5 tấn, xe chở người đến 9 chỗ ngồi."
+    },
+    "69": {
+      "a": "05 năm ",
+      "b": "03 năm",
+      "c": "02 năm"
+    },
+    "70": {
+      "a": "Lái xe vào lề đường bên phải và giảm tốc độ để xe phía sau vượt qua. ",
+      "b": "Lái xe vào lề đường bên trái và giảm tốc độ để xe phía sau vượt qua. ",
+      "c": "Lái xe vào lề đường bên phải và tăng tốc độ để xe phía sau vượt qua."
+    },
+    "71": {
+      "a": "Phải đội mũ bảo hiểm có cài quay đúng quy cách, mặc quần áo gọn gàng. ",
+      "b": "- Không sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính)",
+      "c": "Buông cả hai tay hoặc đi xe bằng 1 bánh."
+    },
+    "72": {
+      "a": "- Đường bộ nằm trong khu vực nội thành phố, nội thị xã, nội thị trấn, khu công nghiệp có đông người và phương tiện tham gia giao thông. ",
+      "b": "- Đường bộ nằm trong khu vực nội thành phố, nội thị xã và những đoạn đường bộ được xác định từ vị trí có hiệu lực của biển báo hiệu “bắt đầu khu đông dân cư” đến vị trí có hiệu lực của biển báo hiệu “hết khu đông dân cư”.",
+      "c": "Đường bộ có đông người, phương tiện tham gia giao thông và những đoạn đường bộ được xác định từ vị trí có hiệu lực của biển báo hiệu “bắt đầu khu đông dân cư” đến vị trí có hiệu lực của biển báo hiệu “hết khu đông dân cư”."
+    },
+    "73": {
+      "a": "60 km/h. ",
+      "b": "50 km/h",
+      "c": "40 km/h."
+    },
+    "74": {
+      "a": " Ô tô chở người trên 30 chỗ ngồi, ô tô tải có trọng tải từ 3500kg trở lên, ô tô sơ mi rơ mooc, ô tô kéo rơ moóc, ô tô kéo xe khác, ô tô chuyên dùng, xe mô tô, xe gắn máy ",
+      "b": " Ô tô chở người đến 30 chỗ ngồi, ô tô tải có trọng tải dưới 3500 kg.",
+      "c": "Xe máy kéo, xe công nông, xe lam, xe lôi máy xe xích lô máy, xe ba gác máy, xe máy chuyên dùng và các loại xe tương tự (loại đang được phép hoạt động)."
+    },
+    "75": {
+      "a": "Ô tô chở người đến 30 chỗ ngồi ( trừ ô tô buýt), ô tô tải có tải trọng dưới 3500 kg. ",
+      "b": "Ô tô chở người trên 30 chỗ ngồi ( trừ ô tô buýt), ô tô tải có trọng tải dưới 3500 kg. ",
+      "c": "Ô tô kéo rơ moóc, ô tô kéo xe khác, xe gắn máy."
+    },
+    "76": {
+      "a": "Là sự hiểu biết và chấp hành nghiêm chỉnh pháp luật về giao thông, là ý thức trách nhiệm với cộng đồng khi tham gia giao thông.",
+      "b": "Là ứng xử văn hóa có tình yêu thương con người trong các tình huống không may xảy ra khi thamgia giao thông.",
+      "c": ""
+    },
+    "77": {
+      "a": "Là bình thường. ",
+      "b": "Là thiếu văn hóa giao thông. ",
+      "c": "Là có văn hóa giao thông."
+    },
+    "78": {
+      "a": "Điều khiển xe đi trên phần đường, làn đường có ít phương tiện tham gia giao thông, đội mũ bảo hiểm ở những nơi có biển báo bắt buộc đội mũ bảo hiểm.",
+      "b": "Chấp hành quy định về tốc độ, đèn tín hiệu, biển báo hiệu, vạch kẻ đường khi lái xe.",
+      "c": "Chấp hành hiệu lệnh, chỉ dẫn của người điều khiển giao thông, nhường đường cho người đi bộ, người già, trẻ em, người khuyết tật."
+    },
+    "79": {
+      "a": "Điều khiển xe đi bên phải chiều đi của mình.",
+      "b": "Điều khiển xe đi trên phần đường, làn đường có ít phương tiện tham gia giao thông. ",
+      "c": "Đi đúng phần đường, làn đường quy định; đội mũ bảo hiểm đúng quy cách."
+    },
+    "80": {
+      "a": "- Có giấy phép lái xe phù hợp với loại xe được phép điều khiển, xe cơ giới đảm bảo các quy định về chất lượng, an toàn kỹ thuật và bảo vệ môi trường. ",
+      "b": "Có giấy chứng nhận trách nhiệm bảo hiểm dân sự của chủ xe cơ giới còn hiệu lực, nộp phí sử dụng đường bộ theo quy định.",
+      "c": ""
+    }
+  },
+  {
+    "1": "Đường bộ, cầu đường bộ",
+    "2": "Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại",
+    "3": "Là phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại",
+    "4": "Là một phần của đường xe chạy được chia theo chiều dọc của đường, có bề rộng đủ cho các xe chạy an toàn",
+    "5": "Đường phố là đường đô thị, gồm lòng đường và hè phố",
+    "6": "Là bộ phận của đường để phân chia mặt đường thành hai chiều xe chạy riêng biệt hoặc để phân chia đường của xe cơ giới và xe thô sơ",
+    "7": "Loại cố định",
+    "8": "Đường ưu tiên là đường mà trên đó phương tiện tham gia giao thông đường bộ được các phương tiện đến từ hướng khác nhường đường khi qua nơi đường giao nhau, có thể được cắm biển báo hiệu đường ưu tiên",
+    "9": "Phương tiện giao thông cơ giới đường bộ, phương tiện tham gia giao thông thô sơ đường bộ",
+    "10": "Gồm xe mô tô, máy kéo, rơ mooc được kéo bởi xe ô tô, máy kéo và xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy(kể cả xe máy điện) và các loại xe tương tự",
+    "11": "Phương tiện giao thông cơ giới đường bộ, phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng ",
+    "12": " Người điều khiển, người sử dụng phương tiện tham gia giao thông đường bộ,người điều khiển, dẫn dắt súc vật, người đi bộ trên đường bộ ",
+    "13": "Là người được giao nhiệm vụ hướng dẫn giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt, là cảnh sát giao thông. ",
+    "14": "Phá hoại đường, cầu, hầm, bến phà đường bộ, phá hoại đèn tín hiệu, cọc tiêu, biển báo hiệu, gương cầu, dải phân cách,Phá hoại hệ thống thoát nước và các công trình, thiết bị khác thuộc kết cấu hạ tầng giao thông đường bộ.",
+    "15": "Đua xe, cổ vũ đua xe, tổ chức đua xe trái phép,lạng lách, đánh võng. ",
+    "16": "Bị nghiêm cấm",
+    "17": "Người điều khiển xe ô tô, máy kéo, xe máy chuyên dùng trên đường mà trong máu hoặc hơi thở có nồng độ cồn.",
+    "18": "Nồng độ cồn vượt quá 50 miligam/100 mililit máu.",
+    "19": "Nồng độ cồn vượt quá 0.25 miligam/1 lit khí thở.",
+    "20": " Bị nghiêm cấm.",
+    "21": " Bị nghiêm cấm.",
+    "22": " Bấm còi, rú ga liên tục, bấm còi trong thời gian từ 22 giờ đến 5 giờ, Bấm còi hơi, sử dụng đèn chiếu xa trong khu đô thị và khu dân cư, trừ các xe ưu tiên khi đang làm nhiệm vụ.",
+    "23": "Lắp đặt, sử dụng còi, đèn không đúng thiết kế của nhà sản xuất đối với từng loại xe cơ giới, sử dụng thiết bị âm thanh gây mất trật tự an toàn giao thông, trật tự công cộng.",
+    "24": "Bị nghiêm cấm.",
+    "25": "Xâm phạm tính mạng, sức khỏe, tài sản của người bị tai nạn giao thông, xâm phạm tính mạng, sức khỏe, tài sản của người gây tai nạn giao thông, Lợi dụng việc xảy ra tai nạn giao thông để hành hung, đe dọa, xúi giục, gây sức ép, làm mất trật tự, cản trở việc xử lý tai nạn giao thông.",
+    "26": "Nghiêm cấm sản xuất, mua bán, sử dụng trái phép.",
+    "27": "Trên cầu hẹp có một làn xe, nơi đường giao nhau, đường bộ giao nhau cùng mức với đường sắt,Trên cầu hẹp có một làn xe, nơi đường giao nhau, đường bộ giao nhau cùng mức với đường sắt",
+    "28": "Không được phép.",
+    "29": "Sử dụng ô; bấm, kéo hoặc đẩy các phương tiện khác,Đứng trên yên, giá đèo hàng hoặc ngồi trên tay lái, các hành vi khác gây mất trật tự an toàn giao thông.",
+    "30": "Không được mang, vác",
+    "31": "Buông cả hai tay hoặc đi xe bằng một bánh đối với xe hai bánh, bằng hai bánh đối với xe ba bánh, chạy quá tốc độ quy định, Sử dụng xe để kéo, đẩy xe khác, vật khác và chở vật cồng kềnh, để chân chống quẹt xuống đất và cá hành vi khác gây mất trật tự an toàn giao thông.",
+    "32": "Là trách nhiệm của cơ quan, tổ chức, cá nhân.",
+    "33": "Phải cho xe dừng lại trước vạch dừng,trừ trường hợp đã đi quá vạch dừng thì được đi tiếp; trong trường hợp tín hiệu vàng nhấp nháy là được đi nhưng phải giảm tốc độ, chú ý quan sát, nhường đường cho người đi bộ qua đường.",
+    "34": "Nhóm biển báo cấm để biểu thị các điều cấm; nhóm biển báo hiệu nguy hiểm để cảnh báo các tình huống nguy hiểm có thể xảy ra, nhóm biển hiệu lệnh để báo hiệu các hiệu lệnh phải thi hành,Nhóm biển chỉ dẫn để chỉ dẫn hướng đi hoặc các điều biết; nhóm biển phụ để thuyết minh bổ sung các loại biển báo cấm, biển báo nguy hiểm, biển hiệu lệnh và biển chỉ dẫn.",
+    "35": "Người tham gia giao thông ở phía trước và ở phía sau người điều khiển giao thông phải dừng lại; người tham gia giao thông ở phía bên phải và bên trái người điều khiển được đi.",
+    "36": "Người tham gia giao thông ở các hướng phải dừng lại.",
+    "37": "Người tham giao giao thông ở phía sau và bên phải người điều khiển phải dừng lại; người ở phía trước người điều khiển được rẽ phải; người ở phía bên trái người điều khiển giao thông được đi tất cả các hướng; người đi bộ qua đường phải đi sau lưng người điều khiển giao thông.",
+    "38": "Hiệu lệnh của người điều khiển giao thông",
+    "39": "Báo hiệu tạm thời",
+    "40": "Phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép; khi chuyển làn phải có tín hiệu báo trước và phải đảm bảo an toàn.",
+    "41": "Xe thô sơ phải đi trên làn đường bên phải trong cùng, xe cơ giới, xe máy chuyên dùng phải đi trên làn đường bên trái",
+    "42": "Trên đường có nhiều làn đườngcho xe đi cùng chiều được phân biêt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép ; khi chuyển làn đường phải có tín hiệu báo trước và đảm bảo an toàn.Trên đường một chiều có vạch kẻ phân làn đường, xe thô sơ phải đi trên làn đường bên phải trong cùng xe cơ giới, xe máy chuyên dùng đi trên làn đường bên trái, phương tiện tham gia giao thông đường bộ di chuyển tốc độ thấp hơn đi về bên phải.",
+    "43": "Khi xe phía trước có tín hiệu rẽ trái hoặc đang rẽ trái; khi xe điện đang chạy giữa đường. Khi xe chuyên dùng đang làm việc trên đường mà không thể vượt bên trái được.",
+    "44": "Không được quay đầu xe.",
+    "45": "Người điều khiển phương tiện phải giảm tốc độ và có tín hiệu báo hướng rẽ, chỉ cho rẽ chuyển hướng quan sát thấy không gây trở ngại hoặc nguy hiểm cho người và phương tiện khác. Trong khi chuyển hướng, người lái xe, người điều khiển xe máy chuyên dùng phải nhường quyền đi trước cho người đi bộ, người đi xe đạp đang đi trên phần đường dành riêng cho họ, nhường đường cho các xe đi ngược chiều.",
+    "46": "Nơi đường hẹp chỉ đủ cho một xe chạy và có chỗ tránh xe thì xe nào ở gần chỗ tránh hơn phải vào vị trí tránh nhường đường cho xe kia đi. Xe xuống dốc phải nhường đường cho xe đang lên dốc, xe nào có chướng ngại vật phía trước phải nhường đường cho xe không có chướng ngại vật đi trước.",
+    "47": "Phải chuyển từ đèn chiếu xa sang đèn chiếu gần.",
+    "48": "Phải nhanh chống giảm tốc độ, tránh hoặc dừng lại sát lề đường bên phải để nhường đường. Không được gây cản trở xe được quyền ưu tiên.",
+    "49": "Phải nhường đường cho xe đi bên trái.",
+    "50": "Nhường đường cho xe đi trên đường ưu tiên hoặc đường chính đi từ bất kì hướng nào tới",
+    "51": "Phải nhường đường cho xe đi từ bên phải.",
+    "52": "Phương tiện giao thông đường sắt.",
+    "53": "5.00m.",
+    "54": "Phải có tín hiệu xin vào và phải nhường đường cho xe đang chạy trên đường, khi thấy an toàn mới cho xe nhập vào dòng xe ở làn đường sát mép ngoài ,Nếu có làn đường tăng tốc thì phải cho xe chạy trên làn đường đó trước khi vào làn đường của đường cao tốc",
+    "55": "Phải thực hiện chuyển dần sang làn đường phía bên phải, nếu có làn đường giảm tốc thì phải cho xe chạy trên làn đường đó trước khi rời khỏi đường cao tốc.",
+    "56": "Người đi bộ, xe thô sơ, xe gắn máy, xe mô tô và xe máy chuyên dùng có tốc độ thiết kế nhỏ hơn 70km/h.",
+    "57": "Xe cơ giới, xe máy chuyên dùng phải bật đèn, xe thô sơ phải bật đèn hoặc có vật sáng báo hiệu, chỉ được dừng xe, đỗ xe ở nơi quy định.",
+    "58": "Khi tham gia giao thông đường bộ",
+    "59": "Chở người bệnh đi cấp cứu, trẻ em dưới 14 tuổi,Áp giải người có hành vi vi phạm pháp luật.",
+    "60": "Áp giải người có hành vi vi phạm pháp luật.Đi xe vào phần đường dành cho người đi bộ và phương tiện khác, sử dụng ô, điện thoại di động, thiết bị âm thanh( trừ thiết bị trợ thính).",
+    "61": "Khi tham gia giao thông đường bộ.",
+    "62": "Uỷ ban nhân dân cấp tỉnh.",
+    "63": "Dừng ngay phương tiện, giữ nguyên hiện trường, cấp cứu người bị nạn và phải có mặt khi cơ quan có thẩm quyền yêu cầu, cung cấp thông tin xác thực về vụ tai nạn cho cơ quan có thẩm quyền. Ở lại nơi xảy ra tai nạn cho đến khi người của cơ quan công an đến, trừ trường hợp người điều khiển phương tiện cũng bị thương phải đưa đi cấp cứu hoặc phải đưa người bị nạn đi cấp cứu hoặc vì lý do đe dọa đến tính mạng nhưng phải đến trình báo ngay với cơ quan công an gần nhất.",
+    "64": "Bảo vệ hiện trường, giúp đỡ, cứu chữa người bị nạn, bảo vệ tài sản của người bị nạn. Báo tin ngay cho cơ quan công an, y tế hoặc Uỷ ban nhân dân nơi gần nhất, cung cấp thông tin xác thực về vụ tai nạn theo yêu cầu của cơ quan có thẩm quyền",
+    "65": "Giấy phép lái xe phù hợp với loại xe đó, đăng kí xe, giấy chứng nhận kiểm định kĩ thuật và bảo vệ môi trường, giấy chứng nhận trách nhiệm bảo hiểm trách nhiệm dân sự của chủ xe cơ giới và giấy phép vận chuyển (nếu loại xe đó cần phải có).",
+    "66": "18 tuổi",
+    "67": "Nhường đường cho xe đi trên đường nhánh từ bất kỳ hướng nào tới, Nhường đường cho người đi bộ đang đi trên phần đường dành cho người đi bộ sang đường.",
+    "68": "Xe gắn máy có dung tích xilanh từ 50 cm3 trở xuống.",
+    "69": "05 năm",
+    "70": "Lái xe vào lề đường bên phải và giảm tốc độ để xe phía sau vượt qua",
+    "71": "Phải đội mũ bảo hiểm có cài quay đúng quy cách, mặc quần áo gọn gàng. Không sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính)",
+    "72": "Đường bộ nằm trong khu vực nội thành phố, nội thị xã và những đoạn đường bộ được xác định từ vị trí có hiệu lực của biển báo hiệu “bắt đầu khu đông dân cư” đến vị trí có hiệu lực của biển báo hiệu “hết khu đông dân cư”.",
+    "73": "40 km/h",
+    "74": "Ô tô chở người trên 30 chỗ ngồi, ô tô tải có trọng tải từ 3500kg trở lên, ô tô sơ mi rơ mooc, ô tô kéo rơ moóc, ô tô kéo xe khác, ô tô chuyên dùng, xe mô tô, xe gắn máy.",
+    "75": "Ô tô chở người đến 30 chỗ ngồi ( trừ ô tô buýt), ô tô tải có tải trọng dưới 3500 kg, ",
+    "76": "Là sự hiểu biết và chấp hành nghiêm chỉnh pháp luật về giao thông, là ý thức trách nhiệm với cộng đồng khi tham gia giao thông. Là ứng xử văn hóa có tình yêu thương con người trong các tình huống không may xảy ra khi tham gia giao thông.",
+    "77": "Là thiếu văn hóa giao thông.",
+    "78": "Chấp hành quy định về tốc độ, đèn tín hiệu, biển báo hiệu, vạch kẻ đường khi lái xe. Chấp hành hiệu lệnh, chỉ dẫn của người điều khiển giao thông, nhường đường cho người đi bộ, người già, trẻ em, người khuyết tật.",
+    "79": "Điều khiển xe đi bên phải chiều đi của mình.Đi đúng phần đường, làn đường quy định; đội mũ bảo hiểm đúng quy cách.",
+    "80": "Có giấy phép lái xe phù hợp với loại xe được phép điều khiển, xe cơ giới đảm bảo các quy định về chất lượng, an toàn kỹ thuật và bảo vệ môi trường. Có giấy chứng nhận trách nhiệm bảo hiểm dân sự của chủ xe cơ giới còn hiệu lực, nộp phí sử dụng đường bộ theo quy định"
+  }
+    ]
