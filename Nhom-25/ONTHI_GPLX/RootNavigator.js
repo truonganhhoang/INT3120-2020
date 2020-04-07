@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import ListComponent from './screens/ListComponent';
+import ListTrafficSigns from './screens/ListTrafficSigns';
+import ListTopicExam from './screens/ListTopicExam';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,8 @@ const AuthNavigator = () => {
                 />
                 <Stack.Screen name={"ListComponent"} component={ListComponent}
                 />
+                <Stack.Screen name= {"ListTrafficSigns"} component={ListTrafficSigns} />
+                <Stack.Screen name= {"ListTopicExam"} component={ListTopicExam} />
             </Stack.Navigator>
         </NavigationContainer>
         

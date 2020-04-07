@@ -15,7 +15,7 @@ class Item extends Component {
         const { title, description, key_id,route, navigation } = this.props;
         return (
                 <ListItem onPress={() => navigation.navigate('ListComponent',{
-                    itemId: {key_id},
+                    mainId: key_id,
                     }
                     )}>
                     <Body>

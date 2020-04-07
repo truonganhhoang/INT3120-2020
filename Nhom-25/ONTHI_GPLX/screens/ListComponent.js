@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import {View} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { 
     Container, Header, 
     Body, Right,
@@ -14,32 +14,98 @@ import { styles } from '../Component/Style.js';
 import CardComponent from './CardComponent';
 import {Card_item} from '../data/CardItem';
 export default class ListComponent extends Component {
+    onPress = (key_id) => {
+        const { navigation,route } = this.props;
+        const {mainId} = route.params;
+        if(key_id == 1) {
+            alert(key_id);
+        }
+        if(key_id == 2) {
+            navigation.navigate("ListTopicExam", {
+                itemId: key_id,
+                mainId: mainId
+            });
+        }
+        if(key_id == 3) {
+            alert(key_id);
+        }
+        if(key_id == 4) {
+            alert(key_id);
+        }
+        if(key_id == 5) {
+            navigation.navigate("ListTrafficSigns", {
+                itemId: key_id,
+                mainId: mainId
+            });
+            
+        }
+        if(key_id == 6) { 
+            alert(key_id);
+        }
+        if(key_id == 7) {
+            alert(key_id);
+        }
+        if(key_id == 8) {
+            alert(key_id);
+        }
+    }
     render() {
         const { route, navigation } = this.props;
-        const { key_id } = route.params.itemId;
+        const { mainId } = route.params;
         return (
             <Container>
                 <Header>
                     <Body>
-                        <Title style={styles.margin}>Ôn thi giấy phép {key_id}</Title>
+                        <Title style={styles.margin}>Ôn thi giấy phép {mainId}</Title>
                     </Body>
                     <Right>
                         <Button transparent
-                            onPress={(key_id) => navigation.navigate("Home", {
-                                itemId: {key_id}
+                            onPress={() => navigation.navigate("Home", {
+                                mainId: mainId
                             })}
                         >
                             <FontAwesome5Icon name="cog" style={{fontSize: 30, color: 'white'}} solid />
                         </Button>
                     </Right>
                 </Header>
-                <Content style={{margin: 10}}>
+                <Grid style={{margin: 10}}>
+                    <Col style ={{marginRight: 8}}>
                     {
                         Card_item.map((item) => {
-                            return <CardComponent data={item} />
+                            if(item.key_id%2 == 1) {
+                                return (
+                                    <TouchableOpacity 
+                                    onPress={() => {
+                                        this.onPress(item.key_id);
+                                    }} 
+                                    >
+                                        <CardComponent data={item} navigation = {navigation} />
+                                    </TouchableOpacity>
+                                )
+                            }
                         })
                     }
-                </Content>
+                    </Col>
+                    <Col>
+                    {
+                        Card_item.map((item) => {
+                            if(item.key_id%2 == 0) {
+                                return (
+                                    <TouchableOpacity 
+                                    onPress={() => {
+                                        this.onPress(item.key_id);
+                                    }} 
+                                    >
+                                        <CardComponent data={item} />
+                                    </TouchableOpacity>
+                                );
+                                    
+                            }
+                        })
+                    }
+                    </Col>
+                    
+                </Grid>
             </Container>
         );
     }
