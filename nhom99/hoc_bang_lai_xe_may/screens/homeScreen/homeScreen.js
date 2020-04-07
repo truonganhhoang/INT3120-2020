@@ -6,23 +6,23 @@ import ListChooseComponent from "./listChooseComponent";
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default function() {
+export default function ({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.carouselWrapper}>
         <Carousel />
       </View>
       <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-        <ListChooseComponent />
+        <ListChooseComponent navigation={navigation} />
       </View>
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   carouselWrapper: {
-    height: SCREEN_HEIGHT / 3
-  }
+    height: SCREEN_HEIGHT / 3,
+  },
 });
