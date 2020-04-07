@@ -10,55 +10,32 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
-    route: "Header1",
-    text: "Hiện tại đơn"
-  },
-  {
-    route: "Header2",
-    text: "Hiện tại tiếp diễn"
-  },
-  {
-    route: "Header3",
-    text: "Hiện tại hoàn thành"
-  },
-  {
-    route: "Header4",
-    text: "Hiện tại hoàn thành tiếp diễn"
-  },
-  {
-    route: "Header5",
-    text: "Quá khứ đơn"
-  },
-  {
-    route: "Header6",
-    text: "Quá khứ tiếp diễn"
-  },
-  {
-    route: "Header7",
-    text: "Quá khứ hoàn thành"
-  },
-  {
     route: "Header8",
-    text: "Phần 1"
+    text: "Phần 1",
+    subtitle: "Tổng hợp công thức viết lại câu phần 1"
   },
   {
     route: "HeaderSpan",
-    text: "Phần 2"
+    text: "Phần 2",
+
   },
   {
     route: "HeaderNoShadow",
-    text: "Phần 3"
+    text: "Phần 3",
+
   },
   {
     route: "HeaderNoLeft",
-    text: "Phần 4"
+    text: "Phần 4",
+    subtitle: "Tổng hợp công thức viết lại câu phần 3"
   }
 ];
 
@@ -80,22 +57,22 @@ class Rewrite extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

@@ -10,19 +10,22 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Định nghĩa, cách dùng"
+    text: "Định nghĩa, cách dùng",
+    subtitle: "Định nghĩa, vị trí, hình thức,..."
   },
   {
     route: "Header2",
-    text: "Các loại giới từ"
+    text: "Các loại giới từ",
+    subtitle: "Các loại giới từ và ý nghĩa của các loại"
   }
 ];
 
@@ -44,22 +47,22 @@ class Preposition extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

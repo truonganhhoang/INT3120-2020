@@ -10,59 +10,72 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  List,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Hiện tại đơn"
+    text: "Hiện tại đơn",
+    subtitle: "Present simple"
   },
   {
     route: "Header2",
-    text: "Hiện tại tiếp diễn"
+    text: "Hiện tại tiếp diễn",
+    subtitle: "Present continuous"
   },
   {
     route: "Header3",
-    text: "Hiện tại hoàn thành"
+    text: "Hiện tại hoàn thành",
+    subtitle: "Present perfect"
   },
   {
     route: "Header4",
-    text: "Hiện tại hoàn thành tiếp diễn"
+    text: "Hiện tại hoàn thành tiếp diễn",
+    subtitle: "Present perfect continuous"
   },
   {
     route: "Header5",
-    text: "Quá khứ đơn"
+    text: "Quá khứ đơn",
+    subtitle: "Simple past"
   },
   {
     route: "Header6",
-    text: "Quá khứ tiếp diễn"
+    text: "Quá khứ tiếp diễn",
+    subtitle: "Past continuous"
   },
   {
     route: "Header7",
-    text: "Quá khứ hoàn thành"
+    text: "Quá khứ hoàn thành",
+    subtitle: "Past perfect"
   },
   {
     route: "Header8",
-    text: "Quá khứ hoàn thành tiếp diễn"
+    text: "Quá khứ hoàn thành tiếp diễn",
+    subtitle: "Past perfect continuous"
   },
   {
     route: "HeaderSpan",
-    text: "Tương lai đơn"
+    text: "Tương lai đơn",
+    subtitle: "Simple future"
   },
   {
     route: "HeaderNoShadow",
-    text: "Tương lai tiếp diễn"
+    text: "Tương lai tiếp diễn",
+    subtitle: "Future continuous"
   },
   {
     route: "HeaderNoLeft",
-    text: "Tương lai hoàn thành"
+    text: "Tương lai hoàn thành",
+    subtitle: "Future perfect"
   },
   {
     route: "HeaderTransparent",
-    text: "Tương lai hoàn thành tiếp diễn"
+    text: "Tương lai hoàn thành tiếp diễn",
+    subtitle: "Future perfect continuous"
   }
 ];
 
@@ -84,22 +97,22 @@ class Simple extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );

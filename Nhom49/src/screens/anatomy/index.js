@@ -11,113 +11,141 @@ import {
   Body,
   Segment,
   ListItem,
-  List
+  List,
+  Card,
+  CardItem,
+  Title,
 } from "native-base";
 import styles from "./styles";
 
 const datasSentences = [
   {
     route: "Simple",
-    text: "1.Các thì trong tiếng Anh"
+    title: "1.Các thì trong tiếng Anh",
+    subtitle: "Hiện tại đơn, hiện tại tiếp diễn, quá khứ đơn,..."
   },
   {
     route: "Passive",
-    text: "2.Câu bị động"
+    title: "2.Câu bị động",
+    subtitle: "Cấu trúc ngữ pháp, trường hợp đặc biệt,..."
   },
   {
     route: "Wish",
-    text: "3.Câu ước"
+    title: "3.Câu ước",
+    subtitle: "Câu ước với Wish loại 1, loại 2, loại 3"
   },
   {
     route: "Wish",
-    text: "4.Câu gián tiếp"
+    title: "4.Câu gián tiếp",
+    subtitle: "Câu trực tiếp, câu gián tiếp và cách chuyển đổi..."
   },
   {
     route: "Conditional",
-    text: "5.Câu điều kiện"
+    title: "5.Câu điều kiện",
+    subtitle: "Câu điều kiện loại 1, loại 2, loại 3,..."
   },
   {
     route: "Compare",
-    text: "6.Câu so sánh"
+    title: "6.Câu so sánh",
+    subtitle: "So sánh bằng, so sánh hơn, so sánh ..."
   },
   {
     route: "RelativeClause",
-    text: "7.Mệnh đề quan hệ"
+    title: "7.Mệnh đề quan hệ",
+    subtitle: "Đại từ quan hệ, trạng từ quan hệ,..."
   },
   {
     route: "RelativeClause",
-    text: "8.Câu cảm thán"
+    title: "8.Câu cảm thán",
+    subtitle: "Câu cản thán với What, How, So, Such,..."
   },
   {
     route: "TagQuestion",
-    text: "9.Câu hỏi đuôi"
+    title: "9.Câu hỏi đuôi",
+    subtitle: "Công thức và các dạng đặc biệt của ..."
   },
   {
     route: "HeaderNoShadow",
-    text: "10.Câu đảo ngữ"
+    title: "10.Câu đảo ngữ",
+    subtitle: "Đảo ngữ với No, Not, Never,..."
   },
   {
     route: "HeaderNoLeft",
-    text: "11.Câu mệnh lệnh"
+    title: "11.Câu mệnh lệnh",
+    subtitle: "Mệnh lệnh trực tiếp, mệnh lệnh gián tiếp,..."
   },
   {
     route: "HeaderTransparent",
-    text: "12.Câu nhấn mạnh (câu chẻ)"
+    title: "12.Câu nhấn mạnh (câu chẻ)",
+    subtitle: "Câu nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ,.."
   },
   {
      route: "Rewrite",
-     text: "13.Công thức viết lại câu"
+     title: "13.Công thức viết lại câu",
+     subtitle: "Tổng hợp công thức viết lại câu"
   },
   {
      route: "Rewrite",
-     text: "14.Thành ngữ, tục ngữ"
+     title: "14.Thành ngữ, tục ngữ",
+     subtitle: "Thành ngữ, tục ngữ và ca dao"
   },
   {
      route: "Rewrite",
-     text: "15.Câu đồng tình"
+     title: "15.Câu đồng tình",
+     subtitle: "Câu đồng tình với too, so, either, neither"
   }
 ];
 
 const datasWords = [
   {
     route: "Noun",
-    text: "1.Bảng động từ bất quy tắc"
+    title: "1.Bảng động từ bất quy tắc",
+    subtitle: "Tổng hợp các động từ bất quy tắc thường dùng"
   },
   {
     route: "Noun",
-    text: "2.Danh từ"
+    title: "2.Danh từ",
+    subtitle: "Các loại danh từ, danh từ đếm được,..."
   },
   {
     route: "Verb",
-    text: "3.Động từ"
+    title: "3.Động từ",
+    subtitle: "Động từ khuyết thiếu, nội động từ và ..."
   },
   {
     route: "Adjactive",
-    text: "4.Tính từ"
+    title: "4.Tính từ",
+    subtitle: "Vị trí tính từ, tính từ đuôi 'ed' và ..."
   },
   {
     route: "Adverb",
-    text: "5.Trạng từ"
+    title: "5.Trạng từ",
+    subtitle: "Vị trí trạng từ, các loại trạng từ, phân loại,..."
   },
   {
     route: "Preposition",
-    text: "6.Giới từ"
+    title: "6.Giới từ",
+    subtitle: "Định nghĩa, cách dùng và các loại giới từ,..."
   },
   {
     route: "Preposition",
-    text: "7.Quy tắc trọng âm"
+    title: "7.Quy tắc trọng âm",
+    subtitle: "Tổng hợp hơn 10 cách nhận diện trọng âm"
   },
   {
     route: "Preposition",
-    text: "8.Cách phát âm 's/es' "
+    title: "8.Cách phát âm 's/es' ",
+    subtitle: "Tổng hợp các cách phát âm 's/es'"
   },
   {
     route: "Preposition",
-    text: "9.Cách phát âm 'ed'"
+    title: "9.Cách phát âm 'ed'",
+    subtitle: "Tổng hợp các cách phát âm 'ed'"
   },
   {
     route: "Preposition",
-    text: "10.Vị trí của danh từ, động từ, tính từ"
+    title: "10.Vị trí của danh từ, động từ, tính từ",
+    subtitle:"Xác định vị trí của danh từ, động từ, tính từ"
   }
 ];
 
@@ -164,42 +192,42 @@ class Anatomy extends Component {
 
         <Content padder>
           {this.state.seg === 1 &&
-            <List
-                dataArray={datasSentences}
-                renderRow={data =>
-                  <ListItem
-                    button
-                    onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
+              <List
+                  dataArray={datasSentences}
+                  renderRow={data =>
+                  <Card>
+                    <CardItem button
+                        onPress={() => this.props.navigation.navigate(data.route)}
+                    >
+                    <Body>
+                      <Text style={{fontWeight: "bold"}}>{data.title}</Text>
+                      <Text>{data.subtitle}</Text>
+                    </Body>
                     <Right>
                       <Icon name="arrow-forward" style={{ color: "#999" }} />
                     </Right>
-                  </ListItem>}
-             />
+                    </CardItem>
+                  </Card>}
+              />
           }
           {this.state.seg === 2 &&
             <List
-                dataArray={datasWords}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datasWords}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.title}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
           }
         </Content>
       </Container>

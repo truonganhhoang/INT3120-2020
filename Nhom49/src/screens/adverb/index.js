@@ -10,27 +10,31 @@ import {
   Right,
   Body,
   Segment,
-  ListItem,
-  List
+  CardItem,
+  Card
 } from "native-base";
 import styles from "./styles";
 
 const datas = [
   {
     route: "Header1",
-    text: "Vị trí trạng từ"
+    text: "Vị trí trạng từ",
+    subtitle: "Cách hình thành trạng từ, vị trí trạng từ"
   },
   {
     route: "Header2",
-    text: "Các loại trạng từ"
+    text: "Các loại trạng từ",
+    subtitle: "Bảng thống kê các loại trạng từ, ví dụ"
   },
   {
     route: "Header3",
-    text: "Phân loại trạng từ"
+    text: "Phân loại trạng từ",
+    subtitle: "Trạng từ chỉ cách thức, thời gian,..."
   },
   {
     route: "Header4",
-    text: "Các trạng từ thường gặp"
+    text: "Các trạng từ thường gặp",
+    subtitle: "Bảng thống kê các trạng từ thường gặp"
   }
 ];
 
@@ -52,22 +56,22 @@ class Adverb extends Component {
 
         <Content padder>
             <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem
-                    button
+              dataArray={datas}
+              renderRow={data =>
+              <Card style={styles.mb}>
+                <CardItem button
                     onPress={() => this.props.navigation.navigate(data.route)}
-                  >
-                    <Left>
-                      <Text>
-                        {data.text}
-                      </Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" style={{ color: "#999" }} />
-                    </Right>
-                  </ListItem>}
-             />
+                >
+                <Body>
+                  <Text style={{fontWeight: "bold"}}>{data.text}</Text>
+                  <Text>{data.subtitle}</Text>
+                </Body>
+                <Right>
+                  <Icon name="arrow-forward" style={{ color: "#999" }} />
+                </Right>
+                </CardItem>
+              </Card>}
+            />
         </Content>
       </Container>
     );
