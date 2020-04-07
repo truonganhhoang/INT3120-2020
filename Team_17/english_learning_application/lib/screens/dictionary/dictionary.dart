@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
+// import 'dart:async';
+import 'package:englishlearningapplication/services/word_search.dart';
 
 class Dictionary extends StatefulWidget {
   @override
@@ -7,7 +10,34 @@ class Dictionary extends StatefulWidget {
 
 class _DictionaryState extends State<Dictionary> {
 
+  List result = [];
   TextEditingController _controller = TextEditingController();
+  // Timer _debounce;
+  bool isLoading = false;
+  String _notFound = 'This word is not found';
+
+  void update() async {
+    result = [];
+    setState(() {
+      isLoading = true;
+    });
+    WordSearch instance = WordSearch(word: _controller.text, lang: 'en');
+    await instance.getTranslate();
+    for(int i = 0; i < instance.values.length; i++) {
+      setState(() {
+        result.add(instance.values[i]['fields']);
+      });
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  String removeTagHTML(String htmlString) {
+    var document = parse(htmlString);
+    String parsedString = parse(document.body.text).documentElement.text;
+    return parsedString;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +58,12 @@ class _DictionaryState extends State<Dictionary> {
                     borderRadius: BorderRadiusDirectional.circular(24.0),
                   ),
                   child: TextFormField(
-                    onChanged: (String text) {},
+                    onChanged: (String text) {
+                      // if (_debounce?.isActive ?? false) _debounce.cancel();
+                      //   _debounce = Timer(const Duration(milliseconds: 1000), () {
+                      //     update();
+                      // });
+                    },
                     controller: _controller,
                     autofocus: true,
                     style: TextStyle(color: Colors.grey[600]),
@@ -42,7 +77,9 @@ class _DictionaryState extends State<Dictionary> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  update();
+                },
                 icon: Icon(
                   Icons.search,
                   color: Colors.white,
@@ -52,6 +89,26 @@ class _DictionaryState extends State<Dictionary> {
           ),
         ),
       ),
+      body: buildBody(),
     );
+  }
+
+  Widget buildBody() {
+    if(isLoading) {
+      return Center(child: CircularProgressIndicator());
+    }
+    else {
+      return result.isEmpty ? Center(child: Text(_notFound)) : ListView.builder(
+        itemCount: result.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(removeTagHTML('${result[index]['en']}')),
+              subtitle: Text('${result[index]['vi']}'),
+            ),
+          );
+        },
+      );
+    }
   }
 }
