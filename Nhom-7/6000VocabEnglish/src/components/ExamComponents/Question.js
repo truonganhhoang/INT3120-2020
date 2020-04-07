@@ -4,13 +4,24 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import SingleImageWord from "./SingleImageWord";
 import { connect } from "react-redux";
 import * as actionCreators from "../../actions";
-import { Ionicons } from "@expo/vector-icons";
 
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  handleOnPressed(indexChoice, idQuestion, item) {
+    this.props.onPickOneAnswer(indexChoice, idQuestion);
+    item.correct ? this.props.answerIsTrue() : this.props.answerIsFalse();
+  }
+
+  // handleAnswerTrue() {
+  //   setTimeout(() => {
+  //     this.props.answerIsTrue();
+  //   }, 100);
+  // }
+
   render() {
     const questionData = this.props.data;
     return (
@@ -37,33 +48,16 @@ class Question extends Component {
                 <TouchableHighlight
                   underlayColor="transparent"
                   onPress={() => {
-                    item.correct
-                      ? this.props.answerIsTrue()
-                      : this.props.answerIsFalse();
+                    this.handleOnPressed(index, questionData.id, item);
                   }}
                 >
-                  <SingleImageWord imageSource={item.image} />
+                  <SingleImageWord
+                    idQuestion={questionData.id}
+                    isCorrectAnswer={item.correct}
+                    indexChoice={index}
+                    imageSource={item.image}
+                  />
                 </TouchableHighlight>
-                <View
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "transparent",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  {!this.props.myExam.answered ? (
-                    <View></View>
-                  ) : this.props.myExam.correct ? (
-                    <Ionicons name="md-checkmark" size={75} color="green" />
-                  ) : (
-                    <Ionicons name="md-close" size={75} color="red" />
-                  )}
-                </View>
               </View>
             )}
             //Setting the number of column
@@ -97,8 +91,10 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     onNextQuestion: () => dispatch(actionCreators.nextQuestion()),
-    answerIsTrue: () => dispatch(actionCreators.answerIsFalse()),
-    answerIsFalse: () => dispatch(actionCreators.answerIsFalse())
+    answerIsTrue: () => dispatch(actionCreators.answerIsTrue()),
+    answerIsFalse: () => dispatch(actionCreators.answerIsFalse()),
+    onPickOneAnswer: (index, id) =>
+      dispatch(actionCreators.pickOneChoice(index, id))
   };
 };
 

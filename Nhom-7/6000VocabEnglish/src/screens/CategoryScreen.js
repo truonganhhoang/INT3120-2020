@@ -41,7 +41,8 @@ export default class CategoryScreen extends Component {
           alignItems: "center"
         }}
       >
-        <OverviewTopicItem item={item} 
+        <OverviewTopicItem
+          item={item}
           handleGotoDetail={this.handleGotoDetail(item.topicName)}
           gotoSlide={this.gotoSlide(item.topicName)}
           gotoPractice={this.gotoPractice(item.topicName)}
@@ -135,7 +136,7 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "lightgrey",
+    backgroundColor: "whitesmoke",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
