@@ -1,9 +1,0 @@
-{
-  "name": "coursera-vnu",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular",
-  "id": "5704ffc5",
-  "npmClient": "yarn"
-}

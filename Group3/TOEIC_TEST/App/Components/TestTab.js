@@ -4,13 +4,12 @@ import {
     View,
     Text,
     SafeAreaView,
-    ScrollView,
     FlatList,
     TouchableOpacity
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import * as Animatable from 'react-native-animatable'
-import { test } from '../Data/test'
+import { requestGET, HOST } from '../Services/Servies'
 class TestBar extends Component {
     constructor(props) {
         super(props)
@@ -19,20 +18,24 @@ class TestBar extends Component {
         }
     }
     componentDidMount() {
-        this.setState({ data: test })
+        this.fetchData()
+    }
+    fetchData = async () => {
+        var newData = await requestGET(`${HOST}/tests/listTest`)
+        this.setState({ data: newData.data })
     }
     renderItem = ({ item, index }) => {
         return (
             <Animatable.View delay={index * 300} animation='zoomInLeft' >
                 <TouchableOpacity
-                    onPress={() => { console.log({ index }) }}
+                    onPress={() => this.props.navigation.navigate('TestList', { name: item.description, id: item.id })}
                 >
                     <View style={styles.item}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Icon name={item.icon} size={45} style={{ padding: 10 }} />
                             <View style={{ flexDirection: 'column' }}>
-                                <Text style={styles.part}>Part {item.part}</Text>
-                                <Text style={styles.name}>{item.name}</Text>
+                                <Text style={styles.part}>{item.name}</Text>
+                                <Text style={styles.name}>{item.description}</Text>
                             </View>
                         </View>
                     </View>

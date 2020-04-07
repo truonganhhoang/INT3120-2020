@@ -4,11 +4,9 @@ import {
     View,
     Text,
 } from 'react-native'
+import {fcmService} from '../Services/FCMService';
 
 class SettingTab extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <>

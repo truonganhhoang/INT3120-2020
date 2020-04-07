@@ -15,8 +15,6 @@ import {
 } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
-import { words } from '../Data/word'
-import { learn } from '../Data/learn'
 import Modal from 'react-native-modal'
 import Tts from 'react-native-tts'
 import DeviceInfo from 'react-native-device-info'
