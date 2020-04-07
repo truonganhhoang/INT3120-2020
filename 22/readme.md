@@ -19,3 +19,6 @@ Tính năng:
 -Đánh dấu những từ đã học để luyện tập
 -Tự thêm từ vựng mới vào danh sách
 -Tìm kiếm từ vựng
+
+Ứng dụng của nhóm: https://snack.expo.io/@pham_thi_thuy/3000_tu_vung
+
