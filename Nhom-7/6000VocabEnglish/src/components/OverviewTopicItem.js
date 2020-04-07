@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image, Button, AsyncStorage } from "react-native";
 import { StyleSheet } from "react-native";
 import SecondMenu from "./SecondMenu";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
@@ -14,6 +14,7 @@ export class OverviewTopicItem extends Component {
     this.state = {
       favorite: false,
       progressComplete: 10,
+
     };
   }
 
@@ -21,6 +22,24 @@ export class OverviewTopicItem extends Component {
     // console.log(this.state.favorite);
     this.setState({ favorite: !this.state.favorite });
   };
+
+  // _storeData = async () => {
+  //   try {
+  //     await AsyncStorage.setItem(
+  //       "UID123",
+  //       JSON.stringify(UID123_object),
+  //       () => {
+  //         AsyncStorage.mergeItem("UID123", JSON.stringify(UID123_delta), () => {
+  //           AsyncStorage.getItem("UID123", (err, result) => {
+  //             console.log(result);
+  //           });
+  //         });
+  //       }
+  //     );
+  //   } catch (error) {
+  //     // Error saving data
+  //   }
+  // };
 
   render() {
     let { image, topicName, topicNameVi, description } = this.props.item;
@@ -85,11 +104,13 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 12,
     alignItems: "center",
+    elevation: 3
   },
   secondMenu: {
     position: "absolute",
     right: 10,
     top: 110,
+    elevation: 4
   },
   btnDetail: {
     borderWidth: 2,
@@ -108,6 +129,7 @@ const styles = StyleSheet.create({
     top: 430,
     left: 15,
     width: "100%",
+    elevation: 4
   },
   textBtnDetail: {
     textAlign: "center",

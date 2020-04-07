@@ -137,7 +137,7 @@ export default class CategoryScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
-    backgroundColor: "lightgrey",
+    backgroundColor: "whitesmoke",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",

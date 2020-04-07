@@ -13,3 +13,13 @@ export const answerIsTrue = () => ({
 export const answerIsFalse = () => ({
   type: "ANSWER_IS_FALSE"
 });
+
+export const pickOneChoice = (indexChoice, id) => ({
+  type: "PICK_ONE_CHOICE",
+  indexChoice,
+  id
+});
+
+export const tick = () => ({
+  type: "TICK"
+});
