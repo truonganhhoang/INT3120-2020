@@ -1,12 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { Storage } from '@ionic/storage';
 
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
 import { SignInService } from '../core/services/firebase/auth/sign-in.service';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-sign-in',
@@ -31,7 +32,8 @@ export class SignInPage implements OnDestroy {
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private signInService: SignInService,
-    private storage: Storage
+    private storage: Storage,
+    private router: Router
   ) {}
 
   ngOnDestroy() {
@@ -57,7 +59,7 @@ export class SignInPage implements OnDestroy {
           },
           complete: () => {
             this.isSubmitting = false;
-            // go to main page
+            this.router.navigateByUrl('/tabs/learn/courses');
           },
           error: (message) => {
             this.isSubmitting = false;

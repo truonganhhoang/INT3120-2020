@@ -1,3 +1,9 @@
+ion-header {
+  &:after {
+    background-image: none;
+  }
+}
+
 ion-content {
   --background: none;
   background-color: transparent;
@@ -11,7 +17,6 @@ ion-content {
 }
 
 .header {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
