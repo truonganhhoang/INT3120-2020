@@ -1,8 +1,8 @@
 import React from 'react'; 
 import { ScrollView, Text } from 'react-native'; 
 import { WordCard } from '../../components/WordCard'; 
-import Data from '../../../../data/list-word.json'; 
 import styles from './styles'; 
+const Data = require('../../../../data/list-word.json'); 
 
 const Vocabularys = () => {
   console.log(Data.words); 
@@ -12,7 +12,7 @@ const Vocabularys = () => {
         Data.words.map( (e: any) =>
           <WordCard data={e}
             key={e.en_meaning}
-            colorS="yellow"
+            icon="staro"
           />
         )
       }

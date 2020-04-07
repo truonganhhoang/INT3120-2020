@@ -5,7 +5,7 @@ import { SettingButton } from '../../components/SettingButton';
 import { StarButton } from '../../components/StarButton';
 import { Header } from 'react-native-elements';
 import styles from './styles'; 
-import Data from '../../../../data/pre-data.json'; 
+const Data = require('../../../../data/pre-data.json'); 
 
 const BackgroudUrl = "../../../../images/logo3.png";
 
