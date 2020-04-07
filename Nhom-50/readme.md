@@ -13,6 +13,7 @@ Công nghệ sử dụng: React native
 - Tuần 2: Hoàn thành layout chính, màn hình đầu tiên và màn hính quan trọng nhất.
 - Tuần 3: Hoàn thành splash screen và 2 màn hình.
 - Tuần 4: Hoàn thành thêm 2 màn hình, kết nối với backend.
-- Tuần 5: Hoàn thành thêm 2 màn hình, kết nối với backend, bắt đầu hoàn thiện sản phẩm.
+ Đã hoàn thành tất cả các màn hình, kết nối với data.
+- Tuần 5: Bắt đầu hoàn thiện sản phẩm.
 - Tuần 6: Hoàn thiện sản phẩm, refactor code.
 ### Link repo nhóm: [https://github.com/balanced-team/envidict](https://github.com/balanced-team/envidict)
