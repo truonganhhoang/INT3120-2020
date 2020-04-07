@@ -15,7 +15,7 @@ import SignInScreen from '../Containers/SignInScreen';
 import LoadingScreen from '../Containers/LoadingScreen';
 import OnceTopicScreen from '../Containers/OnceTopicScreen';
 import OnceSetNumberWordScreen from '../Containers/OnceSetNumberWordScreen';
-
+import ForgetPassScreen from '../Containers/ForgetPassScreen'
 const AppStackNavigation = createStackNavigator(
   {
     HomeScreen: {
@@ -54,6 +54,9 @@ const AppStackNavigation = createStackNavigator(
     SignInScreen: {
       screen: SignInScreen,
     },
+    ForgetPassScreen: {
+      screen : ForgetPassScreen
+    }
   },
   {
     headerMode: 'none',
