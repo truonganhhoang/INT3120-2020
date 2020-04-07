@@ -25,6 +25,10 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "vnu.uet.nhom14",
+      "versionCode": 1
     }
   }
 }

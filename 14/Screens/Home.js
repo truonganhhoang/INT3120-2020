@@ -6,43 +6,53 @@ import { Header } from 'react-native-elements';
 const list = [
     {
       title: 'Từ vựng Toeic',
-      icon: 'assignment'
+      icon: 'assignment',
+      navigate: 'Word'
     },
     {
       title: 'Part I',
-      icon: 'school'
+      icon: 'school',
+      navigate: 'Exam'
     },
     {
         title: 'Part II',
-        icon: 'school'
+        icon: 'school',
+        navigate: 'Exam'
     },
     {
         title: 'Part III',
-        icon: 'school'
+        icon: 'school',
+        navigate: 'Exam'
     },
     {
         title: 'Part IV',
-        icon: 'school'
+        icon: 'school',
+        navigate: 'Exam'
     },
     {
         title: 'Part V',
-        icon: 'school'
+        icon: 'school',
+        navigate: 'Exam'
     },
     {
         title: 'Câu yêu thích',
-        icon: 'star'
+        icon: 'star',
+        navigate: 'Exam'
     },
     {
         title: 'Câu làm gần đây',
-        icon: 'timelapse'
+        icon: 'timelapse',
+        navigate: 'Exam'
     },
     {
         title: 'Phần mềm học tiếng anh',
-        icon: 'laptop'
+        icon: 'laptop',
+        navigate: 'Exam'
     },
     {
         title: 'Cài đặt',
-        icon: 'settings'
+        icon: 'settings',
+        navigate: 'Setting'
     }
   ]
 
@@ -56,6 +66,7 @@ export default class Home extends React.Component{
             
             <View style={styles.container}>
                 <Header
+                    style={{height:20}}
                     centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
                 />
       
@@ -65,7 +76,7 @@ export default class Home extends React.Component{
                         list.map((item, i) => (
                         <ListItem
                             onPress={()=> navigate(
-                                'Word',{name:'Word'}
+                                item.navigate
                             )}
                             key={i}
                             title={item.title}

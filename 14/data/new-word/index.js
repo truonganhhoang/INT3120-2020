@@ -1,3 +1,7 @@
 import sports from './sports';
+import education from './education';
 
-export default {sports: sports};
+export default {
+    sports: sports,
+    education: education
+};
