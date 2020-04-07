@@ -69,7 +69,7 @@ export default class KanjiLearning extends React.Component {
           />
           */}
            <KanjiLearn image={images[0]} onPress={()=> navigation.navigate('KanjiGroupDetail',{kanjiList : groupKanji.item.kanjiList})}/>
-           <KanjiLearn image={images[1]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
+           <KanjiLearn image={images[1]} onPress={()=> navigation.navigate('KanjiFlashCards')}/>
            <KanjiLearn image={images[2]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
            <KanjiLearn image={images[3]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
            <KanjiLearn image={images[4]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
