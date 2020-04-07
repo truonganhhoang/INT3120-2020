@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 const GLOBAL = require("../utils/Globals");
-import { View, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, FlatList, ScrollView, Alert } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
 import Carousel from "react-native-snap-carousel";
 import itemTopicPeople from "../../data/CategoryItemByTopic";
@@ -83,7 +83,17 @@ export default class CategoryScreen extends Component {
     // console.log("View detal");
   }
   componentDidMount() {
-    this.fetchData();
+    const { categoryId } = this.props.route.params;
+    if (categoryId !== "people") {
+      Alert.alert(
+        "Ứng dụng đang trong quá trình phát triển!",
+        "Các bạn vui lòng lựa chọn chủ đề People/Body để trải nghiệm. \nXin cảm ơn!"
+      );
+      this.setState({ isLoading: false });
+    } else {
+      this.fetchData();
+    }
+    // this.fetchData();
   }
 
   fetchData() {

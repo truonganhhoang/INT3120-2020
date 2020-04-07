@@ -59,29 +59,29 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: "row",
     height: 170,
-    borderRadius: 8
+    borderRadius: 8,
   },
   iconStar: {
     position: "absolute",
     top: 5,
     left: 5,
     width: 25,
-    height: 25
+    height: 25,
   },
   mainImage: {
     borderWidth: 0,
     width: 150,
     height: 150,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   leftColumn: {
-    flex: 1
+    flex: 1,
   },
   rightColumn: {
     flex: 1,
     flexDirection: "column",
     alignContent: "space-around",
-    alignItems: "center"
+    alignItems: "center",
   },
   iconSpeaker: {
     backgroundColor: "#fff",
@@ -91,26 +91,26 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    marginTop: 5
+    marginTop: 5,
   },
   word: {
     textTransform: "lowercase",
     fontSize: 24,
     color: "#F57F17",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   spelling: {
     textTransform: "lowercase",
     fontSize: 14,
     color: "black",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   meaning: {
     textTransform: "lowercase",
     fontSize: 20,
     color: "blue",
-    fontWeight: "bold"
+    fontWeight: "bold",
     // alignContent: "space-between"
-  }
+  },
 });
