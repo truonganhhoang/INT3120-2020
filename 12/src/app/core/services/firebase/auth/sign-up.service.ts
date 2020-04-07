@@ -8,6 +8,10 @@ import { Observable } from 'rxjs';
 export class SignUpService {
   constructor(private ngFireAuth: AngularFireAuth) {}
 
+  private instanceOfFirebaseError(error: any): error is firebase.FirebaseError {
+    return 'code' in error;
+  }
+
   signUpWithEmailAndPassword(email: string, password: string, fullName: string) {
     return new Observable((observer) => {
       this.ngFireAuth.auth
@@ -22,21 +26,15 @@ export class SignUpService {
           user.updateProfile({ displayName: fullName });
           user.sendEmailVerification();
         })
-        .catch((err: firebase.FirebaseError) => {
+        .then(() => {
+          observer.complete();
+        })
+        .catch((err) => {
           let message: string;
-          switch (err?.code) {
-            case 'auth/invalid-email':
-              message = 'Invalid email.';
-              break;
-            case 'auth/invalid-password':
-              message = 'Invalid password';
-              break;
-            case 'auth/email-already-in-use':
-              message = 'A Coursera account with that email address already exists. Please login with your email.';
-              break;
-            default:
-              message = 'An error occurred. Please try again.';
-              break;
+          if (this.instanceOfFirebaseError(err)) {
+            message = err.message;
+          } else {
+            message = 'An error occurred. Please try again.';
           }
           observer.error(message);
         });

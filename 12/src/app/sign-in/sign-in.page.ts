@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
 import { SignInService } from '../core/services/firebase/auth/sign-in.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-sign-in',
@@ -26,7 +27,12 @@ export class SignInPage implements OnDestroy {
 
   signInSubscription?: Subscription;
 
-  constructor(public dialog: MatDialog, private formBuilder: FormBuilder, private signInService: SignInService) {}
+  constructor(
+    public dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private signInService: SignInService,
+    private storage: Storage
+  ) {}
 
   ngOnDestroy() {
     this.signInSubscription?.unsubscribe();
@@ -46,7 +52,9 @@ export class SignInPage implements OnDestroy {
       this.signInSubscription = this.signInService
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
-          next: console.log,
+          next: (userJSON) => {
+            this.storage.set('user', userJSON);
+          },
           complete: () => {
             this.isSubmitting = false;
             // go to main page

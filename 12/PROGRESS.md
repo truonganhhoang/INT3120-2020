@@ -172,3 +172,9 @@ ionic g page profile -f
 # 2020-04-05
 
 - Thêm 4 tabs tại `/tab/learn/course/:courseId`: `overview`, `grades`, `forums`, `info`.
+- Unsubscribe khi sử dụng sign in, sign up services.
+
+# 2020-04-06
+
+- Thêm tính năng đăng nhập.
+- Router Guard cho route `/tabs/...`
