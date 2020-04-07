@@ -6,7 +6,6 @@ import firebase from 'react-native-firebase';
 const SignIn = props =>{
     const [email,setEmail] = useState('');
     const [pass,setPass] = useState('');
-
     const handleSignIn = (email, pass) => {
       if(email =='' || pass==''){
         ToastAndroid.showWithGravity(
@@ -40,7 +39,6 @@ const SignIn = props =>{
                 containerStyle ={{}}
                 onPress = {()=>props.navigation.goBack()}
             />
-            
             <Text style = {{marginLeft: 30, fontSize: 20, color: '#fff'}}> Đăng nhập</Text>
             </View>
         </View>
@@ -80,12 +78,12 @@ const SignIn = props =>{
             buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
             onPress={()=>{handleSignIn(email,pass)}}
           />
-          <Text style ={{marginTop: 10,marginBottom:10, color: '#9E9E9E'}}>--Hoặc--</Text>
           <Button
-            title = 'Đăng ký'
+            title = 'Quên mật khẩu'
             type= 'clear'
             buttonStyle = {{width: 300}}
-            onPress={()=>props.navigation.navigate('SignUpScreen')}
+            containerStyle={{marginTop:10}}
+            onPress={()=>props.navigation.navigate('ForgetPassScreen')}
           />
         </View>
       </View>

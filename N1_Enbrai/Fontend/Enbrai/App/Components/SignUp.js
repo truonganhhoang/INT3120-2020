@@ -109,7 +109,7 @@ const SignUp = props =>{
             buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
             onPress={()=>{handleSignUp(email,pass,confimPass)}}
           />
-          <Text style ={{marginTop: 10,marginBottom:10, color: '#9E9E9E'}}>--Hoặc--</Text>
+          <Text style ={{marginTop: 10,marginBottom:10, color: '#9E9E9E'}}>--hoặc--</Text>
           <Button
             title = 'Đăng nhập'
             type= 'clear'
