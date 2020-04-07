@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 
 public class DetailFragment extends Fragment {
@@ -25,6 +29,7 @@ public class DetailFragment extends Fragment {
     private WebView tvWordTranslate;
     private  DBHelper mDBHelper;
     private  int mDicType;
+    private TextToSpeech mTTS;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -85,6 +90,40 @@ public class DetailFragment extends Fragment {
               }
             }
         });
+
+        mTTS = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = mTTS.setLanguage(Locale.ENGLISH);
+
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "Language not supported");
+                    } else {
+                        btnVolume.setEnabled(true);
+                    }
+                } else {
+                    Log.e("TTS", "Initialization failed");
+                }
+            }
+        });
+        //Speak btn click
+        btnVolume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String wordSpeak = tvWord.getText().toString();
+                mTTS.speak(wordSpeak, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        if(mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+        super.onDestroy();
     }
 
     @Override
