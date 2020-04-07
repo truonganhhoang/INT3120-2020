@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, View,StyleSheet ,Alert,Text, TextInput,} from 'react-native';
+import { ScrollView, View,StyleSheet ,Alert,Text, TextInput,Button,Image} from 'react-native';
 
 import styles from '../assets/css/css';
 
@@ -8,9 +8,10 @@ class ListWords extends React.Component {
     return (
   <ScrollView style={styles.container}>
     <View style={styles.banner}>
-        <Text style={styles.paragraph}>
-         Danh sách từ vựng
-        </Text>
+      <Text style={[styles.text_banner,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
+      <Image style={styles.icon_back} source={require('../assets/icon/back.png')}/>
+      Danh Sách Từ Vựng</Text>
+       <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
     </View>
     <View style={styles.container2}>
      <TextInput
@@ -87,7 +88,9 @@ class ListWords extends React.Component {
   );
   
   }
-  
+   _Done= async () => {
+    this.props.navigation.navigate('Menu');
+    }
  
 }
 

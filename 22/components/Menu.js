@@ -8,48 +8,62 @@ class Menu extends React.Component {
     return (
   <ScrollView style={styles.container}>
     <View style={styles.banner}>
-        <Text style={styles.paragraph}>
+        <Text style={[styles.paragraph,{ flex: 1, flexDirection: 'column' }]}>
          3000 Từ Vựng Tiếng Anh
         </Text>
+        <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
     </View>
     <View style={styles.container2}>
         <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/star.png')}/>
-          <Button title='Từ Đã Học' color="#ffffff" onPress={() =>Alert.alert('1')}/>
+          <Text style={styles.text} onPress={this._Tick}>Từ Đã Học</Text>
         </View>
         
          <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/list.png')}/>
-          <Button title='Danh Sách Từ' color="#ffffff" onPress={() =>Alert.alert('2')}/>
+          <Text style={styles.text} onPress={this._List}>Danh Sách Từ</Text>
           </View>
 
          <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/search.png')}/>
-          <Button title='Tìm Kiếm' color="#ffffff" onPress={() =>Alert.alert('3')}/>
+          <Text style={styles.text} onPress={this._Search}>Tìm Kiếm</Text>
           </View>
         
          <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/add.png')}/>
-          <Button title='Thêm Từ' color="#ffffff" onPress={this._Add}/>
+          <Text style={styles.text} onPress={this._Add}>Thêm Từ</Text>
         </View>
         
         <View style={styles.button}>
-          <Button title='Hướng dẫn' color="#ffffff" onPress={() =>Alert.alert('6')}/>
+          <Image style={styles.icon} source={require('../assets/icon/book.png')}/>
+          <Text style={styles.text} onPress={this._Tutorial}>Hướng dẫn</Text>
         </View>
 
         <View style={[styles.button,{justifyContent: 'center', backgroundColor:'red'}]}>
-          <Button title='Trở về' color="#ffffff" onPress={this._Back} /> 
+          <Text style={styles.text} onPress={this._Back} >Trở Về</Text>
         </View>
       </View>
     </ScrollView>
   );
   
   }
+  _Search= async () => {
+    this.props.navigation.navigate('Search');
+    }
+  _Tick= async () => {
+    this.props.navigation.navigate('Tick');
+    }
+  _Tutorial= async () => {
+    this.props.navigation.navigate('Tutorial');
+    }
+  _List= async () => {
+    this.props.navigation.navigate('List');
+    }
   _Add= async () => {
     this.props.navigation.navigate('Add');
     }
   _Back= async () =>{
-     this.props.navigation.navigate('Home');
+     this.props.navigation.navigate('Welcome');
   }
 }
 
