@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { View, Text, Dimensions, StyleSheet, Alert } from "react-native";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
 import StyleCommon from "../themes/StyleCommon";
 import GLOBAL from "../utils/Globals";
@@ -8,124 +8,13 @@ import CountDown from "../components/ExamComponents/CountDown";
 import Turns from "../components/ExamComponents/Turns";
 import Question from "../components/ExamComponents/Question";
 import * as actionCreators from "../actions";
+import db from "../../config/configFirebase";
 
 const SCREEN_DEVICE = Dimensions.get("screen");
 
 class Exam2Screen extends Component {
   constructor(props) {
     super(props);
-    this.dataSource = [
-      {
-        id: 1,
-        word: "abdomen",
-        options: [
-          {
-            word: "ankle",
-            image: "https://www.pedifix.com/images/Foottopsprain.JPG"
-          },
-          {
-            word: "abdomen",
-            image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg",
-            correct: true
-          }
-        ]
-      },
-      {
-        id: 2,
-        word: "ankle",
-        options: [
-          {
-            word: "ankle",
-            image: "https://www.pedifix.com/images/Foottopsprain.JPG"
-          },
-          {
-            word: "abdomen",
-            image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
-          },
-          {
-            word: "ankle",
-            image: "https://www.pedifix.com/images/Foottopsprain.JPG",
-            correct: true
-          },
-          {
-            word: "abdomen",
-            image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
-          }
-        ]
-      },
-      {
-        id: 3,
-        word: "arm",
-        options: [
-          {
-            word: "abdomen",
-            image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg",
-            correct: true
-          }
-        ]
-      },
-      {
-        id: 4,
-        word: "chest",
-        options: [
-          {
-            word: "chest",
-            image:
-              "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg"
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          },
-          {
-            word: "chest",
-            image:
-              "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg",
-            correct: true
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          },
-          {
-            word: "chest",
-            image:
-              "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg"
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          },
-          {
-            word: "chest",
-            image:
-              "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg"
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          },
-          {
-            word: "arm",
-            image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          }
-        ]
-      }
-    ];
   }
   static navigationOptions = ({ route }) => {
     return {
@@ -137,13 +26,79 @@ class Exam2Screen extends Component {
   };
 
   componentDidMount() {
-    this.props.onStartExam;
+    this.props.onStartExam();
+    // let mydt = this.fetchData();
   }
 
+  // fetchData() {
+  //   const { titleTopic } = this.props.route.params;
+  //   console.log(titleTopic);
+  //   let data = [];
+
+  //   if (titleTopic !== undefined) {
+  //     db.collection("/topic/")
+  //       .doc("people")
+  //       .collection("people")
+  //       .doc(titleTopic)
+  //       .collection(titleTopic)
+  //       .get()
+  //       .then(docs => {
+  //         docs.forEach(doc => {
+  //           // console.log(doc.id, "=>", doc.data());
+  //           data.push(doc.data());
+  //           // console.log("Slidedhow" + data);
+  //         });
+  //       })
+  //       .catch(err => {
+  //         console.log("Error getting documents", err);
+  //       });
+  //   }
+  //   return data;
+  // }
+
   render() {
+    const { myData } = this.props;
     {
-      this.props.myExam.passExam ? alert("Xong") : null;
+      this.props.myExam.passExam
+        ? Alert.alert(
+            "Hoàn thành",
+            "Chúc mừng bạn đã hoàn thành bài luyện tập",
+            [
+              {
+                text: "OK",
+                onPress: () => {
+                  this.props.onStartExam();
+                  this.props.navigation.goBack(null);
+                }
+              }
+            ],
+            { cancelable: false }
+          )
+        : null;
+      this.props.myExam.failed
+        ? Alert.alert(
+            "Chưa hoàn thành",
+            "Tiếc quá bạn hoàn thành bài luyện tập, thử lại nào!",
+            [
+              {
+                text: "Thử lại",
+                onPress: () => {
+                  this.props.onStartExam();
+                }
+              },
+              {
+                text: "Đóng",
+                onPress: () => {
+                  this.props.onStartExam();
+                  this.props.navigation.goBack(null);
+                }
+              }
+            ],
+            { cancelable: false }
+          )
+        : null;
     }
+
     const barWidth = SCREEN_DEVICE.width * 0.6;
     return (
       <View style={styles.container}>
@@ -172,8 +127,7 @@ class Exam2Screen extends Component {
         <View style={styles.question}>
           <Text style={styles.questionText}>Chọn hình ảnh đúng</Text>
         </View>
-        <Question data={this.dataSource[this.props.myExam.currentQuestion]} />
-        {/* {console.log(`${JSON.stringify(this.dataSource[1])}`)} */}
+        <Question data={myData[this.props.myExam.currentQuestion]} />
       </View>
     );
   }
@@ -181,7 +135,8 @@ class Exam2Screen extends Component {
 
 function mapStateToProps(state) {
   return {
-    myExam: state.exams
+    myExam: state.exams,
+    myData: state.dataExam
   };
 }
 
@@ -207,19 +162,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around"
   },
-  timeText: {
-    fontWeight: "bold",
-    color: "orange",
-    fontSize: 16
-  },
-  dangerText: {
-    fontWeight: "bold",
-    fontSize: 16,
-    color: "red"
-  },
-  heartsContainer: {
-    flexDirection: "row"
-  },
   question: {
     margin: 15,
     alignItems: "center",
@@ -227,16 +169,5 @@ const styles = StyleSheet.create({
   },
   questionText: {
     fontWeight: "bold"
-  },
-  word: {
-    margin: 15,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  wordText: {
-    fontSize: 30
-  },
-  buttonContainer: {
-    marginTop: 15
   }
 });
