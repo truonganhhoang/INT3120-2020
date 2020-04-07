@@ -11,9 +11,14 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './Styles/TestBodyStyles'
-import { requestGET, HOST } from '../Services/Servies'
+import { requestGET, HOST, requestPOST } from '../Services/Servies'
 import DeviceInfo from 'react-native-device-info'
 import Carousel from 'react-native-snap-carousel'
+import { StackActions, NavigationActions } from 'react-navigation'
+const resetAction = StackActions.reset({
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: 'TestList' })],
+})
 class TestBody extends Component {
     static navigationOptions = {
         headerShown: false
@@ -22,52 +27,35 @@ class TestBody extends Component {
         super(props)
         this.state = {
             data: [],
-            data2: [],
-            question_id: [],
-            answer_id: [],
+            exercise_id: [],
             done_answers: [],
+            data2: [],
         }
     }
     componentDidMount() {
         this.fetchData();
-        var newData = []
-        var done_answer = [
-            {
-                question_id:'question_id',
-                answer_id:'answer_id'
-            }
-        ]   
-        newData.push(done_answer)
-        // newData.push(done_answer)   
-        console.log(newData)
+    }
+    Back = () => {
+        this.props.navigation.dispatch(resetAction)
+        // this.props.navigation.navigate('TestList')
+        this.props.navigation.navigate('TestList', { name: this.state.data2[0].description, id: this.state.data2[0].id })
     }
 
     fetchData = async () => {
         var deviceId = DeviceInfo.getDeviceId()
         var id = this.props.navigation.getParam('id').toString()
         var newData = await requestGET(`${HOST}/tests/viewExercise/${id}?client_id=${deviceId}`)
-        this.setState({ data: newData.data.questions })
+        console.log(newData.data.exercise)
+        this.setState({ data: newData.data.questions, data2: newData.data.exercise })
     }
-    submit = () => {
-        var data = new FormData();
-        // var uri = i.uri
-        // var namevideo = uri.substr(-20,20)
-        // arr = arr + "<media><type>Video</type><name>"+ namevideo +"</name><base64>"+ "/gopy/Video/test/" +"</base64></media>"
-        // data.append("File", {
-        //     uri: i.uri,
-        //     name: namevideo,
-        //     type: i.type
-        // });
-        // data.append("site","gopy");
-        // data.append("doclib","Video");
-        //append(key,value)
-        // var question_id = [1, 2]
-        // client_id
-        // 
-        // console.log(this.state.question_id)
-        // data.append('client_id', 'sm6150')
-        // console.log(data)
-        // console.log(this.state.done_answers)
+    submit = async () => {
+        var data = {
+            client_id: DeviceInfo.getDeviceId(),
+            exercise_id: this.state.exercise_id,
+            done_answers: this.state.done_answers
+        }
+        var postData = await requestPOST(`${HOST}/tests/submitExercise`, data).then(res => { return res })
+        console.log(this.state.data2[0].id)
     }
     setVisibleA = (item, index) => {
         if (item.answers[0].visible == false) {
@@ -77,11 +65,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            console.log("A: " + newData[index].answers[0].id)
-            var id = [...this.state.question_id]
-            id.push(newData[index].answers[0].id)
-            this.setState({ question_id: id })
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[0].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -101,8 +92,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            console.log("B: " + newData[index].answers[1].id)
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[1].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -122,8 +119,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = true
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            console.log("C: " + newData[index].answers[2].id)
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[2].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -143,8 +146,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = true
             newData[index].visible = true
-            console.log("D: " + newData[index].answers[3].id)
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[3].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -161,6 +170,7 @@ class TestBody extends Component {
         else if (color == false) return '#9DD6EB'
     }
     renderItem = ({ index, item }) => {
+        this.setState({ exercise_id: item.exercise_id })
         return (
             <ScrollView style={styles.containerFlatList}>
                 <View style={{ flexDirection: 'row' }}>
@@ -244,7 +254,7 @@ class TestBody extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.linearGradient}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.goBack()}
+                        onPress={() => this.Back()}
                     >
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                             style={styles.iconLeft}

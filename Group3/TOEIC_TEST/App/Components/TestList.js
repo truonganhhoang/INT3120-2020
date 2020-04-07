@@ -5,7 +5,8 @@ import {
     SafeAreaView,
     FlatList,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    StatusBar
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -57,9 +58,10 @@ class TestList extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
                 <View style={styles.linearGradient}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.goBack()}
+                        onPress={() => this.props.navigation.navigate('MainBody')}
                     >
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                             style={styles.iconLeft}
