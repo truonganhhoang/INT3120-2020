@@ -1,10 +1,24 @@
-# INT3120-2020
-Môn học Phát triển ứng dụng di động 2020
+# Tên App
+Luyện thi TOEIC TEST-TFLAT
 
-# Chú ý
-Mỗi nhóm tạo 1 thư mục với số của nhóm để đưa code của nhóm vào trong thư mục đó. Các thư mục này PHẢI CÓ readme.md mô tả các thông tin về app.
+# Giới thiệu về App
+Bạn có một kỳ thi TOEIC? Ứng dụng này là dành cho bạn. Bạn có thể học tiếng Anh hàng ngày bằng ứng dụng này.
+Bạn có thể học tiếng Anh ở khắp mọi nơi và mọi lúc. Bạn có thể sử dụng OFFLINE ứng dụng này.
+Phần mềm này bao gồm tất cả các phần của một kỳ thi TOEIC, với đầy đủ các hình ảnh và âm thanh mp3. Bạn sẽ hài lòng. Điểm TOEIC của bạn sẽ cao hơn. Học tiếng Anh sẽ dễ dàng hơn.
 
-# Nộp bài hàng tuần
-Các nhóm nộp bài hàng tuần bằng cách tạo 1 pull request nộp bài chung cho cả nhóm. Có nghĩa các thành viên sẽ đóng góp thông qua repo của 1 người forked ra từ repo này. 
+# Các chức năng của app
+- Tra từ điển
+- Có thể học từ vựng mới theo từng chủ đề
+- Có chức năng hẹn giờ để học từ mới
+- Có các bài kiểm tra theo các kỹ năng thi Toeic như nghe, đọc, viết
 
-Mọi thành viên tự commit code của mình, không commit hộ, để thống kê trên github thể hiện được đóng góp của từng cá nhân.
+# Link app tham khảo
+https://play.google.com/store/apps/details?id=tflat.co.thitoeic&hl=vi
+
+# Link apk
+https://drive.google.com/file/d/134oAlPK-5K-3eAMxJg1gs_Ka7Ehe0v8g/view
+
+# Các thành viên trong nhóm
+Lê Văn Đức - 17020695
+Nguyễn Ngọc Nam - 17020912
+Bùi Hoàng Nam - 17020905 
