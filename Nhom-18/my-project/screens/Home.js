@@ -52,13 +52,13 @@ export default class Home extends Component {
               <Image style={styles.imageButton}  source={require('../image/home/img2.png')}/>
               <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('upload')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Signs')}>
               <Image style={styles.imageButton}  source={require('../image/home/img3.png')}/>
               <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Tips')}>
               <Image style={styles.imageButton}  source={require('../image/home/img4.png')}/>
               <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
             </TouchableOpacity>
