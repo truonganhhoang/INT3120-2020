@@ -178,3 +178,4 @@ ionic g page profile -f
 
 - Thêm tính năng đăng nhập.
 - Router Guard cho route `/tabs/...`
+- Tính năng đăng xuất từ màn hình setting `/tabs/profile/settings`
