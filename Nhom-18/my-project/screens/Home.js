@@ -58,7 +58,7 @@ export default class Home extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Tips')}>
               <Image style={styles.imageButton}  source={require('../image/home/img4.png')}/>
               <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
             </TouchableOpacity>
