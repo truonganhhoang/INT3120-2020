@@ -4,6 +4,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/Home/HomeScreen';
 import LinksScreen from '../screens/Profile/LinksScreen';
 import TFSScreen from '../screens/TFS/TFSScreen';
+import TrafficSignList from '../screens/TFS/TFSListScreen';
 import DetailScreen from '../screens/TFS/DetailScreen';
 import QuestionPractice from '../screens/Question/QuestionPractice';
 import QuestionSet from '../screens/Question/QuestionSet';
@@ -64,6 +65,14 @@ export default function StackNavigator() {
         component={TFSScreen}
         options={{
           title: 'Biển báo giao thông',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />
+       <Stack.Screen
+        name="TFSL"
+        component={TrafficSignList}
+        options={{
+          title: 'Danh sách',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />

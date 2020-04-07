@@ -42,7 +42,7 @@ app.get("/admin", function (req, res) {
 //Admin traffic signs
 app.get("/admin/trafficsigns", function (req, res) {
 
-  TFS.list(con, "", function (result) {
+  TFS.list(con,"","", function (result) {
     res.render("admin/TrafficSigns/list", { result });
   });
 
@@ -56,16 +56,26 @@ app.get("/admin/trafficsigns/add", function (req, res) {
 
 });
 
-app.get("/admin/trafficsigns/json/:name", function (req, res) {
-  var id = req.params.name;
-  TFS.list(con, id, function (result) {
+app.get("/admin/trafficsigns/json/:category", function (req, res) {
+  var category=req.params.category;
+
+  TFS.list(con,category ,"", function (result) {
+    var data={data:result}
+    res.send(data);
+  });
+});
+app.get("/admin/trafficsigns/json/:category/:id", function (req, res) {
+  var category=req.params.category;
+  var id = req.params.id;
+  TFS.list(con,category ,id, function (result) {
     res.send(result);
   });
 });
-app.get("/admin/trafficsigns/change/:name", function (req, res) {
-  var id = req.params.name;
+app.get("/admin/trafficsigns/change/:category/:id", function (req, res) {
+  var category=req.params.category;
+  var id = req.params.id;
   TFS.listCategoriesId(con, function (result) {
-    TFS.list(con, id, function (result2) {
+    TFS.list(con,category, id, function (result2) {
       res.render("admin/TrafficSigns/change", { result, result2 });
     });
 
@@ -106,7 +116,8 @@ app.get("/admin/trafficsignCategories/add", function (req, res) {
 app.get("/admin/trafficsignCategories/json/", function (req, res) {
 
   TFSC.list(con,"", function (result) {
-    res.send(result);
+    var data={data:result}
+    res.send(data);
 
   });
 

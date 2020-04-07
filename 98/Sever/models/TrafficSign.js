@@ -24,15 +24,18 @@ exports.add=function(req,con)
 }
 
 
-exports.list=function(con,id,cb)
+exports.list=function(con,category,id,cb)
 {
-  if(id!="")
-  var query="SELECT * FROM trafficsigns WHERE tfs_id =?";
+  if(id!="" && category!="")
+  var query="SELECT * FROM trafficsigns WHERE tfs_category_id=? AND tfs_id =?";
+  else if(id=="" && category!="")
+  var query="SELECT * FROM trafficsigns WHERE tfs_category_id=? ";
   else
   {
     var query="SELECT * FROM trafficsigns";
   }
-    var temp= con.query(query,id, function (err, result, fields) {
+
+    var temp= con.query(query,[category,id], function (err, result, fields) {
         if (err) throw err;
         cb(result)
       });
