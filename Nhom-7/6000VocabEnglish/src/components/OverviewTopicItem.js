@@ -12,7 +12,8 @@ export class OverviewTopicItem extends Component {
     super(props);
 
     this.state = {
-      favorite: false,      progressComplete: 0
+      favorite: false,
+      progressComplete: 10,
     };
   }
 
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     borderWidth: 0,
-    padding: 10
+    padding: 10,
   },
   childContainer: {
     borderRadius: 20,
@@ -83,12 +84,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     margin: 20,
     padding: 12,
-    alignItems: "center"
+    alignItems: "center",
   },
   secondMenu: {
     position: "absolute",
     right: 10,
-    top: 110
+    top: 110,
   },
   btnDetail: {
     borderWidth: 2,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     alignItems: "center",
     height: 40,
-    width: 150
+    width: 150,
   },
   viewBtnDeail: {
     justifyContent: "center",
@@ -106,14 +107,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 430,
     left: 15,
-    width: "100%"
+    width: "100%",
   },
   textBtnDetail: {
     textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
     textTransform: "uppercase",
-    fontSize: 18
+    fontSize: 18,
   },
   mainImage: {
     borderRadius: 100,
@@ -122,28 +123,28 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     marginRight: 20,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   progressBar: {
-    margin: 5
+    margin: 5,
   },
   topicName: {
     textTransform: "capitalize",
     fontSize: 25,
     color: "gray",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   topicNameVi: {
     textTransform: "capitalize",
     fontSize: 20,
     color: "#F57F17",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   description: {
     textAlign: "center",
     margin: 10,
     fontSize: 16,
     fontWeight: "bold",
-    color: "#8E8E8E"
-  }
+    color: "#8E8E8E",
+  },
 });

@@ -103,7 +103,7 @@ export class SlideshowTopicScreen extends Component {
     );
   }
   playAudioSpelling(word) {
-    console.log("Slide show:" + word);
+    // console.log("Slide show:" + word);
     return async () => {
       const soundObject = new Audio.Sound();
       try {

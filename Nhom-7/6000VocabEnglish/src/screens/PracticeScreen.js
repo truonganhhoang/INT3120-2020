@@ -41,7 +41,13 @@ export class PracticeScreen extends Component {
     };
   };
 
-  nextQuestion = () => {
+  nextQuestion = (correct) => {
+    if (correct) {
+      this.setState({
+        ...this.state,
+        correctAnswer: this.state.correctAnswer + 1,
+      });
+    }
     if (this.state.currentQuestion < this.state.totalQuestion - 1) {
       this.setState({
         currentQuestion: this.state.currentQuestion + 1,

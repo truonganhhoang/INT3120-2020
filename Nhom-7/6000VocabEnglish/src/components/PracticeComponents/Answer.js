@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Audio } from "expo-av";
 
 export class Answer extends Component {
   constructor(props) {
@@ -22,12 +23,39 @@ export class Answer extends Component {
     } else {
       this.setState({ status: 2 });
     }
+
+    this.playSound(correct);
     setTimeout(() => {
-      this.props.onNextQuestion();
+      this.props.onNextQuestion(correct);
       this.setState({ status: 0 });
-    }, 1000);
+    }, 1500);
   };
 
+  playSound = async (correct) => {
+    if (correct) {
+      const soundObject = new Audio.Sound();
+      try {
+        await soundObject.loadAsync(
+          require("../../assets/sounds/correctEffect.mp3")
+        );
+        await soundObject.playAsync();
+        // Your sound is playing!
+      } catch (error) {
+        // An error occurred!
+      }
+    } else {
+      const soundObject = new Audio.Sound();
+      try {
+        await soundObject.loadAsync(
+          require("../../assets/sounds/wrongEffect.wav")
+        );
+        await soundObject.playAsync();
+        // Your sound is playing!
+      } catch (error) {
+        // An error occurred!
+      }
+    }
+  };
   render() {
     const { word, correct } = this.props.data;
     const { status } = this.state;
