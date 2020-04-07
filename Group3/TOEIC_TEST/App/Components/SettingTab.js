@@ -8,52 +8,6 @@ import {
 import {fcmService} from '../Services/FCMService';
 
 class SettingTab extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    componentDidMount() {
-        fcmService.register(this.onRegister, this.onNotification, 
-        this.onOpenNotification)
-    }
-
-    onRegister(token) {
-        console.log("[NotificationFCM] onRegister: ", token)
-    }
-
-    onNotification(notify) {
-        console.log("[NotificationFCM] onNotification: ", notify)
-        // For Android
-        const channelObj = {
-        channelId: "SampleChannelID",
-        channelName: "SampleChannelName",
-        channelDes: "SampleChannelDes"
-        }
-        const channel = fcmService.buildChannel(channelObj)
-
-        const buildNotify = {
-        dataId: notify._notificationId,
-        title: notify._title,
-        content: notify._body,
-        sound: 'default',
-        channel: channel,
-        data: {},
-        colorBgIcon: "#1A243B",
-        largeIcon: 'ic_launcher',
-        smallIcon: 'ic_launcher',
-        vibrate: true
-        }
-
-        const notification = fcmService.buildNotification(buildNotify)
-        fcmService.displayNotification(notification)
-
-    }
-
-    onOpenNotification(notify) {
-        console.log("[NotificationFCM] onOpenNotification: ", notify)
-        alert("Open Notification: " + notify._body)
-    }
-
     render() {
 
         return (
@@ -64,26 +18,11 @@ class SettingTab extends Component {
                 <Button
                 title="Press me"
                 onPress={() => {
-                    const channelObj = {
-                    channelId: "SampleChannelID",
-                    channelName: "SampleChannelName",
-                    channelDes: "SampleChannelDes"
-                    }
-                    const channel = fcmService.buildChannel(channelObj)
-                    const buildNotify = {
-                    dataId: '1',
-                    title: 'this is title',
-                    content: 'hello',
-                    sound: 'default',
-                    channel: channel,
-                    data: {},
-                    colorBgIcon: "#1A243B",
-                    largeIcon: 'ic_launcher',
-                    smallIcon: 'ic_launcher',
-                    vibrate: true
-                    }
-                    const notification = fcmService.buildNotification(buildNotify)
-                    fcmService.scheduleNotification(notification, 0, 1)
+                    const date = new Date()
+                    date.setMinutes(date.getMinutes() + 1) //set time ngay sau 1 phut
+                    const title = "This is title"
+                    const content = "this is content....."
+                    fcmService.scheduleDailyNotification(title, content, date.getTime());
                 }}
                 />  
             </>
