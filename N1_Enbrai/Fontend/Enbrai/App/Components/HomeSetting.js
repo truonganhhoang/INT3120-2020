@@ -34,7 +34,7 @@ const HomeSetting = props=> {
         setTopic(temp)
         var newdata = temp.filter(item=>item.checked == true);
         console.log(newdata[0].translations.vi)
-        setTopicChoice(newdata)
+        setTopicChoice(newdata[0].translations.vi)
       } else {setTopic('Chưa chọn chủ đề')}
 
       if(data[2][1] !=null) {
@@ -92,7 +92,7 @@ const HomeSetting = props=> {
           <View style={{flexDirection: 'row', marginTop: 20}}>
               <View style = {{flex: 8, flexDirection: 'column'}}>
                 <Text style = {{fontSize: 18, fontWeight: '600'}}>Chủ đề yêu thích</Text>
-                <Text style = {{fontSize: 14, marginTop: 8, color: '#757575'}}>"topicChoice"</Text>
+                <Text style = {{fontSize: 14, marginTop: 8, color: '#757575'}}>{topicChoice}</Text>
               </View>
               <View style = {{flex: 2, alignItems: 'flex-end'}}>
                   <Icon

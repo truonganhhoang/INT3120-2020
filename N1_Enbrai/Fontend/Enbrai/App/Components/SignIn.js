@@ -82,6 +82,7 @@ const SignIn = props =>{
             title = 'Quên mật khẩu'
             type= 'clear'
             buttonStyle = {{width: 300}}
+            containerStyle={{marginTop:10}}
             onPress={()=>props.navigation.navigate('ForgetPassScreen')}
           />
         </View>

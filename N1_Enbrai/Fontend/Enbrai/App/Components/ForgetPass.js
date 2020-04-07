@@ -5,10 +5,10 @@ import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
 const ForgetPass = props =>{
    const [email,setEmail] = useState('');
-   const handleConfirm = async(email) => {
+   const handleConfirm = async(value) => {
      // const auth = firebase.auth();
       //auth.sendPasswordResetEmail(email).then(() => {
-       console.log(email)
+       console.log(value)
        // Email sent.
      //  }).catch(() => {console.log('Có gì đó sai')})
    }
@@ -40,12 +40,12 @@ const ForgetPass = props =>{
           keyboardType = 'email-address'
           leftIconContainerStyle = {{marginLeft:0}}
           inputContainerStyle = {{width: '80%', marginLeft: '10%'}}
-          onChangeText = {email => setEmail(email)}
+          onChangeText = {value => setEmail(value)}
         />
         </View>
         <View style = {{flex: 5,marginTop: 40, flexDirection: 'column',alignItems: 'center'}}>
           <Button
-            onPress = {handleConfirm(email)}
+            onPress = {()=>handleConfirm(email)}
             title = 'Gửi'
             buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
           />

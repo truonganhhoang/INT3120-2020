@@ -16,6 +16,7 @@ import LoadingScreen from '../Containers/LoadingScreen';
 import OnceTopicScreen from '../Containers/OnceTopicScreen';
 import OnceSetNumberWordScreen from '../Containers/OnceSetNumberWordScreen';
 import ForgetPassScreen from '../Containers/ForgetPassScreen'
+import UpdatePassScreen from '../Containers/UpdatePassScreen'
 const AppStackNavigation = createStackNavigator(
   {
     HomeScreen: {
@@ -56,6 +57,9 @@ const AppStackNavigation = createStackNavigator(
     },
     ForgetPassScreen: {
       screen : ForgetPassScreen
+    },
+    UpdatePassScreen:{
+      screen:UpdatePassScreen
     }
   },
   {

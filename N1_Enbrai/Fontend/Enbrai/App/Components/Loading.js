@@ -7,7 +7,6 @@ const Loading =props=> {
     useEffect( ()=>{
         SplashScreen.hide();
         const fetchData = async()=>{
-            //await AsyncStorage.removeItem("once")
         var once = await AsyncStorage.getItem("once")
         if(once){
             const resetAction = StackActions.reset({
