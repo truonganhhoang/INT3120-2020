@@ -2,7 +2,6 @@ import firebase from 'react-native-firebase'
 import type { Notification, NotificationOpen} from 'react-native-firebase'
 
 class FCMService {
-
     register = (onRegister, onNotification, onOpenNotification) => {
         this.checkPermission(onRegister)
         this.createNotificationListeners(onRegister, onNotification, onOpenNotification)
@@ -129,6 +128,8 @@ class FCMService {
         //.android.setAutoCancel(true) // Auto cancel after receive notification
     }
 
+
+    //Lên lịch notification
     scheduleNotification = (notification, days, minutes) => {
         const date = new Date()
         if (days) {

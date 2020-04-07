@@ -6,13 +6,19 @@ import {
     FlatList,
     TouchableOpacity,
     ScrollView,
+    Dimensions,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './Styles/TestBodyStyles'
-import { requestGET, HOST } from '../Services/Servies'
+import { requestGET, HOST, requestPOST } from '../Services/Servies'
 import DeviceInfo from 'react-native-device-info'
-
+import Carousel from 'react-native-snap-carousel'
+import { StackActions, NavigationActions } from 'react-navigation'
+const resetAction = StackActions.reset({
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: 'TestList' })],
+})
 class TestBody extends Component {
     static navigationOptions = {
         headerShown: false
@@ -21,18 +27,35 @@ class TestBody extends Component {
         super(props)
         this.state = {
             data: [],
+            exercise_id: [],
+            done_answers: [],
             data2: [],
         }
     }
     componentDidMount() {
-        this.fetchData()
+        this.fetchData();
+    }
+    Back = () => {
+        this.props.navigation.dispatch(resetAction)
+        // this.props.navigation.navigate('TestList')
+        this.props.navigation.navigate('TestList', { name: this.state.data2[0].description, id: this.state.data2[0].id })
     }
 
     fetchData = async () => {
         var deviceId = DeviceInfo.getDeviceId()
         var id = this.props.navigation.getParam('id').toString()
         var newData = await requestGET(`${HOST}/tests/viewExercise/${id}?client_id=${deviceId}`)
-        this.setState({ data: newData.data.questions })
+        console.log(newData.data.exercise)
+        this.setState({ data: newData.data.questions, data2: newData.data.exercise })
+    }
+    submit = async () => {
+        var data = {
+            client_id: DeviceInfo.getDeviceId(),
+            exercise_id: this.state.exercise_id,
+            done_answers: this.state.done_answers
+        }
+        var postData = await requestPOST(`${HOST}/tests/submitExercise`, data).then(res => { return res })
+        console.log(this.state.data2[0].id)
     }
     setVisibleA = (item, index) => {
         if (item.answers[0].visible == false) {
@@ -42,7 +65,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[0].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -62,7 +92,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[1].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -82,7 +119,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = true
             newData[index].answers[3].visible = false
             newData[index].visible = true
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[2].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -102,7 +146,14 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = true
             newData[index].visible = true
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            answer.push({
+                question_id: item.id,
+                answer_id: newData[index].answers[3].id
+            })
+            console.log(answer)
+            this.setState({ data: newData, done_answers: answer })
         }
         else {
             var newData = [...this.state.data]
@@ -119,6 +170,7 @@ class TestBody extends Component {
         else if (color == false) return '#9DD6EB'
     }
     renderItem = ({ index, item }) => {
+        this.setState({ exercise_id: item.exercise_id })
         return (
             <ScrollView style={styles.containerFlatList}>
                 <View style={{ flexDirection: 'row' }}>
@@ -182,7 +234,6 @@ class TestBody extends Component {
         )
     }
     renderItem2 = ({ item, index }) => {
-        console.log(item.visible)
         return (
             <View style={{
                 flex: 1,
@@ -203,7 +254,7 @@ class TestBody extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.linearGradient}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.goBack()}
+                        onPress={() => this.Back()}
                     >
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                             style={styles.iconLeft}
@@ -212,11 +263,20 @@ class TestBody extends Component {
                     <Text style={styles.title}>{this.props.navigation.getParam('description')}</Text>
                     <Icon name='search' size={27} color='transparent' />
                 </View>
-                <FlatList
+                {/* <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
                     keyExtractor={(item, index) => item.toString()}
                     horizontal={true}
+                /> */}
+                <Carousel
+                    ref={(c) => { this._carousel = c }}
+                    data={this.state.data}
+                    renderItem={this.renderItem}
+                    sliderWidth={1000}
+                    itemWidth={1000}
+                    layout={'tinder'}
+                    layoutCardOffset={`10`}
                 />
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <FlatList
@@ -226,13 +286,16 @@ class TestBody extends Component {
                         horizontal={true}
                     />
                 </View>
+                <TouchableOpacity onPress={() => this.submit()}>
+                    <View style={styles.submit}>
+                        <Text style={styles.text}>Submit</Text>
+                    </View>
+                </TouchableOpacity>
 
-                <View style={styles.submit}>
-                    <Text style={styles.text}>Submit</Text>
-                </View>
             </SafeAreaView>
         )
     }
 }
 
 export default TestBody
+

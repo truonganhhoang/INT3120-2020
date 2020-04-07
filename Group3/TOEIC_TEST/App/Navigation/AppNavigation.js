@@ -15,6 +15,7 @@ const AppNavigator = createStackNavigator({
         TestList: { screen: TestList },
         TestBody: { screen: TestBody },
         Test: { screen: Test },
+        Notification: {screen: Notification }
 });
 
 export default createAppContainer(AppNavigator);
