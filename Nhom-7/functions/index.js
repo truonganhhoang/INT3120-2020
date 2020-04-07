@@ -3,6 +3,7 @@ const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
 const categoryList = require("../6000VocabEnglish/data/CategoryName");
+const settingList = require("../6000VocabEnglish/data/SettingName");
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //

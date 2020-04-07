@@ -1,6 +1,6 @@
 module.exports = {
   COLOR: {
-    ORANGE: "#ffa500",
+    ORANGE: "#e38430",
     DARKBLUE: "#0F3274",
     LIGHTBLUE: "#6EA8DA",
     DARKGRAY: "#999",
