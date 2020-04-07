@@ -69,8 +69,8 @@ export default class CategoryScreen extends Component {
   }
   gotoPractice(topicName) {
     return () => {
-      console.log("Go to exam!");
-      this.props.navigation.navigate("SlideshowByTopic", {
+      // console.log("Go to exam!");
+      this.props.navigation.navigate("Practice", {
         titleTopic: topicName,
       });
     };

@@ -6,6 +6,7 @@ module.exports = {
     DARKGRAY: "#999",
   },
   QUESTION_TYPE: {
-    SELECTONE: 1,
+    ONECHOISE: 1, // chọn 1 đáp án
+    TRUEFALSE: 2, // Đúng sai
   },
 };
