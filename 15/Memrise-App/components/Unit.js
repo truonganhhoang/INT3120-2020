@@ -7,22 +7,25 @@ import {
     TouchableOpacity,
     Alert
 } from "react-native";
+import * as Progress from 'react-native-progress';
+ 
 
 import planet from '../assets/planet.png';
 import flash from '../assets/splash.png';
 import wateringCan from '../assets/watering-can.png';
 
 export default function Unit (props){
-    const { id ,unitName } = props.unit;
+    const { id ,unitName  } = props.unit;
+    const  onPress  = props.onPress;
+
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-            onPress={()=>{
-                Alert.alert('Click')
-            }}
+          onPress={onPress}
         >
             <View style ={styles.container}>
                     <Image style={styles.unitImange} source = {planet} />
+                    <Progress.Bar progress={0.3}  />
                     <Text style={styles.unitTitle}> {id} - {unitName} </Text>
             </View>
         </TouchableOpacity>

@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View ,FlatList } from 'react-native';
+import { StyleSheet, Text,Alert ,View ,FlatList ,Dimensions } from 'react-native';
+import * as Progress from 'react-native-progress';
+ 
+
 import Unit from '../components/Unit';
 
 // const AppContainer = createAppContainer(AppNavigator);
@@ -19,17 +22,29 @@ const sampleData= [
 
 
 
-export default function Courses() {
+const screenWidth= Math.round(Dimensions.get('window').width);
+
+
+
+
+export default function Courses({navigation}) {
+  
   
   return (
     <View style={styles.container}>
+        <Progress.Bar progress={0.3} width={screenWidth } />
+      
         <FlatList   data ={ sampleData}
-            renderItem={  ({item})=> <Unit unit={item} /> }
+            renderItem={  ({item})=>
+               <Unit unit={item}  
+                    onPress={()=>navigation.navigate('ListWord')}
+               /> 
+            }
             keyExtractor={item => `${item.id }`} 
             scrollEnabled={true}  
             showsVerticalScrollIndicator={false}
         />
-
+    
     </View>
     )
 }

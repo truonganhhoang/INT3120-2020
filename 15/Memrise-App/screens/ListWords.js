@@ -1,42 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View ,FlatList } from 'react-native';
+import { StyleSheet, Text, View ,FlatList,Dimensions } from 'react-native';
 import Word from '../components/Word';
 
+import sample  from '../Data';
 // const AppContainer = createAppContainer(AppNavigator);
 
-// import sampleData from '../sampleData˙';
 
-const listWordData= [
-    { id:1 , word:'ありがとうございます' ,mean:'cảm ơn ' , miss:false , level:0 },
-    { id:2 , word:'車' ,mean:'xe hơi' , miss:false , level:3  },
-    { id:3 , word:'野菜' ,mean:'rau' , miss:true , level:1  },
-    { id:4 , word:'指輪' ,mean:'nhẫn' , miss:true , level:2  },
-    { id:5 , word:'なべ' ,mean:'nồi' , miss:false , level:2 },
-    { id:6 , word:'果物' ,mean:'hoa quả' , miss:true , level:1 },
-    { id:7 , word:'ミカン' ,mean:'quả quýt' , miss:false , level:0 },
-    { id:8 , Word:'家' ,mean:'Nha' , miss:false , level:0 }
-];
-// const listWordData= [
-//     { id:1 , word:'das' ,mean:'cảm ơn ' , miss:false , level:0 },
-//     { id:2 , word:'dsad' ,mean:'xe hơi' , miss:false , level:3  },
-   
-// ];
+const screenWidth= Math.round(Dimensions.get('window').width);
+const screenHeight= Math.round(Dimensions.get('window').height);
 
-
-export default function listWord() {
-  
+export default function listWord({navigation}) {
+    
   return (
     <View style={styles.container}>
         <View style= {styles.header} > 
-            <Text> bai 1 111111</Text>
-
+        {/* <Text> header </Text> */}
         </View>
-        <FlatList   data ={ listWordData}
-            renderItem={  ({item})=> <Word unit={item} /> }
-            keyExtractor={item => `${item.id }`} 
+       
+        
+        <FlatList   data ={ sample.listWordData}
+            renderItem={  ({item})=> <Word unit={item}
+                 onPress ={()=>navigation.navigate('WordDetail')}
+            /> }
+            keyExtractor={item => `${item.id}`} 
             scrollEnabled={true}  
             showsVerticalScrollIndicator={false}
         />
+        <View  style={styles.footer} >
+              <Text> footer </Text>
+        </View>
 
     </View>
     )
@@ -47,14 +39,30 @@ export default function listWord() {
 const styles = StyleSheet.create({
   container: {
     width :'100%',
-    // flex: 1,
+    flex: 1,
     backgroundColor:'#fff',
     alignItems: 'stretch',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   header:{
+    paddingTop:50,
     backgroundColor :'#0ab',
-    height:120
+    height:100
+  },
+  footer:{
+    
+    position: 'absolute',
+    top:screenHeight-100,
+    height:100,
+    width: screenWidth,
+    justifyContent :'center',
+    alignItems:"center",
+    backgroundColor:'#fffa00',
+    borderBottomWidth: 10,
+    borderRadius:50,
+    borderStyle:'solid',
+    borderBottomColor:'#daa520'
+    // #FF8C00
   }
 
 });

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import planet from '../assets/planet.png';
-import flash from '../assets/splash.png';
+import thunder from '../assets/thunder.png';
 import wateringCan from '../assets/watering-can.png';
 
 import tree0 from '../assets/tree/tree0.png'
@@ -19,21 +19,30 @@ import tree3 from '../assets/tree/tree3.png'
 import tree4 from '../assets/tree/tree4.png'
 import tree5 from '../assets/tree/tree5.png'
 
+
 export default function Word (props){
+    const treeArr = [tree0,tree1,tree2,tree3,tree4,tree5];
     const { id ,word ,mean , miss , level } = props.unit;
+    const onPress = props.onPress;
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-            onPress={()=>{
-                Alert.alert('Click')
-            }}
+            onPress={onPress}
         >
             <View style ={styles.container}>
-                    <Image style={styles.unitImange} source = {tree4} />
-                    <Text style={styles.word}> {word} </Text>
-                    <Text style={styles.mean}> {mean} </Text>
-
+                    <Image style={styles.wordImage} source = {treeArr[level]} />
+                    <View style ={styles.wordContainer}>
+                     
+                        <Text style={styles.word} >  {word} </Text>
+                        <Text style={styles.mean} > {mean} </Text>
+                    </View>
+                            
+            {  miss&&<Image style={styles.thunderImage} source = {thunder} />}
+                   
+                    
             </View>
+           
+
         </TouchableOpacity>
 
     )
@@ -42,28 +51,41 @@ export default function Word (props){
 
 const styles = StyleSheet.create({
     container:{
+        display : 'flex',
+        flexDirection : 'row',
+        flexWrap : 'wrap',
         alignItems:'center',
-        padding:16,
-        borderRadius:4,
+        justifyContent:'flex-start',
         backgroundColor:'#fff',
-        shadowColor:'#000',
-        shadowOpacity:0.3,
-        shadowRadius: 10,
-        shadowOffset:{width:0, height:0},
-        marginBottom :30,
-        // backgroundColor :'#00f'
+        marginTop:5,
+        marginBottom :5,
+       paddingBottom :3,
+        borderBottomColor: '#000',
+        borderBottomWidth:0.3,
+       
     },
-    wordImange:{
-        width:5,
-        height:5,
+    wordImage:{
+        width:40,
+        height:40,
+    },
+    thunderImage:{
+        width:30,
+        height:30,
+        marginRight:5
+    },
+    wordContainer:{
+        flexGrow :1,
+        marginLeft :3
     },
     word:{
         textTransform:'lowercase',           
-        fontWeight: '700'
+        fontWeight: '700',
+        fontSize:20
     },
     mean:{
-        textTransform:'uppercase',           
-        fontWeight: '300'
+        textTransform:'lowercase',           
+        fontWeight: '100',
+        fontSize:13
     }
 
 });
