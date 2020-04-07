@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View ,StyleSheet,Image, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {lithuyet} from './LiThuyet';
 import { render } from 'react-dom' ;
 import book from '../assets/thi.png';
@@ -13,9 +14,9 @@ import test from '../assets/exam.png';
 export default class TrangChu extends Component{
     render(){
         return(
-            <View>  
-                <View style={{backgroundColor:"#BDBDBD"}}>
-                    <View style={{flexDirection:"row",height:200,marginTop:45,}}>
+            <View style={{flex:1}}>  
+                <View style={{backgroundColor:"#D8D8D8",flex:1}}>
+                    <View style={{flexDirection:"row",flex:1,marginTop:10}}>
                         <View style={styles.style}>
                             <Image style={styles.anh}  source={sach}/>
                             
@@ -34,47 +35,46 @@ export default class TrangChu extends Component{
                             }
                             >Thi sát hạch</Text>
                         </View>
-                        
-                        
                     </View>
-                    <View style={{flexDirection:"row",height:200,marginTop:20,}}>
+                    <View  style={{backgroundColor:"#D8D8D8",flex:1,flexDirection:"row",marginTop:10}}>
                         <View  style={styles.style}>
-                            <Image  style={styles.anh} source={warning}/>
-                            <Text style={styles.text}
-                            onPress={() =>
-                                this.props.navigation.navigate('Bien bao')
-                            }
-                            >Biển báo</Text>
-                        </View>
-                        <View  style={styles.style}>
-                            <Image  style={styles.anh} source={wisdom}/>
-                            <Text style={styles.text}
-                            onPress={() =>
-                                this.props.navigation.navigate('Mẹo thi kết quả cao')
-                            }
-                            >mẹo thi kết quả cao</Text>
-                        </View>
+                                <Image  style={styles.anh} source={warning}/>
+                                <Text style={styles.text}
+                                onPress={() =>
+                                    this.props.navigation.navigate('Bien bao')
+                                }
+                                >Biển báo</Text>
+                            </View>
+                            <View  style={styles.style}>
+                                <Image  style={styles.anh} source={wisdom}/>
+                                <Text style={styles.text}
+                                onPress={() =>
+                                    this.props.navigation.navigate('Mẹo thi kết quả cao')
+                                }
+                                >Mẹo Thi</Text>
+                            </View>
                     </View>
-                    <View style={{flexDirection:"row",height:200,marginTop:20,}}>
-                    <View  style={styles.style}>
-                            <Image  style={styles.anh} source={law}/>
-                            <Text style={styles.text}
-                            onPress={() =>
-                                this.props.navigation.navigate('Tra cứu luật nhanh')
-                            }
-                            > tra cứu luật</Text>
-                    </View>
+                    <View style={{backgroundColor:"#D8D8D8",flex:1,flexDirection:"row",marginTop:10}}>
                         <View  style={styles.style}>
-                            <Image  style={styles.anh} source={test}/>
-                            <Text style={styles.text}
-                            onPress={() =>
-                                this.props.navigation.navigate('Câu hỏi hay sai')
-                            }
-                            >câu hỏi hay sai</Text>
+                                <Image  style={styles.anh} source={law}/>
+                                <Text style={styles.text}
+                                onPress={() =>
+                                    this.props.navigation.navigate('Tra cứu luật nhanh')
+                                }
+                                > tra cứu luật</Text>
                         </View>
-                    </View>             
+                            <View  style={styles.style}>
+                                <Image  style={styles.anh} source={test}/>
+                                <Text style={styles.text}
+                                onPress={() =>
+                                    this.props.navigation.navigate('Câu hỏi hay sai')
+                                }
+                                >câu hỏi hay sai</Text>
+                            </View>
+                    </View>
+                           
                 </View>
-                <View style={{backgroundColor:"#BDBDBD",height:70}}></View>
+                
                
             </View>
         );
@@ -89,17 +89,19 @@ const styles = StyleSheet.create({
         alignItems:'center',
       },
       style:{
-        width:195, backgroundColor:"#FFFFFF",marginLeft:10,marginRight:10,borderRadius:4,
+        flex:1, backgroundColor:"#FFFFFF",marginLeft:10,marginRight:10,borderRadius:4,
         marginBottom:10,
         alignItems:"center",
       },
-      anh:{
-        marginTop:15,
-       width:130, 
-       height:120
+      anh:{marginTop:20,
+          flex:3,
+        width:'70%',
+        height:"30%",
+       
       },
       text:{
-          marginTop:10,
+          flex:1,
+          marginTop:"5%",
           fontSize:20,
           backgroundColor:"#FFFFFF",
           color:"#0040FF",
