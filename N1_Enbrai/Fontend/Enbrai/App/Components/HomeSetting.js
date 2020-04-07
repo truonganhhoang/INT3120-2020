@@ -13,37 +13,41 @@ import RadioForm from 'react-native-simple-radio-button'
 import {withNavigation} from 'react-navigation'
 import TopicScreen from '../Containers/TopicScreen';
 const HomeSetting = props=> {
-    const [voice, setVoice] = useState(0)
+    const [voice, setVoice] = useState()
     const [language, setLanguage] = useState('');
     const [topic, setTopic] = useState('');
+    const [topicChoice, setTopicChoice] = useState('');
     const [numberWord, setNumberWord] = useState();
     const [time, setTime] = useState(0);
-    
     useEffect(()=>{
-      const fetchData = async ()=>{
-        var data = await AsyncStorage.multiGet(["Language", "Topic","NumberWord","Voice", "Time"]);
-        if(data[0][1] !=null) {
-          setLanguage(parseInt(data[0][1]))
-        } else {setLanguage(0)}
-
-        if(data[1][1] !=null) {
-          setTopic(data[1][1])
-        } else {setTopic('Chưa chọn chủ đề')}
-
-        if(data[2][1] !=null) {
-          setNumberWord(data[2][1])
-        } else {setNumberWord(4)}
-
-        if(data[3][1] !=null) {
-          setVoice(parseInt(data[3][1]))
-        } else {setVoice(0)}
-        if(data[4][1] !=null) {
-          setTime(data[4][1])
-        } else {setTime(20)}
-      }
-      fetchData();
+      fetchData()
       return()=>{}
-    });
+    },[]);
+    const fetchData = async ()=>{
+      var data = await AsyncStorage.multiGet(["Language", "Topic","NumberWord","Voice", "Time"]);
+      if(data[0][1] !=null) {
+        setLanguage(parseInt(data[0][1]))
+      } else {setLanguage(0)}
+
+      if(data[1][1] !=null) {
+        var temp = JSON.parse(data[1][1]);
+        setTopic(temp)
+        var newdata = temp.filter(item=>item.checked == true);
+        console.log(newdata[0].translations.vi)
+        setTopicChoice(newdata)
+      } else {setTopic('Chưa chọn chủ đề')}
+
+      if(data[2][1] !=null) {
+        setNumberWord(parseInt(data[2][1]))
+      } else {setNumberWord(4)}
+
+      if(data[3][1] !=null) {
+        setVoice(parseInt(data[3][1]))
+      } else {setVoice(0)}
+      if(data[4][1] !=null) {
+        setTime(data[4][1])
+      } else {setTime(20)}
+    }
     const radio_props = [
         {label: 'US', value: 0 },
         {label: 'UK', value: 1 }
@@ -84,11 +88,11 @@ const HomeSetting = props=> {
             borderBottomColor: '#E0E0E0',
             paddingLeft: 20,
           }}
-          onPress = {()=>{props.navigation.navigate('TopicScreen')}}>
+          onPress = {()=>{props.navigation.navigate('TopicScreen',{topic: topic})}}>
           <View style={{flexDirection: 'row', marginTop: 20}}>
               <View style = {{flex: 8, flexDirection: 'column'}}>
                 <Text style = {{fontSize: 18, fontWeight: '600'}}>Chủ đề yêu thích</Text>
-                <Text style = {{fontSize: 14, marginTop: 8, color: '#757575'}}>{topic}</Text>
+                <Text style = {{fontSize: 14, marginTop: 8, color: '#757575'}}>"topicChoice"</Text>
               </View>
               <View style = {{flex: 2, alignItems: 'flex-end'}}>
                   <Icon
@@ -107,7 +111,7 @@ const HomeSetting = props=> {
             borderBottomColor: '#E0E0E0',
             paddingLeft: 20,
           }}
-          onPress = {()=>{props.navigation.navigate('SetNumberWordScreen')}}>
+          onPress = {()=>{props.navigation.navigate('SetNumberWordScreen',{numberWord:numberWord})}}>
           <View style={{flexDirection: 'row', marginTop: 20}}>
               <View style = {{flex: 8, flexDirection: 'column'}}>
                 <Text style = {{fontSize: 18, fontWeight: '600'}}>Số lượng từ mỗi ngày</Text>
@@ -135,7 +139,7 @@ const HomeSetting = props=> {
             <View style = {{marginTop: 10, marginLeft: 15}}>
                 <RadioForm
                 radio_props={radio_props}
-                initial={voice}
+                initial={0}
                 formHorizontal={true}
                 labelHorizontal={true}
                 animation={true}
@@ -144,6 +148,7 @@ const HomeSetting = props=> {
                 selectedButtonColor = '#FFB74D'
                 onPress={async(value)=> {
                   setVoice(value);
+                  console.log(value)
                   try {
                     const result = await AsyncStorage.setItem('Voice',value.toString());
                   } catch (error) {
@@ -162,7 +167,7 @@ const HomeSetting = props=> {
             borderBottomColor: '#E0E0E0',
             paddingLeft: 20,
           }}
-          onPress = {()=>{props.navigation.navigate('NotificationScreen')}}>
+          onPress = {()=>{props.navigation.navigate('SetNotificationScreen',{time: time})}}>
           <View style={{flexDirection: 'row', marginTop: 20}}>
               <View style = {{flex: 8, flexDirection: 'column'}}>
                 <Text style = {{fontSize: 18, fontWeight: '600'}}>Lời nhắc</Text>

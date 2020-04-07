@@ -14,21 +14,13 @@ import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Flash from 'react-native-vector-icons/FontAwesome';
 import SplashScreen from 'react-native-splash-screen'
-const SetNumberWord = (props) => {
-  const [number, setNumber] = useState();
-  const [once, setOnce] = useState();
-  const num = props.navigation.getParam('numberWord')
-  useEffect( async() => {
-    const fetchData= async()=>{
-      var param = props.navigation.getParam('numberWord');
-      const temp =await AsyncStorage.setItem('NumberWord',param.toString());
-      setNumber(param)
-    }
-    fetchData()
+const OnceSetNumberWord = (props) => {
+  const [number, setNumber] = useState(4);
+  useEffect(()=>{
+    SplashScreen.hide();
     return()=>{
     }
-  },[]);
-  
+  },[])
   const radio_props = [
     {label: '4 từ', value: 4},
     {label: '8 từ', value: 8},
@@ -61,7 +53,7 @@ const SetNumberWord = (props) => {
             onPress={async(value) => {
               console.log(value)
               try {
-              await AsyncStorage.setItem('NumberWord',value.toString());
+              const result = await AsyncStorage.setItem('NumberWord',value.toString());
             } catch (error) {
               console.log(error)
             }
@@ -145,21 +137,14 @@ const SetNumberWord = (props) => {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          style={{padding: 5, marginRight: 20}}
-          onPress={() => {
-              props.navigation.goBack();
-          }}>
-          <Text style={{fontSize: 18, color: '#fff'}}>Hủy</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
           style={{
             padding: 8,
             backgroundColor: '#FFB74D',
             flexDirection: 'row',
             borderRadius: 5,
           }}
-          onPress={() => {
-              props.navigation.navigate('HomeScreen');
+          onPress={ async() => {
+            props.navigation.navigate('OnceTopicScreen');
           }}>
           <Icon
             name="check"
@@ -173,4 +158,4 @@ const SetNumberWord = (props) => {
     </View>
   );
 };
-export default withNavigation(SetNumberWord);
+export default withNavigation(OnceSetNumberWord);

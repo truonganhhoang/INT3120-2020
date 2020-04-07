@@ -18,6 +18,9 @@ const ChangeLanguage = props => {
       }
     }
     fetchData();
+    return()=>{
+      
+    }
   })
   const radio_props = [
     {label: 'Tiếng Việt', value: 0},
@@ -38,20 +41,24 @@ const ChangeLanguage = props => {
         <View style={{alignItems: 'center', marginTop: 30}}>
           <Text style={{fontSize: 18, color: '#0288D1'}}>Chọn ngôn ngữ</Text>
         </View>
-        <View style={{marginTop: 10, marginLeft: 15}}>
+        <View style={{marginTop: 10, marginLeft: 20}}>
           <RadioForm
             radio_props={radio_props}
             initial={0}
             formHorizontal={false}
             labelHorizontal={true}
             animation={true}
-            buttonSize={12}
+            buttonSize={10}
             buttonColor="#9E9E9E"
             selectedButtonColor="#FFB74D"
             onPress={ value  => {
               setLanguage(value);
             }}
+            buttonStyle ={{marginTop:20}}
+            buttonWrapStyle ={{marginTop:20}}
+            wrapStyle={{marginTop:20}}
             labelStyle={{marginRight: 30, fontSize: 16}}
+            style = {{marginTop:30}}
           />
         </View>
       </View>

@@ -50,6 +50,8 @@ target 'Enbrai' do
 
   pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'EnbraiTests' do
     inherit! :search_paths
     # Pods for testing
