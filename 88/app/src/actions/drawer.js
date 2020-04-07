@@ -1,4 +1,4 @@
-import { SELECT_DRAWER_ITEM, CHANGE_DRAWER_STATUS } from '../constants/actionTypes';
+import { SELECT_DRAWER_ITEM } from '../constants/actionTypes';
 
 /**
  * Change drawer item is focused

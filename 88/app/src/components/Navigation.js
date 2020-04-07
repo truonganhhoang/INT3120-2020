@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
   },
   navContainer: {
     flexDirection: 'row',
-    height: 50
+    height: 56,
   },
   iconContainer: {
-    width: 50,
+    width: 56,
     justifyContent: 'center',
     alignItems: 'center',
   },

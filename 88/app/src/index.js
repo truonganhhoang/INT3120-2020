@@ -4,6 +4,7 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 import Navigation from './components/Navigation';
 import Drawer from './components/Drawer';
+import HomeTabView from './components/HomeTabView';
 
 /**
  * Contains all components of this application
@@ -31,6 +32,7 @@ const Main = () => {
           ref={drawer}
         >
           <Navigation openDrawer={openDrawer}/>
+          <HomeTabView/>
         </DrawerLayout>
       </SafeAreaView>
     </> 

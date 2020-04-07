@@ -1,33 +1,65 @@
-// import * as React from 'react';
-// import { Button, Text, View, Alert, StyleSheet } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-// import LearnScreen from './LearnScreen';
-// import PlayScreen from './PlayScreen';
+import React, { useState } from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 
+const renderTabBar = (props) => {
+  return (
+    <TabBar
+      {...props}
+      style={{
+        backgroundColor: '#00bcd4',
+        elevation: 0
+      }}
+      indicatorStyle={{ backgroundColor: '#fff' }}
+    />
+  );
+}
 
-// const Tab = createMaterialTopTabNavigator();
-// const TabBar = () => {
-//   return (
-//     <NavigationContainer>
-//       <Tab.Navigator
-//         tabBarOptions={{
-//           activeTintColor: '#ffffff',
-//           labelStyle: {
-//             fontSize: 16,
-//           },
-//           tabStyle: {
-//             borderColor: '#ffffff',
-//             // width: 'auto',
+const FirstRoute = () => {
+  return (
+    <View style={[styles.scene, {backgroundColor: 'blue'}]}>
+    </View>
+  )
+}
 
-//           },
-//           style: {backgroundColor: '#00BCD4'},
-//         }}>
-//         <Tab.Screen name="LEARN" component={LearnScreen} />
-//         <Tab.Screen name="PLAY" component={PlayScreen} />
-//       </Tab.Navigator>
-//     </NavigationContainer>
-//   );
-// };
+const SecondRoute = () => {
+  return (
+    <View style={[styles.scene, {backgroundColor: 'red'}]}>
+    </View>
+  )
+}
 
-// export default TabBar;
+const initialLayout = {
+  width: Dimensions.get('window').width
+};
+
+const HomeTabView = () => {
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'learn', title: 'LEARN' },
+    { key: 'play', title: 'PLAY' }
+  ]);
+
+  const renderScene = SceneMap({
+    learn: FirstRoute,
+    play: SecondRoute
+  });
+  
+  return (
+    <TabView
+      renderTabBar={renderTabBar}
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={initialLayout}
+    />
+  );
+}
+
+const styles = StyleSheet.create({
+  scene: {
+    flex: 1
+  }
+});
+
+export default HomeTabView;
