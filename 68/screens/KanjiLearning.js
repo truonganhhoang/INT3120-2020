@@ -14,6 +14,7 @@ import test from '../assets/test.png'
 import challenge1 from '../assets/mission.png'
 import challenge2 from '../assets/top.png'
 import KanjiLearn from '../components/KanjiLearn'
+
 export default class KanjiLearning extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
@@ -56,13 +57,22 @@ export default class KanjiLearning extends React.Component {
             <Image source={loadBar} style={styles.loadBar}></Image>
          </View>
          <View style={styles.container}>
-         <FlatList 
+         {/* <FlatList 
             data={images}
             renderItem = {({item}) => <KanjiLearn image={item} 
             onPress={()=> navigation.navigate('KanjiGroupDetail',{kanjiList : groupKanji.item.kanjiList})}/>}
+
+
+            
             keyExtractor= {item => `${item.id}`}
             contentContainerStyle={styles.container}
           />
+          */}
+           <KanjiLearn image={images[0]} onPress={()=> navigation.navigate('KanjiGroupDetail',{kanjiList : groupKanji.item.kanjiList})}/>
+           <KanjiLearn image={images[1]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
+           <KanjiLearn image={images[2]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
+           <KanjiLearn image={images[3]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
+           <KanjiLearn image={images[4]} onPress={()=> navigation.navigate('KanjiChallenge1')}/>
          </View>
        </View>
     );
