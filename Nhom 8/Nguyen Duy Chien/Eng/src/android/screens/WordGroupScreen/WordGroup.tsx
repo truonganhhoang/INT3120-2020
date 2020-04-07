@@ -9,7 +9,6 @@ import styles from './styles';
 const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props; 
   const { nameTopic, wordGroups } = route.params; 
-  
   return (
     <View>
       <Header containerStyle={styles.container}
@@ -22,7 +21,9 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       <ScrollView horizontal={true}>
         {
           wordGroups.map( (e: any) =>
-            <WordGroupCard data={e} navigation={navigation}/>
+            <WordGroupCard data={e} navigation={navigation}
+              key={e.wg_vn_name}
+            />
           )
         }
       </ScrollView>

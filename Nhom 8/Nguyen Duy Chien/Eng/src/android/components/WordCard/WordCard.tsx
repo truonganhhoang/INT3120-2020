@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Card, Icon, Image } from 'react-native-elements'; 
 import { Text, TouchableOpacity, View } from 'react-native'; 
 import styles from './styles'; 
+import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 
 
-
-const Word = (props: {data?: any}) => {
+const Word = (props: {data?: any; icon: any}) => {
   const { data } = props; 
-  const [colorStar, setColorStar] = useState('white')
-  console.log(data); 
+  const { icon } = props;
+  const [colorStar, setColorStar] = useState(icon)
   const onPressStar = () => {
-    console.log('Star is Ready!'); 
-    if (colorStar == 'white'){
-      setColorStar('yellow'); 
+    console.log(colorStar)
+    if (colorStar == 'star'){
+      setColorStar('staro'); 
     } 
-    else if (colorStar == 'yellow'){
-      setColorStar('white'); 
+    else if (colorStar == 'staro'){
+      setColorStar('star'); 
     }
   }
   return (
@@ -24,15 +24,14 @@ const Word = (props: {data?: any}) => {
         containerStyle={styles.card}
       >
         <Image 
-          source={{uri: '../../../../images/cards/clother.jpg'}}
+          source={require('../../../../images/cards/food.jpg')}
           style={styles.img}
         />
-        <Icon 
-          name='star'
-          type='font-awesome'
-          color={colorStar}
+        <IconFontAwesome5 
+          name={colorStar}
+          color='#ff5e00'
           size={30}
-          containerStyle={styles.star_icon}
+          style={styles.star_icon}
           onPress={onPressStar}
         />
         <Text style={styles.en_text}>
@@ -43,10 +42,10 @@ const Word = (props: {data?: any}) => {
         </Text>
         <Icon 
           name='volume-up'
-          type='font-awesome'
           color='orange'
           size={20}
-          containerStyle={styles.voice_icon}
+          style={styles.voice_icon}
+          iconStyle={{marginLeft:120,marginTop:5}}
           onPress={() => {console.log('Speaking')}}
         />
         <Text style={styles.vn_text}>

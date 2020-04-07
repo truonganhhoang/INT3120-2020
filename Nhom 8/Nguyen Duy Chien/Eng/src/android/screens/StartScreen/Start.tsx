@@ -5,9 +5,9 @@ import { SettingButton } from '../../components/SettingButton';
 import { StarButton } from '../../components/StarButton';
 import { Header } from 'react-native-elements';
 import styles from './styles'; 
-import Data from '../../../../data/pre-data.json'; 
+const Data = require('../../../../data/pre-data.json'); 
 
-const BackgroudUrl = "../../../../images/logo.png";
+const BackgroudUrl = "../../../../images/logo3.png";
 
 const StartScreen = (props: { navigation: any }) => {
   const { navigation } = props;
@@ -17,7 +17,7 @@ const StartScreen = (props: { navigation: any }) => {
         containerStyle={{paddingTop:0,height:60,backgroundColor:'#ff5e00'}}
         leftComponent={<SettingButton navigation={navigation} />}
         centerComponent={<Image source={require(BackgroudUrl)}
-        style={{ width: 50, height: 50 }}
+        style={{ width: 120, height: 100 }}
       />}
         rightComponent={ <StarButton navigation={navigation} />}
       />
