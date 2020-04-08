@@ -9,12 +9,7 @@ import { PolicyPageRoutingModule } from './policy-routing.module';
 import { PolicyPage } from './policy.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PolicyPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, PolicyPageRoutingModule],
   declarations: [PolicyPage]
 })
 export class PolicyPageModule {}
