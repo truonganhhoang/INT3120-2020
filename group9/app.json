@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Time Table",
     "slug": "TimeTable",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -24,7 +24,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.uetclass4group9.timetable",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.uetclass4group9.timetable",
+      "versionCode": 1
     }
   }
 }
