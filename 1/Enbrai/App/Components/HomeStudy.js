@@ -18,7 +18,7 @@ const HomeStudy = (props) => {
         })
         setDataSelected(selected)
     }
-
+    
     const handleReady = () => {
         setIsReady(true)
     }
@@ -39,7 +39,7 @@ const HomeStudy = (props) => {
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-                            onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected }) }}
+                            onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected})}}
                         />
                     </View>
                 </LinearGradient>
