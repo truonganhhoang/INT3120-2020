@@ -9,11 +9,61 @@ export default class Calendar extends Component {
 
     this.state = {
       items: {
-        '2020-03-19': [{ name: 'Nguyên Lý Hệ Điều Hành', abbreviation:'OS', teacher:'Thầy Thanh', type:'Theory', location:'304-G2', start: '9:00', end: '13:00' }],
-        '2020-03-20': [{ name: 'Nguyên Lý Hệ Điều Hành', abbreviation:'OS', teacher:'Thầy Thanh', type:'Theory', location:'304-G2', start: '9:00', end: '13:00' }],
-        '2020-03-02': [{ name: 'Nguyên Lý Hệ Điều Hành', abbreviation:'OS', teacher:'Thầy Thanh', type:'Theory', location:'304-G2', start: '9:00', end: '13:00' }],
-        '2020-04-19': [{ name: 'Nguyên Lý Hệ Điều Hành', abbreviation:'OS', teacher:'Thầy Thanh', type:'Theory', location:'304-G2', start: '9:00', end: '13:00' }],
-        '2020-04-06': [{ name: 'Nguyên Lý Hệ Điều Hành', abbreviation:'OS', teacher:'Thầy Thanh', type:'Theory', location:'304-G2', start: '9:00', end: '13:00' }],
+        '2020-03-19': [
+          {
+            name: 'Nguyên Lý Hệ Điều Hành',
+            abbreviation: 'OS',
+            teacher: 'Thầy Thanh',
+            type: 'Theory',
+            location: '304-G2',
+            start: '9:00',
+            end: '13:00',
+          },
+        ],
+        '2020-03-20': [
+          {
+            name: 'Nguyên Lý Hệ Điều Hành',
+            abbreviation: 'OS',
+            teacher: 'Thầy Thanh',
+            type: 'Theory',
+            location: '304-G2',
+            start: '9:00',
+            end: '13:00',
+          },
+        ],
+        '2020-03-02': [
+          {
+            name: 'Nguyên Lý Hệ Điều Hành',
+            abbreviation: 'OS',
+            teacher: 'Thầy Thanh',
+            type: 'Theory',
+            location: '304-G2',
+            start: '9:00',
+            end: '13:00',
+          },
+        ],
+        '2020-04-19': [
+          {
+            name: 'Nguyên Lý Hệ Điều Hành',
+            abbreviation: 'OS',
+            teacher: 'Thầy Thanh',
+            type: 'Theory',
+            location: '304-G2',
+            start: '9:00',
+            end: '13:00',
+          },
+        ],
+        '2020-04-06': [
+          {
+            name: 'Nguyên Lý Hệ Điều Hành',
+            abbreviation: 'OS',
+            teacher: 'Thầy Thanh',
+            type: 'Theory',
+            location: '304-G2',
+            start: '9:00',
+            end: '13:00',
+          },
+        ],
       },
       isVisible: true,
     };
@@ -25,9 +75,13 @@ export default class Calendar extends Component {
         style={[styles.item, { height: item.height }]}
         //onPress={}
       >
-        <View style={{flex: 1,}}>
-          <Text style={styles.itemTitle}>{item.name} ({item.abbreviation})</Text>
-          <Text style={styles.itemTime}>{item.start} - {item.end}</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.itemTitle}>
+            {item.name} ({item.abbreviation})
+          </Text>
+          <Text style={styles.itemTime}>
+            {item.start} - {item.end}
+          </Text>
           <Text style={styles.itemLocation}>{item.location}</Text>
           <Text style={styles.itemTeacher}>{item.teacher}</Text>
           <Text style={styles.itemType}>{item.type}</Text>
@@ -50,11 +104,14 @@ export default class Calendar extends Component {
         <Header
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
-          centerComponent={{ text: 'CALENDAR', style: { color: '#fff', fontSize: 25, fontWeight:'bold', letterSpacing: 4, } }}
+          centerComponent={{
+            text: 'CALENDAR',
+            style: { color: '#fff', fontSize: 25, fontWeight: 'bold', letterSpacing: 4 },
+          }}
           containerStyle={{
             backgroundColor: '#1976D2',
             justifyContent: 'center',
-            height:100,
+            height: 100,
           }}
         />
 
@@ -89,36 +146,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemTitle: {
-    fontSize:17,
-    fontWeight:'700',
+    fontSize: 17,
+    fontWeight: '700',
     letterSpacing: 1,
-    color:'#039BE5',
+    color: '#039BE5',
   },
   itemTime: {
-    paddingLeft:10,
+    paddingLeft: 10,
     paddingTop: 5,
     fontSize: 14,
-    color:'#455A64',
+    color: '#455A64',
   },
   itemTeacher: {
     paddingTop: 5,
     paddingLeft: 10,
     fontSize: 15,
-    fontWeight:'500',
+    fontWeight: '500',
     color: '#512DA8',
   },
   itemLocation: {
     paddingTop: 5,
     paddingLeft: 10,
     fontSize: 15,
-    fontWeight:'600',
-    color:'#E64A19',
+    fontWeight: '600',
+    color: '#E64A19',
   },
   itemType: {
     paddingTop: 5,
     paddingLeft: 10,
     fontSize: 15,
     fontWeight: '500',
-    color:'#388E3C',
-  }
+    color: '#388E3C',
+  },
 });

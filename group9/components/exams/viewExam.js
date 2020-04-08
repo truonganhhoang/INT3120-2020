@@ -24,20 +24,20 @@ export default class ViewExam extends React.Component {
 
   modal = React.createRef();
 
-  componentDidMount = async () => {  
+  componentDidMount = async () => {
     let ret = await getTasks();
     ret.map((item) => {
-        const date = new Date(item.date.seconds * 1000);
-        const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
-        item.date = day;
-    })
-    this.setState({data: ret.filter(item => item.type=="Exam")});
+      const date = new Date(item.date.seconds * 1000);
+      const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+      item.date = day;
+    });
+    this.setState({ data: ret.filter((item) => item.type == 'Exam') });
   };
 
   onRefresh = () => {
     setTimeout(() => this.setState({ refreshing: false }), 3000);
     this.componentDidMount();
-  }
+  };
 
   openModal = (item) => {
     this.setState({ dataSelected: item });
@@ -85,9 +85,7 @@ export default class ViewExam extends React.Component {
               <Text style={styles.note}>
                 {id + 1}. {item.name}
               </Text>
-              <Text  style={styles.subtitle}>
-                {item.date}
-              </Text>
+              <Text style={styles.subtitle}>{item.date}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -96,35 +94,30 @@ export default class ViewExam extends React.Component {
   };
 
   render() {
-    return (  
-      <SafeAreaView style={styles.container}> 
-      <Header
-        statusBarProps={{ barStyle: 'light-content' }}
-        barStyle="light-content"
-        centerComponent={{
-          text: 'LIST EXAMS',
-          style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold'},
-        }}
-        containerStyle={{
-          backgroundColor: '#1976D2',
-          height: 100,
-        }}
-      />
+    return (
+      <SafeAreaView style={styles.container}>
+        <Header
+          statusBarProps={{ barStyle: 'light-content' }}
+          barStyle="light-content"
+          centerComponent={{
+            text: 'LIST EXAMS',
+            style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold' },
+          }}
+          containerStyle={{
+            backgroundColor: '#1976D2',
+            height: 100,
+          }}
+        />
         <ScrollView
           refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.onRefresh}
-            />}
+            <RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />
+          }
         >
-        {this.state.data.map((item) => this.renderRow(item))}  
+          {this.state.data.map((item) => this.renderRow(item))}
         </ScrollView>
-          <Modalize
-            ref={this.modal}
-            modalHeight={550}
-          >
-          <View> 
-            <View style={styles.content_header} > 
+        <Modalize ref={this.modal} modalHeight={550}>
+          <View>
+            <View style={styles.content_header}>
               <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
             </View>
             <View style={{ flexDirection: 'row' }}>
@@ -183,11 +176,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   subtitle: {
-    marginRight:20,
-    marginLeft:'auto',
+    marginRight: 20,
+    marginLeft: 'auto',
   },
   note: {
-    paddingLeft:20,
+    paddingLeft: 20,
     fontSize: 16,
     fontWeight: '600',
     letterSpacing: 1,

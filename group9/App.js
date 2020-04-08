@@ -4,8 +4,8 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import LoginScreen from './components/LoginScreen';
 import LoadingScreen from './components/LoadingScreen';
 import DashboardScreen from './components/DashboardScreen';
-import HelloScreen from './components/helloScreen'
-import SignUpScreen from './components/signupScreen'
+import HelloScreen from './components/helloScreen';
+import SignUpScreen from './components/signupScreen';
 
 // ========== Fix annoying bug, fk react ==========
 // https://github.com/expo/expo/issues/7507#issuecomment-605316962
@@ -87,7 +87,7 @@ const AppSwitchNavigator = createSwitchNavigator({
   HelloScreen: HelloScreen,
   LoginScreen: LoginScreen,
   DashboardScreen: DashboardScreen,
-  SignUpScreen : SignUpScreen
+  SignUpScreen: SignUpScreen,
 });
 
 const AppNavigator = createAppContainer(AppSwitchNavigator);

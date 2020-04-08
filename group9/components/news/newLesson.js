@@ -1,9 +1,9 @@
-import React from 'react'
-import { View, Text, Picker, TextInput, StyleScheet, Dimensions,Alert} from 'react-native'
-import { Header, Input, Button, ButtonGroup } from 'react-native-elements'
-import { Ionicons } from '@expo/vector-icons'
-import DateTimePicker from 'react-native-modal-datetime-picker'
-import { addLesson } from '../firebaseApi/lesson'
+import React from 'react';
+import { View, Text, Picker, TextInput, StyleScheet, Dimensions, Alert } from 'react-native';
+import { Header, Input, Button, ButtonGroup } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { addLesson } from '../firebaseApi/lesson';
 
 let widthPhone = Dimensions.get('window').width;
 
@@ -13,13 +13,12 @@ class NewLesson extends React.Component {
   }
 
   state = {
-    
     selectedType: '',
     name: '',
-    abbreviation:'',
-    teacher:'',
-    location:'',
-    week:'',
+    abbreviation: '',
+    teacher: '',
+    location: '',
+    week: '',
     isDateTimePickerVisible: false,
     isTimePickerVisible: false,
     isTimePickerVisible1: false,
@@ -65,7 +64,6 @@ class NewLesson extends React.Component {
   };
 
   hideTimePicker1 = () => {
-
     this.setState({ isTimePickerVisible1: false });
   };
 
@@ -80,19 +78,17 @@ class NewLesson extends React.Component {
     let lesson = {
       name: this.state.name,
       abbreviation: this.state.abbreviatiob,
-      teacher:this.state.teacher,
-      week:this.state.week,
+      teacher: this.state.teacher,
+      week: this.state.week,
       type: this.state.selectedType,
       location: this.state.location,
       day: this.state.date,
       start: this.state.time,
       end: this.state.time1,
-      
     };
     let ret = await addLesson(lesson);
     console.log(ret);
   };
-
 
   updateIndex = (selectedIndex) => {
     if (selectedIndex == 1) this.props.navigation.navigate('NewTaskScreen');
@@ -118,15 +114,14 @@ class NewLesson extends React.Component {
               name="ios-create"
               size={30}
               style={{ top: -22, paddingRight: '18%', color: '#fff' }}
-              onPress={() => Alert.alert(
-                'Create New Lesson',
-                'Do You Want Create New Lesson?',
-                [
-                  {text: 'YES', onPress: this.createLesson},
-                  {text: 'NO'}
-                ],
-                { cancelable: false }
-              )}
+              onPress={() =>
+                Alert.alert(
+                  'Create New Lesson',
+                  'Do You Want Create New Lesson?',
+                  [{ text: 'YES', onPress: this.createLesson }, { text: 'NO' }],
+                  { cancelable: false }
+                )
+              }
             />
           }
           centerComponent={
@@ -138,7 +133,7 @@ class NewLesson extends React.Component {
                 backgroundColor: '#1976D2',
                 marginTop: 60,
 
-			      width: widthPhone,
+                width: widthPhone,
                 borderColor: '#1976D2',
               }}
               textStyle={{ color: '#fff', fontSize: 19 }}
@@ -197,7 +192,7 @@ class NewLesson extends React.Component {
             this.setState({ location: text });
           }}
         />
-          <View style={{ padding: 10 }} />
+        <View style={{ padding: 10 }} />
         <Input
           placeholder="Num of study weeks"
           leftIcon={
@@ -208,24 +203,22 @@ class NewLesson extends React.Component {
             />
           }
           onChangeText={(text) => {
-            this.setState({ week: text});
-
+            this.setState({ week: text });
           }}
-          
         />
         <View style={{ padding: 10 }} />
-        <View style={{ flexDirection: 'row',justifyContent:'space-between' }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Ionicons
             name="ios-browsers"
             size={30}
-            style={{ paddingLeft: 30, color: '#1976D2', top:5 }}
+            style={{ paddingLeft: 30, color: '#1976D2', top: 5 }}
           />
           <Picker
             selectedValue={this.state.selectedType}
-            style={{ height: 40, width: '40%', color:'#1976D2' }}
+            style={{ height: 40, width: '40%', color: '#1976D2' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
-          > 
-           <Picker.Item label="Choose..." value="" />
+          >
+            <Picker.Item label="Choose..." value="" />
             <Picker.Item label="Theory" value="Theory" />
             <Picker.Item label="Practice" value="Practice" />
           </Picker>
@@ -241,7 +234,7 @@ class NewLesson extends React.Component {
               }
               type="clear"
               onPress={this.showDateTimePicker}
-              buttonStyle={{ color: '#1976D2',marginRight: '2.5%', marginLeft: '1.5%' }}
+              buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '1.5%' }}
             />
             <DateTimePicker
               isVisible={this.state.isDateTimePickerVisible}
@@ -256,10 +249,10 @@ class NewLesson extends React.Component {
             marginRight: '2.5%',
             borderBottomColor: '#B7B7B7',
             borderBottomWidth: 1.75,
-            paddingTop:15,
+            paddingTop: 15,
           }}
         />
-        
+
         <View style={{ padding: 10 }} />
         <View
           style={{
@@ -269,7 +262,6 @@ class NewLesson extends React.Component {
             paddingRight: 15,
             marginLeft: '2.5%',
             marginRight: '2.5%',
-           
           }}
         >
           <View>
@@ -279,7 +271,7 @@ class NewLesson extends React.Component {
                 <Ionicons
                   name="ios-clock"
                   size={30}
-                  style={{ color: '#1976D2', paddingRight: '2.5%', paddingLeft:0 }}
+                  style={{ color: '#1976D2', paddingRight: '2.5%', paddingLeft: 0 }}
                 />
               }
               type="clear"
@@ -302,12 +294,12 @@ class NewLesson extends React.Component {
                 <Ionicons
                   name="ios-clock"
                   size={30}
-                  style={{ color: '#1976D2', paddingRight:'2.5%' }}
+                  style={{ color: '#1976D2', paddingRight: '2.5%' }}
                 />
               }
               type="clear"
               onPress={this.showTimePicker1}
-              buttonStyle={{ color: '#1976D2', paddingRight:0, marginLeft: '0.5%'}}
+              buttonStyle={{ color: '#1976D2', paddingRight: 0, marginLeft: '0.5%' }}
             />
             <DateTimePicker
               isVisible={this.state.isTimePickerVisible1}
@@ -319,15 +311,9 @@ class NewLesson extends React.Component {
             />
           </View>
         </View>
-        
-         
-        </View>
-        
-        
+      </View>
     );
   }
 }
 
 export default NewLesson;
-            
-

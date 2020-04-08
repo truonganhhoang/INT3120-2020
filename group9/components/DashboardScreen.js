@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { View, Text, Block } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native'
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
-import { Calendar } from './calendar'
-import { DayView } from './dayview'
-import { NewTask, NewLesson, News } from './news'
-import { ViewTask } from './tasks'
-import { ViewExam } from './exams'
-import { Setting } from './setting'
-import * as Font from 'expo-font'
+import React, { Component } from 'react';
+import { View, Text, Block } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { Calendar } from './calendar';
+import { DayView } from './dayview';
+import { NewTask, NewLesson, News } from './news';
+import { ViewTask } from './tasks';
+import { ViewExam } from './exams';
+import { Setting } from './setting';
+import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 

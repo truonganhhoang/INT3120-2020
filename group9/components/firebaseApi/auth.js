@@ -64,5 +64,5 @@ export default {
   signInAnonymously,
   signUpWithEmail,
   signInWithEmail,
-  signOut,  
+  signOut,
 };

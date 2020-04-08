@@ -24,21 +24,21 @@ export default class ViewTask extends React.Component {
 
   modal = React.createRef();
 
-  componentDidMount = async () => {  
+  componentDidMount = async () => {
     let ret = await getTasks();
     ret.map((item) => {
-        const date = new Date(item.date.seconds * 1000);
-        const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
-        item.date = day;
-    })
-    this.setState({data: ret.filter(item => item.type=="Task")});
+      const date = new Date(item.date.seconds * 1000);
+      const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+      item.date = day;
+    });
+    this.setState({ data: ret.filter((item) => item.type == 'Task') });
     console.log(this.state.data);
   };
-     
+
   onRefresh = () => {
     setTimeout(() => this.setState({ refreshing: false }), 3000);
     this.componentDidMount();
-  }
+  };
 
   openModal = (item) => {
     this.setState({ dataSelected: item });
@@ -101,36 +101,31 @@ export default class ViewTask extends React.Component {
   };
 
   render() {
-    return (  
-      <SafeAreaView style={styles.container}> 
-      <Header
-        statusBarProps={{ barStyle: 'light-content' }}
-        barStyle="light-content"
-        centerComponent={{
-          text: 'LIST TASK',
-          style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold'},
-        }}
-        containerStyle={{
-          backgroundColor: '#1976D2',
-          height: 100,
-        }}
-      />
+    return (
+      <SafeAreaView style={styles.container}>
+        <Header
+          statusBarProps={{ barStyle: 'light-content' }}
+          barStyle="light-content"
+          centerComponent={{
+            text: 'LIST TASK',
+            style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold' },
+          }}
+          containerStyle={{
+            backgroundColor: '#1976D2',
+            height: 100,
+          }}
+        />
         <ScrollView
           refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.onRefresh}
-            />}
+            <RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />
+          }
         >
-        {this.state.data.map((item) => this.renderRow(item))}  
+          {this.state.data.map((item) => this.renderRow(item))}
         </ScrollView>
-          <Modalize
-            ref={this.modal}
-            modalHeight={550}
-          >
-          <View> 
-            <View style={styles.content_header} > 
-              <CheckBox 
+        <Modalize ref={this.modal} modalHeight={550}>
+          <View>
+            <View style={styles.content_header}>
+              <CheckBox
                 checked={this.state.dataSelected.done}
                 onPress={() => {
                   let select = this.state.dataSelected;

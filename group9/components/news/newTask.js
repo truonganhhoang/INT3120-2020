@@ -76,15 +76,14 @@ class NewTask extends React.Component {
               name="ios-create"
               size={30}
               style={{ top: -22, paddingRight: '18%', color: '#fff' }}
-              onPress={() => Alert.alert(
-                'Create New Task',
-                'Do You Want Create New Task?',
-                [
-                  {text: 'YES', onPress: this.createTask},
-                  {text: 'NO'}
-                ],
-                { cancelable: false }
-              )}
+              onPress={() =>
+                Alert.alert(
+                  'Create New Task',
+                  'Do You Want Create New Task?',
+                  [{ text: 'YES', onPress: this.createTask }, { text: 'NO' }],
+                  { cancelable: false }
+                )
+              }
             />
           }
           centerComponent={
@@ -92,8 +91,13 @@ class NewTask extends React.Component {
               onPress={this.updateIndex}
               selectedIndex={1}
               buttons={buttons}
-              containerStyle={{backgroundColor:'#1976D2', marginTop: 60, width : widthPhone, borderColor:'#1976D2' }}
-              textStyle={{color:'#fff', fontSize: 19 }}
+              containerStyle={{
+                backgroundColor: '#1976D2',
+                marginTop: 60,
+                width: widthPhone,
+                borderColor: '#1976D2',
+              }}
+              textStyle={{ color: '#fff', fontSize: 19 }}
             />
           }
           containerStyle={{
@@ -127,7 +131,7 @@ class NewTask extends React.Component {
             style={{ height: 50, width: '35%' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedLesson: itemValue })}
           >
-            <Picker.Item label="Choose ..." value ='' />
+            <Picker.Item label="Choose ..." value="" />
             {this.state.table.map((item, i) => (
               <Picker.Item label={item.name} value={item.name} key={i} />
             ))}
@@ -138,7 +142,7 @@ class NewTask extends React.Component {
             style={{ height: 50, width: '35%' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
           >
-            <Picker.Item label="Choose..." value='' />
+            <Picker.Item label="Choose..." value="" />
             <Picker.Item label="Task" value="Task" />
             <Picker.Item label="Exam" value="Exam" />
           </Picker>
@@ -178,7 +182,7 @@ class NewTask extends React.Component {
           placeholderTextColor="grey"
           numberOfLines={2}
           multiline={true}
-          onChangeText={(text)=> this.setState({description: text})}
+          onChangeText={(text) => this.setState({ description: text })}
         />
       </View>
     );

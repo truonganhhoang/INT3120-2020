@@ -4,7 +4,7 @@ import auth from './firebaseApi/auth';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
-import { signInWithEmail } from './firebaseApi/auth'
+import { signInWithEmail } from './firebaseApi/auth';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -81,7 +81,7 @@ class LoginScreen extends Component {
               />
 
               <View style={{ alignItems: 'center' }}>
-                <View style={{height: '7%'}} />
+                <View style={{ height: '7%' }} />
                 <View style={{ width: '80%' }}>
                   <Button
                     title="SIGN IN"
@@ -90,7 +90,7 @@ class LoginScreen extends Component {
                     onPress={() => auth.signInWithEmail(this.state.email, this.state.password)}
                   />
                 </View>
-                <View style={{height: '2.5%'}} />
+                <View style={{ height: '2.5%' }} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>

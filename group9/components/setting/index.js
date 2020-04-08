@@ -1,5 +1,3 @@
-import Setting from './setting'
+import Setting from './setting';
 
-export {
-  Setting
-};
+export { Setting };
