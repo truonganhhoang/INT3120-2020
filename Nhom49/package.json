@@ -33,7 +33,7 @@
   "dependencies": {
     "@react-native-firebase/firestore": "^6.3.4",
     "color": "1.0.3",
-    "expo-cli": "^3.17.11",
+    "expo-cli": "^3.17.18",
     "global": "^4.4.0",
     "lodash": "4.17.13",
     "moment": "2.19.3",
@@ -41,7 +41,7 @@
     "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.58.5",
-    "react-native-gesture-handler": "^1.0.15",
+    "react-native-gesture-handler": "^1.6.1",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.3.0",
     "react-navigation": "3.3.0",
