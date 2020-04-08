@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1015974146861",
+    "firebase_url": "https://enbrai-f06d7.firebaseio.com",
+    "project_id": "enbrai-f06d7",
+    "storage_bucket": "enbrai-f06d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015974146861:android:bbd1498e5b0301deb419a4",
+        "android_client_info": {
+          "package_name": "com.enbrai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015974146861-j8c12ts82mm9m747ss7oslq1qbss17rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4tvJUe3W9tzELOhpOZxn8QDabaUnCsjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015974146861-j8c12ts82mm9m747ss7oslq1qbss17rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
