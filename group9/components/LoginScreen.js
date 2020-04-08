@@ -46,7 +46,7 @@ class LoginScreen extends Component {
           </View>
           <View style={styles.login}>
             <View style={{ paddingLeft: 40, paddingRight: 40 }}>
-              <View style={{ height: 30 }} />
+              <View style={styles.padding} />
               <Input
                 label="Your Email Address"
                 labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
@@ -62,7 +62,7 @@ class LoginScreen extends Component {
                   this.setState({ email: text });
                 }}
               />
-              <View style={{ height: 20 }} />
+              <View style={styles.padding} />
               <Input
                 label="Password"
                 labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
@@ -81,7 +81,7 @@ class LoginScreen extends Component {
               />
 
               <View style={{ alignItems: 'center' }}>
-                <View style={{ height: 30 }} />
+                <View style={{height: '7%'}} />
                 <View style={{ width: '80%' }}>
                   <Button
                     title="SIGN IN"
@@ -90,7 +90,7 @@ class LoginScreen extends Component {
                     onPress={() => auth.signInWithEmail(this.state.email, this.state.password)}
                   />
                 </View>
-                <View style={{ height: 10 }} />
+                <View style={{height: '2.5%'}} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>
@@ -102,17 +102,17 @@ class LoginScreen extends Component {
                     />
                   </View>
                 </View>
-                <View style={{ height: 20 }} />
+                <View style={styles.padding} />
                 <Text style={{ fontSize: 15, color: '#939393', fontWeight: 'bold' }}>
                   Don't have Account? Sign Up
                 </Text>
+                <View style={styles.padding} />
                 <Text
                   onPress={() => auth.signInAnonymously()}
                   style={{ fontSize: 17, color: '#23d5a6', fontWeight: 'bold' }}
                 >
                   Use Anonymous? Sign In Anonymously
                 </Text>
-                <View style={{ height: 20 }} />
               </View>
             </View>
           </View>
@@ -131,12 +131,15 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   logo: {
-    height: '37%',
+    height: '40%',
   },
   login: {
     backgroundColor: '#fff',
-    height: '63%',
+    height: '60%',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+  },
+  padding: {
+    height: '5%',
   },
 });

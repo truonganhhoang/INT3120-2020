@@ -44,7 +44,7 @@ export default class HelloScreen extends React.Component {
             buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#fff'}}
             onPress={()=> this.signup()}
           />
-        <View style={{marginTop:'9%', alignItems:'center', flex: 1,}} />
+        <View style={{marginTop:'9%', }} />
           <Text 
             onPress={() => auth.signInAnonymously()} 
             style={{fontSize:17, color:'#fff', fontWeight:'bold'}}
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   background: {
-    height:'100%'
+    height:'100%',
+    alignItems:'center'
   },
   button: {
     marginTop:'30%',

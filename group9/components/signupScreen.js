@@ -33,7 +33,7 @@ class SignUpScreen extends Component {
           </View>
           <View style={styles.login}>
           <View style={{paddingLeft:40, paddingRight:40}} >
-          <View style={{height:20}} />
+          <View style={styles.padding} />
             <Input
               label='Your Email Address'
               labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
@@ -49,7 +49,7 @@ class SignUpScreen extends Component {
                 this.setState({ email: text });
               }}
             />
-          <View style={{height:20}} />
+          <View style={styles.padding} />
             <Input
               label='Password'
               labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
@@ -66,7 +66,7 @@ class SignUpScreen extends Component {
                 this.setState({ password: text });
               }}
             />
-          <View style={{height:20}} />
+          <View style={styles.padding} />
             <Input
               label='Retype Password'
               labelStyle={{fontSize:15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13}}
@@ -85,7 +85,7 @@ class SignUpScreen extends Component {
             />
 
           <View style={{alignItems:'center'}}>
-            <View style={{height:20}}/>
+            <View style={{height:'7%'}}/>
             <View style={{width:'80%'}}>
               <Button
                 title="SIGN UP"
@@ -98,7 +98,7 @@ class SignUpScreen extends Component {
                 }}
               />
             </View>
-            <View style={{height:10}}/>
+            <View style={styles.padding}/>
               <Text style={{fontSize:20,}}>-----Or-----</Text>
               <View style={{flexDirection:'row'}}>
               <View style={{width:'80%'}}>
@@ -110,9 +110,9 @@ class SignUpScreen extends Component {
                 />
               </View>
             </View> 
-            <View style={{height: 18}} />
+            <View style={styles.padding} />
             <Text style={{fontSize:15, color:'#939393', fontWeight:'bold'}}>Have an Account? Sign In</Text>
-            <View style={{height:15}} />
+            <View style={styles.padding} />
             <Text 
               onPress={() => auth.signInAnonymously()} 
               style={{fontSize:17, color:'#23d5a6', fontWeight:'bold'}}
@@ -144,5 +144,8 @@ const styles = StyleSheet.create({
     height:'70%',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+  },
+  padding: {
+    height: '4%',
   }
 });
