@@ -8,6 +8,7 @@ import Anatomy from "./screens/anatomy/";
 import SideBar from "./screens/sidebar";
 
 import Simple from "./screens/simple/";
+import PresentSimple from "./screens/simple/presentsimple";
 import Passive from "./screens/passive/";
 import Wish from "./screens/wish/";
 import Conditional from "./screens/conditional/";
@@ -42,6 +43,7 @@ const AppNavigator = createStackNavigator(
     Drawer: { screen: Drawer },
 
     Simple: { screen: Simple },
+    PresentSimple: { screen: PresentSimple },
     Passive: { screen: Passive },
     Wish: { screen: Wish },
     Conditional: { screen: Conditional },

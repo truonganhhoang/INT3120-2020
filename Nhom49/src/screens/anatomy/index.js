@@ -201,7 +201,7 @@ class Anatomy extends Component {
                     >
                     <Body>
                       <Text style={{fontWeight: "bold"}}>{data.title}</Text>
-                      <Text>{data.subtitle}</Text>
+                      <Text >{data.subtitle}</Text>
                     </Body>
                     <Right>
                       <Icon name="arrow-forward" style={{ color: "#999" }} />

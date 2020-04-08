@@ -18,7 +18,7 @@ import styles from "./styles";
 
 const datas = [
   {
-    route: "Header1",
+    route: "PresentSimple",
     text: "Hiện tại đơn",
     subtitle: "Present simple"
   },
