@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import auth from './firebaseApi/auth';
+
+let heightPhone = Dimensions.get('window').height;
 
 export default class HelloScreen extends React.Component {
   constructor(props) {
@@ -33,14 +35,14 @@ export default class HelloScreen extends React.Component {
               buttonStyle={{ borderRadius: 30, height: 55, borderColor: '#fff' }}
               onPress={() => this.login()}
             />
-            <View style={{ marginTop: '7%' }} />
+            <View style={{ marginTop: heightPhone*0.035 }} />
             <Button
               title="SIGN UP"
               titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#23a6d5', fontSize: 18 }}
               buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#fff' }}
               onPress={() => this.signup()}
             />
-            <View style={{ marginTop: '9%' }} />
+            <View style={{ marginTop: heightPhone*0.05 }} />
             <Text
               onPress={() => auth.signInAnonymously()}
               style={{ fontSize: 17, color: '#fff', fontWeight: 'bold' }}
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   background: {
-    height: '100%',
+    height: heightPhone,
     alignItems: 'center',
   },
   button: {

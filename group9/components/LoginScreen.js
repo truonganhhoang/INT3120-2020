@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import auth from './firebaseApi/auth';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { signInWithEmail } from './firebaseApi/auth';
+
+let heightPhone = Dimensions.get("window").height;
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -81,7 +83,7 @@ class LoginScreen extends Component {
               />
 
               <View style={{ alignItems: 'center' }}>
-                <View style={{ height: '7%' }} />
+                <View style={{ height: heightPhone*0.03}} />
                 <View style={{ width: '80%' }}>
                   <Button
                     title="SIGN IN"
@@ -90,7 +92,7 @@ class LoginScreen extends Component {
                     onPress={() => auth.signInWithEmail(this.state.email, this.state.password)}
                   />
                 </View>
-                <View style={{ height: '2.5%' }} />
+                <View style={{ height: heightPhone*0.01 }} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>
@@ -128,18 +130,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   background: {
-    height: '100%',
+    height: heightPhone,
   },
   logo: {
-    height: '40%',
+    height: heightPhone*0.4,
   },
   login: {
     backgroundColor: '#fff',
-    height: '60%',
+    height: heightPhone*0.6,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
   padding: {
-    height: '5%',
+    height: heightPhone*0.03,
   },
 });

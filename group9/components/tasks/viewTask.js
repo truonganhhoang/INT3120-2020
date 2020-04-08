@@ -8,18 +8,30 @@ import {
   ScrollView,
   SafeAreaView,
   RefreshControl,
+  Dimensions,
+  TextInput,
+  Picker,
+  Button,
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
-import { Header, CheckBox } from 'react-native-elements';
+import { Header, CheckBox} from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
 import { getTasks } from '../firebaseApi/task';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+
+let heightPhone = Dimensions.get("window").height;
+let widthPhone = Dimensions.get("window").width;
 
 export default class ViewTask extends React.Component {
   state = {
     data: [],
-    dataSelected: { name: '', lesson: '', date: '', description: '', done: '' },
+    idSelected: 0,
+    editModal: false,
+    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
+    dataSelected: {id: 0, name: '', lesson: '', date: '', description: '', done: '' },
     refreshing: false,
+    isDateTimePickerVisible: false,
   };
 
   modal = React.createRef();
@@ -40,8 +52,24 @@ export default class ViewTask extends React.Component {
     this.componentDidMount();
   };
 
-  openModal = (item) => {
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = (date) => {
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+//    this.setState({ dataSelected.date: date });
+//    this.setState({ : day });
+    this.hideDateTimePicker();
+  };
+
+  openModal = (item,id) => {
     this.setState({ dataSelected: item });
+    this.setState({idSelected: id});
     if (this.modal.current) {
       this.modal.current.open();
     }
@@ -87,7 +115,7 @@ export default class ViewTask extends React.Component {
         backgroundColor="transparent"
       >
         <View>
-          <TouchableOpacity onPress={() => this.openModal(item)}>
+          <TouchableOpacity onPress={() => this.openModal(item,id)}>
             <View style={styles.rowContainer}>
               <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(id)} />
               <Text style={styles.note}>
@@ -99,6 +127,10 @@ export default class ViewTask extends React.Component {
       </Swipeout>
     );
   };
+
+  editContent = () => {
+    this.setState({editModal: !this.state.editModal });
+  }
 
   render() {
     return (
@@ -122,7 +154,7 @@ export default class ViewTask extends React.Component {
         >
           {this.state.data.map((item) => this.renderRow(item))}
         </ScrollView>
-        <Modalize ref={this.modal} modalHeight={550}>
+        <Modalize ref={this.modal} modalHeight={heightPhone*0.7}>
           <View>
             <View style={styles.content_header}>
               <CheckBox
@@ -134,19 +166,45 @@ export default class ViewTask extends React.Component {
                 }}
                 size={30}
               />
-              <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
+              <TextInput
+                placeholder={this.state.dataSelected.name}
+                style={styles.titleModal} 
+                placeholderTextColor='#1976D2'
+                editable={this.state.editModal}
+              />
+              <Ionicons name="ios-brush" style={styles.edit}size={25} onPress={this.editContent}></Ionicons>
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20 }} />
-              <Text style={{ padding: 20, fontSize: 20, paddingLeft: 0 }}>
-                Lesson: {this.state.dataSelected.lesson}
-              </Text>
+              <Picker
+                selectedValue={this.state.dataSelected.lesson}
+                enabled = {this.state.editModal}
+                style={styles.lessonModal}
+                onValueChange={(itemValue, itemIndex) => this.setState({ selectedLesson: itemValue })}
+              >
+                {this.state.table.map((item, i) => (
+                  <Picker.Item label={item.name} value={item.name} key={i} />
+                ))}
+              </Picker>
             </View>
-            <View style={{ flexDirection: 'row' }}>
-              <Ionicons name="ios-calendar" size={30} style={{ padding: 20 }} />
-              <Text style={{ padding: 20, fontSize: 20, paddingLeft: 0 }}>
-                Date: {this.state.dataSelected.date}
-              </Text>
+            <View> 
+              <Button
+                title={this.state.dataSelected.date}
+                icon={
+                  <Ionicons
+                    name="ios-calendar"
+                    size={30}
+                    style={{ color: '#fff', paddingRight: '2.5%' }}
+                  />
+                }
+                onPress={this.showDateTimePicker}
+                buttonStyle={{ backgroundColor: '#1976D2', marginRight: '2.5%', marginLeft: '2.5%' }}
+              />
+                <DateTimePicker
+                  isVisible={this.state.isDateTimePickerVisible}
+                  onConfirm={this.handleDatePicked}
+                  onCancel={this.hideDateTimePicker}
+                />
             </View>
             <View style={{ borderTopColor: '#B7B7B7', borderTopWidth: 1.75 }}>
               <Text style={{ paddingLeft: 5, color: '#B7B7B7', fontSize: 18 }}>Note</Text>
@@ -168,11 +226,29 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   content_header: {
-    padding: 15,
-    paddingBottom: 0,
+    paddingTop: 20, 
     flexDirection: 'row',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  titleModal: {
+    fontSize: 27,  
+    fontWeight:'bold', 
+    letterSpacing:1, 
+    color:'#1976D2',
+    width: widthPhone*0.7,
+  },
+  lessonModal: {
+    marginTop:10,
+    //color:'#fdd835',
+    height: 50,
+    width: widthPhone*0.5,
+  },
+  edit: {
+    marginLeft:'auto',
+    color: '#c62828',
+    marginRight: 10,
+    paddingTop: 10,
   },
   modalTitle: {
     paddingTop: 25,
