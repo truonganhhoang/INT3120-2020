@@ -27,6 +27,7 @@ export class SignInPage implements OnDestroy {
   password = this.signInForm.get('password');
 
   signInSubscription?: Subscription;
+  signInWithFacebookSubscription?: Subscription;
 
   constructor(
     public dialog: MatDialog,
@@ -37,7 +38,10 @@ export class SignInPage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
+    this.signInForm.reset();
+    this.signInForm.clearValidators();
     this.signInSubscription?.unsubscribe();
+    this.signInWithFacebookSubscription?.unsubscribe();
   }
 
   togglePassword() {
@@ -48,18 +52,22 @@ export class SignInPage implements OnDestroy {
     this.dialog.open(ForgotPasswordComponent);
   }
 
-  handleSubmit() {
+  goToIntro() {
+    this.router.navigate(['intro']);
+  }
+
+  handleLogin() {
     if (this.signInForm.valid) {
       this.isSubmitting = true;
       this.signInSubscription = this.signInService
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
-          next: (userJSON) => {
-            this.storage.set('user', userJSON);
+          next: (user) => {
+            this.storage.set('user', user.toJSON());
           },
           complete: () => {
             this.isSubmitting = false;
-            this.router.navigateByUrl('/tabs/learn/courses');
+            this.router.navigate(['tabs', 'learn']);
           },
           error: (message) => {
             this.isSubmitting = false;
@@ -71,5 +79,18 @@ export class SignInPage implements OnDestroy {
           }
         });
     }
+  }
+
+  handleLoginWithFacebook() {
+    this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
+      next: (user) => {
+        this.storage.set('user', user.toJSON());
+      },
+      complete: () => {
+        this.isSubmitting = false;
+        this.router.navigateByUrl('/tabs/learn/courses');
+      },
+      error: console.error
+    });
   }
 }

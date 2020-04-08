@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/intro"></ion-back-button>
+      <ion-back-button (click)="goToIntro()" defaultHref="/intro"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +11,7 @@
     <div>Log into your account</div>
   </div>
 
-  <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
+  <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleLogin()">
     <mat-form-field appearance="outline">
       <mat-label>E-mail (Required)</mat-label>
       <input type="email" matInput="true" [formControl]="email" />
@@ -35,14 +35,13 @@
     </div>
 
     <div class="login-btn-area">
-      <ion-button type="submit" [disabled]="isSubmitting" expand="full">
-        Login
-        <ion-spinner *ngIf="isSubmitting"></ion-spinner>
+      <ion-button type="submit" [disabled]="isSubmitting" expand="block" color="primary">
+        Login&nbsp;<ion-spinner *ngIf="isSubmitting"></ion-spinner>
       </ion-button>
 
       <div class="text-divider">or</div>
 
-      <ion-button expand="full" fill="clear">Login with Facebook</ion-button>
+      <ion-button (click)="handleLoginWithFacebook()" expand="block" fill="clear">Login with Facebook</ion-button>
     </div>
   </form>
 </ion-content>
