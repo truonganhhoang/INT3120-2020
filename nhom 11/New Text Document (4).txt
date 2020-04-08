@@ -1,0 +1,26 @@
+Xin chào thầy và các bạn
+sau đây là video demo app tuần này của nhóm em ạ
+
+
+Đây là màn hình giao diện chào khi vào app
+
+Đây là cửa sổ đăng nhập
+
+Sau khi đăng nhập xong.
+Bọn em sẽ hướng cho người sử dụng theo 2 hướng hiển thị ở đây ạ
+
+
+Sau đó sẽ có câu hỏi để nắm bắt thông tin
+mục đích sử dụng của người dùng ạ
+
+
+Đây là màn hình giao diện chính của app bọn em
+
+Ở đây bọn em sẽ chia nội dung học ra làm các phần và có sắp xếp theo các mức độ để người học biết về nội dung  và lộ trình học của mình
+
+Đây là giao diện thông tin cá nhân của người sử dụng, để người sử dụng có thể xem thông tin của mình
+
+
+
+Cảm ơn thầy và các bạn đã theo dõi video demo app tuần 4 của nhóm bọn em.
+nhóm bọn em sẽ hoàn thiện tiếp ứng dụng trong tuần tới ạ
