@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class SignInService {
   }
 
   signInWithEmailAndPassword(email: string, password: string) {
-    return new Observable((observer) => {
+    return new Observable<any>((observer) => {
       this.ngFireAuth.auth
         .signInWithEmailAndPassword(email, password)
         .then((userCredentials) => {
-          observer.next(userCredentials.user.toJSON());
+          observer.next(userCredentials.user);
           observer.complete();
         })
         .catch((err) => {
@@ -28,6 +29,22 @@ export class SignInService {
             message = 'An error occurred. Please try again';
           }
           observer.error(message);
+        });
+    });
+  }
+
+  signInWithFacebook() {
+    const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+    return new Observable<any>((observer) => {
+      this.ngFireAuth.auth
+        .signInWithPopup(facebookProvider)
+        .then((userCredentials) => {
+          observer.next(userCredentials.user);
+          observer.complete();
+        })
+        .catch((err) => {
+          console.error(err);
         });
     });
   }

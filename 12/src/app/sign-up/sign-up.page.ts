@@ -5,9 +5,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
+import { SignInService } from '../core/services/firebase/auth/sign-in.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,24 +31,32 @@ export class SignUpPage implements OnDestroy {
   password = this.signUpForm.get('password');
 
   signUpSubscription?: Subscription;
+  signInWithFacebookSubscription?: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
     private toastController: ToastController,
     private router: Router,
     private dialog: MatDialog,
-    private signUpService: SignUpService
+    private signUpService: SignUpService,
+    private signInService: SignInService,
+    private storage: Storage
   ) {}
 
   ngOnDestroy() {
     this.signUpSubscription?.unsubscribe();
+    this.signInWithFacebookSubscription?.unsubscribe();
   }
 
   togglePassword() {
     this.hidePassword = !this.hidePassword;
   }
 
-  handleSubmit() {
+  goToIntro() {
+    this.router.navigate(['intro']);
+  }
+
+  handleSignUp() {
     if (this.signUpForm.valid) {
       this.isSubmitting = true;
       this.signUpSubscription = this.signUpService
@@ -73,5 +83,18 @@ export class SignUpPage implements OnDestroy {
           }
         });
     }
+  }
+
+  handleLoginWithFacebook() {
+    this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
+      next: (userJSON) => {
+        this.storage.set('user', userJSON);
+      },
+      complete: () => {
+        this.isSubmitting = false;
+        this.router.navigateByUrl('/tabs/learn/courses');
+      },
+      error: console.error
+    });
   }
 }

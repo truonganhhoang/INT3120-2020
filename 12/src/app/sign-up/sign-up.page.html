@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/intro"></ion-back-button>
+      <ion-back-button (click)="goToIntro()" defaultHref="/intro"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +11,7 @@
     <div>Create New Account</div>
   </div>
 
-  <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
+  <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSignUp()">
     <mat-form-field appearance="outline">
       <mat-label>Full Name (Required)</mat-label>
       <input type="text" matInput="true" [formControl]="fullName" />
@@ -39,14 +39,13 @@
       </mat-error>
     </mat-form-field>
 
-    <ion-button type="submit" [disabled]="isSubmitting" expand="full" color="primary" mat-flat-button="true">
-      Create new account
-      <ion-spinner *ngIf="isSubmitting"></ion-spinner>
+    <ion-button type="submit" [disabled]="isSubmitting" expand="block" color="primary" mat-flat-button="true">
+      Create new account&nbsp;<ion-spinner *ngIf="isSubmitting"></ion-spinner>
     </ion-button>
 
     <div class="text-divider">or</div>
 
-    <ion-button expand="full" fill="clear">
+    <ion-button (click)="handleLoginWithFacebook()" expand="block" fill="clear">
       Continue with Facebook
     </ion-button>
 

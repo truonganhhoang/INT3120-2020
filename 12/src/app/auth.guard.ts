@@ -8,16 +8,24 @@ import { Storage } from '@ionic/storage';
 export class AuthGuard implements CanLoad {
   constructor(private storage: Storage, private router: Router) {}
 
-  async canLoad(route: Route, segments: UrlSegment[]): Promise<boolean> {
+  async canLoad(_route: Route, segments: UrlSegment[]): Promise<boolean> {
     try {
       const user = await this.storage.get('user');
       if (user === null || typeof user !== 'object') {
-        this.router.navigateByUrl('/sign-in');
-        return false;
+        if (segments[0].path === 'tabs') {
+          this.router.navigate(['sign-in']);
+          return false;
+        }
+        return true;
+      } else {
+        if (segments[0].path !== 'tabs') {
+          this.router.navigate(['tabs']);
+          return false;
+        }
+        return true;
       }
-      return true;
     } catch {
-      this.router.navigateByUrl('/sign-in');
+      this.router.navigate(['sign-in']);
       return false;
     }
   }

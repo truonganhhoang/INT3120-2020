@@ -13,7 +13,7 @@ export class SignUpService {
   }
 
   signUpWithEmailAndPassword(email: string, password: string, fullName: string) {
-    return new Observable((observer) => {
+    return new Observable<any>((observer) => {
       this.ngFireAuth.auth
         .createUserWithEmailAndPassword(email, password)
         .then((userCredentials) => {

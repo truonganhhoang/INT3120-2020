@@ -1,20 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './tabs/auth.guard';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: 'intro',
-    loadChildren: () => import('./intro/intro.module').then((m) => m.IntroPageModule)
+    loadChildren: () => import('./intro/intro.module').then((m) => m.IntroPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'sign-in',
-    loadChildren: () => import('./sign-in/sign-in.module').then((m) => m.SignInPageModule)
+    loadChildren: () => import('./sign-in/sign-in.module').then((m) => m.SignInPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then((m) => m.SignUpPageModule)
+    loadChildren: () => import('./sign-up/sign-up.module').then((m) => m.SignUpPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'policy',
+    loadChildren: () => import('./policy/policy.module').then((m) => m.PolicyPageModule)
   },
   {
     path: '',

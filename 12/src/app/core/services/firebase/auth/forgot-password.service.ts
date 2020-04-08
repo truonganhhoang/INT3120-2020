@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class ForgotPasswordService {
   constructor(private ngFireAuth: AngularFireAuth) {}
 
-  sendPasswordResetEmail(email: string): Observable<void> {
-    return new Observable((observer) => {
+  sendPasswordResetEmail(email: string) {
+    return new Observable<any>((observer) => {
       this.ngFireAuth.auth
         .sendPasswordResetEmail(email)
         .then(() => {

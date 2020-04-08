@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Storage } from '@ionic/storage';
@@ -10,23 +10,22 @@ import { SignOutService } from '../../../core/services/firebase/auth/sign-out.se
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss']
 })
-export class SettingsPage implements OnInit, OnDestroy {
+export class SettingsPage implements OnDestroy {
   signOutSubscription?: Subscription;
 
   constructor(private router: Router, private storageService: Storage, private signOutService: SignOutService) {}
 
-  ngOnInit() {}
-
   ngOnDestroy() {
+    console.log('Setting Page destroy');
     this.signOutSubscription?.unsubscribe();
   }
 
   handleSignOut() {
     this.signOutSubscription = this.signOutService.signOut().subscribe({
       next: () => {},
-      complete: () => {
-        this.storageService.clear();
-        this.router.navigateByUrl('/sign-in');
+      complete: async () => {
+        await this.storageService.clear();
+        await this.router.navigate(['sign-in']);
       },
       error: console.error
     });
