@@ -70,7 +70,9 @@ class _WordPageState extends State<WordPage> {
                                   builder: (context) => GrammarResult(),
                                   settings: RouteSettings(arguments: {
                                     'title': snapshot.data.documents[index]
-                                    ['title']
+                                    ['title'],
+                                    'context': snapshot.data.documents[index]
+                                    ['context']
                                   })),
                             );
                           }
