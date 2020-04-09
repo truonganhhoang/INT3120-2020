@@ -1062,6 +1062,13 @@
     wcwidth "^1.0.1"
     ws "^1.1.0"
 
+"@react-native-community/datetimepicker@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-2.3.1.tgz#375a9aaac19303424e30330f9f20e4b08d2ec086"
+  integrity sha512-Vz5ogawyP7uVPsYjlqXR8rn66cFX8FbvRVCLbwPm1s8x4VSOSEZCqasm1nwX4ULLA+UMCI0tYa5efRd6lDrZ2g==
+  dependencies:
+    invariant "^2.2.4"
+
 "@react-native-community/eslint-config@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-config/-/eslint-config-0.0.7.tgz#2a91d336b413d8c77ac5fa634b66703f481243ac"
@@ -5768,6 +5775,18 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
+react-native-mail@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-mail/-/react-native-mail-4.1.0.tgz#2ebe2df2211a84862a3aea77316736189e23435b"
+  integrity sha512-3IHQmUQJwFFV7HwDONeIEahhaEvK9u23liqIUQajPy7frk/AoIGhkdKf4FVSTeq+VlUx97qls4uNizP7hBXIIw==
+
+react-native-modal-datetime-picker@^8.5.4:
+  version "8.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-8.5.4.tgz#e348367810b4b534c8a1f844ec1f0a57a1542232"
+  integrity sha512-QKs4nsiZ2Ncr9pOrnnFyy3laHzReH87StV54hos1jGhT8MwlC5yQ9QfGqVDy8yRKz3bROST0wg3hS2Wy1mSQuQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-modal@^11.5.4:
   version "11.5.4"
   resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-11.5.4.tgz#96252895cd10f96a42d3f4884feddda8a9652dde"
@@ -5826,6 +5845,11 @@ react-native-scrollable-tab-view@^1.0.0:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
+react-native-share@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-3.1.2.tgz#124a175b4088fa8993b842ac357620a8b100aa6c"
+  integrity sha512-BWcIQ5u/8tDUrfCHye/cZ4cDtkSjPql/LqxFAffCgVV97Po4t8i061e2XHHgqCVp6IDNj1AiS331BW6i0jogag==
+
 react-native-snap-carousel@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.9.0.tgz#017793ca3f5e901ccd5a3117d79bb18ec08928a3"
@@ -5838,13 +5862,6 @@ react-native-status-bar-height@^2.2.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.4.0.tgz#de8cee4bb733a196167210d2d0bc1fa10acba3e3"
   integrity sha512-pWvZFlyIHiuxLugLioq97vXiaGSovFXEyxt76wQtbq0gxv4dGXMPqYow46UmpwOgeJpBhqL1E0EKxnfJRrFz5w==
-
-react-native-swiper@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.6.0.tgz#59fdbdf95addee49630312f27077622c27776819"
-  integrity sha512-OnkTTZi+9uZUgy0uz1I9oYDhCU3z36lZn+LFsk9FXPRelxb/KeABzvPs3r3SrHWy1aA67KGtSFj0xNK2QD0NJQ==
-  dependencies:
-    prop-types "^15.5.10"
 
 react-native-tts@^3.1.1:
   version "3.1.1"

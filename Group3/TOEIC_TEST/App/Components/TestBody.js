@@ -263,12 +263,6 @@ class TestBody extends Component {
                     <Text style={styles.title}>{this.props.navigation.getParam('description')}</Text>
                     <Icon name='search' size={27} color='transparent' />
                 </View>
-                {/* <FlatList
-                    data={this.state.data}
-                    renderItem={this.renderItem}
-                    keyExtractor={(item, index) => item.toString()}
-                    horizontal={true}
-                /> */}
                 <Carousel
                     ref={(c) => { this._carousel = c }}
                     data={this.state.data}

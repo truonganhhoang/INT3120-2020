@@ -22,7 +22,7 @@ export default class TabBar extends React.Component {
   render() {
     var logo = ['language', 'graduation-cap', 'check-square-o', 'gears']
     return (
-      <View style={[styles.tabs, this.props.style]}>
+      <View style={styles.tabs}>
         {this.props.tabs.map((tab, i) => {
           icon = logo[i]
           return (
