@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Ôn thi GPLX",
-    "slug": "my-project",
+    "slug": "GPLX",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -9,6 +9,14 @@
       "android",
       "web"
     ],
+    "ios": {
+      "bundleIdentifier": "com.nhom18.GPLX",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.nhom18.GPLX",
+      "versionCode": 1
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,9 +31,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "description": ""
   }
 }
