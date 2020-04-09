@@ -10,7 +10,8 @@ import {
     Platform,
     Dimensions,
     Alert,
-    Switch
+    Switch,
+    Button
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { fcmService } from '../Services/FCMService'
@@ -84,16 +85,17 @@ class SettingTab extends Component {
         });
     }
     render() {
+
         return (
-            <SafeAreaView style={{flex:1,backgroundColor:this.state.switchValue == false ? "#EEEEEE" : "#212121",}}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.state.switchValue == false ? "#EEEEEE" : "#212121", }}>
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
                     paddingTop: 40,
                     paddingBottom: 20,
-                    backgroundColor:this.state.switchValue == false ? "#1976D2" : "#263238"
-                    }}>
+                    backgroundColor: this.state.switchValue == false ? "#1976D2" : "#263238"
+                }}>
                     <Text style={styles.title}>CÀI ĐẶT</Text>
                 </View>
                 <ScrollView style={{ flex: 1, margin: 20 }}>
@@ -197,9 +199,19 @@ class SettingTab extends Component {
                             onValueChange={this.toggleSwitch}
                             value={this.state.switchValue} />
                     </View>
-
+                    <Button
+                        title="Press me"
+                        onPress={() => {
+                            const date = new Date()
+                            // date.setMinutes(date.getMinutes()) //set time ngay sau 1 phut
+                            const title = "This is title"
+                            const content = "this is content....."
+                            fcmService.scheduleDailyNotification(title, content, date.getTime());
+                        }}
+                    />
                 </ScrollView>
             </ SafeAreaView >
+
         )
     }
 }
