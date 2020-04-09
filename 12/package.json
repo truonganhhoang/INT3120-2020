@@ -19,6 +19,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "format": "prettier --write ./src",
     "cdv:build": "ionic cdv build android",
     "cdv:dev": "ionic cdv run android --debug --livereload",
     "cdv:prod": "ionic cdv run android --release --prod"

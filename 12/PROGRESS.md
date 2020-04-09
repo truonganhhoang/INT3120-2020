@@ -187,3 +187,7 @@ ionic g page profile -f
 # 2020-04-08
 
 - Thêm privacy policy.
+
+# 2020-04-10
+
+- Chia 4 tab tại `/tab/learn/course/:courseId` bằng routing.

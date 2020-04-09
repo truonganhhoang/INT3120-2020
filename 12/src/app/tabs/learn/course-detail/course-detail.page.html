@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Course</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ul>
+    <li>
+      <a [routerLink]="['./overview']">Overview</a>
+    </li>
+    <li>
+      <a [routerLink]="['./grades']">Grades</a>
+    </li>
+    <li>
+      <a [routerLink]="['./forums']">Forums</a>
+    </li>
+    <li>
+      <a [routerLink]="['./info']">Info</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</ion-content>

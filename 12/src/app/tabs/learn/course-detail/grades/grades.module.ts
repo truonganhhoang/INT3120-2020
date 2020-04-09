@@ -9,12 +9,7 @@ import { GradesPageRoutingModule } from './grades-routing.module';
 import { GradesPage } from './grades.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    GradesPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, GradesPageRoutingModule],
   declarations: [GradesPage]
 })
 export class GradesPageModule {}

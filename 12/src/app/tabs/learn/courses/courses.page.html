@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Courses</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ul>
+  <li *ngFor="let course of courses">
+    <a (click)="goToCourse(course.id)">{{ course.name }}</a>
+  </li>
+</ul>
