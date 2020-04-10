@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { Platform } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignInService {
-  constructor(private ngFireAuth: AngularFireAuth) {}
+  constructor(private platform: Platform, private ngFireAuth: AngularFireAuth, private facebook: Facebook) {}
 
   private instanceOfFirebaseError(error: any): error is firebase.FirebaseError {
     return 'code' in error;
@@ -34,8 +36,26 @@ export class SignInService {
   }
 
   signInWithFacebook() {
-    const facebookProvider = new firebase.auth.FacebookAuthProvider();
+    const platforms = this.platform.platforms();
 
+    if (platforms.includes('cordova')) {
+      /**
+       *
+       * TODO
+       */
+      return new Observable<any>((observer) => {
+        this.facebook
+          .login(['public_profile', 'email'])
+          .then((response) => {
+            observer.next(response);
+          })
+          .catch((err) => {
+            observer.error(err);
+          });
+      });
+    }
+
+    const facebookProvider = new firebase.auth.FacebookAuthProvider();
     return new Observable<any>((observer) => {
       this.ngFireAuth.auth
         .signInWithPopup(facebookProvider)

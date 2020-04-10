@@ -1367,6 +1367,13 @@
   dependencies:
     "@types/cordova" latest
 
+"@ionic-native/facebook@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/facebook/-/facebook-5.23.0.tgz#bb5c3fcb69be6c54b9f1e470c3d1bde6ced51dd7"
+  integrity sha512-gsLIdGF6ys0uzv9otN091bmWJ1Dgb31P8m8geB5BronkvKPe/EelQXnFMVehxwvVTutdwkbhx7WJJ1Whr/Bo8w==
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic-native/keyboard@^5.23.0":
   version "5.23.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/keyboard/-/keyboard-5.23.0.tgz#094d7f48a7274de1fa65e9f573f7bf18ab6f35ed"
@@ -3614,6 +3621,11 @@ cordova-plugin-device@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/cordova-plugin-device/-/cordova-plugin-device-2.0.3.tgz#c2b41b7efd0455dd097f89356d85bfdd5dadeb0f"
   integrity sha512-Jb3V72btxf3XHpkPQsGdyc8N6tVBYn1vsxSFj43fIz9vonJDUThYPCJJHqk6PX6N4dJw6I4FjxkpfCR4LDYMlw==
+
+cordova-plugin-facebook4@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-facebook4/-/cordova-plugin-facebook4-6.4.0.tgz#32917a6880b78cb6f8b17431d6ad4ee177bf83d6"
+  integrity sha512-uonmPVPR5glmJfQcMJeiMtqflJYTChrcSNouZDXWjWZkObq4lCOZzOL2cC6FBeyhj+1zJE+pFh+2WZL9wIlHIg==
 
 cordova-plugin-ionic-keyboard@^2.2.0:
   version "2.2.0"
