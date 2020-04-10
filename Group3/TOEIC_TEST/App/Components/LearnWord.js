@@ -24,9 +24,6 @@ const resetAction = StackActions.reset({
     actions: [NavigationActions.navigate({ routeName: 'MainBody' })],
 })
 class LearnWord extends Component {
-    static navigationOptions = {
-        headerShown: false
-    }
     constructor(props) {
         super(props)
         this.state = {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import styles from './Styles/SettingTabStyles'
 import {
     View,
@@ -21,45 +21,64 @@ import Share from 'react-native-share'
 import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-class SettingTab extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            checked: false,
-            selectedValue: '1',
-            timeStart: '6:00',
-            timeFinish: '21:00',
-            visibleStart: false,
-            visibleFinish: false,
-            switchValue: false,
+const SettingTab = (props) => {
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         checked: false,
+    //         selectedValue: '1',
+    //         timeStart: '6:00',
+    //         timeFinish: '21:00',
+    //         visibleStart: false,
+    //         visibleFinish: false,
+    //         switchValue: false,
+    //     }
+    // }
+    const [checked,setChecked]= useState(false)
+    const [selectedValue, setSelectedValue] = useState('1')
+    const [timeStart, setTimeStart] = useState('6:00')
+    const [timeFinish, setTimeFinish] = useState('21:00')
+    const [visibleStart, setVisibleStart] = useState(false)
+    const [visibleFinish, setVisibleFinish] = useState(false)
+    const [switchValue, setSwitchValue] = useState(false)
+    const handleRemind = () => {
+        console.log(checked)
+        if (checked == false) {
+            const date = new Date()
+            date.setMinutes(date.getMinutes() + 1) //set time ngay sau 1 phut
+            const title = "TOEIC TEST"
+            const content = "Đã đến giờ học bài!"
+            fcmService.scheduleDailyNotification(title, content, date.getTime());
         }
+        setChecked(!checked)
     }
-    showDatePickerStart = () => {
-        this.setState({ visibleStart: true })
-    };
-    hideDatePickerStart = () => {
-        this.setState({ visibleStart: false })
-    };
-    handleConfirmStart = time => {
-        this.setState({ timeStart: time.getHours() + ":" + time.getMinutes() })
-        this.hideDatePickerStart();
-    };
-    showDatePickerFinish = () => {
-        this.setState({ visibleFinish: true })
+    const showDatePickerStart = () => {
+        setVisibleStart(true)
+    }
+    const hideDatePickerStart = () => {
+        setVisibleStart(false)
+    }
+    const handleConfirmStart = time => {
+        hideDatePickerStart()
+        setTimeStart(time.getHours() + ":" + time.getMinutes())
+    }
+    const showDatePickerFinish = () => {
+        setVisibleFinish(true)
     };
 
-    hideDatePickerFinish = () => {
-        this.setState({ visibleFinish: false })
+    const hideDatePickerFinish = () => {
+        setVisibleFinish(false)
     };
-    handleConfirmFinish = time => {
-        this.setState({ timeFinish: time.getHours() + ":" + time.getMinutes() })
-        this.hideDatePickerFinish();
+    const handleConfirmFinish = time => {
+        hideDatePickerFinish()
+        setTimeFinish(time.getHours() + ":" + time.getMinutes())
+        ()
     };
-    toggleSwitch = (value) => {
-        console.log(value)
-        this.setState({ switchValue: value })
+    const toggleSwitch = (value) => {
+        setSwitchValue(value)
+        props.setVisible(value)
     }
-    handleEmail = () => {
+    const handleEmail = () => {
         Mailer.mail({
             subject: 'Góp ý về ứng dụng Toeic Test',
             recipients: ['leducuet@gmail.com'],
@@ -84,23 +103,21 @@ class SettingTab extends Component {
             )
         });
     }
-    render() {
-
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: this.state.switchValue == false ? "#EEEEEE" : "#212121", }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: switchValue == false ? "#EEEEEE" : "#212121", }}>
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
                     paddingTop: 40,
                     paddingBottom: 20,
-                    backgroundColor: this.state.switchValue == false ? "#1976D2" : "#263238"
+                    backgroundColor: switchValue == false ? "#1976D2" : "#263238"
                 }}>
                     <Text style={styles.title}>CÀI ĐẶT</Text>
                 </View>
                 <ScrollView style={{ flex: 1, margin: 20 }}>
                     <View style={{
-                        backgroundColor: this.state.switchValue == false ? "#FAFAFA" : "#263238",
+                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
                         elevation: 6,
                     }}>
                         <View style={{ flexDirection: 'row', paddingLeft: 10, alignItems: 'center' }}>
@@ -109,16 +126,17 @@ class SettingTab extends Component {
                             <CheckBox
                                 containerStyle={{ marginLeft: Dimensions.get('screen').width - 240 }}
                                 size={30}
-                                checked={this.state.checked}
-                                onPress={() => this.setState({ checked: !this.state.checked })}
+                                checked={checked}
+                                onPress={() => handleRemind()}
                             />
                         </View>
                         <View style={{ flexDirection: 'row', paddingLeft: 10, justifyContent: 'space-between' }}>
                             <Text style={{ fontSize: 18 }}>Số lần trong ngày</Text>
                             <Picker
-                                selectedValue={this.state.selectedValue}
+                                selectedValue={selectedValue}
                                 style={{ height: 20, width: 75 }}
-                                onValueChange={(itemValue, itemIndex) => this.setState({ selectedValue: itemValue })}
+                                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+
                             >
                                 <Picker.Item label="1" value="1" backgroundColor="red" />
                                 <Picker.Item label="2" value="2" />
@@ -126,35 +144,35 @@ class SettingTab extends Component {
                         </View>
                         <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, justifyContent: 'space-between' }}>
                             <TouchableOpacity
-                                onPress={() => this.showDatePickerStart()}
+                                onPress={() => showDatePickerStart()}
                             >
                                 <Text style={{ fontSize: 18 }}>Thời gian bắt đầu</Text>
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginRight: 25 }}>{this.state.timeStart}</Text>
+                            <Text style={{ fontSize: 16, marginRight: 25 }}>{timeStart}</Text>
                             <DateTimePickerModal
-                                isVisible={this.state.visibleStart}
+                                isVisible={visibleStart}
                                 mode="time"
-                                onConfirm={this.handleConfirmStart}
-                                onCancel={this.hideDatePickerStart}
+                                onConfirm={handleConfirmStart}
+                                onCancel={hideDatePickerStart}
                             />
                         </View>
                         <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, paddingBottom: 20, justifyContent: 'space-between' }}>
                             <TouchableOpacity
-                                onPress={() => this.showDatePickerFinish()}
+                                onPress={() => showDatePickerFinish()}
                             >
                                 <Text style={{ fontSize: 18 }}>Thời gian kết thúc</Text>
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginRight: 25 }}>{this.state.timeFinish}</Text>
+                            <Text style={{ fontSize: 16, marginRight: 25 }}>{timeFinish}</Text>
                             <DateTimePickerModal
-                                isVisible={this.state.visibleFinish}
+                                isVisible={visibleFinish}
                                 mode="time"
-                                onConfirm={this.handleConfirmFinish}
-                                onCancel={this.hideDatePickerFinish}
+                                onConfirm={handleConfirmFinish}
+                                onCancel={hideDatePickerFinish}
                             />
                         </View>
                     </View>
                     <View style={{
-                        backgroundColor: this.state.switchValue == false ? "#FAFAFA" : "#263238",
+                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
                         marginTop: 20,
                         elevation: 6,
                     }}>
@@ -169,12 +187,12 @@ class SettingTab extends Component {
                     </View>
 
                     <View style={{
-                        backgroundColor: this.state.switchValue == false ? "#FAFAFA" : "#263238",
+                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
                         marginTop: 20,
                         elevation: 6,
                     }}>
                         <TouchableOpacity
-                            onPress={() => this.handleEmail()}
+                            onPress={() => handleEmail()}
                         >
                             <View style={{ flexDirection: 'row', padding: 10, alignContent: 'center', alignItems: 'center' }}>
                                 <Icon name="comments" size={34} color="#1976D2" />
@@ -184,7 +202,7 @@ class SettingTab extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{
-                        backgroundColor: this.state.switchValue == false ? "#FAFAFA" : "#263238",
+                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
                         marginTop: 20,
                         elevation: 6,
                         flexDirection: 'row',
@@ -196,25 +214,14 @@ class SettingTab extends Component {
                         <Text style={{ fontSize: 20, color: "#1976D2", paddingLeft: 10 }}> Giao diện tối</Text>
                         <Switch
                             style={{ marginLeft: Dimensions.get('screen').width - 260 }}
-                            onValueChange={this.toggleSwitch}
-                            value={this.state.switchValue} />
+                            onValueChange={toggleSwitch}
+                            value={switchValue} />
                     </View>
-                    <Button
-                        title="Press me"
-                        onPress={() => {
-                            const date = new Date()
-                            // date.setMinutes(date.getMinutes()) //set time ngay sau 1 phut
-                            const title = "This is title"
-                            const content = "this is content....."
-                            fcmService.scheduleDailyNotification(title, content, date.getTime());
-                        }}
-                    />
                 </ScrollView>
             </ SafeAreaView >
 
         )
     }
-}
 export default SettingTab
 const url = 'https://drive.google.com/open?id=134oAlPK-5K-3eAMxJg1gs_Ka7Ehe0v8g';
 const title = 'Ứng dụng Toeic Test';

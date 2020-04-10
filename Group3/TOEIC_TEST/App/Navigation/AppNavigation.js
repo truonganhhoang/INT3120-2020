@@ -7,15 +7,19 @@ import LearnWord from '../Components/LearnWord'
 import TestList from '../Components/TestList'
 import TestBody from '../Components/TestBody'
 import Test from '../Components/Test'
-const AppNavigator = createStackNavigator({
-        MainBody: { screen: MainBody },
-        Search: { screen: Search },
-        Meaning: { screen: Meaning },
-        LearnWord: { screen: LearnWord },
-        TestList: { screen: TestList },
-        TestBody: { screen: TestBody },
-        Test: { screen: Test },
-        Notification: {screen: Notification }
-});
+const AppNavigator = createStackNavigator(
+        {
+                MainBody: { screen: MainBody },
+                Search: { screen: Search },
+                Meaning: { screen: Meaning },
+                LearnWord: { screen: LearnWord },
+                TestList: { screen: TestList },
+                TestBody: { screen: TestBody },
+                Test: { screen: Test },
+        },
+        {
+                defaultNavigationOptions: { headerShown: false }
+        }
+);
 
 export default createAppContainer(AppNavigator);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   View,
@@ -12,6 +12,7 @@ export default class TabBar extends React.Component {
     super(props)
     this.icons = [];
   }
+
   textStyle = (active, i) => {
     return {
       fontSize: 10,
@@ -22,7 +23,11 @@ export default class TabBar extends React.Component {
   render() {
     var logo = ['language', 'graduation-cap', 'check-square-o', 'gears']
     return (
-      <View style={styles.tabs}>
+      <View style={{
+        height: 60,
+        flexDirection: 'row',
+        backgroundColor: this.props.visible === true ? '#263238' : '#fff',
+      }}>
         {this.props.tabs.map((tab, i) => {
           icon = logo[i]
           return (

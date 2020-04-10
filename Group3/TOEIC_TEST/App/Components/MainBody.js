@@ -11,45 +11,42 @@ import LearnTab from './LearnTab'
 import TestTab from './TestTab'
 import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
-import {fcmService} from '../Services/FCMService';
+import { fcmService } from '../Services/FCMService';
 console.disableYellowBox = true;
-class MainBody extends Component {
-    static navigationOptions = {
-        headerShown: false
-    }
-    constructor(props) {
-        super(props)
-    }
-    componentDidMount() {
-        fcmService.register(this.onRegister, this.onNotification, 
-        this.onOpenNotification)
+const MainBody = (props) => {
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+        fcmService.register(onRegister, onNotification,
+            onOpenNotification)
+        return () => {
+        };
+    }, [])
+
+    const onRegister = (token) => {
+        // console.log("[NotificationFCM] onRegister: ", token)
     }
 
-    onRegister(token) {
-        console.log("[NotificationFCM] onRegister: ", token)
-    }
-
-    onNotification(notify) {
-        console.log("[NotificationFCM] onNotification: ", notify)
+    const onNotification = (notify) => {
+        // console.log("[NotificationFCM] onNotification: ", notify)
         // For Android
         const channelObj = {
-        channelId: "SampleChannelID",
-        channelName: "SampleChannelName",
-        channelDes: "SampleChannelDes"
+            channelId: "SampleChannelID",
+            channelName: "SampleChannelName",
+            channelDes: "SampleChannelDes"
         }
         const channel = fcmService.buildChannel(channelObj)
 
         const buildNotify = {
-        dataId: notify._notificationId,
-        title: notify._title,
-        content: notify._body,
-        sound: 'default',
-        channel: channel,
-        data: {},
-        colorBgIcon: "#1A243B",
-        largeIcon: 'ic_launcher',
-        smallIcon: 'ic_launcher',
-        vibrate: true
+            dataId: notify._notificationId,
+            title: notify._title,
+            content: notify._body,
+            sound: 'default',
+            channel: channel,
+            data: {},
+            colorBgIcon: "#1A243B",
+            largeIcon: 'ic_launcher',
+            smallIcon: 'ic_launcher',
+            vibrate: true
         }
 
         const notification = fcmService.buildNotification(buildNotify)
@@ -57,37 +54,35 @@ class MainBody extends Component {
 
     }
 
-    onOpenNotification(notify) {
-        console.log("[NotificationFCM] onOpenNotification: ", notify)
+    const onOpenNotification = (notify) => {
+        // console.log("[NotificationFCM] onOpenNotification: ", notify)
         alert("Open Notification: " + notify._body)
     }
 
-    render() {
-        return (
-            <SafeAreaView style={styles.container}>
-                <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
-                <ScrollableTabView
-                    style={styles.container}
-                    tabBarPosition='bottom'
-                    initialPage={0}
-                    renderTabBar={() => <TabBar {...this.props} />}
-                >
-                    <View tabLabel="Từ vựng" style={styles.tabView}>
-                        <LearnTab {...this.props} />
-                    </View>
-                    <View tabLabel="Kiểm tra" style={styles.tabView}>
-                        <TestTab {...this.props} />
-                    </View>
-                    <View tabLabel="Xem lại" style={styles.tabView}>
-                        <ReviewTab {...this.props} />
-                    </View>
-                    <View tabLabel="Cài đặt" style={styles.tabView}>
-                        <SettingTab {...this.props} />
-                    </View>
-                </ScrollableTabView>
-            </SafeAreaView>
-        );
-    }
-
+    return (
+        <SafeAreaView style={styles.container}>
+            <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
+            <ScrollableTabView
+                style={styles.container}
+                tabBarPosition='bottom'
+                initialPage={0}
+                renderTabBar={() => <TabBar visible={visible} />}
+            >
+                <View tabLabel="Từ vựng" style={styles.tabView}>
+                    <LearnTab {...props} />
+                </View>
+                <View tabLabel="Kiểm tra" style={styles.tabView}>
+                    <TestTab {...props} />
+                </View>
+                <View tabLabel="Xem lại" style={styles.tabView}>
+                    <ReviewTab {...props} />
+                </View>
+                <View tabLabel="Cài đặt" style={styles.tabView}>
+                    <SettingTab visible={visible} setVisible={setVisible} />
+                </View>
+            </ScrollableTabView>
+        </SafeAreaView>
+    );
 }
+
 export default MainBody
