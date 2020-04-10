@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 
-import navigationReducer from './navigation';
-import drawerReducer from './drawer';
+import mainReducer from './main';
+import UIReducer from './ui';
 
 /**
  * Combine reducers
  */
 const rootReducer = combineReducers({
-  navigation: navigationReducer,
-  drawer: drawerReducer
+  main: mainReducer,
+  ui: UIReducer
 });
 
 export default rootReducer;

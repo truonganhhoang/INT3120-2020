@@ -1,11 +1,13 @@
 import React from 'react';
 import { Text, View, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+// import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import PlatformTouchable from '../utils/touchable';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { selectDrawerItem } from '../actions/drawer';
-import { changeNavHeader } from '../actions/navigation';
+// import { selectDrawerItem } from '../actions/drawer';
+// import { changeNavHeader } from '../actions/navigation';
+import { goToPage } from '../actions/main'
 
 /**
  * List features of this app
@@ -62,26 +64,26 @@ const listContent = [
  * @property {boolean} selected - item is focused
  */
 const DrawerItem = (props) => {
-  const { id, iconName, title, selected } = props;
+  const { iconName, title, selected } = props;
   const dispatch = useDispatch();
 
   const onPress = () => {
     props.closeDrawer();
-    dispatch(selectDrawerItem(id));
-    dispatch(changeNavHeader(title === 'Home' ? 'JavaScript Tutorial' : title));
+    // dispatch(selectDrawerItem(id));
+    // dispatch(changeNavHeader(title === 'Home' ? 'JavaScript Tutorial' : title));
+    dispatch(goToPage(title));
   }
 
   return (
     iconName ? 
-    (<TouchableNativeFeedback
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .1)', false)}
+    (<PlatformTouchable
+      style={selected ? [styles.itemContainer, { backgroundColor: '#e0e0e0' }] : styles.itemContainer}
+      rippleColor='rgba(0, 0, 0, .085)'
       onPress={onPress}
     >
-      <View style={selected ? {...styles.itemContainer, backgroundColor: '#e0e0e0'} : styles.itemContainer} >
-        <Icon name={iconName} style={{...styles.icon, color: selected ? '#00bcd4' : '#757575'}} />
-        <Text style={{color: selected ? '#00bcd4' : '#757575'}}>{title}</Text>
-      </View>
-    </TouchableNativeFeedback>)
+      <Icon name={iconName} style={[styles.icon, { color: selected ? '#00bcd4' : '#757575' }]} />
+      <Text style={{color: selected ? '#00bcd4' : '#757575'}}>{title}</Text>
+    </PlatformTouchable>)
     : (<View style={{height: 2, backgroundColor: '#e0e0e0', marginVertical: 8}} />/* gray bar */)
   );
 }
@@ -90,26 +92,25 @@ const DrawerItem = (props) => {
  * All contents of drawer.
  */
 const Drawer = (props) => {
-  const drawer = useSelector(state => state.drawer, shallowEqual);
+  const nowPage = useSelector(state => state.main.page, shallowEqual);
 
   return (
     <View style={styles.container}>
-      <TouchableNativeFeedback 
-        background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .2)', false)}
+      <PlatformTouchable 
+        style={styles.userContainer}
+        rippleColor='rgba(0, 0, 0, .085)'
       >
-        <View style={styles.userContainer}>
-          <ImageBackground source={require('../assets/img/google-background.jpg')} imageStyle={{ opacity: 0.7 }} style={styles.userBackground} resizeMode='cover' >
-            <Image source={require('../assets/img/user_icon.png')} resizeMode='cover' style={styles.userIcon} />
-            <Text style={styles.userName}>Vũ Chức</Text>
-            <View style={styles.userFooter}>
-              <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
-              <Text style={styles.signOut}>SIGN OUT</Text>
-            </View>
-          </ImageBackground>
-        </View>
-      </TouchableNativeFeedback>
+        <ImageBackground source={require('../assets/img/menu_cover.png')} imageStyle={{ opacity: 0.8 }} style={styles.userBackground} resizeMode='cover' >
+          <Image source={require('../assets/img/no_avatar.jpg')} resizeMode='cover' style={styles.userIcon} />
+          <Text style={styles.userName}>Vũ Chức</Text>
+          <View style={styles.userFooter}>
+            <Text style={styles.userEmail}>vuchuc781999@gmail.com</Text>
+            <Text style={styles.signOut}>SIGN OUT</Text>
+          </View>
+        </ImageBackground>
+      </PlatformTouchable>
       <ScrollView style={styles.featureContainer}>
-        {listContent.map((value, index) => <DrawerItem key={index} id={index} iconName={value.iconName} title={value.title} selected={drawer.selectedIndex === index} closeDrawer={props.closeDrawer} />)}
+        {listContent.map((value, index) => <DrawerItem key={index} iconName={value.iconName} title={value.title} selected={nowPage === value.title} closeDrawer={props.closeDrawer} />)}
       </ScrollView>
     </View>
   );

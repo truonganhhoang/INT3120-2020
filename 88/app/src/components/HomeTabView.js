@@ -15,14 +15,18 @@ const renderTabBar = (props) => {
   );
 }
 
-const FirstRoute = () => {
+const LearnItem = () => {
+  
+}
+
+const LearnTab = () => {
   return (
     <View style={[styles.scene, {backgroundColor: 'blue'}]}>
     </View>
   )
 }
 
-const SecondRoute = () => {
+const PlayTab = () => {
   return (
     <View style={[styles.scene, {backgroundColor: 'red'}]}>
     </View>
@@ -41,8 +45,8 @@ const HomeTabView = () => {
   ]);
 
   const renderScene = SceneMap({
-    learn: FirstRoute,
-    play: SecondRoute
+    learn: LearnTab,
+    play: PlayTab
   });
   
   return (

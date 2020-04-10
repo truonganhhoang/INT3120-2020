@@ -9,16 +9,6 @@
 export const CHANGE_NAV_ICON = 'CHANGE_NAV_ICON';
 
 /**
- * @constant {ActionType} CHANGE_NAV_HEADER - change header only
+ * @constant {ActionType} GO_TO_PAGE - go to another feature of the app
  */
-export const CHANGE_NAV_HEADER = 'CHANGE_NAV_HEADER';
-
-/**
- * @constant {ActionType} CHANGE_NAV - change whole status bar
- */
-export const CHANGE_NAV = 'CHANGE_NAV';
-
-/**
- * @constant {ActionType} SELECT_DRAWER_ITEM - change tab in drawer
- */
-export const SELECT_DRAWER_ITEM = 'SELECT_DRAWER_ITEM';
+export const GO_TO_PAGE = 'GO_TO_PAGE';
