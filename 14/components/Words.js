@@ -5,16 +5,15 @@ import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
 import IconFont from 'react-native-vector-icons/FontAwesome';
-import data from '../data/new-word/index'
-
+import db from './../data/SQLite';
 export default class Words extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      update: false
+      data: db.getTaggedWord(this, this.props.type)
     }
-    this.filterData = data.sports
+    // db.clearAllWords();
   }
 
   keyExtractor = (item, index) => index.toString()
@@ -27,28 +26,38 @@ export default class Words extends React.Component {
   }
 
   favoriteSwitch = word => {
-    if (word.favorite) {
-      word.favorite = false;
-      this.setState({update: true});
-    } else {
-      word.favorite = true;
+    if (word.favorite == 1){
+      word.favorite = 0;
+    }else{
+      word.favorite = 1;
+    }
+    db.updateFavoriteOrRemind('favorite',word.eng, word.favorite);
+    if (this.props.type == 'favorite'){
+      let filterData = this.state.data.filter(item => item.eng != word.eng);
+      this.setState({data: filterData});
+    }else{
       this.setState({update: true});
     }
   }
 
   remindSwitch = word => {
-    if (word.remind) {
-      word.remind = false;
-      this.setState({update: true});
-    } else {
-      word.remind = true;
+    if (word.remind == 1){
+      word.remind = 0;
+    }else{
+      word.remind = 1;
+    }
+    db.updateFavoriteOrRemind('remind',word.eng, word.remind);
+    if (this.props.type == 'remind'){
+      let filterData = this.state.data.filter(item => item.eng != word.eng);
+      this.setState({data: filterData});
+    }else{
       this.setState({update: true});
     }
   }
 
   renderItem = ({ item }) => (
 		<View style = {styles.container}>
-			<Image style = {styles.image} source = {{uri: item.picture_url}}/>
+			<Image style = {styles.image} source = {{uri: item.picture}}/>
 			<View style = {styles.content}>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <Text style = {styles.englishWord}>{item.eng} </Text>
@@ -70,7 +79,7 @@ export default class Words extends React.Component {
       <TouchableOpacity onPress={() => this.favoriteSwitch(item)}>
       <Icon
           style={styles.icon}
-          name={item.favorite ? 'heart' : 'heart-outline'}
+          name={item.favorite == 1 ? 'heart' : 'heart-outline'}
           type='material-community'
           color='red'
           size={40}
@@ -81,7 +90,7 @@ export default class Words extends React.Component {
         style={styles.icon}
         name='alarm'
         type='material-community'
-        color={item.remind ? 'green': 'gray'}
+        color={item.remind == 1 ? 'green': 'gray'}
         size={40}
         />
       </TouchableOpacity>
@@ -96,20 +105,14 @@ export default class Words extends React.Component {
       </TouchableOpacity>
     </View>
   );
-  render(){
-    if (this.props.type=='favorite'){
-      this.filterData = data.sports.filter(item => item.favorite);
-    } else if (this.props.type=='remind') {
-      this.filterData = data.sports.filter(item => item.remind);
-    }
-    
+  render(){   
     return (
       <View>
         <SwipeListView
           style={styles.swipeListView}
           keyExtractor={this.keyExtractor}
           contentContainerStyle={{paddingBottom: 240}}
-          data={this.filterData}
+          data={this.state.data}
           renderItem={this.renderItem}
           renderHiddenItem={this.renderHiddenItem}
           leftOpenValue={0}

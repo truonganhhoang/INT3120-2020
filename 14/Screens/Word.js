@@ -82,14 +82,13 @@ export default class Word extends React.Component{
       else if (selectedIndex == 1){
         return <Words type='favorite'/>
       } else if (selectedIndex == 2){
-        return <Words type='remind'/>
+        return <View><Words type='remind'/></View>
       }
     }
 
     renderItem = ({ item }) => (
     <ListItem
         onPress = {() => this._onPress(item)}
-        
         title={item.name}
         subtitle={item.subtitle}
         leftAvatar={{ source: { uri: item.avatar_url } }}

@@ -1,7 +1,8 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, InteractionManager } from 'react-native';
 import { Header } from 'react-native-elements';
+import db from '../data/SQLite';
 
 const list = [
     {
@@ -57,6 +58,17 @@ const list = [
   ]
 
 export default class Home extends React.Component{
+    constructor(){
+        super();
+        this.init()
+    }
+    async init(){
+        const exist = await db.checkIfTablesExist();
+        if (exist == false){
+            console.log('home creates table')
+            db.createTable();
+        };
+    }
     static navigationOptions = {
         title: 'Home',
     }

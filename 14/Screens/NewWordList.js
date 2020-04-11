@@ -13,7 +13,7 @@ export default class NewWordList extends React.Component{
                 leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Word') }}
                 centerComponent={{ text: this.category, style: { color: '#fff' } }}
             />
-            <Words type='all' />
+            <Words type={this.category} />
         </View>
     );
   }
