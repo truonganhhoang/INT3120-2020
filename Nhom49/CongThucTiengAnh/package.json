@@ -31,9 +31,10 @@
     ]
   },
   "dependencies": {
-    "@react-native-firebase/firestore": "^6.3.4",
+    "@react-native-firebase/app": "^6.4.0",
+    "@react-native-firebase/firestore": "^6.4.0",
     "color": "1.0.3",
-    "expo-cli": "^3.17.18",
+    "expo-cli": "^3.17.23",
     "global": "^4.4.0",
     "lodash": "4.17.13",
     "moment": "2.19.3",

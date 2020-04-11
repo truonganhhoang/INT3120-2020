@@ -17,6 +17,7 @@ import {
   Title,
 } from "native-base";
 import styles from "./styles";
+import firestore from '@react-native-firebase/firestore';
 
 const datasSentences = [
   {
@@ -149,7 +150,27 @@ const datasWords = [
   }
 ];
 
+//firestore().collection('dataSentences').doc('IdqyHE4GqJ2Wc9BIHoTL');
+const datasSentences_ = [];
+
+function getData(){
+    return firestore().collection('dataSentences')
+    .get()
+    .then(
+        querySnapshot => {
+            querySnapshot.forEach(doc => {
+                const {title, subtitle } = doc.data();
+                datasSentences_.push({
+                    title,
+                    subtitle,
+                });
+            });
+        }
+    );
+}
+
 class Anatomy extends Component {
+  getData(){};
   constructor(props) {
     super(props);
     this.state = {
@@ -191,9 +212,10 @@ class Anatomy extends Component {
         </Header>
 
         <Content padder>
+          <Text>{firestore().collection('dataSentences').doc('IdqyHE4GqJ2Wc9BIHoTL').title}</Text>
           {this.state.seg === 1 &&
               <List
-                  dataArray={datasSentences}
+                  dataArray={datasSentences_}
                   renderRow={data =>
                   <Card>
                     <CardItem button
