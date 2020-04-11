@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.yourcompany.yourappname",
+      "package": "vnu.uet.nhom14",
       "versionCode": 1
     }
   }
