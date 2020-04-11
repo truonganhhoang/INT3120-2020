@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, View} from 'react-native';
+import { ActivityIndicator, FlatList, View, StyleSheet } from 'react-native';
 import Item from '../../components/TFS/TFSCItem';
 import config from '../../components/config';
 
@@ -23,8 +23,8 @@ export default function TrafficSignScreen(props) {
 
   );
 
-  return (
-    <View style={{ flex: 1, padding: 24 }}>
+    return (
+        <View style={styles.container}>
       {isLoading ? <ActivityIndicator /> : (
         <FlatList
           data={data}
@@ -37,4 +37,11 @@ export default function TrafficSignScreen(props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff'
+    }
+});
 

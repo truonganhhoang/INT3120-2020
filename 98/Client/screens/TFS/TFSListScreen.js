@@ -20,7 +20,7 @@ export default function TrafficSignList(props) {
     );
   
     return (
-    <View style={{ flex: 1, padding: 24 }}>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
           <View>
       <View style={styles.container}>
           <View style={styles.head}>
@@ -40,12 +40,13 @@ export default function TrafficSignList(props) {
   </View>
     {isLoading ? <ActivityIndicator /> : (
   <FlatList
-      horizontal={false}
-      numColumns={2}
-      data={data}
-       keyExtractor={({ id }, index) => id}
-      renderItem={({ item }) =>
-          <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
+            horizontal={false}
+            numColumns={2}
+            data={data}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) =>
+                <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
+            style={{ marginLeft: 16, }}
   />
     )}
   </View>
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
     container: {
         borderBottomWidth: 1.5,
         borderColor: '#808080',
-        //marginTop: 50,
     },
     head: {
         height: 35,
