@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LearnPage } from './learn.page';
+
 const routes: Routes = [
   {
-    path: 'courses',
-    loadChildren: () => import('./my-courses/my-courses.module').then((m) => m.MyCoursesPageModule)
-  },
-  {
-    path: 'course/:courseId',
-    loadChildren: () => import('./my-course-details/my-course-details.module').then((m) => m.MyCourseDetailsPageModule)
-  },
-  {
     path: '',
-    redirectTo: 'courses'
+    component: LearnPage,
+    children: [
+      {
+        path: 'courses',
+        loadChildren: () => import('./courses/courses.module').then((m) => m.CoursesPageModule)
+      },
+      {
+        path: 'course/:id',
+        loadChildren: () => import('./course-detail/course-detail.module').then((m) => m.CourseDetailPageModule)
+      },
+      {
+        path: '',
+        redirectTo: 'courses'
+      }
+    ]
   }
 ];
 
@@ -20,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LearnRoutingModule {}
+export class LearnPageRoutingModule {}

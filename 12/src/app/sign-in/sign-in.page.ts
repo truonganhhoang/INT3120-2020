@@ -88,9 +88,16 @@ export class SignInPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigateByUrl('/tabs/learn/courses');
+        this.router.navigate(['tabs', 'learn']);
       },
-      error: console.error
+      error: (message) => {
+        this.isSubmitting = false;
+        this.dialog.open(SignInFailedComponent, {
+          data: {
+            message: message
+          }
+        });
+      }
     });
   }
 }

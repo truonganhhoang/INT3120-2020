@@ -1,6 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ToastController } from '@ionic/angular';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Storage } from '@ionic/storage';
 
 import { SignOutService } from '../../../core/services/firebase/auth/sign-out.service';
@@ -10,13 +12,29 @@ import { SignOutService } from '../../../core/services/firebase/auth/sign-out.se
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss']
 })
-export class SettingsPage implements OnDestroy {
+export class SettingsPage implements OnInit, OnDestroy {
   signOutSubscription?: Subscription;
+  versionString: string;
 
-  constructor(private router: Router, private storageService: Storage, private signOutService: SignOutService) {}
+  constructor(
+    private router: Router,
+    private storageService: Storage,
+    private appVersion: AppVersion,
+    private signOutService: SignOutService,
+    private toastController: ToastController
+  ) {}
+
+  async ngOnInit() {
+    try {
+      const versionNumber = await this.appVersion.getVersionNumber();
+      const versionCode = await this.appVersion.getVersionCode();
+      this.versionString = `Version ${versionNumber} (${versionCode})`;
+    } catch {
+      this.versionString = '';
+    }
+  }
 
   ngOnDestroy() {
-    console.log('Setting Page destroy');
     this.signOutSubscription?.unsubscribe();
   }
 
@@ -25,9 +43,16 @@ export class SettingsPage implements OnDestroy {
       next: () => {},
       complete: async () => {
         await this.storageService.clear();
-        await this.router.navigate(['sign-in']);
+        await this.router.navigate(['/sign-in']);
       },
-      error: console.error
+      error: async (err) => {
+        const signOutFailed = await this.toastController.create({
+          message: err?.message,
+          position: 'bottom',
+          duration: 3000
+        });
+        signOutFailed.present();
+      }
     });
   }
 }

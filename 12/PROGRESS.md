@@ -187,3 +187,16 @@ ionic g page profile -f
 # 2020-04-08
 
 - Thêm privacy policy.
+
+# 2020-04-10
+
+- Chia 4 tab tại `/tab/learn/course/:courseId` bằng routing.
+
+# 2020-04-11
+
+- Cài đặt plugin facebook để đăng nhập trên android.
+- Thêm tính năng đăng nhập facebook trên android (khác với đăng nhập trên web)
+- Cài đặt plugin app version.
+- Style lại các item ở trang settings.
+- Đóng dialog của Sentry.
+- Thêm child routes cho `/tabs/course/:courseId/overview` và `/tabs/course/:courseId/forums`
