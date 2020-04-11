@@ -199,3 +199,4 @@ ionic g page profile -f
 - Cài đặt plugin app version.
 - Style lại các item ở trang settings.
 - Đóng dialog của Sentry.
+- Thêm child routes cho `/tabs/course/:courseId/overview` và `/tabs/course/:courseId/forums`

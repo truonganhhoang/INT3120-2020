@@ -1,1 +1,6 @@
-<p>overview</p>
+<ul>
+  <li *ngFor="let week of [1, 2, 3, 4]">
+    <a [routerLink]="['./' + week]">Week {{ week }}</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>

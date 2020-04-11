@@ -6,7 +6,13 @@ import { ForumsPage } from './forums.page';
 const routes: Routes = [
   {
     path: '',
-    component: ForumsPage
+    component: ForumsPage,
+    children: [
+      {
+        path: ':week',
+        loadChildren: () => import('./week/week.module').then((m) => m.WeekPageModule)
+      }
+    ]
   }
 ];
 
