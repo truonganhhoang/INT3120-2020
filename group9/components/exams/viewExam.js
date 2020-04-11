@@ -8,30 +8,42 @@ import {
   ScrollView,
   SafeAreaView,
   RefreshControl,
+  Dimensions,
+  TextInput,
+  Picker,
+  Alert,
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
-import { Header, CheckBox } from 'react-native-elements';
+import { Header, CheckBox, Button} from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
 import { getTasks } from '../firebaseApi/task';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+
+let heightPhone = Dimensions.get("window").height;
+let widthPhone = Dimensions.get("window").width;
 
 export default class ViewExam extends React.Component {
-  state = {
-    data: [],
-    dataSelected: { name: '', lesson: '', date: '', description: '' },
-    refreshing: false,
-  };
+    state = {
+      data: [],
+      idSelected: 0,
+      editModal: false,
+      table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
+      dataSelected: {id: 0, name: '', lesson: '', date: '', description: '', done: '' },
+      refreshing: false,
+      isDateTimePickerVisible: false,
+    };
 
   modal = React.createRef();
 
   componentDidMount = async () => {
-    let ret = await getTasks();
-    ret.map((item) => {
-      const date = new Date(item.date.seconds * 1000);
-      const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
-      item.date = day;
-    });
-    this.setState({ data: ret.filter((item) => item.type == 'Exam') });
+    let arrret = [];
+    try {
+    arrret = await getTasks();
+    this.setState({ data: arrret.filter((item) => item.type == 'Exam') });
+    } catch (err) {
+      
+    }
   };
 
   onRefresh = () => {
@@ -39,8 +51,26 @@ export default class ViewExam extends React.Component {
     this.componentDidMount();
   };
 
-  openModal = (item) => {
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = (date) => {
+    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    let newState = Object.assign({}, this.state);
+    newState.dataSelected.date = date;
+    newState.dataSelected.day = day;
+    this.setState(newState);
+    this.hideDateTimePicker();
+  };
+
+  openModal = (item,id) => {
     this.setState({ dataSelected: item });
+    this.setState({idSelected: id});
     if (this.modal.current) {
       this.modal.current.open();
     }
@@ -58,8 +88,14 @@ export default class ViewExam extends React.Component {
     this.setState({ data: this.state.data.filter((i) => i !== id) });
   };
 
-  renderRow = (item) => {
-    let id = this.state.data.indexOf(item);
+  handleChange = (id) => {
+    let newState = Object.assign({}, this.state);
+    newState.data[id].done = !newState.data[id].done;
+    this.setState(newState);
+  };
+
+  renderRow = (item, id) => {
+   // let id = this.state.data.indexOf(item);
     let swipeBtns = [
       {
         text: 'Delete',
@@ -74,23 +110,30 @@ export default class ViewExam extends React.Component {
     return (
       <Swipeout
         right={swipeBtns}
-        key={id}
         autoClose={true}
+        key ={id}
         style={styles.block}
         backgroundColor="transparent"
       >
         <View>
-          <TouchableOpacity onPress={() => this.openModal(item)}>
+          <TouchableOpacity onPress={() => this.openModal(item,id)} key ={id}>
             <View style={styles.rowContainer}>
+              <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(id)} />
               <Text style={styles.note}>
                 {id + 1}. {item.name}
               </Text>
-              <Text style={styles.subtitle}>{item.date}</Text>
             </View>
           </TouchableOpacity>
         </View>
       </Swipeout>
     );
+  };
+
+  changeData = () => {
+    this.setState({ editModal: false});
+    let newData = this.state.data;
+    newData[this.state.idSelected] = this.state.dataSelected;
+    this.setState({data: newData});
   };
 
   render() {
@@ -100,7 +143,7 @@ export default class ViewExam extends React.Component {
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
           centerComponent={{
-            text: 'LIST EXAMS',
+            text: 'LIST EXAM',
             style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold' },
           }}
           containerStyle={{
@@ -113,30 +156,109 @@ export default class ViewExam extends React.Component {
             <RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />
           }
         >
-          {this.state.data.map((item) => this.renderRow(item))}
+          {this.state.data.map((item,id) => this.renderRow(item, id))}
         </ScrollView>
-        <Modalize ref={this.modal} modalHeight={550}>
+
+        <Modalize ref={this.modal} modalHeight={heightPhone*0.7}>
           <View>
             <View style={styles.content_header}>
-              <Text style={{ fontSize: 25, paddingTop: 10 }}>{this.state.dataSelected.name}</Text>
+              <CheckBox
+                checked={this.state.dataSelected.done}
+                onPress={() => {
+                  let select = this.state.dataSelected;
+                  select.done = !select.done;
+                  this.setState({ dataSelected: select });
+                }}
+                size={30}
+              />
+              <TextInput
+                value={this.state.dataSelected.name}
+                style={styles.titleModal} 
+                placeholderTextColor='#1976D2'
+                editable={this.state.editModal}
+                onChangeText={(text) => this.setState(prevState => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    name: text,
+                  }}
+                ))}
+              />
+              <Ionicons 
+                name="ios-brush" 
+                style={styles.edit}
+                size={25} 
+                onPress={() => {
+                  if (!this.state.editModal) {
+                  Alert.alert(
+                    'Edit Exam',
+                    'Do you want to edit this exam?',
+                    [{ text: 'YES', onPress: () => this.setState({ editModal: true})}, {text: 'NO' }],
+                    { caoncelable: false }
+                  )} else {
+                  Alert.alert(
+                    'Edit Exam',
+                    'Do you want to finish?',
+                    [{ text: 'YES', onPress:() => this.changeData()}, {text: 'NO' }],
+                    { caoncelable: false }
+                  )}}}
+                />
             </View>
             <View style={{ flexDirection: 'row' }}>
-              <Ionicons name="ios-list-box" size={30} style={{ padding: 20 }} />
-              <Text style={{ padding: 20, fontSize: 20, paddingLeft: 0 }}>
-                Lesson: {this.state.dataSelected.lesson}
-              </Text>
+              <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color:'#d32f2f' }} />
+              <Picker
+                selectedValue={this.state.dataSelected.lesson}
+                enabled = {this.state.editModal}
+                style={styles.lessonModal}
+                onValueChange={(itemValue, itemIndex) => this.setState( prevState => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    lesson: itemValue,
+                  }
+                }))}
+              >
+                {this.state.table.map((item, i) => (
+                  <Picker.Item label={item.name} value={item.name} key={i} />
+                ))}
+              </Picker>
             </View>
-            <View style={{ flexDirection: 'row' }}>
-              <Ionicons name="ios-calendar" size={30} style={{ padding: 20 }} />
-              <Text style={{ padding: 20, fontSize: 20, paddingLeft: 0 }}>
-                Date: {this.state.dataSelected.date}
-              </Text>
+            <View style={{marginBottom: 10, flexDirection:'row'}}> 
+              
+              <Ionicons
+                name="ios-calendar"
+                size={30}
+                style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5, }}
+              />
+              <Button
+                title={this.state.dataSelected.day}
+                type='clear'
+                onPress={this.showDateTimePicker}
+                disabled={!this.state.editModal}
+                disabledTitleStyle={{color:'#ffc107'}}
+                buttonStyle={{ width: widthPhone*0.33}}
+                titleStyle={{fontSize: 18, color:'#ffc107'}}
+              />
+                <DateTimePicker
+                  isVisible={this.state.isDateTimePickerVisible}
+                  onConfirm={this.handleDatePicked}
+                  onCancel={this.hideDateTimePicker}
+                />
             </View>
-            <View style={{ borderTopColor: '#B7B7B7', borderTopWidth: 1.75 }}>
+            <View>
               <Text style={{ paddingLeft: 5, color: '#B7B7B7', fontSize: 18 }}>Note</Text>
-              <Text style={{ fontSize: 18, padding: 5 }}>
-                {this.state.dataSelected.description}
-              </Text>
+              <TextInput
+                style={{ padding: '2.5%', fontSize: 20 }}
+                underlineColorAndroid="transparent"
+                value={this.state.dataSelected.description}
+                placeholderTextColor="black"
+                numberOfLines={2}
+                multiline={true}
+                onChangeText={(text) => this.setState(prevState => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    description: text,
+                  }}
+                ))}
+              />
             </View>
           </View>
         </Modalize>
@@ -152,11 +274,29 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   content_header: {
-    padding: 15,
-    paddingBottom: 0,
+    paddingTop: 20, 
     flexDirection: 'row',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  titleModal: {
+    fontSize: 27,  
+    fontWeight:'bold', 
+    letterSpacing:1, 
+    color:'#1976D2',
+    width: widthPhone*0.7,
+  },
+  lessonModal: {
+    marginTop:10,
+    color:'#d32f2f',
+    height: 50,
+    width: widthPhone*0.5,
+  },
+  edit: {
+    marginLeft:'auto',
+    color: '#1976D2',
+    marginRight: 10,
+    paddingTop: 10,
   },
   modalTitle: {
     paddingTop: 25,
@@ -175,14 +315,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  subtitle: {
-    marginRight: 20,
-    marginLeft: 'auto',
-  },
   note: {
-    paddingLeft: 20,
     fontSize: 16,
-    fontWeight: '600',
-    letterSpacing: 1,
+    fontWeight: '400',
   },
 });

@@ -44,6 +44,7 @@ class NewTask extends React.Component {
       lesson: this.state.selectedLesson,
       type: this.state.selectedType,
       date: this.state.date,
+      day: this.state.datePicked,
       description: this.state.description,
       done: false,
     };

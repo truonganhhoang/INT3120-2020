@@ -4,9 +4,13 @@ const getTasks = async () => {
   const uid = firebase.auth().currentUser.uid;
   const data = await firebase.firestore().collection(`tasks/${uid}/listTasks`).get();
   let ret = [];
+  try {
   data.forEach((doc) => {
     ret.push(doc.data());
   });
+  } catch (err) {
+    
+  }
   return ret;
 };
 
@@ -20,6 +24,7 @@ const addTask = async (task) => {
     lesson: task.lesson,
     type: task.type,
     date: task.date,
+    day: task.day,
     description: task.description,
     done: task.done,
   };
