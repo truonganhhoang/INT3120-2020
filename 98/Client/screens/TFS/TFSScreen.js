@@ -4,10 +4,6 @@ import Item from '../../components/TFS/TFSCItem';
 import config from '../../components/config';
 
 
-// <TrafficSignListCategories   navigation={navigation} /> 
-
-
-
 export default function TrafficSignScreen(props) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);

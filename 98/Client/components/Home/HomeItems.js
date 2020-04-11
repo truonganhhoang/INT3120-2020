@@ -1,6 +1,5 @@
 ﻿﻿import * as React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity,Image } from 'react-native';
-import Constants from 'expo-constants';
 import { Button } from 'react-native-elements';
 
 

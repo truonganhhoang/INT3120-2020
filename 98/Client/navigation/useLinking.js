@@ -8,11 +8,7 @@ export default function(containerRef) {
       Root: {
         path: 'root',
         screens: {
-          Home: 'home',
-          Links: 'links',
-            Question: 'Question',
-          TrafficSign: 'TFS',
-          Settings: 'settings',
+         
         },
       },
     },

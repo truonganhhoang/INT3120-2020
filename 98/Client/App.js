@@ -4,14 +4,12 @@ import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import StackNavigator from './navigation/StackNavigator';
+import TabNavigator from './navigation/TabNavigator';
 import useLinking from './navigation/useLinking';
 
 
 
-const Stack = createStackNavigator();
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -53,7 +51,7 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
         
-          <StackNavigator/>
+          <TabNavigator/>
           
         
         </NavigationContainer>
