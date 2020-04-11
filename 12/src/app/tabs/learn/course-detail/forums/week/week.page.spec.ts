@@ -9,7 +9,7 @@ describe('WeekPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeekPage ],
+      declarations: [WeekPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

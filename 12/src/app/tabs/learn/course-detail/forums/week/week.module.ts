@@ -9,12 +9,7 @@ import { WeekPageRoutingModule } from './week-routing.module';
 import { WeekPage } from './week.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    WeekPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, WeekPageRoutingModule],
   declarations: [WeekPage]
 })
 export class WeekPageModule {}
