@@ -10,7 +10,7 @@ export default class NewWordList extends React.Component{
     return(
         <View>
             <Header
-                leftComponent={{ icon: 'reply', color: '#fff', onPress: () => navigate('Word') }}
+                leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Word') }}
                 centerComponent={{ text: this.category, style: { color: '#fff' } }}
             />
             <Words type='all' />
