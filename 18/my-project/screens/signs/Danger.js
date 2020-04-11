@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import { rootRef } from '../firebase/config';
+import { arrDanger } from '../firebase/config';
 import { ListItem } from 'react-native-elements';
 
 
-const animalRef = rootRef.child('danger');
+// const animalRef = rootRef.child('danger');
 
 export default class Danger extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Danger extends Component {
     })
   }
   componentDidMount() {//lấy dữ liệu trong firebase
-    animalRef.on('value', (childSnapshot) => {
+    arrDanger.on('value', (childSnapshot) => {
       const animals = [];
       childSnapshot.forEach((doc) => {
         animals.push({

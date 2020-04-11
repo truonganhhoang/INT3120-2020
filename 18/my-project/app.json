@@ -10,12 +10,17 @@
       "web"
     ],
     "ios": {
-      "bundleIdentifier": "com.nhom18.GPLX",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nhom18.onthiGPLX",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.nhom18.GPLX",
+      "package": "com.nhom18.onthiGPLX",
       "versionCode": 1
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#2ea82b"
     },
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +28,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2ea82b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

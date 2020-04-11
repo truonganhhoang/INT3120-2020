@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import { rootRef } from '../firebase/config';
+import { arrCommand } from '../firebase/config';
 import { ListItem } from 'react-native-elements';
 
-const animalRef = rootRef.child('command');
+// const animalRef = rootRef.child('command');
 
 export default class Command extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Command extends Component {
     })
   }
   componentDidMount() {//lấy dữ liệu trong firebase
-    animalRef.on('value', (childSnapshot) => {
+    arrCommand.on('value', (childSnapshot) => {
       const animals = [];
       childSnapshot.forEach((doc) => {
         animals.push({

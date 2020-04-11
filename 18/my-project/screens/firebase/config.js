@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import { Component } from 'react';
 // TODO: Replace the following with your app's Firebase project configuration
 var Config = {
   apiKey: "AIzaSyDrOcOVkvItKxIirPzOhyoa_OP2uIWtx6Q",
@@ -11,4 +12,12 @@ var Config = {
 };
 // Initialize Firebase
 const AppConfig = firebase.initializeApp(Config);
-export const rootRef = AppConfig.database().ref('sign');
+const rootRef = AppConfig.database().ref('sign');
+const arrBan = rootRef.child('ban');
+const arrCommand = rootRef.child('command');
+const arrDanger = rootRef.child('danger');
+const arrInstruction = rootRef.child('instruction');
+export {rootRef, arrBan, arrCommand, arrDanger, arrInstruction}
+
+
+

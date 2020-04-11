@@ -20,6 +20,7 @@ import Learn from './Learn'
 import Tutorial from './Tutorial'
 import Skill from './Skill'
 import Signs from './Signs'
+import Rules from './Rules'
 import Practice from './Tips/Practive'
 import Theory from './Tips/Theory'
 
@@ -44,22 +45,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 //     </View>
 //   );
 // }
-function Theory1() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications Screen</Text>
-    </View>
-  );
-}
-
-
-function Practice1() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications Screen</Text>
-    </View>
-  );
-}
 
 
 
@@ -76,9 +61,9 @@ function CustomDrawerContent(props) {
           height: 400,
         }}
       >
-        <View style={{ alignItems:'center', flexDirection:'row', top:50, marginHorizontal:Dimensions.get("screen").width/6}}>
-          <Image source={require('../image/car.png')}/>
-          <Text style={{left:10, color:'#0094D5',fontWeight:'bold', fontSize:15}}>Ôn thi {'\n'}giấy phép lái xe</Text>
+        <View style={{ alignItems: 'center', flexDirection: 'row', top: 50, marginHorizontal: Dimensions.get("screen").width / 6 }}>
+          <Image source={require('../image/car.png')} />
+          <Text style={{ left: 10, color: '#0094D5', fontWeight: 'bold', fontSize: 15 }}>Ôn thi {'\n'}giấy phép lái xe</Text>
         </View>
       </LinearGradient>
       <ScrollView style={{ backgroundColor: '#fff', marginTop: 130 }}>
@@ -147,9 +132,9 @@ function MyTabs() {
       activeTintColor: '#fff',
       labelStyle: { fontSize: 12, fontWeight: 'bold' },
       style: { backgroundColor: '#66bb6a' },
-      pressColor:'green',
+      pressColor: 'green',
       scrollEnabled: false,
-      indicatorStyle:{backgroundColor:'#fff'}
+      indicatorStyle: { backgroundColor: '#fff' }
     }}>
       <Tab.Screen name="Mẹo lý thuyết" component={Theory} />
       <Tab.Screen name="Mẹo thực hành" component={Practice} />
@@ -195,6 +180,9 @@ function MyStack({ navigation }) {
       }} />
       <Stack.Screen name="Tips" component={MyTabs} options={{
         title: 'Mẹo thi kết quả cao',
+      }} />
+      <Stack.Screen name="Rules" component={Rules} options={{
+        title: 'Tra cứu luật',
       }} />
     </Stack.Navigator>
   );
