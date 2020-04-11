@@ -36,27 +36,33 @@ export class SignInService {
   }
 
   signInWithFacebook() {
-    const platforms = this.platform.platforms();
-
-    if (platforms.includes('cordova')) {
-      /**
-       *
-       * TODO
-       */
-      return new Observable<any>((observer) => {
-        this.facebook
-          .login(['public_profile', 'email'])
-          .then((response) => {
-            observer.next(response);
-          })
-          .catch((err) => {
-            observer.error(err);
-          });
-      });
+    if (this.platform.is('cordova')) {
+      return this.signInWithFacebookNative();
     }
+    return this.signInWithFacebookWeb();
+  }
 
+  signInWithFacebookNative() {
+    return new Observable<firebase.User>((observer) => {
+      this.facebook
+        .login(['public_profile', 'email'])
+        .then((facebookResponse) => {
+          const credential = firebase.auth.FacebookAuthProvider.credential(facebookResponse.authResponse.accessToken);
+          return this.ngFireAuth.auth.signInWithCredential(credential);
+        })
+        .then((userCredentials) => {
+          observer.next(userCredentials.user);
+          observer.complete();
+        })
+        .catch((err) => {
+          observer.error(err?.message);
+        });
+    });
+  }
+
+  signInWithFacebookWeb() {
     const facebookProvider = new firebase.auth.FacebookAuthProvider();
-    return new Observable<any>((observer) => {
+    return new Observable<firebase.User>((observer) => {
       this.ngFireAuth.auth
         .signInWithPopup(facebookProvider)
         .then((userCredentials) => {
@@ -64,7 +70,7 @@ export class SignInService {
           observer.complete();
         })
         .catch((err) => {
-          console.error(err);
+          observer.error(err?.message);
         });
     });
   }

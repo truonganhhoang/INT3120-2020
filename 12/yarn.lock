@@ -1360,6 +1360,13 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
+"@ionic-native/app-version@^5.23.0":
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/app-version/-/app-version-5.23.0.tgz#6d72a069e57ce6684be81878830d2a018198d56f"
+  integrity sha512-xmWACpWJnEGJd0KNA43hh3ck/2i5EHEijfKEKU7DvL5AfFWIuzKUFyEUNVGA1YmKUgcUjbFkWQZasSpD4N3eQg==
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic-native/core@^5.23.0":
   version "5.23.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.23.0.tgz#69bb05a5491c94c1f8656246a237d4caa2e41d41"
@@ -3616,6 +3623,11 @@ cordova-common@^3.2.0:
     strip-bom "^3.0.0"
     underscore "^1.8.3"
     which "^1.3.0"
+
+cordova-plugin-app-version@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-app-version/-/cordova-plugin-app-version-0.1.9.tgz#9db0607863337a710489302e5f50a904f1449bdb"
+  integrity sha1-nbBgeGMzenEEiTAuX1CpBPFEm9s=
 
 cordova-plugin-device@^2.0.2:
   version "2.0.3"

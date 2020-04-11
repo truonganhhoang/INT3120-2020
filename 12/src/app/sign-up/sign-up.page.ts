@@ -71,15 +71,14 @@ export class SignUpPage implements OnDestroy {
               }
             });
           },
-          complete: () => {
+          complete: async () => {
             this.isSubmitting = false;
-            this.router.navigateByUrl('/sign-in');
-            this.toastController
-              .create({
-                message: 'Account has been created successfully',
-                duration: 2000
-              })
-              .then((toast) => toast.present());
+            await this.router.navigateByUrl('/sign-in');
+            const accountCreated = await this.toastController.create({
+              message: 'Account has been created successfully',
+              duration: 3000
+            });
+            await accountCreated.present();
           }
         });
     }
@@ -94,7 +93,13 @@ export class SignUpPage implements OnDestroy {
         this.isSubmitting = false;
         this.router.navigateByUrl('/tabs/learn/courses');
       },
-      error: console.error
+      error: async (err) => {
+        const loginFacebookFailed = await this.toastController.create({
+          message: err?.message,
+          duration: 3000
+        });
+        await loginFacebookFailed.present();
+      }
     });
   }
 }

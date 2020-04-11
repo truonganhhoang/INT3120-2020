@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AngularFireModule } from '@angular/fire';
@@ -44,6 +45,7 @@ import { AppComponent } from './app.component';
     SplashScreen,
     Keyboard,
     Facebook,
+    AppVersion,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: ErrorHandler, useClass: SentryErrorHandlerService }
   ],
