@@ -34,3 +34,6 @@ npm-debug.log*
 /resources/windows
 
 .now
+.firebase
+.firebaserc
+firebase.json
