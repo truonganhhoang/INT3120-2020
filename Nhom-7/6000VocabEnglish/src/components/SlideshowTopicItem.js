@@ -22,7 +22,7 @@ export class SlideshowTopicItem extends Component {
     this.setState({ favorite: !this.state.favorite });
   };
   render() {
-    const { word, spelling, meaning } = this.props.item;
+    const { word, spelling, meaning, image } = this.props.item;
     return (
       <View
         style={{
@@ -39,7 +39,7 @@ export class SlideshowTopicItem extends Component {
             <View>
               <TouchableOpacity onPress={this.handleOnPress} activeOpacity={1}>
                 <View style={styles.container}>
-                  <Image style={styles.image} source={imageList[word]} />
+                  <Image style={styles.image} source={{ uri: image }} />
                   {/* <Text style={styles.hint}>Lật mặt sau</Text> */}
                 </View>
               </TouchableOpacity>
