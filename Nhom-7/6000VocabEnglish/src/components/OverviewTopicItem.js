@@ -13,32 +13,91 @@ export class OverviewTopicItem extends Component {
 
     this.state = {
       favorite: false,
-      progressComplete: 0
+      progressComplete: 0,
     };
   }
 
-  handlePressFavorite = () => {
-    // console.log(this.state.favorite);
+  async handlePressFavorite(item) {
+    if (!this.state.favorite) {
+      //add to storage
+      await this._storeData(item);
+    } else {
+      await this._removeData(item);
+    }
+
     this.setState({ favorite: !this.state.favorite });
+  }
+
+  _removeData = async (item) => {
+    try {
+      const data = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
+      let topics = JSON.parse(data);
+      topics = topics.filter((e) => {
+        return e.topicName !== JSON.parse(JSON.stringify(item)).topicName;
+      });
+      // console.log(topics);
+      await AsyncStorage.setItem("@FAVORITE_TOPIC:key", JSON.stringify(topics));
+    } catch (e) {
+      console.log("Error remove data");
+    }
   };
 
-  // _storeData = async () => {
-  //   try {
-  //     await AsyncStorage.setItem(
-  //       "UID123",
-  //       JSON.stringify(UID123_object),
-  //       () => {
-  //         AsyncStorage.mergeItem("UID123", JSON.stringify(UID123_delta), () => {
-  //           AsyncStorage.getItem("UID123", (err, result) => {
-  //             console.log(result);
-  //           });
-  //         });
-  //       }
-  //     );
-  //   } catch (error) {
-  //     // Error saving data
-  //   }
-  // };
+  _storeData = async (item) => {
+    try {
+      const data = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
+      let topics = null;
+      if (data === null) {
+        topics = [];
+      } else {
+        topics = JSON.parse(data);
+        // console.log("Parsed: " + topics);
+      }
+      let parsed = JSON.parse(JSON.stringify(item));
+      topics.push(parsed);
+      // console.log(JSON.stringify(topics));
+
+      await AsyncStorage.setItem("@FAVORITE_TOPIC:key", JSON.stringify(topics));
+    } catch (error) {
+      // Error saving data
+      console.log("ERROR: " + error);
+    }
+  };
+
+  /*
+  _getAsyncStorage = async () => {
+    try {
+      const value = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
+      if (value !== null) {
+        console.log("GETTTTTTT: " + value);
+      } else {
+        console.log("Empty");
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+  */
+
+  async checkFavorite() {
+    let list;
+    try {
+      const value = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
+      list = value;
+    } catch (error) {
+      // console.log("ERROR GET");
+    }
+    list = JSON.parse(list);
+    list = list.filter((e) => {
+      return e.topicName === this.props.item.topicName;
+    });
+    if (list.length > 0) {
+      this.setState({ favorite: true });
+    }
+  }
+
+  componentDidMount() {
+    this.checkFavorite();
+  }
 
   render() {
     let { image, topicName, topicNameVi, description } = this.props.item;
@@ -46,7 +105,11 @@ export class OverviewTopicItem extends Component {
       <View style={styles.container}>
         <View style={styles.childContainer}>
           <View style={{ flexDirection: "row" }}>
-            <TouchableOpacity onPress={this.handlePressFavorite}>
+            <TouchableOpacity
+              onPress={() => {
+                this.handlePressFavorite(this.props.item);
+              }}
+            >
               <Image
                 source={!this.state.favorite ? starOutline : starFillColor}
                 style={{ width: 25, height: 25 }}
@@ -93,7 +156,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     borderWidth: 0,
-    padding: 10
+    padding: 10,
   },
   childContainer: {
     borderRadius: 20,
@@ -103,13 +166,13 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 12,
     alignItems: "center",
-    elevation: 3
+    elevation: 3,
   },
   secondMenu: {
     position: "absolute",
     right: 10,
     top: 110,
-    elevation: 4
+    elevation: 4,
   },
   btnDetail: {
     borderWidth: 2,
@@ -119,7 +182,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     alignItems: "center",
     height: 40,
-    width: 150
+    width: 150,
   },
   viewBtnDeail: {
     justifyContent: "center",
@@ -128,14 +191,14 @@ const styles = StyleSheet.create({
     top: 430,
     left: 15,
     width: "100%",
-    elevation: 4
+    elevation: 4,
   },
   textBtnDetail: {
     textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
     textTransform: "uppercase",
-    fontSize: 18
+    fontSize: 18,
   },
   mainImage: {
     borderRadius: 100,
@@ -144,28 +207,28 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     marginRight: 20,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   progressBar: {
-    margin: 5
+    margin: 5,
   },
   topicName: {
     textTransform: "capitalize",
     fontSize: 25,
     color: "gray",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   topicNameVi: {
     textTransform: "capitalize",
     fontSize: 20,
     color: "#F57F17",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   description: {
     textAlign: "center",
     margin: 10,
     fontSize: 16,
     fontWeight: "bold",
-    color: "#8E8E8E"
-  }
+    color: "#8E8E8E",
+  },
 });
