@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, ScrollView, FlatList, Modal } from 'react-native';
-import { NavigationContainer, useRoute } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import styles from '../../styles/style.js';
-import QuestionSet from './QuestionSet'
-import MemoryTricks from './MemoryTricks'
+
 import DATA from '../../data/QuestionPracticeData'
 
 export default function QuestionPractice({ navigation }) {

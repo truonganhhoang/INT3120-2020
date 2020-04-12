@@ -1,58 +1,58 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View,StyleSheet,Image } from 'react-native';
+﻿import React from 'react';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import config from '../../components/config';
 
-export default function DetailScreen  () {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+export default function DetailScreen(props) {
+    const { title,image,content } = props.route.params;
+    return (
+        <View style={styles.container}>
 
-  useEffect(() => {
-    fetch('http://192.168.1.128:3000/admin/trafficsigns/json')
-      .then((response) => response.json())
-      .then((json) => setData(json.data))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  });
+            <Text style={styles.title} >{title}</Text>
 
-  return (
-    <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <ActivityIndicator/> : (
-        <FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
+            <Image style={styles.image} source={{ uri: config.IP_SEVER+image }} />
+
+
             <View>
-            <Text
-            style={styles.textLogo}
-            >{item.tfs_name}, {item.tfs_category_id}</Text>
-            <Image
-      style={styles.tinyLogo}
-      source={{
-        uri: 'http://192.168.1.128:3000'+item.tfs_image,
-      }}
-    />
-      <Text
-            style={styles.textLogo}
-            >{item.tfs_content}</Text>
+                <Text>Mô tả:</Text>
+                <Text style={styles.content_detail} >{content}
+                        </Text>
             </View>
-          )}
-        />
-      )}
-    </View>
-  );
+
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: null,
-    height: 500,
-    resizeMode: 'contain',
-  },
-  textLogo:
-  {
-    fontSize:30,
-    textAlign:"center",
-  },
+    container: {
+        //marginTop: 50,
+        marginLeft: 10,
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    topic: {
+        height: 30,
+        flexDirection: 'row',
+    },
+
+    content_title: {
+        color: '#1e90ff',
+        marginLeft: 5,
+    },
+    content_number: {
+        color: '#ff6347',
+        marginLeft: 5,
+    },
+    content_detail: {
+        margin: 8,
+        color: '#696969',
+    },
+    image: {
+        height: 150,
+        //width: 150,
+        justifyContent: 'center',
+        resizeMode: 'center',
+        margin: 10,
+    },
 });

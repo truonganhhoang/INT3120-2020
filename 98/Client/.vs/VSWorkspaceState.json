@@ -1,10 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
+    "\\assets\\images",
+    "\\assets\\images\\home",
     "\\components",
     "\\components\\Home",
+    "\\components\\TFS",
     "\\screens",
-    "\\screens\\Home"
+    "\\screens\\TFS"
   ],
   "SelectedNode": "\\App.js",
   "PreviewInSolutionExplorer": false
