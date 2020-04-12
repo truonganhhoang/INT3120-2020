@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
 import IconFont from 'react-native-vector-icons/FontAwesome';
+import  * as Animatable from 'react-native-animatable';
 import db from './../data/SQLite';
 export default class Words extends React.Component {
 
@@ -55,7 +56,8 @@ export default class Words extends React.Component {
     }
   }
 
-  renderItem = ({ item }) => (
+  renderItem = ({ item, index }) => (
+    <Animatable.View animation="zoomInLeft" delay={750} duration={2000}>
 		<View style = {styles.container}>
 			<Image style = {styles.image} source = {{uri: item.picture}}/>
 			<View style = {styles.content}>
@@ -72,57 +74,70 @@ export default class Words extends React.Component {
         <IconFont name='exchange' iconStyle={styles.add}/>
       </View>
 		</View>
+    </Animatable.View>
   );
 
   renderHiddenItem = ({ item }) => (
     <View style={styles.iconContainer}>
-      <TouchableOpacity onPress={() => this.favoriteSwitch(item)}>
-      <Icon
+      <Animatable.View animation="slideInRight" duration={1000}>
+        <TouchableOpacity onPress={() => this.favoriteSwitch(item)}>
+          <Icon
+              style={styles.icon}
+              name={'heart'}
+              type='material-community'
+              color={item.favorite == 1 ? 'red' : 'gray'}
+              size={40}
+          />
+        </TouchableOpacity>
+      </Animatable.View>
+      <Animatable.View animation="slideInRight" duration={1000}>
+        <TouchableOpacity onPress={() => this.remindSwitch(item)}>
+          <Icon
           style={styles.icon}
-          name={item.favorite == 1 ? 'heart' : 'heart-outline'}
+          name='alarm'
           type='material-community'
-          color='red'
+          color={item.remind == 1 ? 'green' : 'gray'}
           size={40}
-      />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => this.remindSwitch(item)}>
-        <Icon
-        style={styles.icon}
-        name='alarm'
-        type='material-community'
-        color={item.remind == 1 ? 'green': 'gray'}
-        size={40}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => this.showWordExample(item)}>
-        <Icon
-        style={styles.icon}
-        name='comment-text'
-        type='material-community'
-        color='#457fe1'
-        size={40}
-        />
-      </TouchableOpacity>
+          />
+        </TouchableOpacity>
+      </Animatable.View>
+      <Animatable.View animation="slideInRight" duration={1000}>
+        <TouchableOpacity onPress={() => this.showWordExample(item)}>
+          <Icon
+          style={styles.icon}
+          name='comment-text'
+          type='material-community'
+          color='#457fe1'
+          size={40}
+          />
+        </TouchableOpacity>
+      </Animatable.View>
     </View>
   );
   render(){   
-    return (
-      <View>
-        <SwipeListView
-          style={styles.swipeListView}
-          keyExtractor={this.keyExtractor}
-          contentContainerStyle={{paddingBottom: 240}}
-          data={this.state.data}
-          renderItem={this.renderItem}
-          renderHiddenItem={this.renderHiddenItem}
-          leftOpenValue={0}
-          rightOpenValue={-150}
-          disableRightSwipe={true}
-          refreshing={true}
-        />
-        <SwipeListView />
-      </View>
-    )
+    if (this.state.data != undefined){
+      return (
+        <View>
+          <SwipeListView
+            style={styles.swipeListView}
+            keyExtractor={this.keyExtractor}
+            contentContainerStyle={{paddingBottom: 240}}
+            data={this.state.data}
+            renderItem={this.renderItem}
+            renderHiddenItem={this.renderHiddenItem}
+            leftOpenValue={0}
+            rightOpenValue={-150}
+            disableRightSwipe={true}
+            refreshing={true}
+          />
+          <SwipeListView />
+        </View>
+      )
+    }else{
+      return(
+        <View></View>
+      )
+    }
   }
 }
 
