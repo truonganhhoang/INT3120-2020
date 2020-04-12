@@ -5,16 +5,15 @@ import Thongbao from '../components/Thongbao'
 export default class Screen4 extends Component {
     render() {
         return (
-            <View style={Styles.container}>
-                <Text style={Styles.h1text}>Thông báo</Text>
-                <Text style={{fontSize: 26}}>Gần đây</Text>
-                <ScrollView>
-                    <Thongbao />
-                    <Thongbao />
-                    <Thongbao />
-                    <Thongbao />
-                    <Thongbao />
-                </ScrollView>
+            <View style={{flex: 1}}>
+                <View style={Styles.header}>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Thông báo</Text>
+                </View>
+                <View style={Styles.container}>
+                    <ScrollView>
+                        <Thongbao />
+                    </ScrollView>
+                </View>
             </View>
         )
     }

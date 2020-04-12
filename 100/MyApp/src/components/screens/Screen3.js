@@ -5,18 +5,15 @@ import Moikhoahoc from '../components/Moikhoahoc'
 export default class Screen3 extends Component {
     render() {
         return (
-            <View style={Styles.container}>
-                <Text style={Styles.h1text}>Giỏ hàng</Text>
-                <ScrollView>
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                    <Moikhoahoc />
-                </ScrollView>
-                
+            <View style={{flex: 1}}>
+                <View style={Styles.header}>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Giỏ hàng</Text>
+                </View>
+                <View style={Styles.container}>
+                    <ScrollView>
+                        <Moikhoahoc />
+                    </ScrollView>
+                </View>
             </View>
         )
     }

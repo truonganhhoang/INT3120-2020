@@ -21,8 +21,10 @@ export default function Screen2() {
         {danhmuc: "Phong thủy", key: "15"},
     ])
     return (
-        <View style={Styles.container}>
-            <Text style={Styles.h1text}>Danh mục</Text>
+        <View >
+            <View style={Styles.header}>
+                <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Danh mục</Text>
+            </View>
             <ScrollView>
                 {danhmuc.map( (value) =>(
                         <View key={value.key}>
@@ -31,11 +33,6 @@ export default function Screen2() {
                     )
                 )}
             </ScrollView>
-                {/* <Text style={styles.danhmuc}>Danh muc 1</Text>
-                <Text style={styles.danhmuc}>Danh muc 1</Text>
-                <Text style={styles.danhmuc}>Danh muc 1</Text>
-                <Text style={styles.danhmuc}>Danh muc 1</Text>
-                <Text style={styles.danhmuc}>Danh muc 1</Text> */}
-            </View>
+        </View>
     )
 }

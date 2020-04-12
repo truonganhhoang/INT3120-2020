@@ -2,7 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import MenuTab from './MenuTab';
-import Screen5 from './Screen5';
+import Screen5 from '../screens/Screen5';
 const Drawer = createDrawerNavigator();
 export default function MyDrawer() {
   return (

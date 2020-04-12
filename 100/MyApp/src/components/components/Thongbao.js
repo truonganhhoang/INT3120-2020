@@ -20,11 +20,11 @@ const localStyles = StyleSheet.create({
     each:{
         height: 150,
         justifyContent: "space-around",
-        backgroundColor: "#fff",
+        backgroundColor: "#B3E5FC",
         borderRadius: 8,
-        padding: 5,
+        padding: 10,
         marginBottom: 10,
-    },  
+    },
     header: { 
         flexDirection: "row",
         marginBottom: 10,
