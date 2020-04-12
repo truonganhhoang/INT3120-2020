@@ -13,7 +13,7 @@ import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./src/reducers";
-
+import Practice from "./src/screens/PracticeScreen";
 //store
 const store = createStore(rootReducer);
 
@@ -62,6 +62,11 @@ export default class App extends Component {
               name="Exam"
               component={Exam2Screen}
               options={Exam2Screen.navigationOptions}
+            />
+            <HomeStack.Screen
+              name="Practice"
+              component={Practice}
+              options={Practice.navigationOptions}
             />
           </HomeStack.Navigator>
         </NavigationContainer>

@@ -13,7 +13,6 @@ export class OverviewTopicItem extends Component {
 
     this.state = {
       favorite: false,
-      progressComplete: 0,
     };
   }
 

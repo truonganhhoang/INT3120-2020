@@ -26,6 +26,7 @@
     "android": {
       "package": "com.devbacninh.englishlearning",
       "versionCode": 1
-    }
+    },
+    "description": ""
   }
 }
