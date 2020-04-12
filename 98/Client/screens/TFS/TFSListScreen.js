@@ -20,32 +20,33 @@ export default function TrafficSignList(props) {
     );
   
     return (
-    <View style={{ flex: 1, padding: 24 }}>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
           <View>
-      <View style={styles.container}>
-          <View style={styles.head}>
-              <Text style={styles.head_content}>Loại biển báo: </Text>
+              <View style={styles.container}>
+                  <View style={styles.head}>
+                      <Text style={styles.head_content}>Loại biển báo: </Text>
+                  </View>
+
+                  <View style={styles.select_items}>
+                  <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER+image}} />
+                      <Text style={styles.select_items_title} > {title} </Text> 
+                  </View>
+
+              </View>
+
+          <View style={styles.detail}>
+              <Text style={styles.detail_text}>Nhấn vào từng biển báo để xem chi tiết</Text>
           </View>
-
-          <View style={styles.select_items}>
-          <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER+image}} />
-              <Text style={styles.select_items_title} > {title} </Text> 
-          </View>
-
       </View>
-
-      <View style={styles.detail}>
-          <Text style={styles.detail_text}>Nhấn vào từng biển báo để xem chi tiết</Text>
-      </View>
-  </View>
     {isLoading ? <ActivityIndicator /> : (
   <FlatList
-      horizontal={false}
-      numColumns={2}
-      data={data}
-       keyExtractor={({ id }, index) => id}
-      renderItem={({ item }) =>
-          <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
+        horizontal={false}
+        numColumns={2}
+        data={data}
+        keyExtractor={({ id }, index) => id}
+        renderItem={({ item }) =>
+            <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
+        style={{ marginLeft: 16, }}
   />
     )}
   </View>

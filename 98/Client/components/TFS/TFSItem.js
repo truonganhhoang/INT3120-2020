@@ -7,7 +7,7 @@ export default function Item(props) {
 
     return (
         <TouchableOpacity onPress={() => { 
-            navigation.navigate('Detail', { image:image,title:title,content:content });
+            navigation.navigate('Detail', { image:image, title:title, content:content });
             }} >
             <View style={styles.item}>
                 <View style={styles.item_header}>
@@ -29,13 +29,13 @@ export default function Item(props) {
 const styles = StyleSheet.create({
   
     item: {
-        backgroundColor: '#dcdcdc',
-        height: 185,
-        width: 185,
-        margin: 8,
+        backgroundColor: '#fdf5e6',
+        height: 165,
+        width: 165,
+        margin: 12,
         padding: 5,
         borderRadius: 12,
-        elevation: 10,
+        elevation: 7,
     },
     item_header: {
         alignItems: 'center',
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
     item_image: {
         marginTop: 10,
-        height: 100,
+        height: 90,
         justifyContent: 'center',
         resizeMode: 'center',
     },
