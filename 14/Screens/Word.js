@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
 import { ListItem, Header, ButtonGroup } from 'react-native-elements';
 import Words from '../components/Words';
+import * as Animatable from 'react-native-animatable'
 
 const list = [
     {
@@ -67,7 +68,8 @@ export default class Word extends React.Component{
     _onPress = (item) => {
       this.props.navigation.navigate(
         'NewWordList', {type: item.subtitle}
-    )}
+      )
+    }
 
     renderSelectedCaterory = selectedIndex => {
       if (selectedIndex == 0){
@@ -86,16 +88,25 @@ export default class Word extends React.Component{
       }
     }
 
-    renderItem = ({ item }) => (
-    <ListItem
-        onPress = {() => this._onPress(item)}
-        title={item.name}
-        subtitle={item.subtitle}
-        leftAvatar={{ source: { uri: item.avatar_url } }}
-        bottomDivider
-        chevron
-    />
-    )
+    renderItem = ({ item, index }) => {
+      let animation;
+      if (index%2==0){
+        animation = "fadeInLeft";
+      }else{
+        animation = "fadeInRight"
+      }
+      return(
+      <Animatable.View animation={animation} delay={index*100}>
+        <ListItem
+            onPress = {() => this._onPress(item)}
+            title={item.name}
+            subtitle={item.subtitle}
+            leftAvatar={{ source: { uri: item.avatar_url } }}
+            bottomDivider
+            chevron
+        />
+      </Animatable.View>
+    )}
 
     render(){
         const {navigate,state} = this.props.navigation;
