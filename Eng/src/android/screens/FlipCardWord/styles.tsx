@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E65100'
   }, 
   centerComponent: {
-    color: '#ff5e00', 
+    color: '#FFF', 
     fontWeight: '700', 
     fontSize: 20,  
   },

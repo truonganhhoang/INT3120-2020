@@ -20,7 +20,7 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
                 rightComponent={
                     <MenuButton />
                 }
-                centerComponent={{ text: data.word_group_name, style: styles.centerComponent }}
+                centerComponent={{ text: 'People', style: styles.centerComponent }}
             />
             <FlipCard data={data} />
         </View>
