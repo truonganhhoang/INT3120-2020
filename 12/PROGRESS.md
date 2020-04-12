@@ -204,3 +204,5 @@ ionic g page profile -f
 # 2020-04-12
 
 - Thêm NotFoundComponent.
+- `ng add @zeit/ng-deploy`.
+- Declare `NotFoundComponent` at `app.module.ts`.
