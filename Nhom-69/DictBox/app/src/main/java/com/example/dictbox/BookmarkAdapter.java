@@ -19,7 +19,7 @@ public class BookmarkAdapter extends BaseAdapter {
     Context mContext;
     ArrayList<String> mSource;
 
-    public BookmarkAdapter(Context context, ArrayList<String> source){
+    public BookmarkAdapter(Context context, ArrayList<String> source) {
         this.mSource = source;
         this.mContext = context;
     }
@@ -42,14 +42,14 @@ public class BookmarkAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        if(convertView == null){
+        if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.bookmark_layout_item, parent, false);
             viewHolder.textView = convertView.findViewById(R.id.tvWord);
             viewHolder.btnDelete = convertView.findViewById(R.id.btnDelete);
 
             convertView.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
@@ -57,7 +57,7 @@ public class BookmarkAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (listener!=null)
+                if (listener != null)
                     listener.onItemClick(position);
             }
         });
@@ -65,14 +65,14 @@ public class BookmarkAdapter extends BaseAdapter {
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (listener!=null)
+                if (listener != null)
                     listenerBtnDelete.onItemClick(position);
             }
         });
         return convertView;
     }
 
-    public void removeItem(int position){
+    public void removeItem(int position) {
         mSource.remove(position);
     }
 
@@ -85,11 +85,11 @@ public class BookmarkAdapter extends BaseAdapter {
         ImageView btnDelete;
     }
 
-    public void setOnItemClick(ListItemListener listItemListener){
+    public void setOnItemClick(ListItemListener listItemListener) {
         this.listener = listItemListener;
     }
 
-    public void setOnItemDeleteClick(ListItemListener listItemListener){
+    public void setOnItemDeleteClick(ListItemListener listItemListener) {
         this.listenerBtnDelete = listItemListener;
     }
 

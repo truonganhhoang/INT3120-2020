@@ -14,39 +14,39 @@
             <item
                 android:id="@+id/nav_translate"
                 android:icon="@drawable/ic_translate"
-                android:title="Dich" />
+                android:title="Dịch" />
             <item
                 android:id="@+id/nav_camera"
                 android:icon="@drawable/ic_menu_camera"
-                android:title="Tra tu voi camera" />
+                android:title="Tra từ với camera" />
             <item
                 android:id="@+id/nav_vocabulary"
                 android:icon="@drawable/ic_format_list_bulleted"
-                android:title="Hoc tu vung" />
+                android:title="Học từ vựng" />
             <item
                 android:id="@+id/nav_reminder"
                 android:icon="@drawable/ic_alarm"
-                android:title="Nhac nho tu vung" />
+                android:title="Nhắc nhở từ vựng" />
             <item
                 android:id="@+id/nav_voice"
                 android:icon="@drawable/ic_record_voice_over"
-                android:title="Dich giong noi" />
+                android:title="Dịch giọng nói" />
             <item
                 android:id="@+id/nav_image"
                 android:icon="@drawable/ic_image"
-                android:title="Dich hinh anh" />
+                android:title="Dịch hình ảnh" />
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@drawable/ic_settings"
-                android:title="Thiet lap" />
+                android:title="Thiết lập" />
             <item
                 android:id="@+id/nav_email"
                 android:icon="@drawable/ic_mail_outline"
-                android:title="Email nha phat trien" />
+                android:title="Email nhà phát triển" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Chia se DictBox" />
+                android:title="Chia sẻ DictBox" />
 
         </menu>
     </item>

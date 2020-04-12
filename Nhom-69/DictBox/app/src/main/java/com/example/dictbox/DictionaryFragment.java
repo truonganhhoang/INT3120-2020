@@ -53,14 +53,14 @@ public class DictionaryFragment extends Fragment {
         dictList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              if (listener != null) {
-                  listener.onItemClick(mSource.get(position));
-              }
+                if (listener != null) {
+                    listener.onItemClick(mSource.get(position));
+                }
             }
         });
     }
 
-    public void resetDataSource(ArrayList<String> source){
+    public void resetDataSource(ArrayList<String> source) {
         mSource = source;
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, source);
         dictList.setAdapter(adapter);
@@ -70,7 +70,7 @@ public class DictionaryFragment extends Fragment {
         //adapter.getFilter().filter(value);
         int size = adapter.getCount();
         for (int i = 0; i < size; i++) {
-            if (adapter.getItem(i).startsWith(value)){
+            if (adapter.getItem(i).startsWith(value)) {
                 dictList.setSelection(i);
                 break;
             }

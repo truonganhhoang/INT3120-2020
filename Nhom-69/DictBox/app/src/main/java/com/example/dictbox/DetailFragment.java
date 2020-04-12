@@ -23,23 +23,22 @@ import java.util.Locale;
 
 public class DetailFragment extends Fragment {
 
-    private  String value = "";
+    private String value = "";
     private TextView tvWord;
     private ImageButton btnBookmark, btnVolume;
     private WebView tvWordTranslate;
-    private  DBHelper mDBHelper;
-    private  int mDicType;
+    private DBHelper mDBHelper;
+    //private  int mDicType;
     private TextToSpeech mTTS;
 
     public DetailFragment() {
         // Required empty public constructor
     }
 
-    public static DetailFragment getNewInstance(String value, DBHelper dbHelper, int dicType){
+    public static DetailFragment getNewInstance(String value, DBHelper dbHelper) {
         DetailFragment fragment = new DetailFragment();
         fragment.value = value;
         fragment.mDBHelper = dbHelper;
-        fragment.mDicType = dicType;
         return fragment;
     }
 
@@ -63,12 +62,12 @@ public class DetailFragment extends Fragment {
         btnBookmark = view.findViewById(R.id.btnBookmark);
         btnVolume = view.findViewById(R.id.btnVolume);
 
-        final Word word = mDBHelper.getWord(value, mDicType);
+        final Word word = mDBHelper.getWord(value);
         tvWord.setText(word.key);
-        tvWordTranslate.loadDataWithBaseURL(null,  word.value, "text/html", "utf-8", null);
+        tvWordTranslate.loadDataWithBaseURL(null, word.value, "text/html", "utf-8", null);
 
         Word bookmarkWord = mDBHelper.getWordFromBookMark(value);
-        int isMark = bookmarkWord == null? 0: 1;
+        int isMark = bookmarkWord == null ? 0 : 1;
 
         btnBookmark.setTag(isMark);
 
@@ -78,16 +77,16 @@ public class DetailFragment extends Fragment {
         btnBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              int i = (int)btnBookmark.getTag();
-              if(i == 0){
-                  btnBookmark.setImageResource(R.drawable.ic_bookmark);
-                  btnBookmark.setTag(1);
-                  mDBHelper.addBookMark(word);
-              }else if(i == 1){
-                  btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
-                  btnBookmark.setTag(0);
-                  mDBHelper.removeBookMark(word);
-              }
+                int i = (int) btnBookmark.getTag();
+                if (i == 0) {
+                    btnBookmark.setImageResource(R.drawable.ic_bookmark);
+                    btnBookmark.setTag(1);
+                    mDBHelper.addBookMark(word);
+                } else if (i == 1) {
+                    btnBookmark.setImageResource(R.drawable.ic_bookmark_border);
+                    btnBookmark.setTag(0);
+                    mDBHelper.removeBookMark(word);
+                }
             }
         });
 
@@ -119,7 +118,7 @@ public class DetailFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        if(mTTS != null) {
+        if (mTTS != null) {
             mTTS.stop();
             mTTS.shutdown();
         }
