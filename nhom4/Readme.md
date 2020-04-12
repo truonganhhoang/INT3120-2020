@@ -7,3 +7,8 @@ ___
 ___
 # Ứng dụng: Ôn thi giấy phép lái xe GPLX
 link:https://play.google.com/store/apps/details?id=com.waterfall.trafficlaws2
+
+___
+#Cài đặt:
+Source: AwesomeProject\build\outputs\apk\debug\app-debug.apk
+Cần kết nối mạng để có data
