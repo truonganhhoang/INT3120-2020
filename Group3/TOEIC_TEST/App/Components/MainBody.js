@@ -14,10 +14,9 @@ import SettingTab from './SettingTab'
 import { fcmService } from '../Services/FCMService';
 console.disableYellowBox = true;
 const MainBody = (props) => {
-    const [visible, setVisible] = useState(false)
+    const [darkMode, setDarkMode] = useState(false)
     useEffect(() => {
-        fcmService.register(onRegister, onNotification,
-            onOpenNotification)
+        fcmService.register(onRegister, onNotification, onOpenNotification)
         return () => {
         };
     }, [])
@@ -66,19 +65,19 @@ const MainBody = (props) => {
                 style={styles.container}
                 tabBarPosition='bottom'
                 initialPage={0}
-                renderTabBar={() => <TabBar visible={visible} />}
+                renderTabBar={() => <TabBar darkMode={darkMode} />}
             >
                 <View tabLabel="Từ vựng" style={styles.tabView}>
-                    <LearnTab {...props} />
+                    <LearnTab {...props} darkMode={darkMode} />
                 </View>
                 <View tabLabel="Kiểm tra" style={styles.tabView}>
-                    <TestTab {...props} />
+                    <TestTab {...props} darkMode={darkMode}/>
                 </View>
                 <View tabLabel="Xem lại" style={styles.tabView}>
-                    <ReviewTab {...props} />
+                    <ReviewTab {...props} darkMode={darkMode}/>
                 </View>
                 <View tabLabel="Cài đặt" style={styles.tabView}>
-                    <SettingTab visible={visible} setVisible={setVisible} />
+                    <SettingTab darkMode={darkMode} setDarkMode={setDarkMode} />
                 </View>
             </ScrollableTabView>
         </SafeAreaView>

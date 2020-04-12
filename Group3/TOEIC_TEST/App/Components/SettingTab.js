@@ -22,19 +22,7 @@ import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const SettingTab = (props) => {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         checked: false,
-    //         selectedValue: '1',
-    //         timeStart: '6:00',
-    //         timeFinish: '21:00',
-    //         visibleStart: false,
-    //         visibleFinish: false,
-    //         switchValue: false,
-    //     }
-    // }
-    const [checked,setChecked]= useState(false)
+    const [checked, setChecked] = useState(false)
     const [selectedValue, setSelectedValue] = useState('1')
     const [timeStart, setTimeStart] = useState('6:00')
     const [timeFinish, setTimeFinish] = useState('21:00')
@@ -72,11 +60,11 @@ const SettingTab = (props) => {
     const handleConfirmFinish = time => {
         hideDatePickerFinish()
         setTimeFinish(time.getHours() + ":" + time.getMinutes())
-        ()
+            ()
     };
     const toggleSwitch = (value) => {
         setSwitchValue(value)
-        props.setVisible(value)
+        props.setDarkMode(value)
     }
     const handleEmail = () => {
         Mailer.mail({
@@ -103,125 +91,126 @@ const SettingTab = (props) => {
             )
         });
     }
-        return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: switchValue == false ? "#EEEEEE" : "#212121", }}>
+    return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: switchValue == false ? "#EEEEEE" : "#212121", }}>
+            <View style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingTop: 40,
+                paddingBottom: 20,
+                backgroundColor: switchValue == false ? "#1976D2" : "#263238"
+            }}>
+                <Text style={styles.title}>CÀI ĐẶT</Text>
+            </View>
+            <ScrollView style={{ flex: 1, margin: 20 }}>
                 <View style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingTop: 40,
-                    paddingBottom: 20,
-                    backgroundColor: switchValue == false ? "#1976D2" : "#263238"
+                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
+                    elevation: 6,
                 }}>
-                    <Text style={styles.title}>CÀI ĐẶT</Text>
+                    <View style={{ flexDirection: 'row', paddingLeft: 10, alignItems: 'center' }}>
+                        <Icon name="clock-o" size={40} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
+                        <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 15 }}>Nhắc nhở </Text>
+                        <CheckBox
+                            containerStyle={{ marginLeft: Dimensions.get('screen').width - 240 }}
+                            size={30}
+                            checkedColor={switchValue == false ? "#1976D2" : "#F5F5F5"}
+                            checked={checked}
+                            onPress={() => handleRemind()}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', paddingLeft: 10, justifyContent: 'space-between' }}>
+                        <Text style={{ fontSize: 18, color: switchValue == false ? "#424242" : "#BDBDBD" }}>Số lần trong ngày</Text>
+                        <Picker
+                            selectedValue={selectedValue}
+                            style={{ height: 20, width: 75 }}
+                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+
+                        >
+                            <Picker.Item label="1" value="1" color={switchValue == false ? "#424242" : "#BDBDBD"} />
+                            <Picker.Item label="2" value="2" color={switchValue == false ? "#424242" : "#BDBDBD"} />
+                        </Picker>
+                    </View>
+                    <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, justifyContent: 'space-between' }}>
+                        <TouchableOpacity
+                            onPress={() => showDatePickerStart()}
+                        >
+                            <Text style={{ fontSize: 18, color: switchValue == false ? "#424242" : "#BDBDBD" }}>Thời gian bắt đầu</Text>
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 16, marginRight: 25, color: switchValue == false ? "#424242" : "#BDBDBD" }}>{timeStart}</Text>
+                        <DateTimePickerModal
+                            isVisible={visibleStart}
+                            mode="time"
+                            onConfirm={handleConfirmStart}
+                            onCancel={hideDatePickerStart}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, paddingBottom: 20, justifyContent: 'space-between' }}>
+                        <TouchableOpacity
+                            onPress={() => showDatePickerFinish()}
+                        >
+                            <Text style={{ fontSize: 18, color: switchValue == false ? "#424242" : "#BDBDBD" }}>Thời gian kết thúc</Text>
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 16, marginRight: 25, color: switchValue == false ? "#424242" : "#BDBDBD" }}>{timeFinish}</Text>
+                        <DateTimePickerModal
+                            isVisible={visibleFinish}
+                            mode="time"
+                            onConfirm={handleConfirmFinish}
+                            onCancel={hideDatePickerFinish}
+                        />
+                    </View>
                 </View>
-                <ScrollView style={{ flex: 1, margin: 20 }}>
-                    <View style={{
-                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
-                        elevation: 6,
-                    }}>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, alignItems: 'center' }}>
-                            <Icon name="clock-o" size={40} color="#1976D2" />
-                            <Text style={{ fontSize: 20, color: "#1976D2", paddingLeft: 15 }}>Nhắc nhở </Text>
-                            <CheckBox
-                                containerStyle={{ marginLeft: Dimensions.get('screen').width - 240 }}
-                                size={30}
-                                checked={checked}
-                                onPress={() => handleRemind()}
-                            />
+                <View style={{
+                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
+                    marginTop: 20,
+                    elevation: 6,
+                }}>
+                    <TouchableOpacity
+                        onPress={() => Share.open(options)}
+                    >
+                        <View style={{ flexDirection: 'row', padding: 10, alignContent: 'center', alignItems: 'center' }}>
+                            <Icon name="facebook-square" size={40} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
+                            <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 10 }}> Chia sẻ đến bạn bè</Text>
                         </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, justifyContent: 'space-between' }}>
-                            <Text style={{ fontSize: 18 }}>Số lần trong ngày</Text>
-                            <Picker
-                                selectedValue={selectedValue}
-                                style={{ height: 20, width: 75 }}
-                                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                    </TouchableOpacity>
+                </View>
 
-                            >
-                                <Picker.Item label="1" value="1" backgroundColor="red" />
-                                <Picker.Item label="2" value="2" />
-                            </Picker>
+                <View style={{
+                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
+                    marginTop: 20,
+                    elevation: 6,
+                }}>
+                    <TouchableOpacity
+                        onPress={() => handleEmail()}
+                    >
+                        <View style={{ flexDirection: 'row', padding: 10, alignContent: 'center', alignItems: 'center' }}>
+                            <Icon name="comments" size={34} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
+                            <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 10 }}> Báo lỗi hoặc góp ý</Text>
                         </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, justifyContent: 'space-between' }}>
-                            <TouchableOpacity
-                                onPress={() => showDatePickerStart()}
-                            >
-                                <Text style={{ fontSize: 18 }}>Thời gian bắt đầu</Text>
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginRight: 25 }}>{timeStart}</Text>
-                            <DateTimePickerModal
-                                isVisible={visibleStart}
-                                mode="time"
-                                onConfirm={handleConfirmStart}
-                                onCancel={hideDatePickerStart}
-                            />
-                        </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 20, paddingBottom: 20, justifyContent: 'space-between' }}>
-                            <TouchableOpacity
-                                onPress={() => showDatePickerFinish()}
-                            >
-                                <Text style={{ fontSize: 18 }}>Thời gian kết thúc</Text>
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginRight: 25 }}>{timeFinish}</Text>
-                            <DateTimePickerModal
-                                isVisible={visibleFinish}
-                                mode="time"
-                                onConfirm={handleConfirmFinish}
-                                onCancel={hideDatePickerFinish}
-                            />
-                        </View>
-                    </View>
-                    <View style={{
-                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
-                        marginTop: 20,
-                        elevation: 6,
-                    }}>
-                        <TouchableOpacity
-                            onPress={() => Share.open(options)}
-                        >
-                            <View style={{ flexDirection: 'row', padding: 10, alignContent: 'center', alignItems: 'center' }}>
-                                <Icon name="facebook-square" size={40} color="#1976D2" />
-                                <Text style={{ fontSize: 20, color: "#1976D2", paddingLeft: 10 }}> Chia sẻ đến bạn bè</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
 
-                    <View style={{
-                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
-                        marginTop: 20,
-                        elevation: 6,
-                    }}>
-                        <TouchableOpacity
-                            onPress={() => handleEmail()}
-                        >
-                            <View style={{ flexDirection: 'row', padding: 10, alignContent: 'center', alignItems: 'center' }}>
-                                <Icon name="comments" size={34} color="#1976D2" />
-                                <Text style={{ fontSize: 20, color: "#1976D2", paddingLeft: 10 }}> Báo lỗi hoặc góp ý</Text>
-                            </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={{
+                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
+                    marginTop: 20,
+                    elevation: 6,
+                    flexDirection: 'row',
+                    padding: 10,
+                    alignContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <MaterialCommunityIcons name="theme-light-dark" size={34} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
+                    <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 10 }}> Giao diện tối</Text>
+                    <Switch
+                        style={{ marginLeft: Dimensions.get('screen').width - 260 }}
+                        onValueChange={toggleSwitch}
+                        value={switchValue} />
+                </View>
+            </ScrollView>
+        </ SafeAreaView >
 
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{
-                        backgroundColor: switchValue == false ? "#FAFAFA" : "#263238",
-                        marginTop: 20,
-                        elevation: 6,
-                        flexDirection: 'row',
-                        padding: 10,
-                        alignContent: 'center',
-                        alignItems: 'center',
-                    }}>
-                        <MaterialCommunityIcons name="theme-light-dark" size={34} color="#1976D2" />
-                        <Text style={{ fontSize: 20, color: "#1976D2", paddingLeft: 10 }}> Giao diện tối</Text>
-                        <Switch
-                            style={{ marginLeft: Dimensions.get('screen').width - 260 }}
-                            onValueChange={toggleSwitch}
-                            value={switchValue} />
-                    </View>
-                </ScrollView>
-            </ SafeAreaView >
-
-        )
-    }
+    )
+}
 export default SettingTab
 const url = 'https://drive.google.com/open?id=134oAlPK-5K-3eAMxJg1gs_Ka7Ehe0v8g';
 const title = 'Ứng dụng Toeic Test';
