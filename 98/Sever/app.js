@@ -161,9 +161,9 @@ app.get("/admin/QuestionCategories/add", function (req, res) {
 
 
 app.post('/admin/QuestionCategories/add', (req, res) => {
-res.send(req.body.TFSC_name);
-  //QC.add(req, con);
-  //res.redirect('/admin');
+
+  QC.add(req, con);
+  res.redirect('/admin');
 });
 //
 //End route
