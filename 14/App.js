@@ -11,17 +11,15 @@ import EnglishApp from './Screens/EnglishApp';
 
 const Navigator = createStackNavigator({
   DrawerNavigator: {screen:DrawerNavigator},
-  Home: { screen: Home },
+  Home: { screen: Home},
   Word: { screen: Word },
   Exam: { screen: Exam},
   EnglishApp: {screen: EnglishApp},
   Setting: {screen: Setting},
   NewWordList: {screen: NewWordList}
 },
-{
-  defaultNavigationOptions: {
-    headerShown: false
-  }
+{ 
+  headerMode: 'none',
 },
 );
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {ListItem} from 'react-native-elements'
 import { StyleSheet, Text, View, ScrollView, Button, InteractionManager } from 'react-native';
 import { Header } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 import db from '../data/SQLite';
 
 const list = [
@@ -60,7 +61,7 @@ const list = [
 export default class Home extends React.Component{
     constructor(){
         super();
-        this.init()
+        this.init();
     }
     async init(){
         const exist = await db.checkIfTablesExist();
@@ -85,18 +86,22 @@ export default class Home extends React.Component{
                 <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
                     <View>
                     {
-                        list.map((item, i) => (
-                        <ListItem
-                            onPress={()=> navigate(
-                                item.navigate
-                            )}
-                            key={i}
-                            title={item.title}
-                            leftIcon={{ name: item.icon }}
-                            bottomDivider
-                            chevron
-                        />
-                        ))
+                        list.map((item, i) => {
+                            return (
+                                <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
+                                    <ListItem
+                                        onPress={()=> navigate(
+                                            item.navigate
+                                        )}
+                                        key={i}
+                                        title={item.title}
+                                        leftIcon={{ name: item.icon }}
+                                        bottomDivider
+                                        chevron
+                                    />
+                                </Animatable.View>
+                            )
+                        })
                     }
                     </View>
                 </ScrollView>
