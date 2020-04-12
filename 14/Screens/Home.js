@@ -48,7 +48,7 @@ const list = [
     {
         title: 'Phần mềm học tiếng anh',
         icon: 'laptop',
-        navigate: 'Exam'
+        navigate: 'EnglishApp'
     },
     {
         title: 'Cài đặt',
