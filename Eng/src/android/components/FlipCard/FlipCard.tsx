@@ -1,6 +1,13 @@
 import React from 'react';
 import { View, Animated, Text, TouchableOpacity } from 'react-native';
+import { Dimensions } from 'react-native';
 import styles from './styles';
+import { Card, Image, Icon } from 'react-native-elements';
+import IconAntDeisign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 var values = 0;
 const FlipCard = (props: { data: any }) => {
     const { data } = props;
@@ -22,12 +29,12 @@ const FlipCard = (props: { data: any }) => {
     })
     const frontAnimatedStyle = {
         transform: [
-            { rotateY: frontInterpolate }
+            { rotateX: frontInterpolate }
         ]
     }
     const backAnimatedStyle = {
         transform: [
-            { rotateY: backInterpolate }
+            { rotateX: backInterpolate }
         ]
     }
     const backOpacity = animatedValue.interpolate({
@@ -35,7 +42,6 @@ const FlipCard = (props: { data: any }) => {
         outputRange: [0, 1]
     })
     const flipCard = () => {
-
         if (values >= 90) {
             Animated.spring(animatedValue, {
                 toValue: 0,
@@ -53,20 +59,69 @@ const FlipCard = (props: { data: any }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={flipCard}>
-
-                <View>
+                <Card containerStyle={{ borderRadius: 10 }}>
                     <Animated.View style={[styles.flipCard, frontAnimatedStyle, { opacity: frontOpacity }]}>
-                        <Text style={styles.flipText}>
-                            This text is flipping on the front.
-            </Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+                            <View style={{ marginRight: 6 }}>
+                                <MaterialCommunityIcons
+                                    name='lightbulb-on-outline'
+                                    color='#00badd'
+                                    size={25}
+                                />
+                            </View>
+                            <View>
+                                <IconAntDeisign
+                                    name='staro'
+                                    color='#ff5e00'
+                                    size={24}
+                                />
+                            </View>
+                        </View>
+                        <View style={{}}>
+                            <Image
+                                source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Ffood.webp?alt=media&token=41dacf50-de6f-43da-ac0f-ad8f382fa956' }}
+                                resizeMode='contain'
+                                style={{ width: WIDTH / 2, height: HEIGHT / 2 - 70 }}
+                            />
+                        </View>
+                        <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 30 }}>
+                            <Text style={{ fontWeight: '700', color: '#666' }}>
+                                Lật về sau
+                                </Text>
+                        </View>
                     </Animated.View>
+
+
                     <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle, { opacity: backOpacity }]}>
-                        <Text style={styles.flipText}>
-                            This text is flipping on the back.
-            </Text>
+                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
+                            neck
+                        </Text>
+                        <Text style={{ color: '#666' }}>
+                            /nek/
+                        </Text>
+                        <Text style={{ marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
+                            cổ
+                        </Text>
+                        <View style={{backgroundColor:'#ff5e00',borderRadius:100,paddingTop:8,paddingBottom:8,paddingLeft:15,paddingRight:14,marginTop:10}}>
+                            <Ionicons
+                                name='ios-volume-high'
+                                color='#FFF'
+                                size={50}
+                            />
+                        </View>
+                        <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 50 }}>
+                            <Text style={{ fontWeight: '700', color: '#666' }}>
+                                Lật về sau
+                                </Text>
+                        </View>
                     </Animated.View>
-                </View>
+                </Card>
             </TouchableOpacity>
+            <View style={{ marginBottom: 100, marginTop: 50 }}>
+                <Text style={{ fontSize: 20, color: '#fff' }}>
+                    1/28
+                </Text>
+            </View>
         </View>
     )
 }

@@ -3,8 +3,6 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { Vocabularys } from '../FavoriteVocabularys'; 
 import { Lessons } from '../FavoriteLessons'; 
 
-import styles from './styles'; 
-
 
 const Tab = createMaterialTopTabNavigator(); 
 

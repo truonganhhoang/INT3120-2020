@@ -9,7 +9,7 @@ const Menu = () => {
     <Icon 
       name="ellipsis-v"
       type='font-awesome'
-      color='orange'
+      color='#fff'
       onPress={onPress}
     />
   )

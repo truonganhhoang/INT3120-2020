@@ -5,23 +5,28 @@ import IconAntDeisign from 'react-native-vector-icons/AntDesign';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import { Text, View, Dimensions, ProgressBarAndroid, Image } from 'react-native';
+import { Text, View, Dimensions, Image } from 'react-native';
+import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 
 const CardWordGroup = (props: { data?: any; navigation?: any }) => {
   const { data } = props;
   const { navigation } = props;
-  const [colorStar,setColorStar]=useState("staro");
-  const changeStar=()=>{
-    if (colorStar == 'staro'){
+  console.log(data);
+  const [colorStar, setColorStar] = useState("staro");
+  const changeStar = () => {
+    if (colorStar == 'staro') {
       setColorStar('star');
-    } 
-    else if (colorStar == 'star'){
-      setColorStar('staro'); 
+    }
+    else if (colorStar == 'star') {
+      setColorStar('staro');
     }
   };
   const onPress = () => {
     navigation.navigate('DetailWordGroupScreen', { data: data });
   }
+  const onFlipCard = () => {
+    navigation.navigate('FlipCardWord', { data: data });
+  };
   return (
     <View style={styles.containers}>
       <View style={styles.viewCard}>
@@ -38,14 +43,13 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
               onPress={changeStar}
             />
             <Image
-              source={require('../../../../images/cards/clother.jpg')}
+              source={{uri:data.image_les}}
               style={styles.img}
             />
           </View>
 
           <View style={{ alignItems: 'center' }}>
             <ProgressBarAndroid
-              style={{ width: 80, marginTop: 20 }}
               styleAttr="Horizontal"
               indeterminate={false}
               progress={0.5}
@@ -53,13 +57,14 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
             />
           </View>
           <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>
-            {data.word_group_name}
+            {data.wordGroupName}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00' }}>
-            {data.wg_vn_name}
+            {data.vn_meaning}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
-            Help you master 28 words related to <Text style={{ fontStyle: 'italic', fontWeight: 'bold', }}>{data.wg_vn_name}</Text> in English
+            Giúp bạn nắm vững {data.num_word} từ liên quan đến  
+             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform:'uppercase',fontSize:13}}> {data.vn_meaning}</Text> trong tiếng anh
       </Text>
 
         </Card>
@@ -68,6 +73,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
         <View style={styles.viewIcon}>
           <IconFeather style={styles.iconTool}
             name='copy'
+            onPress={onFlipCard}
           />
         </View>
         <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 3 }}></View>
@@ -87,7 +93,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
         <Button
           buttonStyle={styles.btnDetail}
           containerStyle={styles.btnDetail}
-          title='DETAIL'
+          title='CHI TIẾT'
           onPress={onPress}
         />
       </View>

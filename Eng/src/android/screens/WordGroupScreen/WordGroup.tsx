@@ -7,8 +7,14 @@ import styles from './styles';
 
 
 const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
+  var index=0;
   const { route, navigation } = props; 
-  const { nameTopic, wordGroups } = route.params; 
+  const { nameTopic, wordGroups } = route.params;
+  const data:any=[];
+  Object.keys(wordGroups).forEach((item,index)=>{
+    data.push(wordGroups[item])
+    data[index].wordGroupName=item
+  })
   return (
     <View>
       <Header containerStyle={styles.container}
@@ -20,9 +26,8 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       />
       <ScrollView horizontal={true}>
         {
-          wordGroups.map( (e: any) =>
-            <WordGroupCard data={e} navigation={navigation}
-              key={e.wg_vn_name}
+          data.map( (e: any) =>
+            <WordGroupCard data={e} navigation={navigation} key={index++}
             />
           )
         }

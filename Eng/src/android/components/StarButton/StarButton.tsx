@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 const StarButton = (props: { navigation?: any }) => {
   const { navigation } = props;
   const onPress = () => {
-    navigation.navigate('FlipCardWord');
+    navigation.navigate('FavoriteScreen');
   }
   return (
     <Icon
