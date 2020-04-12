@@ -22,6 +22,8 @@ app.set("views", "./views/pages");
 //Models
 var TFS = require('./models/TrafficSign');
 var TFSC = require('./models/trafficSignCategory');
+var Q = require('./models/Question');
+var QC = require('./models/QuestionCategory');
 var mySQL = require('./models/MySQL');
 
 //End models
@@ -31,15 +33,63 @@ var con = mySQL.conn();
 //Route
 app.get("/", function (req, res) {
 
-  res.send("ok");
+  res.redirect('/admin');
 
 })
 
 app.get("/admin", function (req, res) {
   res.render("admin/admin");
 })
+//Admin traffic signs categories
+app.get("/admin/trafficsignCategories", function (req, res) {
+  TFSC.list(con,"", function (result) {
+    res.render("admin/trafficsignCategories/list", { result });
+  });
+})
+app.get("/admin/trafficsignCategories/add", function (req, res) {
+  res.render("admin/TrafficSignCategories/add");
+})
 
-//Admin traffic signs
+
+app.post('/admin/trafficsignCategories/add', (req, res) => {
+
+  TFSC.add(req, con);
+  res.redirect('/admin/trafficsignCategories');
+});
+app.get("/admin/trafficsignCategories/json/", function (req, res) {
+
+  TFSC.list(con,"", function (result) {
+    var data={data:result}
+    res.send(data);
+
+  });
+
+})
+app.get("/admin/trafficsignCategories/change/:name", function (req, res) {
+  var id = req.params.name;
+
+    TFSC.list(con, id, function (result) {
+
+      res.render("admin/trafficsignCategories/change", { result });
+    });
+
+
+});
+app.post('/admin/trafficsignCategories/change/:name', (req, res) => {
+  TFSC.change(req, con);
+  res.redirect('/admin/trafficsignCategories');
+
+});
+app.get('/admin/trafficsignCategories/delete/:name', (req, res) => {
+  var id = req.params.name;
+  TFSC.delete(id, con);
+  res.redirect('/admin/trafficsignCategories');
+
+});
+//////////////
+
+
+//Traffic signs
 app.get("/admin/trafficsigns", function (req, res) {
 
   TFS.list(con,"","", function (result) {
@@ -101,55 +151,20 @@ app.post('/admin/trafficsigns/add', (req, res) => {
 });
 //////////////
 
-//Admin traffic signs categories
-app.get("/admin/trafficsignCategories", function (req, res) {
-  TFSC.list(con,"", function (result) {
-    res.render("admin/trafficsignCategories/list", { result });
-  });
 
 
-})
-app.get("/admin/trafficsignCategories/add", function (req, res) {
-  res.render("admin/TrafficSignCategories/add");
+
+//Question Categories
+app.get("/admin/QuestionCategories/add", function (req, res) {
+  res.render("admin/QuestionCategories/add");
 })
 
-app.get("/admin/trafficsignCategories/json/", function (req, res) {
 
-  TFSC.list(con,"", function (result) {
-    var data={data:result}
-    res.send(data);
-
-  });
-
-})
-app.post('/admin/trafficsignCategories/add', (req, res) => {
-
-  TFSC.add(req, con);
-  res.redirect('/admin/trafficsignCategories');
+app.post('/admin/QuestionCategories/add', (req, res) => {
+res.send(req.body.TFSC_name);
+  //QC.add(req, con);
+  //res.redirect('/admin');
 });
-
-app.get("/admin/trafficsignCategories/change/:name", function (req, res) {
-  var id = req.params.name;
-
-    TFSC.list(con, id, function (result) {
-
-      res.render("admin/trafficsignCategories/change", { result });
-    });
-
-
-});
-app.post('/admin/trafficsignCategories/change/:name', (req, res) => {
-  TFSC.change(req, con);
-  res.redirect('/admin/trafficsignCategories');
-
-});
-app.get('/admin/trafficsignCategories/delete/:name', (req, res) => {
-  var id = req.params.name;
-  TFSC.delete(id, con);
-  res.redirect('/admin/trafficsignCategories');
-
-});
-//////////////
-
+//
 //End route
 //End main
