@@ -11,11 +11,19 @@ export default function DetailScreen(props) {
 
             <Image style={styles.image} source={{ uri: config.IP_SEVER+image }} />
 
+            <View style={styles.topic} >
+                <Text>Loại biển báo:</Text>
+                <Text style={styles.content_title} >.....category</Text>
+            </View>
 
-            <View>
+            <View style={styles.topic} >
+                <Text>Số hiệu:</Text>
+                <Text style={styles.content_number} >......</Text>
+            </View>
+
+            <View style={{ marginLeft: 10,}}>
                 <Text>Mô tả:</Text>
-                <Text style={styles.content_detail} >{content}
-                        </Text>
+                <Text style={styles.content_detail} >{content}</Text>
             </View>
 
         </View>
@@ -24,21 +32,24 @@ export default function DetailScreen(props) {
 
 const styles = StyleSheet.create({
     container: {
-        //marginTop: 50,
-        marginLeft: 10,
+        flex: 1,
+        backgroundColor: '#fff',
     },
     title: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
+        marginLeft: 10,
+        marginTop: 5,
     },
     topic: {
         height: 30,
         flexDirection: 'row',
+        marginLeft: 10,
     },
 
     content_title: {
         color: '#1e90ff',
-        marginLeft: 5,
+        marginLeft: 8,
     },
     content_number: {
         color: '#ff6347',
