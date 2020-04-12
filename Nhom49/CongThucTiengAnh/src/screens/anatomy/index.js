@@ -18,6 +18,7 @@ import {
 } from "native-base";
 import styles from "./styles";
 import firestore from '@react-native-firebase/firestore';
+import firebase from '@react-native-firebase/app';
 
 const datasSentences = [
   {
@@ -153,31 +154,31 @@ const datasWords = [
 //firestore().collection('dataSentences').doc('IdqyHE4GqJ2Wc9BIHoTL');
 const datasSentences_ = [];
 
-function getData(){
-    return firestore().collection('dataSentences')
-    .get()
-    .then(
-        querySnapshot => {
-            querySnapshot.forEach(doc => {
-                const {title, subtitle } = doc.data();
-                datasSentences_.push({
-                    title,
-                    subtitle,
-                });
-            });
-        }
-    );
-}
+
 
 class Anatomy extends Component {
-  getData(){};
+  //getData(){}; // ham khai bao trong class muon goi ra thi phai co them this.function(). trong function component thi moi goi truc tiep duoc
   constructor(props) {
     super(props);
     this.state = {
-      seg: 1
+      seg: 1,
+      dataFirebase: null
     };
   }
+  componentWillMount(){
+    this.getData()
+  }
+  getData = async () => {
+   const ref = firebase.database().ref('dataSentences')
+                           const snapshot = await ref.once('value')
+                           const data = snapshot.val()
+                           this.setState({dataFirebase:data})
+                           alert(JSON.stringify(data))
+  // se co data neu config key dung theo project
+  }
+
   render() {
+  if(!this.state.dataFirebase) return null
     return (
       <Container style={styles.container}>
         <Header hasSegment>
@@ -212,7 +213,6 @@ class Anatomy extends Component {
         </Header>
 
         <Content padder>
-          <Text>{firestore().collection('dataSentences').doc('IdqyHE4GqJ2Wc9BIHoTL').title}</Text>
           {this.state.seg === 1 &&
               <List
                   dataArray={datasSentences_}
