@@ -173,7 +173,8 @@
           }
         },
         "deploy": {
-          "builder": "@zeit/ng-deploy:deploy"
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

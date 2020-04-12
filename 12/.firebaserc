@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "default": "coursera-vnu-int3120"
+  },
   "targets": {
     "coursera-vnu-int3120": {
       "hosting": {
