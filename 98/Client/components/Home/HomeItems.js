@@ -1,8 +1,6 @@
 ﻿﻿import * as React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity,Image } from 'react-native';
-import { Button } from 'react-native-elements';
-
-
+import { Feather } from '@expo/vector-icons';
 
 const DATA = [
     {
@@ -10,7 +8,8 @@ const DATA = [
         title: 'Ôn tập câu hỏi',
         content: 'Danh sách 450 câu hỏi được chia dựa theo các phần học trong sách lý thuyết xe hạng B2.',
         button: 'ÔN LUYỆN',
-        image:require('../../assets/images/home/ontap.jpg'),
+        iconName: 'feather',
+        iconColor: '#ff0000',
         route:"QuestionPractice",
     },
    
@@ -19,50 +18,52 @@ const DATA = [
         title: 'Mẹo ghi nhớ',
         content: 'Tổng hợp tất cả mẹo làm nhanh bài thi cho 450 câu hỏi.',
         button: 'MẸO LÀM ĐỀ',
-        image:require('../../assets/images/home/meoghinho.jpg'),
-         route:"MemoryTricks",
+        iconName: 'cloud',
+        iconColor: 'gray',
+        route:"MemoryTricks",
     },
     {
         id: '3',
         title: 'Xem câu bị sai',
         content: 'Danh sách các câu hỏi thường trả lời sai trong quá trình làm đề.',
         button: 'XEM LẠI',
-        image: require('../../assets/images/home/xemlai.jpg'),
+        iconName: 'check-square',
+        iconColor: '#3399ff',
         route: "TFS",
     },
     {
         id: '4',
-        title: 'Danh sách biển báo',
+        title: 'Biển báo',
         content: 'Danh sách 116 biển báo bạn hay gặp trong quá trình làm đề.',
         button: 'TÌM HIỂU',
-        image: require('../../assets/images/home/tfsImage.jpg'),
+        iconName: 'crosshair',
+        iconColor: '#7d26ff',
         route: "TFS",
     },
 ];
 
 
 function Item( props) {
-    const {route,navigation,image,title,content,button}=props;
+    const {route,navigation,iconName,iconColor,title,content,button}=props;
     return (
-        
-        <TouchableOpacity   onPress={() =>  navigation.navigate(route)}  >
-         
-            <View style={styles.item}>
-                <View style={styles.item_header}>
-                    <Image style={styles.image} source={image} />
-                    <Text style={styles.item_title}>{title}</Text>
+        <TouchableOpacity 
+            style={{ flex: 0.5, backgroundColor: '#fff',  }}
+            onPress={ () => navigation.navigate(route)}
+        >
+            <View style={{ flex: 1, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderColor: '#ebebe0', padding: 15, }}>
+                <View style={{ flexDirection: 'row', }}>
+                    <Feather name={iconName} size={45} color={iconColor} style={{ flex: 35 }} />
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'gray', flex: 65, }}>{title}</Text>
                 </View>
 
-                <Text style={styles.item_content}>{content}</Text>
+                <View style={{ flex: 1, }}>
+                    <Text style={{ fontSize: 15, color: 'gray', marginVertical: 15 }} >{content}</Text>
+                </View>
 
-                <View style={{ width: '60%', paddingLeft: 10 }}>
-                    <Button
-                        title={button}
-                        type="solid"
-                        backgroundColor='#fff'
-                        titleStyle={styles.item_button}
-                          onPress={() => navigation.navigate(route)}
-                    />
+                <View>
+                    <View style={{backgroundColor: iconColor, height: 30, width: 120, borderRadius: 50, alignItems: 'center', justifyContent: 'center'}}>
+                        <Text style={{textTransform: "uppercase", color: '#fff', fontWeight: "bold"}}>{button}</Text>
+                    </View>
                 </View>
             </View>
 
@@ -74,17 +75,18 @@ export default function HomeItem(props) {
 const {navigation}=props;
 
     return (
-        <SafeAreaView style={styles.container}>
-     
+        <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row', paddingHorizontal: 8, }}>
             <FlatList
                 horizontal={false}
                 numColumns={2}
                 keyExtractor={(item) => item.id}
                 data={DATA}
                 renderItem={({ item }) => 
-                <Item title={item.title} route={item.route} content={item.content} button={item.button} image={item.image} navigation ={navigation}/>}
+                <Item title={item.title} route={item.route} content={item.content} button={item.button} iconName={item.iconName} iconColor={item.iconColor} navigation ={navigation}/>}
             />
-        </SafeAreaView>
+            </View>
+        </View>
     );
 }
 
