@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 import { Button } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
-import Class from '../components/Classrooms/Class'
+import Class from '../components/Class'
 
 import {Feather } from '@expo/vector-icons/';
 

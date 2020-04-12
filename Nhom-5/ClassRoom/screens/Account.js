@@ -1,25 +1,53 @@
-import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { MonoText } from '../components/StyledText';
 
 import {AuthContext} from '../Context';
 
-export default function Account({navigation}) {
+export default function Account({route, navigation}) {
   const {signOut} = React.useContext(AuthContext);
-  const user = {
-    name: "Nguyen Hoang Tuyen"
-  };
+  const {token} = React.useContext(AuthContext);
+  const [isLoading, setLoading] = React.useState(true);
+  const [user, setUser] = React.useState([]);
+  const [userId, setId] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('https://mobile-uet.herokuapp.com/api/31/get-user-by-id', {
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.code == "success") {
+          setUser(json.response.username);
+          setId(json.response.id);
+        }
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  });
 
   return (
     <View style={styles.container}>
-      <View style={styles.info}>
-        <Avatar size={100} rounded title={getName(user.name).charAt(0)} style={styles.avatar} overlayContainerStyle={{backgroundColor: '#3498db'}}/>
-        <Text style={styles.userName}>{user.name}</Text>
-      </View>
-      <View style={styles.footer}>
+      {isLoading ? <ActivityIndicator/> : (
+        <View style={styles.info}>
+          <Avatar
+            size={100}
+            rounded
+            title={getName(String(user)).charAt(0)}
+            style={styles.avatar}
+            overlayContainerStyle={{backgroundColor: '#3498db'}}s
+          />
+          <Text style={styles.userName}>{user}</Text>
+        </View>
+      )}
+      <View style={styles.footer}>  
+        <Text style={{
+          color: "#333",
+          fontSize: 12,
+        }}>{"User ID: "+userId}</Text>
         <Button  
           title="Sign out"
           type="clear"

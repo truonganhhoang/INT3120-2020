@@ -1,19 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
 import { Feather } from '@expo/vector-icons/';
+import classIcon from '../assets/images/class-icon.png';
 
 export default function Class(props) {
   return(
     <TouchableOpacity style={styles.card} activeOpacity={0.8}>
       <View style={styles.avatar}>
-        <Feather
-          name="calendar"
-          color="#3498db"
-          size={50}
-        />
+        <Image source={classIcon} style={styles.icon}/>
       </View>
-      <View style={styles.leftPart}>
+      <View style={styles.rightPart}>
         <View style={styles.title}>
           <Text style={styles.titleText}>{props.name}</Text>
         </View>
@@ -44,13 +41,17 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color:  '#fff',
   },
-  leftPart: {
+  icon: {
+    height: 70,
+    width: 70,
+  },
+  rightPart: {
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
   title: {
-    width: 260,
-    height: 25,
+    width: 250,
+    height: 30,
     justifyContent:'center',
     //backgroundColor: '#0f0',
   },
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   code: {
-    width: 260,
+    width: 250,
     height: 25,
     //backgroundColor: '#00f',
   },

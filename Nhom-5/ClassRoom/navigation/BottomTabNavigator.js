@@ -11,8 +11,9 @@ import DailyLogs from '../screens/DailyLogs';
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
-export default function BottomTabNavigator({ navigation, route }) {
+export default function BottomTabNavigator({ navigation, route, token }) {
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  const userToken = token;
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>

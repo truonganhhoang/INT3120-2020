@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Alert} from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,7 +7,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
-import SignIn from './screens/SignIn'
+import SignIn from './screens/SignIn';
+import SignUp from './screens/SignUp'
+import Loading from './screens/Loading';
 import useLinking from './navigation/useLinking';
 import {AuthContext} from './Context';
 
@@ -23,8 +25,50 @@ export default function App(props) {
 
   const authContext = React.useMemo(() => {
     return {
-      signIn: () => {
-        setUserToken('something');
+      token: userToken,
+      signIn: (phone, password) => {
+        setLoadingComplete(false);
+        fetch('https://mobile-uet.herokuapp.com/api/login', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            numberPhone:phone,
+            password: password,
+          })
+        })
+        .then((response) => response.json())
+        .then((json) => {
+          if(json.code != "success") Alert.alert("Có lỗi xảy ra!\nVui lòng thử lại.");
+          else setUserToken(json.response);
+        })
+        .catch(() => Alert.alert(json.code.toUpperCase()))
+        .finally(() => setLoadingComplete(true));
+      },
+      signUp: (phone,password, name, email, school) => {
+        fetch('https://mobile-uet.herokuapp.com/api/create-user', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            numberPhone: phone,
+            school: school,
+            username: name,
+            role: "ROLE_STUDENT"
+          })
+        })
+        .then((response) => response.json())
+        .then((json) => {
+          setLoadingComplete(false);
+        })
+        .catch(() => Alert.alert("json.massage"))
+        .finally(() => setLoadingComplete(true));
       },
       signOut: () => {
         setUserToken(null);
@@ -32,7 +76,7 @@ export default function App(props) {
     }
   }, []);
 
-  React.useEffect(() => {
+ React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
@@ -55,7 +99,7 @@ export default function App(props) {
   }, []);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
-    return null;
+    return <Loading />;
   } else {
     return (
       <View style={styles.container}>
@@ -65,6 +109,9 @@ export default function App(props) {
             {userToken ? (
               <Stack.Navigator
                 screenOptions={{
+                  headerOptions: {
+                    headerShown: false,
+                  },
                   headerStyle: {
                     backgroundColor: '#fff',
                     elevation: 0,
@@ -88,10 +135,8 @@ export default function App(props) {
                   },
                  }}
               >
-                <AuthStack.Screen
-                  name="SignIn"
-                  component={SignIn}
-                />
+                <AuthStack.Screen name="SignIn" component={SignIn} />
+                <AuthStack.Screen name="SignUp" component={SignUp} />
               </AuthStack.Navigator>
             )}
             
