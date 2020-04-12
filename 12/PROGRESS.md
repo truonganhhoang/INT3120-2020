@@ -200,3 +200,9 @@ ionic g page profile -f
 - Style lại các item ở trang settings.
 - Đóng dialog của Sentry.
 - Thêm child routes cho `/tabs/course/:courseId/overview` và `/tabs/course/:courseId/forums`
+
+# 2020-04-12
+
+- Thêm NotFoundComponent.
+- `ng add @zeit/ng-deploy`.
+- Declare `NotFoundComponent` at `app.module.ts`.

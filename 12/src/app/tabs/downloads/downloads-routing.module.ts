@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'course/:courseId',
     loadChildren: () =>
-      import('./downloaded-course-details/downloaded-course-details.module').then(
+      import('./downloaded-course-detail/downloaded-course-detail.module').then(
         (m) => m.DownloadedCourseDetailsPageModule
       )
   },

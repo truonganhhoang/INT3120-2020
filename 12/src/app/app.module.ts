@@ -21,9 +21,10 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
