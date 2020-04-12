@@ -40,16 +40,13 @@ export default class ListSelects extends Component {
             <Row>
               <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#ffa101'}]}
                 onPress={() => {
-                  FirebaseApp.database().ref('Question/').once('value').then(snapshot => {
-                    let arr = Object.values(snapshot.val());
-                    for (var i = 0; i < arr.length; i++) {
-                      arr[i].Answers = Object.values(arr[i].Answers);
-                      for (var a = 0; a < arr[i].Answers.length; a++) {
-                        arr[i].Answers[a].select = false;
-                        console.log(arr[i].Answers[a]);
-                      }
+                  FirebaseApp.database().ref('ListTest/').once('value').then(snapshot => {
+                    let arr=[];
+                    for(var key in snapshot.val()){
+                      if(snapshot.val()[key].Categoris===namePage) arr.push(snapshot.val()[key]);
                     }
-                    navigation.navigate("Test", { "namePage": "Đề ngẫu nhiên", "data": arr })
+                    let random=Math.floor(Math.random() * arr.length);
+                    navigation.navigate("Test", { "namePage": "Đề ngẫu nhiên", "data": arr[random] })
                   });
                 }}>
                 <Body>
@@ -70,7 +67,8 @@ export default class ListSelects extends Component {
               </Col>
             </Row>
             <Row>
-            <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#795547' }]}>
+              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#795547' }]}
+                onPress={()=>{navigation.navigate("Practice")}}>
                 <Body>
                   <Image source={require('../asset/Layer6.png')} style={AppStyle.StyleCommon.IconSelect}/>
                 </Body>
@@ -78,7 +76,8 @@ export default class ListSelects extends Component {
                   <Text style={{ color: '#fff', fontSize: 22 }}>Bài thi sa hình</Text>
                 </Body>
               </Col>
-              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#34bbbf' }]}>
+              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#34bbbf' }]}
+                onPress={()=>{}}>
                 <Body>
                   <Image source={require('../asset/Layer8.png')}style={AppStyle.StyleCommon.IconSelect} />
                 </Body>
@@ -88,7 +87,9 @@ export default class ListSelects extends Component {
               </Col>
             </Row>
             <Row>
-              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#338bd5' }]}>
+              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#338bd5' }]}
+                onPress={()=>{navigation.navigate("TrafficSigns")}}
+              >
                 <Body>
                   <Image source={require('../asset/Layer4.png')} style={AppStyle.StyleCommon.IconSelect} />
                 </Body>
@@ -96,7 +97,8 @@ export default class ListSelects extends Component {
                   <Text style={{ color: '#fff', fontSize: 22 }}>Các biển báo</Text>
                 </Body>
               </Col>
-              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#cc73e1' }]}>
+              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#338bd5' }]}
+                onPress={()=>{}}>
                 <Body>
                   <Image source={require('../asset/Layer7.png')} style={AppStyle.StyleCommon.IconSelect} />
                 </Body>

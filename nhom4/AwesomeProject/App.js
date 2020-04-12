@@ -34,6 +34,12 @@ export default class App extends Component {
           <Stack.Screen options={{ headerShown: false }}
             name="ListTests"
             component={AppComponents.ListTests} />
+          <Stack.Screen options={{ headerShown: false }}
+            name="TrafficSigns"
+            component={AppComponents.TrafficSigns} />
+          <Stack.Screen options={{ headerShown: false }}
+            name="Practice"
+            component={AppComponents.Practice} />
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -6,9 +6,6 @@ import { Container, Header, Tab, Tabs, ScrollableTab, Button, Body, Icon, Title,
 export default class Result extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
   }
   render() {
     const { namePage } = this.props.route.params;
@@ -33,9 +30,10 @@ export default class Result extends Component {
 
           <Tabs renderTabBar={() => <ScrollableTab />}>
             {data.map((obj, i) => {
+              let count = i+1;
               return (
-                <Tab heading={"Cau "} key={i}>
-                  <ShowTabContent obj={obj} />
+                <Tab heading={"Câu " + count} key={i}>
+                  {this.ShowTabContent (obj)}
                   <Tab />
                 </Tab>)
             })}
@@ -44,15 +42,27 @@ export default class Result extends Component {
       </Container>
     );
   }
+  ShowTabContent(question) {
+    const show = [];
+    for (var key in question.Answers) {
+      show.push(<ShowCheckBox answer={question.Answers[key]} key={key} />)
+    };
+    return (
+      <View style={{ paddingTop: 10, paddingRight: 10 }}>
+        <View >
+          <Text style={{ color: 'blue', fontSize: 16, paddingLeft: 20 }}>{question.QuestionText}</Text>
+        </View>
+        {show}
+      </View>
+    );
+  }
   CheckResult(data) {
     var count = data.length;
-    data.map((qs) => {
+    data.map((question) => {//check one question
       var result = true;
-      qs.Answers.map((aw) => {
-        if (aw.select != aw.AnswerResult) {
-          result = false;
-        }
-      })
+      for (var key in question.Answers) {//check one result
+        if (question.Answers[key].select != question.Answers[key].AnswerResult) result = false;
+      }
       if (result == false) count--;
     })
     return count;
@@ -76,19 +86,3 @@ const ShowCheckBox = (props) => {
     </ListItem>
   );
 }
-//show list checkbox ,input:data[i]
-const ShowTabContent = (props) => {
-  const show = [];
-  props.obj.Answers.map((answer, i) => {
-    show.push(<ShowCheckBox answer={answer} key={i} />)
-  });
-  return (
-    <View style={{ paddingTop: 10,paddingRight: 10 }}>
-      <View >
-        <Text style={{ color: 'blue', fontSize: 16,paddingLeft:20 }}>{props.obj.QuestionText}</Text>
-      </View>
-      {show}
-    </View>
-  );
-}
-
