@@ -4,6 +4,7 @@ import { Styles } from '../../styles'
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 export default class Header extends Component {
     render() {
         return (
@@ -12,10 +13,12 @@ export default class Header extends Component {
                         
                     </TouchableOpacity>
                     <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Knowledge store</Text>
-                    <TouchableOpacity style={[localStyles.button, {marginLeft: 80}]}>
+                    <TouchableOpacity style={[localStyles.button, {marginLeft: 80}]} 
+                    onPress={this.props.onPress1} >
                         <FontAwesome5Icon name="search" size={24} color="#E1F5FE"/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[localStyles.button, {marginLeft: 10}]}>
+                    <TouchableOpacity style={[localStyles.button, {marginLeft: 10}]}
+                    onPress={this.props.onPress2} >
                         <FontAwesome5Icon name="play-circle" size={24} color="#E1F5FE"/>
                     </TouchableOpacity>
             </View>

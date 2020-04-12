@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { Styles } from '../../styles'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
-export default function Screen2() {
+export default function Screen2({navigation}) {
     const [danhmuc, setdanhmuc] = useState([
         {danhmuc: "Ngoại ngữ", key: "1"},
         {danhmuc: "Marketing", key: "2"},
@@ -28,7 +29,9 @@ export default function Screen2() {
             <ScrollView>
                 {danhmuc.map( (value) =>(
                         <View key={value.key}>
-                            <Text style={Styles.list2s}>{value.danhmuc}</Text>
+                            <TouchableOpacity onPress={()=>(navigation.navigate('Tungdanhmuc'))}>
+                                <Text style={Styles.list2s}>{value.danhmuc}</Text>
+                            </TouchableOpacity>
                         </View>
                     )
                 )}

@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import { View } from 'react-native'
+import React from 'react'
+import { View, Button } from 'react-native'
 
-export default class Details1 extends Component {
-    render() {
-        return (
-            <View>
-                
-            </View>
-        )
-    }
+export default function Details1({ navigation }) {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Button title="Go back" onPress={() => navigation.goBack()} />
+        </View>
+    )
 }
+
