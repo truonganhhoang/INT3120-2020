@@ -29,7 +29,9 @@ export default class TheoryTips extends Component {
     render() {
         return (
         <View style={styles.container}>
+          <ScrollView>
             { this.renderAccordians() }
+          </ScrollView>
         </View>
         );
     }

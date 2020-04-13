@@ -37,7 +37,9 @@ export default class PracticeTips extends Component {
     render() {
         return (
         <View style={styles.container}>
+          <ScrollView>
             { this.renderAccordians() }
+          </ScrollView>
         </View>
         );
     }
