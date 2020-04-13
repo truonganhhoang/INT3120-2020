@@ -21,7 +21,7 @@ class Exam2Screen extends Component {
       title: route.params.titleTopic,
       headerTitleStyle: StyleCommon.StyleHeaderCommon.headerTitle,
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
     };
   };
 
@@ -69,8 +69,8 @@ class Exam2Screen extends Component {
                 onPress: () => {
                   this.props.onStartExam();
                   this.props.navigation.goBack(null);
-                }
-              }
+                },
+              },
             ],
             { cancelable: false }
           )
@@ -84,15 +84,15 @@ class Exam2Screen extends Component {
                 text: "Thử lại",
                 onPress: () => {
                   this.props.onStartExam();
-                }
+                },
               },
               {
                 text: "Đóng",
                 onPress: () => {
                   this.props.onStartExam();
                   this.props.navigation.goBack(null);
-                }
-              }
+                },
+              },
             ],
             { cancelable: false }
           )
@@ -136,14 +136,14 @@ class Exam2Screen extends Component {
 function mapStateToProps(state) {
   return {
     myExam: state.exams,
-    myData: state.dataExam
+    myData: state.dataExam,
   };
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onNextQuestion: () => dispatch(actionCreators.nextQuestion()),
-    onStartExam: () => dispatch(actionCreators.startExam())
+    onStartExam: () => dispatch(actionCreators.startExam()),
   };
 };
 
@@ -152,22 +152,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(Exam2Screen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "whitesmoke",
+    backgroundColor: GLOBAL.COLOR.LIGHTGRAY,
     marginTop: 0,
-    paddingVertical: 25
+    paddingVertical: 25,
   },
   statusBar: {
     margin: 10,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   question: {
     margin: 15,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   questionText: {
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });

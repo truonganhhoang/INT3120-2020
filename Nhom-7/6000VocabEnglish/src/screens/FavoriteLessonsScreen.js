@@ -54,7 +54,7 @@ export default class FavoriteLessonsScreen extends React.Component {
 
   gotoPractice(topicName) {
     return () => {
-      this.props.navigation.navigate("SlideshowByTopic", {
+      this.props.navigation.navigate("Practice", {
         titleTopic: topicName,
       });
     };
