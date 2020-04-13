@@ -8,6 +8,5 @@ ___
 # Tên ứng dụng: Enbrai: Học từ vựng Tiếng Anh
 Link ứng dụng: https://play.google.com/store/apps/details?id=com.EnglishSticky.LearnEnglishVocabulary
 # Link Apk:
-https://drive.google.com/file/d/1GUSOtoHlOmZjWp0J6LKgRNwPOr8MYPqM/view?fbclid=IwAR3_-Lp1RzaQxf9vKFfkPZHFJiNGO_TjYqavRj9IU3WTppjV1WjOUTDvKlM
-___
-Note: App đang lỗi một số navigation + Load data local
+https://drive.google.com/open?id=1RerxoNgHXQ7OqtjhOJzIBapoGMK0cY-1
+
