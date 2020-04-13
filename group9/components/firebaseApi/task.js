@@ -9,7 +9,7 @@ const getTasks = async () => {
     ret.push(doc.data());
   });
   } catch (err) {
-    
+    console.log(err);    
   }
   return ret;
 };

@@ -7,7 +7,6 @@ const getLessons = async () => {
   data.forEach((doc) => {
     ret.push(doc.data());
   });
-  console.log(ret);
   return ret;
 };
 
