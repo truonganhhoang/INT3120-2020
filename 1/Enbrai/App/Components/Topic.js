@@ -10,13 +10,15 @@ const Topic = props => {
   const [index, setIndex] = useState(0);
   const [dataTopic, setDataTopic] = useState([]);
   const [dataTopic1, setDataTopic1] = useState([]);
+  const [check, setCheck] = useState([]);
   const buttons = ['TẤT CẢ CHỦ ĐỀ', 'CÁC CHỦ ĐỀ ĐÃ CHỌN']
-  const once = props.navigation.getParam('once','')
-  useEffect(async()=>{
-    const param = props.navigation.getParam('topic');
-    console.log(param)
-    setDataTopic(param)
-    setDataTopic1(param)
+  useEffect(()=>{
+    const fetchData =async ()=>{
+      const param = props.navigation.getParam('topic');
+      setDataTopic(param)
+      setDataTopic1(param)
+    }
+    fetchData()
     return()=>{}
   },[props.navigation.getParam('topic')])
   const updateIndex = async(index)=> {
@@ -95,8 +97,7 @@ const Topic = props => {
         disabled = {dataTopic.length!=0?false:true}
         onPress = {async()=>{
           try{
-            await AsyncStorage.setItem('once','1');
-            await AsyncStorage.setItem('Topic',JSON.stringify(dataTopic));
+            await AsyncStorage.setItem('Topic',JSON.stringify(dataTopic1));
             props.navigation.navigate('HomeScreen')
           }
           catch (error){

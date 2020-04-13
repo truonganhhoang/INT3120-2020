@@ -5,7 +5,8 @@ import {
   StatusBar,
   TouchableOpacity,
   Text,
-  AsyncStorage
+  AsyncStorage,
+  BackHandler
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome5'
@@ -19,6 +20,21 @@ const HomeSetting = props=> {
     const [topicChoice, setTopicChoice] = useState('');
     const [numberWord, setNumberWord] = useState();
     const [time, setTime] = useState(0);
+    useEffect( ()=>{
+      const fetchReload = async()=>{
+        try {
+          var data = await AsyncStorage.getItem('NumberWord');
+          console.log(data)
+          setNumberWord(data) 
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      if(props.reload == true){
+        fetchReload()
+      }
+      return()=>{}
+    },[props])
     useEffect(()=>{
       fetchData()
       return()=>{}
@@ -33,7 +49,6 @@ const HomeSetting = props=> {
         var temp = JSON.parse(data[1][1]);
         setTopic(temp)
         var newdata = temp.filter(item=>item.checked == true);
-        console.log(newdata[0].translations.vi)
         setTopicChoice(newdata[0].translations.vi)
       } else {setTopic('Chưa chọn chủ đề')}
 
@@ -139,7 +154,7 @@ const HomeSetting = props=> {
             <View style = {{marginTop: 10, marginLeft: 15}}>
                 <RadioForm
                 radio_props={radio_props}
-                initial={0}
+                initial={props.voice}
                 formHorizontal={true}
                 labelHorizontal={true}
                 animation={true}

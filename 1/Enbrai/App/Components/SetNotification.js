@@ -14,63 +14,10 @@ const SetNotification = props => {
     const param = props.navigation.getParam('time');
     console.log(param)
     setTime(parseInt(param))
-    checkPermission();
     setIsEnabled(true);
     return()=>{}
   },[props.navigation.getParam('time')])
-  const backAction = ()=>{  
-      
-  }
-  useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", backAction);
-    return () =>
-      BackHandler.removeEventListener("hardwareBackPress", backAction);
-  },[]);
-  const checkPermission = async() => {
-    const enabled = await firebase.messaging().hasPermission();
-    if (enabled) {
-      getToken();
-    }
-    else {
-      requestPermission();
-    }
-  }
-  
-  const requestPermission = async()=> {
-    try {
-      await firebase.messaging().requestPermission();
-      // User has authorised
-      getToken();
-    } catch (error) {
-      // User has rejected permissions
-      console.log('quyền bị từ chối');
-    }
-  }
-  const getToken = async()=> {
-    let fcmToken = await AsyncStorage.getItem('fcmToken');
-    if (!fcmToken) {
-      fcmToken = await firebase.messaging().getToken();
-      console.log('token = ', fcmToken);
-      if (fcmToken) {
-        // user has a device token
-        await AsyncStorage.setItem('fcmToken', fcmToken);
-      }
-    }
-  }
-  const createNotificationListeners= async()=> {
-
-    //Tạo channel
-    const channel = new firebase.notifications.Android.Channel('test-channel', 'Test Channel', firebase.notifications.Android.Importance.Max)
-      .setDescription('My apps test channel');
-      console.log('my chanel id = ', channel);
-    firebase.notifications().android.createChannel(channel);
-
-    //Vietnamese explain: khi đang ở foreground => show alert khi có noti
-    const notificationListener = firebase.notifications().onNotification((noti) => {
-      const { title, body } = noti;
-      Alert.alert(title, body);
-    });
-  }
+ 
 
   const toggleSwitch = () =>{
     setIsEnabled(!isEnabled);

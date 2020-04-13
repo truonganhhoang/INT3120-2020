@@ -18,10 +18,14 @@ const SetNumberWord = (props) => {
   const [number, setNumber] = useState();
   const [once, setOnce] = useState();
   const num = props.navigation.getParam('numberWord')
-  useEffect( async() => {
+  useEffect( () => {
     const fetchData= async()=>{
       var param = props.navigation.getParam('numberWord');
-      const temp =await AsyncStorage.setItem('NumberWord',param.toString());
+      try {
+        const temp =await AsyncStorage.setItem('NumberWord',param.toString());
+      } catch (error) {
+        console.log(error)
+      }
       setNumber(param)
     }
     fetchData()
@@ -59,7 +63,6 @@ const SetNumberWord = (props) => {
             buttonColor="#9E9E9E"
             selectedButtonColor="#FFB74D"
             onPress={async(value) => {
-              console.log(value)
               try {
               await AsyncStorage.setItem('NumberWord',value.toString());
             } catch (error) {
@@ -159,7 +162,7 @@ const SetNumberWord = (props) => {
             borderRadius: 5,
           }}
           onPress={() => {
-              props.navigation.navigate('HomeScreen');
+              props.navigation.navigate('HomeScreen',{reload: true});
           }}>
           <Icon
             name="check"

@@ -13,10 +13,12 @@ import SetNotificationScreen from '../Containers/SetNotificationScreen';
 import SignUpScreen from '../Containers/SignUpScreen';
 import SignInScreen from '../Containers/SignInScreen';
 import LoadingScreen from '../Containers/LoadingScreen';
-import OnceTopicScreen from '../Containers/OnceTopicScreen';
-import OnceSetNumberWordScreen from '../Containers/OnceSetNumberWordScreen';
 import ForgetPassScreen from '../Containers/ForgetPassScreen'
 import UpdatePassScreen from '../Containers/UpdatePassScreen'
+
+import OnceTopicScreen from '../Containers/OnceTopicScreen';
+import OnceSetNumberWordScreen from '../Containers/OnceSetNumberWordScreen';
+
 const AppStackNavigation = createStackNavigator(
   {
     HomeScreen: {
