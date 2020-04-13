@@ -77,7 +77,7 @@ class NewLesson extends React.Component {
   createLesson = async () => {
     let lesson = {
       name: this.state.name,
-      abbreviation: this.state.abbreviatiob,
+      abbreviation: this.state.abbreviation,
       teacher: this.state.teacher,
       week: this.state.week,
       type: this.state.selectedType,
@@ -234,7 +234,7 @@ class NewLesson extends React.Component {
               }
               type="clear"
               onPress={this.showDateTimePicker}
-              buttonStyle={{ color: '#1976D2', marginRight: '2.5%', marginLeft: '1.5%' }}
+              buttonStyle={{ marginRight: '2.5%', marginLeft: '1.5%' }}
             />
             <DateTimePicker
               isVisible={this.state.isDateTimePickerVisible}

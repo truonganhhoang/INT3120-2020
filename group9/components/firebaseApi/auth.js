@@ -1,5 +1,6 @@
 import * as Facebook from 'expo-facebook';
 import firebase from './firebaseInit';
+import { addInfo } from './user';
 
 const signInWithFacebook = async () => {
   try {
@@ -10,10 +11,11 @@ const signInWithFacebook = async () => {
 
     if (type === 'success') {
       // Build Firebase credential with the Facebook access token.
-      const credential = this.firebase.auth.FacebookAuthProvider.credential(token);
+      const credential = firebase.auth.FacebookAuthProvider.credential(token);
 
       // Sign in with credential from the Facebook user.
-      firebase.auth().signInWithCredential(credential);
+      const info = await firebase.auth().signInWithCredential(credential);
+      await addInfo(info.user);
     } else {
       console.log(type);
       return false;

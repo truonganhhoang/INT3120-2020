@@ -4,18 +4,22 @@ const getLessons = async () => {
   const uid = firebase.auth().currentUser.uid;
   const data = await firebase.firestore().collection(`lessons/${uid}/listLessons`).get();
   let ret = [];
-  data.forEach((doc) => {
-    ret.push(doc.data());
-  });
-  console.log(ret);
+  try {
+    data.forEach((doc) => {
+      let ret_doc = doc.data();
+      ret_doc.fid = doc.id;
+      ret.push(ret_doc);
+    });
+  } catch (err) {
+    console.log(err);
+  }
   return ret;
 };
 
 const addLesson = async (lesson) => {
   // console.log(lesson);
   const uid = firebase.auth().currentUser.uid;
-  var ref = firebase.firestore().collection(`lessons/${uid}/listLessons`);
-
+  const ref = await firebase.firestore().collection(`lessons/${uid}/listLessons`);
   var newLesson = {
     abbreviation: lesson.abbreviation,
     teacher: lesson.teacher,
@@ -24,13 +28,27 @@ const addLesson = async (lesson) => {
     day: lesson.day,
     start: lesson.start,
     end: lesson.end,
-    color: lesson.color,
+    color: lesson.color ? lesson.color : '#ffffff',
   };
   try {
     await ref.add(newLesson);
     return true;
   } catch (err) {
     console.log(err);
+    return false;
+  }
+};
+
+const updateLesson = async (update_data) => {
+  const fid = update_data.fid;
+  if (!fid) return false;
+  const uid = firebase.auth().currentUser.uid;
+  var doc_ref = firebase.firestore().doc(`lessons/${uid}/listlessons/${fid}`);
+  try {
+    await doc_ref.update(update_data);
+    // console.log(update_data);
+    return true;
+  } catch (err) {
     return false;
   }
 };

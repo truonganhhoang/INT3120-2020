@@ -105,9 +105,9 @@ class SignUpScreen extends Component {
                     title="SIGN UP"
                     titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
-                    onPress={() => {
+                    onPress={async () => {
                       if (this.state.password == this.state.password1) {
-                        auth.signUpWithEmail(this.state.email, this.state.password);
+                        await auth.signUpWithEmail(this.state.email, this.state.password);
                       } else alert('Password is incorrect!');
                     }}
                   />
@@ -120,7 +120,7 @@ class SignUpScreen extends Component {
                       title="Sign Up with Facebook"
                       type="facebook"
                       button
-                      onPress={() => auth.signInWithFacebook()}
+                      onPress={async () => await auth.signInWithFacebook()}
                     />
                   </View>
                 </View>
@@ -130,7 +130,7 @@ class SignUpScreen extends Component {
                 </Text>
                 <View style={styles.padding} />
                 <Text
-                  onPress={() => auth.signInAnonymously()}
+                  onPress={async () => await auth.signInAnonymously()}
                   style={{ fontSize: 17, color: '#23d5a6', fontWeight: 'bold' }}
                 >
                   Use Anonymous? Sign In Anonymously

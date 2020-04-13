@@ -14,36 +14,34 @@ import {
   Alert,
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
-import { Header, CheckBox, Button} from 'react-native-elements';
+import { Header, CheckBox, Button } from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
-import { getTasks } from '../firebaseApi/task';
+import { getAllTasks, updateTask, deleteTask } from '../firebaseApi/task';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
-let heightPhone = Dimensions.get("window").height;
-let widthPhone = Dimensions.get("window").width;
+let heightPhone = Dimensions.get('window').height;
+let widthPhone = Dimensions.get('window').width;
 
 export default class ViewTask extends React.Component {
-    state = {
-      data: [],
-      idSelected: 0,
-      editModal: false,
-      table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
-      dataSelected: {id: 0, name: '', lesson: '', date: '', description: '', done: '' },
-      refreshing: false,
-      isDateTimePickerVisible: false,
-    };
+  state = {
+    data: [],
+    idSelected: 0,
+    editModal: false,
+    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
+    dataSelected: { id: 0, name: '', lesson: '', date: '', description: '', done: '' },
+    refreshing: false,
+    isDateTimePickerVisible: false,
+  };
 
   modal = React.createRef();
 
   componentDidMount = async () => {
     let arrret = [];
     try {
-    arrret = await getTasks();
-    this.setState({ data: arrret.filter((item) => item.type == 'Task') });
-    } catch (err) {
-      
-    }
+      arrret = await getAllTasks();
+      this.setState({ data: arrret.filter((item) => item.type == 'Task') });
+    } catch (err) {}
   };
 
   onRefresh = () => {
@@ -68,9 +66,9 @@ export default class ViewTask extends React.Component {
     this.hideDateTimePicker();
   };
 
-  openModal = (item,id) => {
+  openModal = (item, id) => {
     this.setState({ dataSelected: item });
-    this.setState({idSelected: id});
+    this.setState({ idSelected: id });
     if (this.modal.current) {
       this.modal.current.open();
     }
@@ -82,10 +80,11 @@ export default class ViewTask extends React.Component {
     }
   };
 
-  deleteItem = (id) => {
-    console.log(id);
+  deleteItem = async (task_fid, id) => {
+    // console.log(id);
     this.state.data.splice(id, 1);
     this.setState({ data: this.state.data.filter((i) => i !== id) });
+    await deleteTask(task_fid);
   };
 
   handleChange = (id) => {
@@ -95,14 +94,14 @@ export default class ViewTask extends React.Component {
   };
 
   renderRow = (item, id) => {
-   // let id = this.state.data.indexOf(item);
+    // let id = this.state.data.indexOf(item);
     let swipeBtns = [
       {
         text: 'Delete',
         backgroundColor: 'red',
         underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
-        onPress: () => {
-          this.deleteItem(id);
+        onPress: async () => {r
+          await this.deleteItem(item.fid, id);
         },
       },
     ];
@@ -111,12 +110,12 @@ export default class ViewTask extends React.Component {
       <Swipeout
         right={swipeBtns}
         autoClose={true}
-        key ={id}
+        key={id}
         style={styles.block}
         backgroundColor="transparent"
       >
         <View>
-          <TouchableOpacity onPress={() => this.openModal(item,id)} key ={id}>
+          <TouchableOpacity onPress={() => this.openModal(item, id)} key={id}>
             <View style={styles.rowContainer}>
               <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(id)} />
               <Text style={styles.note}>
@@ -129,11 +128,12 @@ export default class ViewTask extends React.Component {
     );
   };
 
-  changeData = () => {
-    this.setState({ editModal: false});
+  changeData = async () => {
+    this.setState({ editModal: false });
     let newData = this.state.data;
     newData[this.state.idSelected] = this.state.dataSelected;
-    this.setState({data: newData});
+    await updateTask(this.state.dataSelected);
+    this.setState({ data: newData });
   };
 
   render() {
@@ -156,10 +156,10 @@ export default class ViewTask extends React.Component {
             <RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />
           }
         >
-          {this.state.data.map((item,id) => this.renderRow(item, id))}
+          {this.state.data.map((item, id) => this.renderRow(item, id))}
         </ScrollView>
 
-        <Modalize ref={this.modal} modalHeight={heightPhone*0.7}>
+        <Modalize ref={this.modal} modalHeight={heightPhone * 0.7}>
           <View>
             <View style={styles.content_header}>
               <CheckBox
@@ -173,75 +173,84 @@ export default class ViewTask extends React.Component {
               />
               <TextInput
                 value={this.state.dataSelected.name}
-                style={styles.titleModal} 
-                placeholderTextColor='#1976D2'
+                style={styles.titleModal}
+                placeholderTextColor="#1976D2"
                 editable={this.state.editModal}
-                onChangeText={(text) => this.setState(prevState => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    name: text,
-                  }}
-                ))}
+                onChangeText={(text) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      name: text,
+                    },
+                  }))
+                }
               />
-              <Ionicons 
-                name="ios-brush" 
+              <Ionicons
+                name="ios-brush"
                 style={styles.edit}
-                size={25} 
+                size={25}
                 onPress={() => {
                   if (!this.state.editModal) {
-                  Alert.alert(
-                    'Edit Task',
-                    'Do you want to edit this task?',
-                    [{ text: 'YES', onPress: () => this.setState({ editModal: true})}, {text: 'NO' }],
-                    { caoncelable: false }
-                  )} else {
-                  Alert.alert(
-                    'Edit Task',
-                    'Do you want to finish?',
-                    [{ text: 'YES', onPress:() => this.changeData()}, {text: 'NO' }],
-                    { caoncelable: false }
-                  )}}}
-                />
+                    Alert.alert(
+                      'Edit Task',
+                      'Do you want to edit this task?',
+                      [
+                        { text: 'YES', onPress: () => this.setState({ editModal: true }) },
+                        { text: 'NO' },
+                      ],
+                      { caoncelable: false }
+                    );
+                  } else {
+                    Alert.alert(
+                      'Edit Task',
+                      'Do you want to finish?',
+                      [{ text: 'YES', onPress: () => this.changeData() }, { text: 'NO' }],
+                      { caoncelable: false }
+                    );
+                  }
+                }}
+              />
             </View>
             <View style={{ flexDirection: 'row' }}>
-              <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color:'#d32f2f' }} />
+              <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color: '#d32f2f' }} />
               <Picker
                 selectedValue={this.state.dataSelected.lesson}
-                enabled = {this.state.editModal}
+                enabled={this.state.editModal}
                 style={styles.lessonModal}
-                onValueChange={(itemValue, itemIndex) => this.setState( prevState => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    lesson: itemValue,
-                  }
-                }))}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      lesson: itemValue,
+                    },
+                  }))
+                }
               >
                 {this.state.table.map((item, i) => (
                   <Picker.Item label={item.name} value={item.name} key={i} />
                 ))}
               </Picker>
             </View>
-            <View style={{marginBottom: 10, flexDirection:'row'}}> 
-              
+            <View style={{ marginBottom: 10, flexDirection: 'row' }}>
               <Ionicons
                 name="ios-calendar"
                 size={30}
-                style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5, }}
+                style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5 }}
               />
               <Button
                 title={this.state.dataSelected.day}
-                type='clear'
+                type="clear"
                 onPress={this.showDateTimePicker}
                 disabled={!this.state.editModal}
-                disabledTitleStyle={{color:'#ffc107'}}
-                buttonStyle={{ width: widthPhone*0.33}}
-                titleStyle={{fontSize: 18, color:'#ffc107'}}
+                disabledTitleStyle={{ color: '#ffc107' }}
+                buttonStyle={{ width: widthPhone * 0.33 }}
+                titleStyle={{ fontSize: 18, color: '#ffc107' }}
               />
-                <DateTimePicker
-                  isVisible={this.state.isDateTimePickerVisible}
-                  onConfirm={this.handleDatePicked}
-                  onCancel={this.hideDateTimePicker}
-                />
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this.handleDatePicked}
+                onCancel={this.hideDateTimePicker}
+              />
             </View>
             <View>
               <Text style={{ paddingLeft: 5, color: '#B7B7B7', fontSize: 18 }}>Note</Text>
@@ -252,12 +261,14 @@ export default class ViewTask extends React.Component {
                 placeholderTextColor="black"
                 numberOfLines={2}
                 multiline={true}
-                onChangeText={(text) => this.setState(prevState => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    description: text,
-                  }}
-                ))}
+                onChangeText={(text) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      description: text,
+                    },
+                  }))
+                }
               />
             </View>
           </View>
@@ -274,26 +285,26 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   content_header: {
-    paddingTop: 20, 
+    paddingTop: 20,
     flexDirection: 'row',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
   titleModal: {
-    fontSize: 27,  
-    fontWeight:'bold', 
-    letterSpacing:1, 
-    color:'#1976D2',
-    width: widthPhone*0.7,
+    fontSize: 27,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    color: '#1976D2',
+    width: widthPhone * 0.7,
   },
   lessonModal: {
-    marginTop:10,
-    color:'#d32f2f',
+    marginTop: 10,
+    color: '#d32f2f',
     height: 50,
-    width: widthPhone*0.5,
+    width: widthPhone * 0.5,
   },
   edit: {
-    marginLeft:'auto',
+    marginLeft: 'auto',
     color: '#1976D2',
     marginRight: 10,
     paddingTop: 10,

@@ -89,7 +89,7 @@ class LoginScreen extends Component {
                     title="SIGN IN"
                     titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
-                    onPress={() => auth.signInWithEmail(this.state.email, this.state.password)}
+                    onPress={async () => await auth.signInWithEmail(this.state.email, this.state.password)}
                   />
                 </View>
                 <View style={{ height: heightPhone*0.01 }} />
@@ -100,7 +100,7 @@ class LoginScreen extends Component {
                       title="Sign in with Facebook"
                       type="facebook"
                       button
-                      onPress={() => auth.signInWithFacebook()}
+                      onPress={async () => await auth.signInWithFacebook()}
                     />
                   </View>
                 </View>
@@ -110,7 +110,7 @@ class LoginScreen extends Component {
                 </Text>
                 <View style={styles.padding} />
                 <Text
-                  onPress={() => auth.signInAnonymously()}
+                  onPress={async () => await auth.signInAnonymously()}
                   style={{ fontSize: 17, color: '#23d5a6', fontWeight: 'bold' }}
                 >
                   Use Anonymous? Sign In Anonymously
