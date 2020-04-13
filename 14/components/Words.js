@@ -1,12 +1,15 @@
 import React from 'react'
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { StyleSheet, View, Text, Image , Alert} from 'react-native';
+import { StyleSheet, View, Text, Image , Alert } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
 import IconFont from 'react-native-vector-icons/FontAwesome';
 import  * as Animatable from 'react-native-animatable';
+import { Notifications } from 'expo';
 import db from './../data/SQLite';
+
+console.disableYellowBox = true;
 export default class Words extends React.Component {
 
   constructor(props){
@@ -41,11 +44,30 @@ export default class Words extends React.Component {
     }
   }
 
-  remindSwitch = word => {
+  remindSwitch = async word => {
     if (word.remind == 1){
       word.remind = 0;
+      const nID = await db.getNotificationID(word.eng);
+      console.log(nID);
+      if (nID != 'null'){
+        Notifications.cancelScheduledNotificationAsync(nID);
+      }
     }else{
       word.remind = 1;
+      const localNotification = {
+        title: word.eng,
+        body: `${word.eng} có nghĩa là ${word.vie}`,
+        data: { data: `${new Date().getTime()}` },
+        ios: {sound: true, _displayInForeground: true}
+      };
+      const schedulingOptions = {
+        repeat: "minute",
+        time: (new Date()).getTime() + 10000
+      }
+      const notificationID = await Notifications.scheduleLocalNotificationAsync(
+        localNotification, schedulingOptions
+      );
+      db.setNotificationID(notificationID, word.eng);
     }
     db.updateFavoriteOrRemind('remind',word.eng, word.remind);
     if (this.props.type == 'remind'){
