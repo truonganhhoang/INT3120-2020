@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, ScrollView } from 'react-native';
 import { Dimensions } from 'react-native'
 const deviceWidth = Dimensions.get('window').width;
 import persen from '../assets/icons8-speaker-40.png'
@@ -40,7 +40,8 @@ class DetailsScreen extends React.Component {
         
         const widthElement = deviceWidth * 45 / 100;
         return (
-            <View>
+            <ScrollView>
+                 <View>
                 <View style={{
                     backgroundColor: '#006265',
                     height: 20,
@@ -72,10 +73,13 @@ class DetailsScreen extends React.Component {
                 }}>{kanji}</Text></View>
                 </View>
                 <View style={{
-                    height: 420,
+                    height: deviceWidth *1.2,
                     width: deviceWidth * 90 / 100,
                     marginLeft: deviceWidth / 2 - deviceWidth * 45 / 100,
                     marginTop: 20,
+                    paddingHorizontal: 8,
+                    paddingTop: 15,
+                    marginBottom: 20,
                     borderRadius: 2,
                     shadowColor: "#000",
                     shadowOffset: {
@@ -166,6 +170,8 @@ class DetailsScreen extends React.Component {
                     </View>
                 </View>
             </View>
+            </ScrollView>
+           
         );
     }
 }
