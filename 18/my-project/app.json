@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Ôn thi GPLX",
+    "name": "Ôn thi GPLX B1",
     "slug": "GPLX",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -34,7 +34,7 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "description": ""
   }

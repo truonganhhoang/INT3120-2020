@@ -14,7 +14,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 
 import Home from './Home'
-import Setting from './Setting'
 import Test from './Test'
 import Learn from './Learn'
 import Tutorial from './Tutorial'
@@ -23,6 +22,7 @@ import Signs from './Signs'
 import Rules from './Rules'
 import Practice from './Tips/Practive'
 import Theory from './Tips/Theory'
+import Taplo from './Taplo'
 
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -62,12 +62,11 @@ function CustomDrawerContent(props) {
         }}
       >
         <View style={{ alignItems: 'center', flexDirection: 'row', top: 50, marginHorizontal: Dimensions.get("screen").width / 6 }}>
-          <Image source={require('../image/car.png')} />
-          <Text style={{ left: 10, color: '#0094D5', fontWeight: 'bold', fontSize: 15 }}>Ôn thi {'\n'}giấy phép lái xe</Text>
+          <Image source={require('../assets/car.png')} />
+          <Text style={{ left: 10, color: '#0094D5', fontWeight: 'bold', fontSize: 15 }}>Ôn thi {'\n'}Giấy phép lái xe B1</Text>
         </View>
       </LinearGradient>
       <ScrollView style={{ backgroundColor: '#fff', marginTop: 130 }}>
-        <View style={styles.textMenu1}>
           <DrawerItem
             label='Học bằng lái xe'
             onPress={() => props.navigation.navigate('Home')}
@@ -79,44 +78,15 @@ function CustomDrawerContent(props) {
             icon={() => <Icon style={styles.menuIcon} name='information-outline' />}
           />
           <DrawerItem
-            label='Email hỗ trợ'
-            onPress={() => props.navigation.navigate('Setting')}
-            icon={() => <Icon style={styles.menuIcon} name='email' />}
-          />
-          <DrawerItem
-            label='Cài đặt'
-            onPress={() => props.navigation.navigate('Setting')}
-            icon={() => <Icon style={styles.menuIcon} name='settings-outline' />}
-          />
-        </View>
-        <View style={styles.textMenu2}>
-          <DrawerItem
             label='Kỹ năng lái xe'
             onPress={() => props.navigation.navigate('Skill')}
             icon={() => <Icon style={styles.menuIcon} name='car' />}
           />
           <DrawerItem
-            label='Các ứng dụng khác'
-            onPress={() => props.navigation.navigate('Setting')}
-            icon={() => <Icon style={styles.menuIcon} name='download' />}
-          />
-          <DrawerItem
-            label='Chia sẻ ứng dụng'
-            onPress={() => props.navigation.navigate('Setting')}
-            icon={() => <Icon style={styles.menuIcon} name='share-variant' />}
-          />
-          <DrawerItem
-            label='Đánh giá ứng dụng'
-            onPress={() => props.navigation.navigate('Setting')}
-            icon={() => <Icon style={styles.menuIcon} name='comment-account-outline' />}
-          />
-          <DrawerItem
             label='Chính sách và điều khoản'
-            onPress={() => props.navigation.navigate('Setting')}
+            onPress={() => props.navigation.navigate('Skill')}
             icon={() => <Icon style={styles.menuIcon} name='contacts' />}
           />
-        </View>
-
       </ScrollView>
     </DrawerContentScrollView>
   );
@@ -152,7 +122,7 @@ function MyStack({ navigation }) {
       },
     }}>
       <Stack.Screen name="Home" component={Home} options={{
-        title: 'Ôn thi giấy phép lái xe',
+        title: 'Ôn thi giấy phép lái xe B1',
         headerLeft: () => (
           <Icon name='menu' size={30} style={{ left: 15 }} color='white' onPress={() => { navigation.openDrawer() }} />
         )
@@ -166,9 +136,6 @@ function MyStack({ navigation }) {
 
 
 
-      <Stack.Screen name="Setting" component={Setting} options={{
-        title: 'Chọn hạng bằng thi',
-      }} />
       <Stack.Screen name="Test" component={Test} options={{
         title: 'Thi sát hạnh',
       }} />
@@ -184,13 +151,16 @@ function MyStack({ navigation }) {
       <Stack.Screen name="Rules" component={Rules} options={{
         title: 'Tra cứu luật',
       }} />
+      <Stack.Screen name="Taplo" component={Taplo} options={{
+        title: 'Đèn cảnh báo trên taplo Ô tô',
+      }} />
     </Stack.Navigator>
   );
 }
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator drawerStyle={{ width: '80%', }}
+    <Drawer.Navigator drawerStyle={{ width: '80%', }} hideStatusBar={true} initialRouteName='Home'
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={MyStack} />
     </Drawer.Navigator>
@@ -210,10 +180,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
 
-  },
-  textMenu1: {
-    borderBottomWidth: 1.5,
-    borderBottomColor: '#00000017',
   },
   menuIcon: {
     fontSize: 30,
