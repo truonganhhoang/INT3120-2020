@@ -4,5 +4,5 @@ import dataExam from "./dataExam";
 
 export default combineReducers({
   exams,
-  dataExam
+  dataExam,
 });
