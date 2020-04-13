@@ -8,3 +8,4 @@ Mỗi nhóm tạo 1 thư mục với số của nhóm để đưa code của nh�
 Các nhóm nộp bài hàng tuần bằng cách tạo 1 pull request nộp bài chung cho cả nhóm. Có nghĩa các thành viên sẽ đóng góp thông qua repo của 1 người forked ra từ repo này. 
 
 Mọi thành viên tự commit code của mình, không commit hộ, để thống kê trên github thể hiện được đóng góp của từng cá nhân.
+
