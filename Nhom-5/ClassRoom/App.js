@@ -25,7 +25,9 @@ export default function App(props) {
 
   const authContext = React.useMemo(() => {
     return {
-      token: userToken,
+      getToken: () => {
+        return userToken;
+      },
       signIn: (phone, password) => {
         setLoadingComplete(false);
         fetch('https://mobile-uet.herokuapp.com/api/login', {
@@ -42,10 +44,13 @@ export default function App(props) {
         .then((response) => response.json())
         .then((json) => {
           if(json.code != "success") Alert.alert("Có lỗi xảy ra!\nVui lòng thử lại.");
-          else setUserToken(json.response);
+          else {
+            setUserToken(json.response);
+            setLoadingComplete(true);
+          }
         })
         .catch(() => Alert.alert(json.code.toUpperCase()))
-        .finally(() => setLoadingComplete(true));
+        .finally(() => setLoadingComplete(true))
       },
       signUp: (phone,password, name, email, school) => {
         fetch('https://mobile-uet.herokuapp.com/api/create-user', {

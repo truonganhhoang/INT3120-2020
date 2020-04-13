@@ -32,7 +32,7 @@ export default class Notifications extends React.Component {
   };
 }
 
-function   OptionButton({label, content}) {
+function OptionButton({label, content}) {
   return (
     <RectButton style={[styles.option]}>
       <View style={{flex:1}}>

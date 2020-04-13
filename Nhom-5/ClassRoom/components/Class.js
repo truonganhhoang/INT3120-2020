@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
   rightPart: {
     flexDirection: 'column',
     justifyContent: 'space-between',
+    borderBottomColor: '#555',
+    borderBottomWidth: 0.5,
   },
   title: {
     width: 250,
