@@ -15,7 +15,7 @@ export class DetailTopicScreen extends Component {
 
     this.state = {
       isLoading: true,
-      listWord: []
+      listWord: [],
     };
   }
 
@@ -25,10 +25,10 @@ export class DetailTopicScreen extends Component {
       headerTitleStyle: {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
       },
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
     };
   };
 
@@ -47,8 +47,8 @@ export class DetailTopicScreen extends Component {
         .doc(titleTopic)
         .collection(titleTopic)
         .get()
-        .then(docs => {
-          docs.forEach(doc => {
+        .then((docs) => {
+          docs.forEach((doc) => {
             // console.log(doc.id, "=>", doc.data());
             data.push(doc.data());
             // console.log(data);
@@ -56,7 +56,7 @@ export class DetailTopicScreen extends Component {
 
           this.setState({ listWord: data, isLoading: !this.state.isLoading });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error getting documents", err);
         });
     } else {
@@ -69,6 +69,12 @@ export class DetailTopicScreen extends Component {
       const soundObject = new Audio.Sound();
       try {
         await soundObject.loadAsync(sounds[word]);
+
+        // await soundObject.loadAsync({
+        //   uri:
+        //     "https://drive.google.com/drive/folders/1LFGBZluj3_IymU8YZlNoVopLvxA3zE1N",
+        // });
+
         await soundObject.playAsync();
         // Your sound is playing!
       } catch (error) {
@@ -107,6 +113,6 @@ export default DetailTopicScreen;
 
 const styles = StyleSheet.create({
   list: {
-    margin: 10
-  }
+    margin: 10,
+  },
 });
