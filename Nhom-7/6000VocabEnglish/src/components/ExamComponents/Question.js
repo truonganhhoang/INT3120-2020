@@ -4,16 +4,48 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import SingleImageWord from "./SingleImageWord";
 import { connect } from "react-redux";
 import * as actionCreators from "../../actions";
-
+import { Audio } from "expo-av";
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+  playSound = async (effectType) => {
+    if (effectType === "correct") {
+      const soundObject = new Audio.Sound();
+      try {
+        await soundObject.loadAsync(
+          require("../../assets/sounds/correctEffect.mp3")
+        );
+        await soundObject.playAsync();
+        // Your sound is playing!
+      } catch (error) {
+        // An error occurred!
+      }
+    } else if (effectType === "wrong") {
+      const soundObject = new Audio.Sound();
+      try {
+        await soundObject.loadAsync(
+          require("../../assets/sounds/wrongEffect.wav")
+        );
+        await soundObject.playAsync();
+        // Your sound is playing!
+      } catch (error) {
+        // An error occurred!
+      }
+    }
+  };
+
   handleOnPressed(indexChoice, idQuestion, item) {
     this.props.onPickOneAnswer(indexChoice, idQuestion);
-    item.correct ? this.props.answerIsTrue() : this.props.answerIsFalse();
+    if (item.correct) {
+      this.props.answerIsTrue();
+      this.playSound("correct");
+    } else {
+      this.props.answerIsFalse();
+      this.playSound("wrong");
+    }
   }
 
   // handleAnswerTrue() {
@@ -42,7 +74,7 @@ class Question extends Component {
                   borderColor: "white",
                   borderRadius: 10,
                   borderWidth: 10,
-                  elevation: 3
+                  elevation: 3,
                 }}
               >
                 <TouchableHighlight
@@ -67,14 +99,14 @@ class Question extends Component {
               questionData.options.length < 4
                 ? {
                     width: "50%",
-                    alignSelf: "center"
+                    alignSelf: "center",
                   }
                 : {
                     width: "90%",
                     height: undefined,
                     aspectRatio: 1,
                     alignSelf: "center",
-                    margin: 30
+                    margin: 30,
                   }
             }
           />
@@ -88,13 +120,13 @@ function mapStateToProps(state) {
   return { myExam: state.exams };
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onNextQuestion: () => dispatch(actionCreators.nextQuestion()),
     answerIsTrue: () => dispatch(actionCreators.answerIsTrue()),
     answerIsFalse: () => dispatch(actionCreators.answerIsFalse()),
     onPickOneAnswer: (index, id) =>
-      dispatch(actionCreators.pickOneChoice(index, id))
+      dispatch(actionCreators.pickOneChoice(index, id)),
   };
 };
 
@@ -104,9 +136,9 @@ const styles = StyleSheet.create({
   word: {
     margin: 15,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   wordText: {
-    fontSize: 30
-  }
+    fontSize: 30,
+  },
 });
