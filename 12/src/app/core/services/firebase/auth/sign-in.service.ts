@@ -16,7 +16,7 @@ export class SignInService {
   }
 
   signInWithEmailAndPassword(email: string, password: string) {
-    return new Observable<any>((observer) => {
+    return new Observable<firebase.User>((observer) => {
       this.ngFireAuth.auth
         .signInWithEmailAndPassword(email, password)
         .then((userCredentials) => {

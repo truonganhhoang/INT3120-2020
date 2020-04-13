@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { SentryErrorHandlerService } from './core/services/sentry-error-handler.service';
 import { environment } from '../environments/environment';
 
@@ -47,6 +48,7 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
     Keyboard,
     Facebook,
     AppVersion,
+    AngularFireAuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: ErrorHandler, useClass: SentryErrorHandlerService }
   ],

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ToastController } from '@ionic/angular';
 import { AppVersion } from '@ionic-native/app-version/ngx';
-import { Storage } from '@ionic/storage';
 
 import { SignOutService } from '../../../core/services/firebase/auth/sign-out.service';
 
@@ -18,7 +17,6 @@ export class SettingsPage implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private storageService: Storage,
     private appVersion: AppVersion,
     private signOutService: SignOutService,
     private toastController: ToastController
@@ -42,7 +40,6 @@ export class SettingsPage implements OnInit, OnDestroy {
     this.signOutSubscription = this.signOutService.signOut().subscribe({
       next: () => {},
       complete: async () => {
-        await this.storageService.clear();
         await this.router.navigate(['/sign-in']);
       },
       error: async (err) => {

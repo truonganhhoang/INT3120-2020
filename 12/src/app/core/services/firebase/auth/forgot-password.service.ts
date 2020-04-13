@@ -9,7 +9,7 @@ export class ForgotPasswordService {
   constructor(private ngFireAuth: AngularFireAuth) {}
 
   sendPasswordResetEmail(email: string) {
-    return new Observable<any>((observer) => {
+    return new Observable<void>((observer) => {
       this.ngFireAuth.auth
         .sendPasswordResetEmail(email)
         .then(() => {

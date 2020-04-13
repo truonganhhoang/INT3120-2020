@@ -1,24 +1,33 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
-import { AuthGuard } from './auth.guard';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then((m) => m.IntroPageModule),
-    canLoad: [AuthGuard]
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+    }
   },
   {
     path: 'sign-in',
     loadChildren: () => import('./sign-in/sign-in.module').then((m) => m.SignInPageModule),
-    canLoad: [AuthGuard]
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+    }
   },
   {
     path: 'sign-up',
     loadChildren: () => import('./sign-up/sign-up.module').then((m) => m.SignUpPageModule),
-    canLoad: [AuthGuard]
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+    }
   },
   {
     path: 'policy',
@@ -27,7 +36,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-    canLoad: [AuthGuard]
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: () => redirectUnauthorizedTo(['/sign-in'])
+    }
   },
   {
     path: '**',
