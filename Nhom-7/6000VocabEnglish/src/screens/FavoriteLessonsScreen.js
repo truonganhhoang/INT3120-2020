@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, AsyncStorage } from "react-native";
 import OverviewTopicItem from "../components/OverviewTopicItem";
 import Carousel from "react-native-snap-carousel";
 import Spinner from "react-native-loading-spinner-overlay";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 export default class FavoriteLessonsScreen extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class FavoriteLessonsScreen extends React.Component {
   _getFavoriteTopics = async () => {
     try {
       const value = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
-      // console.log(JSON.parse(value));
       return JSON.parse(value);
     } catch (error) {
       console.log("Error GETT");
@@ -93,7 +93,8 @@ export default class FavoriteLessonsScreen extends React.Component {
           textContent={"Loading..."}
           textStyle={{ color: "#fff" }}
         />
-        {this.state.topicItems.length > 0 ? (
+
+        {this.state.topicItems ? (
           <Carousel
             ref={(c) => {
               this._carousel = c;

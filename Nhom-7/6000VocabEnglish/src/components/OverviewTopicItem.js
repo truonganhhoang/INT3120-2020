@@ -43,7 +43,12 @@ export class OverviewTopicItem extends Component {
 
   _storeData = async (item) => {
     try {
-      const data = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
+      const data = await AsyncStorage.getItem(
+        "@FAVORITE_TOPIC:key",
+        async (err, result) => {
+          err ? await AsyncStorage.setItem("@FAVORITE_TOPIC:key", null) : null;
+        }
+      );
       let topics = null;
       if (data === null) {
         topics = [];
@@ -62,21 +67,6 @@ export class OverviewTopicItem extends Component {
     }
   };
 
-  /*
-  _getAsyncStorage = async () => {
-    try {
-      const value = await AsyncStorage.getItem("@FAVORITE_TOPIC:key");
-      if (value !== null) {
-        console.log("GETTTTTTT: " + value);
-      } else {
-        console.log("Empty");
-      }
-    } catch (error) {
-      // Error retrieving data
-    }
-  };
-  */
-
   async checkFavorite() {
     let list;
     try {
@@ -85,11 +75,13 @@ export class OverviewTopicItem extends Component {
     } catch (error) {
       // console.log("ERROR GET");
     }
-    list = JSON.parse(list);
-    list = list.filter((e) => {
-      return e.topicName === this.props.item.topicName;
-    });
-    if (list.length > 0) {
+    if (list !== null) {
+      list = JSON.parse(list);
+      list = list.filter((e) => {
+        return e.topicName === this.props.item.topicName;
+      });
+    }
+    if (list !== null && list.length > 0) {
       this.setState({ favorite: true });
     }
   }
