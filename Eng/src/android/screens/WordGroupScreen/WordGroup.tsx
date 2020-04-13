@@ -27,7 +27,7 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       <ScrollView horizontal={true}>
         {
           data.map( (e: any) =>
-            <WordGroupCard data={e} navigation={navigation} key={index++}
+            <WordGroupCard data={e} navigation={navigation} key={index++} topic_name={nameTopic}
             />
           )
         }

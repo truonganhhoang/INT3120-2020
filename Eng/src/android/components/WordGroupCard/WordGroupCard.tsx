@@ -8,10 +8,10 @@ import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { Text, View, Dimensions, Image } from 'react-native';
 import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 
-const CardWordGroup = (props: { data?: any; navigation?: any }) => {
-  const { data } = props;
+const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any }) => {
+  const { data, topic_name } = props;
+  console.log(topic_name);
   const { navigation } = props;
-  console.log(data);
   const [colorStar, setColorStar] = useState("staro");
   const changeStar = () => {
     if (colorStar == 'staro') {
@@ -25,7 +25,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
     navigation.navigate('DetailWordGroupScreen', { data: data });
   }
   const onFlipCard = () => {
-    navigation.navigate('FlipCardWord', { data: data });
+    navigation.navigate('FlipCardWord', { data: data.wordGroupName, topic_name: topic_name });
   };
   return (
     <View style={styles.containers}>
@@ -43,7 +43,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
               onPress={changeStar}
             />
             <Image
-              source={{uri:data.image_les}}
+              source={{ uri: data.image_les }}
               style={styles.img}
             />
           </View>
@@ -63,8 +63,8 @@ const CardWordGroup = (props: { data?: any; navigation?: any }) => {
             {data.vn_meaning}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
-            Giúp bạn nắm vững {data.num_word} từ liên quan đến  
-             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform:'uppercase',fontSize:13}}> {data.vn_meaning}</Text> trong tiếng anh
+            Giúp bạn nắm vững {data.num_word} từ liên quan đến
+             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 13 }}> {data.vn_meaning}</Text> trong tiếng anh
       </Text>
 
         </Card>

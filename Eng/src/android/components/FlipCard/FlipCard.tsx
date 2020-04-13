@@ -11,6 +11,7 @@ const HEIGHT = Dimensions.get('window').height;
 var values = 0;
 const FlipCard = (props: { data: any }) => {
     const { data } = props;
+    console.log(data);
     const animatedValue = new Animated.Value(0);
     animatedValue.addListener(({ value }) => {
         values = value;
@@ -79,7 +80,7 @@ const FlipCard = (props: { data: any }) => {
                         </View>
                         <View style={{}}>
                             <Image
-                                source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Ffood.webp?alt=media&token=41dacf50-de6f-43da-ac0f-ad8f382fa956' }}
+                                source={{ uri: data.image_uri }}
                                 resizeMode='contain'
                                 style={{ width: WIDTH / 2, height: HEIGHT / 2 - 70 }}
                             />
@@ -94,15 +95,15 @@ const FlipCard = (props: { data: any }) => {
 
                     <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle, { opacity: backOpacity }]}>
                         <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
-                            neck
+                            {data.en_meaning}
                         </Text>
                         <Text style={{ color: '#666' }}>
-                            /nek/
+                            {data.spelling}
                         </Text>
                         <Text style={{ marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
-                            cổ
+                            {data.vn_meaning}
                         </Text>
-                        <View style={{backgroundColor:'#ff5e00',borderRadius:100,paddingTop:8,paddingBottom:8,paddingLeft:15,paddingRight:14,marginTop:10}}>
+                        <View style={{ backgroundColor: '#ff5e00', borderRadius: 100, paddingTop: 8, paddingBottom: 8, paddingLeft: 15, paddingRight: 14, marginTop: 10 }}>
                             <Ionicons
                                 name='ios-volume-high'
                                 color='#FFF'
