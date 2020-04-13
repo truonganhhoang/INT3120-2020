@@ -37,6 +37,7 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
     AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

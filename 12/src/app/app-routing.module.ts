@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./intro/intro.module').then((m) => m.IntroPageModule),
     canActivate: [AngularFireAuthGuard],
     data: {
-      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/courses'])
     }
   },
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./sign-in/sign-in.module').then((m) => m.SignInPageModule),
     canActivate: [AngularFireAuthGuard],
     data: {
-      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/courses'])
     }
   },
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren: () => import('./sign-up/sign-up.module').then((m) => m.SignUpPageModule),
     canActivate: [AngularFireAuthGuard],
     data: {
-      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/course'])
+      authGuardPipe: () => redirectLoggedInTo(['/tabs/learn/courses'])
     }
   },
   {
