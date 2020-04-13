@@ -39,14 +39,14 @@ export class ForgotPasswordComponent implements OnInit {
             message: 'Your reset password request has been sent. Please check your email',
             duration: 3000
           });
-          toast.present();
+          await toast.present();
         },
         error: async () => {
           const toast = await this.toastController.create({
             message: 'Failed while handling your request. Please try again.',
             duration: 3000
           });
-          toast.present();
+          await toast.present();
         }
       });
     }

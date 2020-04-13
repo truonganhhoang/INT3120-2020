@@ -60,8 +60,9 @@ export class SignInPage implements OnDestroy {
       this.signInSubscription = this.signInService
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
-          next: (user) => {
-            this.storage.set('user', user.toJSON());
+          next: () => {
+            this.signInForm.reset();
+            this.signInForm.clearValidators();
           },
           complete: () => {
             this.isSubmitting = false;
