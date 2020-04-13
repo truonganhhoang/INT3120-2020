@@ -16,16 +16,8 @@ const addLesson = async (lesson) => {
   const uid = firebase.auth().currentUser.uid;
   var ref = firebase.firestore().collection(`lessons/${uid}/listLessons`);
 
-  var newLesson = {
-    abbreviation: lesson.abbreviation,
-    teacher: lesson.teacher,
-    type: lesson.type,
-    location: lesson.location,
-    day: lesson.day,
-    start: lesson.start,
-    end: lesson.end,
-    color: lesson.color,
-  };
+  var newLesson = lesson;
+  console.log(newLesson);
   try {
     await ref.add(newLesson);
     return true;

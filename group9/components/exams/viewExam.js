@@ -60,7 +60,8 @@ export default class ViewExam extends React.Component {
   };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    const month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const day = date.getDate() + ' ' + month[date.getMonth()] + ' ' + date.getFullYear();
     let newState = Object.assign({}, this.state);
     newState.dataSelected.date = date;
     newState.dataSelected.day = day;
