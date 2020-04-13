@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, AsyncStorage } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import starOutline from "../assets/icon/star-outline.png";
@@ -10,7 +10,81 @@ export class DetailTopicItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      favorite: false,
+    };
+  }
+
+  async handlePressFavorite(item) {
+    if (!this.state.favorite) {
+      //add to storage
+      await this._storeData(item);
+    } else {
+      await this._removeData(item);
+    }
+
+    this.setState({ favorite: !this.state.favorite });
+  }
+
+  _removeData = async (item) => {
+    try {
+      const data = await AsyncStorage.getItem("@FAVORITE_WORD:key");
+      let words = JSON.parse(data);
+      words = words.filter((e) => {
+        return e.word !== JSON.parse(JSON.stringify(item)).word;
+      });
+      // console.log(words);
+      await AsyncStorage.setItem("@FAVORITE_WORD:key", JSON.stringify(words));
+    } catch (e) {
+      console.log("Error remove data");
+    }
+  };
+
+  _storeData = async (item) => {
+    try {
+      const data = await AsyncStorage.getItem(
+        "@FAVORITE_WORD:key",
+        async (err, result) => {
+          err ? await AsyncStorage.setItem("@FAVORITE_WORD:key", null) : null;
+        }
+      );
+      let words = null;
+      if (data === null) {
+        words = [];
+      } else {
+        words = JSON.parse(data);
+      }
+      let parsed = JSON.parse(JSON.stringify(item));
+      words.push(parsed);
+
+      await AsyncStorage.setItem("@FAVORITE_WORD:key", JSON.stringify(words));
+    } catch (error) {
+      // Error saving data
+      console.log("ERROR _storeData:  " + error);
+    }
+  };
+
+  async checkFavorite() {
+    let list;
+    try {
+      const value = await AsyncStorage.getItem("@FAVORITE_WORD:key");
+      list = value;
+    } catch (error) {
+      console.log("ERROR checkFavorite");
+    }
+    if (list !== null) {
+      list = JSON.parse(list);
+      list = list.filter((e) => {
+        return e.word === this.props.item.word;
+      });
+    }
+    if (list !== null && list.length > 0) {
+      this.setState({ favorite: true });
+    }
+  }
+
+  componentDidMount() {
+    this.checkFavorite();
   }
 
   render() {
@@ -19,7 +93,9 @@ export class DetailTopicItem extends Component {
       <View style={styles.container}>
         <View style={styles.leftColumn}>
           <View style={styles.iconStar}>
-            <TouchableOpacity onPress={this.handlePressFavorite}>
+            <TouchableOpacity
+              onPress={() => this.handlePressFavorite(this.props.item)}
+            >
               <Image
                 source={!this.state.favorite ? starOutline : starFillColor}
                 style={{ width: 25, height: 25 }}
@@ -62,9 +138,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   iconStar: {
+    zIndex: 1,
     position: "absolute",
-    top: 5,
-    left: 5,
+    top: -5,
+    left: -5,
     width: 25,
     height: 25,
   },

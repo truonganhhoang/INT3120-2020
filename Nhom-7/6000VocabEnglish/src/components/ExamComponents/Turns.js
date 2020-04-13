@@ -40,7 +40,7 @@ class Turns extends Component {
 }
 function mapStateToProps(state) {
   return {
-    myExam: state.exams
+    myExam: state.exams,
   };
 }
 
@@ -48,6 +48,6 @@ export default connect(mapStateToProps)(Turns);
 
 const styles = StyleSheet.create({
   heartsContainer: {
-    flexDirection: "row"
-  }
+    flexDirection: "row",
+  },
 });
