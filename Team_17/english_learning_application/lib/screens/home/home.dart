@@ -47,6 +47,7 @@ class Home extends StatelessWidget {
         ),
         drawer: Drawer(
           child: ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
                 accountName: Text(
