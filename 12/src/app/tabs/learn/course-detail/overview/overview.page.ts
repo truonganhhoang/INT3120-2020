@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.page.scss']
 })
 export class OverviewPage implements OnInit {
-  constructor() {}
+  courseUrl = '';
+
+  constructor(private router: Router) {
+    this.courseUrl = this.router.url.split('/').reverse().slice(1).reverse().join('/');
+  }
 
   ngOnInit() {}
 }
