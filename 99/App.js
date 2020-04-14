@@ -6,11 +6,7 @@ import { Text } from "./sharedComponents/Text";
 import HomeScreen from "./screens/homeScreen/homeScreen";
 import appColors from "./constants/colors";
 import TrafficLaws from "./screens/trafficlawscreen/TrafficLaws";
-// import Accordian from "./component/Accordian";
-// import ListAccordians from "../99/component/ListAccordians";
-// import Colors from "../99/component/Colors";
-// import {Component} from 'react';
-import tipScreen from "../99/screens/tipScreen/TipScreen"
+import TipScreen from "../99/screens/tipScreen/TipScreen"
 
 const Stack = createStackNavigator();
 
@@ -46,7 +42,7 @@ function App() {
         />
         <Stack.Screen
           name="tipScreen"
-          component={tipScreen}
+          component={TipScreen}
           options={{ title: "Mẹo thi kết quả cao", headerTitleAlign: "center" }}
         />
       </Stack.Navigator>
@@ -57,9 +53,4 @@ function App() {
 
 export default App;
 
-// function App (){
-//   return (
-//     <ListAccordians/>
-//   );
-// };
-// export default App
+//list accordian;

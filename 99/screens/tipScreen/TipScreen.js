@@ -9,7 +9,7 @@ import PracticeTips from "./PracticeTips";
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TrafficLaws() {
+export default function TipScreen() {
     return (
       <Tab.Navigator>
         <Tab.Screen name="Mẹo lý thuyết" component={TheoryTips} />
