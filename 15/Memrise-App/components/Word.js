@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#fff',
         marginTop:5,
         marginBottom :5,
-       paddingBottom :3,
+        paddingBottom :3,
         borderBottomColor: '#000',
         borderBottomWidth:0.3,
        
@@ -80,12 +80,13 @@ const styles = StyleSheet.create({
     word:{
         textTransform:'lowercase',           
         fontWeight: '700',
-        fontSize:20
+        fontSize:30,
+        marginBottom :3,
     },
     mean:{
         textTransform:'lowercase',           
-        fontWeight: '100',
-        fontSize:13
+        fontWeight: '500',
+        fontSize:15
     }
 
 });
