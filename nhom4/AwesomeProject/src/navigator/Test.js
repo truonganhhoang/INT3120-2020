@@ -13,7 +13,7 @@
 
 import React, { Component, useState, useEffect } from 'react';
 import {
-  Text, View
+  Text, View,Image
 } from 'react-native';
 import {
   Container, Header, Tab, Tabs,
@@ -21,21 +21,28 @@ import {
   Icon, Title, Right, Content,
   ListItem, CheckBox
 } from 'native-base';
+import {FirebaseApp} from '../component/FirebaseConfig';
 export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data:[]
     };
+  }
+  componentDidMount(){
+    var listQuestion=this.props.route.params.data.Question.split(" ");
+    for(var i=0;i<listQuestion.length;i++){
+      FirebaseApp.database().ref('Question').child(listQuestion[i]).once('value').then(snapshot => {
+        this.setState({data:[...this.state.data,snapshot.val()]});
+      })
+    }
   }
   render() {
     const { namePage } = this.props.route.params;
     const { navigation } = this.props;
-    const { data } = this.props.route.params;
-    console.log(data);
     return (
       <Container>
-        <Header >
+        <Header style={{}}>
           <Button onPress={() => { navigation.goBack() }
           }>
             <Icon name="menu" ></Icon>
@@ -46,33 +53,47 @@ export default class Test extends Component {
           <Right>
             <Button onPress={() => {
               navigation.pop();
-              navigation.navigate("Result", { "namePage": "Kết quả thi", "data": data });
+              navigation.navigate("Result", { "namePage": "Kết quả thi", "data": this.state.data });
             }}
               style={{ backgroundColor: 'green' }} >
               <Text style={{ color: '#fff' }}>Nộp bài</Text>
             </Button>
           </Right>
         </Header>
-        <Content style={{ marginTop: 1 }}>
-          <Header style={{ height: 30 }}>
+        <Content style={{ margin:1 }}>
+          <Header style={{ height: 30}}>
             <Content>
-              <CountDown startM={20} navigation={navigation} data={data} />
+              <CountDown startM={20} navigation={navigation} data={this.state.data} />
             </Content>
           </Header>
 
           <Tabs renderTabBar={() => <ScrollableTab />}>
-            {
-              data.map((obj, i) => {
+            {this.state.data.map((question, i) => {
                 let count=i+1;
                 return (
-                  <Tab heading={"Cau "+ count} key={i}>
-                    <ShowTabContent obj={obj} />
+                  <Tab heading={"Câu "+ count} key={i}>
+                    {this.ShowTabContent( question)}
                     <Tab />
                   </Tab>)
               })}
           </Tabs>
         </Content>
       </Container>
+    );
+  }
+  ShowTabContent(question){
+    const show = [];
+    for(var key in question.Answers){
+      show.push(<ShowCheckBox answer={question.Answers[key]} key={key} />)
+    };
+    return (
+      <View style={{ paddingTop: 10,paddingRight: 10 }}>
+        <View >
+          <Text style={{ color: 'blue', fontSize: 16,paddingLeft:10 }}>{question.QuestionText}</Text>
+          <Image style={{resizeMode:'center'}} source={{uri:question.LinkImage,height:200}}/>
+        </View>
+        {show}
+      </View>
     );
   }
 }
@@ -107,28 +128,13 @@ const CountDown = (props) => {
 
 const ShowCheckBox = (props) => {
   const [select, setSelect] = useState(false);
+  props.answer.select =select;
   return (
     <ListItem stype={{ flexDirection: 'row' }}>
       <CheckBox style={{ marginRight: 20 }} checked={select} onPress={() => {
-        props.answer.select = !select;
         setSelect(!select);
       }} />
       <Text >{props.answer.AnswerText}</Text>
     </ListItem>
-  );
-}
-//show list checkbox ,input:data[i]
-const ShowTabContent = (props) => {
-  const show = [];
-  props.obj.Answers.map((answer, i) => {
-    show.push(<ShowCheckBox answer={answer} key={i} />)
-  });
-  return (
-    <View style={{ paddingTop: 10,paddingRight: 10 }}>
-      <View >
-        <Text style={{ color: 'blue', fontSize: 16,paddingLeft:20 }}>{props.obj.QuestionText}</Text>
-      </View>
-      {show}
-    </View>
   );
 }

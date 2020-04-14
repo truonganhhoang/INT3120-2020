@@ -14,12 +14,12 @@ const StyleCommon = StyleSheet.create({
         fontWeight: 'bold'
     },
     ColSelect:{
-        height: 150,
+        height: 140,
         margin:5, 
-        paddingTop: 10
+        paddingTop: 5
     },
     IconSelect:{
-        height: 40, 
+        height: 45,
         resizeMode: 'contain'
     }
 });

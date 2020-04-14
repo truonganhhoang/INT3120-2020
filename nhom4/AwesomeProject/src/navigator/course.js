@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-  Text,
+  Text, StyleSheet,
 } from 'react-native';
-import { Container,List, Header, Title, Content, Right, Body, Icon,  ListItem  } from 'native-base';
+import { Container,List, Header, Title, Content, Right, Body, Icon,  ListItem, View  } from 'native-base';
 import { FirebaseApp } from '../component/FirebaseConfig';
 
 export default class Course extends Component {
@@ -12,22 +12,18 @@ export default class Course extends Component {
       namePage: "kooooo",
       dataCourse: []
     }
-    this.readUserData();
   }
-  readUserData() {
+  componentDidMount(){
     FirebaseApp.database().ref('Categories/').once('value').then(snapshot => {
       this.setState({ dataCourse: Object.values(snapshot.val()) });
     });
   }
-
   render() {
     const { navigation } = this.props;
     return (
       <Container>
-        <Header >
-          <Body>
-            <Title>Chọn </Title>
-          </Body>
+        <Header style={{justifyContent:'center',alignItems:'center',fontSize:20}}>
+            <Title>Chọn bằng lái xe ôn thi</Title>
         </Header>
         <Content>
           <List>
@@ -42,17 +38,37 @@ export default class Course extends Component {
 }
 const ShowLicense = (props) => {
   return (
-    <ListItem noIndent
+    <ListItem noIndent style={styles.Item}
       onPress={() => {
         props.navigation.push("ListSelects", { "namePage": props.sub.name })
       }
       }>
-      <Body >
-        <Text >{props.sub.name}</Text>
-        <Text note numberOfLines={1}>{props.sub.title}</Text>
-      </Body>
-      <Right >
-        <Icon name="arrow-forward" />
-      </Right>
+      <View style={styles.TextItem}>
+        <Text style={styles.name}>{props.sub.name}</Text>
+        <Text style={styles.titles}>{props.sub.title}</Text>
+      </View>
+      <View style={styles.Icon}>
+        <Icon style={{color:'#bcbcbc'}} name="arrow-forward"/>
+      </View>
     </ListItem>);
 }
+const styles=StyleSheet.create({
+  Item:{
+    flexDirection:"row"
+  },
+  TextItem:{
+    width:'92%',
+  },
+  name:{
+    fontSize:18
+  },
+  titles:{
+    fontSize:14,
+    paddingRight:5
+  },
+  Icon:{ 
+    width:'8%',
+    justifyContent:'center',
+    alignItems:'center'
+  }
+})

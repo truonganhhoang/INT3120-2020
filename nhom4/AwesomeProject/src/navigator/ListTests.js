@@ -9,18 +9,17 @@ import {
 } from 'react-native';
 import { Container, Header, Left, Button, Body, Icon, Title, Right, Content, ListItem,List } from 'native-base';
 import { FirebaseApp } from '../component/FirebaseConfig';
+
 export default class ListTests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      namePage: "kooooo",
-      dataListTest: []
+      dataListTest:{},  
     }
-    this.readUserData();
   }
-  readUserData() {
+  componentDidMount(){
     FirebaseApp.database().ref('ListTest/').once('value').then(snapshot => {
-      this.setState({ dataListTest: Object.keys(snapshot.val()) });
+      this.setState({ dataListTest: snapshot.val() });
     });
   }
   render() {
@@ -40,41 +39,33 @@ export default class ListTests extends Component {
         </Header>
         <Content>
           <List>
-            {this.state.dataListTest.map((obj, i) => {
-              return <ShowLicense obj={obj} navigation={navigation} key={i} />
-            })}
+            {this.ShowContent()}
           </List>
         </Content>
       </Container>
     );
   }
-}
-const ShowLicense = (props) => {
-  return (
-    <ListItem noIndent
-      /*onPress={() => {
-        let arr=[]
-        FirebaseApp.database().ref('ListTest/'+props.obj).once('value').then(snapshot => {
-          arr=Object.keys(snapshot.val()) ;
-        });
-        FirebaseApp.database().ref('Question/').child(["Question1/"]).once('value').then(snapshot => {
-          arr = Object.keys(snapshot.val());
-          console.log(arr);
-          for (var i = 0; i < arr.length; i++) {
-            arr[i].Answers = Object.values(arr[i].Answers);
-            for (var a = 0; a < arr[i].Answers.length; a++) {
-              arr[i].Answers[a].select = false;
-            };
-          };
-          //navigation.navigate("Test", { "namePage": "Đề ngẫu nhiên", "data": arr });
-        })
-      }}*/
-      >
-      <Body >
-        <Text >{props.obj}</Text>
-      </Body>
-      <Right >
-        <Icon name="arrow-forward" />
-      </Right>
-    </ListItem>);
+  ShowContent(){
+    show=[];
+    for(var key in this.state.dataListTest){
+      show.push(this.ShowLicense(key));
+    }
+    return show;
+  }
+  ShowLicense(key){
+    const { navigation } = this.props;
+    return (
+      <ListItem noIndent key={key}
+        onPress={() => {
+            navigation.navigate("Test", { "namePage":key, "data":this.state.dataListTest[key] });
+          }
+        }>
+        <Body >
+          <Text >{key}</Text>
+        </Body>
+        <Right >
+          <Icon name="arrow-forward" />
+        </Right>
+      </ListItem>);
+  }
 }

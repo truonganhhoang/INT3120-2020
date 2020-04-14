@@ -1,4 +1,4 @@
-
+import React from 'react';
 import * as firebase from 'firebase';
 import {InteractionManager} from 'react-native'
 var firebaseConfig = {
@@ -54,5 +54,4 @@ if (Platform.OS === 'android') {
         _clearTimeout(id);
     };
 }
-
 export const FirebaseApp=firebase.initializeApp(firebaseConfig);
