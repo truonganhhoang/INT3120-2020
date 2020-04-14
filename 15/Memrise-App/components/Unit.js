@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
     unitImange:{
         width:100,
         height:100,
-      
-        
+        marginBottom:10
+
     },
     unitTitle:{
         textTransform:'uppercase',
-                
+        marginTop :10 ,
         fontWeight: '700'
 
     }
