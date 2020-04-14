@@ -1,19 +1,19 @@
 # Ứng dụng được phát triển bởi
 1. Nguyễn Duy Chiến\
 gmail: \
-duychien226@gmail.com
+duychien226@gmail.com\
 facebook:\
 https://www.facebook.com/duy.chien.54379
 
 2. Nguyễn Xuân Quang\
 gmail: \
-adquang199x@gmail.com
+adquang199x@gmail.com\
 facebook:\
 https://www.facebook.com/quangnx99
 
 3. Lê Thị Thùy Linh\
 gmail:\
-linhlinh4125@gmail.com
+linhlinh4125@gmail.com\
 facebook:\
 https://www.facebook.com/profile.php?id=100006479654086
 
