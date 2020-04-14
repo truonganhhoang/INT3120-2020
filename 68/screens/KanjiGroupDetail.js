@@ -36,7 +36,7 @@ export default class KanjiGroupDetail extends React.Component {
        <View style={styles.listItem}>
        
          {
-           kanjiList.map((kanjiItem)=><KanjiCard kanjiText={kanjiItem.kanji} onPress={()=> navigation.navigate('KanjiDetail')}/>)
+           kanjiList.map((kanjiItem)=><KanjiCard kanjiText={kanjiItem.kanji}/>)
          }
        </View>
        </ScrollView>
