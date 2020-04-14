@@ -11,16 +11,33 @@ import LearnTab from './LearnTab'
 import TestTab from './TestTab'
 import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
-import { fcmService } from '../Services/FCMService';
+import { fcmService } from '../Services/FCMService'
+import AsyncStorage from '@react-native-community/async-storage';
+
 console.disableYellowBox = true;
 const MainBody = (props) => {
     const [darkMode, setDarkMode] = useState(false)
     useEffect(() => {
+        getTheme()
         fcmService.register(onRegister, onNotification, onOpenNotification)
-        return () => {
-        };
-    }, [])
 
+    }, [])
+    const getTheme = async () => {
+        try {
+            const theme = await AsyncStorage.getItem('theme')
+            if (theme == null) {
+                setDarkMode(false)
+            }
+            else if (theme === 'true') {
+                setDarkMode(true)
+            }
+            else if (theme === 'false') {
+                setDarkMode(false)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
     const onRegister = (token) => {
         // console.log("[NotificationFCM] onRegister: ", token)
     }
@@ -71,10 +88,10 @@ const MainBody = (props) => {
                     <LearnTab {...props} darkMode={darkMode} />
                 </View>
                 <View tabLabel="Kiểm tra" style={styles.tabView}>
-                    <TestTab {...props} darkMode={darkMode}/>
+                    <TestTab {...props} darkMode={darkMode} />
                 </View>
                 <View tabLabel="Xem lại" style={styles.tabView}>
-                    <ReviewTab {...props} darkMode={darkMode}/>
+                    <ReviewTab {...props} darkMode={darkMode} />
                 </View>
                 <View tabLabel="Cài đặt" style={styles.tabView}>
                     <SettingTab darkMode={darkMode} setDarkMode={setDarkMode} />

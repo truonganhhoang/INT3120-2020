@@ -15,10 +15,24 @@ import { requestGET, HOST, requestPOST } from '../Services/Servies'
 import DeviceInfo from 'react-native-device-info'
 import Carousel from 'react-native-snap-carousel'
 import { StackActions, NavigationActions } from 'react-navigation'
+import Modal from 'react-native-modal'
+import { PieChart } from "react-native-chart-kit"
+const screenWidth = Dimensions.get("window").width
+
 const resetAction = StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: 'TestList' })],
 })
+const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5
+};
+
 class TestBody extends Component {
     static navigationOptions = {
         headerShown: false
@@ -30,14 +44,16 @@ class TestBody extends Component {
             exercise_id: [],
             done_answers: [],
             data2: [],
+            visibleModal: false,
+            data3: [],
         }
     }
     componentDidMount() {
         this.fetchData();
     }
     Back = () => {
+        this.setState({ visibleModal: false })
         this.props.navigation.dispatch(resetAction)
-        // this.props.navigation.navigate('TestList')
         this.props.navigation.navigate('TestList', { name: this.state.data2[0].description, id: this.state.data2[0].id })
     }
 
@@ -45,7 +61,6 @@ class TestBody extends Component {
         var deviceId = DeviceInfo.getDeviceId()
         var id = this.props.navigation.getParam('id').toString()
         var newData = await requestGET(`${HOST}/tests/viewExercise/${id}?client_id=${deviceId}`)
-        console.log(newData.data.exercise)
         this.setState({ data: newData.data.questions, data2: newData.data.exercise })
     }
     submit = async () => {
@@ -55,8 +70,61 @@ class TestBody extends Component {
             done_answers: this.state.done_answers
         }
         var postData = await requestPOST(`${HOST}/tests/submitExercise`, data).then(res => { return res })
-        console.log(this.state.data2[0].id)
+        var result = [
+            {
+                name: "câu đúng",
+                data: postData.data.correct_answers,
+                color: "#004D40",
+                legendFontColor: "#004D40",
+                legendFontSize: 10
+            },
+            {
+                name: "câu sai",
+                data: postData.data.incorrect_answers,
+                color: "#b71c1c",
+                legendFontColor: "#b71c1c",
+                legendFontSize: 10
+            },
+            {
+                name: "câu chưa trả lời",
+                data: postData.data.not_done_answers,
+                color: "#1A237E",
+                legendFontColor: "#1A237E",
+                legendFontSize: 10
+            }
+        ]
+        this.setState({ visibleModal: true, data3: result })
     }
+    renderModalContent = () => {
+        const { visibleModal } = this.state
+        if (visibleModal) {
+            return (
+                <View style={{
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                    // alignItems: 'center',
+                    borderRadius: 4,
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
+                    margin: 10,
+                    minHeight: 100,
+                    padding: 10,
+                }}>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", textAlign: 'center', padding: 20 }}>Kết quả</Text>
+                    <PieChart
+                        data={this.state.data3}
+                        width={screenWidth}
+                        height={180}
+                        chartConfig={chartConfig}
+                        accessor="data"
+                        backgroundColor="transparent"
+                        padding="20"
+                        absolute
+                    />
+                </View>
+            )
+        }
+    }
+
     setVisibleA = (item, index) => {
         if (item.answers[0].visible == false) {
             var newData = [...this.state.data]
@@ -81,7 +149,12 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = false
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            this.setState({ data: newData, done_answers: answer })
         }
     }
     setVisibleB = (item, index) => {
@@ -108,7 +181,13 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = false
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            this.setState({ data: newData, done_answers: answer })
+
         }
     }
     setVisibleC = (item, index) => {
@@ -135,7 +214,12 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = false
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            this.setState({ data: newData, done_answers: answer })
         }
     }
     setVisibleD = (item, index) => {
@@ -162,7 +246,12 @@ class TestBody extends Component {
             newData[index].answers[2].visible = false
             newData[index].answers[3].visible = false
             newData[index].visible = false
-            this.setState({ data: newData })
+            var answer = [...this.state.done_answers]
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[0].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[1].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[2].id && i.question_id !== item.id))
+            answer = answer.filter(i => (i.answer_id !== newData[index].answers[3].id && i.question_id !== item.id))
+            this.setState({ data: newData, done_answers: answer })
         }
     }
     setColor(color) {
@@ -250,6 +339,7 @@ class TestBody extends Component {
 
     }
     render() {
+
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.linearGradient}>
@@ -285,11 +375,17 @@ class TestBody extends Component {
                         <Text style={styles.text}>Submit</Text>
                     </View>
                 </TouchableOpacity>
-
+                <Modal
+                    onBackdropPress={() => this.Back()}
+                    backdropTransitionOutTiming={0}
+                    isVisible={this.state.visibleModal}
+                    style={{ margin: 0 }}
+                    hideModalContentWhileAnimating={true}>
+                    {this.renderModalContent()}
+                </Modal>
             </SafeAreaView>
         )
     }
 }
 
 export default TestBody
-

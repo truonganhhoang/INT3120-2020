@@ -38,6 +38,7 @@ export default class LearnTab extends Component {
     componentDidMount() {
         this.setState({ selectedIndex: 0 })
         this.fetchLession()
+        console.log("darkmode:"+this.props.darkMode)
     }
     fetchLession = async () => {
         this.setState({ data: [] })
@@ -121,7 +122,7 @@ export default class LearnTab extends Component {
                     onPress={() => { this.props.navigation.navigate("LearnWord", { id: item.id, name: item.name }) }}
                 >
                     <View style={{
-                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
                         paddingBottom: 10,
                         marginVertical: 8,
                         marginHorizontal: 16,
@@ -131,8 +132,8 @@ export default class LearnTab extends Component {
                             style={{ height: 150, flex: 1 }}
                             source={{ uri: url }}
                         />
-                        <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 10, color: this.props.darkMode == false ? "" : "#F5F5F5" }}>{item.name}</Text>
-                        <Text style={{ paddingLeft: 10, color: this.props.darkMode == false ? "" : "#BDBDBD" }}>Số từ vựng: {item.numb_words}</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 10, color: this.props.darkMode == false ? "#212121" : "#F5F5F5" }}>{item.name}</Text>
+                        <Text style={{ paddingLeft: 10, color: this.props.darkMode === false ? "#8D6E63" : "#BDBDBD" }}>Số từ vựng: {item.numb_words}</Text>
                     </View>
                 </TouchableOpacity>
             </Animatable.View >
@@ -147,7 +148,7 @@ export default class LearnTab extends Component {
                 >
                     <View style={{
                         flexDirection: 'row',
-                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
                         marginVertical: 6,
                         marginHorizontal: 15,
                         elevation: 5,
@@ -159,8 +160,8 @@ export default class LearnTab extends Component {
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.props.darkMode == false ? "" : "#F5F5F5" }}>{item.word}</Text>
-                            <Text style={{ color: this.props.darkMode == false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
-                            <Text style={{ color: this.props.darkMode == false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -176,7 +177,7 @@ export default class LearnTab extends Component {
                 >
                     <View style={{
                         flexDirection: 'row',
-                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
                         marginVertical: 6,
                         marginHorizontal: 15,
                         elevation: 5,
@@ -187,9 +188,9 @@ export default class LearnTab extends Component {
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18,color: this.props.darkMode == false ? "" : "#F5F5F5" }}>{item.word}</Text>
-                            <Text style={{ color: this.props.darkMode == false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
-                            <Text style={{ color: this.props.darkMode == false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18,color: this.props.darkMode === false ? "" : "#F5F5F5" }}>{item.word}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -314,7 +315,7 @@ export default class LearnTab extends Component {
         const buttons = ['Bài học', 'Từ đánh dấu', 'Từ nhắc nhở']
         const { selectedIndex } = this.state
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: this.props.darkMode == false ? "#EEEEEE" : "#212121" }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.props.darkMode === false ? "#EEEEEE" : "#212121" }}>
                 <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
                 <View style={{
                     flexDirection: 'row',
@@ -322,7 +323,7 @@ export default class LearnTab extends Component {
                     justifyContent: 'space-between',
                     paddingTop: 40,
                     paddingBottom: 20,
-                    backgroundColor: this.props.darkMode == false ? "#1976D2" : "#263238"
+                    backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238"
                 }}>
                     <Icon name='search' size={24} type='FontAwesome' color='transparent' />
                     <Text style={styles.title}>TỪ VỰNG TOEIC</Text>
@@ -339,9 +340,9 @@ export default class LearnTab extends Component {
                     selectedIndex={selectedIndex}
                     buttons={buttons}
                     containerStyle={{ height: 40, borderRadius: 20 }}
-                    buttonStyle={{ backgroundColor: this.props.darkMode == false ? "#FAFAFA" : "#263238" }}
-                    selectedButtonStyle={{ backgroundColor: this.props.darkMode == false ? "#1976D2" : "#616161" }}
-                    textStyle={{ color: this.props.darkMode == false ? "#212121":"#FAFAFA" }}
+                    buttonStyle={{ backgroundColor: this.props.darkMode === false ? "#FAFAFA" : "#263238" }}
+                    selectedButtonStyle={{ backgroundColor: this.props.darkMode === false ? "#1976D2" : "#616161" }}
+                    textStyle={{ color: this.props.darkMode === false ? "#212121":"#FAFAFA" }}
                 />
                 {this.renderBody(selectedIndex)}
             </SafeAreaView >

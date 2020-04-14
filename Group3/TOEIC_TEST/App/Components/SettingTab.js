@@ -20,6 +20,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker"
 import Share from 'react-native-share'
 import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const SettingTab = (props) => {
     const [checked, setChecked] = useState(false)
@@ -29,6 +30,18 @@ const SettingTab = (props) => {
     const [visibleStart, setVisibleStart] = useState(false)
     const [visibleFinish, setVisibleFinish] = useState(false)
     const [switchValue, setSwitchValue] = useState(false)
+    useEffect(() => {
+        getTheme()
+    }, [])
+    const getTheme = async () => {
+        try {
+            const value = await AsyncStorage.getItem('theme')
+            if (value === 'true') setSwitchValue(true)
+            else if (value === 'false') setSwitchValue(false)
+        } catch (e) {
+            console.log(e)
+        }
+    }
     const handleRemind = () => {
         console.log(checked)
         if (checked == false) {
@@ -62,9 +75,15 @@ const SettingTab = (props) => {
         setTimeFinish(time.getHours() + ":" + time.getMinutes())
             ()
     };
-    const toggleSwitch = (value) => {
-        setSwitchValue(value)
-        props.setDarkMode(value)
+    const toggleSwitch = async (value) => {
+        try {
+            await AsyncStorage.setItem('theme', `${value}`)
+            setSwitchValue(value)
+            props.setDarkMode(value)
+        } catch (e) {
+            console.log(e)
+        }
+
     }
     const handleEmail = () => {
         Mailer.mail({
@@ -164,6 +183,22 @@ const SettingTab = (props) => {
                     backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
                     marginTop: 20,
                     elevation: 6,
+                    flexDirection: 'row',
+                    padding: 10,
+                    alignContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <MaterialCommunityIcons name="theme-light-dark" size={34} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
+                    <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 10 }}> Giao diện tối</Text>
+                    <Switch
+                        style={{ marginLeft: Dimensions.get('screen').width - 260 }}
+                        onValueChange={toggleSwitch}
+                        value={switchValue} />
+                </View>
+                <View style={{
+                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
+                    marginTop: 20,
+                    elevation: 6,
                 }}>
                     <TouchableOpacity
                         onPress={() => Share.open(options)}
@@ -190,22 +225,7 @@ const SettingTab = (props) => {
 
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: switchValue == false ? "#F5F5F5" : "#263238",
-                    marginTop: 20,
-                    elevation: 6,
-                    flexDirection: 'row',
-                    padding: 10,
-                    alignContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <MaterialCommunityIcons name="theme-light-dark" size={34} color={switchValue == false ? "#1976D2" : "#F5F5F5"} />
-                    <Text style={{ fontSize: 20, color: switchValue == false ? "#1976D2" : "#F5F5F5", paddingLeft: 10 }}> Giao diện tối</Text>
-                    <Switch
-                        style={{ marginLeft: Dimensions.get('screen').width - 260 }}
-                        onValueChange={toggleSwitch}
-                        value={switchValue} />
-                </View>
+
             </ScrollView>
         </ SafeAreaView >
 

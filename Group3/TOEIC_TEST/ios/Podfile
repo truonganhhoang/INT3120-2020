@@ -42,6 +42,8 @@ target 'TOEIC_TEST' do
 
   pod 'react-native-mail', :path => '../node_modules/react-native-mail'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'TOEIC_TESTTests' do
     inherit! :search_paths
     # Pods for testing

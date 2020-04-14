@@ -48,7 +48,7 @@ class TestBar extends Component {
                                     padding: 10,
                                     paddingLeft: 20,
                                 }}>{item.name}</Text>
-                                <Text style={{ paddingLeft: 20, color: this.props.darkMode == false ? "" : "#616161", }}>{item.description}</Text>
+                                <Text style={{ paddingLeft: 20, color: this.props.darkMode == false ? "#8D6E63" : "#616161", }}>{item.description}</Text>
                             </View>
                         </View>
                     </View>
