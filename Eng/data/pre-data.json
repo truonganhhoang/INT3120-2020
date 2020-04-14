@@ -1,0 +1,77 @@
+{
+  "Appearance" : {
+    "icon_top" : "\"<i class=\"far fa-tshirt\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fappearance.jpg?alt=media&token=5c516d85-f43a-49e5-b55b-09d43ac08496",
+    "vn_meaning" : "Hình Dạng"
+  },
+  "Eating out" : {
+    "icon_top" : "\"<i class=\"fas fa-utensils-alt\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Feating_out.png?alt=media&token=f48021af-62b6-49f9-a547-e4321fcbfaf0",
+    "vn_meaning" : "Ăn Ngoài"
+  },
+  "Environment" : {
+    "icon_top" : "\"<i class=\"fas fa-globe-asia\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fenvironment.jpg?alt=media&token=1548502b-8978-4de2-b4f0-3a0a649eeb2a",
+    "vn_meaning" : "Môi Trường"
+  },
+  "Food" : {
+    "icon_top" : "\"<i class=\"fal fa-burger-soda\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Ffood.webp?alt=media&token=41dacf50-de6f-43da-ac0f-ad8f382fa956",
+    "vn_meaning" : "Thức ăn"
+  },
+  "Health" : {
+    "icon_top" : "\"<i class=\"fas fa-heartbeat\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fhealth.jpg?alt=media&token=4febf367-2f9d-48d7-b59d-48ad978c0d14",
+    "vn_meaning" : "Sức Khỏe"
+  },
+  "Home" : {
+    "icon_top" : "\"<i class=\"fas fa-home\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fhome.jpg?alt=media&token=52b25976-035d-47fd-b995-01555e5199c2",
+    "vn_meaning" : "Nhà cửa"
+  },
+  "Leisure" : {
+    "icon_top" : "\"<i class=\"fas fa-music\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2FLeisure.jpg?alt=media&token=ec70d91e-1782-4423-9daa-96ad7a79d060",
+    "vn_meaning" : "\"Giải Trí\"\""
+  },
+  "People" : {
+    "icon_top" : "\"<i class=\"fal fa-users\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fpeople.jpg?alt=media&token=81d16e6f-6066-40ee-a63b-c002f0c19ba3",
+    "vn_meaning" : "Con Người"
+  },
+  "Reference" : {
+    "icon_top" : "\"<i class=\"fas fa-address-book\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Freference.jpg?alt=media&token=9877226d-08e4-4acb-991e-248d948f4286",
+    "vn_meaning" : "Tài Liệu Tham Khảo "
+  },
+  "Services" : {
+    "icon_top" : "\"<i class=\"fas fa-hotel\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fservices.jpg?alt=media&token=cdcbd45f-7232-4ad9-aa37-dafb7b03605a",
+    "vn_meaning" : "Dịch Vụ"
+  },
+  "Shopping" : {
+    "icon_top" : "\"<i class=\"far fa-shopping-cart\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fshopping.jpg?alt=media&token=4e263f4d-a712-483e-adc5-1b6e86ebec87",
+    "vn_meaning" : "Mua Sắm"
+  },
+  "Sports" : {
+    "icon_top" : "\"<i class=\"fas fa-futbol\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fsports.jpg?alt=media&token=d248f602-dc4c-4876-998c-ecbd935f90f7",
+    "vn_meaning" : "Thể Thao"
+  },
+  "Study" : {
+    "icon_top" : "\"<i class=\"fas fa-graduation-cap\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fstudy.jpg?alt=media&token=94515e19-0a06-40ef-911b-703c3c15c2d6",
+    "vn_meaning" : "Học Hành"
+  },
+  "Transportation" : {
+    "icon_top" : "\"<i class=\"fas fa-subway\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Ftransportation.jpg?alt=media&token=49a6c7f0-3b1a-4100-b3e9-bbb8c0e5f22f",
+    "vn_meaning" : "Giao Thông"
+  },
+  "Word" : {
+    "icon_top" : "\"<i class=\"fas fa-tools\"></i>\"",
+    "img_top" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Fword.png?alt=media&token=3f5085b4-0e77-4922-892f-6ac6a9d00500",
+    "vn_meaning" : "Làm Việc"
+  }
+}

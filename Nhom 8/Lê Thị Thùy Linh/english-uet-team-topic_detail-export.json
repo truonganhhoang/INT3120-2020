@@ -1,0 +1,878 @@
+{
+  "Appearance" : {
+    "lessons" : {
+      "Accessories" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Phụ Kiện"
+      },
+      "Beauty" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Vẻ đẹp"
+      },
+      "Clothing" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Quần Áo"
+      },
+      "Hair" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Tóc"
+      }
+    },
+    "lessons_detail" : {
+      "Hair" : {
+        "comb" : {
+          "en_meaning" : "comb",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/eng...",
+          "spelling" : "/kəʊm/",
+          "vn_meaning" : "Lược",
+          "void_uri" : ""
+        },
+        "pigtails" : {
+          "en_meaning" : "pigtails",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fpigtails.jpg?alt=media&token=ec139e69-7b87-4a58-aff4-2b6ecbbebb52",
+          "spelling" : "/'pig, teil/",
+          "vn_meaning" : "",
+          "void_uri" : ""
+        },
+        "rinse" : {
+          "en_meaning" : "rinse",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Frinse.jpg?alt=media&token=18654f43-83e0-455e-91e1-f49d774d18c1",
+          "spelling" : "",
+          "vn_meaning" : "gội đầu",
+          "void_uri" : ""
+        },
+        "straight" : {
+          "en_meaning" : "straight",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fstraight.jpeg?alt=media&token=ce1ebca6-8f4b-4016-bf41-0e6f0f711481",
+          "spelling" : "/streit/",
+          "vn_meaning" : "tóc thẳng",
+          "void_uri" : ""
+        }
+      }
+    }
+  },
+  "Study" : {
+    "lessons" : {
+      "School" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Trường Học"
+      },
+      "Math" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Môn Toán"
+      },
+      "Science" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Khoa Học"
+      }
+    }
+  },
+   "Sports":{
+    "lessons" : {
+      "Rugby" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bóng Bầu Dục"
+      },
+      "Soccer" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bóng Đá"
+      },
+      "Basketball" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bóng rổ"
+      },
+      "Baseball" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bóng Chày"
+      },
+       "Tennis" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Quần Vợt"
+      }
+    }
+  },
+   "Reference":{
+    "lessons" : {
+      "Time" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Thời Gian"
+      },
+      "Calendar" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Lịch"
+      },
+      "Numbers" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Số"
+      },
+      "World map" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bản Đồ Thế Giới"
+      }
+    }
+  },
+   "Shopping":{
+    "lessons" : {
+      "Shopping centre" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Trung Tâm Mua Sắm"
+      },
+      "Supermarket" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Siêu Thị"
+      },
+      "Newsagent" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Đại Lý Báo Chí"
+      },
+      "Chemist" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Dược Phẩm"
+      },
+       "Florist" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Cửa Hàng Hoa"
+      }
+    }
+  },
+    "Food":{
+    "lessons" : {
+      "Meat" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Thịt"
+      },
+      "Vegatable" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Rau"
+      },
+      "Fruit" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Hoa Quả"
+      },
+      "Fish" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Cá"
+      },
+       "Drinks" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Đồ Uống"
+      }
+    }
+  },
+   "Health":{
+    "lessons" : {
+      "Illness" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bệnh Tật"
+      },
+      "First Aid" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Sơ Cứu"
+      },
+      "Injury" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Vết Thương"
+      },
+      "Department" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Phòng Ban"
+      },
+       "Doctor" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bác Sĩ"
+      }
+    }
+  },
+   "Eating":{
+    "lessons" : {
+      "Cafe" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Cafe"
+      },
+      "Fast food" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Quán Ăn Nhanh"
+      },
+      "Bar" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Quán Bar"
+      },
+      "Breakfast" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bữa Sáng"
+      },
+       "Dinner" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bữa Tối"
+      }
+    }
+  },
+   "Leisure":{
+    "lessons" : {
+      "Sightseeing" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Thăm Quan"
+      },
+      "Theater" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Rạp Hát"
+      },
+      "Orchestra" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Dàn Nhạc"
+      },
+      "Concert" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Buổi Hòa Nhạc"
+      },
+       "Beach" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Bãi Biển"
+      }
+    }
+  },
+   "Environnment":{
+    "lessons" : {
+      "Plants" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Thực Vật"
+      },
+      "Landscape" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Phong Cảnh"
+      },
+      "Weather" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Thời Tiết"
+      },
+      "Earth" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Trái Đát"
+      },
+       "Space" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Không Gian"
+      }
+    }
+  },
+   "Servieces":{
+    "lessons" : {
+      "Bank" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Ngân Hàng"
+      },
+      "Hotel" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Khách Sạn"
+      },
+      "Communications" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Truyền Thông"
+      },
+      "Emergency Servieces" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Các Dịch Vụ Khẩn Cấp"
+      }
+    }
+  },
+   "Word":{
+    "lessons" : {
+      "Ofice" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Văn Phòng"
+      },
+      "Computer" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Văn Phòng"
+      },
+      "Media" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Tin Tức"
+      },
+      "Law" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Luật"
+      },
+       "Farm" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Nông Trại"
+      }
+    }
+  },
+   "Transposttation":{
+    "lessons" : {
+    "Roads" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Đường"
+      },
+      "Bus" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Xe Buýt"
+      },
+      "Car" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Xe Ô Tô"
+      },
+      "Môtrcycle" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Xe Máy"
+      },
+       "Bicycle" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "Xe Đạp"
+      }
+    }
+  },
+  "Home" : {
+    "lessons" : {
+      "Garden" : {
+        "image_les" : "",
+        "num_word" : 17,
+        "vn_meaning" : "vườn"
+      },
+      "House" : {
+        "image_les" : "",
+        "num_word" : 4,
+        "vn_meaning" : "nhà cửa"
+      }
+    },
+    "lessons_detail" : {
+      "Garden" : {
+        "arbor" : {
+          "en_meaning" : "arbor",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Farbor.jpg?alt=media&token=2171f245-3085-4341-af8f-1b21b620c0f9",
+          "spelling" : "/'ɑ:bɔ:/",
+          "vn_meaning" : "dàn hoa leo",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Farbor.mp3?alt=media&token=704ab4a5-75d1-41d4-a08f-18e4a5dac0a2"
+        },
+        "arch" : {
+          "en_meaning" : "arch",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Farch.jpg?alt=media&token=d6f4f621-ddb1-4b4a-8782-20a0f7dda355",
+          "spelling" : "/ɑ:t∫/",
+          "vn_meaning" : "vòm",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Farch.mp3?alt=media&token=84bba781-7b0b-4fc7-bc43-ff1f4b2a0e53"
+        },
+        "courtyard" : {
+          "en_meaning" : "courtyard",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fcourtyard.jpg?alt=media&token=5c3c5be1-a9a8-4181-b7a4-50da89f10b81",
+          "spelling" : "/'kɔ:tjɑ:d/",
+          "vn_meaning" : "sân cỏ",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fcourtyard.mp3?alt=media&token=9e5375e6-95c9-436d-9777-98e2510cd454"
+        },
+        "fence" : {
+          "en_meaning" : "fence",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Ffence.jpg?alt=media&token=16b199e4-7460-444d-9bd7-7068a50fff16",
+          "spelling" : "/fens/",
+          "vn_meaning" : "hàng rào",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Ffence.mp3?alt=media&token=574bc445-e959-4792-b950-0b0dea29291e"
+        },
+        "fern" : {
+          "en_meaning" : "fern",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Ffern.jpg?alt=media&token=4087bfab-5121-4fa4-be09-982f7c212a72",
+          "spelling" : "/fɜ:n/",
+          "vn_meaning" : "cây dương xỉ",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Ffern.mp3?alt=media&token=84167fc2-3324-41b2-8052-d527c4e250f2"
+        },
+        "flowerbed" : {
+          "en_meaning" : "flowerbed",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fflowerbed.jpg?alt=media&token=66b79ddf-eb3a-4405-9932-461f00c6fa23",
+          "spelling" : "/'flaʊəbed/",
+          "vn_meaning" : "vườn hoa",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fflowerbed.mp3?alt=media&token=c0808db8-7674-40a1-9638-c51c6dfa962f"
+        },
+        "fountain" : {
+          "en_meaning" : "fountain",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Ffountain.jpg?alt=media&token=e439c463-5777-454c-baeb-66da52e4f071",
+          "spelling" : "/'faʊntin/",
+          "vn_meaning" : "đài phun nước",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Ffountain.mp3?alt=media&token=e8533a4f-078a-4657-9066-42070f58eee0"
+        },
+        "gate" : {
+          "en_meaning" : "gate",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fgate.jpg?alt=media&token=533cd644-9420-4085-8a6e-3d0fcc5236de",
+          "spelling" : "/geit/",
+          "vn_meaning" : "cổng",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fgate.mp3?alt=media&token=3ea396be-e154-4aa0-b034-02440ac59858"
+        },
+        "greenhouse" : {
+          "en_meaning" : "greenhouse",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fgreenhouse.jpg?alt=media&token=6cde071e-7b4f-4a7b-980e-73c8fdcf2dfd",
+          "spelling" : "/'gri:nhaʊs/",
+          "vn_meaning" : "nhà kính",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fgreenhouse.mp3?alt=media&token=0084c984-a7c5-4208-96d4-9e2e08fd8661"
+        },
+        "hedge" : {
+          "en_meaning" : "hedge",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fhedge.jpg?alt=media&token=29a5c253-a6cd-4464-a507-5c0827636ce1",
+          "spelling" : "/hedʒ/",
+          "vn_meaning" : "hàng rào",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fhedge.mp3?alt=media&token=d65c1640-8e65-4a4b-b782-bec2622fb08f"
+        },
+        "lawn" : {
+          "en_meaning" : "lawn",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Flawn.jpg?alt=media&token=6dd6174f-8ee6-4191-a733-ff550e054bf8",
+          "spelling" : "/lɔ:n/",
+          "vn_meaning" : "bãi cỏ",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Flawn.mp3?alt=media&token=1f592b34-43ee-4f07-b935-a62561b82262"
+        },
+        "path" : {
+          "en_meaning" : "path",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fpath.jpg?alt=media&token=eef04642-c37a-4b94-b52c-d719e5db6f60",
+          "spelling" : "/pɑ:θ, pæθ/",
+          "vn_meaning" : "đường (dẫn)",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fpath.mp3?alt=media&token=511a45b0-6f28-4750-a964-2367fb6d09bd"
+        },
+        "pond" : {
+          "en_meaning" : "pond",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fpond.jpg?alt=media&token=d02d5ed5-e689-488e-97c9-7f1b46842dbd",
+          "spelling" : "/pɒnd/",
+          "vn_meaning" : "ao",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fpond.mp3?alt=media&token=fb6ce18c-2c57-4972-afea-67acae880b99"
+        },
+        "sand" : {
+          "en_meaning" : "sand",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fsand.jpg?alt=media&token=57822063-6078-4bce-9449-166668800f70",
+          "spelling" : "/sænd/",
+          "vn_meaning" : "cát",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fsand.mp3?alt=media&token=6bb1e996-47f6-4b1d-82d3-d965dedd2f63"
+        },
+        "shed" : {
+          "en_meaning" : "shed",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fshed.jpg?alt=media&token=64647c95-d21a-4c6b-b61d-e64b610a84a3",
+          "spelling" : "/∫ed/",
+          "vn_meaning" : "nhà kho",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fshed.mp3?alt=media&token=09d7d77d-6fb7-4420-9475-1f4670ad2440"
+        },
+        "soil" : {
+          "en_meaning" : "soil",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Fsoil.jpg?alt=media&token=56398227-e6d3-4d66-acc6-e0cfa8367d6b",
+          "spelling" : "/sɔil/",
+          "vn_meaning" : "đất",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Fsoil.mp3?alt=media&token=c721b2ac-8102-4c86-9a51-728032f3a772"
+        },
+        "trellis" : {
+          "en_meaning" : "trellis",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FGarden%2Ftrallis.jpg?alt=media&token=fc29222b-226c-4d55-bcb1-da7e2a223f48",
+          "spelling" : "/trelis/",
+          "vn_meaning" : "lưới mắt cáo",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHome%2FGarden%20%2Ftrellis.mp3?alt=media&token=6398d323-0a84-41e0-8a98-955b0fdcbe30"
+        }
+      },
+      "House" : {
+        "attic" : {
+          "en_meaning" : "attic",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fattic.jpg?alt=media&token=b2d43dfb-f18d-4c4c-93ba-ef9eec9dbe9b",
+          "spelling" : "/ˈætɪk/",
+          "vn_meaning" : "gác xép",
+          "void_uri" : ""
+        },
+        "chimney" : {
+          "en_meaning" : "chimney",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fchimney.jpg?alt=media&token=7f05e1a1-58a1-4a94-a1d9-4b12b0bd54af",
+          "spelling" : "/ˈtʃɪm.ni/",
+          "vn_meaning" : "ống khói",
+          "void_uri" : ""
+        },
+        "eaves" : {
+          "en_meaning" : "eaves",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Feaves.jpg?alt=media&token=32160757-16b0-4820-bbe8-39002d4be476",
+          "spelling" : "/i:zv/",
+          "vn_meaning" : "mái hiên",
+          "void_uri" : ""
+        },
+        "floor" : {
+          "en_meaning" : "floor",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Ffloor.jpg?alt=media&token=d096fb39-b922-417d-a735-180b3526c2f3",
+          "spelling" : "/flɔ:(r)/",
+          "vn_meaning" : "sàn nhà",
+          "void_uri" : ""
+        },
+        "garage" : {
+          "en_meaning" : "garage",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fgarage.jpg?alt=media&token=71e5edb4-946d-4e32-add3-64bdad7d905b",
+          "spelling" : "/´gæra:ʒ/",
+          "vn_meaning" : "nhà để xe",
+          "void_uri" : ""
+        },
+        "porch" : {
+          "en_meaning" : "porch",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fporch.jpg?alt=media&token=58e23f10-8976-41ed-b506-7d3bad5efe59",
+          "spelling" : "/pɔ:tʃ/",
+          "vn_meaning" : "hiên nhà",
+          "void_uri" : ""
+        },
+        "roof" : {
+          "en_meaning" : "roof",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Froof.jpg?alt=media&token=120231ab-7786-4aa7-93a9-109fd15fca36",
+          "spelling" : "/ru:f/",
+          "vn_meaning" : "mái nhà",
+          "void_uri" : ""
+        },
+        "wall" : {
+          "en_meaning" : "wall",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fwall.jpg?alt=media&token=de6a7837-855f-41ed-83b0-4a9913f1daa7",
+          "spelling" : "/wɔ:l/",
+          "vn_meaning" : "tường",
+          "void_uri" : ""
+        },
+        "window" : {
+          "en_meaning" : "window",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHome%2FHouse%2Fwindow.jpg?alt=media&token=eb093201-e149-415a-9b87-ff76d6e40fbe",
+          "spelling" : "/'windəʊ/",
+          "vn_meaning" : "cửa sổ",
+          "void_uri" : ""
+        }
+      }
+    }
+  },
+  "People" : {
+    "lessons" : {
+      "Body" : {
+        "image_les" : "",
+        "num_word" : "13",
+        "vn_meaning" : "thân thể"
+      }
+    },
+    "lessons_detail" : {
+      "Body" : {
+        "abdomen" : {
+          "en_meaning" : "abdomen",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fabdomen.jpg?alt=media&token=fecba084-2456-46d1-9cee-e9c8256834ac",
+          "spelling" : "/ˈabdəmən,abˈdōmən/",
+          "vn_meaning" : "bụng",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fabdomens.mp3?alt=media&token=d3f85ce3-ca98-4aeb-a4aa-86f026d171a1"
+        },
+        "chest" : {
+          "en_meaning" : "chest",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fchest.jpg?alt=media&token=df58410f-4366-4f7e-8778-476570335388",
+          "spelling" : "/chest/",
+          "vn_meaning" : "ngực",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fchest.mp3?alt=media&token=6f5d5431-b4eb-407d-9afe-be8ed2293101"
+        },
+        "foot" : {
+          "en_meaning" : "foot",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Ffoot.jpg?alt=media&token=466d0aec-e7c8-4f31-b9d2-f2562b4bb3d4",
+          "spelling" : "/fʊt/",
+          "vn_meaning" : "Bàn chân",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Ffoot.mp3?alt=media&token=b9615514-405d-454c-a955-e5f622f721f7"
+        },
+        "forearm" : {
+          "en_meaning" : "forearm",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fforearm.jpg?alt=media&token=7a036fd0-b975-49b9-aeba-0e18a18a1f63",
+          "spelling" : "/'fɔ:rɑ:m/",
+          "vn_meaning" : "cẳng tay",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fforearm.mp3?alt=media&token=24c64987-d0c5-42bb-847d-9814264c31b9"
+        },
+        "head" : {
+          "en_meaning" : "head",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhead.jpg?alt=media&token=f372c906-110b-4d98-b408-8b709bec9696",
+          "spelling" : "/hed/",
+          "vn_meaning" : "đầu",
+          "void_uri" : ""
+        },
+        "hip" : {
+          "en_meaning" : "hip",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhip.jpg?alt=media&token=0e91cdb7-df02-4e74-a65f-b95645d2ba55",
+          "spelling" : "/hip/",
+          "vn_meaning" : "hông",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fhip.mp3?alt=media&token=e8b6add0-35aa-4161-83c6-e1279c2ade56"
+        },
+        "knee" : {
+          "en_meaning" : "knee",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fknee.jpg?alt=media&token=22d92b56-6fa0-4153-a4b7-a8b821736f52",
+          "spelling" : "/ni:/",
+          "vn_meaning" : "đầu gối",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fknee.mp3?alt=media&token=42af3562-6e54-4f89-9c1a-a69adf436f55"
+        },
+        "leg" : {
+          "en_meaning" : "leg",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fleg.jpg?alt=media&token=864df1fb-4423-47c1-a536-9e26050c05d2",
+          "spelling" : "/leg/",
+          "vn_meaning" : "chân",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fleg.mp3?alt=media&token=0a6832f0-0882-44fe-8f5f-35dd4ab244ac"
+        },
+        "navel" : {
+          "en_meaning" : "navel",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fnavel.jpg?alt=media&token=dd1b28de-77bd-4c9f-9788-f5ad83016bb6",
+          "spelling" : "/neivl/",
+          "vn_meaning" : "rốn",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fnavel.mp3?alt=media&token=5c42f7cd-ab1d-4ac9-9957-fcf5d8ae9681"
+        },
+        "neck" : {
+          "en_meaning" : "neck",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fneck.jpg?alt=media&token=31e3781c-e536-484e-8b89-d0c617fbcc95",
+          "spelling" : "/nek/",
+          "vn_meaning" : "cổ",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fneck.mp3?alt=media&token=d734bf48-ba70-4dfe-94db-29a276cf03ca"
+        },
+        "shin" : {
+          "en_meaning" : "shin",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fshin.jpg?alt=media&token=9247773a-aac9-470f-8279-b4ed155fa2e3",
+          "spelling" : "/∫in/",
+          "vn_meaning" : "cẳng chân",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fshin.mp3?alt=media&token=db7cd828-d9c7-4d39-b7ff-9e40ffca33b8"
+        },
+        "thigh" : {
+          "en_meaning" : "thigh",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fthigh.jpg?alt=media&token=6ac98afa-564d-4ac0-89b6-c12e98699861",
+          "spelling" : "/θai/",
+          "vn_meaning" : "bắp đùi",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fthigh.mp3?alt=media&token=d24bb6a9-2905-4b13-b55d-b337b23de314"
+        },
+        "waist" : {
+          "en_meaning" : "waist",
+          "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fwaist.jpg?alt=media&token=1e84d461-385f-4b5e-b3b0-8d38b9e948af",
+          "spelling" : "/weist/",
+          "vn_meaning" : "eo",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fwaist.mp3?alt=media&token=ab15d9fa-a29e-463d-aed2-4a8b921e1794"
+        }
+      }
+    },
+    "test_bank" : {
+      "body" : {
+        "answers" : [ null, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 1
+        }, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 2
+        }, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 3
+        }, {
+          "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fabdomen.jpg?alt=media&token=fecba084-2456-46d1-9cee-e9c8256834ac",
+          "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhead.jpg?alt=media&token=f372c906-110b-4d98-b408-8b709bec9696",
+          "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fknee.jpg?alt=media&token=22d92b56-6fa0-4153-a4b7-a8b821736f52",
+          "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fwaist.jpg?alt=media&token=1e84d461-385f-4b5e-b3b0-8d38b9e948af",
+          "type" : 4
+        }, {
+          "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fwaist.jpg?alt=media&token=1e84d461-385f-4b5e-b3b0-8d38b9e948af",
+          "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhip.jpg?alt=media&token=0e91cdb7-df02-4e74-a65f-b95645d2ba55",
+          "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fleg.jpg?alt=media&token=864df1fb-4423-47c1-a536-9e26050c05d2",
+          "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fchest.jpg?alt=media&token=df58410f-4366-4f7e-8778-476570335388",
+          "type" : 5
+        }, {
+          "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Ffoot.jpg?alt=media&token=466d0aec-e7c8-4f31-b9d2-f2562b4bb3d4",
+          "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhip.jpg?alt=media&token=0e91cdb7-df02-4e74-a65f-b95645d2ba55",
+          "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fleg.jpg?alt=media&token=864df1fb-4423-47c1-a536-9e26050c05d2",
+          "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fshin.jpg?alt=media&token=9247773a-aac9-470f-8279-b4ed155fa2e3",
+          "type" : 6
+        }, {
+          "content_a" : "bàn chân",
+          "content_b" : "cánh tay",
+          "content_c" : "ngực",
+          "content_d" : "hông",
+          "type" : 7
+        }, {
+          "content_a" : "cổ",
+          "content_b" : "bàn chân",
+          "content_c" : "đầu gối",
+          "content_d" : "chân",
+          "type" : 8
+        }, {
+          "content_a" : "cẳng tay",
+          "content_b" : "đầu gối",
+          "content_c" : "rốn",
+          "content_d" : "eo",
+          "type" : 9
+        }, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 10
+        }, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 11
+        }, {
+          "content_a" : "True",
+          "content_b" : "False",
+          "type" : 12
+        }, {
+          "content_a" : "naved",
+          "content_b" : "foot",
+          "content_c" : "navel",
+          "content_d" : "chest",
+          "type" : 13
+        }, {
+          "content_a" : "shin",
+          "content_b" : "neck",
+          "content_c" : "abdomen",
+          "content_d" : "thigh",
+          "type" : 14
+        }, {
+          "content_a" : "foot",
+          "content_b" : "forearm",
+          "content_c" : "thigh",
+          "content_d" : "neck",
+          "type" : 15
+        }, {
+          "num_character" : 7,
+          "type" : 16
+        }, {
+          "num_character" : 5,
+          "type" : 17
+        }, {
+          "num_character" : 7,
+          "type" : 18
+        }, {
+          "content_a" : "eo",
+          "content_b" : "hông",
+          "content_c" : "chân",
+          "content_d" : "cổ",
+          "type" : 19
+        }, {
+          "content_a" : "cẳng tay",
+          "content_b" : "đầu gối",
+          "content_c" : "bắp đùi",
+          "content_d" : "rốn",
+          "type" : 20
+        } ],
+        "quetion" : [ null, {
+          "txt_content" : "neck",
+          "type" : "1",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fneck.mp3?alt=media&token=d734bf48-ba70-4dfe-94db-29a276cf03ca"
+        }, {
+          "txt_content" : "foot",
+          "type" : "2",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fneck.mp3?alt=media&token=d734bf48-ba70-4dfe-94db-29a276cf03ca"
+        }, {
+          "txt_content" : "neck",
+          "type" : "3",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fwaist.mp3?alt=media&token=ab15d9fa-a29e-463d-aed2-4a8b921e1794"
+        }, {
+          "txt_content" : "head",
+          "type" : "4",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fhead.mp3?alt=media&token=6872599c-7bd8-4c0d-baf7-4775581d2999"
+        }, {
+          "txt_content" : "waist",
+          "type" : "5",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fwaist.mp3?alt=media&token=ab15d9fa-a29e-463d-aed2-4a8b921e1794"
+        }, {
+          "txt_content" : "shin",
+          "type" : "6",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fshin.mp3?alt=media&token=db7cd828-d9c7-4d39-b7ff-9e40ffca33b8"
+        }, {
+          "txt_content" : "chest",
+          "type" : "7",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fchest.mp3?alt=media&token=6f5d5431-b4eb-407d-9afe-be8ed2293101"
+        }, {
+          "txt_content" : "foot",
+          "type" : "8",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Ffoot.mp3?alt=media&token=b9615514-405d-454c-a955-e5f622f721f7"
+        }, {
+          "txt_content" : "forearm",
+          "type" : "9",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fforearm.mp3?alt=media&token=24c64987-d0c5-42bb-847d-9814264c31b9"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fhip.jpg?alt=media&token=0e91cdb7-df02-4e74-a65f-b95645d2ba55",
+          "type" : "10",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fhip.mp3?alt=media&token=e8b6add0-35aa-4161-83c6-e1279c2ade56"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fknee.jpg?alt=media&token=22d92b56-6fa0-4153-a4b7-a8b821736f52",
+          "type" : "11",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fforearm.mp3?alt=media&token=24c64987-d0c5-42bb-847d-9814264c31b9"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fleg.jpg?alt=media&token=864df1fb-4423-47c1-a536-9e26050c05d2",
+          "type" : "12",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fleg.mp3?alt=media&token=0a6832f0-0882-44fe-8f5f-35dd4ab244ac"
+        }, {
+          "txt_content" : "rốn",
+          "type" : "13",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fnavel.mp3?alt=media&token=5c42f7cd-ab1d-4ac9-9957-fcf5d8ae9681"
+        }, {
+          "txt_content" : "cẳng chân",
+          "type" : "14",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fshin.mp3?alt=media&token=db7cd828-d9c7-4d39-b7ff-9e40ffca33b8"
+        }, {
+          "txt_content" : "bắp đùi",
+          "type" : "15",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fthigh.mp3?alt=media&token=d24bb6a9-2905-4b13-b55d-b337b23de314"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fabdomen.jpg?alt=media&token=fecba084-2456-46d1-9cee-e9c8256834ac",
+          "type" : "16",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fabdomens.mp3?alt=media&token=d3f85ce3-ca98-4aeb-a4aa-86f026d171a1"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fchest.jpg?alt=media&token=df58410f-4366-4f7e-8778-476570335388",
+          "type" : "17",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fchest.mp3?alt=media&token=6f5d5431-b4eb-407d-9afe-be8ed2293101"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fforearm.jpg?alt=media&token=7a036fd0-b975-49b9-aeba-0e18a18a1f63",
+          "type" : "18",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fforearm.mp3?alt=media&token=24c64987-d0c5-42bb-847d-9814264c31b9"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fwaist.jpg?alt=media&token=1e84d461-385f-4b5e-b3b0-8d38b9e948af",
+          "type" : "19",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fwaist.mp3?alt=media&token=ab15d9fa-a29e-463d-aed2-4a8b921e1794"
+        }, {
+          "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FPeople%2FBody%2Fthigh.jpg?alt=media&token=6ac98afa-564d-4ac0-89b6-c12e98699861",
+          "type" : "20",
+          "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2Fpeople%2Fbody%2Fthigh.mp3?alt=media&token=d24bb6a9-2905-4b13-b55d-b337b23de314"
+        } ],
+        "results" : [ null, "a", "b", "b", "b", "a", "d", "c", "b", "a", "a", "b", "a", "c", "a", "c", "abdomen", "chest", "forearm", "a", "c" ]
+      }
+    }
+  }
+}
