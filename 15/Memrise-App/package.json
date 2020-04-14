@@ -12,7 +12,10 @@
     "@react-navigation/bottom-tabs": "^5.2.5",
     "@react-navigation/native": "^5.1.4",
     "@react-navigation/stack": "^5.2.9",
+    "add": "^2.0.6",
     "expo": "~37.0.3",
+    "global": "^4.4.0",
+    "prettier": "^2.0.4",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
@@ -28,7 +31,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "babel-preset-expo": "~8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0"
   },
   "private": true
 }
