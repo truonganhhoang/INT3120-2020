@@ -5,3 +5,7 @@
 ## Thành viên:
 - Lê Xuân Hưng - MSSV: 17020814	
 - Nguyễn Quang Hiệp - MSSV: 17020735
+
+## Link apk:
+https://drive.google.com/file/d/1WyuHt7--W4Q6bQt6sbV-1fS0FBBqip6n/view?usp=sharing
+
