@@ -24,9 +24,9 @@ export default class KanjiGroupDetail extends React.Component {
         },
     };
   };
-  constructor({text, navigation, object}){
-    super({text, navigation, object});
-  }
+  // constructor({text, navigation, object}){
+  //   super({text, navigation, object});
+  // }
   render(){
     const {navigation} =  this.props;
     const kanjiList = navigation.getParam('kanjiList')

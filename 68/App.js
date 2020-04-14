@@ -5,9 +5,7 @@ import {
 import {
   createAppContainer
 } from 'react-navigation';
-import AppNavigator from './AppNavigator'
-import AddData from './screens/Adddata';
-import KanjiScreen from './screens/KanjiDetail'
+import AppNavigator from './AppNavigator';
 import {decode, encode} from 'base-64'
 
 if (!global.btoa) {  global.btoa = encode }
