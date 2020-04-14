@@ -213,3 +213,8 @@ ionic g page profile -f
 - Inject service `AuthFireRouteGuard` vào `app.module.ts`.
 - Không cần sử dụng storage để lưu token nữa (vì bản thân firebase SDK đã lưu token và các thông tin người dùng vào IndexedDB).
 - Tăng cỡ chữ cho title ở trang đăng nhập và đăng ký.
+
+# 2020-04-14
+
+- Thêm UI cho:
+  - `/tabs/learn/courses`

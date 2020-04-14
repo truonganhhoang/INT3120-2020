@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button (click)="goToIntro()" defaultHref="/intro"></ion-back-button>
@@ -22,7 +22,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password (Required)</mat-label>
-      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" />
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" autocomplete="on" />
       <button mat-icon-button="true" matSuffix="true" (click)="togglePassword()">
         <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
