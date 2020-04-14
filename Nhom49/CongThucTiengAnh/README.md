@@ -10,4 +10,5 @@ Member
 	+ Chạy : yarn add global expo-cli
 	+ Chạy app bằng cmd: react-native run-android
 
+link apk: https://github.com/doanhnn/INT3120-2020/blob/master/Nhom49/CongThucTiengAnh/apk/app-release.apk
 
