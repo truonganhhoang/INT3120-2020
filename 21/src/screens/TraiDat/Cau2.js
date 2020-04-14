@@ -15,7 +15,6 @@ export default class Screen3 extends Component{
 	data(rootRef){
 		this.rootRef.ref("TRÁIĐẤT").once('value').then(data => {
 			var name = data.val()
-			console.log(name["TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?"].doan_1)
 			this.setState({
 				doan1: name["TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?"].doan_1,
 				doan2: name["TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?"].doan_2,

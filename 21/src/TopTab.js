@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 
 import Detail from './detail.js';
-import Screen3 from './screens/screen3.js';
+import Screen3 from './screens/TraiDat/Cau1.js';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';

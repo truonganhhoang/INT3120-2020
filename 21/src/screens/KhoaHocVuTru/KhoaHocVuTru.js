@@ -10,13 +10,13 @@ const navOptionHandler= () => ({
 })
 
 KhoaHocVuTru = () =>
- 	 <Stack.Navigator>
+ 	<Stack.Navigator>
       <Stack.Screen name="Screen" component={ScreenKHVT} options={navOptionHandler}/>
 
    	</Stack.Navigator>
 
 ScreenKHVT = ({ navigation }) => 
-	<SafeAreaView>
+	<SafeAreaView style={{paddingTop: 100}}>
 	<ScrollView>
         <TouchableOpacity
              onPress={() => navigation.navigate("Screen 3", { name: "param 31" })}>

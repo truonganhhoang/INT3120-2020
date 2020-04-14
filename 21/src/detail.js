@@ -9,7 +9,8 @@ class Detail extends Component {
       <SafeAreaView>
       <ScrollView>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Trái Đất")}>
+                onPress={() => this.props.navigation.navigate("Trái Đất")}
+                >
                 
                 <ImageBackground 
                   source={{
@@ -18,20 +19,24 @@ class Detail extends Component {
                   }}
                   style={{
                     width: '98%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 6, 
+                    marginLeft: 6,
 
                   }}
                 >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
                 <Text style={styles.titleContent}>Trái Đất</Text>
                 <View style={{paddingVertical: 20,
                               paddingHorizontal: 10,
                               flexDirection: "row",
-                              alignItems: "center"}}>
+                              alignItems: "center",
+                            }}>
                   <Icon name="account-question" color="white" size={20} />
                   <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>201 câu</Text>
                 </View>
+                </View>
                 </ImageBackground >
               </TouchableOpacity> 
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Khoa Học Vũ Trụ")}>
                 <ImageBackground
@@ -41,10 +46,11 @@ class Detail extends Component {
                   }}
                   style={{
                     width: '98%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 6, 
+                    marginLeft: 6,tintColor: '#808080'
 
                   }}
                 >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
                 <Text style={styles.titleContent}>Khoa Học Vũ Trụ</Text>
                 <View style={{paddingVertical: 20,
                               paddingHorizontal: 10,
@@ -52,6 +58,7 @@ class Detail extends Component {
                               alignItems: "center"}}>
                   <Icon name="account-question" color="white" size={20} />
                   <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>201 câu</Text>
+                </View>
                 </View>
                 </ImageBackground>
               </TouchableOpacity>
@@ -69,6 +76,7 @@ class Detail extends Component {
 
                   }}
                 >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
                 <Text style={styles.titleContent}>Khoa Học Công Trình </Text>
                 <View style={{paddingVertical: 20,
                               paddingHorizontal: 10,
@@ -77,8 +85,10 @@ class Detail extends Component {
                   <Icon name="account-question" color="white" size={20} />
                   <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>233 câu</Text>
                 </View>
+                </View>
                 </ImageBackground>
               </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
                 <ImageBackground
@@ -92,6 +102,7 @@ class Detail extends Component {
 
                   }}
                 >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
                 <Text style={styles.titleContent}>Động Vật</Text>
                 <View style={{paddingVertical: 20,
                               paddingHorizontal: 10,
@@ -100,8 +111,10 @@ class Detail extends Component {
                   <Icon name="account-question" color="white" size={20} />
                   <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>242 câu</Text>
                 </View>
+                </View>
                 </ImageBackground>
               </TouchableOpacity> 
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
                 <ImageBackground
@@ -115,6 +128,7 @@ class Detail extends Component {
 
                   }}
                 >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
                 <Text style={styles.titleContent}>Thực Vật</Text>
                 <View style={{paddingVertical: 20,
                               paddingHorizontal: 10,
@@ -123,122 +137,113 @@ class Detail extends Component {
                   <Icon name="account-question" color="white" size={20} />
                   <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>218 câu</Text>
                 </View>
+                </View>
                 </ImageBackground>
               </TouchableOpacity> 
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
+                <ImageBackground
                   source={{
                     uri:
                       'https://media4.s-nbcnews.com/i/newscms/2018_22/2451826/180601-atomi-mn-1540_f415a90a9f0fcbddc7dfa4cc7b5a36c3.jpg',
                   }}
                   style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
+                    width: '98%', height: 100, marginTop: 5, marginBottom: 5,
+                    marginLeft: 6, 
 
                   }}
-                />
+                >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
+                <Text style={styles.titleContent}>Vật Lý</Text>
+                <View style={{paddingVertical: 20,
+                              paddingHorizontal: 10,
+                              flexDirection: "row",
+                              alignItems: "center"}}>
+                  <Icon name="account-question" color="white" size={20} />
+                  <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>218 câu</Text>
+                </View>
+                </View>
+                </ImageBackground>
               </TouchableOpacity> 
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
+                <ImageBackground
                   source={{
                     uri:
                       'https://images.everyeye.it/img-notizie/alcuni-scienziati-innescato-fredda-reazione-chimica-dell-universo-v4-415128-1280x720.jpg',
                   }}
                   style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
+                    width: '98%', height: 100, marginTop: 5, marginBottom: 5,
+                    marginLeft: 6, 
 
                   }}
-                />
+                >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
+                <Text style={styles.titleContent}>Hóa Học</Text>
+                <View style={{paddingVertical: 20,
+                              paddingHorizontal: 10,
+                              flexDirection: "row",
+                              alignItems: "center"}}>
+                  <Icon name="account-question" color="white" size={20} />
+                  <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>218 câu</Text>
+                </View>
+                </View>
+                </ImageBackground>
               </TouchableOpacity> 
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
+                <ImageBackground
                   source={{
                     uri:
                       'https://www.grenadabroadcast.com/wp-content/uploads/2019/11/IEFA.jpg',
                   }}
                   style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
+                    width: '98%', height: 100, marginTop: 5, marginBottom: 5,
+                    marginLeft: 6, 
 
                   }}
-                />
+                >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
+                <Text style={styles.titleContent}>Tin Học</Text>
+                <View style={{paddingVertical: 20,
+                              paddingHorizontal: 10,
+                              flexDirection: "row",
+                              alignItems: "center"}}>
+                  <Icon name="account-question" color="white" size={20} />
+                  <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>218 câu</Text>
+                </View>
+                </View>
+                </ImageBackground>
               </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
+                <ImageBackground
                   source={{
                     uri:
                       'https://images.shiksha.com/mediadata/images/articles/1577103094phpy6yjGC.png',
                   }}
                   style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
+                    width: '98%', height: 100, marginTop: 5, marginBottom: 5,
+                    marginLeft: 6, 
 
                   }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
-                  source={{
-                    uri:
-                      'https://images.shiksha.com/mediadata/images/articles/1577103094phpy6yjGC.png',
-                  }}
-                  style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
-
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
-                  source={{
-                    uri:
-                      'https://images.shiksha.com/mediadata/images/articles/1577103094phpy6yjGC.png',
-                  }}
-                  style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
-
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
-                  source={{
-                    uri:
-                      'https://images.shiksha.com/mediadata/images/articles/1577103094phpy6yjGC.png',
-                  }}
-                  style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
-
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Trai Dat")}>
-                <Image
-                  source={{
-                    uri:
-                      'https://images.shiksha.com/mediadata/images/articles/1577103094phpy6yjGC.png',
-                  }}
-                  style={{
-                    width: '97%', height: 100, marginTop: 5, marginBottom: 5,
-                    marginLeft: 5, 
-
-                  }}
-                />
-              </TouchableOpacity>  
-
-              
+                >
+                <View style={{backgroundColor: 'rgba(0,0,0, 0.3)', width: '98%'}}>
+                <Text style={styles.titleContent}>Toán Học</Text>
+                <View style={{paddingVertical: 20,
+                              paddingHorizontal: 10,
+                              flexDirection: "row",
+                              alignItems: "center"}}>
+                  <Icon name="account-question" color="white" size={20} />
+                  <Text style={{color: 'white', fontWeight: 'bold', paddingLeft: 5}}>218 câu</Text>
+                </View>
+                </View>
+                </ImageBackground>
+              </TouchableOpacity>    
       </ScrollView>
       </SafeAreaView >
     );
