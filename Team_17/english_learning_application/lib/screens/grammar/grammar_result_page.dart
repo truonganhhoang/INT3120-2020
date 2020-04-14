@@ -80,15 +80,15 @@ class _GrammarResultState extends State<GrammarResult> {
       }
     }
 //    text += "\n";
-    listText.add(Padding(padding: EdgeInsets.only(bottom: 20.0),
-    child: RichText(
-      text: TextSpan(
-          text: text,
-          style: TextStyle(
-            color: Colors.orange,
-            fontSize: 30.0,
-          )),
-    ),));
+    listText.add(Padding(padding: EdgeInsets.only(),
+      child: RichText(
+        text: TextSpan(
+            text: text,
+            style: TextStyle(
+              color: Colors.orange,
+              fontSize: 30.0,
+            )),
+      ),));
     startIndex++;
     return startIndex;
   }
@@ -107,7 +107,7 @@ class _GrammarResultState extends State<GrammarResult> {
         text: text,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 22.0,
+          fontSize: 20.0,
         )));
 
     startIndex++;
@@ -117,7 +117,7 @@ class _GrammarResultState extends State<GrammarResult> {
             text: text,
             style: TextStyle(
               color: Colors.black,
-              fontSize: 22.0,
+              fontSize: 20.0,
             )));
         startIndex++;
         text = "";
@@ -132,7 +132,7 @@ class _GrammarResultState extends State<GrammarResult> {
             text: text,
             style: TextStyle(
                 color: Colors.black,
-                fontSize: 22.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w700)));
         startIndex += 2;
         text = "";
@@ -147,14 +147,14 @@ class _GrammarResultState extends State<GrammarResult> {
             text: text,
             style: TextStyle(
               color: Colors.black,
-              fontSize: 25.0,
+              fontSize: 20.0,
             )));
       }
       startIndex++;
     }
 
-    listText.add(Padding(padding: EdgeInsets.only(bottom: 20.0),
-    child: RichText(text: TextSpan(children: listTextSpan)),));
+    listText.add(Padding(padding: EdgeInsets.only(),
+      child: RichText(text: TextSpan(children: listTextSpan)),));
     return startIndex;
   }
 
@@ -219,7 +219,7 @@ class _GrammarResultState extends State<GrammarResult> {
     }
 
     listText.add(Padding(
-      padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+      padding: EdgeInsets.only(left: 20.0),
       child: RichText(text: TextSpan(children: listTextSpan)),
     ));
     return startIndex;
@@ -253,29 +253,74 @@ class _GrammarResultState extends State<GrammarResult> {
 
   int addText5(String context, int startIndex) {
     String text = "";
-    while (context.substring(startIndex, startIndex + 1) != '~') {
-      text += context.substring(startIndex, startIndex + 1);
-      startIndex++;
+    List<TextSpan> listTextSpan = new List<TextSpan>();
+    if ((startIndex + 1) < context.length) {
+      while (context.substring(startIndex, startIndex + 1) != '~') {
+        text += context.substring(startIndex, startIndex + 1);
+        startIndex++;
+      }
     }
-    text += "";
-    listText.add(Padding(padding: EdgeInsets.only(bottom: 10.0),
-    child: Row(mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[RichText(
-        text: TextSpan(
+
+    listTextSpan.add(TextSpan(
+        text: text,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20.0,
+        )));
+
+    startIndex++;
+    if ((startIndex + 1) < context.length) {
+      if (context.substring(startIndex, startIndex + 1) == '4') {
+        listTextSpan.add(TextSpan(
             text: text,
             style: TextStyle(
               color: Colors.black,
-              fontWeight: FontWeight.w700,
               fontSize: 20.0,
-            )),
-      )],),));
-    startIndex++;
+            )));
+        startIndex++;
+        text = "";
+
+        if ((startIndex + 1) < context.length) {
+          while (context.substring(startIndex, startIndex + 1) != '~') {
+            text += context.substring(startIndex, startIndex + 1);
+            startIndex += 1;
+          }
+        }
+        listTextSpan.add(TextSpan(
+            text: text,
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w700)));
+        startIndex += 2;
+        text = "";
+
+        if ((startIndex + 1) < context.length) {
+          while (context.substring(startIndex, startIndex + 1) != '~') {
+            text += context.substring(startIndex, startIndex + 1);
+            startIndex++;
+          }
+        }
+        listTextSpan.add(TextSpan(
+            text: text,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+            )));
+        startIndex++;
+      }
+    }
+
+    listText.add(Padding(
+      padding: EdgeInsets.only(left: 40.0),
+      child: RichText(text: TextSpan(children: listTextSpan)),
+    ));
     return startIndex;
   }
 
   void addEmptyLine() {
     listText.add(SizedBox(
-      height: 10.0,
+      height: 20.0,
     ));
   }
 }
