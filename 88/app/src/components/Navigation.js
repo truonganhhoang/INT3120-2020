@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet, Text, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useSelector, shallowEqual } from 'react-redux';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import PlatformTouchable from '../utils/touchable'
 
 import useAnimation from '../utils/animationHook';
