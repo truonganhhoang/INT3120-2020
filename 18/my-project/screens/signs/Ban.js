@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Image, Dimensions } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-// import { ScrollView } from 'react-native-gesture-handler';
-// import { arrBan } from '../firebase/config';
-// import { ListItem } from 'react-native-elements';
-
+import { SafeAreaView, View, Text, StyleSheet, Image, Dimensions, FlatList } from 'react-native';
+import { arrBan } from '../firebase/config';
 
 var ban = [{
   "content": "Biển có hiệu lực buộc các xe cơ giới và thô sơ kể cả các xe được ưu tiên theo luật lệ Nhà nước quy định dừng lại trước biển hoặc trước vạch ngang đường và chỉ được phép đi khi thấy các tín hiệu (do người điều khiển giao thông hoặc đèn, cờ) cho phép đi.",
@@ -52,7 +48,7 @@ export default class Ban extends Component {
   //         key: doc.key,
   //         name1: doc.toJSON().name,
   //         content1: doc.toJSON().content,
-  //         imageout: doc.toJSON().image,
+  //         image1: doc.toJSON().image,
   //       });
 
   //       this.setState({
@@ -86,18 +82,18 @@ export default class Ban extends Component {
       <SafeAreaView>
         <FlatList
           data={ban}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) =>
             <View style={styles.dong}>
               <View style={styles.trai}>
                 <Image style={styles.hinh}
-                  source={item.image}
+                  source={{uri: item.image1}&&item.image}
                 />
               </View>
               <View style={styles.phai}>
-                <Text style={styles.ten}>{item.name}</Text>
-                <Text>{item.content}</Text>
+                <Text style={styles.ten}>{item.name1||item.name}</Text>
+                <Text>{item.content1||item.content}</Text>
               </View>
-
             </View>
           }
         />
@@ -111,5 +107,4 @@ const styles = StyleSheet.create({
   phai: { flex: 6 },
   ten: {fontSize: 18, fontWeight:'bold'},
   hinh: { width: (width) / 3 ,  height: (width) / 3  }
-
 })
