@@ -10,7 +10,7 @@ class TestPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Quizstar",
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.lightGreen,
       ),
       home: splashscreen(),
     );

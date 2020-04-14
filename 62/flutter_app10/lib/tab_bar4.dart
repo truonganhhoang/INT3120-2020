@@ -12,7 +12,7 @@ class TabbedAppBarSample4 extends StatelessWidget {
         length: choices.length,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Biển báo đường bộ'),
+            title: const Text('Các câu hay sai'),
             bottom: TabBar(
               isScrollable: true,
               tabs: choices.map((Choice choice) {
@@ -45,12 +45,12 @@ class Choice {
 }
 
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Biển báo cấm'),
-  const Choice(title: 'Biển báo nguy hiểm'),
-  const Choice(title: 'Biển báo hiệu lệnh'),
-  const Choice(title: 'Biển báo chỉ dẫn'),
-  const Choice(title: 'Biển báo phụ'),
-  const Choice(title: 'Vạch kẻ đường'),
+  const Choice(),
+  const Choice(),
+  const Choice(),
+  const Choice(),
+  const Choice(),
+  const Choice(),
 ];
 
 class ChoiceCard extends StatelessWidget {

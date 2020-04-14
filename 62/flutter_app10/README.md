@@ -15,6 +15,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-Describe:
-document: https://docs.google.com/document/d/1RhU2AjK7TdsmXzit0IL7ZDISLFGjIXGxgrwMVgtig_c/edit#
-Apk: https://drive.google.com/drive/u/0/my-drive
+Bài tập lớn môn Phát triển ứng dụng di động nhóm 62 - App thi bằng lái xe
+Demo version 2: https://www.youtube.com/watch?v=KsNysM0J6Xk
+link drive: https://drive.google.com/file/d/1YjxuDn3Jd9K9F64VkDrCS1TXddWbSypZ/view?usp=sharing
+link apk ver 02: https://drive.google.com/file/d/1EcF-VkfwCz3obO1G8N0IRXlV0quinAaD/view?usp=sharing

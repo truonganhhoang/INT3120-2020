@@ -28,8 +28,8 @@ class _homepageState extends State<homepage> {
   Widget customcard(String langname, String image, String des){
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: 20.0,
-        horizontal: 30.0,
+        vertical: 15.0,
+        horizontal: 45.0,
       ),
       child: InkWell(
         onTap: (){
@@ -41,8 +41,8 @@ class _homepageState extends State<homepage> {
           ));
         },
         child: Material(
-          color: Colors.indigoAccent,
-          elevation: 10.0,
+          color: Colors.lightBlue,
+          elevation: 7.0,
           borderRadius: BorderRadius.circular(25.0),
           child: Container(
             child: Column(
@@ -56,8 +56,8 @@ class _homepageState extends State<homepage> {
                     borderRadius: BorderRadius.circular(100.0),
                     child: Container(
                       // changing from 200 to 150 as to look better
-                      height: 150.0,
-                      width: 150.0,
+                      height: 80.0,
+                      width: 80.0,
                       child: ClipOval(
                         child: Image(
                           fit: BoxFit.cover,
@@ -73,7 +73,7 @@ class _homepageState extends State<homepage> {
                   child: Text(
                     langname,
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 14.0,
                       color: Colors.white,
                       fontFamily: "Quando",
                       fontWeight: FontWeight.w700,
@@ -81,11 +81,11 @@ class _homepageState extends State<homepage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(15.0),
                   child: Text(
                     des,
                     style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 11.0,
                         color: Colors.white,
                         fontFamily: "Alike"
                     ),
@@ -110,11 +110,13 @@ class _homepageState extends State<homepage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Test",
+          "Học lý thuyết",
           style: TextStyle(
             fontFamily: "Quando",
+            color: Colors.white,
           ),
         ),
+        backgroundColor: Colors.lightBlue,
       ),
       body: ListView(
         children: <Widget>[

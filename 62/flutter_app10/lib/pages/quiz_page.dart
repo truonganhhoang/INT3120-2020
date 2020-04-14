@@ -373,6 +373,7 @@ class _quizpageState extends State<quizpage> {
                 padding: EdgeInsets.all(15.0),
                 alignment: Alignment.bottomLeft,
                 child: Text(
+                    "Câu hỏi: "+
                   mydata[0][i.toString()],
                   style: TextStyle(
                     fontSize: 16.0,

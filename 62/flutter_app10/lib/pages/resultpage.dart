@@ -23,13 +23,13 @@ class _resultpageState extends State<resultpage> {
   void initState(){
     if(marks < 20){
       image = images[2];
-      message = "You Should Try Hard..\n" + "You Scored $marks";
+      message = "Bạn cần cố gắng..\n" + "Số điểm bạn đạt là $marks";
     }else if(marks < 35){
       image = images[1];
-      message = "You Can Do Better..\n" + "You Scored $marks";
+      message = "Bạn cần làm tốt hơn..\n" + "Số điểm của bạn là $marks";
     }else{
       image = images[0];
-      message = "You Did Very Well..\n" + "You Scored $marks";
+      message = "Bạn làm rất tốt..\n" + "Số điểm của bạn là $marks";
     }
     super.initState();
   }
@@ -41,7 +41,7 @@ class _resultpageState extends State<resultpage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Result",
+          "Kết quả",
         ),
       ),
       body: Column(
@@ -98,7 +98,7 @@ class _resultpageState extends State<resultpage> {
                     ));
                   },
                   child: Text(
-                    "Continue",
+                    "Tiếp tục",
                     style: TextStyle(
                       fontSize: 18.0,
                     ),

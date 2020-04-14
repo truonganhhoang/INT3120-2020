@@ -51,7 +51,6 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
         itemBuilder: (context, i) {
           if (i.isOdd) return new Divider();
           final index = i ~/ 2;
-          // 如果是建议列表中最后一个单词对
           if (index >= _suggestions.length) {
             _suggestions.addAll(generateWordPairs());
           }

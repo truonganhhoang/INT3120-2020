@@ -12,7 +12,7 @@ class TabbedAppBarSample3 extends StatelessWidget {
         length: choices.length,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Biển báo đường bộ'),
+            title: const Text('Tra cứu luật nhanh'),
             bottom: TabBar(
               isScrollable: true,
               tabs: choices.map((Choice choice) {
@@ -45,12 +45,12 @@ class Choice {
 }
 
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Xe máy', icon: Icons.directions_bike),
-  const Choice(title: 'Ô tô', icon: Icons.directions_car),
-  const Choice(title: 'Máy cẩu', icon: Icons.directions_boat),
-  const Choice(title: 'Cơ giới', icon: Icons.directions_bus),
-  const Choice(title: 'Người đi bộ', icon: Icons.directions_walk),
-  const Choice(title: 'Động vật', icon: Icons.directions_railway)
+  const Choice(icon: Icons.directions_bike),
+  const Choice(icon: Icons.directions_car),
+  const Choice(icon: Icons.directions_boat),
+  const Choice(icon: Icons.directions_bus),
+  const Choice(icon: Icons.directions_walk),
+  const Choice(icon: Icons.directions_railway)
 
 ];
 
