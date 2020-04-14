@@ -1,0 +1,27 @@
+ion-card-subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  ion-icon {
+    cursor: pointer;
+  }
+
+  .subtitle {
+    flex-shrink: 1;
+    flex-grow: 1;
+    ion-text {
+      font-weight: lighter;
+    }
+  }
+
+  .options {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+.bottom {
+  border-top: 1px solid #cccccc!important;
+}
