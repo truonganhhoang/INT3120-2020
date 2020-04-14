@@ -1,25 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'summary.dart';
 import 'dart:convert';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
-
-class QuestionQuiz{
-  var questions = [
-    "Ngạn có 6 quả táo, Hà Lan cho ngạn 4 quả táo. Hỏi Ngạn có bao nhiêu quả",
-    "Tèo mua 10 quả dưa gang giúp mẹ, trên đường đi Tèo làm rơi 2 quả. Hỏi Tèo còn bao nhiêu quả dưa gang. ",
-    "Từ nhà Hùng đến trường mất 10 cây số. Hỏi cả đi cả về hùng đi bao nhiêu cây số"
-  ];
-  var choices = [
-    ["1 quả","5 quả","7 quả","10 quả"],
-    ["4 quả","2 quả","12 quả","8 quả"],
-    ["2 cây số","43 cây số","15 cây số","20 cây số"]
-  ];
-
-  var answers = [
-    "10 quả", "8 quả","20 cây số"
-  ];
-}
 
 
   Map<String, Color> btncolor = {
@@ -30,9 +13,7 @@ class QuestionQuiz{
   };
   String x = "normal";
 
-var finalScore = 0; //Tổng điểm
-int questionNumber = 1; //Chạy câu hỏi
-var quiz = new QuestionQuiz();
+
 
 class Quiz extends StatefulWidget{
   @override
@@ -44,6 +25,8 @@ class Quiz extends StatefulWidget{
   }
     
 class QuizState extends State<Quiz> {
+  var finalScore = 0; //Tổng điểm
+  int questionNumber = 1; //Chạy câu hỏi
 
   @override
   Widget build(BuildContext context) {
@@ -230,22 +213,6 @@ class QuizState extends State<Quiz> {
 
                   ],
                 ),
-                  new Padding(padding: EdgeInsets.all(15.0)),
-
-                  // new Container(
-                  //   alignment: Alignment.bottomCenter,
-                  //   child:  new MaterialButton(
-                  //       minWidth: 240.0,
-                  //       height: 30.0,
-                  //       color: Colors.red,
-                  //       onPressed: resetQuiz,
-                  //       child: new Text("Thoát",
-                  //         style: new TextStyle(
-                  //             fontSize: 18.0,
-                  //             color: Colors.white
-                  //         ),)
-                  //   )
-                  // ),
     
               ],
             ),
@@ -263,14 +230,6 @@ class QuizState extends State<Quiz> {
     
   }
 
-
-  void resetQuiz(){
-      setState(() {
-      Navigator.pop(context);
-      finalScore = 0;
-      questionNumber = 0;
-    });
-  }
 
 
   void updateQuestion(){
@@ -290,43 +249,3 @@ class QuizState extends State<Quiz> {
   }
 }
 
-class Summary extends StatelessWidget{
-  final int score;
-  Summary({Key key, @required this.score}) : super(key : key);
-  @override
-  Widget build(BuildContext context) {
-    return new WillPopScope(
-      child: Scaffold(
-        
-        body: new Container(
-          margin: const EdgeInsets.all(10.0),
-          alignment: Alignment.center,
-          child: new Column(
-            children: <Widget>[
-              new Padding(padding: EdgeInsets.all(10.0)),
-              new Text("Điểm tổng :  $score",
-                style: new TextStyle(
-                  fontSize :25.0,
-                  ),
-                ),
-              
-              new Padding(padding: EdgeInsets.all(10.0)),
-
-              // new MaterialButton(
-              //   color: Colors.redAccent,
-              //   onPressed: (){
-              //     questionNumber = 0;
-              //     finalScore = 0;
-              //     Navigator.pop(context);
-              //   },
-              //   child: new Text("Làm lại"),
-              // )
-            ],
-          )
-        ),
-      ), 
-      onWillPop: ()async => false
-    );
-  }
-
-}
