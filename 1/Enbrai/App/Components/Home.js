@@ -4,6 +4,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 import HomeSetting from './HomeSetting'
 import HomeStudy from './HomeStudy'
 import HomeTabBar from './HomeTabBar'
+import Exercise from './Exercise'
 import Account from './Account'
 import firebase from 'react-native-firebase'
 import SplashScreen from 'react-native-splash-screen'
@@ -39,6 +40,7 @@ const Home = (props)=> {
                 >
                     <Account login ={user?true:false}/>
                     <HomeStudy/>
+                    <Exercise/>
                     <HomeSetting reload ={props.navigation.getParam('reload')} voice = {voice}/>
                 </ScrollableTabView>
             </View>

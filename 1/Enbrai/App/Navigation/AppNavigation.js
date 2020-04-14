@@ -15,6 +15,10 @@ import SignInScreen from '../Containers/SignInScreen';
 import LoadingScreen from '../Containers/LoadingScreen';
 import ForgetPassScreen from '../Containers/ForgetPassScreen'
 import UpdatePassScreen from '../Containers/UpdatePassScreen'
+import ExerciseScreen from '../Containers/ExerciseScreen'
+import SelectLevelScreen from '../Containers/SelectLevelScreen'
+import SelectSectionScreen from '../Containers/SelectSectionScreen'
+import ExerciseTabScreen from '../Containers/ExerciseTabScreen'
 
 import OnceTopicScreen from '../Containers/OnceTopicScreen';
 import OnceSetNumberWordScreen from '../Containers/OnceSetNumberWordScreen';
@@ -62,6 +66,18 @@ const AppStackNavigation = createStackNavigator(
     },
     UpdatePassScreen:{
       screen:UpdatePassScreen
+    },
+    ExerciseTabScreen:{
+      screen:ExerciseTabScreen
+    },
+    ExerciseScreen:{
+      screen:ExerciseScreen 
+    },
+    SelectLevelScreen:{
+      screen:SelectLevelScreen
+    },
+    SelectSectionScreen:{
+      screen:SelectSectionScreen
     }
   },
   {

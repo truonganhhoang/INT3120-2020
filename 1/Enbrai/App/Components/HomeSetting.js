@@ -68,7 +68,7 @@ const HomeSetting = props=> {
         {label: 'UK', value: 1 }
       ];
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
         <StatusBar
           backgroundColor="#0592D2"
           barStyle="light-content"></StatusBar>
@@ -102,6 +102,7 @@ const HomeSetting = props=> {
             borderBottomWidth: 1,
             borderBottomColor: '#E0E0E0',
             paddingLeft: 20,
+            backgroundColor: '#fff'
           }}
           onPress = {()=>{props.navigation.navigate('TopicScreen',{topic: topic})}}>
           <View style={{flexDirection: 'row', marginTop: 20}}>

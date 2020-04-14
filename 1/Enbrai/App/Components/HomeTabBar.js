@@ -17,8 +17,8 @@ class HomeTabBar extends Component {
   }
 
   render() {
-    var logo = ['person-outline', 'lightbulb-outline', 'settings'];
-    var logoFilled = ['person', 'lightbulb-outline', 'settings'];
+    var logo = ['person-outline', 'lightbulb-outline','book', 'settings'];
+    var logoFilled = ['person', 'lightbulb-outline','book' ,'settings'];
     return (
       <View style={[styles.tabs, this.props.style,]}>
         {this.props.tabs.map((tab, i) => {
@@ -34,7 +34,7 @@ class HomeTabBar extends Component {
               }}
             />
             <Text style={[styles.text, { color: this.props.activeTab === i ? '#fff' : '#C6C6C6' }]}>
-              {i === 0 ? 'Tài Khoản' : i === 1 ? 'Học Tập' : 'Cài đặt'}
+              {i === 0 ? 'Tài Khoản' : i === 1 ? 'Học Tập' : i==2 ? 'Bài tập': 'Cài đặt'}
             </Text>
           </TouchableOpacity>;
         })}
