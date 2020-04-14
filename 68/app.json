@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Hoc kanji",
     "slug": "68",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -23,6 +23,10 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android":{
+      "package":"com.uet.vantu",
+      "versionCode":1
+    },
     "ios": {
       "supportsTablet": true
     }

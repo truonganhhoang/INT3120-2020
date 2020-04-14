@@ -25,7 +25,6 @@ export default class KanjiFlashCards extends React.Component {
     };
   };
   render(){
-    // const kanjiList = this.props.navigation.getParam('kanjiList')
     return (
         <ScrollView 
             horizontal

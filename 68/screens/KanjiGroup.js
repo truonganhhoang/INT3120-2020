@@ -65,6 +65,6 @@ export default class kanjiGroup extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 3
+    marginTop: 8
   },
 });

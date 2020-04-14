@@ -37,7 +37,6 @@ export default function WordListItem(props){
                                 )
                             }):<Text></Text>
                         }
-                   
                     </View>
                 </View>
             </View>

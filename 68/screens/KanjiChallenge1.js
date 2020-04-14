@@ -28,6 +28,9 @@ export default class KanjiChallenge1 extends React.Component {
     // const kanjiList = this.props.navigation.getParam('kanjiList')
     return (
        <View style={styles.container}>
+          <View style={styles.top}>
+             <View style={styles.BarCount}></View>
+          </View>
            <View style={styles.Word}>
                  <Text style={styles.WordRandom}>Học</Text>
            </View>
@@ -69,12 +72,25 @@ const styles = StyleSheet.create({
   Word: {
     flex:0,
     alignItems:'center',
-    paddingTop: 25,
-    paddingBottom: 10
+    paddingTop: 10,
+    paddingBottom: 5
   },
   WordRandom: {
       fontSize: 35,
       color:'#fff',
       fontWeight:'700'
-  }
+  },
+  BarCount: {
+    height:20,
+    width: '70%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+},
+  top: {
+    flex:0,
+    height: 50,
+    width:'100%',
+   alignItems: 'center',
+   justifyContent: 'flex-end'
+  },
 });

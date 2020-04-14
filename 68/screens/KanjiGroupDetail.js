@@ -24,16 +24,20 @@ export default class KanjiGroupDetail extends React.Component {
         },
     };
   };
+  // constructor({text, navigation, object}){
+  //   super({text, navigation, object});
+  // }
   render(){
-    const kanjiList = this.props.navigation.getParam('kanjiList')
+    const {navigation} =  this.props;
+    const kanjiList = navigation.getParam('kanjiList')
+
     return (
       <ScrollView>
        <View style={styles.listItem}>
        
          {
-           kanjiList.map((kanjiItem, index)=><KanjiCard kanjiText={kanjiItem.kanji}/>)
+           kanjiList.map((kanjiItem)=><KanjiCard kanjiText={kanjiItem.kanji} onPress={()=> navigation.navigate('KanjiDetail')}/>)
          }
-        
        </View>
        </ScrollView>
     );
