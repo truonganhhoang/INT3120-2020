@@ -5,13 +5,13 @@ import { ProgressBarAndroid } from "@react-native-community/progress-bar-android
 import styles from './style';
 const topic_details = require('../../../../data/topic_detail.json');
 const CardExtend = (props: {
-  icon_top: any, img_top: any, vn_meaning: any, navigation?: any, topic_name: any
+  icon_top: any, img_top: any, vn_meaning: any, navigation?: any, topic_name: any, icon_type: any
 }) => {
-  const { icon_top, img_top, vn_meaning, topic_name, navigation } = props;
+  const { icon_top, img_top, vn_meaning, topic_name, navigation, icon_type } = props;
   const onPress = () => {
     Object.keys(topic_details).forEach((item, index) => {
       if (item == topic_name) {
-        navigation.navigate('WordGroupScreen', {nameTopic: topic_name, wordGroups: topic_details[item].lessons});
+        navigation.navigate('WordGroupScreen', {nameTopic: topic_name});
       }
     });
   }
@@ -28,7 +28,7 @@ const CardExtend = (props: {
               name={icon_top}
               color='#ff5e00'
               size={30}
-              type="font-awesome"
+              type={icon_type}
             />
           </View>
           <View style={styles.text}>
@@ -39,7 +39,6 @@ const CardExtend = (props: {
               indeterminate={false}
               progress={0.5}
               color='#ff5e00'
-
             />
           </View>
         </View>
