@@ -1,7 +1,10 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, InteractionManager } from 'react-native';
 import { Header } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
+import * as Permissions from 'expo-permissions';
+import db from '../data/SQLite';
 
 const list = [
     {
@@ -47,7 +50,7 @@ const list = [
     {
         title: 'Phần mềm học tiếng anh',
         icon: 'laptop',
-        navigate: 'Exam'
+        navigate: 'EnglishApp'
     },
     {
         title: 'Cài đặt',
@@ -57,6 +60,21 @@ const list = [
   ]
 
 export default class Home extends React.Component{
+    constructor(){
+        super();
+        this.init();
+    }
+    async init(){
+        const exist = await db.checkIfTablesExist();
+        if (exist == false){
+            console.log('home creates table')
+            db.createTable();
+        };
+        const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+        if (existingStatus !== 'granted') {
+            await Permissions.askAsync(Permissions.NOTIFICATIONS);
+        }
+    }
     static navigationOptions = {
         title: 'Home',
     }
@@ -69,22 +87,25 @@ export default class Home extends React.Component{
                     style={{height:20}}
                     centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
                 />
-      
                 <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
                     <View>
                     {
-                        list.map((item, i) => (
-                        <ListItem
-                            onPress={()=> navigate(
-                                item.navigate
-                            )}
-                            key={i}
-                            title={item.title}
-                            leftIcon={{ name: item.icon }}
-                            bottomDivider
-                            chevron
-                        />
-                        ))
+                        list.map((item, i) => {
+                            return (
+                                <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
+                                    <ListItem
+                                        onPress={()=> navigate(
+                                            item.navigate
+                                        )}
+                                        key={i}
+                                        title={item.title}
+                                        leftIcon={{ name: item.icon }}
+                                        bottomDivider
+                                        chevron
+                                    />
+                                </Animatable.View>
+                            )
+                        })
                     }
                     </View>
                 </ScrollView>

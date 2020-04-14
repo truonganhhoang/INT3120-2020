@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements'
+import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
 
 export default class Setting extends React.Component{
     render(){
@@ -14,7 +14,6 @@ export default class Setting extends React.Component{
                 <ScrollView>
                     <Card>
                         <View style={{flexDirection:'row'}}>
-                            <Icon name='tag-faces'/>
                             <Text>Cài đặt trò chơi</Text>
                         </View>
                         <CheckBox title="Âm thanh"/>

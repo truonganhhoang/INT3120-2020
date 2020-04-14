@@ -2,6 +2,6 @@ import sports from './sports';
 import education from './education';
 
 export default {
-    sports: sports,
-    education: education
+  sports: sports,
+  education: education
 };
