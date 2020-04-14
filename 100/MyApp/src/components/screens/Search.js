@@ -10,7 +10,7 @@ export default class Search extends Component {
     render() {
         return (   
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Button title="Go back" onPress={() => navigation.goBack()} />
+                <Button title="Go back" onPress={() => this.props.navigation.goBack()} />
             </View>
         )
     }

@@ -57,13 +57,7 @@ export default function Screen1() {
     <Stack.Navigator>
         <Stack.Screen name="Store" component={Store}
          options={{
-            title: '',
-            headerStyle:{
-                height: 0,
-            },
-            headerTitleStyle:{
-                color: "#E1F5FE"
-            }
+            header: ()=> null
           }}
         />
         <Stack.Screen name="Details" component={Details1}
@@ -85,9 +79,7 @@ export default function Screen1() {
                 height: 60,
                 backgroundColor: "#0288D1",
             },
-            headerTitleStyle:{
-                color: "#E1F5FE"
-            }
+            headerTintColor: "#E1F5FE",
         }}
         />
          <Stack.Screen name="Mycourses" component={Mycourses} 
@@ -97,9 +89,7 @@ export default function Screen1() {
                 height: 60,
                 backgroundColor: "#0288D1",
             },
-            headerTitleStyle:{
-                color: "#E1F5FE"
-            }
+            headerTintColor: "#E1F5FE",
         }}
         />
     </Stack.Navigator>
