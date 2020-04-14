@@ -9,7 +9,7 @@ export default class FavoriteScreen extends React.Component {
     title: "Yêu thích",
     headerTitleStyle: StyleCommon.StyleHeaderCommon.headerTitle,
     headerTitleAlign: "center",
-    headerTintColor: GLOBAL.COLOR.ORANGE
+    headerTintColor: GLOBAL.COLOR.ORANGE,
   };
 
   render() {
