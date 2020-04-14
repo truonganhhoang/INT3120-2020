@@ -1,24 +1,37 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, StyleSheet } from 'react-native'
 import { Styles } from '../../styles'
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 export default class Header extends Component {
     render() {
         return (
-            <View style={{height: 90, backgroundColor:"#fff", borderRadius: 8}}>
-                <View style={{flex : 1}}>
-                    <Text style={Styles.h1text}>Chào mừng bạn</Text>
-                </View>
-                <View style={{flex:1, flexDirection: "row", justifyContent: "space-between", marginHorizontal: 20}}>
-                    <TextInput placeholder="Tìm kiếm">
-                        <FontAwesome5Icon name="search" size={16} color="#333"/>
-                    </TextInput>
-                    <Text style={{fontSize:16}}>
-                        Khóa học của tôi
-                    </Text>
-                </View>
+            <View style={Styles.header}>
+                    <TouchableOpacity>
+                        
+                    </TouchableOpacity>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Knowledge store</Text>
+                    <TouchableOpacity style={[localStyles.button, {marginLeft: 80}]} 
+                    onPress={this.props.onPress1} >
+                        <FontAwesome5Icon name="search" size={24} color="#E1F5FE"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[localStyles.button, {marginLeft: 10}]}
+                    onPress={this.props.onPress2} >
+                        <FontAwesome5Icon name="play-circle" size={24} color="#E1F5FE"/>
+                    </TouchableOpacity>
             </View>
         )
     }
 }
+
+const localStyles = StyleSheet.create({
+    button:{
+        padding: 8,
+        backgroundColor:"#303F9F",
+        borderRadius: 50,
+        alignItems: "center",
+        justifyContent: "center",
+    }
+})

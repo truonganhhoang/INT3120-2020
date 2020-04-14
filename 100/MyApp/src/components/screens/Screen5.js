@@ -5,38 +5,42 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 export default class Screen5 extends Component {
     render() {
         return (
-            <View style={Styles.container}>
-                <Text style={Styles.h1text}>Cá nhân</Text>
-                <View style={localStyles.header}>
-                    <View style={Styles.avt}></View>
-                    <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>
+            <View style={{ flex: 1}}>
+                <View style={Styles.header}>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Thông báo</Text>
                 </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="user-circle" size={25} color="gray"/>
-                    <Text style={[Styles.h3text, localStyles.text]}>Thiết lập tài khoản</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="unlock-alt"  size={25} color="gray" />
-                    <Text style={[Styles.h3text, localStyles.text]}>Kích hoạt khóa học</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="list-alt"  size={25} color="gray" />
-                    <Text style={[Styles.h3text, localStyles.text]}>Điều khoản chính sách</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="question-circle"  size={25} color="gray"/>
-                    <Text style={[Styles.h3text, localStyles.text]}>Trợ giúp</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="star"  size={25} color="gray"/>
-                    <Text style={[Styles.h3text, localStyles.text]}>Đánh giá Edumall</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <FontAwesome5 name="power-off"  size={25} color="hotpink" />
-                    <Text style={[Styles.h3text, localStyles.text]}>Đăng xuất</Text>
-                </View>
-                <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                    <Text>Phiên bản: 0.0.1</Text>
+                <View style={Styles.container}>
+                    <View style={localStyles.header}>
+                        <View style={Styles.avt}></View>
+                        <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="user-circle" size={25} color="gray"/>
+                        <Text style={[Styles.h3text, localStyles.text]}>Thiết lập tài khoản</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="unlock-alt"  size={25} color="gray" />
+                        <Text style={[Styles.h3text, localStyles.text]}>Kích hoạt khóa học</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="list-alt"  size={25} color="gray" />
+                        <Text style={[Styles.h3text, localStyles.text]}>Điều khoản chính sách</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="question-circle"  size={25} color="gray"/>
+                        <Text style={[Styles.h3text, localStyles.text]}>Trợ giúp</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="star"  size={25} color="gray"/>
+                        <Text style={[Styles.h3text, localStyles.text]}>Đánh giá Edumall</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <FontAwesome5 name="power-off"  size={25} color="hotpink" />
+                        <Text style={[Styles.h3text, localStyles.text]}>Đăng xuất</Text>
+                    </View>
+                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
+                        <Text>Phiên bản: 0.0.1</Text>
+                    </View>
                 </View>
             </View>
         )

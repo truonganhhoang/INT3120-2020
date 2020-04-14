@@ -3,17 +3,32 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
     container:{
         flex: 1,
-        marginHorizontal: 10,
-        margin: 20,
-        paddingHorizontal: 10,
-        backgroundColor: "#eee"
+        marginHorizontal: 5,
+        margin: 5,
+        paddingHorizontal: 5,
+        backgroundColor: "#E1F5FE"
+    },
+    header:{
+        backgroundColor: "#0288D1",
+        height: 60,
+        flexDirection: "row",
+        alignItems: "center"
     },
     vbox : {
         width: 210,
         height: 250,
         borderRadius: 8,
         marginRight: 10,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 1,
+            height: 3,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        
+        elevation: 3,
     },
     avt: {
         width: 70,
@@ -33,14 +48,23 @@ const Styles = StyleSheet.create({
         paddingHorizontal: 30,
     },
     list2s: {
-        borderWidth: 1,
         padding: 12,
-        borderColor: "gray",
         borderRadius: 5,
-        marginTop: 5,
-        marginBottom: 5,
         fontSize: 22,
         fontWeight: "600",
+        backgroundColor: "#81D4FA",
+        color: "#000",
+        marginTop: 10,
+        marginHorizontal: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        
+        elevation: 3,
     },
     h1text: {
         fontSize: 30,

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { NavigationContainer } from '@react-navigation/native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Screen1 from './Screen1';
-import Screen2 from './Screen2';
-import Screen3 from './Screen3';
-import Screen5 from './Screen5';
-import Screen4 from './Screen4';
+import Screen1 from '../screens/Screen1';
+import Screen2 from '../screens/Screen2';
+import Screen3 from '../screens/Screen3';
+import Screen5 from '../screens/Screen5';
+import Screen4 from '../screens/Screen4';
+import Cartscreen3 from '../account/Routes';
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialTopTabNavigator();
 export default function MenuTab() {
@@ -16,12 +17,12 @@ export default function MenuTab() {
       <Tab.Navigator
         tabBarPosition = "bottom"
         tabBarOptions={{
-          activeTintColor: 'hotpink',
-          inactiveTintColor: 'gray',
-          activeBackgroundColor: 'pink',
-          inactiveBackgroundColor: '#eee',
+          activeTintColor: '#E1F5FE',
+          inactiveTintColor: '#01579B',
+          activeBackgroundColor: '#AA00FF',
+          inactiveBackgroundColor: '#512DA8',
           showIcon: true,
-          style: {height: 55}
+          style: {height: 55, backgroundColor: "#0091EA"}
         }}
       >
         <Tab.Screen name="Home" 
@@ -39,7 +40,7 @@ export default function MenuTab() {
               <FontAwesome5 name="th" size={22} color={color} />
             ),}}
         />
-        <Tab.Screen name="Cart" component={Screen3} 
+        <Tab.Screen name="Cart" component={Cartscreen3} 
           options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
@@ -50,14 +51,14 @@ export default function MenuTab() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="bell" size={22} color={color} />
+            <FontAwesome name="bell" size={22} color={color} />
           ),}}
         />
         <Tab.Screen name="Acc" component={Screen5}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="user" size={22} color={color} />
+            <FontAwesome name="user" size={22} color={color} />
           ),}}
         />
       </Tab.Navigator>
