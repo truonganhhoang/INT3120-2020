@@ -15,7 +15,7 @@ const signInWithFacebook = async () => {
 
       // Sign in with credential from the Facebook user.
       const info = await firebase.auth().signInWithCredential(credential);
-      await addInfo(info.user);
+      // await addInfo(info.user);
     } else {
       console.log(type);
       return false;

@@ -6,7 +6,7 @@ import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { signInWithEmail } from './firebaseApi/auth';
 
-let heightPhone = Dimensions.get("window").height;
+let heightPhone = Dimensions.get('window').height;
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -83,16 +83,18 @@ class LoginScreen extends Component {
               />
 
               <View style={{ alignItems: 'center' }}>
-                <View style={{ height: heightPhone*0.03}} />
+                <View style={{ height: heightPhone * 0.03 }} />
                 <View style={{ width: '80%' }}>
                   <Button
                     title="SIGN IN"
                     titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
-                    onPress={async () => await auth.signInWithEmail(this.state.email, this.state.password)}
+                    onPress={async () =>
+                      await auth.signInWithEmail(this.state.email, this.state.password)
+                    }
                   />
                 </View>
-                <View style={{ height: heightPhone*0.01 }} />
+                <View style={{ height: heightPhone * 0.01 }} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>
@@ -133,15 +135,15 @@ const styles = StyleSheet.create({
     height: heightPhone,
   },
   logo: {
-    height: heightPhone*0.4,
+    height: heightPhone * 0.4,
   },
   login: {
     backgroundColor: '#fff',
-    height: heightPhone*0.6,
+    height: heightPhone * 0.6,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
   padding: {
-    height: heightPhone*0.03,
+    height: heightPhone * 0.03,
   },
 });

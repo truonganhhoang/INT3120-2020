@@ -17,19 +17,19 @@ import Swipeout from 'react-native-swipeout';
 import { Header, CheckBox, Button } from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
-import { getAllTasks } from '../firebaseApi/task';
+import { getLessons } from '../firebaseApi/lesson';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
 let heightPhone = Dimensions.get('window').height;
 let widthPhone = Dimensions.get('window').width;
 
-export default class ViewExam extends React.Component {
+export default class ViewLesson extends React.Component {
   state = {
     data: [],
+    table: [],
     idSelected: 0,
     editModal: false,
-    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
-    dataSelected: { id: 0, name: '', lesson: '', date: '', description: '', done: '' },
+    dataSelected: {},
     refreshing: false,
     isDateTimePickerVisible: false,
   };
@@ -39,9 +39,11 @@ export default class ViewExam extends React.Component {
   componentDidMount = async () => {
     let arrret = [];
     try {
-      arrret = await getAllTasks();
-      this.setState({ data: arrret.filter((item) => item.type == 'Exam') });
-    } catch (err) {}
+      arrret = await getLessons();
+      this.setState({ data: arrret });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   onRefresh = () => {
@@ -130,7 +132,6 @@ export default class ViewExam extends React.Component {
         <View>
           <TouchableOpacity onPress={() => this.openModal(item, id)} key={id}>
             <View style={styles.rowContainer}>
-              <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(id)} />
               <Text style={styles.note}>
                 {id + 1}. {item.name}
               </Text>
@@ -155,7 +156,7 @@ export default class ViewExam extends React.Component {
           statusBarProps={{ barStyle: 'light-content' }}
           barStyle="light-content"
           centerComponent={{
-            text: 'LIST EXAM',
+            text: 'LIST LESSON',
             style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold' },
           }}
           containerStyle={{
@@ -170,19 +171,9 @@ export default class ViewExam extends React.Component {
         >
           {this.state.data.map((item, id) => this.renderRow(item, id))}
         </ScrollView>
-
         <Modalize ref={this.modal} modalHeight={heightPhone * 0.7}>
           <View>
             <View style={styles.content_header}>
-              <CheckBox
-                checked={this.state.dataSelected.done}
-                onPress={() => {
-                  let select = this.state.dataSelected;
-                  select.done = !select.done;
-                  this.setState({ dataSelected: select });
-                }}
-                size={30}
-              />
               <TextInput
                 value={this.state.dataSelected.name}
                 style={styles.titleModal}
@@ -204,8 +195,8 @@ export default class ViewExam extends React.Component {
                 onPress={() => {
                   if (!this.state.editModal) {
                     Alert.alert(
-                      'Edit Exam',
-                      'Do you want to edit this exam?',
+                      'Edit Task',
+                      'Do you want to edit this task?',
                       [
                         { text: 'YES', onPress: () => this.setState({ editModal: true }) },
                         { text: 'NO' },
@@ -214,7 +205,7 @@ export default class ViewExam extends React.Component {
                     );
                   } else {
                     Alert.alert(
-                      'Edit Exam',
+                      'Edit Task',
                       'Do you want to finish?',
                       [{ text: 'YES', onPress: () => this.changeData() }, { text: 'NO' }],
                       { caoncelable: false }
@@ -223,39 +214,80 @@ export default class ViewExam extends React.Component {
                 }}
               />
             </View>
+            <TextInput
+              value={this.state.dataSelected.location}
+              style={styles.titleModal}
+              placeholderTextColor="#1976D2"
+              editable={this.state.editModal}
+              onChangeText={(text) =>
+                this.setState((prevState) => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    location: text,
+                  },
+                }))
+              }
+            />
+            <TextInput
+              value={this.state.dataSelected.teacher}
+              style={styles.titleModal}
+              placeholderTextColor="#1976D2"
+              editable={this.state.editModal}
+              onChangeText={(text) =>
+                this.setState((prevState) => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    teacher: text,
+                  },
+                }))
+              }
+            />
+            <TextInput
+              value={this.state.dataSelected.week}
+              style={styles.titleModal}
+              placeholderTextColor="#1976D2"
+              editable={this.state.editModal}
+              onChangeText={(text) =>
+                this.setState((prevState) => ({
+                  dataSelected: {
+                    ...prevState.dataSelected,
+                    week: text,
+                  },
+                }))
+              }
+            />
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color: '#d32f2f' }} />
               <Picker
-                selectedValue={this.state.dataSelected.lesson}
+                selectedValue={this.state.dataSelected.type}
                 enabled={this.state.editModal}
                 style={styles.lessonModal}
                 onValueChange={(itemValue, itemIndex) =>
                   this.setState((prevState) => ({
                     dataSelected: {
                       ...prevState.dataSelected,
-                      lesson: itemValue,
+                      type: itemValue,
                     },
                   }))
                 }
               >
-                {this.state.table.map((item, i) => (
-                  <Picker.Item label={item.name} value={item.name} key={i} />
-                ))}
+                <Picker.Item label="Theory" value="Theory" />
+                <Picker.Item label="Practice" value="Practice" />
               </Picker>
-            </View>
-            <View style={{ marginBottom: 10, flexDirection: 'row' }}>
-              <Ionicons
-                name="ios-calendar"
-                size={30}
-                style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5 }}
-              />
               <Button
                 title={this.state.dataSelected.day}
                 type="clear"
+                icon={
+                  <Ionicons
+                    name="ios-calendar"
+                    size={30}
+                    style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5, paddingRight: 10 }}
+                  />
+                }
                 onPress={this.showDateTimePicker}
                 disabled={!this.state.editModal}
                 disabledTitleStyle={{ color: '#ffc107' }}
-                buttonStyle={{ width: widthPhone * 0.33 }}
+                buttonStyle={{ width: widthPhone * 0.5, paddingTop: 15 }}
                 titleStyle={{ fontSize: 18, color: '#ffc107' }}
               />
               <DateTimePicker
@@ -265,23 +297,8 @@ export default class ViewExam extends React.Component {
               />
             </View>
             <View>
-              <Text style={{ paddingLeft: 5, color: '#B7B7B7', fontSize: 18 }}>Note</Text>
-              <TextInput
-                style={{ padding: '2.5%', fontSize: 20 }}
-                underlineColorAndroid="transparent"
-                value={this.state.dataSelected.description}
-                placeholderTextColor="black"
-                numberOfLines={2}
-                multiline={true}
-                onChangeText={(text) =>
-                  this.setState((prevState) => ({
-                    dataSelected: {
-                      ...prevState.dataSelected,
-                      description: text,
-                    },
-                  }))
-                }
-              />
+              <Text>{this.state.dataSelected.startTime}</Text>
+              <Text>{this.state.dataSelected.endTime}</Text>
             </View>
           </View>
         </Modalize>
@@ -308,12 +325,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     color: '#1976D2',
     width: widthPhone * 0.7,
+    paddingLeft: 20,
   },
   lessonModal: {
     marginTop: 10,
     color: '#d32f2f',
     height: 50,
-    width: widthPhone * 0.5,
+    width: widthPhone * 0.3,
   },
   edit: {
     marginLeft: 'auto',
@@ -340,6 +358,7 @@ const styles = StyleSheet.create({
   },
   note: {
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: '600',
+    paddingLeft: 25,
   },
 });

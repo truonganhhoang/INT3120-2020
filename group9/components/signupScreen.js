@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 
-let heightPhone = Dimensions.get("window").height;
+let heightPhone = Dimensions.get('window').height;
 
 class SignUpScreen extends Component {
   constructor(props) {
@@ -99,7 +99,7 @@ class SignUpScreen extends Component {
               />
 
               <View style={{ alignItems: 'center' }}>
-                <View style={{ height: heightPhone*0.03}} />
+                <View style={{ height: heightPhone * 0.03 }} />
                 <View style={{ width: '80%' }}>
                   <Button
                     title="SIGN UP"
@@ -112,7 +112,7 @@ class SignUpScreen extends Component {
                     }}
                   />
                 </View>
-                <View style={{height: heightPhone*0.02}} />
+                <View style={{ height: heightPhone * 0.02 }} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>
@@ -153,15 +153,15 @@ const styles = StyleSheet.create({
     height: heightPhone,
   },
   logo: {
-    height: heightPhone*0.3,
+    height: heightPhone * 0.3,
   },
   login: {
     backgroundColor: '#fff',
-    height: heightPhone*0.7,
+    height: heightPhone * 0.7,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
   padding: {
-    height: heightPhone*0.025,
+    height: heightPhone * 0.025,
   },
 });

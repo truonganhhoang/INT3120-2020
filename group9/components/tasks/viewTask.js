@@ -58,7 +58,21 @@ export default class ViewTask extends React.Component {
   };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    const month = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const day = date.getDate() + ' ' + month[date.getMonth()] + ' ' + date.getFullYear();
     let newState = Object.assign({}, this.state);
     newState.dataSelected.date = date;
     newState.dataSelected.day = day;
@@ -100,7 +114,7 @@ export default class ViewTask extends React.Component {
         text: 'Delete',
         backgroundColor: 'red',
         underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
-        onPress: async () => {r
+        onPress: async () => {
           await this.deleteItem(item.fid, id);
         },
       },

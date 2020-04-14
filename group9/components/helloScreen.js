@@ -35,14 +35,14 @@ export default class HelloScreen extends React.Component {
               buttonStyle={{ borderRadius: 30, height: 55, borderColor: '#fff' }}
               onPress={() => this.login()}
             />
-            <View style={{ marginTop: heightPhone*0.035 }} />
+            <View style={{ marginTop: heightPhone * 0.035 }} />
             <Button
               title="SIGN UP"
               titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#23a6d5', fontSize: 18 }}
               buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#fff' }}
               onPress={() => this.signup()}
             />
-            <View style={{ marginTop: heightPhone*0.05 }} />
+            <View style={{ marginTop: heightPhone * 0.05 }} />
             <Text
               onPress={() => auth.signInAnonymously()}
               style={{ fontSize: 17, color: '#fff', fontWeight: 'bold' }}

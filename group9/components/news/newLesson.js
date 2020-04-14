@@ -15,7 +15,6 @@ class NewLesson extends React.Component {
   state = {
     selectedType: '',
     name: '',
-    abbreviation: '',
     teacher: '',
     location: '',
     week: '',
@@ -39,7 +38,21 @@ class NewLesson extends React.Component {
   };
 
   handleDatePicked = (date) => {
-    const day = date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear();
+    const month = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const day = date.getDate() + ' ' + month[date.getMonth()] + ' ' + date.getFullYear();
     this.setState({ date: date });
     this.setState({ datePicked: day });
     this.hideDateTimePicker();
@@ -82,12 +95,16 @@ class NewLesson extends React.Component {
       week: this.state.week,
       type: this.state.selectedType,
       location: this.state.location,
-      day: this.state.date,
+      date: this.state.date,
+      day: this.state.datePicked,
       start: this.state.time,
+      startTime: this.state.timePicked,
       end: this.state.time1,
+      endTime: this.state.timePicked1,
     };
     let ret = await addLesson(lesson);
     console.log(ret);
+    console.log(addLesson);
   };
 
   updateIndex = (selectedIndex) => {
@@ -156,20 +173,6 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <Input
-          placeholder="Abbreviation"
-          leftIcon={
-            <Ionicons
-              name="ios-color-palette"
-              size={30}
-              style={{ paddingRight: 20, color: '#1976D2' }}
-            />
-          }
-          onChangeText={(text) => {
-            this.setState({ abbreviation: text });
-          }}
-        />
-        <View style={{ padding: 10 }} />
-        <Input
           placeholder="Teacher"
           leftIcon={
             <Ionicons name="ios-person" size={30} style={{ paddingRight: 20, color: '#1976D2' }} />
@@ -207,41 +210,39 @@ class NewLesson extends React.Component {
           }}
         />
         <View style={{ padding: 10 }} />
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{ flexDirection: 'row' }}>
           <Ionicons
             name="ios-browsers"
             size={30}
-            style={{ paddingLeft: 30, color: '#1976D2', top: 5 }}
+            style={{ paddingLeft: 27, color: '#1976D2', top: 5, paddingRight: 10 }}
           />
           <Picker
             selectedValue={this.state.selectedType}
-            style={{ height: 40, width: '40%', color: '#1976D2' }}
+            style={{ height: 40, width: widthPhone * 0.3, color: '#1976D2' }}
             onValueChange={(itemValue, itemIndex) => this.setState({ selectedType: itemValue })}
           >
             <Picker.Item label="Choose..." value="" />
             <Picker.Item label="Theory" value="Theory" />
             <Picker.Item label="Practice" value="Practice" />
           </Picker>
-          <View>
-            <Button
-              title={this.state.datePicked}
-              icon={
-                <Ionicons
-                  name="ios-calendar"
-                  size={30}
-                  style={{ color: '#1976D2', paddingRight: '2.5%' }}
-                />
-              }
-              type="clear"
-              onPress={this.showDateTimePicker}
-              buttonStyle={{ marginRight: '2.5%', marginLeft: '1.5%' }}
-            />
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this.handleDatePicked}
-              onCancel={this.hideDateTimePicker}
-            />
-          </View>
+          <Button
+            title={this.state.datePicked}
+            icon={
+              <Ionicons
+                name="ios-calendar"
+                size={30}
+                style={{ color: '#1976D2', paddingRight: 10 }}
+              />
+            }
+            type="clear"
+            onPress={this.showDateTimePicker}
+            buttonStyle={{ marginRight: '2.5%', marginLeft: '1.5%' }}
+          />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+          />
         </View>
         <View
           style={{

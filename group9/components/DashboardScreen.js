@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { Calendar } from './calendar';
-import { DayView } from './dayview';
+import { ViewLesson } from './lessons';
 import { NewTask, NewLesson, News } from './news';
 import { ViewTask } from './tasks';
 import { ViewExam } from './exams';
@@ -51,6 +51,8 @@ class DashboardScreen extends Component {
                 ionicon = focused ? 'md-checkmark' : 'md-checkmark-circle-outline';
               } else if (route.name === 'Exam') {
                 ionicon = focused ? 'ios-book' : 'ios-bookmarks';
+              } else if (route.name === 'Lesson') {
+                ionicon = focused ? 'ios-book' : 'ios-bookmarks';
               }
               return <Ionicons name={ionicon} size={size} color={color} />;
             },
@@ -63,6 +65,7 @@ class DashboardScreen extends Component {
           <Tab.Screen name="Calendar" component={Calendar} />
           <Tab.Screen name="Task" component={ViewTask} />
           <Tab.Screen name="New" component={News} />
+          <Tab.Screen name="Lesson" component={ViewLesson} />
           <Tab.Screen name="Exam" component={ViewExam} />
           <Tab.Screen name="Setting" component={Setting} />
         </Tab.Navigator>
