@@ -50,9 +50,15 @@ class _SentencePageState extends State<SentencePage> {
                   itemBuilder: (context, index) {
                     return Card(
                       child: ListTile(
-                        leading: Text('${index + 1}'),
-                        title: Text(snapshot.data.documents[index]['title']),
-                        subtitle: Text(snapshot.data.documents[index]['subtitle'], overflow: TextOverflow.ellipsis,),
+                        leading: Text('${index + 1}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        title: Text(snapshot.data.documents[index]['title'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(snapshot.data.documents[index]['subtitle'],
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         trailing: Icon(Icons.arrow_forward_ios),
                         onTap: () {
                           if(snapshot.data.documents[index]['has_child']){
@@ -75,7 +81,9 @@ class _SentencePageState extends State<SentencePage> {
                                   builder: (context) => GrammarResult(),
                                   settings: RouteSettings(arguments: {
                                     'title': snapshot.data.documents[index]
-                                    ['title']
+                                    ['title'],
+                                    'context': snapshot.data.documents[index]
+                                    ['context']
                                   })),
                             );
                           }
