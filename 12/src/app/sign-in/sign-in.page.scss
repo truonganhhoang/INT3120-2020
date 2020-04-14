@@ -1,7 +1,7 @@
 ion-content {
   --background: none;
   background-color: transparent;
-  background-image: url("/assets/shapes.png");
+  background-image: url('/assets/shapes.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -11,8 +11,6 @@ ion-content {
 }
 
 .header {
-  margin-top: 20px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,10 +25,10 @@ ion-content {
   }
 
   div {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 700;
-    @media (min-width: 576px) {
-      font-size: 28px;
+    @media (max-width: 576px) {
+      font-size: 20px;
     }
   }
 }
@@ -40,10 +38,6 @@ ion-content {
 
   mat-form-field {
     width: 100%;
-  }
-
-  .forgot-password {
-    text-align: right;
   }
 
   .text-divider {
@@ -72,7 +66,6 @@ ion-content {
   }
 
   .forgot-password-btn {
-    text-align: right;
     ion-text {
       cursor: pointer;
     }

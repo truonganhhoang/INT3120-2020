@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,19 +8,24 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { SentryErrorHandlerService } from './core/services/sentry-error-handler.service';
 import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -32,12 +37,22 @@ import { AppComponent } from './app.component';
     AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [StatusBar, SplashScreen, Keyboard, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    Keyboard,
+    Facebook,
+    AppVersion,
+    AngularFireAuthGuard,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: ErrorHandler, useClass: SentryErrorHandlerService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

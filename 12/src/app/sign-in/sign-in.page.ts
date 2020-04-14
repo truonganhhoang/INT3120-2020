@@ -1,12 +1,12 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
 import { SignInService } from '../core/services/firebase/auth/sign-in.service';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-sign-in',
@@ -26,16 +26,20 @@ export class SignInPage implements OnDestroy {
   password = this.signInForm.get('password');
 
   signInSubscription?: Subscription;
+  signInWithFacebookSubscription?: Subscription;
 
   constructor(
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private signInService: SignInService,
-    private storage: Storage
+    private router: Router
   ) {}
 
   ngOnDestroy() {
+    this.signInForm.reset();
+    this.signInForm.clearValidators();
     this.signInSubscription?.unsubscribe();
+    this.signInWithFacebookSubscription?.unsubscribe();
   }
 
   togglePassword() {
@@ -46,18 +50,23 @@ export class SignInPage implements OnDestroy {
     this.dialog.open(ForgotPasswordComponent);
   }
 
-  handleSubmit() {
+  goToIntro() {
+    this.router.navigate(['intro']);
+  }
+
+  handleLogin() {
     if (this.signInForm.valid) {
       this.isSubmitting = true;
       this.signInSubscription = this.signInService
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
-          next: (userJSON) => {
-            this.storage.set('user', userJSON);
+          next: () => {
+            this.signInForm.reset();
+            this.signInForm.clearValidators();
           },
           complete: () => {
             this.isSubmitting = false;
-            // go to main page
+            this.router.navigate(['tabs', 'learn']);
           },
           error: (message) => {
             this.isSubmitting = false;
@@ -69,5 +78,26 @@ export class SignInPage implements OnDestroy {
           }
         });
     }
+  }
+
+  handleLoginWithFacebook() {
+    this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
+      next: () => {
+        this.signInForm.reset();
+        this.signInForm.clearValidators();
+      },
+      complete: () => {
+        this.isSubmitting = false;
+        this.router.navigate(['tabs', 'learn']);
+      },
+      error: (message) => {
+        this.isSubmitting = false;
+        this.dialog.open(SignInFailedComponent, {
+          data: {
+            message: message
+          }
+        });
+      }
+    });
   }
 }

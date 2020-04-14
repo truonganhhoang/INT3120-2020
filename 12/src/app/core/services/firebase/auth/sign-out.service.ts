@@ -9,7 +9,7 @@ export class SignOutService {
   constructor(private ngFireAuth: AngularFireAuth) {}
 
   signOut() {
-    return new Observable((observer) => {
+    return new Observable<any>((observer) => {
       this.ngFireAuth.auth
         .signOut()
         .then(() => {

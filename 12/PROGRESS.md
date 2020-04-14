@@ -178,3 +178,43 @@ ionic g page profile -f
 
 - Thêm tính năng đăng nhập.
 - Router Guard cho route `/tabs/...`
+- Tính năng đăng xuất từ màn hình setting `/tabs/profile/settings`
+
+# 2020-04-07
+
+- Đăng nhập với facebook.
+
+# 2020-04-08
+
+- Thêm privacy policy.
+
+# 2020-04-10
+
+- Chia 4 tab tại `/tab/learn/course/:courseId` bằng routing.
+
+# 2020-04-11
+
+- Cài đặt plugin facebook để đăng nhập trên android.
+- Thêm tính năng đăng nhập facebook trên android (khác với đăng nhập trên web)
+- Cài đặt plugin app version.
+- Style lại các item ở trang settings.
+- Đóng dialog của Sentry.
+- Thêm child routes cho `/tabs/course/:courseId/overview` và `/tabs/course/:courseId/forums`
+
+# 2020-04-12
+
+- Thêm NotFoundComponent.
+- `ng add @zeit/ng-deploy` rồi quay trở lại `@angular/fire`.
+- Declare `NotFoundComponent` ở `app.module.ts`.
+
+# 2020-04-13
+
+- Sử dụng auth guard của `@angular/fire/auth-guard`, xoá `auth-guard.guard.ts`.
+- Inject service `AuthFireRouteGuard` vào `app.module.ts`.
+- Không cần sử dụng storage để lưu token nữa (vì bản thân firebase SDK đã lưu token và các thông tin người dùng vào IndexedDB).
+- Tăng cỡ chữ cho title ở trang đăng nhập và đăng ký.
+
+# 2020-04-14
+
+- Thêm UI cho:
+  - `/tabs/learn/courses`

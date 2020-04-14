@@ -4,11 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'courses',
-    loadChildren: () => import('./my-courses/my-courses.module').then((m) => m.MyCoursesPageModule)
+    loadChildren: () => import('./courses/courses.module').then((m) => m.CoursesPageModule)
   },
   {
-    path: 'course/:courseId',
-    loadChildren: () => import('./my-course-details/my-course-details.module').then((m) => m.MyCourseDetailsPageModule)
+    path: 'course/:id',
+    loadChildren: () => import('./course-detail/course-detail.module').then((m) => m.CourseDetailPageModule)
   },
   {
     path: '',
@@ -20,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LearnRoutingModule {}
+export class LearnPageRoutingModule {}

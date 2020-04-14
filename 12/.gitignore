@@ -29,5 +29,12 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/resources/android/*
+!/resources/android/xml
+/resources/ios/*
+/resources/windows/*
 
 .now
+.firebase
+.firebaserc
+firebase.json
