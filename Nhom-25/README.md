@@ -4,6 +4,8 @@
 
 ## Thành viên:
 - Đặng Thị Ngọc Ánh - MSSV: 17020597
+- Nguyễn Thị Thu Thủy - MSSV: 17021168
+- Cao Thị Ngọc Huyền - MSSV: 17020807
 
 ## Framework sử dụng: React Native
 
