@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
     KanjiPanelDetail : {
         width: '90%',
-        height: screen(45),
+        height: screen(120),
         marginTop: 20,
         paddingHorizontal: 8,
         paddingTop: 15,
