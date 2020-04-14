@@ -3,8 +3,10 @@ import Test from './Test';
 import ListSelects from './ListSelects';
 import Result from './result';
 import ListTests from './ListTests';
-import TrafficSigns from './TrafficSigns';
+import TrafficSigns from './TrafficSigns/TrafficSigns';
 import  Practice from './practice';
+import AllQuestion  from './AllQuestion';
+import Tips from './tips/tips';
 
 const AppComponents = {
     Course,
@@ -13,6 +15,8 @@ const AppComponents = {
     Result,
     ListTests,
     TrafficSigns,
-    Practice
+    Practice,
+    AllQuestion,
+    Tips
 }
 export default AppComponents;

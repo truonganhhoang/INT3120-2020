@@ -13,7 +13,7 @@
 
 import React, { Component, useState, useEffect } from 'react';
 import {
-  Text, View
+  Text, View,Image
 } from 'react-native';
 import {
   Container, Header, Tab, Tabs,
@@ -30,7 +30,7 @@ export default class Test extends Component {
     };
   }
   componentDidMount(){
-    listQuestion=this.props.route.params.data.Question.split(" ");
+    var listQuestion=this.props.route.params.data.Question.split(" ");
     for(var i=0;i<listQuestion.length;i++){
       FirebaseApp.database().ref('Question').child(listQuestion[i]).once('value').then(snapshot => {
         this.setState({data:[...this.state.data,snapshot.val()]});
@@ -52,7 +52,6 @@ export default class Test extends Component {
           </Body>
           <Right>
             <Button onPress={() => {
-              console.log(this.state.data[0].Answers.Answer1);
               navigation.pop();
               navigation.navigate("Result", { "namePage": "Kết quả thi", "data": this.state.data });
             }}
@@ -90,7 +89,8 @@ export default class Test extends Component {
     return (
       <View style={{ paddingTop: 10,paddingRight: 10 }}>
         <View >
-          <Text style={{ color: 'blue', fontSize: 16,paddingLeft:20 }}>{question.QuestionText}</Text>
+          <Text style={{ color: 'blue', fontSize: 16,paddingLeft:10 }}>{question.QuestionText}</Text>
+          <Image style={{resizeMode:'center'}} source={{uri:question.LinkImage,height:200}}/>
         </View>
         {show}
       </View>
@@ -127,13 +127,11 @@ const CountDown = (props) => {
 }
 
 const ShowCheckBox = (props) => {
-  
   const [select, setSelect] = useState(false);
   props.answer.select =select;
   return (
     <ListItem stype={{ flexDirection: 'row' }}>
       <CheckBox style={{ marginRight: 20 }} checked={select} onPress={() => {
-        
         setSelect(!select);
       }} />
       <Text >{props.answer.AnswerText}</Text>

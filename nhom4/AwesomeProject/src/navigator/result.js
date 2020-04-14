@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Text, View
+  Text, View,Image
 } from 'react-native';
 import { Container, Header, Tab, Tabs, ScrollableTab, Button, Body, Icon, Title, Content, ListItem, CheckBox } from 'native-base';
 export default class Result extends Component {
@@ -51,6 +51,7 @@ export default class Result extends Component {
       <View style={{ paddingTop: 10, paddingRight: 10 }}>
         <View >
           <Text style={{ color: 'blue', fontSize: 16, paddingLeft: 20 }}>{question.QuestionText}</Text>
+          <Image style={{resizeMode:'center'}} source={{uri:question.LinkImage,height:200}}/>
         </View>
         {show}
       </View>

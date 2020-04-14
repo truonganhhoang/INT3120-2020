@@ -9,7 +9,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Grid, Col, Row } from 'native-base';
 
 import AppStyle from '../them'
-
+import BoxSelect from '../component/BoxSelect';
 import { FirebaseApp } from '../component/FirebaseConfig';
 
 export default class ListSelects extends Component {
@@ -49,62 +49,45 @@ export default class ListSelects extends Component {
                     navigation.navigate("Test", { "namePage": "Đề ngẫu nhiên", "data": arr[random] })
                   });
                 }}>
-                <Body>
-                  <Image source={require('../asset/Layer1.png')} style={AppStyle.StyleCommon.IconSelect} />
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Đề ngẫu nhiên</Text>
-                </Body>
+                <BoxSelect srcImage={require('../asset/Layer1.png')} text={"Đề ngẫu nhiên"}  />
               </Col>
-              <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#ff3334'}]}
+              <Col style={[AppStyle.StyleCommon.ColSelect, {backgroundColor: '#ff3334'}]}
               onPress={() => navigation.navigate("ListTests", { "namePage": "Bộ đề thi"})}>
-                <Body>
-                  <Image source={require('../asset/Layer2.png')} style={AppStyle.StyleCommon.IconSelect} />
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Thi theo bộ đề</Text>
-                </Body>
+                <BoxSelect srcImage={require('../asset/Layer2.png')} text={'Thi theo bộ đề'}/>
               </Col>
             </Row>
             <Row>
               <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#795547' }]}
-                onPress={()=>{navigation.navigate("Practice")}}>
-                <Body>
-                  <Image source={require('../asset/Layer6.png')} style={AppStyle.StyleCommon.IconSelect}/>
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Bài thi sa hình</Text>
-                </Body>
+                onPress={()=>{
+                  let arr={};
+                  FirebaseApp.database().ref('Categories').child("B2").child("help").once('value').then(snapshot => {
+                    arr=Object.values(snapshot.val());
+                    navigation.navigate("Practice",{'data':arr});
+                  })
+                  }}>
+                  <BoxSelect srcImage={require('../asset/Layer6.png')}  text={'Bài thi sa hình'}/>
               </Col>
               <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#34bbbf' }]}
-                onPress={()=>{}}>
-                <Body>
-                  <Image source={require('../asset/Layer8.png')}style={AppStyle.StyleCommon.IconSelect} />
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Ôn tập câu hỏi</Text>
-                </Body>
+                onPress={()=>{
+                    navigation.navigate("AllQuestion")
+                  }}>
+                <BoxSelect srcImage={require('../asset/Layer8.png')}  text={'Ôn tập câu hỏi'}/>
               </Col>
             </Row>
             <Row>
               <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#338bd5' }]}
                 onPress={()=>{navigation.navigate("TrafficSigns")}}
               >
-                <Body>
-                  <Image source={require('../asset/Layer4.png')} style={AppStyle.StyleCommon.IconSelect} />
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Các biển báo</Text>
-                </Body>
+                <BoxSelect srcImage={require('../asset/Layer4.png')}  text={'Các biển báo'}/>
               </Col>
               <Col style={[AppStyle.StyleCommon.ColSelect, { backgroundColor: '#338bd5' }]}
-                onPress={()=>{}}>
-                <Body>
-                  <Image source={require('../asset/Layer7.png')} style={AppStyle.StyleCommon.IconSelect} />
-                </Body>
-                <Body>
-                  <Text style={{ color: '#fff', fontSize: 22 }}>Mẹo ghi nhớ</Text>
-                </Body>
+                onPress={()=>{
+                  FirebaseApp.database().ref('tips/').once('value').then(snapshot => {
+                    let arr=snapshot.val();
+                    navigation.navigate("Tips", {"data": arr });
+                  })
+                }}>
+                <BoxSelect srcImage={require('../asset/Layer7.png')}  text={'Mẹo ghi nhớ'}/>
               </Col>
             </Row>
           </Grid>

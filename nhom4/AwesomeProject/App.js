@@ -40,6 +40,12 @@ export default class App extends Component {
           <Stack.Screen options={{ headerShown: false }}
             name="Practice"
             component={AppComponents.Practice} />
+          <Stack.Screen options={{ headerShown: false }}
+            name="AllQuestion"
+            component={AppComponents.AllQuestion} />
+          <Stack.Screen options={{ headerShown: false }}
+            name="Tips"
+            component={AppComponents.Tips} />
         </Stack.Navigator>
       </NavigationContainer>
     );
