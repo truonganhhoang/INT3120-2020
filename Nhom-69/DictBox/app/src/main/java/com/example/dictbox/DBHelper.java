@@ -23,7 +23,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private String DATABASE_FULL_PATH = "";
 
     private final String TBL_AV = "av";
-    private final String TBL_VA = "va";
     private final String TBL_BOOKMARK = "bookmark";
 
     private final String COL_KEY = "key";
@@ -84,9 +83,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<String> getWord(int dicTyp) {
-        String tableName = getTableName(dicTyp);
-        String q = "SELECT [key], [value] FROM " + tableName;
+    public ArrayList<String> getWord() {
+        String q = "SELECT [key], [value] FROM " + TBL_AV;
         Cursor result = mDB.rawQuery(q, null);
 
         ArrayList<String> source = new ArrayList<>();
@@ -97,9 +95,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return source;
     }
 
-    public Word getWord(String key, int dicTyp) {
-        String tableName = getTableName(dicTyp);
-        String q = "SELECT [key], [value] FROM " + tableName + " WHERE upper([key]) = upper(?)";
+    public Word getWord(String key) {
+        String q = "SELECT [key], [value] FROM " + TBL_AV + " WHERE upper([key]) = upper(?)";
         Cursor result = mDB.rawQuery(q, new String[]{key});
 
         Word word = new Word();
@@ -114,7 +111,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void addBookMark(Word word) {
         try {
-            String q = "INSERT INTO bookmark ([" + COL_KEY + "],[" + COL_VALUE + "]) VALUES (?, ?);";
+            String q = "INSERT INTO " + TBL_BOOKMARK + " ([" + COL_KEY + "],[" + COL_VALUE + "]) VALUES (?, ?);";
             mDB.execSQL(q, new Object[]{word.key, word.value});
 
         } catch (SQLException e) {
@@ -124,7 +121,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void removeBookMark(Word word) {
         try {
-            String q = "DELETE FROM bookmark WHERE upper(["+COL_KEY+"]) = upper(?) AND ["+COL_VALUE+"] = ?;";
+            String q = "DELETE FROM " + TBL_BOOKMARK + " WHERE upper([" + COL_KEY + "]) = upper(?) AND [" + COL_VALUE + "] = ?;";
             mDB.execSQL(q, new Object[]{word.key, word.value});
 
         } catch (SQLException e) {
@@ -134,7 +131,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void removeBookMark(String key) {
         try {
-            String q = "DELETE FROM bookmark WHERE upper(["+COL_KEY+"]) = upper(?)";
+            String q = "DELETE FROM " + TBL_BOOKMARK + " WHERE upper([" + COL_KEY + "]) = upper(?)";
             mDB.execSQL(q, new Object[]{key});
 
         } catch (SQLException e) {
@@ -142,18 +139,18 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public String getTableName(int dicType) {
-        String tableName = "";
-        if (dicType == R.id.action_eng_vi) {
-            tableName = TBL_AV;
-        } else if (dicType == R.id.action_vi_eng) {
-            tableName = TBL_VA;
-        }
-        return tableName;
-    }
+//    public String getTableName(int dicType) {
+//        String tableName = "";
+//        if (dicType == R.id.action_eng_vi) {
+//            tableName = TBL_AV;
+//        } else if (dicType == R.id.action_vi_eng) {
+//            tableName = TBL_VA;
+//        }
+//        return tableName;
+//    }
 
     public ArrayList<String> getAllWordFromBookMark() {
-        String q = "SELECT * FROM bookmark ORDER BY [date] DESC;";
+        String q = "SELECT * FROM " + TBL_BOOKMARK + " ORDER BY [date] DESC;";
         Cursor result = mDB.rawQuery(q, null);
 
         Word word = new Word();
@@ -167,15 +164,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return source;
     }
 
-    public boolean isWordMark(Word word){
-        String q = "SELECT * FROM bookmark WHERE upper([key]) = upper (?) AND [value] = ?";
+    public boolean isWordMark(Word word) {
+        String q = "SELECT * FROM " + TBL_BOOKMARK + " WHERE upper([key]) = upper (?) AND [value] = ?";
         Cursor result = mDB.rawQuery(q, new String[]{word.key, word.value});
 
         return result.getCount() > 0;
     }
 
-    public Word getWordFromBookMark(String key){
-        String q = "SELECT * FROM bookmark WHERE upper([key]) = upper (?)";
+    public Word getWordFromBookMark(String key) {
+        String q = "SELECT * FROM " + TBL_BOOKMARK + " WHERE upper([key]) = upper (?)";
         Cursor result = mDB.rawQuery(q, new String[]{key});
 
         Word word = null;
@@ -189,7 +186,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void clearBookmark() {
         try {
-            String q = "DELETE FROM bookmark";
+            String q = "DELETE FROM " + TBL_BOOKMARK;
             mDB.execSQL(q);
 
         } catch (SQLException e) {

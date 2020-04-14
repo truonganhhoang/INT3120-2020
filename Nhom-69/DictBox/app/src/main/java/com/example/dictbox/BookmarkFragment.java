@@ -57,7 +57,7 @@ public class BookmarkFragment extends Fragment {
         adapter.setOnItemClick(new ListItemListener() {
             @Override
             public void onItemClick(int position) {
-                if (listener != null){
+                if (listener != null) {
                     listener.onItemClick(String.valueOf(adapter.getItem(position)));
                 }
             }
@@ -97,7 +97,7 @@ public class BookmarkFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.action_clear){
+        if (id == R.id.action_clear) {
             mDBHelper.clearBookmark();
             adapter.clear();
             adapter.notifyDataSetChanged();

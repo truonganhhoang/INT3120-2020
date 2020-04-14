@@ -5,21 +5,22 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title=""
-        android:icon="@drawable/eng_vi"
         app:showAsAction="always">
-        <menu>
-            <item
-                android:id="@+id/action_eng_vi"
-                android:icon="@drawable/eng_vi"
-                android:orderInCategory="100"
-                android:title="English - Vietnamese"
-                app:showAsAction="never" />
-            <item
-                android:id="@+id/action_vi_eng"
-                android:icon="@drawable/vi_eng"
-                android:orderInCategory="100"
-                android:title="Vietnamese - English"
-                app:showAsAction="never" />
-        </menu>
+<!--        android:icon="@drawable/eng_vi"-->
+
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/action_eng_vi"-->
+<!--                android:icon="@drawable/eng_vi"-->
+<!--                android:orderInCategory="100"-->
+<!--                android:title="English - Vietnamese"-->
+<!--                app:showAsAction="never" />-->
+<!--            <item-->
+<!--                android:id="@+id/action_vi_eng"-->
+<!--                android:icon="@drawable/vi_eng"-->
+<!--                android:orderInCategory="100"-->
+<!--                android:title="Vietnamese - English"-->
+<!--                app:showAsAction="never" />-->
+<!--        </menu>-->
     </item>
 </menu>
