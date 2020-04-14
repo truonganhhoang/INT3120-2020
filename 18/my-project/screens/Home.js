@@ -39,36 +39,36 @@ export default class Home extends Component {
                </View> */}
 
         <View style={{ backgroundColor: '#31edd1', flex: 3.5 }}>
-          <Image source={require('../image/img1.jpg')} style={{ width: '100%', height: '100%', resizeMode: 'cover' }} />
+          <Image source={require('../assets/img1.jpg')} style={{ width: '100%', height: '100%', resizeMode: 'cover' }} />
         </View>
 
         <View style={styles.gridList}>
           <View style={styles.button}>
             <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Test')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img1.png')}/>
+              <Image style={styles.imageButton}  source={require('../assets/home/1.png')}/>
               <Text style={styles.button1}>THI SÁT HẠNH</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Learn')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img2.png')}/>
+              <Image style={styles.imageButton}  source={require('../assets/home/2.png')}/>
               <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Signs')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img3.png')}/>
+              <Image style={styles.imageButton}  source={require('../assets/home/3.png')}/>
               <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.button}>
             <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Tips')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img4.png')}/>
+              <Image style={styles.imageButton}  source={require('../assets/home/4.png')}/>
               <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img5.png')}/>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Rules')}>
+              <Image style={styles.imageButton}  source={require('../assets/home/5.png')}/>
               <Text style={styles.button1}>TRA CỨU LUẬT NHANH</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Setting')}>
-              <Image style={styles.imageButton}  source={require('../image/home/img6.png')}/>
-              <Text style={styles.button1}>CÁC CÂU HAY SAI</Text>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Taplo')}>
+              <Image style={styles.imageButton}  source={require('../assets/home/6.png')}/>
+              <Text style={styles.button1}>ĐÈN CẢNH BÁO TÁP LÔ</Text>
             </TouchableOpacity>
           </View>
           {/* <FlatList
@@ -81,11 +81,11 @@ export default class Home extends Component {
                     numColumns={3}
                 /> */}
         </View>
-        <View style={{ flex: 3 }}>
-          <Image style={{ width: '100%', height: '100%', resizeMode: 'cover' }} source={require('../image/img2.jpg')} />
-          <TouchableOpacity style={styles.addButton}>
+        <View style={{ flex: 2 }}>
+          <Image style={{ width: '100%', height: '100%', resizeMode: 'cover' }} source={require('../assets/img2.webp')} />
+          {/* <TouchableOpacity style={styles.addButton}>
             <Text style={styles.iconButton}>+</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
       </View>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   gridList: {
-    flex: 4.5,
+    flex: 5.5,
     backgroundColor: "#00000017"
   },
 

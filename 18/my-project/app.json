@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ôn thi GPLX",
-    "slug": "my-project",
+    "name": "Ôn thi GPLX B1",
+    "slug": "GPLX",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -9,23 +9,33 @@
       "android",
       "web"
     ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nhom18.onthiGPLX",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.nhom18.onthiGPLX",
+      "versionCode": 1
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#2ea82b"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2ea82b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "description": ""
   }
 }
