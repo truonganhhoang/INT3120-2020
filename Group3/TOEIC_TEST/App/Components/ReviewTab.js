@@ -18,8 +18,15 @@ class ReviewTab extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <View style={styles.linearGradient}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.props.darkMode == false ? "#EEEEEE" : "#212121" }}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: 40,
+                    paddingBottom: 20,
+                    backgroundColor: this.props.darkMode == false ? "#1976D2" : "#263238"
+                }}>
                     <Text style={styles.title}>XEM LẠI</Text>
                 </View>
                 <View style={{ flex: 1 }}>
@@ -27,39 +34,79 @@ class ReviewTab extends Component {
                         <ImageBackground
                             source={require('../Images/review.jpg')}
                             style={{ flex: 1 }}
-                            >
+                        >
                         </ImageBackground>
                     </View>
                     <View style={{ flex: 6 / 10 }}>
                         <View style={{ position: 'absolute', top: -70, left: 0, right: 0, bottom: 0, margin: 20 }}>
-                                <View style={{ flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center' }}>
-                                    <Animatable.View delay={200} animation='bounceInLeft' style={styles.view}>
-                                        <TouchableOpacity
-                                            onPress={() => { }} style={{ padding: 20 }}>
-                                            <Icon name="heart" color="#616161" size={30} style={styles.icon} />
-                                            <Text style={styles.text}>Câu yêu thích</Text>
-                                        </TouchableOpacity>
-                                    </Animatable.View>
-                                    <Animatable.View delay={200} animation='bounceInRight' style={styles.view}>
-                                        <TouchableOpacity
-                                            onPress={() => { }} style={{ padding: 20 }}>
-                                            <Icon name="star-half-full" color="#616161" size={35} style={styles.icon} />
-                                            <Text style={styles.text}>Câu làm gần đây</Text>
-                                        </TouchableOpacity>
-                                    </Animatable.View>
-                                </View>
-                                <View style={{ flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center' }}>
-                                    <Animatable.View delay={200} animation='bounceInLeft' style={styles.view}>
-                                        <TouchableOpacity onPress={() => {}} style={{ padding: 20 }}>
-                                            <Icon name="times-circle" color="#616161" size={35} style={styles.icon} />
-                                            <Text style={styles.text}>Câu trả lời sai</Text>
-                                        </TouchableOpacity>
-                                    </Animatable.View>
-                                </View>
+                            <View style={{ flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center' }}>
+                                <Animatable.View delay={200} animation='bounceInLeft'
+                                    style={{
+                                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        flex: 1 / 2,
+                                        margin: 5
+                                    }}>
+                                    <TouchableOpacity
+                                        onPress={() => { }} style={{ padding: 20 }}>
+                                        <Icon name="heart" color={this.props.darkMode == false ? "#616161" : "#EEEEEE"} size={30} style={styles.icon} />
+                                        <Text style={{
+                                            color: this.props.darkMode == false ? "#616161" : "#EEEEEE",
+                                            textAlign: 'center',
+                                            paddingTop: 5,
+                                            width: 80,
+                                            height: 40,
+                                            fontSize: 14,
+                                        }}>Câu yêu thích</Text>
+                                    </TouchableOpacity>
+                                </Animatable.View>
+                                <Animatable.View delay={200} animation='bounceInRight'
+                                    style={{
+                                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        flex: 1 / 2,
+                                        margin: 5
+                                    }}>
+                                    <TouchableOpacity
+                                        onPress={() => this.props.navigation.navigate('TestRecent')} style={{ padding: 20 }}>
+                                        <Icon name="star-half-full" color={this.props.darkMode == false ? "#616161" : "#EEEEEE"} size={35} style={styles.icon} />
+                                        <Text style={{
+                                            color: this.props.darkMode == false ? "#616161" : "#EEEEEE",
+                                            textAlign: 'center',
+                                            paddingTop: 5,
+                                            width: 80,
+                                            height: 40,
+                                            fontSize: 14,
+                                        }}>Câu làm gần đây</Text>
+                                    </TouchableOpacity>
+                                </Animatable.View>
+                            </View>
+                            <View style={{ flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center' }}>
+                                <Animatable.View delay={200} animation='bounceInLeft'
+                                    style={{
+                                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        flex: 1 / 2,
+                                        margin: 5
+                                    }}>
+                                    <TouchableOpacity onPress={() => { }} style={{ padding: 20 }}>
+                                        <Icon name="times-circle" color={this.props.darkMode == false ? "#616161" : "#EEEEEE"} size={35} style={styles.icon} />
+                                        <Text style={{
+                                            color: this.props.darkMode == false ? "#616161" : "#EEEEEE",
+                                            textAlign: 'center',
+                                            paddingTop: 5,
+                                            width: 80,
+                                            height: 40,
+                                            fontSize: 14,
+                                        }}>Câu trả lời sai</Text>
+                                    </TouchableOpacity>
+                                </Animatable.View>
+                            </View>
                         </View>
                     </View>
-
-
                 </View>
             </SafeAreaView>
         )

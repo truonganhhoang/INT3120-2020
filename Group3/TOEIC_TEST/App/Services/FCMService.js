@@ -2,7 +2,6 @@ import firebase from 'react-native-firebase'
 import type { Notification, NotificationOpen} from 'react-native-firebase'
 
 class FCMService {
-
     register = (onRegister, onNotification, onOpenNotification) => {
         this.checkPermission(onRegister)
         this.createNotificationListeners(onRegister, onNotification, onOpenNotification)
@@ -129,6 +128,9 @@ class FCMService {
         //.android.setAutoCancel(true) // Auto cancel after receive notification
     }
 
+
+    // schedule notìication
+    // Input: notification and after days, minutes from now will push notification
     scheduleNotification = (notification, days, minutes) => {
         const date = new Date()
         if (days) {
@@ -140,6 +142,39 @@ class FCMService {
 
         firebase.notifications()
         .scheduleNotification(notification, {fireDate: date.getTime()})
+    }
+
+    // schedule daily
+    // input: notification and time to push notification everyday
+    scheduleDailyNotification = (notification, notificationTime) => {
+        firebase.notifications().scheduleNotification(notification, {
+            fireDate: notificationTime.valueOf(),
+            repeatInterval: 'day',
+            exact: true,
+        });
+    }
+
+    scheduleDailyNotification = (title, content, notificationTime) => {
+        // Build and create a notification channel
+        const channel = new firebase.notifications.Android.Channel(
+            "reminder", //channelId
+            "Reminders Channel", //channelName
+            firebase.notifications.Android.Importance.High
+        ).setDescription("Used for getting reminder notification")
+
+        const notification = new firebase.notifications.Notification()
+        .setNotificationId("1") //random value
+        .setTitle(title) // Title of notification
+        .setBody(content) // Body of notification
+        .android.setPriority(firebase.notifications.Android.Priority.High) // set priority in Android
+        .android.setChannelId("reminder")
+        .android.setAutoCancel(true); // to remove noti when tapped it
+
+        firebase.notifications().scheduleNotification(notification, {
+            fireDate: notificationTime.valueOf(),
+            repeatInterval: 'day',
+            exact: true,
+        });
     }
 
     displayNotification = (notification) => {

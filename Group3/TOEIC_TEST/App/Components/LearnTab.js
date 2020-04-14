@@ -11,7 +11,8 @@ import {
     ImageBackground,
     Image,
     Dimensions,
-    ToastAndroid
+    ToastAndroid,
+    StatusBar,
 } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
@@ -37,6 +38,7 @@ export default class LearnTab extends Component {
     componentDidMount() {
         this.setState({ selectedIndex: 0 })
         this.fetchLession()
+        console.log("darkmode:"+this.props.darkMode)
     }
     fetchLession = async () => {
         this.setState({ data: [] })
@@ -119,13 +121,19 @@ export default class LearnTab extends Component {
                 <TouchableOpacity
                     onPress={() => { this.props.navigation.navigate("LearnWord", { id: item.id, name: item.name }) }}
                 >
-                    <View style={styles.item}>
+                    <View style={{
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
+                        paddingBottom: 10,
+                        marginVertical: 8,
+                        marginHorizontal: 16,
+                        elevation: 5,
+                    }}>
                         <Image
                             style={{ height: 150, flex: 1 }}
                             source={{ uri: url }}
                         />
-                        <Text style={styles.lession}>{item.name}</Text>
-                        <Text style={styles.number}>Số từ vựng: {item.numb_words}</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 10, color: this.props.darkMode == false ? "#212121" : "#F5F5F5" }}>{item.name}</Text>
+                        <Text style={{ paddingLeft: 10, color: this.props.darkMode === false ? "#8D6E63" : "#BDBDBD" }}>Số từ vựng: {item.numb_words}</Text>
                     </View>
                 </TouchableOpacity>
             </Animatable.View >
@@ -138,16 +146,22 @@ export default class LearnTab extends Component {
                 <TouchableOpacity
                     onPress={() => { this.setState({ detail: item, visibleModal: true }) }}
                 >
-                    <View style={styles.item2}>
+                    <View style={{
+                        flexDirection: 'row',
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
+                        marginVertical: 6,
+                        marginHorizontal: 15,
+                        elevation: 5,
+                    }}>
                         <View style={{ flexDirection: 'column', justifyContent: "center" }}>
                             <Image source={{ uri: url }}
-                                style={{ width: 150, height: 100, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, resizeMode: 'stretch' }}
+                                style={{ width: 150, flex: 1, resizeMode: 'stretch' }}
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.word}</Text>
-                            <Text>[{item.sound}]</Text>
-                            <Text >{item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.props.darkMode == false ? "" : "#F5F5F5" }}>{item.word}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -161,16 +175,22 @@ export default class LearnTab extends Component {
                 <TouchableOpacity
                     onPress={() => { this.setState({ detail2: item, visibleModal2: true }) }}
                 >
-                    <View style={styles.item2}>
+                    <View style={{
+                        flexDirection: 'row',
+                        backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
+                        marginVertical: 6,
+                        marginHorizontal: 15,
+                        elevation: 5,
+                    }}>
                         <View style={{ flexDirection: 'column', justifyContent: "center" }}>
                             <Image source={{ uri: url }}
-                                style={{ width: 150, height: 100, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, resizeMode: 'stretch' }}
+                                style={{ width: 150, flex: 1, resizeMode: 'stretch' }}
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.word}</Text>
-                            <Text>[{item.sound}]</Text>
-                            <Text>{item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18,color: this.props.darkMode === false ? "" : "#F5F5F5" }}>{item.word}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -200,7 +220,6 @@ export default class LearnTab extends Component {
                         onBackdropPress={() => this.setState({ visibleModal: false })}
                         backdropTransitionOutTiming={0}
                         isVisible={this.state.visibleModal}
-                        style={{ margin: 0 }}
                         hideModalContentWhileAnimating={true}>
                         {this.renderModalContent1()}
                     </Modal>
@@ -296,8 +315,16 @@ export default class LearnTab extends Component {
         const buttons = ['Bài học', 'Từ đánh dấu', 'Từ nhắc nhở']
         const { selectedIndex } = this.state
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={styles.linearGradient}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.props.darkMode === false ? "#EEEEEE" : "#212121" }}>
+                <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: 40,
+                    paddingBottom: 20,
+                    backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238"
+                }}>
                     <Icon name='search' size={24} type='FontAwesome' color='transparent' />
                     <Text style={styles.title}>TỪ VỰNG TOEIC</Text>
                     <TouchableOpacity
@@ -313,6 +340,9 @@ export default class LearnTab extends Component {
                     selectedIndex={selectedIndex}
                     buttons={buttons}
                     containerStyle={{ height: 40, borderRadius: 20 }}
+                    buttonStyle={{ backgroundColor: this.props.darkMode === false ? "#FAFAFA" : "#263238" }}
+                    selectedButtonStyle={{ backgroundColor: this.props.darkMode === false ? "#1976D2" : "#616161" }}
+                    textStyle={{ color: this.props.darkMode === false ? "#212121":"#FAFAFA" }}
                 />
                 {this.renderBody(selectedIndex)}
             </SafeAreaView >

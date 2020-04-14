@@ -24,9 +24,6 @@ const resetAction = StackActions.reset({
     actions: [NavigationActions.navigate({ routeName: 'MainBody' })],
 })
 class LearnWord extends Component {
-    static navigationOptions = {
-        headerShown: false
-    }
     constructor(props) {
         super(props)
         this.state = {
@@ -138,11 +135,8 @@ class LearnWord extends Component {
             <SafeAreaView style={styles.container}>
                 <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
                 <View style={styles.linearGradient}>
-                    <TouchableOpacity
-                        onPress={() => this.Back()}
-                    >
+                    <TouchableOpacity onPress={() => this.Back()}>
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
-                            onPress={() => { this.Back() }}
                             style={styles.iconLeft}
                         />
                     </TouchableOpacity>

@@ -30,12 +30,25 @@ class TestBar extends Component {
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('TestList', { name: item.description, id: item.id })}
                 >
-                    <View style={styles.item}>
+                    <View style={{
+                        backgroundColor: this.props.darkMode == false ? "#F5F5F5" : "#263238",
+                        padding: 10,
+                        marginVertical: 10,
+                        marginHorizontal: 10,
+                        elevation: 5,
+                        borderRadius: 10,
+                    }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Icon name={item.icon} size={45} style={{ padding: 10 }} />
+                            <Icon name={item.icon} size={45} style={{ padding: 10 }} color={this.props.darkMode == false ? "#212121" : "#EEEEEE"} />
                             <View style={{ flexDirection: 'column' }}>
-                                <Text style={styles.part}>{item.name}</Text>
-                                <Text style={styles.name}>{item.description}</Text>
+                                <Text style={{
+                                    color: this.props.darkMode == false ? "#212121" : "#F5F5F5",
+                                    fontWeight: 'bold',
+                                    fontSize: 20,
+                                    padding: 10,
+                                    paddingLeft: 20,
+                                }}>{item.name}</Text>
+                                <Text style={{ paddingLeft: 20, color: this.props.darkMode == false ? "#8D6E63" : "#616161", }}>{item.description}</Text>
                             </View>
                         </View>
                     </View>
@@ -45,8 +58,15 @@ class TestBar extends Component {
     }
     render() {
         return (
-            <SafeAreaView>
-                <View style={styles.linearGradient}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.props.darkMode == false ? "#EEEEEE" : "#212121" }}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: 40,
+                    paddingBottom: 20,
+                    backgroundColor: this.props.darkMode == false ? "#1976D2" : "#263238"
+                }}>
                     <Text style={styles.title}>KIỂM TRA</Text>
                 </View>
                 <FlatList
