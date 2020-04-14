@@ -8,38 +8,38 @@ import {
     Card, CardItem
 } from 'native-base';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { styles } from '../Component/Style.js';
 
-export default class ListTopicExam extends Component {
+const ListTopicExam = (props) => {
 
-    render() {
-        const { navigation,route } = this.props;
-        const { itemId,mainId } = route.params;
-        return (
-            <Container>
-                <Header style={{ backgroundColor: "#1E90FF"}}>
-                <Left>
-                    <Button transparent
-                    onPress={() => navigation.navigate("ListComponent", {
-                        itemId: itemId,
-                        mainId: mainId
-                    })}
-                    >
-                    <FontAwesome5Icon name="arrow-left" style={{fontSize: 20, color: 'white'}} solid/>
-                    </Button>
-                </Left>
-                <Body>
-                    <Title>Danh sách đề thi</Title>
-                </Body>
-                <Right>
-                <Button transparent>
-                    <FontAwesome5Icon name="bars" style={{fontSize: 20, color: 'white'}} solid/>
+    const { navigation,route } = props;
+    const { itemId,mainId } = route.params;
+    return (
+        <Container style={styles.container}>
+            <Header style={styles.header}>
+            <Left>
+                <Button transparent
+                onPress={() => navigation.navigate("ListComponent", {
+                    itemId: itemId,
+                    mainId: mainId
+                })}
+                >
+                <FontAwesome5Icon name="arrow-left" style={{fontSize: 20, color: 'white'}} solid/>
                 </Button>
-                </Right>
-                </Header>
-                <Content>
-                    <Text>Danh sách đề thi chưa được cập nhật!</Text>
-                </Content>
-            </Container>
-        );
-    }
+            </Left>
+            <Body style={styles.body}>
+                <Title>Danh sách đề thi</Title>
+            </Body>
+            <Right>
+            <Button transparent>
+                <FontAwesome5Icon name="bars" style={{fontSize: 20, color: 'white'}} solid/>
+            </Button>
+            </Right>
+            </Header>
+            <Content>
+                <Text>Danh sách đề thi chưa được cập nhật!</Text>
+            </Content>
+        </Container>
+    );
 }
+export default ListTopicExam;

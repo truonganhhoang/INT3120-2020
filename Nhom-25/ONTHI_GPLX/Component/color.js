@@ -1,0 +1,20 @@
+
+export const color = {
+    header: "#01579b",
+    textButton: "white",
+    ButtonColor: "#00838f",
+    ButtonRandom: "#ba68c8",
+    ButtonList: "#ba68c8",
+    ButtonCheckfail: "#ba68c8",
+    ButtonReview: "#ba68c8",
+    ButtonTrafficSign: "#ba68c8",
+    ButtonTips: "#ba68c8",
+    ButtonPractice: "#ba68c8",
+    ButtonTop50: "#ba68c8",
+    colorPass: "#43a047",
+    colorFail: "#e53935",
+    ButtonCard: "#546e7a",
+    colorExplain: "#fdd835",
+    colorDark: "#263238",
+    colorSubText: "#37474f",
+}

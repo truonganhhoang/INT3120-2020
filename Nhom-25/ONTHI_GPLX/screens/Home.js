@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Container, Header,
     Left, Body, Right,
@@ -8,53 +8,33 @@ import {
 } from 'native-base';
 import { styles } from '../Component/Style.js';
 import { data } from '../data/DanhsachBang.js';
+import Item from '../itemComponent/ItemComponent';
 
-class Item extends Component {
-    render() {
 
-        const { title, description, key_id,route, navigation } = this.props;
-        return (
-                <ListItem onPress={() => navigation.navigate('ListComponent',{
-                    mainId: key_id,
+const Home = (props) => {
+    const { navigation } = props;
+    return (
+        <Container style={styles.container}>
+            <Header style={styles.header}>
+                <Body style={styles.body}>
+                    <Title style={{fontSize: 20, marginLeft: 10}}>Chọn bằng lái xe ôn thi</Title>
+                </Body>
+            </Header>
+            <Content>
+                <List>
+                    {
+                        data.map(item => {
+                            const {title, description, key_id} = item;
+                            return <Item title={title} 
+                                    description={description} 
+                                    key_id={key_id}
+                                    navigation = {navigation}
+                                    />
+                        })
                     }
-                    )}>
-                    <Body>
-                        <H1 style={styles.textHeader}>{title}</H1>
-                        <Text style={styles.textContent}>{description}</Text>
-                        {/* {
-                            route != null ? <Text>not params</Text>: <Text>{JSON.stringify(route)}</Text>
-                        } */}
-                    </Body>
-                </ListItem>
-        )
-    }
+                </List>
+            </Content>
+        </Container>
+    );
 }
-
-export default class Home extends Component {
-    render() {
-        const { navigation } = this.props;
-        return (
-            <Container>
-                <Header>
-                    <Body>
-                        <Title style={styles.margin}>Chọn bằng lái xe ôn thi</Title>
-                    </Body>
-                </Header>
-                <Content>
-                    <List>
-                        {
-                            data.map(item => {
-                                const {title, description, key_id} = item;
-                                return <Item title={title} 
-                                        description={description} 
-                                        key_id={key_id}
-                                        navigation = {navigation}
-                                        />
-                            })
-                        }
-                    </List>
-                </Content>
-            </Container>
-        );
-    }
-}
+export default Home;
