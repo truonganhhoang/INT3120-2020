@@ -1,0 +1,76 @@
+ion-content {
+  --background: none;
+  background-color: transparent;
+  background-image: url('/assets/shapes.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  @media (min-width: 500px) {
+    background: none;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  ion-img {
+    width: 80px;
+    @media (max-width: 576px) {
+      width: 40px;
+    }
+  }
+
+  div {
+    font-size: 28px;
+    font-weight: 700;
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.sign-up-form-container {
+  padding: 30px;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .text-divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+
+    &::before,
+    &::after {
+      flex: 1 1 auto;
+      content: '';
+      border: 0.5px solid #cdcdcd;
+    }
+
+    &::before {
+      margin-right: 0.5em;
+    }
+    &::after {
+      margin-left: 0.5em;
+    }
+  }
+
+  .terms-and-policies {
+    margin-top: 40px;
+
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
