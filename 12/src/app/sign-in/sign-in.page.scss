@@ -19,11 +19,17 @@ ion-content {
 
   ion-img {
     width: 80px;
+    @media (max-width: 576px) {
+      width: 40px;
+    }
   }
 
   div {
     font-size: 28px;
     font-weight: 700;
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
   }
 }
 
