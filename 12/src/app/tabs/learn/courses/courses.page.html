@@ -1,10 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>My Courses</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/tabs/profile/settings']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Courses(mock)</ion-title>
   </ion-toolbar>
 </ion-header>
-<ul>
-  <li *ngFor="let course of courses">
-    <a (click)="goToCourse(course.id)">{{ course.name }}</a>
-  </li>
-</ul>
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" *ngFor="let i of [1, 2, 3, 4, 5, 6]">
+      <app-course-item [routerLink]="['/tabs/learn/course', i]"></app-course-item>
+    </ion-item>
+  </ion-list>
+</ion-content>

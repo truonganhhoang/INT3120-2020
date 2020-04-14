@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 
 import { ToastController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
 
 import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
@@ -39,8 +38,7 @@ export class SignUpPage implements OnDestroy {
     private router: Router,
     private dialog: MatDialog,
     private signUpService: SignUpService,
-    private signInService: SignInService,
-    private storage: Storage
+    private signInService: SignInService
   ) {}
 
   ngOnDestroy() {
@@ -62,7 +60,10 @@ export class SignUpPage implements OnDestroy {
       this.signUpSubscription = this.signUpService
         .signUpWithEmailAndPassword(this.email.value, this.password.value, this.fullName.value)
         .subscribe({
-          next: () => {},
+          next: () => {
+            this.signUpForm.reset();
+            this.signUpForm.clearValidators();
+          },
           error: (err: string) => {
             this.isSubmitting = false;
             this.dialog.open(SignUpFailedComponent, {
@@ -86,12 +87,13 @@ export class SignUpPage implements OnDestroy {
 
   handleLoginWithFacebook() {
     this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
-      next: (userJSON) => {
-        this.storage.set('user', userJSON);
+      next: () => {
+        this.signUpForm.reset();
+        this.signUpForm.clearValidators();
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigateByUrl('/tabs/learn/courses');
+        this.router.navigate(['/tabs/learn/courses']);
       },
       error: async (err) => {
         const loginFacebookFailed = await this.toastController.create({

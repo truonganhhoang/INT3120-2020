@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { Storage } from '@ionic/storage';
 
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInFailedComponent } from './sign-in-failed/sign-in-failed.component';
@@ -33,7 +32,6 @@ export class SignInPage implements OnDestroy {
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private signInService: SignInService,
-    private storage: Storage,
     private router: Router
   ) {}
 
@@ -62,8 +60,9 @@ export class SignInPage implements OnDestroy {
       this.signInSubscription = this.signInService
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
-          next: (user) => {
-            this.storage.set('user', user.toJSON());
+          next: () => {
+            this.signInForm.reset();
+            this.signInForm.clearValidators();
           },
           complete: () => {
             this.isSubmitting = false;
@@ -83,8 +82,9 @@ export class SignInPage implements OnDestroy {
 
   handleLoginWithFacebook() {
     this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
-      next: (user) => {
-        this.storage.set('user', user.toJSON());
+      next: () => {
+        this.signInForm.reset();
+        this.signInForm.clearValidators();
       },
       complete: () => {
         this.isSubmitting = false;

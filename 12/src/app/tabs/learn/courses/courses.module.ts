@@ -5,11 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CoursesPageRoutingModule } from './courses-routing.module';
-
 import { CoursesPage } from './courses.page';
+import { CourseItemComponent } from './course-item/course-item.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, CoursesPageRoutingModule],
-  declarations: [CoursesPage]
+  declarations: [CoursesPage, CourseItemComponent]
 })
 export class CoursesPageModule {}
