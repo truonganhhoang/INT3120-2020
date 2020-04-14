@@ -33,6 +33,8 @@ Link ứng dụng: [https://play.google.com/store/apps/details?id=com.ffff.tudie
   - Video giới thiệu: https://www.youtube.com/watch?v=IYvAej2m4zo
 - Tuần 4: Hoàn thành thêm 2 màn hình, kết nối với backend.
  Đã hoàn thành tất cả các màn hình, kết nối với data.
-- Tuần 5: Bắt đầu hoàn thiện sản phẩm.
+
+- Tuần 5: Bắt đầu hoàn thiện sản phẩm. Link issues: [Issues](https://github.com/balanced-team/envidict/issues?q=is%3Aissue+is%3Aclosed)
+          Tuần 5, nhóm đã thực hiện hoàn thiện sản phẩm. Chỉnh sửa những lỗi giao diện sau khi nhận review từ các bạn cùng lớp.
 - Tuần 6: Hoàn thiện sản phẩm, refactor code.
 ### Link repo nhóm: [https://github.com/balanced-team/envidict](https://github.com/balanced-team/envidict)
