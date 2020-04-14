@@ -1,29 +1,41 @@
-import * as React from 'react';
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, ScrollView, FlatList, Modal } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator,StyleSheet, Text, View, Button, Alert, TouchableOpacity, ScrollView, FlatList, Modal } from 'react-native';
 import styles from '../../styles/style.js';
-
-import DATA from '../../data/QuestionPracticeData'
+import config from '../../components/config';
 
 export default function QuestionPractice({ navigation }) {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(config.IP_SEVER + '/admin/QuestionCategories/json')
+      .then((response) => response.json())
+      .then((json) => setData(json.data))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  });
+
   return (
+
     <View style={styles.container}>
+       {isLoading ? <ActivityIndicator /> : (
       <FlatList
-        data={DATA}
+        data={data}
         renderItem={ ({ item }) =>
           (
-            <TouchableOpacity onPress={() => navigation.navigate('QuestionSet', {questionSet: item.id})}>
+            <TouchableOpacity onPress={() => navigation.navigate('QuestionSet', {questionSet: item.QC_id})}>
               <Item
-                color={item.color}
-                questionRange={item.questionRange}
-                title={item.title}
-                briefDescription={item.briefDescription}
-                theme={item.theme}
+                color={item.QC_color}
+                questionRange={item.QC_count}
+                title={item.QC_name}
+                briefDescription={item.QC_content}
+                theme={item.QC_button}
               />
             </TouchableOpacity>
           )
         }
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => index.toString()}
       />
+      )}
     </View>
   );
 }
@@ -33,7 +45,7 @@ function Item(props) {
   <View style={styles.itemContainer}>
     <View style={styles.floatLeft}>
       <TripleCirleIcon color={props.color}/>
-      <Text style={{color: props.color, marginTop: 10}}>{props.questionRange}</Text>
+      <Text style={{color: props.color, marginTop: 10}}>{props.questionRange} câu</Text>
     </View>
 
     <View style={styles.floatRight}>

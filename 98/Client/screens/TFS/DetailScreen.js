@@ -61,9 +61,7 @@ const styles = StyleSheet.create({
     },
     image: {
         height: 150,
-        //width: 150,
-        justifyContent: 'center',
-        resizeMode: 'center',
+        resizeMode:"contain",
         margin: 10,
     },
 });

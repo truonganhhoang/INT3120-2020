@@ -8,7 +8,7 @@ import TrafficSignList from '../../screens/TFS/TFSListScreen';
 import DetailScreen from '../../screens/TFS/DetailScreen';
 import QuestionPractice from '../../screens/Question/QuestionPractice';
 import QuestionSet from '../../screens/Question/QuestionSet';
-import MemoryTricks from '../../screens/Question/MemoryTricks';
+
 //
 
 
@@ -42,13 +42,6 @@ export default function Home() {
         }} 
       />
   
-     
-      <Stack.Screen
-        name="MemoryTricks"
-        component={MemoryTricks}
-        initialParams={{ modalVisible: false, questionSet: 7}}
-      />
-    
     <Stack.Screen
         name="TFS"
         component={TFSScreen}

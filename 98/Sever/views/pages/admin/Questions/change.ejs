@@ -1,29 +1,38 @@
 <!-- Head -->
-<%  title ="Add question" %>
+<%  title ="Update Question" %>
 <% page2="Questions" %>
-<% page3="Add" %>
+<% page3="Update" %>
 <% link2="#" %>
 
 <!-- Page content -->
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card">
-        <h5 class="card-header">Addition question</h5>
+        <h5 class="card-header">Change question</h5>
         <div class="card-body">
             <form id="validationform" data-parsley-validate="" novalidate="" action ="" method="post" enctype="multipart/form-data">
+                <div class="form-group row" hidden>
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right">ID</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required=""  class="form-control" name="Q_id" value="<%= result2[0].Q_id %>" >
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Name</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_name">
+                        <input type="text" required=""  class="form-control" name="Q_name" value="<%= result2[0].Q_name %>">
                     </div>
                 </div>
         
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right" for="input-select">Category</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <select class="form-control" id="input-select" name="Q_category">
+                        <select class="form-control" id="input-select" name="Q_category" >
                             <% result.forEach(function(id) { %>
-                                <option value="<%= id.QC_id %>"><%= id.QC_name %></option> 
-                            <% }); %>
+                                <% if(id.QC_id == result2[0].Q_category_id){ %>
+                                <option value="<%= id.QC_id %>" selected><%= id.QC_name %></option> 
+                                <%} else { %>
+                                <option value="<%= id.QC_id %>" ><%= id.QC_name %></option> 
+                            <%} }); %>
                      
                         </select>
                     </div>
@@ -31,49 +40,52 @@
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Title</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_title">
+                        <input type="text" required=""  class="form-control" name="Q_title" value="<%= result2[0].Q_title %>">
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Answer 1</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_1">
+                        <input type="text" required=""  class="form-control" name="Q_1"  value="<%= result2[0].Q_1 %>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Answer 2</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_2">
+                        <input type="text" required=""  class="form-control" name="Q_2"  value="<%= result2[0].Q_2 %>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Answer 3</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_3">
+                        <input type="text" required=""  class="form-control" name="Q_3"  value="<%= result2[0].Q_3 %>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Answer 4</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_4">
+                        <input type="text" required=""  class="form-control" name="Q_4"  value="<%= result2[0].Q_4 %>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Correct answer</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_check">
+                        <input type="text" required=""  class="form-control" name="Q_check"  value="<%= result2[0].Q_check %>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-12 col-sm-3 col-form-label text-sm-right">Suggest</label>
                     <div class="col-12 col-sm-8 col-lg-6">
-                        <input type="text" required=""  class="form-control" name="Q_suggest">
+                        <input type="text" required=""  class="form-control" name="Q_suggest"  value="<%= result2[0].Q_suggest %>" >
                     </div>
                 </div>
+            
+             
                 <div class="form-group row text-right">
                     <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                         <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                        <a class="btn btn-space btn-danger text-white" href="/admin/questions/delete/<%= result2[0].Q_id %>"">Delete</a>
                         <a class="btn btn-space btn-secondary" href="/admin/questions">Cancel</a>
                     </div>
                 </div>

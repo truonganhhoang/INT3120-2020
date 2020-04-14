@@ -1,60 +1,62 @@
 ﻿import React, { useEffect, useState } from 'react';
-import {  View, FlatList, StyleSheet, Text, Image,ActivityIndicator } from 'react-native';
+import { View, FlatList, StyleSheet, Text, Image, ActivityIndicator } from 'react-native';
 import Item from '../../components/TFS/TFSItem';
 import config from '../../components/config';
 
 export default function TrafficSignList(props) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const {navigation} = props;
-    const{route,title,image}=props.route.params;
-  
+    const { navigation } = props;
+    const { route, title, image } = props.route.params;
+
     useEffect(() => {
-      fetch(config.IP_SEVER+'/admin/trafficsigns/json/'+route)
-        .then((response) => response.json())
-        .then((json) => setData(json.data))
-        .catch((error) => console.error(error))
-        .finally(() => setLoading(false));
+        fetch(config.IP_SEVER + '/admin/trafficsigns/json/' + route)
+            .then((response) => response.json())
+            .then((json) => setData(json.data))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
     }
-  
+
     );
-  
+
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-          <View>
-              <View style={styles.container}>
-                  <View style={styles.head}>
-                      <Text style={styles.head_content}>Loại biển báo: </Text>
-                  </View>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
+            <View>
+                <View style={styles.container}>
+                    <View style={styles.head}>
+                        <Text style={styles.head_content}>Loại biển báo: </Text>
+                    </View>
 
-                  <View style={styles.select_items}>
-                  <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER+image}} />
-                      <Text style={styles.select_items_title} > {title} </Text> 
-                  </View>
+                    <View style={styles.select_items}>
+                        <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER + image }} />
+                        <Text style={styles.select_items_title} > {title} </Text>
+                    </View>
 
-              </View>
+                </View>
 
-          <View style={styles.detail}>
-              <Text style={styles.detail_text}>Nhấn vào từng biển báo để xem chi tiết</Text>
-          </View>
-      </View>
-    {isLoading ? <ActivityIndicator /> : (
-  <FlatList
-        horizontal={false}
-        numColumns={2}
-        data={data}
-        keyExtractor={({ id }, index) => id}
-        renderItem={({ item }) =>
-            <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
-        style={{ marginLeft: 16, }}
-  />
-    )}
-  </View>
+                <View style={styles.detail}>
+                    <Text style={styles.detail_text}>Nhấn vào từng biển báo để xem chi tiết</Text>
+                </View>
+            </View>
+            {isLoading ? <ActivityIndicator /> : (
+                <FlatList
+                    horizontal={false}
+                    numColumns={2}
+                    data={data}
+                    renderItem={({ item }) =>
+
+                        <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
+                     keyExtractor={(item, index) => index.toString()}
+
+                    style={{ marginLeft: 16, }}
+                />
+            )}
+        </View>
     );
-    
-  }
-  
-  
+
+}
+
+
 const styles = StyleSheet.create({
     container: {
         borderBottomWidth: 1.5,

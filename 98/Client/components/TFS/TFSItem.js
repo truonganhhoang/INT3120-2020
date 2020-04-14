@@ -53,13 +53,8 @@ const styles = StyleSheet.create({
     item_image: {
         marginTop: 10,
         height: 90,
-        justifyContent: 'center',
-        resizeMode: 'center',
+        resizeMode:"contain",
     },
-    tinyLogo: {
-        height: 33,
-        width: 33,
-        marginLeft: 5,
-    },
+ 
 });
 

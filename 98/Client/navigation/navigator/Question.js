@@ -4,7 +4,7 @@ import { createStackNavigator  } from '@react-navigation/stack';
 //
 import QuestionPractice from '../../screens/Question/QuestionPractice';
 import QuestionSet from '../../screens/Question/QuestionSet';
-import MemoryTricks from '../../screens/Question/MemoryTricks';
+
 //
 
 
@@ -32,11 +32,7 @@ export default function Question() {
       />
   
      
-      <Stack.Screen
-        name="MemoryTricks"
-        component={MemoryTricks}
-        initialParams={{ modalVisible: false, questionSet: 7}}
-      />
+    
   
 
    
