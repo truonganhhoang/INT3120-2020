@@ -68,21 +68,21 @@ class ListWords1 extends React.Component {
       <View>
         <View style={styles.banner}>
           <Text
-            style={[styles.text_banner, { flex: 1, flexDirection: 'column' }]}
+            style={[styles.paragraph, { flex: 1, flexDirection: 'column' }]}
             onPress={this._Done}>
             <Image
-              style={styles.icon_back}
+              style={[styles.icon_back,{marginHorizontal:20}]}
               source={require('../assets/icon/back.png')}
             />
             Danh Sách Từ Vựng
           </Text>
           <Text style={{ flex: 1, flexDirection: 'column' }} />
         </View>
-        <View style={styles1.container}>
+        <View style={{backgroundColor: '#f7f7f7',padding: 10,}}>
           <TextInput
             title="Tìm kiếm"
             placeholder="Tìm Kiếm..."
-            style={styles1.TextInput}
+            style={styles.TextInput}
             onChangeText={text => this.SearchFilterFunction(text)}
           />
         </View>
@@ -100,13 +100,14 @@ class ListWords1 extends React.Component {
           renderItem={({ item }) => (
             <View style={styles1.button}>
               <Text
-                style={styles1.text}
+                style={styles.text}
                 onPress={this.GetItem.bind(this, item.key)}>
                 {item.key}
               </Text>
             </View>
           )}
           ListHeaderComponent={this.Render_FlatList_Sticky_header}
+          
           stickyHeaderIndices={[0]}
         />
       </View>
@@ -118,30 +119,14 @@ class ListWords1 extends React.Component {
 }
 
 const styles1 = StyleSheet.create({
-  container: {
-    backgroundColor: '#dfeae1',
-    padding: 10,
-  },
   button: {
     justifyContent: 'center',
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical:5,
     backgroundColor: '#ffffff',
-    height: 50,
+    height: 60,
     borderWidth: 1,
     borderColor: '#dfeae1',
-  },
-  text: {
-    fontFamily: 'Times New Roman',
-    fontSize: 20,
-    marginLeft: 15,
-  },
-  TextInput: {
-    width: '100%',
-    height: 40,
-    borderWidth: 1,
-    fontSize: 20,
-    padding: 5,
-    borderColor: '#65a844',
   },
 });
 export default ListWords1;

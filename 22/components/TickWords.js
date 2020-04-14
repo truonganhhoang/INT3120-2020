@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {StyleSheet,View,Alert,ScrollView,Text,Image,FlatList,TouchableOpacity} from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import styles from '../assets/css/css';
 const Lists=[
   {"tu_moi":"Adopt",
@@ -9,7 +8,7 @@ const Lists=[
     "ngoại động từ":
       ["nhận làm con nuôi, nhận làm bố mẹ nuôi","làm theo,theo","chọn(nghề, người cho một chức vụ)"]
     },
-  "phien_am":"/ơdopt/"
+  "phien_am":"ə'dɔpt"
   },
   {"tu_moi":"Adult",
   "nghia_rg":"người lớn",
@@ -17,7 +16,7 @@ const Lists=[
     "danh từ":
       ["người lớn, người trưởng thành"]
     },
-  "phien_am":"/aedunt/"
+  "phien_am":"'ædʌlt"
   }
 ]
 class TickWords extends React.Component {
@@ -35,8 +34,8 @@ class TickWords extends React.Component {
 
   Render_FlatList_Sticky_header = () => {
     var Sticky_header_View = (
-        <View style={[styles.banner,{marginBottom:10}]}>
-          <Text style={[styles.text_banner,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
+        <View style={[styles.banner,{marginBottom:10,}]}>
+          <Text style={[styles.paragraph,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
           <Image style={styles.icon_back} source={require('../assets/icon/back.png')}/>
           Học từ đã chọn</Text>
           <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
@@ -49,11 +48,11 @@ class TickWords extends React.Component {
   render() {
     
     return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
 
       <FlatList
           data={this.state.data}
-          renderItem={({ item }) => (
+          renderItem={({ item,index }) => (
             <TouchableOpacity style={styles1.button} onPress={this.GetItem.bind(this,item.tu_moi+"\n"+item.phien_am)}>
                 <Text style={styles1.text}>{item.tu_moi}</Text>
                 <Text style={{color:"#d3d3d3",fontSize: 14,}}>{item.nghia_rg}</Text>
@@ -61,11 +60,12 @@ class TickWords extends React.Component {
           )}
           ListHeaderComponent={this.Render_FlatList_Sticky_header}
           stickyHeaderIndices={[0]}
+          keyExtractor={(item,index)=>index.toString()}
       />
        <View style={[styles1.button1,{justifyContent: 'center' ,}]}>
-         <Text style={styles.text} onPress={this._Practice}>Bắt đầu luyện tập</Text>
+         <Text style={[styles.text,{color:'#ffffff'}]} onPress={this._Practice}>Bắt đầu luyện tập</Text>
       </View>
-    </ScrollView>
+    </View>
   );
   }
   _Practice= async () => {
@@ -96,7 +96,6 @@ const styles1 = StyleSheet.create({
     margin :10,
   },
   text: {
-    fontFamily: 'Times New Roman',
     fontSize: 20,
   },
 });

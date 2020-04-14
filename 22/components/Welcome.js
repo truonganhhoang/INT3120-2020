@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { Button, View,StyleSheet ,Alert,Image,Text,ScrollView} from 'react-native';
-import { StackNavigator, SwitchNavigator } from 'react-navigation';
+import { View,Image,Text,ScrollView} from 'react-native';
 
 import styles from '../assets/css/css';
-import Constants from 'expo-constants';
 class Welcome extends React.Component{
   render(){
     return (

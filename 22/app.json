@@ -1,28 +1,32 @@
 {
   "expo": {
     "name": "3000_tu_vung",
-    "description": "No description",
-    "slug": "snack-9f1f24bc-4dc5-4622-81a4-f09dbadb0751",
-    "privacy": "unlisted",
-    "sdkVersion": "34.0.0",
+    "slug": "3000_tu_vung",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "primaryColor": "#cccccc",
-    "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
-    "loading": {
-      "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
-      "hideExponentText": false
+    "icon": "./assets/img/icon_app.png",
+    "splash": {
+      "image": "./assets/img/icon_app.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "packagerOpts": {
-      "assetExts": [
-        "ttf",
-        "mp4",
-        "otf",
-        "xml"
-      ]
+      "assetExts": "./assets/data/dict_hh.db"
     },
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

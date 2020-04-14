@@ -3,20 +3,24 @@ import {StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
+  TextInput: {
+    width: '100%',
+    height: 40,
+    borderWidth: 1,
+    fontSize: 20,
+    padding: 5,
+    borderColor: '#33CCFF',
+  },
   text_banner:{
     fontSize: 25,
-    fontFamily: 'Times New Roman',
     color:'#ffffff',
     flexDirection: "row",
   },
   text:{
-    fontFamily: 'Times New Roman',
     fontSize: 20,
     padding:15,
-    color:'#ffffff',
   },
   text_button:{
-    fontFamily: 'Times New Roman',
     fontSize: 20,
     padding:5,
     color:'#ffffff',
@@ -28,31 +32,32 @@ const styles = StyleSheet.create({
     height:'100%',
   },
   paragraph: {
-    fontFamily: 'Times New Roman',
     color: 'white',
     fontSize: 25,
+    paddingLeft:10,
     fontWeight: 'bold',
-    textAlign: 'center',
   },
   banner:{
     paddingTop: Constants.statusBarHeight,
     backgroundColor:'#65a844',
   },
-  
+
   button:{
-    backgroundColor:'#0cbb66',
+    backgroundColor:'#ffffff',
     width:'100%',
-    height:50,
+    height:60,
     marginTop:10,
     flexDirection:'row',
     alignItems: 'center',
-    color:'#ffffff',
+    borderWidth: 1,
+    borderColor: '#dfeae1',
   },
   icon_back:{
     marginLeft:10,
     height:20,
     width:20,
     paddingBottom:7,
+    paddingLeft:10,
     flexDirection: "row",
   },
   icon:{
@@ -63,30 +68,23 @@ const styles = StyleSheet.create({
   container2: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 24,
-    margin:10,
-    marginTop:20,
-    backgroundColor:'#ffffff',
-    borderColor: 'grey',
-    borderWidth: 1,
-    borderStyle: 'dashed',
+    marginHorizontal:10,
+    marginTop:10,
+    backgroundColor:'#f7f7f7',
   },
   paragraph2: {
     marginHorizontal:24,
     paddingBottom: 50,
     fontSize: 16,
-    fontFamily: 'Times New Roman',
     textAlign: 'center',
   },
   logo2: {
     height: 200,
     width: 200,
-    
-    marginBottom:10,
-    marginTop:10,
+    marginVertical:10,
   }, 
    button2:{
-    backgroundColor:'#65a844',
+    backgroundColor:'#33CCFF',
     alignItems: 'center',
     justifyContent:'center',
     margin:-40,

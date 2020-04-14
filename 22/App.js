@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SwitchNavigator,StackNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import styles from './assets/css/css';
 import Welcome from './components/Welcome';
 import Menu2 from './components/Menu2';
@@ -9,7 +9,7 @@ import Tutorial from './components/Tutorial';
 import TickWords from './components/TickWords';
 import SearchWords from './components/SearchWords';
 
-export default SwitchNavigator(
+export default createAppContainer(createSwitchNavigator(
   {
      Welcome:Welcome,
      Menu: Menu2,
@@ -22,4 +22,4 @@ export default SwitchNavigator(
   {
     initialRouteName: 'Menu',
   }
-);
+  ));
