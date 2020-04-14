@@ -62,12 +62,13 @@ export default class DoTheTest extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      //backgroundColor: '#fff',
       alignItems: 'stretch',
       justifyContent: 'center',
       // paddingLeft: 10,
       // paddingRight: 10,
-      backgroundColor: '#f7f7f7'
+      //backgroundColor: '#f7f7f7'
+      backgroundColor: '#eee'
     },
     scroll: {
       paddingLeft: 10,

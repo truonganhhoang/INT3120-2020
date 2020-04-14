@@ -1,14 +1,16 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
 export default function CategoryListItem(props) {
     const { category, onPress } = props;
+    console.log(category);
+    console.log('==============');
     return (
         <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
             <View style={styles.container}>
                 <View style={styles.content}>
-                    <Text style={styles.title}>{category.title}</Text>
+                    <Text style={styles.title}>{category.id}.{category.title}</Text>
                     <Text style={styles.data}>{category.content}</Text>
                 </View>
             </View>

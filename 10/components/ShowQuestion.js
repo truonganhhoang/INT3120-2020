@@ -4,6 +4,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 export default function ShowQuestion(props) {
     const { listQuestions, onPress } = props;
+    //console.log('HAHAHA');
+    //console.log(listQuestions);
+    console.log('==========');
+    console.log(listQuestions);
     return (
         <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
             <View style={styles.container}>

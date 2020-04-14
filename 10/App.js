@@ -14,6 +14,7 @@ import ScreenCategory from './screens/Category';
 import DoTheTest from './screens/DoTheTest';
 import TestLession from './screens/TestLession';
 import DataCategory from './screens/DataCategory';
+import Header from './components/Header'
 
 
 //const AppContainer = createAppContainer(AppNavigator);
@@ -24,10 +25,16 @@ const BottomTab = createBottomTabNavigator();
 
 const HomeStackScreen = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator 
+      // screenOptions={
+      // }
+    >
       <Stack.Screen
         name='Ngữ pháp trong tiếng Anh'
-        component={ScreenCategories}
+        component={ScreenCategories} 
+        // options={
+        //   //{ headerTitle: props => <Header />}
+        // }
       />
       <Stack.Screen
         name='Test'
