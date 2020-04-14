@@ -49,14 +49,27 @@ export default function ({ navigation }) {
         />
         <Text style={{ paddingTop: 5 }}>BIỂN BÁO ĐƯỜNG BỘ</Text>
       </View>
-      <View style={styles.item}>
+
+      {/* <View style={styles.item}>
         <Image
           source={appIcons.icon_tips}
           style={styles.iconStyle}
           resizeMode="stretch"
         />
         <Text style={{ paddingTop: 5 }}>MẸO THI</Text>
-      </View>
+      </View> */}
+
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => navigation.navigate("tipScreen")}
+      >
+        <Image
+          source={appIcons.icon_tips}
+          style={styles.iconStyle}
+          resizeMode="stretch"
+        />
+        <Text style={{ paddingTop: 5 }}>MẸO THI KQ CAO</Text>
+      </TouchableOpacity>
 
       <View style={styles.item}>
         <Image
