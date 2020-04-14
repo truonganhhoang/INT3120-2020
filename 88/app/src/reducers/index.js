@@ -1,9 +1,14 @@
 import { combineReducers } from 'redux';
 
-import navbarReducer from './navbar';
+import mainReducer from './main';
+import UIReducer from './ui';
 
+/**
+ * Combine reducers
+ */
 const rootReducer = combineReducers({
-  navbar: navbarReducer
+  main: mainReducer,
+  ui: UIReducer
 });
 
 export default rootReducer;

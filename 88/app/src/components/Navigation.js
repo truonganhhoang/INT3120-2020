@@ -1,98 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, StatusBar, TouchableNativeFeedback, ClippingRectangle } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
+import PlatformTouchable from '../utils/touchable'
 
-import { changeNavIcon } from '../actions/navbarActions';
+import useAnimation from '../utils/animationHook';
+import { getStatusBarHeight } from '../utils/statusBar';
 
+/**
+ * Animation of icon
+ * @param {Object} props
+ * @property {boolean} direction - direction of icon 
+ * @property {number[start, end]} opacityRange - range of opacity value  
+ */
 const RotateAndChangeView = (props) => {
-  const [ angle ] = useState(new Animated.Value(0));
-  const [ v_opacity ] = useState(new Animated.Value(props.opacityValue[0]))
+  const { direction, opacityRange, children } = props;
 
-  useEffect(() => {
-    console.log('refresh')
-    Animated.parallel([
-      Animated.timing(
-        angle,
-        {
-          toValue: 1,
-          duration: 300,
-          useNativeDriver: true
-        }
-      ),
-      Animated.timing(
-        v_opacity,
-        {
-          toValue: props.opacityValue[1],
-          duration: 300,
-          useNativeDriver: true
-        }
-      )
-    ]).start();
-  }, []);
+  const animation = useAnimation({ doAnimation: direction, duration: 300 });
 
   return (
     <Animated.View style={{
       ...props.style,
       transform: [{
-        rotate: angle.interpolate({
+        rotate: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [props.angleValue[0], props.angleValue[1]]
+          outputRange: direction ? ['0deg', '180deg'] : ['360deg', '180deg']
         })
       }],
-      opacity: v_opacity
+      opacity: animation.interpolate({
+        inputRange: [0, 1],
+        outputRange: opacityRange
+      })
     }}>
-      {props.children}
+      {children}
     </Animated.View>
   )
 }
 
 const Navigation = (props) => {
-  const [angleValue, setAngleValue] = useState([['0deg', '180deg']]);
-  const [opacityValue1, setOpacityValue1] = useState([1, 0]);
-  const [opacityValue2, setOpacityValue2] = useState([0, 1]);
-
-  const navbar = useSelector(state => state.navbar, shallowEqual);
+  const isArrow = useSelector(state => state.ui.isArrow, shallowEqual);
+  const header = useSelector(state => state.main.page, shallowEqual);
   
-  const dispatch = useDispatch();
-  const changeIcon = () => {
-    dispatch(changeNavIcon(!navbar.isArrow));
-  }
-
-  useEffect(() => {
-    console.log('avbadf')
-    if (navbar.isArrow) {
-      setAngleValue(['0deg', '180deg']);
-      setOpacityValue1([1, 0]);
-      setOpacityValue2([0, 1]);
-    } else {
-      setAngleValue(['180deg', '360deg']);
-      setOpacityValue1([0, 1]);
-      setOpacityValue2([1, 0]);
-    }
-  });
-
-
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
         <View style={styles.iconContainer}>
-          <TouchableNativeFeedback
-            background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .32)', true)}
-            onPress={props.openDrawer}
+          <PlatformTouchable
+            style={{width: 25, height: 25 }}
+            onPress={() => props.openDrawer()}
+            rippleOverflow
           >
-            <View style={{width: 25, height: 25 }}>
-              <RotateAndChangeView style={styles.navIcon} angleValue={angleValue} opacityValue={opacityValue1} >
-                <Icon name='menu' size={25} style={{color: '#fff'}} />
-              </RotateAndChangeView>
-              <RotateAndChangeView style={styles.navIcon} angleValue={angleValue} opacityValue={opacityValue2} >
-                <Icon name='arrow-right' size={25} style={{color: '#fff'}} />
-              </RotateAndChangeView>
-            </View>
-          </TouchableNativeFeedback>
+            <RotateAndChangeView style={styles.navIcon} direction={isArrow} opacityRange={[1, 0]} duration={300} >
+              <Icon name='menu' size={25} style={{color: '#fff'}} />
+            </RotateAndChangeView>
+            <RotateAndChangeView style={styles.navIcon} direction={isArrow} opacityRange={[0, 1]} duration={300} >
+              <Icon name='arrow-right' size={25} style={{color: '#fff'}} />
+            </RotateAndChangeView>
+          </PlatformTouchable>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.navHeader}>JavaScript Tutorial</Text>
+          <Text style={styles.navHeader}>{header === 'Home' ? 'JavaScript Tutorial' : header}</Text>
         </View>
       </View>
     </View>
@@ -101,15 +68,15 @@ const Navigation = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: getStatusBarHeight(),
     backgroundColor: '#00BCD4'
   },
   navContainer: {
     flexDirection: 'row',
-    height: 50
+    height: 56,
   },
   iconContainer: {
-    width: 50,
+    width: 56,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -123,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   navHeader: {
-    fontSize: 25,
+    fontSize: 24,
     color: '#ffffff',
     fontWeight: '600',
   }
