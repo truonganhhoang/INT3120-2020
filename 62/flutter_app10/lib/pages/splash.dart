@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutterapp10/pages/home.dart';
+import 'package:flutterapp10/testing/ui/colors.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -24,18 +25,44 @@ class _splashscreenState extends State<splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo,
-      body: Center(
-        child: Text(
-          "Test",
-          style: TextStyle(
-            fontSize: 50.0,
-            color: Colors.white,
-            fontFamily: "Satisfy",
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                image: new ExactAssetImage('assets/images/computerr.png',),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          textAlign: TextAlign.center,
-        ),
-      ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Học lý thuyết",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50
+                        ),
+                      )
+
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )
+        ],
+      )
+//      backgroundColor: Colors.lightGreen,
+
     );
   }
 }

@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
           ),
           Text(
-            "RentCheck",
+            "Home",
             style: TextStyle(
                 fontSize: 34, color: Colors.white, fontWeight: FontWeight.w400),
           )
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      "Login",
+                      "Đăng nhập",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 28,
@@ -104,14 +104,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: "Your Email", hasFloatingPlaceholder: true),
+                        labelText: "Email hoặc tên tài khoản", hasFloatingPlaceholder: true),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: "Password", hasFloatingPlaceholder: true),
+                        labelText: "Mật khẩu", hasFloatingPlaceholder: true),
                   ),
                   SizedBox(
                     height: 20,
@@ -121,13 +121,13 @@ class _LoginPageState extends State<LoginPage> {
                     children: <Widget>[
                       MaterialButton(
                         onPressed: () {},
-                        child: Text("Forgot Password ?"),
+                        child: Text("Quên mật khẩu"),
                       ),
                       Expanded(
                         child: Container(),
                       ),
                       FlatButton(
-                        child: Text("Login"),
+                        child: Text("Đăng nhập"),
 
                         color: Color(0xFF4B9DFE),
                         textColor: Colors.white,
@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 40,
             ),
             Text(
-              "Don't have an account ?",
+              "Bạn chưa có tài khoản?",
               style: TextStyle(color: Colors.grey),
             ),
             FlatButton(
@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                 });
               },
               textColor: Colors.black87,
-              child: Text("Create Account"),
+              child: Text("Tạo tài khoản"),
             )
           ],
         )
@@ -193,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      "Create Account",
+                      "Tạo tài khoản",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 28,
@@ -206,27 +206,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: "Your Name", hasFloatingPlaceholder: true),
+                        labelText: "Họ và tên", hasFloatingPlaceholder: true),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: "Your Email", hasFloatingPlaceholder: true),
+                        labelText: "Email", hasFloatingPlaceholder: true),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: "Password", hasFloatingPlaceholder: true),
+                        labelText: "Mật khẩu", hasFloatingPlaceholder: true),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    "Password must be at least 8 characters and include a special character and number",
+                    "Mật khẩu phải dài hơn 6 kí từ và phải có kí tự đặc biệt hoặc kí tự số",
                     style: TextStyle(color: Colors.grey),
                   ),
                   SizedBox(
@@ -239,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(),
                       ),
                       FlatButton(
-                        child: Text("Sign Up"),
+                        child: Text("Đăng kí"),
                         color: Color(0xFF4B9DFE),
                         textColor: Colors.white,
                         padding: EdgeInsets.only(
@@ -267,7 +267,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 40,
             ),
             Text(
-              "Already have an account?",
+              "Bạn đã có tài khoản",
               style: TextStyle(color: Colors.grey),
             ),
             FlatButton(
@@ -277,7 +277,7 @@ class _LoginPageState extends State<LoginPage> {
                 });
               },
               textColor: Colors.black87,
-              child: Text("Login"),
+              child: Text("Đăng nhập"),
             )
           ],
         ),
@@ -285,7 +285,7 @@ class _LoginPageState extends State<LoginPage> {
           alignment: Alignment.bottomCenter,
           child: FlatButton(
             child: Text(
-              "Terms & Conditions",
+              "Chào mừng",
               style: TextStyle(
                 color: Colors.grey,
               ),
