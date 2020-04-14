@@ -17,4 +17,5 @@ export default appIcons = {
   ttb: require("../assets/icons/ttb.png"),
   uutien: require("../assets/icons/uutien.png"),
   vanchuyen: require("../assets/icons/vanchuyen.png"),
+  menu: require("../assets/icons/open-menu.png"),
 };
