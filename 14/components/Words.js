@@ -176,7 +176,13 @@ const styles = StyleSheet.create({
 	container:{
 		backgroundColor: 'white', // Set your own custom Color
 		flexDirection: 'row',
-		marginBottom: 10
+    marginBottom: 10,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowOffset: {
+      height: 1,
+      width: 1
+    }
 	},
 	image:{
 		width: 70, 

@@ -1,18 +1,16 @@
 import * as SQLite from 'expo-sqlite';
-import data from './new-word/index';
 
 const db = SQLite.openDatabase("toeic-test.db");
 
 // WORD TABLE
 
-const createTable = () => {
+const createTable = (data) => {
   db.transaction(tx => {
     tx.executeSql(
       "create table if not exists Words(picture blob, eng varchar primary key, vie varchar, category varchar, type varchar, favorite boolean, remind boolean, notificationID, pronounce varchar, example text);",
       [], 
       () => {
-        data.sports.forEach(item => insertWord(item));
-        data.education.forEach(item => insertWord(item));
+        data.forEach(item => insertWord(item));
       }
     );
   }, (err)=>{console.log(err)});
