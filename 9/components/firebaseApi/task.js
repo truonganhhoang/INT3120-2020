@@ -18,14 +18,14 @@ const getAllTasks = async () => {
 };
 
 const addTask = async (task) => {
-  // console.log(task);
+ //  console.log(task);
   const uid = firebase.auth().currentUser.uid;
   var ref = firebase.firestore().collection(`tasks/${uid}/listTasks`);
-  var lesson_ref = firebase.firestore.doc(`lessons/${uid}/listLessons/${task.lesson}`);
+//  var lesson_ref = firebase.firestore.doc(`lessons/${uid}/listLessons/${task.lesson}`);
   var newTask = {
     name: task.name,
-    // lesson: task.lesson,
-    lesson: lesson_ref,
+    lesson: task.lesson,
+   // lesson: lesson_ref,
     type: task.type,
     date: task.date,
     day: task.day,

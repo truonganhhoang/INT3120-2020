@@ -90,7 +90,6 @@ class NewLesson extends React.Component {
   createLesson = async () => {
     let lesson = {
       name: this.state.name,
-      abbreviation: this.state.abbreviation,
       teacher: this.state.teacher,
       week: this.state.week,
       type: this.state.selectedType,

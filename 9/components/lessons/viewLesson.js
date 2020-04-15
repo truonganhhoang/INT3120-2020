@@ -40,6 +40,7 @@ export default class ViewLesson extends React.Component {
     let arrret = [];
     try {
       arrret = await getLessons();
+      console.log(arrret);
       this.setState({ data: arrret });
     } catch (err) {
       console.log(err);

@@ -1,27 +1,29 @@
 import React from 'react';
-import { View, Text, Picker, TextInput, StyleScheet, Dimensions, Alert } from 'react-native';
+import { View, Text, Picker, TextInput, StyleSheet, Dimensions, Alert } from 'react-native';
 import { Header, Input, Button, ButtonGroup } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { addTask } from '../firebaseApi/task';
+import {getLessons } from '../firebaseApi/lesson';
+import RNPickerSelect from 'react-native-picker-select';
 
 let widthPhone = Dimensions.get('window').width;
 
 class NewTask extends React.Component {
   constructor(props) {
     super(props);
-  }
+    this.state = {
+        table: [],
+        selectedLesson: '',
+        selectedType: '',
+        isDateTimePickerVisible: false,
+        datePicked: 'Pick a Date',
+        date: Date.now(),
+        name: '',
+        description: '',
+      };
 
-  state = {
-    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
-    selectedLesson: '',
-    selectedType: '',
-    isDateTimePickerVisible: false,
-    datePicked: 'Pick a Date',
-    date: Date.now(),
-    name: '',
-    description: '',
-  };
+  }
 
   showDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: true });
@@ -30,6 +32,26 @@ class NewTask extends React.Component {
   hideDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: false });
   };
+
+  componentDidMount = async() => {
+    let arrret = [];
+    let table = [];
+    try {
+      arrret = await getLessons();
+      arrret.map (item => {
+        let name = item.name;
+        if (name == undefined ) name ='';
+      if (table.filter(i => i.value == name).length == 0)
+        table.push({
+          label: name, value: name
+        });
+      })
+    } catch (err) {
+      console.log(err);
+    }
+    this.setState({table: table});
+    console.log(this.state.table);
+  }
 
   handleDatePicked = (date) => {
     const month = [
@@ -65,6 +87,11 @@ class NewTask extends React.Component {
     let ret = await addTask(task);
     console.log(ret);
     this.forceUpdate();
+    this.setState({ name: '' });
+    this.setState({ selectedLesson: '' });
+    this.setState({ type: '' });
+    this.setState({ day: 'Pick a Date' });
+    this.setState({ description: '' });
   };
 
   updateIndex = (selectedIndex) => {
@@ -72,8 +99,7 @@ class NewTask extends React.Component {
   };
 
   render() {
-    const buttons = ['New Lesson', 'New Task'];
-
+    const buttons = ['New Lesson', 'New Task']; 
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Header
@@ -141,16 +167,14 @@ class NewTask extends React.Component {
             size={30}
             style={{ padding: 10, marginLeft: 15, color: '#1976D2' }}
           />
-          <Picker
-            selectedValue={this.state.selectedLesson}
-            style={{ height: 50, width: '35%' }}
-            onValueChange={(itemValue, itemIndex) => this.setState({ selectedLesson: itemValue })}
-          >
-            <Picker.Item label="Choose ..." value="" />
-            {this.state.table.map((item, i) => (
-              <Picker.Item label={item.name} value={item.name} key={i} />
-            ))}
-          </Picker>
+          <View style={{paddingTop:10, paddingLeft: 10, paddingRight: 10, width: '35%'}}>
+            <RNPickerSelect 
+              onValueChange={(value) => this.setState({ selectedLesson: value })}
+              items={this.state.table}
+              placeholder = {{label: 'Choose...', vaule: null}}
+              useNativeAndroidPickerStyle={false}
+            />
+          </View>
           <Ionicons name="ios-browsers" size={30} style={{ padding: 10, color: '#1976D2' }} />
           <Picker
             selectedValue={this.state.selectedType}
@@ -204,4 +228,8 @@ class NewTask extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+
+
+});
 export default NewTask;
