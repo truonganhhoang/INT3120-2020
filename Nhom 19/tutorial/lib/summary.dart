@@ -26,15 +26,15 @@ class _Summary extends State<Summary>{
   void initState(){
     if (score < 5){
       image = images[2];
-      message = "Em nên cố gắng hơn, em đạt $score điểm";
+      message = "Em nên cố gắng hơn, đạt $score điểm";
     }
     else if (score == 10 ){
       image = images[0];
-      message = "Em làm rất xuất sắc, em đạt $score điểm";
+      message = "Em làm rất xuất sắc, đạt $score điểm";
     }
     else {
       image = images[1];
-      message = "Em làm tốt lắm, em đạt $score điểm";
+      message = "Em làm tốt lắm, đạt $score điểm";
     }
 
     super.initState();

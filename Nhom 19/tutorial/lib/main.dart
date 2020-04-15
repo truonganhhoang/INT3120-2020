@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'startquiz.dart';
+import 'sidemenu.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +14,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: QuizGame(),
+      home: MyHomePage(),
     );
   }
   // #enddocregion build
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppBar(
+        title: Text('Trang chủ'),
+      ),
+      body: Container(
+        child: Image(image: AssetImage('images/home.jpg'),
+        width: double.infinity,
+        fit: BoxFit.cover,
+        height: double.infinity,
+        ),
+      ),
+    );
+  }
 }
