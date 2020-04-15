@@ -68,7 +68,10 @@ export default class Home extends React.Component{
         const exist = await db.checkIfTablesExist();
         if (exist == false){
             console.log('home creates table')
-            db.createTable();
+            const response = await fetch('http://192.168.0.104:3299/getAllWords')
+            const data = await response.json();
+            console.log(data.words.length);
+            db.createTable(data.words);
         };
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         if (existingStatus !== 'granted') {

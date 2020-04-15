@@ -122,6 +122,13 @@ export default class Word extends React.Component{
                   onPress={this.updateIndex}
                   selectedIndex={selectedIndex}
                   buttons={buttons}
+                  selectedButtonStyle={{
+                    shadowColor: "#000000",
+                    shadowOpacity: 0.8,
+                    shadowOffset: {
+                    height: 1,
+                    width: 1
+                  }}}
                 />
                 {this.renderSelectedCaterory(selectedIndex)}
             </View>

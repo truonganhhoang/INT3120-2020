@@ -16,7 +16,7 @@ const sports = [
     vie: 'Bắn cung',
     category: 'Sports',
 		type: '[noun]',
-    favorite: 1,
+    favorite: 0,
     remind: 0,
     pronounce: '/\'ɑ:t∫əri/',
     example: 'They can have a go at archery.'
@@ -28,7 +28,7 @@ const sports = [
     category: 'Sports',
 		type: '[noun]',
     favorite: 0,
-    remind: 1,
+    remind: 0,
     pronounce: '/æθ\'letiks/',
     example: 'Having done athletics and played netball the transition to rugby was not difficult.'
   },
@@ -38,7 +38,7 @@ const sports = [
     vie: 'Bóng rổ',
     category: 'Sports',
     type: '[noun]',
-    favorite: 1,
+    favorite: 0,
     remind: 0,
     pronounce: '/\'bɑ:skitbɔ:l/',
     example: 'It will mean we\'ll be able to extend our facilities for basketball.'
@@ -60,7 +60,7 @@ const sports = [
     vie: 'Môn đánh golf',
     category: 'Sports',
     type: '[noun]',
-    favorite: 1,
+    favorite: 0,
     remind: 0,
     pronounce: '/gɔlf/',
     example: 'A man was playing a game of golf , and on hole 16, he hit the ball right into a field of buttercups.'
@@ -72,7 +72,7 @@ const sports = [
     category: 'Sports',
     type: '[noun]',
     favorite: 0,
-    remind: 1,
+    remind: 0,
     pronounce: '/\'hɒki/',
     example: 'they play hockey.'
 	},
@@ -93,7 +93,7 @@ const sports = [
     vie: 'Cuộc đua',
     category: 'Sports',
     type: '[noun]',
-    favorite: 1,
+    favorite: 0,
     remind: 0,
     pronounce: '/reis/',
     example: 'In a normal race , the runners line up on the starting line to get a fair start.'
@@ -105,7 +105,7 @@ const sports = [
     category: 'Sports',
     type: '[verb]',
     favorite: 0,
-    remind: 1,
+    remind: 0,
     pronounce: '/swim/',
     example: 'I go swimming.'
 	}
