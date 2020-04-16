@@ -36,6 +36,14 @@ target 'TOEIC_TEST' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
+  pod 'react-native-mail', :path => '../node_modules/react-native-mail'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'TOEIC_TESTTests' do
     inherit! :search_paths
     # Pods for testing

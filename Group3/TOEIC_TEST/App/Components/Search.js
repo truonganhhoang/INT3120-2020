@@ -9,13 +9,20 @@ import {
     SafeAreaView,
     TouchableOpacity,
     ToastAndroid,
-    StatusBar
+    StatusBar,
+    Keyboard,
+    TouchableWithoutFeedback
 } from 'react-native'
 import { Icon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { words } from '../Data/word'
 import { StackActions, NavigationActions } from 'react-navigation'
+import { requestGET, HOST } from '../Services/Servies'
 
+const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        {children}
+    </TouchableWithoutFeedback>
+)
 const resetAction = StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: 'MainBody' })],
@@ -29,10 +36,15 @@ class SearchTab extends Component {
         this.state = {
             input: '',
             data: [],
+            dataSource: [],
         }
     }
     componentDidMount() {
-        this.setState({ data: words })
+        this.fetchData()
+    }
+    fetchData = async () => {
+        var dataSearch = await requestGET(`${HOST}/words/viewAllWord`)
+        this.setState({ data: dataSearch.data })
     }
     Back = () => {
         this.props.navigation.dispatch(resetAction)
@@ -40,33 +52,32 @@ class SearchTab extends Component {
     }
     renderItem = ({ item }) => {
         return (
-            <TouchableOpacity
-                onPress={() => { }}
-            >
-                <View style={styles.item}>
-                    <Text style={styles.title}>{item.en}</Text>
-                </View>
-            </TouchableOpacity>
-        )
-    }
-    renderBody = (dataFlatList) => {
-        return (
             <View>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={dataFlatList}
-                    renderItem={this.renderItem}
-                    keyExtractor={(item, index) => index.toString()}
-                />
+                <TouchableOpacity
+                    onPress={() => { this.props.navigation.navigate("Meaning", { dataSearch: `${item}` }) }}
+                >
+                    <View style={styles.item}>
+                        <Text style={styles.title}>{item}</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         )
     }
+    renderBody = () => {
+        return (
+            <SafeAreaView>
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    data={this.state.dataSource}
+                    renderItem={this.renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </SafeAreaView>
+        )
+    }
     suggestInput = () => {
-        // const words = ['abc', 'ab', 'abcd', 'exuberant', 'destruction', 'present'];
         var dataSource = []
-        this.state.data.map(item => dataSource.push(item.en))
-        // console.log(dataSource)
-        // const input = 'ab'
+        this.state.data.map(item => dataSource.push(item.word))
         var results = []
         if (this.state.input !== '') {
             for (var i = 0; i < dataSource.length; i++) {
@@ -77,52 +88,55 @@ class SearchTab extends Component {
                 }
             }
         }
-        this.renderBody(words)
+        this.setState({ dataSource: results })
     }
-    onChangeText = (input) => {
-        this.setState({ input })
+
+    onChangeText = async (input) => {
+        await this.setState({ input })
+        this.suggestInput()
     }
     translate = () => {
         var count = 0
         for (var i = 0; i < this.state.data.length; i++) {
-            if (this.state.input.trim().toLocaleLowerCase() === this.state.data[i].en.trim().toLocaleLowerCase()) {
+            if (this.state.input.trim().toLocaleLowerCase() === this.state.data[i].word.trim().toLocaleLowerCase()) {
                 this.setState({ data: this.state.data[i] })
                 count++
                 break
             }
         }
-        if (count !== 0) this.props.navigation.navigate("Meaning", { dataSearch: this.state.data[i] })
+        if (count !== 0) this.props.navigation.navigate("Meaning", { dataSearch: this.state.dataSource })
         else ToastAndroid.show("Không tìm thấy kết quả", ToastAndroid.LONG)
-
     }
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
-                <View style={styles.linearGradient}>
-                    <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
-                        onPress={() => { this.Back() }}
-                        style={styles.iconLeft}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Tìm kiếm"
-                        placeholderTextColor="#F5F5F5"
-                        onChangeText={input => this.onChangeText(input)}
-                        value={this.state.input}
-                    />
-                    <TouchableOpacity
-                        onPress={() => { this.translate() }}
-                    >
-                        <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
-                            containerStyle={styles.iconRight}
+            <DismissKeyboard>
+                <SafeAreaView style={styles.container}>
+                    <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
+                    <View style={styles.linearGradient}>
+                        <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
+                            onPress={() => { this.Back() }}
+                            style={styles.iconLeft}
                         />
-                    </TouchableOpacity>
-                </View>
-            </SafeAreaView>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Tìm kiếm"
+                            placeholderTextColor="#F5F5F5"
+                            onChangeText={input => this.onChangeText(input)}
+                            value={this.state.input}
+                        />
+                        <TouchableOpacity
+                            onPress={() => { this.translate() }}
+                        >
+                            <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
+                                containerStyle={styles.iconRight}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    {this.renderBody()}
+                </SafeAreaView>
+            </DismissKeyboard>
         )
     }
-
 }
 
 export default SearchTab

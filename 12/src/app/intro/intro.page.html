@@ -1,0 +1,22 @@
+<ion-content class="ion-text-center">
+  <ion-img [src]="'/assets/coursera-logo.png'"></ion-img>
+  <ion-slides [pager]="true">
+    <ion-slide>
+      <ion-img [src]="'/assets/intro/courses.png'"></ion-img>
+      <div>Take the world's best courses online from top universities and industry partners.</div>
+    </ion-slide>
+    <ion-slide>
+      <ion-img [src]="'/assets/intro/downloads.png'"></ion-img>
+      <div>Access content anywhere, anytime - you can even save content for offline usage.</div>
+    </ion-slide>
+    <ion-slide>
+      <ion-img [src]="'/assets/intro/certificates.png'"></ion-img>
+      <div>Earn employer-recognized credentials and take your career to the next level.</div>
+    </ion-slide>
+  </ion-slides>
+  <div class="action-buttons">
+    <ion-button [routerLink]="'/sign-up'" expand="full" color="primary">CREATE NEW ACCOUNT</ion-button>
+    <div style="height: 15px;"></div>
+    <ion-button [routerLink]="'/sign-in'" expand="full" fill="clear">LOG IN</ion-button>
+  </div>
+</ion-content>
