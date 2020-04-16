@@ -17,7 +17,7 @@ import Swipeout from 'react-native-swipeout';
 import { Header, CheckBox, Button } from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
-import { getAllTasks } from '../firebaseApi/task';
+import { getAllTasks, updateTask, deleteTask } from '../firebaseApi/task';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
 let heightPhone = Dimensions.get('window').height;
@@ -94,10 +94,10 @@ export default class ViewExam extends React.Component {
     }
   };
 
-  deleteItem = (id) => {
-    console.log(id);
+  deleteItem = async (task_fid, id) => {
     this.state.data.splice(id, 1);
     this.setState({ data: this.state.data.filter((i) => i !== id) });
+    await deleteTask(task_fid);
   };
 
   handleChange = (id) => {
@@ -113,8 +113,8 @@ export default class ViewExam extends React.Component {
         text: 'Delete',
         backgroundColor: 'red',
         underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
-        onPress: () => {
-          this.deleteItem(id);
+        onPress: async () => {
+          await this.deleteItem(item.fid, id);
         },
       },
     ];
@@ -141,10 +141,11 @@ export default class ViewExam extends React.Component {
     );
   };
 
-  changeData = () => {
+  changeData = async () => {
     this.setState({ editModal: false });
     let newData = this.state.data;
     newData[this.state.idSelected] = this.state.dataSelected;
+    await updateTask(this.state.dataSelected);
     this.setState({ data: newData });
   };
 

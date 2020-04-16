@@ -104,6 +104,10 @@ class NewLesson extends React.Component {
     let ret = await addLesson(lesson);
     console.log(ret);
     console.log(addLesson);
+    this.setState({name: ""});
+    this.setState({teacher: ""});
+    this.setState({location: ""});
+    this.setState({week: ""});
   };
 
   updateIndex = (selectedIndex) => {
@@ -162,6 +166,7 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <Input
+          value={this.state.name}
           placeholder="Subject"
           leftIcon={
             <Ionicons name="md-cog" size={30} style={{ paddingRight: 20, color: '#1976D2' }} />
@@ -172,6 +177,7 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <Input
+          value={this.state.teacher}
           placeholder="Teacher"
           leftIcon={
             <Ionicons name="ios-person" size={30} style={{ paddingRight: 20, color: '#1976D2' }} />
@@ -182,6 +188,7 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <Input
+          value={this.state.location}
           placeholder="Place"
           leftIcon={
             <Ionicons
@@ -196,6 +203,7 @@ class NewLesson extends React.Component {
         />
         <View style={{ padding: 10 }} />
         <Input
+          value={this.state.week}
           placeholder="Num of study weeks"
           leftIcon={
             <Ionicons

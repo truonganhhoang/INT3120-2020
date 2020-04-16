@@ -26,12 +26,13 @@ let widthPhone = Dimensions.get('window').width;
 export default class ViewLesson extends React.Component {
   state = {
     data: [],
-    table: [],
     idSelected: 0,
     editModal: false,
     dataSelected: {},
     refreshing: false,
     isDateTimePickerVisible: false,
+    isTimePickerVisible: false,
+    isTimePickerVisible1: false,
   };
 
   modal = React.createRef();
@@ -83,6 +84,38 @@ export default class ViewLesson extends React.Component {
     this.hideDateTimePicker();
   };
 
+  showTimePicker = () => {
+    this.setState({ isTimePickerVisible: true });
+  };
+
+  hideTimePicker = () => {
+    this.setState({ isTimePickerVisible: false });
+  };
+
+  handleTimePicked = (time) => {
+    const timeP = time.getHours() + ': ' + time.getMinutes();
+    let data = this.state.dataSelected;
+    data.start = time;
+    data.startTime = timeP;
+    this.setState({ dataSelected: data });
+    this.hideTimePicker();
+  };
+  showTimePicker1 = () => {
+    this.setState({ isTimePickerVisible1: true });
+  };
+
+  hideTimePicker1 = () => {
+    this.setState({ isTimePickerVisible1: false });
+  };
+
+  handleTimePicked1 = (time) => {
+    const timeP = time.getHours() + ': ' + time.getMinutes(); 
+    let data = this.state.dataSelected;
+    data.end = time;
+    data.endTime = timeP;
+    this.setState({ dataSelected: data });
+    this.hideTimePicker1();
+  };
   openModal = (item, id) => {
     this.setState({ dataSelected: item });
     this.setState({ idSelected: id });
@@ -101,12 +134,6 @@ export default class ViewLesson extends React.Component {
     console.log(id);
     this.state.data.splice(id, 1);
     this.setState({ data: this.state.data.filter((i) => i !== id) });
-  };
-
-  handleChange = (id) => {
-    let newState = Object.assign({}, this.state);
-    newState.data[id].done = !newState.data[id].done;
-    this.setState(newState);
   };
 
   renderRow = (item, id) => {
@@ -215,50 +242,64 @@ export default class ViewLesson extends React.Component {
                 }}
               />
             </View>
-            <TextInput
-              value={this.state.dataSelected.location}
-              style={styles.titleModal}
-              placeholderTextColor="#1976D2"
-              editable={this.state.editModal}
-              onChangeText={(text) =>
-                this.setState((prevState) => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    location: text,
-                  },
-                }))
-              }
-            />
-            <TextInput
-              value={this.state.dataSelected.teacher}
-              style={styles.titleModal}
-              placeholderTextColor="#1976D2"
-              editable={this.state.editModal}
-              onChangeText={(text) =>
-                this.setState((prevState) => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    teacher: text,
-                  },
-                }))
-              }
-            />
-            <TextInput
-              value={this.state.dataSelected.week}
-              style={styles.titleModal}
-              placeholderTextColor="#1976D2"
-              editable={this.state.editModal}
-              onChangeText={(text) =>
-                this.setState((prevState) => ({
-                  dataSelected: {
-                    ...prevState.dataSelected,
-                    week: text,
-                  },
-                }))
-              }
-            />
-            <View style={{ flexDirection: 'row' }}>
-              <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color: '#d32f2f' }} />
+            <View style={{flexDirection:'row', paddingTop: 15}} > 
+              <Ionicons name="ios-person" size={30} style={{ paddingLeft: 40, color: '#ec407a', paddingTop: 6 }} />
+              <TextInput
+                value={this.state.dataSelected.teacher}
+                style={styles.lesson}
+                editable={this.state.editModal}
+                onChangeText={(text) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      teacher: text,
+                    },
+                  }))
+                }
+              />
+            </View>
+            <View style={{flexDirection: 'row', paddingTop: 15 }} > 
+              <Ionicons
+                name="ios-pin"
+                size={30}
+                style={{ paddingLeft: 44, color: '#7e57c2', paddingTop: 6, }}
+              />
+              <TextInput
+                value={this.state.dataSelected.location}
+                style={styles.location}
+                editable={this.state.editModal}
+                onChangeText={(text) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      location: text,
+                    },
+                  }))
+                }
+              />
+            </View>
+            <View style={{flexDirection: 'row' , paddingTop: 15 }}> 
+              <Ionicons
+                name="ios-clipboard"
+                size={30}
+                style={{ paddingLeft: 40, color: '#26a69a', paddingTop: 6 }}
+              />
+              <TextInput
+                value={this.state.dataSelected.week}
+                style={styles.week}
+                editable={this.state.editModal}
+                onChangeText={(text) =>
+                  this.setState((prevState) => ({
+                    dataSelected: {
+                      ...prevState.dataSelected,
+                      week: text,
+                    },
+                  }))
+                }
+              />
+            </View>
+            <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+              <Ionicons name="ios-list-box" size={30} style={{ paddingLeft: 40, color: '#d32f2f', paddingTop: 6 }} />
               <Picker
                 selectedValue={this.state.dataSelected.type}
                 enabled={this.state.editModal}
@@ -282,13 +323,13 @@ export default class ViewLesson extends React.Component {
                   <Ionicons
                     name="ios-calendar"
                     size={30}
-                    style={{ color: '#ffc107', paddingLeft: 20, paddingTop: 5, paddingRight: 10 }}
+                    style={{ color: '#ffc107', paddingRight: 10 }}
                   />
                 }
                 onPress={this.showDateTimePicker}
                 disabled={!this.state.editModal}
                 disabledTitleStyle={{ color: '#ffc107' }}
-                buttonStyle={{ width: widthPhone * 0.5, paddingTop: 15 }}
+                buttonStyle={{ width: widthPhone * 0.5}}
                 titleStyle={{ fontSize: 18, color: '#ffc107' }}
               />
               <DateTimePicker
@@ -297,11 +338,59 @@ export default class ViewLesson extends React.Component {
                 onCancel={this.hideDateTimePicker}
               />
             </View>
-            <View>
-              <Text>{this.state.dataSelected.startTime}</Text>
-              <Text>{this.state.dataSelected.endTime}</Text>
+            <View style={{flexDirection: 'row', paddingTop: 20}}>  
+              <View style={{ width: widthPhone*0.5}}>
+                <Button
+                  title={this.state.dataSelected.startTime}
+                  icon={
+                    <Ionicons
+                      name="ios-clock"
+                      size={30}
+                      style={{ color: '#1976D2', paddingRight: 20}}
+                    />
+                  }
+                  type="clear"
+                  onPress={this.showTimePicker}
+                  disabledTitleStyle={{ color: '#1976D2' }}
+                  disabled={!this.state.editModal}
+                  buttonStyle={{ color: '#1976D2'}}
+                />
+                <DateTimePicker
+                  isVisible={this.state.isTimePickerVisible}
+                  onConfirm={this.handleTimePicked}
+                  onCancel={this.hideTimePicker}
+                  mode="time"
+                  is24Hour={true}
+                  display="clock"
+                />
+              </View>
+              <View style={{width: widthPhone*0.5}}>
+                <Button
+                  title={this.state.dataSelected.endTime}
+                  icon={
+                    <Ionicons
+                      name="ios-clock"
+                      size={30}
+                      style={{ color: '#1976D2', paddingRight: 20 }}
+                    />
+                  }
+                  type="clear"
+                  onPress={this.showTimePicker1}
+                  disabled={!this.state.editModal}
+                  disabledTitleStyle={{ color: '#1976D2' }}
+                  buttonStyle={{ color: '#1976D2'}}
+                />
+                <DateTimePicker
+                  isVisible={this.state.isTimePickerVisible1}
+                  onConfirm={this.handleTimePicked1}
+                  onCancel={this.hideTimePicker1}
+                  mode="time"
+                  is24Hour={true}
+                  display="clock"
+                />
+              </View>
             </View>
-          </View>
+            </View>
         </Modalize>
       </SafeAreaView>
     );
@@ -319,17 +408,50 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    borderBottomColor:'#e0e0e0',
+    borderBottomWidth: 2,
   },
   titleModal: {
-    fontSize: 27,
+    fontSize: 30,
     fontWeight: 'bold',
     letterSpacing: 1,
     color: '#1976D2',
     width: widthPhone * 0.7,
+    paddingLeft: 40,
+    paddingBottom: 15,
+  },
+  location: {
+    fontSize: 20,
+    fontWeight: '600',
+    letterSpacing: 1,
+    color: '#7e57c2',
+    width: widthPhone * 0.7,
     paddingLeft: 20,
+    paddingBottom: 15,
+    paddingTop: 7,
+  },
+  week: {
+    fontSize: 20,
+    fontWeight: '600',
+    letterSpacing: 1,
+    color: '#26a69a',
+    width: widthPhone * 0.7,
+    paddingLeft: 20,
+    paddingBottom: 15,
+    paddingTop: 7,
+  },
+  lesson: {
+    fontSize: 20,
+    fontWeight: '600',
+    letterSpacing: 1,
+    color: '#ec407a',
+    width: widthPhone * 0.7,
+    paddingLeft: 20,
+    paddingBottom: 15,
+    paddingTop: 7,
   },
   lessonModal: {
-    marginTop: 10,
+    marginLeft: 18,
     color: '#d32f2f',
     height: 50,
     width: widthPhone * 0.3,

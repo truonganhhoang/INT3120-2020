@@ -18,7 +18,6 @@ export default class Calendar extends Component {
     super(props);
 
     this.state = {
-      data: {},
       items : {},
       isVisible: true,
       refreshing: false,
@@ -51,8 +50,8 @@ export default class Calendar extends Component {
         let day = item.date.toDate();
         day = day.toISOString().substring(0, 10);
         let title = Object.keys(data);
-        if (title.filter((it) => it == day).lenght > 0) {
-          console.log(data);
+        let length = title.filter((it) => it == day).length;
+        if (length) {
           data[day].push(item);
         } else {
           let arr = [];
@@ -67,32 +66,44 @@ export default class Calendar extends Component {
   };
 
   renderItem(item) {
-    if (item.type == 'Theory' || item.type == 'Practice') {
+    if (item.type == 'Theory') {
       return (
-        <View style={[styles.lesson, { height: item.height }]}>
+        <View style={[styles.theory, { height: item.height }]}>
             <Text style={styles.itemTitle}>{item.name}</Text>
             <Text style={styles.itemTime}>
-              {item.startTime} - {item.endTime}
+              Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
             </Text>
-            <Text style={styles.itemLocation}>{item.location}</Text>
-            <Text style={styles.itemTeacher}>{item.teacher}</Text>
-            <Text style={styles.itemType}>{item.type}</Text>
+            <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
+            <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
+            <Text style={styles.itemType}>Type:  &emsp;&emsp;&emsp;{item.type}</Text>
         </View>
       );
-    } else if (item.type == 'Exam') {
+    } else  if ( item.type == 'Practice') {
       return (
-        <View style={[styles.task, {height: item.height}]}>
+        <View style={[styles.practice, { height: item.height }]}>
             <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={styles.itemTeacher}>{item.lesson}</Text>
-            <Text style={styles.Time}>{item.description} </Text>
+            <Text style={styles.itemTime}>
+              Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
+            </Text>
+            <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
+            <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
+            <Text style={styles.itemType}>Type:  &emsp;&emsp;&emsp;{item.type}</Text>
         </View>
       );
     } else if (item.type == 'Task') {
       return (
-        <View style={[styles.exam, { height: item.height }]}>
+        <View style={[styles.task, {height: item.height}]}>
+            <Text style={styles.itemTitle}>{item.name} {item.done != true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
+            <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
+            <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
+        </View>
+      );
+    } else if (item.type == 'Exam') {
+      return (
+        <View style={[styles.exam, {height: item.height}]}>
             <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={styles.itemTeacher}>{item.lesson}</Text>
-            <Text style={styles.Time}>{item.description} </Text>
+            <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
+            <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
         </View>
       );
     } else {
@@ -111,20 +122,12 @@ export default class Calendar extends Component {
     return <Text>Day selected </Text>;
   }
 
-  loadItemsForMonth = (month) => {
-    let listItem = Object.keys(this.state.data);
-    console.log(listItem);
-  };
-
-  loadItems(day) {
-    this.componentDidMount();
+  loadItems(day) { 
       for (let i = -15; i < 15; i++) {
         const time = day.timestamp + i * 24 * 60 * 60 * 1000;
         const strTime = this.timeToString(time);
         if (!this.state.items[strTime]) {
-          this.state.items[strTime] = []; 
-            this.state.items[strTime].push({
-            });
+          this.state.items[strTime] = [];
         }
       }
       const newItems = {};
@@ -139,6 +142,14 @@ export default class Calendar extends Component {
     const date = new Date(time);
     return date.toISOString().split('T')[0];
   }
+
+  renderEmptyDate() {
+    return (
+      <View style={styles.emptyDate}></View>
+    );
+  }
+
+
 
   render() {
     return (
@@ -162,8 +173,10 @@ export default class Calendar extends Component {
           }
           items={this.state.items}
           renderItem={(item) => this.renderItem(item)}
-          renderEmptyDate={() => {return (<View><Text>EmptyDate</Text></View>);}}
-          renderEmptyData = {() => {return (<View></View>);}}
+          renderEmptyDate={() => this.renderEmptyDate()}
+          selected={this.timeToString(new Date())}
+          refreshing = { false }
+          //onDaySelected = {}
           rowHasChanged={(r1, r2) => {return r1 !== r2}}
           onDayPress={this.onDaySelected.bind(this)}
           loadItemsForMonth={this.loadItems.bind(this)}
@@ -211,8 +224,16 @@ export default class Calendar extends Component {
 }
 
 const styles = StyleSheet.create({
-  lesson: {
-    backgroundColor: 'white',
+  theory: {
+    backgroundColor: '#bbdefb',
+    flex: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginRight: 10,
+    marginTop: 17,
+  },
+  practice: {
+    backgroundColor: '#b2ebf2',
     flex: 1,
     borderRadius: 5,
     padding: 10,
@@ -220,7 +241,7 @@ const styles = StyleSheet.create({
     marginTop: 17,
   },
   task: {
-    backgroundColor: '#90caf9',
+    backgroundColor: '#dcedc8',
     flex: 1,
     borderRadius: 5,
     padding: 10,
@@ -228,7 +249,7 @@ const styles = StyleSheet.create({
     marginTop: 17,
   },
   exam: {
-    backgroundColor: '#ffe082',
+    backgroundColor: '#ffecb3',
     flex: 1,
     borderRadius: 5,
     padding: 10,
@@ -244,36 +265,42 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemTitle: {
-    fontSize: 17,
+    fontSize: 25,
     fontWeight: '700',
     letterSpacing: 1,
     color: '#039BE5',
+    paddingLeft: 10,
   },
   itemTime: {
-    paddingLeft: 10,
+    paddingLeft: 20,
     paddingTop: 5,
-    fontSize: 14,
+    fontSize: 17,
     color: '#455A64',
   },
   itemTeacher: {
     paddingTop: 5,
-    paddingLeft: 10,
-    fontSize: 15,
+    paddingLeft: 20,
+    fontSize: 17,
     fontWeight: '500',
     color: '#512DA8',
   },
   itemLocation: {
     paddingTop: 5,
-    paddingLeft: 10,
-    fontSize: 15,
+    paddingLeft: 20,
+    fontSize: 17,
     fontWeight: '600',
     color: '#E64A19',
   },
   itemType: {
     paddingTop: 5,
-    paddingLeft: 10,
-    fontSize: 15,
+    paddingLeft: 20,
+    fontSize: 17,
     fontWeight: '500',
     color: '#388E3C',
+  },
+  emptyDate: {
+    height: 15,
+    flex: 1,
+    paddingTop: 30,
   },
 });

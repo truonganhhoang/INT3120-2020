@@ -149,6 +149,7 @@ class NewTask extends React.Component {
         <View style={{ padding: 10 }} />
         <Input
           placeholder="Set name for Task"
+          value = {this.state.name}
           leftIcon={
             <Ionicons
               name="md-checkbox-outline"
@@ -216,6 +217,7 @@ class NewTask extends React.Component {
         </View>
         <TextInput
           style={{ padding: '2.5%', fontSize: 20 }}
+          value={this.state.description}
           underlineColorAndroid="transparent"
           placeholder="Description"
           placeholderTextColor="grey"
