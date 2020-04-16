@@ -200,6 +200,8 @@ dependencies {
     implementation "com.google.firebase:firebase-core:17.3.0"
     implementation "com.google.firebase:firebase-messaging:20.1.4"
     implementation 'me.leolin:ShortcutBadger:1.1.22'
+    // admob
+    implementation "com.google.firebase:firebase-ads:17.2.1"
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
