@@ -1,0 +1,1 @@
+export { default as QuestionTypeFour } from './TypeFour'; 

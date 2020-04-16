@@ -6,7 +6,6 @@ import { StarButton } from '../../components/StarButton';
 import { Header } from 'react-native-elements';
 import firebase from 'firebase'; 
 import styles from './styles';
-const Data = require('../../../../data/pre-data.json');
 
 const BackgroudUrl = "../../../../images/logo3.png";
 

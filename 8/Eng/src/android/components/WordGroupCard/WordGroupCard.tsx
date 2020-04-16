@@ -27,6 +27,11 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
   const onFlipCard = () => {
     navigation.navigate('FlipCardWord', { data: data.wordGroupName, topic_name: topic_name });
   };
+
+  const goPracticeTest = () => {
+    navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName:  data.wordGroupName}); 
+  }
+ 
   return (
     <View style={styles.containers}>
       <View style={styles.viewCard}>
@@ -80,6 +85,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
         <View style={styles.viewIcon}>
           <IconFeather style={styles.iconTool}
             name='edit'
+            onPress={goPracticeTest}
           />
         </View>
         <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 3 }}></View>
