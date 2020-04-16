@@ -22,12 +22,11 @@
       </h2>
     </ion-text>
   </div>
-  <ul class="nav">
-    <li *ngFor="let link of navLinks">
-      <a [routerLink]="link.path" routerLinkActive="active" #rla="routerLinkActive">
-        {{link.label}}
-      </a>
-    </li>
-  </ul>
+  <nav mat-tab-nav-bar [backgroundColor]="'primary'">
+    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive="active" #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{ link.label }}
+    </a>
+  </nav>
   <router-outlet></router-outlet>
 </ion-content>
