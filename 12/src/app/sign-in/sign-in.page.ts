@@ -36,8 +36,6 @@ export class SignInPage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
-    this.signInForm.reset();
-    this.signInForm.clearValidators();
     this.signInSubscription?.unsubscribe();
     this.signInWithFacebookSubscription?.unsubscribe();
   }
@@ -54,6 +52,12 @@ export class SignInPage implements OnDestroy {
     this.router.navigate(['intro']);
   }
 
+  private clearForm() {
+    this.signInForm.reset();
+    this.signInForm.controls.email.setErrors(null);
+    this.signInForm.controls.password.setErrors(null);
+  }
+
   handleLogin() {
     if (this.signInForm.valid) {
       this.isSubmitting = true;
@@ -61,8 +65,7 @@ export class SignInPage implements OnDestroy {
         .signInWithEmailAndPassword(this.email.value, this.password.value)
         .subscribe({
           next: () => {
-            this.signInForm.reset();
-            this.signInForm.clearValidators();
+            this.clearForm();
           },
           complete: () => {
             this.isSubmitting = false;
@@ -83,8 +86,7 @@ export class SignInPage implements OnDestroy {
   handleLoginWithFacebook() {
     this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
       next: () => {
-        this.signInForm.reset();
-        this.signInForm.clearValidators();
+        this.clearForm();
       },
       complete: () => {
         this.isSubmitting = false;

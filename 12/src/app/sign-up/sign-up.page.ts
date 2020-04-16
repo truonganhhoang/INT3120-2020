@@ -42,6 +42,7 @@ export class SignUpPage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
+    this.clearForm();
     this.signUpSubscription?.unsubscribe();
     this.signInWithFacebookSubscription?.unsubscribe();
   }
@@ -54,6 +55,13 @@ export class SignUpPage implements OnDestroy {
     this.router.navigate(['intro']);
   }
 
+  private clearForm() {
+    this.signUpForm.reset();
+    this.signUpForm.controls.fullName.setErrors(null);
+    this.signUpForm.controls.email.setErrors(null);
+    this.signUpForm.controls.password.setErrors(null);
+  }
+
   handleSignUp() {
     if (this.signUpForm.valid) {
       this.isSubmitting = true;
@@ -61,8 +69,7 @@ export class SignUpPage implements OnDestroy {
         .signUpWithEmailAndPassword(this.email.value, this.password.value, this.fullName.value)
         .subscribe({
           next: () => {
-            this.signUpForm.reset();
-            this.signUpForm.clearValidators();
+            this.clearForm();
           },
           error: (err: string) => {
             this.isSubmitting = false;
@@ -74,7 +81,7 @@ export class SignUpPage implements OnDestroy {
           },
           complete: async () => {
             this.isSubmitting = false;
-            await this.router.navigateByUrl('/sign-in');
+            await this.router.navigate(['/sign-in']);
             const accountCreated = await this.toastController.create({
               message: 'Account has been created successfully',
               duration: 3000
@@ -88,8 +95,7 @@ export class SignUpPage implements OnDestroy {
   handleLoginWithFacebook() {
     this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
       next: () => {
-        this.signUpForm.reset();
-        this.signUpForm.clearValidators();
+        this.clearForm();
       },
       complete: () => {
         this.isSubmitting = false;
