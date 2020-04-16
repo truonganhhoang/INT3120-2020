@@ -13,9 +13,11 @@ import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
 import { fcmService } from '../Services/FCMService'
 import AsyncStorage from '@react-native-community/async-storage';
+import firebase from 'react-native-firebase'
 
 console.disableYellowBox = true;
 const MainBody = (props) => {
+
     const [darkMode, setDarkMode] = useState(false)
     useEffect(() => {
         getTheme()

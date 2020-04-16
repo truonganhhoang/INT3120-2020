@@ -14,13 +14,14 @@ import {
     Button
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { fcmService } from '../Services/FCMService'
 import { CheckBox } from 'react-native-elements'
 import DateTimePickerModal from "react-native-modal-datetime-picker"
 import Share from 'react-native-share'
 import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
+import firebase from 'react-native-firebase'
+
 
 const SettingTab = (props) => {
     const [checked, setChecked] = useState(false)
@@ -224,6 +225,33 @@ const SettingTab = (props) => {
                         </View>
 
                     </TouchableOpacity>
+                </View>
+
+                <View>
+                    <Button
+                    onPress={ () => {
+                        const advert = firebase.admob().interstitial('ca-app-pub-3940256099942544/1033173712');
+
+                        const AdRequest = firebase.admob.AdRequest;
+                        const request = new AdRequest();
+                        request.addKeyword('foo').addKeyword('bar');
+
+                        // Load the advert with our AdRequest
+                        advert.loadAd(request.build());
+
+                        advert.on('onAdLoaded', () => {
+                        console.log('Advert ready to show.');
+                        advert.show();
+                        });
+
+                        // Simulate the interstitial being shown "sometime" later during the apps lifecycle
+                        
+                    }
+                    }
+                    title="Test ads"
+                    color="#841584"
+                    accessibilityLabel="Learn more about this purple button"
+                    />
                 </View>
 
             </ScrollView>
