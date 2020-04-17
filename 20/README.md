@@ -10,5 +10,5 @@ Mô tả ứng dụng: Đây là ứng dụng giúp bạn học lý thuyết đ�
 - Trần Trung Hậu
 - Lê Quang Huy
 # File cài đặt (apk)
-Link apk: [APK](https://drive.google.com/open?id=1VyMcZEbUeNjK5WykJ0MFHP-PZxCHj-II)
+Link apk: [APK](https://drive.google.com/open?id=1VyMcZEbUeNjK5WykJ0MFHP-PZxCHj-II)  
 Hướng dẫn cài đặt: Tải file apk về máy điện thoại android rồi cài đặt và sử dụng.
