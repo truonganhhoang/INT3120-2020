@@ -20,7 +20,8 @@ import Share from 'react-native-share'
 import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
-import {fcmService} from '../Services/FCMService'
+import { fcmService } from '../Services/FCMService'
+import { adService } from '../Services/AdService'
 import firebase from 'react-native-firebase'
 
 
@@ -231,48 +232,9 @@ const SettingTab = (props) => {
                 <View>
                     <Button
                     onPress={ () => {
-                        const advert = firebase.admob().interstitial('ca-app-pub-3940256099942544/1033173712'); 
-                        //ca-app-pub-3940256099942544/1033173712 -- gg test ads
-                        //ca-app-pub-4274159613831487/8743537178
-
-                        const AdRequest = firebase.admob.AdRequest;
-                        const request = new AdRequest();
-                        request.addKeyword('hello').addKeyword('world');
-
-                        // Load the advert with our AdRequest
-                        advert.loadAd(request.build());
-
-                        advert.on('onAdLoaded', () => {
-                            console.log('Advert ready to show.');
-                            // console.log(advert.isLoaded());
-                            setTimeout(() => {
-                                if (advert.isLoaded()) {
-                                    advert.show();
-                                } else {
-                                    console.log("cant load");
-                                }
-                            }, 1000);
-                        });
-
-                        
-
-                        // setTimeout(() => {
-                        //     console.log(advert.isLoaded());
-                        //     if (advert.isLoaded()) {
-                        //         advert.show();
-                        //     } else {
-                        //         console.log("cant load");
-                        //     }
-                        // }, 1000);
-
-                        advert.on('onAdFailedToLoad', (error) => {
-                            console.log('Ad failed to load');
-                            console.log(error);
-                        });
-
-                        
-                    }
-                    }
+                        adService.showInterstitial();
+                        console.log(adService.getUnitIdBanner);
+                    }}
                     title="Test ads"
                     color="#841584"
                     accessibilityLabel="Learn more about this purple button"
@@ -280,6 +242,15 @@ const SettingTab = (props) => {
                 </View>
 
             </ScrollView>
+
+            {/* <Banner
+                unitId={unitId}
+                size={"LARGE_BANNER"}
+                request={request.build()}
+                onAdLoaded={() => {
+                    console.log('Advert loaded');
+                }}
+            /> */}
         </ SafeAreaView >
 
     )
@@ -295,3 +266,10 @@ const options = Platform.select({
         message: `${url}`,
     }
 });
+
+// const Banner = firebase.admob.Banner;
+// const unitId = 'ca-app-pub-3940256099942544/6300978111';
+// const advert = firebase.admob().interstitial('ca-app-pub-3940256099942544/1033173712');
+// const AdRequest = firebase.admob.AdRequest;
+// const request = new AdRequest();
+// request.addKeyword('foobar');
