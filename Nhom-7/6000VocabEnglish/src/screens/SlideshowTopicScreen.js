@@ -54,14 +54,14 @@ export class SlideshowTopicScreen extends Component {
     this.fetchData();
   }
   fetchData() {
-    const { titleTopic } = this.props.route.params;
+    const { titleTopic, parentTopic } = this.props.route.params;
     console.log(titleTopic);
     let data = [];
 
     if (titleTopic !== undefined) {
       db.collection("/topic/")
-        .doc("people")
-        .collection("people")
+        .doc(parentTopic)
+        .collection(parentTopic)
         .doc(titleTopic)
         .collection(titleTopic)
         .get()

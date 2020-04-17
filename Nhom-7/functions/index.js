@@ -2,6 +2,7 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
+const firebase = require("firebase");
 const categoryList = require("../6000VocabEnglish/data/CategoryName");
 const settingList = require("../6000VocabEnglish/data/SettingName");
 // // Create and Deploy Your First Cloud Functions
@@ -34,3 +35,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 exports.getAllTopic = functions.https.onRequest((request, response) => {
   response.send(categoryList);
 });
+
+exports.getFileAudio = functions.https.onRequest((req, res) => {
+  
+
+})

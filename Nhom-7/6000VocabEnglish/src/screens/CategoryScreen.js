@@ -33,6 +33,7 @@ export default class CategoryScreen extends Component {
   };
 
   _renderItem = ({ item, index }) => {
+    let parentTopic = this.props.route.params.categoryTitle;
     return (
       <View
         style={{
@@ -43,8 +44,8 @@ export default class CategoryScreen extends Component {
       >
         <OverviewTopicItem
           item={item}
-          handleGotoDetail={this.handleGotoDetail(item.topicName)}
-          gotoSlide={this.gotoSlide(item.topicName)}
+          handleGotoDetail={this.handleGotoDetail(item.topicName, parentTopic)}
+          gotoSlide={this.gotoSlide(item.topicName, parentTopic)}
           gotoPractice={this.gotoPractice(item.topicName)}
           gotoExam={this.gotoExam(item.topicName)}
         ></OverviewTopicItem>
@@ -52,11 +53,12 @@ export default class CategoryScreen extends Component {
     );
   };
 
-  gotoSlide(topicName) {
+  gotoSlide(topicName, parentTopic) {
     return () => {
       console.log("Go to slide show!");
       this.props.navigation.navigate("SlideshowByTopic", {
         titleTopic: topicName,
+        parentTopic: parentTopic,
       });
     };
   }
@@ -75,25 +77,28 @@ export default class CategoryScreen extends Component {
       });
     };
   }
-  handleGotoDetail(topicName) {
+  handleGotoDetail(topicName, parentTopic) {
     // console.log("TItle" + topicName);
     return () => {
-      this.props.navigation.navigate("DetailTopic", { titleTopic: topicName });
+      this.props.navigation.navigate("DetailTopic", {
+        titleTopic: topicName,
+        parentTopic: parentTopic,
+      });
     };
     // console.log("View detal");
   }
   componentDidMount() {
     const { categoryId } = this.props.route.params;
-    if (categoryId !== "people") {
-      Alert.alert(
-        "Ứng dụng đang trong quá trình phát triển!",
-        "Các bạn vui lòng lựa chọn chủ đề People/Body để trải nghiệm. \nXin cảm ơn!"
-      );
-      this.setState({ isLoading: false });
-    } else {
-      this.fetchData();
-    }
-    // this.fetchData();
+    // if (categoryId !== "people") {
+    //   Alert.alert(
+    //     "Ứng dụng đang trong quá trình phát triển!",
+    //     "Các bạn vui lòng lựa chọn chủ đề People/Body để trải nghiệm. \nXin cảm ơn!"
+    //   );
+    //   this.setState({ isLoading: false });
+    // } else {
+    //   this.fetchData();
+    // }
+    this.fetchData();
   }
 
   fetchData() {
