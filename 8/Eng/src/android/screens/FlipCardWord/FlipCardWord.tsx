@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlipCard } from '../../components/FlipCard';
 import { View } from 'react-native';
 import { Header } from 'react-native-elements';
@@ -7,7 +7,7 @@ import styles from './styles';
 import MenuButton from '../../components/Menu/Menu';
 import { Back } from '../../components/Back';
 import { ScrollView } from 'react-native-gesture-handler';
-const Data = require('../../../../data/topic_detail.json');
+import firebase from 'firebase';
 // export class WordDetailResponse {
 //     word_name: string;
 //     en_meaning: string;
@@ -29,6 +29,14 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     const { navigation, route } = props;
     const { data, topic_name } = route.params;
     const listWords: any = [];
+    const database = firebase.database();
+    const topic_detail = database.ref('/topic_detail');
+    const [Data, setData] = useState({}); 
+    useEffect(() => {
+        topic_detail.on('value', function(snapshot: any) {
+          setData(snapshot.val()); 
+        }); 
+      }, [])
     //get value people
     Object.keys(Data).forEach((item, index) => {
         if (item == topic_name) {
