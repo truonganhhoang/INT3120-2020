@@ -9,4 +9,8 @@ export class CourseOverviewLessonComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  downloadLesson() {}
+
+  deleteLessonFromDevice() {}
 }
