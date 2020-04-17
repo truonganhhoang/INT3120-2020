@@ -64,9 +64,9 @@ export class SignInService {
     const facebookProvider = new firebase.auth.FacebookAuthProvider();
     return new Observable<firebase.User>((observer) => {
       this.ngFireAuth.auth
-        .signInWithPopup(facebookProvider)
-        .then((userCredentials) => {
-          observer.next(userCredentials.user);
+        .signInWithRedirect(facebookProvider)
+        .then(() => {
+          observer.next();
           observer.complete();
         })
         .catch((err) => {

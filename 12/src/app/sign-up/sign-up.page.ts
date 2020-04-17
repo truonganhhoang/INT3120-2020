@@ -42,6 +42,7 @@ export class SignUpPage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
+    this.clearForm();
     this.signUpSubscription?.unsubscribe();
     this.signInWithFacebookSubscription?.unsubscribe();
   }
@@ -51,7 +52,14 @@ export class SignUpPage implements OnDestroy {
   }
 
   goToIntro() {
-    this.router.navigate(['intro']);
+    this.router.navigate(['/intro']);
+  }
+
+  private clearForm() {
+    this.signUpForm.reset();
+    this.signUpForm.controls.fullName.setErrors(null);
+    this.signUpForm.controls.email.setErrors(null);
+    this.signUpForm.controls.password.setErrors(null);
   }
 
   handleSignUp() {
@@ -61,8 +69,7 @@ export class SignUpPage implements OnDestroy {
         .signUpWithEmailAndPassword(this.email.value, this.password.value, this.fullName.value)
         .subscribe({
           next: () => {
-            this.signUpForm.reset();
-            this.signUpForm.clearValidators();
+            this.clearForm();
           },
           error: (err: string) => {
             this.isSubmitting = false;
@@ -74,12 +81,7 @@ export class SignUpPage implements OnDestroy {
           },
           complete: async () => {
             this.isSubmitting = false;
-            await this.router.navigateByUrl('/sign-in');
-            const accountCreated = await this.toastController.create({
-              message: 'Account has been created successfully',
-              duration: 3000
-            });
-            await accountCreated.present();
+            await this.router.navigate(['/tabs/learn/courses']);
           }
         });
     }
@@ -88,14 +90,14 @@ export class SignUpPage implements OnDestroy {
   handleLoginWithFacebook() {
     this.signInWithFacebookSubscription = this.signInService.signInWithFacebook().subscribe({
       next: () => {
-        this.signUpForm.reset();
-        this.signUpForm.clearValidators();
+        this.clearForm();
       },
       complete: () => {
         this.isSubmitting = false;
         this.router.navigate(['/tabs/learn/courses']);
       },
       error: async (err) => {
+        this.isSubmitting = false;
         const loginFacebookFailed = await this.toastController.create({
           message: err?.message,
           duration: 3000
