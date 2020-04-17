@@ -23,7 +23,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   const [contentOfQuestion, setContentOfQ] = useState({type: ''}); 
   const [contentOfAnswer, setContentOfA] = useState({type: ''}); 
 
-  let questionNumber = 0; 
+  let questionNumber = 3; 
   
   useEffect(() => {
     setAmountOfQ(0); 
@@ -47,7 +47,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
       const answer = database.ref('/topic_detail/' + 
       lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
       '/answers/' + questionNumber); 
-      answer.on('value', function(snapshot: any){
+      answer.on('value', function(snapshot: any){ 
         // console.log(snapshot.val()); 
         setContentOfA(snapshot.val()); 
       })
@@ -74,7 +74,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
           ContentQuestion = <QuestionTypeOne content={contentOfQuestion}/>
         }
         else if (contentOfQuestion.type == '2') {
-          ContentQuestion = <QuestionTypeTwo />
+          ContentQuestion = <QuestionTypeTwo content={contentOfQuestion}/>
         }
         else if (contentOfQuestion.type == '3') {
           ContentQuestion = <QuestionTypeThree />
@@ -94,10 +94,10 @@ const Practice = (props: {route?: any; navigation?: any}) => {
 
       if(contentOfAnswer) {
         if (contentOfAnswer.type == '1'){
-          ContentAnswer = <AnswerTypeOne content={contentOfAnswer}/>
+          ContentAnswer = <AnswerTypeOne content={contentOfAnswer} lessonInfo={lessonInfo}/>
         }
         else if (contentOfAnswer.type == '2') {
-          ContentAnswer = <AnswerTypeTwo />
+          ContentAnswer = <AnswerTypeTwo content={contentOfAnswer} lessonInfo={lessonInfo}/>
         }
         else if (contentOfAnswer.type == '3') {
           ContentAnswer = <AnswerTypeThree />
