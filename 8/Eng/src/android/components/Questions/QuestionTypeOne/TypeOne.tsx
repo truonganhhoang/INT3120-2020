@@ -1,13 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text } from 'react-native'; 
-import { Image, Button, Icon } from 'react-native-elements'; 
+import { Button, Icon } from 'react-native-elements'; 
+import Sound from 'react-native-sound'; 
+
 import styles from './styles'; 
 
 const TypeOne = (props: {content?: any}) => {
 
   const { content } = props; 
 
-  console.log(content); 
+  useEffect(() => {
+    const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error); 
+        return; 
+      }
+      speaker.play((success) => {
+        if (success) {
+          console.log('successfully finished playing'); 
+        } else {
+          console.log('playback failed due to audio decoding errors')
+        }
+      })
+    })
+  }, [])
+
+  const onPress = () => {
+    const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error); 
+        return; 
+      }
+      speaker.play((success) => {
+        if (success) {
+          console.log('successfully finished playing'); 
+        } else {
+          console.log('playback failed due to audio decoding errors')
+        }
+      })
+    })
+  }
+
+  // console.log(content); 
 
   return (
     <View>
@@ -20,6 +54,7 @@ const TypeOne = (props: {content?: any}) => {
           type="font-awesome"
           style={styles.speak}
         />}
+        onPress={onPress}
       />
     </View>
   )

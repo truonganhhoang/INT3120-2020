@@ -1,1 +1,1 @@
-export { default as AnswerTypeTwo } from './TypeTwo'; 
+export { default as AnswerTypeTwo } from './AnswerTypeTwo'; 

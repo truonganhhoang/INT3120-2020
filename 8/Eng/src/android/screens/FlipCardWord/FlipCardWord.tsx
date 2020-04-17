@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FlipCard } from '../../components/FlipCard';
 import { View } from 'react-native';
