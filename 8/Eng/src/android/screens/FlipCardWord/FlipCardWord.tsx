@@ -1,29 +1,16 @@
 
 import React, { useEffect, useState } from 'react';
 import { FlipCard } from '../../components/FlipCard';
-import { View } from 'react-native';
 import { Header } from 'react-native-elements';
 import styles from './styles';
 import MenuButton from '../../components/Menu/Menu';
 import { Back } from '../../components/Back';
-import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
-// export class WordDetailResponse {
-//     word_name: string;
-//     en_meaning: string;
-//     image_url: string;
-//     spelling: string;
-//     vn_meaning: string;
-//     void_uri: string;
-//     constructor() {
-//         this.en_meaning = '',
-//             this.word_name = '',
-//             this.spelling = '',
-//             this.vn_meaning = '',
-//             this.void_uri = '',
-//             this.image_url = ''
-//     }
-// }
+import Carousel from 'react-native-snap-carousel';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
+import { scrollInterpolator, animatedStyles } from '../Utils/animation';
+const SLIDER_WIDTH = Dimensions.get('window').width;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
 const FlipCardWord = (props: { navigation?: any, route?: any }) => {
 
     const { navigation, route } = props;
@@ -31,12 +18,14 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     const listWords: any = [];
     const database = firebase.database();
     const topic_detail = database.ref('/topic_detail');
-    const [Data, setData] = useState({}); 
+    const [Data, setData] = useState({});
+    const [state, setState] = useState(0);
+
     useEffect(() => {
-        topic_detail.on('value', function(snapshot: any) {
-          setData(snapshot.val()); 
-        }); 
-      }, [])
+        topic_detail.on('value', function (snapshot: any) {
+            setData(snapshot.val());
+        });
+    }, [])
     //get value people
     Object.keys(Data).forEach((item, index) => {
         if (item == topic_name) {
@@ -51,21 +40,11 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
             })
         }
     });
-    // console.log(listWords);
-    // let wordGroupDetails = [];
-    // wordGroupDetails = lessions.map((item: any) => {
-    //     Object.keys(item).forEach((value, index) => {
-    //         var respone = {
-    //             word_name: value,
-    //             en_meaning: item[value].en_meaning,
-    //             image_uri: item[value].image_uri,
-    //             spelling: item[value].spelling,
-    //             vn_meaning: item[value].vn_meaning,
-    //             void_uri: item[value].void_uri
-    //         }
-    //         return respone;
-    //     })
-    // });
+    const _renderItem = (item: any) => {
+        return (
+            <FlipCard data={item.item} />
+        );
+    }
     return (
         <View style={{ backgroundColor: '#E65100' }}>
             <Header
@@ -78,13 +57,26 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
                 }
                 centerComponent={{ text: 'People', style: styles.centerComponent }}
             />
-            <ScrollView horizontal={true}>
-                {
-                    listWords.map((e: any) =>
-                        <FlipCard data={e} />
-                    )
-                }
-            </ScrollView>
+            <View>
+                <Carousel
+                    ref={(ref: any)=>ref=ref}
+                    data={listWords}
+                    renderItem={_renderItem}
+                    sliderWidth={SLIDER_WIDTH}
+                    itemWidth={ITEM_WIDTH}
+                    containerCustomStyle={styles.carouselContainer}
+                    inactiveSlideShift={0}
+                    onSnapToItem={(index) => setState(index)}
+                    scrollInterpolator={scrollInterpolator}
+                    slideInterpolatedStyle={animatedStyles}
+                    useScrollView={true}
+                />
+                <Text style={styles.counter}
+                >
+                    {state + 1}/{listWords.length}
+                </Text>
+            </View>
+
         </View>
     );
 }

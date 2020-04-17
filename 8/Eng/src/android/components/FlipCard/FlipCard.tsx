@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Animated, Text, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
 import styles from './styles';
@@ -6,6 +6,7 @@ import { Card, Image, Icon } from 'react-native-elements';
 import IconAntDeisign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Sound from 'react-native-sound';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 var values = 0;
@@ -43,6 +44,7 @@ const FlipCard = (props: { data: any }) => {
     })
     const flipCard = () => {
         if (values >= 90) {
+            
             Animated.spring(animatedValue, {
                 toValue: 0,
                 friction: 8,
@@ -76,6 +78,36 @@ const FlipCard = (props: { data: any }) => {
             setColorLight('lightbulb-on');
         }
     }
+    // useEffect(() => {
+    //     const speaker = new Sound(data.void_uri, Sound.MAIN_BUNDLE, (error) => {
+    //         if (error) {
+    //             console.log('failed to load the sound', error);
+    //             return;
+    //         }
+    //         speaker.play((success) => {
+    //             if (success) {
+    //                 console.log('successfully finished playing');
+    //             } else {
+    //                 console.log('playback failed due to audio decoding errors')
+    //             }
+    //         })
+    //     })
+    // }, []);
+    const onSpeaking = () => {
+        const speaker = new Sound(data.void_uri, Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+                console.log('failed to load the sound', error);
+                return;
+            }
+            speaker.play((success) => {
+                if (success) {
+                    console.log('successfully finished playing');
+                } else {
+                    console.log('playback failed due to audio decoding errors')
+                }
+            })
+        })
+    }
     return (
         <View style={styles.container}>
             <View style={styles.containerCard}>
@@ -106,14 +138,14 @@ const FlipCard = (props: { data: any }) => {
                     <Card containerStyle={{ borderRadius: 10 }}>
                         <Animated.View style={[styles.flipCard, frontAnimatedStyle, { opacity: frontOpacity }]}>
 
-                            <View style={{}}>
+                            <View style={{ marginTop: 60 }}>
                                 <Image
                                     source={{ uri: data.image_uri }}
-                                    resizeMode='contain'
-                                    style={{ width: WIDTH / 2, height: HEIGHT / 2 - 70 }}
+                                    resizeMode='cover'
+                                    style={{ width: WIDTH / 2, height: HEIGHT / 4 }}
                                 />
                             </View>
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 30 }}>
+                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 80 }}>
                                 <Text style={{ fontWeight: '700', color: '#666' }}>
                                     Lật về sau
                                 </Text>
@@ -132,7 +164,7 @@ const FlipCard = (props: { data: any }) => {
                                 {data.vn_meaning}
                             </Text>
 
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 125 }}>
+                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 130 }}>
                                 <Text style={{ fontWeight: '700', color: '#666' }}>
                                     Lật về sau
                                 </Text>
@@ -146,13 +178,9 @@ const FlipCard = (props: { data: any }) => {
                         name='ios-volume-high'
                         color='#FFF'
                         size={50}
+                        onPress={onSpeaking}
                     />
                 </Animated.View>
-                <View style={styles.footer}>
-                    <Text style={{ fontSize: 20, color: '#fff' }}>
-                        1/28
-                </Text>
-                </View>
             </View>
         </View>
     )

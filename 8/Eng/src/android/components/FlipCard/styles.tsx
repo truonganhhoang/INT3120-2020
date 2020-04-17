@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         justifyContent: "center",
-        width: WIDTH,
+        width: WIDTH/1.5+30,
         height: HEIGHT,
     },
     flipCard: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         width: WIDTH / 1.5,
         height: HEIGHT / 1.5,
         position:'relative',
-        marginBottom:100,
+        marginBottom:HEIGHT/3,
         zIndex:0
     },
     speaking:{
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         zIndex:1,
         top:200,
         left:95,
+        backfaceVisibility: 'hidden',
     },
     footer:{
         alignItems:'center',

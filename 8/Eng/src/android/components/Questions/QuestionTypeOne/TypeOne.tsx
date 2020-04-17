@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native'; 
 import { Button, Icon } from 'react-native-elements'; 
-import Sound from 'react-native-sound'; 
+import Sound from 'react-native-sound';
 
 import styles from './styles'; 
 

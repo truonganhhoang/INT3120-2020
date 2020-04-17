@@ -23,7 +23,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   const [contentOfQuestion, setContentOfQ] = useState({type: ''}); 
   const [contentOfAnswer, setContentOfA] = useState({type: ''}); 
 
-  let questionNumber = 3; 
+  let questionNumber = 0; 
   
   useEffect(() => {
     setAmountOfQ(0); 
