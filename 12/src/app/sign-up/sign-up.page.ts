@@ -52,7 +52,7 @@ export class SignUpPage implements OnDestroy {
   }
 
   goToIntro() {
-    this.router.navigate(['intro']);
+    this.router.navigate(['/intro']);
   }
 
   private clearForm() {
@@ -81,12 +81,7 @@ export class SignUpPage implements OnDestroy {
           },
           complete: async () => {
             this.isSubmitting = false;
-            await this.router.navigate(['/sign-in']);
-            const accountCreated = await this.toastController.create({
-              message: 'Account has been created successfully',
-              duration: 3000
-            });
-            await accountCreated.present();
+            await this.router.navigate(['/tabs/learn/courses']);
           }
         });
     }
@@ -102,6 +97,7 @@ export class SignUpPage implements OnDestroy {
         this.router.navigate(['/tabs/learn/courses']);
       },
       error: async (err) => {
+        this.isSubmitting = false;
         const loginFacebookFailed = await this.toastController.create({
           message: err?.message,
           duration: 3000

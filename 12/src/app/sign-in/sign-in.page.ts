@@ -49,7 +49,7 @@ export class SignInPage implements OnDestroy {
   }
 
   goToIntro() {
-    this.router.navigate(['intro']);
+    this.router.navigate(['/intro']);
   }
 
   private clearForm() {
@@ -69,7 +69,7 @@ export class SignInPage implements OnDestroy {
           },
           complete: () => {
             this.isSubmitting = false;
-            this.router.navigate(['tabs', 'learn']);
+            this.router.navigate(['/tabs/learn/courses']);
           },
           error: (message) => {
             this.isSubmitting = false;
@@ -90,7 +90,7 @@ export class SignInPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigate(['tabs', 'learn']);
+        this.router.navigate(['/tabs/learn/courses']);
       },
       error: (message) => {
         this.isSubmitting = false;

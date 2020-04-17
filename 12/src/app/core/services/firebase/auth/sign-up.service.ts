@@ -24,7 +24,7 @@ export class SignUpService {
           return userCredentials.user;
         })
         .then((user) => {
-          return user.updateProfile({ displayName: fullName });
+          user.updateProfile({ displayName: fullName });
         })
         .then(() => {
           observer.complete();
