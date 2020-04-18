@@ -243,7 +243,7 @@ class NewLesson extends React.Component {
             }
             type="clear"
             onPress={this.showDateTimePicker}
-            buttonStyle={{ marginRight: '2.5%', marginLeft: '1.5%' }}
+            buttonStyle={{width: widthPhone*0.5 ,marginRight: '2.5%', marginLeft: '1.5%' }}
           />
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
@@ -262,16 +262,7 @@ class NewLesson extends React.Component {
         />
 
         <View style={{ padding: 10 }} />
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingLeft: 10,
-            paddingRight: 15,
-            marginLeft: '2.5%',
-            marginRight: '2.5%',
-          }}
-        >
+        <View style={{flexDirection: 'row'}}>
           <View>
             <Button
               title={this.state.timePicked}
@@ -284,7 +275,7 @@ class NewLesson extends React.Component {
               }
               type="clear"
               onPress={this.showTimePicker}
-              buttonStyle={{ color: '#1976D2', marginRight: '1.5%', marginLeft: '0.5%' }}
+              buttonStyle={{marginRight: '1.5%', marginLeft: '0.5%', width: widthPhone*0.5 }}
             />
             <DateTimePicker
               isVisible={this.state.isTimePickerVisible}
@@ -307,7 +298,7 @@ class NewLesson extends React.Component {
               }
               type="clear"
               onPress={this.showTimePicker1}
-              buttonStyle={{ color: '#1976D2', paddingRight: 0, marginLeft: '0.5%' }}
+              buttonStyle={{ paddingRight: 0, marginLeft: '0.5%', width:  widthPhone*0.5 }}
             />
             <DateTimePicker
               isVisible={this.state.isTimePickerVisible1}

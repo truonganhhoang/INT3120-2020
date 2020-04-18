@@ -58,11 +58,19 @@ export default class Calendar extends Component {
           arr.push(item);
           data[day] = arr;
         }
-      });
+      }); 
     } catch (err) {
       console.log(err);
     } 
       this.setState({ items: data });
+      const date = new Date();
+      let today ={};
+      today.day = date.getDay();
+      today.month = date.getMonth();
+      today.year = date.getFullYear();
+      today.timestamp = date.getTime();
+      today.dateString = date.toISOString().substring(0,10);
+      this.loadItems(today);
   };
 
   renderItem(item) {
@@ -93,7 +101,7 @@ export default class Calendar extends Component {
     } else if (item.type == 'Task') {
       return (
         <View style={[styles.task, {height: item.height}]}>
-            <Text style={styles.itemTitle}>{item.name} {item.done != true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
+            <Text style={styles.itemTitle}>{item.name} {item.done == true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
             <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
             <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
         </View>
@@ -101,7 +109,7 @@ export default class Calendar extends Component {
     } else if (item.type == 'Exam') {
       return (
         <View style={[styles.exam, {height: item.height}]}>
-            <Text style={styles.itemTitle}>{item.name}</Text>
+            <Text style={styles.itemTitle}>{item.name} {item.done == true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
             <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
             <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
         </View>
@@ -122,8 +130,12 @@ export default class Calendar extends Component {
     return <Text>Day selected </Text>;
   }
 
+  renderCalendar = (day) => {
+    this.loadItems(day);
+  }
+
   loadItems(day) { 
-      for (let i = -15; i < 15; i++) {
+      for (let i = -5; i < 5; i++) {
         const time = day.timestamp + i * 24 * 60 * 60 * 1000;
         const strTime = this.timeToString(time);
         if (!this.state.items[strTime]) {
@@ -176,7 +188,7 @@ export default class Calendar extends Component {
           renderEmptyDate={() => this.renderEmptyDate()}
           selected={this.timeToString(new Date())}
           refreshing = { false }
-          //onDaySelected = {}
+          onDayChange = {(day) => this.renderCalendar(day)}
           rowHasChanged={(r1, r2) => {return r1 !== r2}}
           onDayPress={this.onDaySelected.bind(this)}
           loadItemsForMonth={this.loadItems.bind(this)}

@@ -19,6 +19,8 @@ import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
 import { getAllTasks, updateTask, deleteTask } from '../firebaseApi/task';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import {getLessonsName } from '../firebaseApi/lesson';
+import RNPickerSelect from 'react-native-picker-select';
 
 let heightPhone = Dimensions.get('window').height;
 let widthPhone = Dimensions.get('window').width;
@@ -28,8 +30,8 @@ export default class ViewExam extends React.Component {
     data: [],
     idSelected: 0,
     editModal: false,
-    table: [{ name: 'Toan' }, { name: 'Tieng Viet' }, { name: 'Tieng Anh' }],
-    dataSelected: { id: 0, name: '', lesson: '', date: '', description: '', done: '' },
+    table: [],
+    dataSelected: {},
     refreshing: false,
     isDateTimePickerVisible: false,
   };
@@ -38,10 +40,15 @@ export default class ViewExam extends React.Component {
 
   componentDidMount = async () => {
     let arrret = [];
+    let table =[];
     try {
       arrret = await getAllTasks();
-      this.setState({ data: arrret.filter((item) => item.type == 'Exam') });
-    } catch (err) {}
+      table = await getLessonsName();
+    } catch (err) {
+      console.log(err);
+    }
+    this.setState({ data: arrret.filter((item) => item.type == 'Exam') });
+    this.setState({table : table});
   };
 
   onRefresh = () => {
@@ -100,10 +107,11 @@ export default class ViewExam extends React.Component {
     await deleteTask(task_fid);
   };
 
-  handleChange = (id) => {
+  handleChange = async (item, id) => {
     let newState = Object.assign({}, this.state);
     newState.data[id].done = !newState.data[id].done;
     this.setState(newState);
+    await updateTask(item);
   };
 
   renderRow = (item, id) => {
@@ -130,7 +138,7 @@ export default class ViewExam extends React.Component {
         <View>
           <TouchableOpacity onPress={() => this.openModal(item, id)} key={id}>
             <View style={styles.rowContainer}>
-              <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(id)} />
+              <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(item, id)} />
               <Text style={styles.note}>
                 {id + 1}. {item.name}
               </Text>
@@ -160,7 +168,7 @@ export default class ViewExam extends React.Component {
             style: { fontSize: 25, color: '#fff', letterSpacing: 4, fontWeight: 'bold' },
           }}
           containerStyle={{
-            backgroundColor: '#1976D2',
+            backgroundColor: '#ffb300',
             height: 100,
           }}
         />
@@ -177,10 +185,11 @@ export default class ViewExam extends React.Component {
             <View style={styles.content_header}>
               <CheckBox
                 checked={this.state.dataSelected.done}
-                onPress={() => {
+                onPress={async () => {
                   let select = this.state.dataSelected;
                   select.done = !select.done;
                   this.setState({ dataSelected: select });
+                  await updateTask(this.state.dataSelected);
                 }}
                 size={30}
               />
@@ -226,23 +235,23 @@ export default class ViewExam extends React.Component {
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color: '#d32f2f' }} />
-              <Picker
-                selectedValue={this.state.dataSelected.lesson}
-                enabled={this.state.editModal}
-                style={styles.lessonModal}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState((prevState) => ({
-                    dataSelected: {
-                      ...prevState.dataSelected,
-                      lesson: itemValue,
-                    },
-                  }))
-                }
-              >
-                {this.state.table.map((item, i) => (
-                  <Picker.Item label={item.name} value={item.name} key={i} />
-                ))}
-              </Picker>
+              <View style={{paddingTop:20, paddingLeft: 10, width: widthPhone* 0.5}}>
+                <RNPickerSelect 
+                  onValueChange={(value, index) =>
+                    this.setState((prevState) => ({
+                      dataSelected: {
+                        ...prevState.dataSelected,
+                        lesson: value,
+                      },
+                    }))
+                  }
+                  value={this.state.dataSelected.lesson}
+                  items={this.state.table}
+                  disabled={!this.state.editModal}
+                  style={styles.lessonModal}
+                  useNativeAndroidPickerStyle={false}
+                />
+              </View>
             </View>
             <View style={{ marginBottom: 10, flexDirection: 'row' }}>
               <Ionicons
@@ -294,7 +303,7 @@ export default class ViewExam extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1976D2',
+    backgroundColor: '#ffecb3',
     letterSpacing: 1,
   },
   content_header: {
@@ -340,7 +349,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   note: {
-    fontSize: 16,
-    fontWeight: '400',
+    fontSize: 20,
+    fontWeight: '600',
   },
 });

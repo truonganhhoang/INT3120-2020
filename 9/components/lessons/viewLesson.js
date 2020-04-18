@@ -17,7 +17,7 @@ import Swipeout from 'react-native-swipeout';
 import { Header, CheckBox, Button } from 'react-native-elements';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
-import { getLessons } from '../firebaseApi/lesson';
+import { getLessons, updateLesson } from '../firebaseApi/lesson';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
 let heightPhone = Dimensions.get('window').height;
@@ -130,7 +130,7 @@ export default class ViewLesson extends React.Component {
     }
   };
 
-  deleteItem = (id) => {
+  deleteItem = async (id) => {
     console.log(id);
     this.state.data.splice(id, 1);
     this.setState({ data: this.state.data.filter((i) => i !== id) });
@@ -174,6 +174,7 @@ export default class ViewLesson extends React.Component {
     this.setState({ editModal: false });
     let newData = this.state.data;
     newData[this.state.idSelected] = this.state.dataSelected;
+    //await updateLesson(this.state.dataSelected);
     this.setState({ data: newData });
   };
 
@@ -353,7 +354,7 @@ export default class ViewLesson extends React.Component {
                   onPress={this.showTimePicker}
                   disabledTitleStyle={{ color: '#1976D2' }}
                   disabled={!this.state.editModal}
-                  buttonStyle={{ color: '#1976D2'}}
+                 // buttonStyle={{ color: '#1976D2'}}
                 />
                 <DateTimePicker
                   isVisible={this.state.isTimePickerVisible}
@@ -378,7 +379,7 @@ export default class ViewLesson extends React.Component {
                   onPress={this.showTimePicker1}
                   disabled={!this.state.editModal}
                   disabledTitleStyle={{ color: '#1976D2' }}
-                  buttonStyle={{ color: '#1976D2'}}
+                 // buttonStyle={{ color: '#1976D2'}}
                 />
                 <DateTimePicker
                   isVisible={this.state.isTimePickerVisible1}
@@ -400,7 +401,7 @@ export default class ViewLesson extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1976D2',
+    backgroundColor: '#bbdefb',
     letterSpacing: 1,
   },
   content_header: {
@@ -408,8 +409,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    borderBottomColor:'#e0e0e0',
-    borderBottomWidth: 2,
   },
   titleModal: {
     fontSize: 30,
@@ -480,7 +479,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   note: {
-    fontSize: 16,
+    fontSize: 22,
     fontWeight: '600',
     paddingLeft: 25,
   },

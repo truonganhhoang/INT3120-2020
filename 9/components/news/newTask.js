@@ -4,7 +4,7 @@ import { Header, Input, Button, ButtonGroup } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { addTask } from '../firebaseApi/task';
-import {getLessons } from '../firebaseApi/lesson';
+import { getLessonsName } from '../firebaseApi/lesson';
 import RNPickerSelect from 'react-native-picker-select';
 
 let widthPhone = Dimensions.get('window').width;
@@ -34,23 +34,13 @@ class NewTask extends React.Component {
   };
 
   componentDidMount = async() => {
-    let arrret = [];
     let table = [];
     try {
-      arrret = await getLessons();
-      arrret.map (item => {
-        let name = item.name;
-        if (name == undefined ) name ='';
-      if (table.filter(i => i.value == name).length == 0)
-        table.push({
-          label: name, value: name
-        });
-      })
+      table = await getLessonsName();
     } catch (err) {
       console.log(err);
     }
     this.setState({table: table});
-    console.log(this.state.table);
   }
 
   handleDatePicked = (date) => {

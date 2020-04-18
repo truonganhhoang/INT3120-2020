@@ -16,6 +16,31 @@ const getLessons = async () => {
   return ret;
 };
 
+const getLessonsName = async () => {
+  const uid = firebase.auth().currentUser.uid;
+  const data = await firebase.firestore().collection(`lessons/${uid}/listLessons`).get();
+  let ret = [];
+  try {
+    data.forEach((doc) => {
+      let ret_doc = doc.data();
+      ret_doc.fid = doc.id; 
+      let table = [];
+      table.push(ret_doc);
+      table.map (item => {
+        let name = item.name;
+        if (name == undefined ) name ='';
+      if (ret.filter(i => i.value == name).length == 0)
+        ret.push({
+          label: name, value: name
+        });
+      })
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  return ret;
+};
+
 const addLesson = async (lesson) => {
   // console.log(lesson);
   const uid = firebase.auth().currentUser.uid;
@@ -56,4 +81,4 @@ const updateLesson = async (update_data) => {
   }
 };
 
-export { getLessons, addLesson };
+export { getLessons, addLesson, getLessonsName, updateLesson };
