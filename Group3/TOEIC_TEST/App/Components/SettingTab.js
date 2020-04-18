@@ -241,8 +241,9 @@ const SettingTab = (props) => {
                 <View>
                     <Button
                     onPress={ () => {
+                        // Gọi hàm này là có quảng cáo toàn màn hình
+                        // Nhớ thêm service
                         adService.showInterstitial();
-                        console.log(adService.getUnitIdBanner);
                     }}
                     title="Test ads"
                     color="#841584"
@@ -251,6 +252,8 @@ const SettingTab = (props) => {
 
             </ScrollView>
 
+
+            {/* Thêm cái banner này vào có banner */}
             <Banner
                 unitId={UNIT_ID_BANNER}
                 size={"SMART_BANNER"}
