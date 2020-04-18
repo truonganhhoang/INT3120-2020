@@ -21,8 +21,7 @@ import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
 import { fcmService } from '../Services/FCMService'
-import { adService } from '../Services/AdService'
-import firebase from 'react-native-firebase'
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
 
 const SettingTab = (props) => {
@@ -237,20 +236,19 @@ const SettingTab = (props) => {
                     }}
                     title="Test ads"
                     color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
                     />
                 </View>
 
             </ScrollView>
 
-            {/* <Banner
-                unitId={unitId}
-                size={"LARGE_BANNER"}
-                request={request.build()}
+            <Banner
+                unitId={UNIT_ID_BANNER}
+                size={"SMART_BANNER"}
+                request={adService.buildRequest().build()}
                 onAdLoaded={() => {
                     console.log('Advert loaded');
                 }}
-            /> */}
+            />
         </ SafeAreaView >
 
     )
@@ -266,10 +264,3 @@ const options = Platform.select({
         message: `${url}`,
     }
 });
-
-// const Banner = firebase.admob.Banner;
-// const unitId = 'ca-app-pub-3940256099942544/6300978111';
-// const advert = firebase.admob().interstitial('ca-app-pub-3940256099942544/1033173712');
-// const AdRequest = firebase.admob.AdRequest;
-// const request = new AdRequest();
-// request.addKeyword('foobar');
