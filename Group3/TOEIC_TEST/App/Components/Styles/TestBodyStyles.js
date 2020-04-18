@@ -51,12 +51,11 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   question: {
-    borderWidth: 1,
     borderRadius: 20,
-    padding: 15,
+    padding: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 120,
+    width: 100,
     backgroundColor: '#9DD6EB'
   },
   submit: {
