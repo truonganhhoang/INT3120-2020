@@ -237,31 +237,7 @@ const SettingTab = (props) => {
 
                     </TouchableOpacity>
                 </View>
-
-                <View>
-                    <Button
-                    onPress={ () => {
-                        // Gọi hàm này là có quảng cáo toàn màn hình
-                        // Nhớ thêm service
-                        adService.showInterstitial();
-                    }}
-                    title="Test ads"
-                    color="#841584"
-                    />
-                </View>
-
             </ScrollView>
-
-
-            {/* Thêm cái banner này vào có banner */}
-            <Banner
-                unitId={UNIT_ID_BANNER}
-                size={"SMART_BANNER"}
-                request={adService.buildRequest().build()}
-                onAdLoaded={() => {
-                    console.log('Advert loaded');
-                }}
-            />
         </ SafeAreaView >
 
     )

@@ -17,6 +17,7 @@ import { Icon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { StackActions, NavigationActions } from 'react-navigation'
 import { requestGET, HOST } from '../Services/Servies'
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -133,6 +134,16 @@ class SearchTab extends Component {
                         </TouchableOpacity>
                     </View>
                     {this.renderBody()}
+                    <View style={{ position: 'absolute', bottom: 0 }}>
+                        <Banner
+                            unitId={UNIT_ID_BANNER}
+                            size={"SMART_BANNER"}
+                            request={adService.buildRequest().build()}
+                            onAdLoaded={() => {
+                                console.log('Advert loaded');
+                            }}
+                        />
+                    </View>
                 </SafeAreaView>
             </DismissKeyboard>
         )

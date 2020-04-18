@@ -14,6 +14,7 @@ import styles from './Styles/TestListStyles'
 import * as Progress from 'react-native-progress'
 import { requestGET, HOST } from '../Services/Servies'
 import DeviceInfo from 'react-native-device-info'
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
 class TestList extends Component {
     static navigationOptions = {
@@ -75,6 +76,18 @@ class TestList extends Component {
                     renderItem={this.renderItem}
                     keyExtractor={(item, index) => item.toString()}
                 />
+                
+                <View style={{ position: 'absolute', bottom: 0 }}>
+                    <Banner
+                        unitId={UNIT_ID_BANNER}
+                        size={"SMART_BANNER"}
+                        request={adService.buildRequest().build()}
+                        onAdLoaded={() => {
+                            console.log('Advert loaded');
+                        }}
+                    />
+                </View>
+
             </SafeAreaView>
         )
     }

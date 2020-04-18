@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 import { requestGET, HOST } from '../Services/Servies';
 import DeviceInfo from 'react-native-device-info';
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
 class TestRecentList extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class TestRecentList extends Component {
   }
   renderItem = ({ item, index }) => {
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate("TestRecent", { id: item.exercise_id, name:item.exercise_description })} >
+      <TouchableOpacity onPress={() => this.props.navigation.navigate("TestRecent", { id: item.exercise_id, name: item.exercise_description })} >
         <View style={{
           flex: 1,
           flexDirection: 'row',
@@ -93,6 +94,16 @@ class TestRecentList extends Component {
           renderItem={this.renderItem}
           keyExtractor={(item, index) => item.toString()}
         />
+        <View style={{ position: 'absolute', bottom: 0 }}>
+          <Banner
+            unitId={UNIT_ID_BANNER}
+            size={"SMART_BANNER"}
+            request={adService.buildRequest().build()}
+            onAdLoaded={() => {
+              console.log('Advert loaded');
+            }}
+          />
+        </View>
       </SafeAreaView>
     );
   }

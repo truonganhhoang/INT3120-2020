@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { requestGET, HOST } from '../Services/Servies';
 import DeviceInfo from 'react-native-device-info';
 import Carousel from 'react-native-snap-carousel'
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
 export default class TestRecent extends Component {
     constructor(props) {
@@ -137,24 +138,41 @@ export default class TestRecent extends Component {
                         <View style={{
                             backgroundColor: '#1976D2', borderRadius: 40, height: 20, width: 20,
                         }} />
-                        <Text style={styles.note}>Câu đúng</Text>
+                        <Text style={{
+                            fontWeight: "bold",
+                            marginLeft: 10,
+                            color: "#1976D2"
+                        }}>Câu đúng</Text>
                     </View>
                     <View style={{ flexDirection: 'row', padding: 10 }}>
                         <View style={{
                             backgroundColor: '#b71c1c', borderRadius: 40, height: 20, width: 20,
                         }} />
-                        <Text style={styles.note}>Câu sai</Text>
+                        <Text style={{
+                            fontWeight: "bold",
+                            marginLeft: 10,
+                            color: "#b71c1c"
+                        }}>Câu sai</Text>
                     </View>
                     <View style={{ flexDirection: 'row', padding: 10 }}>
                         <View style={{
                             backgroundColor: '#9DD6EB', borderRadius: 40, height: 20, width: 20,
                         }} />
-                        <Text style={styles.note}>Không chọn</Text>
+                        <Text style={{
+                            fontWeight: "bold",
+                            marginLeft: 10,
+                            color: "#9DD6EB"
+                        }}>Không chọn</Text>
                     </View>
                 </View>
-
-
-
+                <Banner
+                    unitId={UNIT_ID_BANNER}
+                    size={"SMART_BANNER"}
+                    request={adService.buildRequest().build()}
+                    onAdLoaded={() => {
+                        console.log('Advert loaded');
+                    }}
+                />
             </SafeAreaView>
         );
     }

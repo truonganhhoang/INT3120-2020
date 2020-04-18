@@ -13,23 +13,16 @@ class AdService {
         const unitIdInterstitial = 'ca-app-pub-4274159613831487/8743537178';
         const adInterstitial = firebase.admob().interstitial(unitIdInterstitial);
         const request = this.buildRequest();
-
         // Load the advert with our AdRequest
         adInterstitial.loadAd(request.build());
-
         adInterstitial.on('onAdLoaded', () => {
-            console.log('Advert ready to show.');
-            // console.log(advert.isLoaded());
-            setTimeout(() => {
-                if (adInterstitial.isLoaded()) {
-                    adInterstitial.show();
-                } else {
-                    console.log("cant load");
-                }
-            }, 1000);
+            if (adInterstitial.isLoaded()) {
+                adInterstitial.show();
+            } else {
+                console.log("can't load");
+            }
         });
-
-
+        
         adInterstitial.on('onAdFailedToLoad', (error) => {
             console.log('Ad failed to load');
             console.log(error);
@@ -39,6 +32,6 @@ class AdService {
 
 export const adService = new AdService
 
-export const UNIT_ID_BANNER = 'ca-app-pub-4274159613831487/5761386270'
+export const UNIT_ID_BANNER = 'ca-app-pub-3940256099942544/6300978111'
 
 export const Banner = firebase.admob.Banner

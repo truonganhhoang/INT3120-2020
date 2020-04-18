@@ -17,8 +17,9 @@ import Carousel from 'react-native-snap-carousel'
 import { StackActions, NavigationActions } from 'react-navigation'
 import Modal from 'react-native-modal'
 import { PieChart } from "react-native-chart-kit"
-const screenWidth = Dimensions.get("window").width
+import { adService } from '../Services/AdService'
 
+const screenWidth = Dimensions.get("window").width
 const resetAction = StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: 'TestList' })],
@@ -52,6 +53,7 @@ class TestBody extends Component {
         this.fetchData();
     }
     Back = () => {
+        adService.showInterstitial()
         this.setState({ visibleModal: false })
         this.props.navigation.dispatch(resetAction)
         this.props.navigation.navigate('TestList', { name: this.state.data2.description, id: this.state.data2.id })

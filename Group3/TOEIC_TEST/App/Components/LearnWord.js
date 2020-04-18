@@ -19,6 +19,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Tts from 'react-native-tts'
 import DeviceInfo from 'react-native-device-info'
 import { requestGET, requestPOST, HOST } from '../Services/Servies'
+import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
+
 const resetAction = StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: 'MainBody' })],
@@ -47,7 +49,7 @@ class LearnWord extends Component {
         this.props.navigation.dispatch(resetAction)
         this.props.navigation.navigate("MainBody")
     }
-    
+
     renderItem = ({ item }) => {
         var url = `${item.thumbnail}`
         return (
@@ -116,7 +118,7 @@ class LearnWord extends Component {
         }
         var postData = await requestPOST(`${HOST}/bookmarks/bookmark`, newBookmark).then(res => { return res })
         this.setState({ visibleModal: false })
-        ToastAndroid.show("Đã đánh dấu",ToastAndroid.SHORT)
+        ToastAndroid.show("Đã đánh dấu", ToastAndroid.SHORT)
     }
     remind = async () => {
         var newRemind = {
@@ -128,7 +130,7 @@ class LearnWord extends Component {
         var postData = await requestPOST(`${HOST}/bookmarks/bookmark`, newRemind).then(res => { return res })
         console.log("post remind: " + postData.status)
         this.setState({ visibleModal: false })
-        ToastAndroid.show("Đã ghi nhớ",ToastAndroid.SHORT)
+        ToastAndroid.show("Đã ghi nhớ", ToastAndroid.SHORT)
     }
     render() {
         return (
@@ -156,6 +158,14 @@ class LearnWord extends Component {
                     hideModalContentWhileAnimating={true}>
                     {this.renderModalContent()}
                 </Modal>
+                <Banner
+                    unitId={UNIT_ID_BANNER}
+                    size={"SMART_BANNER"}
+                    request={adService.buildRequest().build()}
+                    onAdLoaded={() => {
+                        console.log('Advert loaded');
+                    }}
+                />
             </SafeAreaView>
         )
     }

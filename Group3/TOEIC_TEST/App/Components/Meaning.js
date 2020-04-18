@@ -16,6 +16,8 @@ import { StackActions, NavigationActions } from 'react-navigation'
 import Tts from 'react-native-tts'
 import { requestGET, HOST } from '../Services/Servies'
 import { WebView } from 'react-native-webview'
+import { adService} from '../Services/AdService'
+
 const resetAction = StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: 'Search' })],
@@ -43,6 +45,7 @@ class Meaning extends Component {
         this.setState({ word: data3.word, sound: data3.sound, meaning: data3.meaning })
     }
     Back = () => {
+        adService.showInterstitial()
         this.props.navigation.dispatch(resetAction)
         this.props.navigation.navigate("Search")
     }
