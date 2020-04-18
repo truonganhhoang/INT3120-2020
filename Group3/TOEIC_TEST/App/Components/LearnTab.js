@@ -38,7 +38,6 @@ export default class LearnTab extends Component {
     componentDidMount() {
         this.setState({ selectedIndex: 0 })
         this.fetchLession()
-        console.log("darkmode:"+this.props.darkMode)
     }
     fetchLession = async () => {
         this.setState({ data: [] })

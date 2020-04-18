@@ -6,6 +6,7 @@ import Meaning from '../Components/Meaning'
 import LearnWord from '../Components/LearnWord'
 import TestList from '../Components/TestList'
 import TestBody from '../Components/TestBody'
+import TestRecentList from '../Components/TestRecentList'
 import TestRecent from '../Components/TestRecent'
 const AppNavigator = createStackNavigator(
         {
@@ -15,6 +16,7 @@ const AppNavigator = createStackNavigator(
                 LearnWord: { screen: LearnWord },
                 TestList: { screen: TestList },
                 TestBody: { screen: TestBody },
+                TestRecentList: { screen: TestRecentList },
                 TestRecent: { screen: TestRecent },
         },
         {

@@ -23,7 +23,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import AsyncStorage from '@react-native-community/async-storage'
 
 const SettingTab = (props) => {
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(true)
     const [selectedValue, setSelectedValue] = useState('1')
     const [timeStart, setTimeStart] = useState('6:00')
     const [timeFinish, setTimeFinish] = useState('21:00')
@@ -32,6 +32,7 @@ const SettingTab = (props) => {
     const [switchValue, setSwitchValue] = useState(false)
     useEffect(() => {
         getTheme()
+        noti()
     }, [])
     const getTheme = async () => {
         try {
@@ -42,8 +43,14 @@ const SettingTab = (props) => {
             console.log(e)
         }
     }
+    const noti = () => {
+        const date = new Date()
+        date.setMinutes(date.getMinutes() + 1) //set time ngay sau 1 phut
+        const title = "TOEIC TEST"
+        const content = "Đã đến giờ học bài!"
+        fcmService.scheduleDailyNotification(title, content, date.getTime());
+    }
     const handleRemind = () => {
-        console.log(checked)
         if (checked == false) {
             const date = new Date()
             date.setMinutes(date.getMinutes() + 1) //set time ngay sau 1 phut
@@ -62,6 +69,9 @@ const SettingTab = (props) => {
     const handleConfirmStart = time => {
         hideDatePickerStart()
         setTimeStart(time.getHours() + ":" + time.getMinutes())
+        const title = "TOEIC TEST"
+        const content = "Đã đến giờ học bài!"
+        fcmService.scheduleDailyNotification(title, content, time.getTime());
     }
     const showDatePickerFinish = () => {
         setVisibleFinish(true)

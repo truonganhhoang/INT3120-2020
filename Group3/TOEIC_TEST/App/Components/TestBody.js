@@ -54,7 +54,7 @@ class TestBody extends Component {
     Back = () => {
         this.setState({ visibleModal: false })
         this.props.navigation.dispatch(resetAction)
-        this.props.navigation.navigate('TestList', { name: this.state.data2[0].description, id: this.state.data2[0].id })
+        this.props.navigation.navigate('TestList', { name: this.state.data2.description, id: this.state.data2.id })
     }
 
     fetchData = async () => {
@@ -139,7 +139,6 @@ class TestBody extends Component {
                 question_id: item.id,
                 answer_id: newData[index].answers[0].id
             })
-            console.log(answer)
             this.setState({ data: newData, done_answers: answer })
         }
         else {
@@ -171,7 +170,6 @@ class TestBody extends Component {
                 question_id: item.id,
                 answer_id: newData[index].answers[1].id
             })
-            console.log(answer)
             this.setState({ data: newData, done_answers: answer })
         }
         else {
@@ -204,7 +202,6 @@ class TestBody extends Component {
                 question_id: item.id,
                 answer_id: newData[index].answers[2].id
             })
-            console.log(answer)
             this.setState({ data: newData, done_answers: answer })
         }
         else {
@@ -236,7 +233,6 @@ class TestBody extends Component {
                 question_id: item.id,
                 answer_id: newData[index].answers[3].id
             })
-            console.log(answer)
             this.setState({ data: newData, done_answers: answer })
         }
         else {
@@ -331,7 +327,7 @@ class TestBody extends Component {
                 marginHorizontal: 10,
                 elevation: 3,
                 borderRadius: 10,
-                padding: 15,
+                padding: 10,
             }}>
                 <Text>{item.id}</Text>
             </View >
