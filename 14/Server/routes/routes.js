@@ -12,7 +12,11 @@ const initRoutes = app => {
 
   router.post('/insert', controller.insert);
 
+  router.post('/insertQuestion', controller.insertQuestion);
+
   router.get('/getAllWords', controller.getAllWords)
+
+  router.get('/getAllQuestions', controller.getAllQuestions)
 
   return app.use('/', router);
 };

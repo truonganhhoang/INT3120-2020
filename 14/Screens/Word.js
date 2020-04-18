@@ -138,6 +138,7 @@ export default class Word extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
+      flex:1,
       backgroundColor: '#d2d6d9',
     },
     flatlist:{

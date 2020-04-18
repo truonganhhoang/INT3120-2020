@@ -96,7 +96,61 @@ const getNotificationID = (eng) => {
   })
 }
 
-// EXAM TABLE
+// QUESTION TABLE
+const createQuestionTable = (data) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      "create table if not exists Questions(question text,  category varchar,  favorite boolean,  answer1 text, answer2 text, answer3 text, result text);",
+      [], 
+      () => {
+        data.forEach(item => insertQuestion(item));
+      }
+    );
+  }, (err)=>{console.log(err)});
+}
+
+const insertQuestion = question => {
+  db.transaction(tx => {
+    tx.executeSql(
+      "insert into Questions (question, category, favorite, answer1, answer2, answer3, result) values (?, ?, ?, ?, ?, ?, ?)", 
+      [question.question, question.category, question.favorite, question.answer1, question.answer2, question.answer3, question.result],
+      () => {console.log(`inserted ${question.question}`);},
+      (t, err) => {console.log(err)}
+    );
+  });
+}
+
+const getQuestion = (app, tag) => {
+  db.transaction(tx => {
+      tx.executeSql("select * from Questions where category = ?",
+      [tag],
+      (_, { rows }) =>
+        {app.setState({data: rows._array})}
+      );  
+  }, (err) => {console.log(err)});
+}
+
+const updateFavoriteQuestion = ( ques, value) => {
+  db.transaction(tx => {
+    tx.executeSql(`update Questions set favorite = ? where question = ?`, [value, ques])
+  }, (err)=> {console.log(err)});
+}
+
+const checkIfTablesQuestionExist= () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(`SELECT name FROM sqlite_master WHERE name ='Questions' and type='table'`,
+      [],
+      (_, result) => {
+        if (result.rows.length > 0){
+          resolve(true);
+        }else{
+          resolve(false);
+        }
+      })
+    });
+  })
+}
 
 export default{
   // WORD TABLE
@@ -109,5 +163,11 @@ export default{
   getTaggedWord: getTaggedWord,
   checkIfTablesExist: checkIfTablesExist,
 
-  // EXAM TABLE
+  // QUESTION TABLE
+  createQuestionTable: createQuestionTable,
+  insertQuestion: insertQuestion,
+  checkIfTablesQuestionExist: checkIfTablesQuestionExist,
+  getQuestion: getQuestion,
+  updateFavoriteQuestion:updateFavoriteQuestion,
+
 }

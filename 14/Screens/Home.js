@@ -65,13 +65,16 @@ export default class Home extends React.Component{
         this.init();
     }
     async init(){
-        const exist = await db.checkIfTablesExist();
+        const exist = await (db.checkIfTablesExist() && db.checkIfTablesQuestionExist());
         if (exist == false){
             console.log('home creates table')
-            const response = await fetch('http://192.168.0.104:3299/getAllWords')
+            const response = await fetch('http://192.168.1.16:3299/getAllWords')
+            const responseQuestion = await fetch('http://192.168.1.16:3299/getAllQuestions')
             const data = await response.json();
+            const dataQuestion = await responseQuestion.json();
             console.log(data.words.length);
             db.createTable(data.words);
+            db.createQuestionTable(dataQuestion.questions);
         };
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         if (existingStatus !== 'granted') {
@@ -98,7 +101,7 @@ export default class Home extends React.Component{
                                 <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
                                     <ListItem
                                         onPress={()=> navigate(
-                                            item.navigate
+                                            item.navigate, {type: item.title}
                                         )}
                                         key={i}
                                         title={item.title}

@@ -1,4 +1,5 @@
 import Word from '../models/word';
+import Question from '../models/question';
 import data from '../input-data/index'
 
 const createWord = () => {
@@ -13,4 +14,13 @@ const getAllWords = () => {
   })
 }
 
-export default {createWord, getAllWords}
+const createQuestion = () =>{
+  data.questions.forEach(item => Question.createNew(item));
+}
+const getAllQuestions = () =>{
+  return new Promise(async (resolve, reject)=>{
+    const result = await Question.getAll();
+    resolve(result);
+  })
+}
+export default {createWord, getAllWords, createQuestion, getAllQuestions}

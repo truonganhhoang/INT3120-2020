@@ -1,17 +1,20 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements'
-import {Button} from 'react-native-paper'
+import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
+import {Button} from 'react-native-paper';
+
+
 export default class Question extends React.Component{
-    state={
-        one:false,
-        two:false,
-        three:false,
-        correct:false,
-        checked:false,
-        key:''
-    }
     
+    state = {
+          one:false,
+          two:false,
+          three:false,
+          correct:false,
+          checked:false,
+          key:''
+        }
+      
     onePressed(){
        this.setState({
            one:true,
@@ -102,15 +105,13 @@ const styles = StyleSheet.create({
     container:{
         marginLeft:16,
         marginRight:16,
-        marginTop:8,
-        marginBottom:8,
         paddingLeft:8,
         paddingTop:8,
         paddingBottom:8,
         borderRadius:8,
         borderColor: 'black',
         borderWidth:1,
-        backgroundColor:'white'
+        backgroundColor:'white',
     },
     item:{
         marginTop:15,
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
     notcorrect:{
         marginRight:80,
         color:'red'
-    }
+    },
+    
     
 })
