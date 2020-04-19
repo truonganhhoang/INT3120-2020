@@ -230,3 +230,5 @@ ionic g page profile -f
 
 - Thêm service `UserService`.
 - Thêm menu cho từng course ở `/tab/learn/courses`
+- Thêm component `course-lesson-content`, cho phép xem nội dung bài học trong modal.
+- Sửa lại ảnh được dùng trong splash screen: trasnparent background -> white background.

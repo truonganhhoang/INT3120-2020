@@ -10,9 +10,15 @@ import { OverviewPageRoutingModule } from './overview-routing.module';
 import { CourseOverviewPage } from './overview.page';
 import { CourseOverviewWeekComponent } from './week/week.component';
 import { CourseOverviewLessonComponent } from './lesson/lesson.component';
+import { CourseLessonContentComponent } from './lesson-content/lesson-content.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, MatTabsModule, OverviewPageRoutingModule],
-  declarations: [CourseOverviewPage, CourseOverviewWeekComponent, CourseOverviewLessonComponent]
+  declarations: [
+    CourseOverviewPage,
+    CourseOverviewWeekComponent,
+    CourseOverviewLessonComponent,
+    CourseLessonContentComponent
+  ]
 })
 export class OverviewPageModule {}
