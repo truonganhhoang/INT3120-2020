@@ -62,11 +62,11 @@ export class SignInService {
 
   signInWithFacebookWeb() {
     const facebookProvider = new firebase.auth.FacebookAuthProvider();
-    return new Observable<void>((observer) => {
+    return new Observable<firebase.auth.UserCredential>((observer) => {
       this.ngFireAuth.auth
-        .signInWithRedirect(facebookProvider)
-        .then(() => {
-          observer.next();
+        .signInWithPopup(facebookProvider)
+        .then((userCredentials) => {
+          observer.next(userCredentials);
           observer.complete();
         })
         .catch((err) => {
