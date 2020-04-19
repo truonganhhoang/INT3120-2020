@@ -88,7 +88,7 @@ export class DetailTopicItem extends Component {
   }
 
   render() {
-    const { word, spelling, meaning } = this.props.item;
+    const { word, spelling, meaning, image } = this.props.item;
     return (
       <View style={styles.container}>
         <View style={styles.leftColumn}>
@@ -103,7 +103,7 @@ export class DetailTopicItem extends Component {
             </TouchableOpacity>
           </View>
           <View>
-            <Image style={styles.mainImage} source={imageList[word]} />
+            <Image style={styles.mainImage} source={{ uri: image }} />
           </View>
         </View>
         <View style={styles.rightColumn}>
