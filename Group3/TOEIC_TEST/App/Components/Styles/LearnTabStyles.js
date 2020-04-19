@@ -27,16 +27,44 @@ export default StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
     elevation: 5,
-    borderRadius: 10,
-
   },
-  lession:{
+  item2: {
+    flexDirection: 'row',
+    backgroundColor: '#F5F5F5',
+    marginVertical: 6,
+    marginHorizontal: 15,
+    elevation: 5,
+    borderRadius: 10,
+  },
+  lession: {
     fontWeight: 'bold',
     fontSize: 20,
     padding: 10,
   },
-  number:{
+  number: {
     paddingLeft: 10,
-  }
-  
+  },
+  containerModal: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    margin: 20,
+    minHeight: 100,
+    padding: 30
+  },
+  viewModal: {
+    backgroundColor: '#1976D2',
+    padding: 10,
+    margin: 10,
+    borderRadius: 20,
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center'
+  },
+  lession: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 10,
+  },
 })

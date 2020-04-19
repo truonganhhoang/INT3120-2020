@@ -1,45 +1,34 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image, Button, } from 'react-native';
+import { Button, View,StyleSheet ,Alert,Image,Text,ScrollView} from 'react-native';
+import { StackNavigator, SwitchNavigator } from 'react-navigation';
 
-export default class Welcome extends React.Component {
-  render() {
+import styles from '../assets/css/css';
+import Constants from 'expo-constants';
+class Welcome extends React.Component{
+  render(){
     return (
-      <View style={styles.container}>
-        <Image style={styles.logo} source={require('../assets/nyanko.jpg')} />
-         <Text style={styles.paragraph}>
-          Không học mỗi ngày là không được đâu đấy
+    <ScrollView style={styles.container}>
+    <View style={styles.banner}>
+        <Text style={[styles.paragraph,{ flex: 1, flexDirection: 'column' }]}>
+         3000 Từ Vựng Tiếng Anh
         </Text>
-        <View style={styles.button}>
-          <Button title='Bắt Đầu Học' color="#ffffff"/>
+        <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
+    </View>
+      <View style={styles.container2}>
+        <Image style={styles.logo2} source={require('../assets/img/nyanko.jpg')} />
+        <Text style={styles.paragraph2}>
+          Không học mỗi ngày là không được đâu đấy
+        </Text>  
+        <View style={[styles.button2,{padding:5}]}>
+          <Text style={styles.text_button} onPress={this._Menu}>Bắt Đầu Học</Text>
         </View>
       </View>
+    </ScrollView>
     );
   }
+  _Menu= async () => {
+    this.props.navigation.navigate('Menu');
+  };
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor:'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
-  },
-  paragraph: {
-    margin: 24,
-    marginTop: 0,
-    fontSize: 14,
-    textAlign: 'center',
-  },
-  logo: {
-    height: 200,
-    width: 200,
-    borderRadius:10,
-    marginBottom:10,
-  }, 
-
-  button:{
-    marginBottom:-35,
-    backgroundColor:'#1ec4da',
-    borderRadius:'50%',
-  },
-});
+export default Welcome;

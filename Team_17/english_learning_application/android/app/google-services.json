@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "402997033481",
+    "firebase_url": "https://tutorial-english-app.firebaseio.com",
+    "project_id": "tutorial-english-app",
+    "storage_bucket": "tutorial-english-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402997033481:android:0951c38076be6b0798d6d8",
+        "android_client_info": {
+          "package_name": "com.example.englishlearningapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402997033481-2d6dff2ufcf0f8pbtdlgvn5jnj8lhm9c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.englishlearningapplication",
+            "certificate_hash": "8cc34c28dec996a29c56039956a70b760f407f7a"
+          }
+        },
+        {
+          "client_id": "402997033481-popg3ees0pqllaqe29msfbumu44ttvgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7lO7u6m88FB3zt4RIpP47nqNzakbI7XI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402997033481-popg3ees0pqllaqe29msfbumu44ttvgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

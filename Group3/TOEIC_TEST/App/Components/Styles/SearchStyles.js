@@ -13,9 +13,10 @@ export default StyleSheet.create({
     backgroundColor: '#1976D2'
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: '600',
     fontSize: 18,
-    color: 'white'
+    paddingLeft: 10,
+    color:'#FAFAFA'
   },
   iconRight: {
     paddingEnd: 20,
@@ -25,16 +26,18 @@ export default StyleSheet.create({
   },
   input: {
     height: 40,
-    width: Dimensions.get('screen').width-130,
+    width: Dimensions.get('screen').width - 130,
     borderColor: '#808080',
     borderBottomWidth: 1,
-    color:'white',
+    color: '#FAFAFA',
     fontSize: 18
   },
-  item:{
-    backgroundColor: 'red',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+  item: {
+    marginLeft: 50,
+    backgroundColor: '#1976D2',
+    marginRight: 50,
+    borderBottomColor: '#808080',
+    borderBottomWidth: 1,
+    padding: 15,
   }
 })
