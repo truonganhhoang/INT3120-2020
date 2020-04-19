@@ -1,0 +1,255 @@
+[
+  {
+    "1":"Biển nào cấm người đi bộ?",
+    "2":"Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
+    "3":"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
+    "4":"Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
+    "5":"Biển nào báo hiệu sắp đến chỗ giao nhau với đường sắt có rào chắn",
+    "6":"Biển nào báo hiệu giao nhau có tín hiệu đèn",
+    "7":"Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
+    "8":"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?",
+    "9":"Biển nào báo hiệu “Hết đoạn đường ưu tiên”?",
+    "10":"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nha",
+    "11":"Biển nào báo hiệu giao nhau với đường không ưu tiên?",
+    "12":"Biển nào báo hiệu giao nhau với đường ưu tiên?",
+    "13":"Biển nào báo hiệu giao nhau với đường ưu tiên?",
+    "14":"Biển nào báo hiệu “Đường giao nhau” của các tuyến đường cùng cấp?",
+    "15":"Biển nào báo hiệu giao nhau với đường không ưu tiên?",
+    "16":"Biển nào báo hiệu đường hai chiều?",
+    "17":"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp",
+    "18":"Biển nào chỉ dẫn được ưu tiên qua đường hẹp?",
+    "19":"Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?",
+    "20":"Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
+    "21":"Khai gặp biển nào thì xe mô tô hai bánh được đi vào?",
+    "22":"Biển nào xe mô tô hai bánh được đi vào?",
+    "23":"Biển nào xe mô tô hai bánh không được đi vào?",
+    "24":"Ba biển này có ý nghĩa hiệu lực như thế nào?",
+    "25":"Biển nào cấm quay xe?",
+    "26":"Biển nào cấm xe rẽ trái?",
+    "27":"Khi gặp biển nào xe được rẽ trái?",
+    "28":"Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lạ",
+    "29":"Khi đến chỗ giao nhau, gặp biển nào thì người lái xe không được cho xe đi thẳng, phải rẽ sang hướng khác?",
+    "30":"Khi gặp biển này, xe lam và mô tô ba bánh có được phép rẽ trái hay rẽ phải hay không?",
+    "31":"Biển này có hiệu lực đối với xe mô tô hai, ba bánh không",
+    "32":"Biển nào báo hiệu cầu vượt liên thông?",
+    "33":"Biển nào báo hiệu đoạn đường hay xảy ra tai nạn?",
+    "34":"Biển nào báo hiệu tuyến đường cầu vượt cắt qua?",
+    "35":"Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?"
+
+  },
+  {
+  "1": {
+  "a": "Biển 1",
+  "b": "Biển 1 và 3",
+  "c": "Biển 2"
+},
+  "2": {
+  "a": "Biển 1",
+  "b": "Biển 3",
+  "c": "Biển 2"
+},
+  "3": {
+  "a": "Biển 1",
+  "b": "Biển 1 và 3",
+  "c": "Biển 3"
+},
+  "4": {
+  "a": "Biển 1 và 2",
+  "b": "Biển 2 và 3",
+  "c": "Biển 1"
+},
+  "5": {
+  "a": "Biển 1",
+  "b": "Biển 2 và 3",
+  "c": "Biển 3"
+},
+  "6": {
+  "a": "Biển 2",
+  "b": "Biển 1",
+  "c": "Biển 3"
+},
+  "7": {
+  "a": "Biển 1 và 3",
+  "b": "Biển 1 và 2",
+  "c": "Biển 2 và 3"
+},
+  "8": {
+  "a": "Biển 1 và 2",
+  "b": "Biển 2 và 3",
+  "c": "Biển 1 và 3"
+},
+  "9": {
+  "a": "Biển 3",
+  "b": "Biển 1",
+  "c": "Biển 2"
+},
+  "10": {
+  "a": "Biển 1 và 2",
+  "b": "Biển 1 và 3",
+  "c": "Cả ba biển"
+},
+  "11": {
+  "a": "Biển 1",
+  "b": "Biển 2 và 3",
+  "c": "Biển 2"
+},
+  "12": {
+  "a": "Biển 1 và 3",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "13": {
+  "a": "Biển 1",
+  "b": "Biển 3",
+  "c": "Biển 2"
+},
+  "14": {
+  "a": "Biển 1",
+  "b": "Biển 3",
+  "c": "Biển 2"
+},
+  "15": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "16": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "17": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+
+},
+  "18": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "19": {
+  "a": "Biển 1 và 3",
+  "b": "Biển 1 và 2",
+  "c": "Biển 2 và 3"
+},
+  "20": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "21": {
+  "a": "Không biển nào",
+  "b": "Biển 1 và 2",
+  "c": "Biển 2 và 3"
+},
+  "22": {
+  "a": "Biển 1 và 2",
+  "b": "Biển 1 và 3",
+  "c": "Biển 2 và 3"
+},
+  "23": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+},
+  "24": {
+  "a": "Cấm các loại xe ở biển phụ đi vào",
+  "b": "Cấm các loại xe cơ giới đi vào trừ loại xe ở biển phụ",
+  "c": ""
+},
+  "25": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Không biển nào"
+},
+  "26": {
+  "a": "Biển 1 ",
+  "b": "Biển 2 ",
+  "c": "Cả hai biển"
+},
+  "27": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Không biển nào "
+},
+  "28": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Cả ba biển"
+},
+  "29": {
+  "a": "Biển 1 và 3",
+  "b": "Biển 2 và 3",
+  "c": "Biển 1 và 2"
+},
+  "30": {
+  "a": "Được phép",
+  "b": "Không được phép",
+  "c": ""
+},
+  "31": {
+  "a": "Có",
+  "b": "Không",
+  "c": ""
+},
+  "32": {
+  "a": "Biển 2 và 3",
+  "b": "Biển 1 và 2",
+  "c": "Biển 1 và 3"
+},
+  "33": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 2 và 3"
+},
+  "34": {
+  "a": "Biển 1 và 2",
+  "b": " Biển 1 và 3",
+  "c": "Biển 2 và 3"
+},
+  "35": {
+  "a": "Biển 1",
+  "b": "Biển 2",
+  "c": "Biển 3"
+}
+  },
+  {
+    "1":"Biển 2",
+    "2":"Biển 1",
+    "3":"Biển 3",
+    "4":"Biển 2 và 3",
+    "5":"Biển 1",
+    "6":"Biển 3",
+    "7":"Biển 1 và 3",
+    "8":"Biển 2 và 3",
+    "9":"Biển 3",
+    "10":"Biển 1 và 3",
+    "11":"Biển 1",
+    "12":"Biển 2",
+    "13":"Biển 3",
+    "14":"Biển 1",
+    "15":"Biển 2",
+    "16":"Biển 1",
+    "17":"Biển 2",
+    "18":"Biển 3",
+    "19":"Biển 1 và 2",
+    "20":"Biển 1",
+    "21":"Biển 2 và 3",
+    "22":"Biển 1 và 3",
+    "23":"Cấm các loại xe ở biển phụ đi vào",
+    "24":"Biển 1",
+    "25":"Biển 1",
+    "26":"Biển 2",
+    "27":"Biển 2",
+    "28":"Biển 2",
+    "29":"Biển 1 và 2",
+    "30":"Không được phép",
+    "31":"Có",
+    "32":"Biển 1 và 3",
+    "33":"Biển 2",
+    "34":"Biển 1 và 2",
+    "35":"Biển 3"
+  }
+]

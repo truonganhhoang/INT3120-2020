@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   linearGradient: {
     flexDirection: 'row',
@@ -36,7 +37,7 @@ export default StyleSheet.create({
   },
   en: {
     fontSize: 18,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   vi: {
     fontSize: 16,

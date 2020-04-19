@@ -4,5 +4,6 @@
     "cordova": {}
   },
   "type": "angular",
-  "id": "5704ffc5"
+  "id": "5704ffc5",
+  "npmClient": "yarn"
 }

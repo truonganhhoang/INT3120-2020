@@ -171,13 +171,17 @@
               "devServerTarget": "app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
   "cli": {
     "defaultCollection": "@ionic/angular-toolkit",
-    "analytics": false,
+    "analytics": true,
     "packageManager": "yarn"
   },
   "schematics": {

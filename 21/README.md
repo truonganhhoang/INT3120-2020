@@ -3,6 +3,7 @@
 - Hoàng Văn Định - 17020684
 
 # :scroll: Ứng dụng [10 vạn câu hỏi vì sao](https://play.google.com/store/apps/details?id=com.noobstudio.cauhoivisao)<br>
+### :clipboard: [Hướng dẫn cài đặt ứng dụng](https://youtu.be/3Sl4dVpwpj0)
 ### :clipboard: Mô tả ứng dụng
 - Ứng dụng này dùng hình thức trả lời hàng loạt câu hỏi "Thế nào?", "Tại sao?" để trình bày một cách đơn giản,
 dễ hiểu một khối lượng lớn các khái niệm, các phạm trù khoa học, các sự vật, hiện tượng, quá trình trong tự nhiên, xã hội và con người.

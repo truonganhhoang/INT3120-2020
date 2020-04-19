@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "ClassRoom",
+    "slug": "ClassRoom",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/class-icon.png",
+    "scheme": "myapp",
+    "splash": {
+      "image": "./assets/images/class-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
