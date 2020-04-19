@@ -13,7 +13,7 @@ import {commonColor} from '../Common/Color';
 
 
 
-export default class HomeScreen extends Component {
+export default class LookUpScreen extends Component {
     state = {
         names: [
             { 'name': 'Business English Vocabulary', 'id': 1 },

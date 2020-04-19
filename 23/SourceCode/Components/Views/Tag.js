@@ -1,15 +1,15 @@
 // Core
 import React, { Component } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Lesson from './Lesson';
 
 // style color
 import { commonColor } from '../Common/Color';
 
-export default class HeaderHomeScreen extends Component {
 
-    render() {
+export default class Tag extends Component {
+    return(){
         return (
-
             <View style={styles_section_3.wrapper}>
                 <Text style={[common_styles.title]}>Bộ từ vựng giao tiếp trình độ căn bản</Text>
                 <View style={styles_section_3.tag_wrapper}>
@@ -24,18 +24,24 @@ export default class HeaderHomeScreen extends Component {
                     </View>
                     <View style={[styles_section_3.row, { flexDirection: "row" }]}>
                         <View style={styles_section_3.tag}>
-                            <Text style={styles_section_3.tag_text}>Xem trước</Text>
+                            <TouchableOpacity>
+                                <Text style={styles_section_3.tag_text}>Xem trước</Text>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles_section_3.tag}>
-                            <Text style={styles_section_3.tag_text}>Học ngay</Text>
+                            <TouchableOpacity>
+                                <Text style={styles_section_3.tag_text}>Học ngay</Text>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles_section_3.tag}>
-                            <Text style={styles_section_3.tag_text}>Luyện tập</Text>
+                            <TouchableOpacity>
+                                <Text style={styles_section_3.tag_text}>Luyện tập</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
             </View>
-
+    
         )
     }
 }
