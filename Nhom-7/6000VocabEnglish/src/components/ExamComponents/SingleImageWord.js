@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { connect } from "react-redux";
+
+const GLOBAL = require("../../utils/Globals");
 class SingleImageWord extends Component {
   render() {
     const { isCorrectAnswer, idQuestion, indexChoice } = this.props;
     const question = this.props.myData.find(
-      question => question.id === idQuestion
+      (question) => question.id === idQuestion
     );
     return (
       <View style={{ width: "100%", height: undefined, aspectRatio: 1 }}>
@@ -14,7 +16,7 @@ class SingleImageWord extends Component {
           source={{ uri: this.props.imageSource }}
           resizeMode="cover"
           style={{
-            flex: 1
+            flex: 1,
           }}
         />
         <View
@@ -26,13 +28,17 @@ class SingleImageWord extends Component {
             width: "100%",
             height: "100%",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           {!question.options[indexChoice].isPressed ? null : isCorrectAnswer ? (
-            <Ionicons name="md-checkmark" size={75} color="green" />
+            <Ionicons
+              name="md-checkmark"
+              size={75}
+              color={GLOBAL.COLOR.GREEN}
+            />
           ) : (
-            <Ionicons name="md-close" size={75} color="red" />
+            <Ionicons name="md-close" size={75} color={GLOBAL.COLOR.RED} />
           )}
         </View>
       </View>
@@ -42,7 +48,7 @@ class SingleImageWord extends Component {
 
 function mapToProps(state) {
   return {
-    myData: state.dataExam
+    myData: state.dataExam,
   };
 }
 

@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Audio } from "expo-av";
 
+const GLOBAL = require("../../utils/Globals");
 export class Answer extends Component {
   constructor(props) {
     super(props);
@@ -93,10 +94,10 @@ const styles = StyleSheet.create({
   default: { backgroundColor: "#e8e6e6" },
 
   selectedTrue: {
-    backgroundColor: "#00B300",
+    backgroundColor: GLOBAL.COLOR.GREEN,
   },
   selectedFalse: {
-    backgroundColor: "#D90000",
+    backgroundColor: GLOBAL.COLOR.RED,
   },
   content: { textAlign: "center", fontSize: 26 },
 });
