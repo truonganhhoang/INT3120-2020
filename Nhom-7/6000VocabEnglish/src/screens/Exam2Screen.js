@@ -8,7 +8,7 @@ import CountDown from "../components/ExamComponents/CountDown";
 import Turns from "../components/ExamComponents/Turns";
 import Question from "../components/ExamComponents/Question";
 import * as actionCreators from "../actions";
-import db from "../../config/configFirebase";
+import Spinner from "react-native-loading-spinner-overlay";
 
 const SCREEN_DEVICE = Dimensions.get("screen");
 
@@ -25,41 +25,22 @@ class Exam2Screen extends Component {
     };
   };
 
-  componentDidMount() {
-    this.props.onStartExam();
-    // let mydt = this.fetchData();
+  async componentDidMount() {
+    const titleTopic = this.props.route.params.titleTopic;
+    const categoryName = this.props.route.params.categoryName;
+    await this.props.onFetchData(categoryName, titleTopic);
+    this.setState({ loading: true });
+    this.props.onStartExam(
+      this.props.myData.length, //total question
+      this.props.myData.length * 5 //time: 5 second each question
+    );
   }
 
-  // fetchData() {
-  //   const { titleTopic } = this.props.route.params;
-  //   console.log(titleTopic);
-  //   let data = [];
-
-  //   if (titleTopic !== undefined) {
-  //     db.collection("/topic/")
-  //       .doc("people")
-  //       .collection("people")
-  //       .doc(titleTopic)
-  //       .collection(titleTopic)
-  //       .get()
-  //       .then(docs => {
-  //         docs.forEach(doc => {
-  //           // console.log(doc.id, "=>", doc.data());
-  //           data.push(doc.data());
-  //           // console.log("Slidedhow" + data);
-  //         });
-  //       })
-  //       .catch(err => {
-  //         console.log("Error getting documents", err);
-  //       });
-  //   }
-  //   return data;
-  // }
-
   render() {
-    const { myData } = this.props;
+    const { myData, myExam } = this.props;
+
     {
-      this.props.myExam.passExam
+      myExam.passExam
         ? Alert.alert(
             "Hoàn thành",
             "Chúc mừng bạn đã hoàn thành bài luyện tập",
@@ -67,7 +48,10 @@ class Exam2Screen extends Component {
               {
                 text: "OK",
                 onPress: () => {
-                  this.props.onStartExam();
+                  this.props.onStartExam(
+                    this.props.myData.length,
+                    this.props.myData.length * 5
+                  );
                   this.props.navigation.goBack(null);
                 },
               },
@@ -75,21 +59,31 @@ class Exam2Screen extends Component {
             { cancelable: false }
           )
         : null;
-      this.props.myExam.failed
+      myExam.failed
         ? Alert.alert(
             "Chưa hoàn thành",
             "Tiếc quá bạn hoàn thành bài luyện tập, thử lại nào!",
             [
-              {
-                text: "Thử lại",
-                onPress: () => {
-                  this.props.onStartExam();
-                },
-              },
+              // {
+              //   text: "Thử lại",
+              //   onPress: async () => {
+              //     const titleTopic = this.props.route.params.titleTopic;
+              //     const categoryName = this.props.route.params.categoryName;
+              //     this.props.onStartExam(0, 0);
+              //     await this.props.onFetchData(categoryName, titleTopic);
+              //     this.props.onStartExam(
+              //       this.props.myData.length,
+              //       this.props.myData.length * 5
+              //     );
+              //   },
+              // },
               {
                 text: "Đóng",
                 onPress: () => {
-                  this.props.onStartExam();
+                  this.props.onStartExam(
+                    this.props.myData.length,
+                    this.props.myData.length * 5
+                  );
                   this.props.navigation.goBack(null);
                 },
               },
@@ -100,36 +94,54 @@ class Exam2Screen extends Component {
     }
 
     const barWidth = SCREEN_DEVICE.width * 0.6;
-    return (
-      <View style={styles.container}>
-        <View style={styles.statusBar}>
-          <CountDown />
-          <View>
-            <ProgressBarAnimated
-              backgroundColor="orange"
-              underlyingColor="#148cF0"
-              borderColor="orange"
-              borderRadius={10}
-              width={barWidth}
-              height={16}
-              value={this.props.myExam.progress}
-              backgroundColorOnComplete="orange"
-              onComplete={() => {
-                // Alert.alert("Hey!", "onComplete event fired!");
-              }}
-            />
-          </View>
-          <View>
-            <Turns />
-          </View>
+    if (Array.isArray(myData) && myData.length === 0) {
+      return (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Spinner
+            visible={myExam.loading}
+            textContent={"Loading..."}
+            textStyle={{ color: "#fff" }}
+          />
         </View>
+      );
+    } else
+      return (
+        <View style={styles.container}>
+          <Spinner
+            visible={myExam.loading}
+            textContent={"Loading..."}
+            textStyle={{ color: "#fff" }}
+          />
+          <View style={styles.statusBar}>
+            <CountDown />
+            <View>
+              <ProgressBarAnimated
+                backgroundColor="orange"
+                underlyingColor="#148cF0"
+                borderColor="orange"
+                borderRadius={10}
+                width={barWidth}
+                height={16}
+                value={myExam.progress}
+                backgroundColorOnComplete="orange"
+                onComplete={() => {
+                  // Alert.alert("Hey!", "onComplete event fired!");
+                }}
+              />
+            </View>
+            <View>
+              <Turns />
+            </View>
+          </View>
 
-        <View style={styles.question}>
-          <Text style={styles.questionText}>Chọn hình ảnh đúng</Text>
+          <View style={styles.question}>
+            <Text style={styles.questionText}>Chọn hình ảnh đúng</Text>
+          </View>
+          <Question data={myData[myExam.currentQuestion]} />
         </View>
-        <Question data={myData[this.props.myExam.currentQuestion]} />
-      </View>
-    );
+      );
   }
 }
 
@@ -142,8 +154,11 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onNextQuestion: () => dispatch(actionCreators.nextQuestion()),
-    onStartExam: () => dispatch(actionCreators.startExam()),
+    onFinishExam: () => dispatch(actionCreators.refresh()),
+    onStartExam: (numberQuestions, second) =>
+      dispatch(actionCreators.startExam(numberQuestions, second)),
+    onFetchData: (categoryName, topicName) =>
+      dispatch(actionCreators.fetchData(categoryName, topicName)),
   };
 };
 

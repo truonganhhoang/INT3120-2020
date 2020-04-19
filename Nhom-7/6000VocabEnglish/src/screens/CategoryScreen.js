@@ -61,9 +61,11 @@ export default class CategoryScreen extends Component {
     };
   }
   gotoExam(topicName) {
+    const { categoryId } = this.props.route.params;
     return () => {
       this.props.navigation.navigate("Exam", {
         titleTopic: topicName,
+        categoryName: categoryId,
       });
     };
   }

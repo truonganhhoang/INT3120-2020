@@ -11,11 +11,12 @@ import Exam2Screen from "./src/screens/Exam2Screen";
 import DetailTopicScreen from "./src/screens/DetailTopicScreen";
 import SlideshowTopicScreen from "./src/screens/SlideshowTopicScreen";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import rootReducer from "./src/reducers";
 import Practice from "./src/screens/PracticeScreen";
 //store
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 //create Stack
 const HomeStack = createStackNavigator();
