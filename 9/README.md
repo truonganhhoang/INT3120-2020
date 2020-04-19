@@ -13,5 +13,8 @@ Timetable là ứng dụng sắp xếp thời khóa biểu hoàn hảo và phù 
 - Dễ dàng lưu các môn học, bài kiểm tra, nhiệm vụ của bạn
 - Xem danh sách các công việc theo ngày
 - Quản lý chi tiết từng loại
+## Các công nghệ sử dụng
+- React-native
+- firebase
 ## Link file apk
 https://drive.google.com/drive/u/0/folders/15J4B1i7bdLRH5uV-QnKZJwzDYNfiO2CV
