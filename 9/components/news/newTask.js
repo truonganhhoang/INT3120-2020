@@ -159,7 +159,7 @@ class NewTask extends React.Component {
             style={{ padding: 10, marginLeft: 15, color: '#1976D2' }}
           />
           <View style={{paddingTop:10, paddingLeft: 10, paddingRight: 10, width: '35%'}}>
-            <RNPickerSelect 
+            <RNPickerSelect
               onValueChange={(value) => this.setState({ selectedLesson: value })}
               items={this.state.table}
               placeholder = {{label: 'Choose...', vaule: null}}
