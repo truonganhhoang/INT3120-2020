@@ -5,16 +5,20 @@ import { Ionicons } from '@expo/vector-icons';
 import TouchableScale from 'react-native-touchable-scale';
 import { ListItem } from 'react-native-elements';
 import auth from '../firebaseApi/auth';
+import { getInfo, updateInfo } from '../firebaseApi/user';
 
 let heightPhone = Dimensions.get('window').height;
 
 class Setting extends React.Component {
-  
   state = {
-    onChangePass : false,
-
+    onChangePass: false,
   };
-  
+
+  componentDidMount = async () => {
+    let userInfo = await getInfo();
+    console.log(userInfo);
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -61,89 +65,100 @@ class Setting extends React.Component {
             title="Change Password"
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
-            onPress ={ () => this.setState({ onChangePass : true }) }
-  //          onPress={() =>
-  //            Alert.alert(
-  //              'Change Password',
-  //              'Do you want change your password?',
-  //              [{ text: 'YES', onPress: this.setState({ onChangePass: true })}, { text: 'NO' }],
-  //              { cancelable: false }
-  //            )
-  //          }
+            onPress={() => this.setState({ onChangePass: true })}
+            //          onPress={() =>
+            //            Alert.alert(
+            //              'Change Password',
+            //              'Do you want change your password?',
+            //              [{ text: 'YES', onPress: this.setState({ onChangePass: true })}, { text: 'NO' }],
+            //              { cancelable: false }
+            //            )
+            //          }
             style={styles.list}
           />
           <Overlay
             isVisible={this.state.onChangePass}
             onBackdropPress={() => this.setState({ onChangePass: false })}
           >
-          <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
-            Change Password</Text>
-              <View style={styles.padding} />
-              <Input
-                label="Enter Your Password"
-                labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
-                placeholder="Password"
-                secureTextEntry={true}
-                leftIcon={
-                  <Ionicons
-                    name="ios-finger-print"
-                    size={30}
-                    style={{ paddingRight: 20, color: '#1976D2' }}
-                  />
-                }
-                onChangeText={(text) => {
-                  this.setState({ currentPassword: text });
-                }}
-              />
-              <View style={styles.padding} />
-              <Input
-                label="New Password"
-                labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
-                placeholder="New Password"
-                secureTextEntry={true}
-                leftIcon={
-                  <Ionicons
-                    name="ios-finger-print"
-                    size={30}
-                    style={{ paddingRight: 20, color: '#1976D2' }}
-                  />
-                }
-                onChangeText={(text) => {
-                  this.setState({ password: text });
-                }}
-              />
-              <View style={styles.padding} />
-              <Input
-                label="Retype New Password"
-                labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
-                placeholder="New Password"
-                secureTextEntry={true}
-                leftIcon={
-                  <Ionicons
-                    name="ios-finger-print"
-                    size={30}
-                    style={{ paddingRight: 20, color: '#1976D2' }}
-                  />
-                }
-                onChangeText={(text) => {
-                  this.setState({ password1: text });
-                }}
-              />
-              <View style ={styles.padding} />
-              <View style ={styles.padding} />
-              <View style ={{width : '40%', flexDirection:'row'}} >
+            <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
+              Change Password
+            </Text>
+            <View style={styles.padding} />
+            <Input
+              label="Enter Your Password"
+              labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+              placeholder="Password"
+              secureTextEntry={true}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                this.setState({ currentPassword: text });
+              }}
+            />
+            <View style={styles.padding} />
+            <Input
+              label="New Password"
+              labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+              placeholder="New Password"
+              secureTextEntry={true}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                this.setState({ password: text });
+              }}
+            />
+            <View style={styles.padding} />
+            <Input
+              label="Retype New Password"
+              labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+              placeholder="New Password"
+              secureTextEntry={true}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                this.setState({ password1: text });
+              }}
+            />
+            <View style={styles.padding} />
+            <View style={styles.padding} />
+            <View style={{ width: '40%', flexDirection: 'row' }}>
               <Button
                 title="Change Password"
                 titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
-                buttonStyle={{ borderRadius: 25, height: 50, backgroundColor: '#23a6d5', alignItems:'flex-end' }}
+                buttonStyle={{
+                  borderRadius: 25,
+                  height: 50,
+                  backgroundColor: '#23a6d5',
+                  alignItems: 'flex-end',
+                }}
                 onPress={async () => {
-                  if (this.state.password != this.state.password1) alert('New Password is incorrect!'); else
-                  if (this.state.currentPassword !=  this.state.oldPassowrd) alert('Current Password is incorrect!'); else 
-                  if (this.state.currentPassword == this.state.paswword) alert('New password is the same Current Passowrd!'); else {
+                  if (this.state.password != this.state.password1)
+                    alert("Those new passwords didn't match. Try again");
+                  else {
+                    let ret = await auth.changePassword(
+                      this.state.currentPassword,
+                      this.state.password
+                    );
+                    alert(ret[1]);
                   }
                 }}
               />
-              </View>
+            </View>
           </Overlay>
         </View>
         <ListItem
@@ -186,7 +201,7 @@ const styles = StyleSheet.create({
   },
   list: {},
   padding: {
-    height: heightPhone * 0.025,    
+    height: heightPhone * 0.025,
   },
 });
 

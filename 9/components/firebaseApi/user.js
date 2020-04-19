@@ -12,28 +12,23 @@ const getInfo = async () => {
 };
 
 const addInfo = async (info) => {
-  console.log(info);
+  info = JSON.parse(JSON.stringify(info));
+  // console.log(info);
   const uid = info.uid;
-  const prepared_info = await {
-    apiKey: info.apiKey,
-    appName: info.appName,
-    authDomain: info.authDomain,
+  let prepared_info = {
     createdAt: info.createdAt,
     displayName: info.displayName,
     email: info.email,
-    emailVerified: info.emailVerified,
-    isAnonymous: info.isAnonymous,
-    lastLoginAt: info.lastLoginAt,
     phoneNumber: info.phoneNumber,
     photoURL: info.photoURL,
   };
   const doc_ref = await firebase.firestore().doc(`users/${uid}/listInfo/info`);
   const doc = await doc_ref.get();
   if (doc.exists) {
-    console.log('User existed');
+    // console.log('User existed');
     return false;
   } else {
-    console.log(prepared_info);
+    // console.log(prepared_info);
     await doc_ref.set(prepared_info);
     return true;
   }

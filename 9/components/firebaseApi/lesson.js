@@ -23,17 +23,18 @@ const getLessonsName = async () => {
   try {
     data.forEach((doc) => {
       let ret_doc = doc.data();
-      ret_doc.fid = doc.id; 
+      ret_doc.fid = doc.id;
       let table = [];
       table.push(ret_doc);
-      table.map (item => {
+      table.map((item) => {
         let name = item.name;
-        if (name == undefined ) name ='';
-      if (ret.filter(i => i.value == name).length == 0)
-        ret.push({
-          label: name, value: name
-        });
-      })
+        if (name == undefined) name = '';
+        if (ret.filter((i) => i.value == name).length == 0)
+          ret.push({
+            label: name,
+            value: name,
+          });
+      });
     });
   } catch (err) {
     console.log(err);
@@ -46,7 +47,7 @@ const addLesson = async (lesson) => {
   const uid = firebase.auth().currentUser.uid;
   const ref = await firebase.firestore().collection(`lessons/${uid}/listLessons`);
   var newLesson = {
-    name : lesson.name,
+    name: lesson.name,
     teacher: lesson.teacher,
     week: lesson.week,
     type: lesson.type,
@@ -55,8 +56,8 @@ const addLesson = async (lesson) => {
     day: lesson.day,
     start: lesson.start,
     startTime: lesson.startTime,
-    end: lesson.end, 
-    endTime: lesson.endTime, 
+    end: lesson.end,
+    endTime: lesson.endTime,
   };
   try {
     await ref.add(newLesson);
@@ -71,7 +72,7 @@ const updateLesson = async (update_data) => {
   const fid = update_data.fid;
   if (!fid) return false;
   const uid = firebase.auth().currentUser.uid;
-  var doc_ref = firebase.firestore().doc(`lessons/${uid}/listlessons/${fid}`);
+  var doc_ref = firebase.firestore().doc(`lessons/${uid}/listLessons/${fid}`);
   try {
     await doc_ref.update(update_data);
     // console.log(update_data);
@@ -81,4 +82,30 @@ const updateLesson = async (update_data) => {
   }
 };
 
-export { getLessons, addLesson, getLessonsName, updateLesson };
+const deleteLesson = async (fid) => {
+  if (!fid) return false;
+  const uid = firebase.auth().currentUser.uid;
+  var doc_ref = firebase.firestore().doc(`lessons/${uid}/listLessons/${fid}`);
+  try {
+    await doc_ref.delete();
+    // console.log(update_data);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
+const deleteMultiLessons = async (lessons_fid) => {
+  let err_fids = [];
+  for (fid of lessons_fid) {
+    var doc_ref = firebase.firestore().doc(`lessons/${uid}/listLessons/${fid}`);
+    try {
+      await doc_ref.delete();
+    } catch (err) {
+      err_fids.push(fid);
+    }
+  }
+  return err_fids;
+};
+
+export { getLessons, addLesson, getLessonsName, updateLesson, deleteLesson, deleteMultiLessons };

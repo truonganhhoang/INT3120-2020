@@ -18,14 +18,14 @@ const getAllTasks = async () => {
 };
 
 const addTask = async (task) => {
- //  console.log(task);
+  //  console.log(task);
   const uid = firebase.auth().currentUser.uid;
   var ref = firebase.firestore().collection(`tasks/${uid}/listTasks`);
-//  var lesson_ref = firebase.firestore.doc(`lessons/${uid}/listLessons/${task.lesson}`);
+  //  var lesson_ref = firebase.firestore.doc(`lessons/${uid}/listLessons/${task.lesson}`);
   var newTask = {
     name: task.name,
     lesson: task.lesson,
-   // lesson: lesson_ref,
+    // lesson: lesson_ref,
     type: task.type,
     date: task.date,
     day: task.day,
@@ -71,7 +71,7 @@ const deleteTask = async (fid) => {
 const deleteMultiTasks = async (tasks_fid) => {
   let err_fids = [];
   for (fid of tasks_fid) {
-    var doc_ref = firebase.firestore().doc(`tasks/${uid}/listTasks/${task_fid}`);
+    var doc_ref = firebase.firestore().doc(`tasks/${uid}/listTasks/${fid}`);
     try {
       await doc_ref.delete();
     } catch (err) {
