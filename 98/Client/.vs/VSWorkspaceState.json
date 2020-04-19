@@ -3,11 +3,14 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\components\\Video",
+    "\\components",
+    "\\components\\Home",
+    "\\components\\TFS",
+    "\\navigation",
+    "\\navigation\\navigator",
     "\\screens",
-    "\\screens\\TFS",
-    "\\screens\\Video"
+    "\\screens\\VideoHD"
   ],
-  "SelectedNode": "\\screens\\Video\\DetailScreen.js",
+  "SelectedNode": "\\app.json",
   "PreviewInSolutionExplorer": false
 }
