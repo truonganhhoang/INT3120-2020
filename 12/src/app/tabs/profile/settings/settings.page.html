@@ -3,48 +3,57 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
     </ion-buttons>
+    <ion-title>{{ currentUser?.email }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>
-      <ion-label class="ion-text-uppercase">Offline usage</ion-label>
-    </ion-list-header>
-    <ion-item lines="full">
-      <ion-icon color="primary" slot="start" name="cloud-offline-outline"></ion-icon>
-      <div class="ion-padding-vertical">
-        <strong>Use Coursera offiline</strong>
-        <div>When you go offline, you'll be only able to use downloaded Coursera material</div>
-      </div>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-icon color="primary" slot="start" name="calendar-outline"></ion-icon>
-      <div class="ion-padding-vertical">
-        <strong>Sync to my calendar</strong>
-      </div>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
+    <div *ngIf="isMobile">
+      <ion-list-header>
+        <ion-label class="ion-text-uppercase">Offline usage</ion-label>
+      </ion-list-header>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="cloud-offline-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <strong>Use Coursera offiline</strong>
+          <div>When you go offline, you'll be only able to use downloaded Coursera material</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="calendar-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <strong>Sync to my calendar</strong>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </div>
 
-    <ion-list-header>
-      <ion-label class="ion-text-uppercase">Course content</ion-label>
-    </ion-list-header>
-    <ion-item lines="full">
-      <ion-icon color="primary" slot="start" name="wifi-outline"></ion-icon>
-      <div class="ion-padding-vertical">
-        <strong>Download on wifi only</strong>
-      </div>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-icon color="primary" slot="start" name="close-outline"></ion-icon>
-      <div class="ion-padding-vertical">
-        <strong>Delete automatically</strong>
-        <div>Delete downloaded items after you finish assignments for the week</div>
-      </div>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
+    <!-- -->
+
+    <div *ngIf="isMobile">
+      <ion-list-header>
+        <ion-label class="ion-text-uppercase">Course content</ion-label>
+      </ion-list-header>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="wifi-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <strong>Download on wifi only</strong>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="close-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <strong>Delete automatically</strong>
+          <div>Delete downloaded items after you finish assignments for the week</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </div>
+
+    <!-- -->
 
     <ion-list-header>
       <ion-label class="ion-text-uppercase">Push notifications</ion-label>
@@ -69,21 +78,26 @@
       <ion-toggle slot="end"></ion-toggle>
     </ion-item>
 
+    <!-- -->
+
     <ion-list-header>
       <ion-label class="ion-text-uppercase">Account</ion-label>
     </ion-list-header>
     <ion-item lines="full">
       <ion-icon color="primary" slot="start" name="lock-closed-outline"></ion-icon>
-      <div class="ion-padding-vertical">
+      <div class="ion-padding-vertical" (click)="openChangePasswordModal()">
         <strong>Change password</strong>
       </div>
     </ion-item>
     <ion-item lines="full">
-      <ion-icon color="primary" slot="start" name="mail-outline"></ion-icon>
-      <div class="ion-padding-vertical">
+      <ion-icon color="primary" slot="start" name="send-outline"></ion-icon>
+      <div class="ion-padding-vertical" (click)="sendVerficationEmail()">
         <strong>Verify email</strong>
       </div>
+      <ion-icon *ngIf="currentUser?.emailVerified" color="success" slot="end" name="checkmark-outline"></ion-icon>
     </ion-item>
+
+    <!-- -->
 
     <ion-list-header>
       <ion-label class="ion-text-uppercase">Support</ion-label>
@@ -94,6 +108,8 @@
         <strong>Learner Help Center</strong>
       </div>
     </ion-item>
+
+    <!-- -->
 
     <ion-list-header>
       <ion-label class="ion-text-uppercase">About</ion-label>
@@ -110,6 +126,8 @@
         <strong>Privacy Policy</strong>
       </div>
     </ion-item>
+
+    <!-- -->
 
     <ion-list-header>
       <ion-label class="ion-text-uppercase">Logout</ion-label>

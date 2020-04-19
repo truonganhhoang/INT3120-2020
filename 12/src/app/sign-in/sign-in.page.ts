@@ -92,11 +92,11 @@ export class SignInPage implements OnDestroy {
         this.isSubmitting = false;
         this.router.navigate(['/tabs/learn/courses']);
       },
-      error: (message) => {
+      error: (err) => {
         this.isSubmitting = false;
         this.dialog.open(SignInFailedComponent, {
           data: {
-            message: message
+            message: err?.message
           }
         });
       }
