@@ -7,6 +7,7 @@ import ProgressBarAnimated from "react-native-progress-bar-animated";
 import starOutline from "../assets/icon/star-outline.png";
 import starFillColor from "../assets/icon/star-fill-color.png";
 import imageList from "../assets/imageList";
+const GLOBAL = require("../utils/Globals");
 export class OverviewTopicItem extends Component {
   constructor(props) {
     super(props);
@@ -169,7 +170,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     justifyContent: "center",
-    backgroundColor: "#1f7ac4",
+    backgroundColor: GLOBAL.COLOR.DARKBLUE,
     borderWidth: 0,
     alignItems: "center",
     height: 40,
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
   },
   mainImage: {
     borderRadius: 100,
-    borderColor: "gray",
+    borderColor: GLOBAL.COLOR.LIGHTGRAY,
     borderWidth: 1,
     width: 200,
     height: 200,
@@ -206,13 +207,13 @@ const styles = StyleSheet.create({
   topicName: {
     textTransform: "capitalize",
     fontSize: 25,
-    color: "gray",
+    color: GLOBAL.COLOR.DARKGRAY,
     fontWeight: "bold",
   },
   topicNameVi: {
     textTransform: "capitalize",
     fontSize: 20,
-    color: "#F57F17",
+    color: GLOBAL.COLOR.ORANGE,
     fontWeight: "bold",
   },
   description: {
@@ -220,6 +221,6 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 16,
     fontWeight: "bold",
-    color: "#8E8E8E",
+    color: GLOBAL.COLOR.DARK,
   },
 });

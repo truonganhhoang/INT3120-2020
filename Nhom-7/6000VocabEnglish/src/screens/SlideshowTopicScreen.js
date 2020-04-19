@@ -121,7 +121,7 @@ export default SlideshowTopicScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "lightgrey",
+    backgroundColor: GLOBAL.COLOR.LIGHTGRAY,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",

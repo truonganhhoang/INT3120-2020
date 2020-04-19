@@ -8,7 +8,9 @@ import { Audio } from "expo-av";
 class Question extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    // this.state = {
+    //   loading: false,
+    // };
   }
 
   playSound = async (effectType) => {
@@ -40,7 +42,7 @@ class Question extends Component {
   handleOnPressed(indexChoice, idQuestion, item) {
     this.props.onPickOneAnswer(indexChoice, idQuestion);
     if (item.correct) {
-      this.props.answerIsTrue();
+      this.handleAnswerTrue();
       this.playSound("correct");
     } else {
       this.props.answerIsFalse();
@@ -48,9 +50,15 @@ class Question extends Component {
     }
   }
 
-  // handleAnswerTrue() {
+  handleAnswerTrue() {
+    setTimeout(() => {
+      this.props.answerIsTrue();
+    }, 200);
+  }
+
+  // componentDidMount() {
   //   setTimeout(() => {
-  //     this.props.answerIsTrue();
+  //     this.setState({ loading: !this.state.loading });
   //   }, 100);
   // }
 

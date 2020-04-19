@@ -63,9 +63,11 @@ export default class CategoryScreen extends Component {
     };
   }
   gotoExam(topicName) {
+    const { categoryId } = this.props.route.params;
     return () => {
       this.props.navigation.navigate("Exam", {
         titleTopic: topicName,
+        categoryName: categoryId,
       });
     };
   }
@@ -152,7 +154,7 @@ export default class CategoryScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
-    backgroundColor: "whitesmoke",
+    backgroundColor: GLOBAL.COLOR.LIGHTGRAY,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
