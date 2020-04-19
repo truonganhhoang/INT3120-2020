@@ -65,17 +65,25 @@ export default class Home extends React.Component{
         this.init();
     }
     async init(){
-        const exist = await (db.checkIfTablesExist() && db.checkIfTablesQuestionExist());
-        if (exist == false){
-            console.log('home creates table')
-            const response = await fetch('http://192.168.1.16:3299/getAllWords')
-            const responseQuestion = await fetch('http://192.168.1.16:3299/getAllQuestions')
+        const existTabletWords = await (db.checkIfTableWordsExist());
+        if (existTabletWords == false){
+            console.log('home creates table Words')
+            const response = await fetch('http://192.168.0.104:3299/getAllWords') //local ipv4
             const data = await response.json();
-            const dataQuestion = await responseQuestion.json();
-            console.log(data.words.length);
+            //console.log(data.words.length);
             db.createTable(data.words);
-            db.createQuestionTable(dataQuestion.questions);
         };
+        const existTableQuestions = await (db.checkIfTablesQuestionExist());
+        if (existTableQuestions == false){
+            console.log('home creates tabe Question');
+            const responseQuestion = await fetch('http://192.168.0.104:3299/getAllQuestions') //local ipv4
+            const dataQuestion = await responseQuestion.json();
+            db.createQuestionTable(dataQuestion.questions);
+        }
+        const existUpdateTable = await db.checkIfUpdateTableExist();
+        if (!existUpdateTable){
+            db.createUpdateTable()
+        }
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         if (existingStatus !== 'granted') {
             await Permissions.askAsync(Permissions.NOTIFICATIONS);

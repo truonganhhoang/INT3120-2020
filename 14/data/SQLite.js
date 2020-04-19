@@ -57,7 +57,7 @@ const updateFavoriteOrRemind = (tag, eng, value) => {
   }, (err)=> {console.log(err)});
 }
 
-const checkIfTablesExist= () => {
+const checkIfTableWordsExist= () => {
   return new Promise((resolve, reject) => {
     db.transaction(tx => {
       tx.executeSql(`SELECT name FROM sqlite_master WHERE name ='Words' and type='table'`,
@@ -152,6 +152,59 @@ const checkIfTablesQuestionExist= () => {
   })
 }
 
+// UPDATE TABLE
+const createUpdateTable = () => {
+  db.transaction(tx => {
+    tx.executeSql(
+      "create table if not exists UpdateInfo(time real);",
+      [],
+      (_) => {
+        _.executeSql(`insert into UpdateInfo (time) values (${Date.now()})`)
+      });
+  }, (err)=>{console.log(err)});
+} 
+
+const updateTime = time => {
+  db.transaction(tx => {
+    tx.executeSql(`update UpdateInfo set time = ?`, [time])
+  }, (err)=> {console.log(err)});
+}
+
+const getLatestUpdateTime = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql("select time from UpdateInfo",
+      [],
+      (_, { rows }) =>
+        {resolve(rows._array[0].time);}
+      );  
+    }, (err) => {reject(err)});
+  })
+}
+
+const checkIfUpdateTableExist = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(`SELECT name FROM sqlite_master WHERE name ='UpdateInfo' and type='table'`,
+      [],
+      (_, result) => {
+        if (result.rows.length > 0){
+          resolve(true);
+        }else{
+          resolve(false);
+        }
+      })
+    });
+  })
+}
+
+const dropUpdateTable = () => {
+  db.transaction(tx => {
+    tx.executeSql("drop table UpdateInfo", [], ()=>{console.log('dropped table UpdateInfo')});
+  }, (err)=> console.log(err));
+}
+
+
 export default{
   // WORD TABLE
   getNotificationID: getNotificationID,
@@ -161,7 +214,7 @@ export default{
   insertWord: insertWord,
   clearAllWords: clearAllWords,
   getTaggedWord: getTaggedWord,
-  checkIfTablesExist: checkIfTablesExist,
+  checkIfTableWordsExist: checkIfTableWordsExist,
 
   // QUESTION TABLE
   createQuestionTable: createQuestionTable,
@@ -170,4 +223,10 @@ export default{
   getQuestion: getQuestion,
   updateFavoriteQuestion:updateFavoriteQuestion,
 
+  // UPDATE TABLE
+  createUpdateTable: createUpdateTable,
+  updateTime: updateTime,
+  getLatestUpdateTime: getLatestUpdateTime,
+  checkIfUpdateTableExist: checkIfUpdateTableExist,
+  dropUpdateTable: dropUpdateTable,
 }

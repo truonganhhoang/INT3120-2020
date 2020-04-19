@@ -6,7 +6,7 @@ import initRoutes from '../Server/routes/routes';
 import connectDB from '../Server/config/connectDB';
 
 connectDB();
-const ipv4 = 'localhost'; // local ipv4
+const ipv4 = '192.168.0.104'; // local ipv4
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
