@@ -107,7 +107,7 @@ export class OverviewTopicItem extends Component {
                 style={{ width: 25, height: 25 }}
               />
             </TouchableOpacity>
-            <Image source={imageList[image]} style={styles.mainImage} />
+            <Image source={{uri: image}} style={styles.mainImage} />
           </View>
           <ProgressBarAnimated
             style={styles.progressBar}
