@@ -1,5 +1,35 @@
 # Nhóm 7: Ứng dụng "Học 6000 từ vựng Tiếng Anh thông dụng"
 
+## I. Cài đặt và chạy code
+1. Thông tin chung
+- Nền tảng sử dung: 
+   - React Native
+   - Firebase Firestore: lưu trữ dữ liệu về từ ngữ
+   - Firebase Storage: lưu trữ âm thanh audio 
+2. Cấu trúc project
+- Thư mục 6000VocabEnglish: lưu trữ source code React Native(RN)
+- App-release: folder lưu trữ bản build APK của ứng dụng
+- functions: lưu trữ code JS sử dụng Firebase Functions làm backend
+- Ngoài ra còn có những file khác liên quan đến config của Firebase
+3. Cấu trúc thư mục React Native
+- config: bao gồm config để kết nối với Firebase
+- src: folder soure code chính, bao gồm:
+   - actions: các actions liên quan đến React-Redux( sử dụng Redux-thunk)
+   - assets: folder lưu trữ ảnh, icon, audio cho các hiệu ứng trong ứng dụng
+   - components: chứa các thành phân nhỏ nhất của ứng dụng để ghép nối tạo nên giao diện trên màn hình
+   - navigators: cài đặt navigator cho app
+   - reducers: code cài đặt reduces liên quan đến Redux
+   - screens: lưu trữ các màn hình của ứng dụng(ghép các component lại và hiển thị)
+   - themes: cài đặt các styles cho component
+   - utils: chứa các biến Global sử dụng trong ứng dụng
+4. Chạy code
+- vào thư mục INT3120-2020\7\6000VocabEnglish
+- Cài đặt node_modules: **npm install**
+- Chạy lệnh sau trên terminal(command line): **npm start**
+- Nếu phát sinh các lỗi liên quan đến cài đặt thư viện, các bạn có thể vào file **6000VocabEnglish/Document.md** để xem các đường link cài đặt thư viện mà nhóm mình sử dụng.
+
+
+## II. Thông tin về ứng dụng
 1. **Giới thiệu nhóm**
 
    - Vũ Văn Học
