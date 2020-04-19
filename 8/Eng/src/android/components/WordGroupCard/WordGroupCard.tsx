@@ -6,7 +6,6 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { Text, View, Dimensions, Image } from 'react-native';
-import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 
 
 const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any }) => {
@@ -52,12 +51,6 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
           </View>
 
           <View style={{ alignItems: 'center', top: 15 }}>
-            <ProgressBarAndroid
-              styleAttr="Horizontal"
-              indeterminate={false}
-              progress={0.5}
-              color='#ff5e00'
-            />
           </View>
           <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 24,marginTop:30 }}>
             {data.wordGroupName}

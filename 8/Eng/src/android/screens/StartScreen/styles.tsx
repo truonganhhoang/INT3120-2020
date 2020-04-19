@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'; 
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     //backgroundColor: '#f8a136'
     backgroundColor: 'white',
     paddingBottom: 70,
-  }
+  },
+  
 })
 
 export default styles; 

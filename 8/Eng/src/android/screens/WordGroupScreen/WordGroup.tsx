@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import styles from './styles';
 import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
+import { Activity } from '../Utils/activity';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
 
@@ -31,9 +32,7 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   }
   if (wait) {
     return (
-      <View>
-        <Text>Waiting data...</Text>
-      </View>
+      <Activity />
     )
   }
   else {
@@ -67,14 +66,6 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
             useScrollView={true}
           />
         </View>
-        {/* <ScrollView horizontal={true}>
-          {
-            data.map( (e: any) =>
-              <WordGroupCard data={e} navigation={navigation} key={index++} topic_name={nameTopic}
-              />
-            )
-          }
-        </ScrollView> */}
       </View>
     )
   }
