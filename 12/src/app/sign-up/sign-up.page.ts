@@ -71,6 +71,10 @@ export class SignUpPage implements OnDestroy {
           next: () => {
             this.clearForm();
           },
+          complete: () => {
+            this.isSubmitting = false;
+            this.router.navigate(['/tabs/learn/courses']);
+          },
           error: (err: string) => {
             this.isSubmitting = false;
             this.dialog.open(SignUpFailedComponent, {
@@ -78,10 +82,6 @@ export class SignUpPage implements OnDestroy {
                 message: err
               }
             });
-          },
-          complete: async () => {
-            this.isSubmitting = false;
-            await this.router.navigate(['/tabs/learn/courses']);
           }
         });
     }
@@ -99,7 +99,7 @@ export class SignUpPage implements OnDestroy {
       error: async (err) => {
         this.isSubmitting = false;
         const loginFacebookFailed = await this.toastController.create({
-          message: err?.message,
+          message: err?.message ?? 'An error occurred while signing in with facebook. Please try again.',
           duration: 3000
         });
         await loginFacebookFailed.present();

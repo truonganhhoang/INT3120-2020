@@ -45,7 +45,7 @@
 
     <div class="text-divider">or</div>
 
-    <ion-button (click)="handleLoginWithFacebook()" expand="block" fill="clear">
+    <ion-button (click)="handleLoginWithFacebook()" [disabled]="isSubmitting" expand="block" fill="clear">
       Continue with Facebook
     </ion-button>
 

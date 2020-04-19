@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
     </ion-buttons>
+    <ion-title>{{ currentUser?.email }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -81,8 +82,15 @@
     <ion-item lines="full">
       <ion-icon color="primary" slot="start" name="mail-outline"></ion-icon>
       <div class="ion-padding-vertical">
+        <strong>Change email</strong>
+      </div>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="send-outline"></ion-icon>
+      <div class="ion-padding-vertical" (click)="sendVerficationEmail()">
         <strong>Verify email</strong>
       </div>
+      <ion-icon *ngIf="currentUser?.emailVerified" color="success" slot="end" name="checkmark-outline"></ion-icon>
     </ion-item>
 
     <ion-list-header>

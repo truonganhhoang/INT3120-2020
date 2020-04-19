@@ -218,3 +218,15 @@ ionic g page profile -f
 
 - Thêm UI cho:
   - `/tabs/learn/courses`
+
+# 2020-04-17
+
+- Cập nhật UI cho:
+  - `/tabs/learn/courses`
+- Thêm UI cho:
+  - `/tabs/leanr/course/:courseId` (tab overview, info)
+
+# 2019-04-19
+
+- Thêm service `UserService`.
+- Thêm menu cho từng course ở `/tab/learn/courses`
