@@ -35,7 +35,7 @@ export default class CategoriesScreen extends React.Component {
   }
 
   _onPressButtonSetting = () => {
-    Alert.alert("setting");
+    this.props.navigation.navigate("SettingOption");
   };
 
   _onPressButtonFavorite = () => {
@@ -77,9 +77,6 @@ export default class CategoriesScreen extends React.Component {
       headerTitle: props => (
         <View style={StyleHomeScreen.StyleHeader.headerTitle}>
           <LogoTitle {...props} />
-          <Text style={StyleHomeScreen.StyleHeader.textAds}>
-            No Ads. Enjoy it!
-          </Text>
         </View>
       ),
 

@@ -8,7 +8,7 @@ import {
   FlatList,
   Button,
   Modal,
-  Alert
+  Alert,
 } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -25,16 +25,16 @@ class ImageHeart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: true
+      active: true,
     };
     this.changeStatusActive = this.changeStatusActive.bind(this);
     // this.status = this.props.status;
   }
 
   changeStatusActive = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        active: !prevState.active
+        active: !prevState.active,
       };
     });
   };
@@ -57,12 +57,12 @@ class TurnCounter extends Component {
     super(props);
     this.heartRefs = {};
     this.state = {
-      turn: 3
+      turn: 3,
     };
   }
 
   decreaseTurn = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { turn: prevState.turn - 1 };
     });
 
@@ -76,17 +76,17 @@ class TurnCounter extends Component {
     return (
       <View style={styles.heartsContainer}>
         <ImageHeart
-          ref={ImageHeart => {
+          ref={(ImageHeart) => {
             this.heartRefs[1] = ImageHeart;
           }}
         />
         <ImageHeart
-          ref={ImageHeart => {
+          ref={(ImageHeart) => {
             this.heartRefs[2] = ImageHeart;
           }}
         />
         <ImageHeart
-          ref={ImageHeart => {
+          ref={(ImageHeart) => {
             this.heartRefs[3] = ImageHeart;
           }}
         />
@@ -99,7 +99,7 @@ class CountDown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      seconds: this.props.seconds
+      seconds: this.props.seconds,
     };
   }
 
@@ -131,21 +131,21 @@ class ImageWord extends Component {
     this.state = {
       imageURI: this.props.imageSource,
       answered: false,
-      answerCorrect: false
+      answerCorrect: false,
     };
   }
 
   updateState(answerCorrect) {
     this.setState({
       answered: true,
-      answerCorrect: answerCorrect
+      answerCorrect: answerCorrect,
     });
   }
 
   render() {
     // console.log(`answered: ${this.state.answered} answerCorrect:  ${this.state.answerCorrect}`)
     const imageSource = {
-      uri: this.state.imageURI
+      uri: this.state.imageURI,
     };
 
     return (
@@ -157,14 +157,14 @@ class ImageWord extends Component {
           borderColor: "white",
           borderRadius: 10,
           borderWidth: 10,
-          elevation: 3
+          elevation: 3,
         }}
       >
         <Image
           source={imageSource}
           resizeMode="cover"
           style={{
-            flex: 1
+            flex: 1,
           }}
         />
         <View
@@ -176,7 +176,7 @@ class ImageWord extends Component {
             width: "100%",
             height: "100%",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           {!this.state.answered ? (
@@ -220,7 +220,7 @@ class Question extends Component {
                 }}
               >
                 <ImageWord
-                  ref={ImageWord => {
+                  ref={(ImageWord) => {
                     this.imgWordRefs[index] = ImageWord;
                   }}
                   imageSource={item.image}
@@ -251,7 +251,7 @@ export default class ExamScreen extends Component {
       progress: 0, //progress
       turn: 3, //number of turns
       current: 0, //current question
-      correct: false
+      correct: false,
     };
     this.dataSource = [
       {
@@ -260,16 +260,15 @@ export default class ExamScreen extends Component {
         options: [
           {
             word: "ankle",
-            image:
-              "https://www.pedifix.com/images/Foottopsprain.JPG"
+            image: "https://www.pedifix.com/images/Foottopsprain.JPG",
           },
           {
             word: "abdomen",
             image:
               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg",
-            correct: true
-          }
-        ]
+            correct: true,
+          },
+        ],
       },
       {
         id: 2,
@@ -277,16 +276,15 @@ export default class ExamScreen extends Component {
         options: [
           {
             word: "ankle",
-            image:
-              "https://www.pedifix.com/images/Foottopsprain.JPG",
-            correct: true
+            image: "https://www.pedifix.com/images/Foottopsprain.JPG",
+            correct: true,
           },
           {
             word: "abdomen",
             image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
-          }
-        ]
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg",
+          },
+        ],
       },
       {
         id: 3,
@@ -295,15 +293,15 @@ export default class ExamScreen extends Component {
           {
             word: "abdomen",
             image:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg"
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Belly_button.jpg/1200px-Belly_button.jpg",
           },
           {
             word: "arm",
             image:
               "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg",
-            correct: true
-          }
-        ]
+            correct: true,
+          },
+        ],
       },
       {
         id: 4,
@@ -313,15 +311,15 @@ export default class ExamScreen extends Component {
             word: "chest",
             image:
               "https://i1.wp.com/drankitgupta.com/wp-content/uploads/2018/11/male-chest-e1541271854984.jpg",
-            correct: true
+            correct: true,
           },
           {
             word: "arm",
             image:
-              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg"
-          }
-        ]
-      }
+              "https://dictionary.cambridge.org/images/thumb/arm_noun_002_01564.jpg",
+          },
+        ],
+      },
     ];
     // dataSource: [{}, {}, {}, {}]
     // dataSource: [{}, {},{}, {},{}, {},{}, {},{}]
@@ -336,7 +334,7 @@ export default class ExamScreen extends Component {
 
   markAsCorrect() {
     this.setState({
-      correct: true
+      correct: true,
     });
   }
 
@@ -344,7 +342,7 @@ export default class ExamScreen extends Component {
     this.setState({
       seconds: 100,
       progress: 0,
-      turn: 3
+      turn: 3,
     });
   }
 
@@ -381,7 +379,7 @@ export default class ExamScreen extends Component {
 
   increase = (key, value) => {
     this.setState({
-      [key]: this.state[key] + value
+      [key]: this.state[key] + value,
     });
   };
 
@@ -389,7 +387,7 @@ export default class ExamScreen extends Component {
     return {
       title: route.params.titleTopic,
       headerTitleStyle: StyleCommon.StyleHeaderCommon.headerTitle,
-      headerTitleAlign: "center"
+      headerTitleAlign: "center",
     };
   };
 
@@ -397,20 +395,20 @@ export default class ExamScreen extends Component {
     this.increase("progress", Math.ceil(100 / this.dataSource.length));
     this.state.current + 1 === this.dataSource.length
       ? this.showModal("PASS")
-      : this.setState(prevState => {
+      : this.setState((prevState) => {
           return { current: prevState.current + 1 };
         });
 
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { correct: !prevState.correct };
     });
   };
 
   showModal(status) {
     if (status === "PASS") {
-      Alert.alert("Hoàn thành", "Chúc mừng bạn đã hoàn thành bài kiểm tra",  [  
-        {text: 'Tiếp tục', onPress: () => this.props.navigation.goBack()},  
-    ]  );
+      Alert.alert("Hoàn thành", "Chúc mừng bạn đã hoàn thành bài kiểm tra", [
+        { text: "Tiếp tục", onPress: () => this.props.navigation.goBack() },
+      ]);
     } else if (status === "FAIL") {
       Alert.alert("Khong dat", "Vui long Thu lai");
     }
@@ -463,46 +461,46 @@ export default class ExamScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "whitesmoke",
+    backgroundColor: GLOBAL.COLOR.LIGHTGRAY,
     marginTop: 0,
-    paddingVertical: 25
+    paddingVertical: 25,
   },
   statusBar: {
     margin: 10,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   timeText: {
     fontWeight: "bold",
     color: "orange",
-    fontSize: 16
+    fontSize: 16,
   },
   dangerText: {
     fontWeight: "bold",
     fontSize: 16,
-    color: "red"
+    color: "red",
   },
   heartsContainer: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   question: {
     margin: 15,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   questionText: {
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   word: {
     margin: 15,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   wordText: {
-    fontSize: 30
+    fontSize: 30,
   },
   buttonContainer: {
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 });

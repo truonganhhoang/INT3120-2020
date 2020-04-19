@@ -15,7 +15,7 @@ export class SlideshowTopicScreen extends Component {
     this.state = {
       isLoading: true,
       listWord: [],
-      currentPage: 0
+      currentPage: 0,
     };
   }
 
@@ -25,10 +25,10 @@ export class SlideshowTopicScreen extends Component {
       headerTitleStyle: {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
       },
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
 
       //title: navigation.getParam("categoryTitle", "A Nested Details Screen")
     };
@@ -39,7 +39,7 @@ export class SlideshowTopicScreen extends Component {
         style={{
           justifyContent: "center",
           alignContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <SlideshowTopicItem
@@ -54,19 +54,19 @@ export class SlideshowTopicScreen extends Component {
     this.fetchData();
   }
   fetchData() {
-    const { titleTopic } = this.props.route.params;
+    const { titleTopic, parentTopic } = this.props.route.params;
     console.log(titleTopic);
     let data = [];
 
     if (titleTopic !== undefined) {
       db.collection("/topic/")
-        .doc("people")
-        .collection("people")
+        .doc(parentTopic)
+        .collection(parentTopic)
         .doc(titleTopic)
         .collection(titleTopic)
         .get()
-        .then(docs => {
-          docs.forEach(doc => {
+        .then((docs) => {
+          docs.forEach((doc) => {
             // console.log(doc.id, "=>", doc.data());
             data.push(doc.data());
             // console.log("Slidedhow" + data);
@@ -74,7 +74,7 @@ export class SlideshowTopicScreen extends Component {
 
           this.setState({ listWord: data, isLoading: !this.state.isLoading });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error getting documents", err);
         });
     } else {
@@ -90,7 +90,7 @@ export class SlideshowTopicScreen extends Component {
           textStyle={{ color: "#fff" }}
         />
         <Carousel
-          ref={c => {
+          ref={(c) => {
             this._carousel = c;
           }}
           layout={"default"}
@@ -103,7 +103,7 @@ export class SlideshowTopicScreen extends Component {
     );
   }
   playAudioSpelling(word) {
-    console.log("Slide show:" + word);
+    // console.log("Slide show:" + word);
     return async () => {
       const soundObject = new Audio.Sound();
       try {
@@ -121,10 +121,11 @@ export default SlideshowTopicScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "lightgrey",
+    backgroundColor: GLOBAL.COLOR.LIGHTGRAY,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+    paddingTop: 50,
+  },
 });

@@ -8,6 +8,7 @@ import StyleHomeScreen from "../themes/StyleHomeScreen";
 import db from "../../config/configFirebase";
 import sounds from "../assets/sounds";
 import { Audio } from "expo-av";
+import storage from "../../config/configFirebaseStorage";
 
 export class DetailTopicScreen extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export class DetailTopicScreen extends Component {
 
     this.state = {
       isLoading: true,
-      listWord: []
+      listWord: [],
     };
   }
 
@@ -25,10 +26,10 @@ export class DetailTopicScreen extends Component {
       headerTitleStyle: {
         color: GLOBAL.COLOR.ORANGE,
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
       },
       headerTitleAlign: "center",
-      headerTintColor: GLOBAL.COLOR.ORANGE
+      headerTintColor: GLOBAL.COLOR.ORANGE,
     };
   };
 
@@ -36,19 +37,19 @@ export class DetailTopicScreen extends Component {
     this.fetchData();
   }
   fetchData() {
-    const { titleTopic } = this.props.route.params;
+    const { titleTopic, parentTopic } = this.props.route.params;
     console.log(titleTopic);
     let data = [];
 
     if (titleTopic !== undefined) {
       db.collection("/topic/")
-        .doc("people")
-        .collection("people")
+        .doc(parentTopic)
+        .collection(parentTopic)
         .doc(titleTopic)
         .collection(titleTopic)
         .get()
-        .then(docs => {
-          docs.forEach(doc => {
+        .then((docs) => {
+          docs.forEach((doc) => {
             // console.log(doc.id, "=>", doc.data());
             data.push(doc.data());
             // console.log(data);
@@ -56,7 +57,7 @@ export class DetailTopicScreen extends Component {
 
           this.setState({ listWord: data, isLoading: !this.state.isLoading });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error getting documents", err);
         });
     } else {
@@ -69,11 +70,45 @@ export class DetailTopicScreen extends Component {
       const soundObject = new Audio.Sound();
       try {
         await soundObject.loadAsync(sounds[word]);
+
+        // await soundObject.loadAsync({
+        //   uri:
+        //     "https://drive.google.com/drive/folders/1LFGBZluj3_IymU8YZlNoVopLvxA3zE1N",
+        // });
+
         await soundObject.playAsync();
         // Your sound is playing!
       } catch (error) {
         // An error occurred!
       }
+    };
+  }
+
+  readFileFromStorage(word) {
+    return async () => {
+      let path = "/Audio-Vocab/" + word + ".mp3";
+      console.log(path);
+      // console.log(storage);
+      storage
+        .ref(path)
+        // .child(path)
+        .getDownloadURL()
+        .then(async function (url) {
+          // playAudioSpelling(url);
+          const soundObject = new Audio.Sound();
+          try {
+            await soundObject.loadAsync({ uri: url });
+            console.log("URLLLLL:" + url);
+
+            await soundObject.playAsync();
+            // Your sound is playing!
+          } catch (error) {
+            // An error occurred!
+          }
+        })
+        .catch(function (error) {
+          console.log("Error" + error);
+        });
     };
   }
 
@@ -107,6 +142,6 @@ export default DetailTopicScreen;
 
 const styles = StyleSheet.create({
   list: {
-    margin: 10
-  }
+    margin: 10,
+  },
 });
