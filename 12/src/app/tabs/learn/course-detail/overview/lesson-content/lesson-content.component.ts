@@ -12,8 +12,7 @@ export class CourseLessonContentComponent implements OnInit {
 
   ngOnInit() {}
 
-  closeLesson(event: Event) {
-    event.preventDefault();
+  closeModal() {
     this.modalController.dismiss();
   }
 }

@@ -48,14 +48,17 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
             this.dialogRef.close();
             const toast = await this.toastController.create({
               message: 'Your reset password request has been sent. Please check your email',
-              duration: 3000
+              duration: 3000,
+              position: 'bottom'
             });
             await toast.present();
           },
           error: async () => {
             const toast = await this.toastController.create({
               message: 'Failed while handling your request. Please try again.',
-              duration: 3000
+              duration: 3000,
+              position: 'bottom',
+              color: 'danger'
             });
             await toast.present();
           }

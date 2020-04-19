@@ -224,7 +224,7 @@ ionic g page profile -f
 - Cập nhật UI cho:
   - `/tabs/learn/courses`
 - Thêm UI cho:
-  - `/tabs/leanr/course/:courseId` (tab overview, info)
+  - `/tabs/learn/course/:courseId` (tab overview, info)
 
 # 2019-04-19
 
@@ -232,3 +232,5 @@ ionic g page profile -f
 - Thêm menu cho từng course ở `/tab/learn/courses`
 - Thêm component `course-lesson-content`, cho phép xem nội dung bài học trong modal.
 - Sửa lại ảnh được dùng trong splash screen: trasnparent background -> white background.
+- Gửi email xác nhận.
+- Sửa mật khẩu (cho email provider và facebook provider).

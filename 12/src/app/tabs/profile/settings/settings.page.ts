@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'firebase/app';
 
-import { ToastController } from '@ionic/angular';
+import { ToastController, ModalController, Platform } from '@ionic/angular';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { UserService } from '../../../core/services/firebase/auth/user.service';
 import { SignOutService } from '../../../core/services/firebase/auth/sign-out.service';
 
@@ -20,13 +21,16 @@ export class SettingsPage implements OnInit, OnDestroy {
   versionString: string;
   isSendingEmail: boolean;
   currentUser?: User;
+  isMobile: boolean;
 
   constructor(
+    private platform: Platform,
     private router: Router,
-    private appVersion: AppVersion,
     private userService: UserService,
     private signOutService: SignOutService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private modalController: ModalController,
+    private appVersion: AppVersion
   ) {}
 
   async ngOnInit() {
@@ -38,6 +42,9 @@ export class SettingsPage implements OnInit, OnDestroy {
         this.currentUser = undefined;
       }
     });
+    //
+    this.isMobile = this.platform.is('cordova');
+    //
     try {
       const versionNumber = await this.appVersion.getVersionNumber();
       const versionCode = await this.appVersion.getVersionCode();
@@ -52,6 +59,14 @@ export class SettingsPage implements OnInit, OnDestroy {
     this.signOutSubscription?.unsubscribe();
   }
 
+  async openChangePasswordModal() {
+    const changePasswordModal = await this.modalController.create({
+      component: ChangePasswordComponent,
+      keyboardClose: true
+    });
+    await changePasswordModal.present();
+  }
+
   async sendVerficationEmail() {
     if (!this.currentUser?.emailVerified) {
       this.isSendingEmail = true;
@@ -64,7 +79,19 @@ export class SettingsPage implements OnInit, OnDestroy {
         });
         await sentEmail.present();
       } catch (err) {
-        console.error(err);
+        const errorNotification = await this.toastController.create({
+          message: "Request hasn't been sent. Please try again.",
+          duration: 3000,
+          position: 'bottom',
+          color: 'danger',
+          buttons: [
+            {
+              icon: 'alert-circle',
+              side: 'start'
+            }
+          ]
+        });
+        await errorNotification.present();
       } finally {
         this.isSendingEmail = false;
       }
@@ -81,7 +108,8 @@ export class SettingsPage implements OnInit, OnDestroy {
         const signOutFailed = await this.toastController.create({
           message: err?.message ?? 'An error occured while signing out. Please try again.',
           position: 'bottom',
-          duration: 3000
+          duration: 3000,
+          color: 'danger'
         });
         await signOutFailed.present();
       }

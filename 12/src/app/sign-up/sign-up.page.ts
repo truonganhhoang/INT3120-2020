@@ -100,7 +100,9 @@ export class SignUpPage implements OnDestroy {
         this.isSubmitting = false;
         const loginFacebookFailed = await this.toastController.create({
           message: err?.message ?? 'An error occurred while signing in with facebook. Please try again.',
-          duration: 3000
+          duration: 3000,
+          position: 'bottom',
+          color: 'danger'
         });
         await loginFacebookFailed.present();
       }
