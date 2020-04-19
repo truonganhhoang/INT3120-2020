@@ -10,7 +10,8 @@ const QuestionSchema = new Schema({
   answer1: String,
   answer2: String,
   answer3: String,
-  result: String
+  result: String,
+  createdAt: {type: Number, default: Date.now()}
 });
 
 QuestionSchema.statics = {

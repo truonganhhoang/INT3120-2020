@@ -1,12 +1,39 @@
-<form action="/insert" method="POST">
+<form action="/insertword" method="POST">
   <fieldset>
-    <legend>Find</legend>
-    <input type="submit" value="Insert" />
+    <legend>Word: insert from input data</legend>
+    <input type="submit" value="Insert words" />
   </fieldset>
 </form>
 <form action="/insertQuestion" method="POST">
   <fieldset>
-    <legend>Find</legend>
-    <input type="submit" value="insertQuestion" />
+    <legend>Question insert from input data</legend>
+    <input type="submit" value="Insert questions" />
+  </fieldset>
+</form>
+
+<form action="/insertNewWord" method="POST">
+  <fieldset>
+    <legend>Word: type and insert</legend>
+    <input type="text" name="picture" placeholder="Picture url" /><br />
+    <input type="text" name="eng" placeholder="English" /><br />
+    <input type="text" name="vie" placeholder="Vietnamese" /><br />
+    <input type="text" name="category" placeholder="Category" /><br />
+    <input type="text" name="pronounce" placeholder="Pronounce" /><br />
+    <input type="text" name="type" placeholder="Type" /><br />
+    <input type="text" name="example" placeholder="Example" /><br />
+    <input type="submit" value="Insert word" />
+  </fieldset>
+</form>
+
+<form action="/insertNewQuestion" method="POST">
+  <fieldset>
+    <legend>Question: type and insert</legend>
+    <input type="text" name="question" placeholder="Question" /><br />
+    <input type="text" name="category" placeholder="Category" /><br />
+    <input type="text" name="answer1" placeholder="Answer 1" /><br />
+    <input type="text" name="answer2" placeholder="Answer 2" /><br />
+    <input type="text" name="answer3" placeholder="Answer 3" /><br />
+    <input type="text" name="result" placeholder="Result" /><br />
+    <input type="submit" value="Insert question" />
   </fieldset>
 </form>

@@ -10,13 +10,17 @@ const initRoutes = app => {
     res.sendFile(path.join(dir, 'public/html/index.html'));
   });
 
-  router.post('/insert', controller.insert);
+  router.post('/insertword', controller.insertwords);
 
-  router.post('/insertQuestion', controller.insertQuestion);
+  router.post('/insertQuestion', controller.insertQuestions);
 
-  router.get('/getAllWords', controller.getAllWords)
+  router.get('/getAllWords', controller.getAllWords);
 
-  router.get('/getAllQuestions', controller.getAllQuestions)
+  router.get('/getAllQuestions', controller.getAllQuestions);
+
+  router.post('/insertNewWord', controller.createNewWord);
+
+  router.post('/insertNewQuestion', controller.createNewQuestion);
 
   return app.use('/', router);
 };
