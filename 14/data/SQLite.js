@@ -130,6 +130,16 @@ const getQuestion = (app, tag) => {
   }, (err) => {console.log(err)});
 }
 
+const getFavoriteQuestion = (app,val) => {
+  db.transaction(tx => {
+      tx.executeSql("select * from Questions where favorite = ?",
+      [val],
+      (_, { rows }) =>
+        {app.setState({data: rows._array})}
+      );  
+  }, (err) => {console.log(err)});
+}
+
 const updateFavoriteQuestion = ( ques, value) => {
   db.transaction(tx => {
     tx.executeSql(`update Questions set favorite = ? where question = ?`, [value, ques])
@@ -168,6 +178,7 @@ export default{
   insertQuestion: insertQuestion,
   checkIfTablesQuestionExist: checkIfTablesQuestionExist,
   getQuestion: getQuestion,
+  getFavoriteQuestion: getFavoriteQuestion,
   updateFavoriteQuestion:updateFavoriteQuestion,
 
 }

@@ -40,7 +40,7 @@ const list = [
     {
         title: 'Câu yêu thích',
         icon: 'star',
-        navigate: 'Exam'
+        navigate: 'FavoriteQuestion'
     },
     {
         title: 'Câu làm gần đây',
@@ -68,8 +68,8 @@ export default class Home extends React.Component{
         const exist = await (db.checkIfTablesExist() && db.checkIfTablesQuestionExist());
         if (exist == false){
             console.log('home creates table')
-            const response = await fetch('http://192.168.1.16:3299/getAllWords')
-            const responseQuestion = await fetch('http://192.168.1.16:3299/getAllQuestions')
+            const response = await fetch('http://192.168.1.6:3299/getAllWords')
+            const responseQuestion = await fetch('http://192.168.1.6:3299/getAllQuestions')
             const data = await response.json();
             const dataQuestion = await responseQuestion.json();
             console.log(data.words.length);

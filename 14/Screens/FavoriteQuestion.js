@@ -4,24 +4,25 @@ import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Question from '../components/Question';
 import db from './../data/SQLite';
-export default class Exam extends React.Component{
+export default class FavoriteQuestion extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          data: db.getQuestion(this,this.props.navigation.state.params.type)
+          data: db.getFavoriteQuestion(this,1)
         }
     }
     keyExtractor = (item, index) => index.toString()
 
     favoriteQuestionSwitch = ques =>{
+        //console.log('change')
         if (ques.favorite == 1){
             ques.favorite = 0;
           }else{
             ques.favorite = 1;
           }
         db.updateFavoriteQuestion(ques.question, ques.favorite);
-            let filterData = this.state.data.filter(item => item);
-            this.setState({data: filterData});
+        let filterData = this.state.data.filter(item => item.question != ques.question);
+        this.setState({data: filterData});
     }
 
     renderItem = ({ item, index }) => {
@@ -52,7 +53,7 @@ export default class Exam extends React.Component{
             <View style={styles.container}>
                 <Header
                     leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
-                    centerComponent={{ text: this.props.navigation.state.params.type, style: { color: '#fff' } }}
+                    centerComponent={{ text: 'Câu yêu thích', style: { color: '#fff' } }}
                 /> 
                 <FlatList
                     keyExtractor={this.keyExtractor}
