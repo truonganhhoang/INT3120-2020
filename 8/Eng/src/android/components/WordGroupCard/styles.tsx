@@ -1,29 +1,43 @@
-import { StyleSheet } from 'react-native'; 
-const WIDTH=300;
-const HEIGHT=400;
+import { StyleSheet, Dimensions } from 'react-native'; 
+const WIDTH=Dimensions.get('window').width;
+const HEIGHT=Dimensions.get('window').height;
 const styles = StyleSheet.create({
     btnDetail:{
         backgroundColor:'#ff5e00',
-        width:150,
         alignItems:'center',
-        height:35,
         borderRadius:20,
+        width:150
     },
     containers:{
-        paddingLeft:40
+        top:10,
+        height:HEIGHT,
+        width:WIDTH*0.8,
+        left:WIDTH/6
+    },
+    card:{
+        width:WIDTH*0.7,
+        height:HEIGHT*0.7,
+        borderRadius:10,
+        alignItems:'center',
+    },
+    viewCard:{
+        width:WIDTH*0.7,
+        height:HEIGHT*0.7,
+        borderRadius:10,
+        alignItems:'center',
+        position:'absolute',
+        zIndex:0
     },
     container:{
-        width:WIDTH-60,
-        height:HEIGHT-50,
-        marginTop:60,
-        borderRadius:10,
-        marginBottom:50
+        width:WIDTH,
+        height:HEIGHT,
     },
     viewBtn:{
         alignItems:'center',
         position:'absolute',
-        bottom:34,
-        left:105
+        top:HEIGHT*0.69,
+        left:65,
+        zIndex:2,
     },
     viewImg:{
         alignItems:'center',
@@ -42,10 +56,10 @@ const styles = StyleSheet.create({
         alignItems:'center',
         padding:5,
         position:'absolute',
-        right:-2,
-        top:100,
+        right:20,
         borderRadius:6,
         zIndex:2,
+        top:100
     },
     iconTool:{
         color:'white',
@@ -59,9 +73,6 @@ const styles = StyleSheet.create({
         marginTop:5,
         marginBottom:5,
     },
-    viewCard:{
-        zIndex:0
-    }
 })
 
 export default styles; 

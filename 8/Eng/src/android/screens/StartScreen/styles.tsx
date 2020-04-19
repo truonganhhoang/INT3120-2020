@@ -26,10 +26,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 5,
     marginBottom: 10,
-    borderBottomColor: '#6666667a',
     borderBottomWidth: 1,
     paddingBottom: 5,
-    backgroundColor: '#2089dc'
   },
   container: {
     //backgroundColor: '#f8a136'
