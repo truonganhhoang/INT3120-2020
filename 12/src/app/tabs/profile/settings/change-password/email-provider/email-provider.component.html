@@ -11,7 +11,7 @@
     <input type="password" matInput="true" [formControl]="newPassword" />
     <mat-error *ngIf="newPassword.errors">
       <div *ngIf="newPassword.errors.required">Please enter your new password.</div>
-      <div *ngIf="newPassword.errors.minLength">New password must be at least 8 characters.</div>
+      <div *ngIf="newPassword.errors.minlength">New password must be at least 8 characters.</div>
       <div *ngIf="newPassword.errors.duplicate">New password must be different.</div>
     </mat-error>
   </mat-form-field>
