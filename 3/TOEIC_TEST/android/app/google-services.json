@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "363072394898",
+    "firebase_url": "https://toiec-test-nam.firebaseio.com",
+    "project_id": "toiec-test-nam",
+    "storage_bucket": "toiec-test-nam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363072394898:android:b731cb16f27a68fbf5f84b",
+        "android_client_info": {
+          "package_name": "com.toeic_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363072394898-m0tvkteacdatep0pe0ubbk1pvm6irfdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDMSQmWKfMhBtEsyzqyiRJjKzlPleSdNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363072394898-m0tvkteacdatep0pe0ubbk1pvm6irfdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
