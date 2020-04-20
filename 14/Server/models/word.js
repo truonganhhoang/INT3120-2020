@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const { Schema, Types } = mongoose;
+const { Schema } = mongoose;
 
 
 const WordSchema = new Schema({
@@ -12,7 +12,8 @@ const WordSchema = new Schema({
   remind: { type: Number, default: 0 },
   pronounce: String,
   type: String,
-  example: String
+  example: String,
+  createdAt: {type: Number, default: Date.now()} 
 });
 
 WordSchema.statics = {
@@ -21,6 +22,9 @@ WordSchema.statics = {
   },
   getAll(){
     return this.find().exec();
+  },
+  getWordsToUpdate(time){
+    return this.find({createdAt: {$gte: time}}).exec();
   }
 }
 

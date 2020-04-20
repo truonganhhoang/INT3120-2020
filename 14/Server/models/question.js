@@ -10,7 +10,8 @@ const QuestionSchema = new Schema({
   answer1: String,
   answer2: String,
   answer3: String,
-  result: String
+  result: String,
+  createdAt: {type: Number, default: Date.now()}
 });
 
 QuestionSchema.statics = {
@@ -19,6 +20,9 @@ QuestionSchema.statics = {
   },
   getAll(){
     return this.find().exec();
+  },
+  getQuestionsToUpdate(time){
+    return this.find({createdAt: {$gte: time}}).exec();
   }
 }
 

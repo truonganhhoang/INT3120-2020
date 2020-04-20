@@ -2,7 +2,8 @@ import Word from '../models/word';
 import Question from '../models/question';
 import data from '../input-data/index'
 
-const createWord = () => {
+// WORD SERVICES
+const createWords = () => {
   data.education.forEach(item => Word.createNew(item));
   data.sports.forEach(item => Word.createNew(item));
 }
@@ -14,7 +15,12 @@ const getAllWords = () => {
   })
 }
 
-const createQuestion = () =>{
+const createNewWord = word => {
+  Word.createNew(word);
+}
+
+// QUESTION SERVICES
+const createQuestions = () =>{
   data.questions.forEach(item => Question.createNew(item));
 }
 const getAllQuestions = () =>{
@@ -23,4 +29,18 @@ const getAllQuestions = () =>{
     resolve(result);
   })
 }
-export default {createWord, getAllWords, createQuestion, getAllQuestions}
+const createNewQuestion = question => {
+  Question.createNew(question);
+}
+
+const getDataToUpdate = async time => {
+  const result = {
+    words: await Word.getWordsToUpdate(time),
+    questions: await Question.getQuestionsToUpdate(time)
+  }
+  return new Promise((resolve, reject) => {
+    resolve(result);
+  });
+}
+
+export default {createWords, getAllWords, createNewWord, createQuestions, getAllQuestions, createNewQuestion, getDataToUpdate}
