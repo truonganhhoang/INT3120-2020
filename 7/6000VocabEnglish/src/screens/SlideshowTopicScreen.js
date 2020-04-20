@@ -7,6 +7,7 @@ import Spinner from "react-native-loading-spinner-overlay";
 import Carousel from "react-native-snap-carousel";
 import sounds from "../assets/sounds";
 import { Audio } from "expo-av";
+import storage from "../../config/configFirebaseStorage";
 
 export class SlideshowTopicScreen extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ export class SlideshowTopicScreen extends Component {
       >
         <SlideshowTopicItem
           item={item}
-          playSound={this.playAudioSpelling(item.word)}
+          playSound={this.readFileFromStorage(item.word)}
         ></SlideshowTopicItem>
       </View>
     );
@@ -113,6 +114,34 @@ export class SlideshowTopicScreen extends Component {
       } catch (error) {
         // An error occurred!
       }
+    };
+  }
+
+  readFileFromStorage(word) {
+    return async () => {
+      let path = "/Audio-Vocab/" + word + ".mp3";
+      console.log(path);
+      // console.log(storage);
+      storage
+        .ref(path)
+        // .child(path)
+        .getDownloadURL()
+        .then(async function (url) {
+          // playAudioSpelling(url);
+          const soundObject = new Audio.Sound();
+          try {
+            await soundObject.loadAsync({ uri: url });
+            console.log("URLLLLL:" + url);
+
+            await soundObject.playAsync();
+            // Your sound is playing!
+          } catch (error) {
+            // An error occurred!
+          }
+        })
+        .catch(function (error) {
+          console.log("Error" + error);
+        });
     };
   }
 }

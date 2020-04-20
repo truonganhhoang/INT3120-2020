@@ -86,10 +86,21 @@ export class PracticeScreen extends Component {
   //     this.nextQuestion();
   //   };
   // }
-  componentDidMount() {
+  async componentDidMount() {
     const titleTopic = this.props.route.params.titleTopic;
+
+    // let data = await fetch(
+    //   "localhost:5001/learningvocabenglish-mobileapp/us-central1/helloWorld"
+    // )
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+
     data.map((item) => {
-      // console.log(item.topic === titleTopic);
       if (item.topic === titleTopic) {
         this.setState({
           questions: item.questions,
@@ -97,7 +108,6 @@ export class PracticeScreen extends Component {
           progress:
             ((this.state.currentQuestion + 1) / item.questions.length) * 100,
         });
-        // console.log(item);
         this.playSound(item.sound);
       }
     });

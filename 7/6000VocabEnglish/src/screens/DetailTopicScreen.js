@@ -128,7 +128,7 @@ export class DetailTopicScreen extends Component {
             return (
               <DetailTopicItem
                 item={item}
-                playSound={this.playAudioSpelling(item.word)}
+                playSound={this.readFileFromStorage(item.word)}
               ></DetailTopicItem>
             );
           }}

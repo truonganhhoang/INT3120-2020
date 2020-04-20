@@ -3,8 +3,8 @@ const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
 const firebase = require("firebase");
-const categoryList = require("../6000VocabEnglish/data/CategoryName");
-const settingList = require("../6000VocabEnglish/data/SettingName");
+
+const dataPractice = require("../functions/data-practice.json");
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
@@ -18,7 +18,7 @@ const firebaseConfig = {
   storageBucket: "learningvocabenglish-mobileapp.appspot.com",
   messagingSenderId: "940462189090",
   appId: "1:940462189090:web:92fa99a4997bd2b989f87b",
-  measurementId: "G-TC7TG9GWDL"
+  measurementId: "G-TC7TG9GWDL",
 };
 
 admin.initializeApp(functions.config(firebaseConfig).firebase);
@@ -32,11 +32,10 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 // get all topic to display in home screen
-exports.getAllTopic = functions.https.onRequest((request, response) => {
-  response.send(categoryList);
+// exports.getAllTopic = functions.https.onRequest((request, response) => {
+//   response.send(categoryList);
+// });
+
+exports.getDataPractice = functions.https.onRequest((request, response) => {
+  response.send(dataPractice);
 });
-
-exports.getFileAudio = functions.https.onRequest((req, res) => {
-  
-
-})
