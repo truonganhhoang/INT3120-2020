@@ -5,3 +5,10 @@ meat
 clear
 orange
 family
+tiger
+coffee
+shirt
+water
+beer
+lion
+home

@@ -1,7 +1,9 @@
-import 'package:CWCFlutter/api/word_api.dart';
+import 'package:CWCFlutter/notifier/fire_base_auth.dart';
+import 'package:CWCFlutter/dialog/loading_dialog.dart';
 import 'package:CWCFlutter/dialog/msg_dilog.dart';
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
+import 'package:CWCFlutter/screens/Homepage.dart';
 import 'package:CWCFlutter/screens/reset.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +18,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final Color backgroundColor1 = Color(0xFF4aa0d5);
+  final Color backgroundColor2 = Color(0xFF4aa0d5);
+  final Color highlightColor = Color(0xfff65aa3);
+  final Color foregroundColor = Colors.white;
   bool _showPassword = false;
+  bool _showConfirmPass = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = new TextEditingController();
   AuthMode _authMode = AuthMode.Login;
@@ -48,25 +55,35 @@ class _LoginState extends State<Login> {
         Provider.of<AuthNotifier>(context, listen: false);
 
     if (_authMode == AuthMode.Login) {
-//      LoadingDialog.showLoadingDialog(context, "Loading...");
+      LoadingDialog.showLoadingDialog(context, "Loading...");
       login(_user, authNotifier, () {
-//        LoadingDialog.hideLoadingDialog(context);
-//        Navigator.of(context)
-//            .push(MaterialPageRoute(builder: (context) => Feed()));
+        LoadingDialog.hideLoadingDialog(context);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Homepage()));
       }, (msg) {
-//        LoadingDialog.hideLoadingDialog(context);
+        LoadingDialog.hideLoadingDialog(context);
         MsgDialog.showMsgDialog(context, "Sign-In", msg);
       });
     } else {
-      signup(_user, authNotifier);
+      LoadingDialog.showLoadingDialog(context, "Loading...");
+      signup(_user, authNotifier, () {
+        LoadingDialog.hideLoadingDialog(context);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Homepage()));
+      }, (msg) {
+        LoadingDialog.hideLoadingDialog(context);
+        MsgDialog.showMsgDialog(context, "Sign-Up", msg);
+      },context);
     }
   }
 
   Widget _buildDisplayNameField() {
     return TextFormField(
+      textAlign: TextAlign.left,
       decoration: InputDecoration(
-        labelText: "Display Name",
-        labelStyle: TextStyle(color: Colors.white54),
+        border: InputBorder.none,
+        hintText: "Display Name",
+        hintStyle: TextStyle(color: Colors.white54),
       ),
       keyboardType: TextInputType.text,
       style: TextStyle(fontSize: 26, color: Colors.white),
@@ -89,12 +106,14 @@ class _LoginState extends State<Login> {
 
   Widget _buildEmailField() {
     return TextFormField(
+      textAlign: TextAlign.left,
+      style: new TextStyle(fontSize: 26, color: Colors.white),
       decoration: InputDecoration(
-        labelText: "Email",
-        labelStyle: TextStyle(color: Colors.white54),
+        border: InputBorder.none,
+        hintText: "Email",
+        hintStyle: TextStyle(color: Colors.white54),
       ),
       keyboardType: TextInputType.emailAddress,
-      style: TextStyle(fontSize: 26, color: Colors.white),
       cursorColor: Colors.white,
       validator: (String value) {
         if (value.isEmpty) {
@@ -118,7 +137,8 @@ class _LoginState extends State<Login> {
   Widget _buildPasswordField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: "Password",
+        border: InputBorder.none,
+        hintText: "Password",
         suffixIcon: GestureDetector(
           onTap: () {
             setState(() {
@@ -127,12 +147,14 @@ class _LoginState extends State<Login> {
           },
           child: Icon(
             _showPassword ? Icons.visibility : Icons.visibility_off,
+            color: Colors.black54,
           ),
         ),
-        labelStyle: TextStyle(color: Colors.white54),
+        hintStyle: TextStyle(color: Colors.white54),
       ),
       style: TextStyle(fontSize: 26, color: Colors.white),
       cursorColor: Colors.white,
+      textAlign: TextAlign.left,
       obscureText: !_showPassword,
       controller: _passwordController,
       validator: (String value) {
@@ -155,12 +177,27 @@ class _LoginState extends State<Login> {
   Widget _buildConfirmPasswordField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: "Confirm Password",
-        labelStyle: TextStyle(color: Colors.white54),
+        border: InputBorder.none,
+        hintText: "Confirm Password",
+        suffixIcon: GestureDetector(
+          onTap: () {
+            setState(() {
+              _showConfirmPass = !_showConfirmPass;
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 0.0),
+            child: Icon(
+              _showConfirmPass ? Icons.visibility : Icons.visibility_off,
+              color: Colors.black54,
+            ),
+          ),
+        ),
+        hintStyle: TextStyle(color: Colors.white54),
       ),
       style: TextStyle(fontSize: 26, color: Colors.white),
       cursorColor: Colors.white,
-      obscureText: true,
+      obscureText: !_showConfirmPass,
       validator: (String value) {
         if (_passwordController.text != value) {
           return 'Passwords do not match';
@@ -177,10 +214,17 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       body: Container(
-        constraints: BoxConstraints.expand(
-          height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          gradient: new LinearGradient(
+            begin: Alignment.centerLeft,
+            end: new Alignment(1.0, 0.0),
+            // 10% of the width, so there are ten blinds.
+            colors: [this.backgroundColor1, this.backgroundColor2],
+            // whitish to gray
+            tileMode: TileMode.repeated, // repeats the gradient over the canvas
+          ),
         ),
-        decoration: BoxDecoration(color: Color(0xff34056D)),
+        height: MediaQuery.of(context).size.height,
         child: Form(
           autovalidate: true,
           key: _formKey,
@@ -190,68 +234,199 @@ class _LoginState extends State<Login> {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "English App",
+                    '${_authMode == AuthMode.Login ? "ENGLISH APP" : "SIGN UP"}',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 36, color: Colors.white),
                   ),
-                  SizedBox(height: 32),
                   _authMode == AuthMode.Signup
-                      ? _buildDisplayNameField()
+                      ? Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                  color: this.foregroundColor,
+                                  width: 0.5,
+                                  style: BorderStyle.solid),
+                            ),
+                          ),
+                          padding: const EdgeInsets.only(
+                              left: 0.0, top: 0.0, right: 10.0),
+                          child: new Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 0.0, bottom: 20.0, right: 00.0),
+                              ),
+                              Expanded(
+                                child: _buildDisplayNameField(),
+                              ),
+                            ],
+                          ),
+                        )
                       : Container(),
-                  _buildEmailField(),
-                  _buildPasswordField(),
-                  GestureDetector(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 230.0, 0.0),
-                        child: Text(
-                          _authMode == AuthMode.Login ? 'Forget Password' : '',
-//                        textAlign: TextAlign.left,
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        ),
-                      ),onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>new Reset()));
-                  }
-                  ),
-                  _authMode == AuthMode.Signup
-                      ? _buildConfirmPasswordField()
-                      : Container(),
-                  SizedBox(height: 32),
-//                  GestureDetector(
-//                    child: Text(
-//                      _authMode == AuthMode.Login ? 'Forget Password' : '',
-//                      textAlign: TextAlign.left,
-//                      style: TextStyle(fontSize: 15, color: Colors.white),
-//                    ),onTap: (){
-//                    Navigator.push(context, MaterialPageRoute(builder: (context)=>new Reset()));
-//                  }
-//                  ),
-                  ButtonTheme(
-                    minWidth: 200,
-                    child: RaisedButton(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text(
-                        'Switch to ${_authMode == AuthMode.Login ? 'Signup' : 'Login'}',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: this.foregroundColor,
+                            width: 0.5,
+                            style: BorderStyle.solid),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _authMode = _authMode == AuthMode.Login
-                              ? AuthMode.Signup
-                              : AuthMode.Login;
-                        });
-                      },
+                    ),
+                    padding:
+                        const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 5.0, bottom: 0.0, right: 0.0),
+                        ),
+                        Expanded(
+                          child: _buildEmailField(),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 16),
-                  ButtonTheme(
-                    minWidth: 200,
-                    child: RaisedButton(
-                      padding: EdgeInsets.all(10.0),
-                      onPressed: () => _submitForm(),
-                      child: Text(
-                        _authMode == AuthMode.Login ? 'Login' : 'Signup',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: this.foregroundColor,
+                            width: 0.5,
+                            style: BorderStyle.solid),
                       ),
+                    ),
+                    padding:
+                        const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 0.0, bottom: 0.0, right: 00.0),
+                        ),
+                        Expanded(
+                          child: _buildPasswordField(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  _authMode == AuthMode.Signup
+                      ? Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                  color: this.foregroundColor,
+                                  width: 0.5,
+                                  style: BorderStyle.solid),
+                            ),
+                          ),
+                          padding: const EdgeInsets.only(
+                              left: 0.0, top: 0.0, right: 20.0),
+                          child: new Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 0.0, bottom: 0.0, right: 00.0),
+                              ),
+                              Expanded(
+                                child: _buildConfirmPasswordField(),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Container(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
+                    child: ButtonTheme(
+                      minWidth: 200,
+                      child: RaisedButton(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20.0, horizontal: 20.0),
+                        color: Colors.lightBlue,
+                        onPressed: () => _submitForm(),
+                        child: Text(
+                          _authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP',
+                          style: TextStyle(
+                              fontSize: 20, color: this.foregroundColor),
+                        ),
+                      ),
+                    ),
+                  ),
+                  new Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(
+                        left: 40.0, right: 40.0, top: 10.0),
+                    alignment: Alignment.center,
+                    child: new Row(
+                      children: <Widget>[
+                        new Expanded(
+                          child: new FlatButton(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 20.0),
+                            color: Colors.transparent,
+                            child: GestureDetector(
+                                child: Text(
+                                  "Forgot your password?",
+                                  style: TextStyle(color: this.foregroundColor),
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => new Reset()));
+                                }),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  new Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(
+                        left: 40.0, right: 40.0, top: 10.0),
+                    alignment: Alignment.center,
+                    child: new Row(
+                      children: <Widget>[
+                        new Expanded(
+                          child: new FlatButton(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 20.0),
+                            color: Colors.transparent,
+//                              child: GestureDetector(
+                            child: Text(
+                              '${_authMode == AuthMode.Login ? "Don't have an account? Sign Up" : "Have an account? Login"}',
+                              style: TextStyle(color: this.foregroundColor),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _authMode = _authMode == AuthMode.Login
+                                    ? AuthMode.Signup
+                                    : AuthMode.Login;
+                              });
+                            },
+//                              ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

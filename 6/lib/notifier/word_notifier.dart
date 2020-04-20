@@ -4,37 +4,20 @@ import 'package:CWCFlutter/model/word.dart';
 import 'package:flutter/cupertino.dart';
 
 class WordNotifier with ChangeNotifier {
-  List<Food> _foodList = [];
-  Food _currentFood;
+  List<Word> _wordList = [];
+  Word _currentWord;
 
-  UnmodifiableListView<Food> get foodList => UnmodifiableListView(_foodList);
-  List<String> getWords(){
-    List<String> _words = [];
-    for(int i = 0; i < foodList.length ; i++){
-      _words[i] = foodList[i].name;
-      print(_words[i]);
-    }
-    return _words;
-  }
-  Food get currentFood => _currentFood;
+  UnmodifiableListView<Word> get wordList => UnmodifiableListView(_wordList);
+  Word get currentWord => _currentWord;
 
-  set foodList(List<Food> foodList) {
-    _foodList = foodList;
+  set wordList(List<Word> wordList) {
+    _wordList = wordList;
     notifyListeners();
   }
 
-  set currentFood(Food food) {
-    _currentFood = food;
+  set currentWord(Word Word) {
+    _currentWord = Word;
     notifyListeners();
   }
 
-  addFood(Food food) {
-    _foodList.insert(0, food);
-    notifyListeners();
-  }
-
-  deleteFood(Food food) {
-    _foodList.removeWhere((_food) => _food.id == food.id);
-    notifyListeners();
-  }
 }
