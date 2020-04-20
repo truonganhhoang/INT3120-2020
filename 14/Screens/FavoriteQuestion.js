@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import * as Animatable from 'react-native-animatable';
 import Question from '../components/Question';
 import db from './../data/SQLite';
 import styles from '../AppStyles/FavoriteQuestion'
@@ -15,7 +16,6 @@ export default class FavoriteQuestion extends React.Component{
     keyExtractor = (item, index) => index.toString()
 
     favoriteQuestionSwitch = ques =>{
-        //console.log('change')
         if (ques.favorite == 1){
             ques.favorite = 0;
           }else{
@@ -28,24 +28,26 @@ export default class FavoriteQuestion extends React.Component{
 
     renderItem = ({ item, index }) => {
         return(
-        <View style={styles.view}>
-            <Question
-                question={item.question}
-                answer1={item.answer1}
-                answer2={item.answer2}
-                answer3={item.answer3}
-                result={item.result}
-            />
-            <TouchableOpacity style={styles.normal} onPress={() => this.favoriteQuestionSwitch(item)}>
-                <Icon
-                    //style={styles.normal}
-                    name={'star'}
-                    type='material-community'
-                    color={item.favorite == 1 ? 'yellow' : 'gray'}
-                    size={40}
-                />
-            </TouchableOpacity>
-        </View>
+            <Animatable.View animation={"fadeInLeft"} delay={200}>
+                <View style={styles.view}>
+                    <Question
+                        question={item.question}
+                        answer1={item.answer1}
+                        answer2={item.answer2}
+                        answer3={item.answer3}
+                        result={item.result}
+                    />
+                    <TouchableOpacity style={styles.normal} onPress={() => this.favoriteQuestionSwitch(item)}>
+                        <Icon
+                            //style={styles.normal}
+                            name={'star'}
+                            type='material-community'
+                            color={item.favorite == 1 ? 'yellow' : 'gray'}
+                            size={40}
+                        />
+                    </TouchableOpacity>
+                </View>
+        </Animatable.View>
       )
     }
     render(){

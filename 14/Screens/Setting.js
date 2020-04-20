@@ -1,7 +1,7 @@
 import React from 'react';
 import {  View, Text, FlatList, ScrollView, Modal } from 'react-native';
 import { ListItem, Header, CheckBox, Card, Button } from 'react-native-elements';
-import styles from '../AppStyles/Setting';
+import styles from '../AppStyles/setting';
 import db from '../data/SQLite';
 import host from '../Config/host'
 
