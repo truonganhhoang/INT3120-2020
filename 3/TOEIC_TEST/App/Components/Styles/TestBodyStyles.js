@@ -1,10 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#E0E0E0"
-  },
+
   linearGradient: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -68,12 +65,6 @@ export default StyleSheet.create({
     padding: 10,
     width: 120,
     elevation: 6,
-  },
-  iconStart: {
-    marginLeft: Dimensions.get("screen").width - 260
-  },
-  iconBookmark: {
-    marginLeft: 30,
   },
   content: {
     fontSize: 20,

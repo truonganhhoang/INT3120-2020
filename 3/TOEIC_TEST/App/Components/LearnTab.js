@@ -158,9 +158,9 @@ export default class LearnTab extends Component {
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.props.darkMode == false ? "" : "#F5F5F5" }}>{item.word}</Text>
-                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
-                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.props.darkMode == false ? "#212121" : "#F5F5F5" }}>{item.word}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "#424242" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "#424242" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -187,9 +187,9 @@ export default class LearnTab extends Component {
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18,color: this.props.darkMode === false ? "" : "#F5F5F5" }}>{item.word}</Text>
-                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>[{item.sound}]</Text>
-                            <Text style={{ color: this.props.darkMode === false ? "" : "#BDBDBD" }}>{item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.props.darkMode === false ? "#212121" : "#F5F5F5" }}>{item.word}</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "#424242" : "#BDBDBD" }}>[{item.sound}]</Text>
+                            <Text style={{ color: this.props.darkMode === false ? "#424242" : "#BDBDBD" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -248,29 +248,61 @@ export default class LearnTab extends Component {
         if (visibleModal) {
             console.log(detail.id)
             return (
-                <View style={styles.containerModal}>
+                <View style={{
+                    backgroundColor: this.props.darkMode === false ? "#EEEEEE" : "#212121",
+                    justifyContent: 'center',
+                    borderRadius: 4,
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
+                    margin: 20,
+                    minHeight: 100,
+                    padding: 30
+                }}>
                     <TouchableOpacity
                         onPress={() => { Tts.speak(`${detail.word}`) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <Icon name='volume-up' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => { this.remind(detail.id) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <Icon name='clock-o' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Nhắc nhở</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Nhắc nhở</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => { this.deleteBookmark(detail.id) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                        }}>
                             <Icon name="inbox" size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -281,29 +313,61 @@ export default class LearnTab extends Component {
         const { detail2, visibleModal2 } = this.state
         if (visibleModal2) {
             return (
-                <View style={styles.containerModal}>
+                <View style={{
+                    backgroundColor: this.props.darkMode === false ? "#EEEEEE" : "#212121",
+                    justifyContent: 'center',
+                    borderRadius: 4,
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
+                    margin: 20,
+                    minHeight: 100,
+                    padding: 30
+                }}>
                     <TouchableOpacity
                         onPress={() => { Tts.speak(`${detail2.word}`) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                        }}>
                             <Icon name='volume-up' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => { this.bookmark(detail2.id) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                        }}>
                             <Icon name='heart' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Đánh giấu</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Đánh giấu</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => { this.deleteRemind(detail2.id) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.props.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                        }}>
                             <Icon name="inbox" size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Xóa</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -341,7 +405,7 @@ export default class LearnTab extends Component {
                     containerStyle={{ height: 40, borderRadius: 20 }}
                     buttonStyle={{ backgroundColor: this.props.darkMode === false ? "#FAFAFA" : "#263238" }}
                     selectedButtonStyle={{ backgroundColor: this.props.darkMode === false ? "#1976D2" : "#616161" }}
-                    textStyle={{ color: this.props.darkMode === false ? "#212121":"#FAFAFA" }}
+                    textStyle={{ color: this.props.darkMode === false ? "#212121" : "#FAFAFA" }}
                 />
                 {this.renderBody(selectedIndex)}
             </SafeAreaView >

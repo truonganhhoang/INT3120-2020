@@ -39,5 +39,13 @@ export default StyleSheet.create({
     alignSelf: 'center',
     padding: 10,
     fontSize: 17,
-  }
+  },
+  question: {
+    borderRadius: 20,
+    padding: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    backgroundColor: '#9DD6EB'
+  },
 });

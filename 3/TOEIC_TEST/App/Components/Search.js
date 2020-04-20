@@ -18,6 +18,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { StackActions, NavigationActions } from 'react-navigation'
 import { requestGET, HOST } from '../Services/Servies'
 import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -42,10 +43,18 @@ class SearchTab extends Component {
     }
     componentDidMount() {
         this.fetchData()
+        this.getTheme()
     }
     fetchData = async () => {
         var dataSearch = await requestGET(`${HOST}/words/viewAllWord`)
         this.setState({ data: dataSearch.data })
+    }
+    getTheme = async () => {
+        try {
+            const value = await AsyncStorage.getItem('theme')
+            if (value === 'true') this.setState({ darkMode: true })
+            else if (value === 'false') this.setState({ darkMode: false })
+        } catch (e) { console.log(e) }
     }
     Back = () => {
         this.props.navigation.dispatch(resetAction)
@@ -57,7 +66,13 @@ class SearchTab extends Component {
                 <TouchableOpacity
                     onPress={() => { this.props.navigation.navigate("Meaning", { dataSearch: `${item}` }) }}
                 >
-                    <View style={styles.item}>
+                    <View style={{
+                        marginLeft: 50,
+                        backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238",
+                        marginRight: 50,
+                        borderBottomColor: '#808080',
+                        padding: 15,
+                    }}>
                         <Text style={styles.title}>{item}</Text>
                     </View>
                 </TouchableOpacity>
@@ -111,9 +126,16 @@ class SearchTab extends Component {
     render() {
         return (
             <DismissKeyboard>
-                <SafeAreaView style={styles.container}>
+                <SafeAreaView style={{ flex: 1, backgroundColor: this.state.darkMode === false ? "#EEEEEE" : "#212121" }}>
                     <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
-                    <View style={styles.linearGradient}>
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        paddingTop: 40,
+                        paddingBottom: 20,
+                        backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238"
+                    }}>
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                             onPress={() => { this.Back() }}
                             style={styles.iconLeft}
@@ -125,9 +147,7 @@ class SearchTab extends Component {
                             onChangeText={input => this.onChangeText(input)}
                             value={this.state.input}
                         />
-                        <TouchableOpacity
-                            onPress={() => { this.translate() }}
-                        >
+                        <TouchableOpacity onPress={() => { this.translate() }}    >
                             <Icon name='search' size={27} type='FontAwesome' color='#F5F5F5'
                                 containerStyle={styles.iconRight}
                             />

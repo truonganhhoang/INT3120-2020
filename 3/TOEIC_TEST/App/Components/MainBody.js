@@ -2,7 +2,8 @@ import React, { useEffect, useState, Component } from 'react'
 import {
     View,
     SafeAreaView,
-    StatusBar
+    StatusBar,
+    Alert
 } from 'react-native'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 import styles from './Styles/MainBodyStyles'
@@ -13,7 +14,6 @@ import ReviewTab from './ReviewTab'
 import SettingTab from './SettingTab'
 import { fcmService } from '../Services/FCMService'
 import AsyncStorage from '@react-native-community/async-storage';
-
 console.disableYellowBox = true;
 const MainBody = (props) => {
 
@@ -73,7 +73,7 @@ const MainBody = (props) => {
 
     const onOpenNotification = (notify) => {
         // console.log("[NotificationFCM] onOpenNotification: ", notify)
-        alert(notify._body)
+        Alert.alert("Thông báo", notify._body)
     }
 
     return (

@@ -6,8 +6,12 @@ import Meaning from '../Components/Meaning'
 import LearnWord from '../Components/LearnWord'
 import TestList from '../Components/TestList'
 import TestBody from '../Components/TestBody'
-import TestRecentList from '../Components/TestRecentList'
-import TestRecent from '../Components/TestRecent'
+import RecentAnswerList from '../Components/RecentAnswerList'
+import RecentAnswer from '../Components/RecentAnswer'
+import WrongAnswerList from '../Components/WrongAnswerList'
+import WrongAnswer from '../Components/WrongAnswer'
+import BookmarkQuestionList from '../Components/BookmarkQuestionList'
+import BookmarkQuestion from '../Components/BookmarkQuestion'
 const AppNavigator = createStackNavigator(
         {
                 MainBody: { screen: MainBody },
@@ -16,8 +20,12 @@ const AppNavigator = createStackNavigator(
                 LearnWord: { screen: LearnWord },
                 TestList: { screen: TestList },
                 TestBody: { screen: TestBody },
-                TestRecentList: { screen: TestRecentList },
-                TestRecent: { screen: TestRecent },
+                RecentAnswerList: { screen: RecentAnswerList },
+                RecentAnswer: { screen: RecentAnswer },
+                WrongAnswerList: { screen: WrongAnswerList },
+                WrongAnswer: { screen: WrongAnswer },
+                BookmarkQuestionList: { screen: BookmarkQuestionList },
+                BookmarkQuestion: { screen: BookmarkQuestion }
         },
         {
                 defaultNavigationOptions: { headerShown: false }

@@ -8,7 +8,7 @@ import { requestGET, HOST } from '../Services/Servies';
 import DeviceInfo from 'react-native-device-info';
 import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
 
-class TestRecentList extends Component {
+export default class RecentAnswerList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ class TestRecentList extends Component {
   }
   renderItem = ({ item, index }) => {
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate("TestRecent", { id: item.exercise_id, name: item.exercise_description })} >
+      <TouchableOpacity onPress={() => this.props.navigation.navigate("RecentAnswer", { id: item.exercise_id, name: item.exercise_description })} >
         <View style={{
           flex: 1,
           flexDirection: 'row',
@@ -108,4 +108,3 @@ class TestRecentList extends Component {
     );
   }
 }
-export default TestRecentList;

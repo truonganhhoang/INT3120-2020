@@ -20,6 +20,7 @@ import Tts from 'react-native-tts'
 import DeviceInfo from 'react-native-device-info'
 import { requestGET, requestPOST, HOST } from '../Services/Servies'
 import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const resetAction = StackActions.reset({
     index: 0,
@@ -35,15 +36,24 @@ class LearnWord extends Component {
             data: [],
             deviceId: '',
             id: '',
+            darkMode: false,
         }
     }
     componentDidMount() {
+        this.getTheme()
         this.fetchListLessionId()
     }
     fetchListLessionId = async () => {
         let id = this.props.navigation.getParam('id').toString()
         let listLessionId = await requestGET(`${HOST}/lessons/viewLesson/${id}`)
         this.setState({ data: listLessionId.data.grammars })
+    }
+    getTheme = async () => {
+        try {
+            const value = await AsyncStorage.getItem('theme')
+            if (value === 'true') this.setState({ darkMode: true })
+            else if (value === 'false') this.setState({ darkMode: false })
+        } catch (e) { console.log(e) }
     }
     Back = () => {
         this.props.navigation.dispatch(resetAction)
@@ -57,17 +67,24 @@ class LearnWord extends Component {
                 <TouchableOpacity
                     onPress={() => { this.setState({ detail: item, visibleModal: true, id: item.id }) }}
                 >
-                    <View style={styles.item}>
+                    <View style={{
+                        flex: 1,
+                        width: Dimensions.get("window").width - 30,
+                        flexDirection: 'row',
+                        backgroundColor: this.state.darkMode === false ? "#F5F5F5" : '#263238',
+                        marginVertical: 6,
+                        marginHorizontal: 15,
+                        elevation: 5,
+                    }}>
                         <View style={{ flexDirection: 'column', justifyContent: "center" }}>
                             <Image source={{ uri: url }}
-                                style={{ width: 150, height: 100, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, resizeMode: 'stretch' }}
+                                style={{ width: 150, flex: 1, resizeMode: 'stretch' }}
                             />
                         </View>
                         <View style={{ flexDirection: 'column', padding: 15, alignContent: 'center', width: Dimensions.get("screen").width - 180 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.word}</Text>
-                            <Text>{item.sound}</Text>
-                            <Text>
-                                {item.meaning}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: this.state.darkMode === false ? "#212121" : "#FAFAFA" }}>{item.word}</Text>
+                            <Text style={{ color: this.state.darkMode === false ? "#212121" : "#E0E0E0" }}>{item.sound}</Text>
+                            <Text style={{ color: this.state.darkMode === false ? "#212121" : "#E0E0E0" }}>{item.meaning}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -79,30 +96,62 @@ class LearnWord extends Component {
         const { detail, visibleModal } = this.state
         if (visibleModal) {
             return (
-                <View style={styles.containerModal}>
+                <View style={{
+                    backgroundColor: this.state.darkMode === false ? "#EEEEEE" : "#212121",
+                    justifyContent: 'center',
+                    borderRadius: 4,
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
+                    margin: 20,
+                    minHeight: 100,
+                    padding: 30
+                }}>
                     <TouchableOpacity
                         onPress={() => { Tts.speak(`${detail.word}`) }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <Icon name='volume-up' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Phát âm</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => { this.bookmark() }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <Icon name='heart' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Đánh dấu</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Đánh dấu</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={() => { this.remind() }}
                     >
-                        <View style={styles.viewModal}>
+                        <View style={{
+                            backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238",
+                            padding: 10,
+                            margin: 10,
+                            borderRadius: 20,
+                            flexDirection: 'row',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <Icon name='clock-o' size={35} style={{ paddingLeft: 10, color: "#f0f0f0" }} />
-                            <Text style={{ paddingLeft: 50, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Nhắc nhở</Text>
+                            <Text style={{ paddingLeft: 40, fontWeight: "bold", fontSize: 18, color: '#FAFAFA' }}>Nhắc nhở</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -134,9 +183,16 @@ class LearnWord extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: this.state.darkMode === false ? "#EEEEEE" : "#212121" }}>
                 <StatusBar barStyle="dark-content" backgroundColor='transparent' translucent={true} />
-                <View style={styles.linearGradient}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: 40,
+                    paddingBottom: 20,
+                    backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238"
+                }}>
                     <TouchableOpacity onPress={() => this.Back()}>
                         <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                             style={styles.iconLeft}

@@ -16,7 +16,8 @@ import { StackActions, NavigationActions } from 'react-navigation'
 import Tts from 'react-native-tts'
 import { requestGET, HOST } from '../Services/Servies'
 import { WebView } from 'react-native-webview'
-import { adService} from '../Services/AdService'
+import { adService } from '../Services/AdService'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const resetAction = StackActions.reset({
     index: 0,
@@ -44,6 +45,13 @@ class Meaning extends Component {
         let data3 = data2.data
         this.setState({ word: data3.word, sound: data3.sound, meaning: data3.meaning })
     }
+    getTheme = async () => {
+        try {
+            const value = await AsyncStorage.getItem('theme')
+            if (value === 'true') this.setState({ darkMode: true })
+            else if (value === 'false') this.setState({ darkMode: false })
+        } catch (e) { console.log(e) }
+    }
     Back = () => {
         adService.showInterstitial()
         this.props.navigation.dispatch(resetAction)
@@ -53,7 +61,14 @@ class Meaning extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <View style={styles.linearGradient}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: 40,
+                    paddingBottom: 20,
+                    backgroundColor: this.state.darkMode === false ? "#1976D2" : "#263238"
+                }}>
                     <Ionicons name='md-arrow-round-back' size={27} color='#F5F5F5'
                         onPress={() => { this.Back() }}
                         style={styles.iconLeft}
