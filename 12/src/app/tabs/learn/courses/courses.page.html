@@ -11,7 +11,7 @@
 <ion-content>
   <ion-list>
     <ion-item lines="none" *ngFor="let i of [1, 2, 3, 4, 5, 6]">
-      <app-course-item [routerLink]="['/tabs/learn/course', i]"></app-course-item>
+      <app-course-item [routerLink]="['/tabs/learn/course/' + i]"></app-course-item>
     </ion-item>
   </ion-list>
 </ion-content>

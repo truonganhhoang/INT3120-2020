@@ -1,6 +1,7 @@
-<ul class="weeks">
-  <li *ngFor="let week of [1, 2, 3, 4]">
-    <a [routerLink]="[courseUrl + '/' + week] " routerLinkActive="active">Week {{ week }}</a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<mat-tab-group>
+  <mat-tab *ngFor="let link of [1, 2, 3, 4, 5, 6]" [label]="'Week ' + link" [routerLink]="courseUrl + 'overview/' + link">
+    <ng-template matTabContent>
+      <app-course-overview-week></app-course-overview-week>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

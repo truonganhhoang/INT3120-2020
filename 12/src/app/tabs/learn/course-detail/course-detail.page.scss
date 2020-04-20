@@ -15,25 +15,4 @@ ion-content {
     background-color: var(--ion-color-primary-shade);
     color: #ffffff;
   }
-  .nav {
-    background-color: var(--ion-color-primary-shade);
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    list-style: none;
-    li {
-      display: inline-block;
-      a {
-        color: #ffffff;
-        font-weight: 700;
-        padding: 10px 15px;
-        text-decoration: none;
-        &.active {
-          border-bottom: 3px solid #ffffff;
-        }
-      }
-    }
-  }
 }
