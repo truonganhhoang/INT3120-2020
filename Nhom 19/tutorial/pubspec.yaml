@@ -48,6 +48,11 @@ flutter:
     - images/godlike.png
     - images/cover.jpg
     - images/home.jpg
+    - images/lop1.jpg
+    - images/lop2.jpg
+    - images/lop3.png
+    - images/lop4.png
+    - images/lop5.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'sidemenu.dart';
 import 'quiz.dart';
 
 class QuizGame extends StatefulWidget{
@@ -14,10 +15,11 @@ class QuizGameState extends State<QuizGame>{
   Widget build(BuildContext context) {
  
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: Text('App luyện tập toán tiểu học'),
-        backgroundColor: Colors.redAccent,
-        automaticallyImplyLeading: false,
+        backgroundColor: Colors.greenAccent,
+        
       ),
     
       body: Container(
@@ -30,6 +32,7 @@ class QuizGameState extends State<QuizGame>{
           children: <Widget>[
             new MaterialButton(
               height : 50.0,
+              
               color: Colors.redAccent,
               child : Text('Bắt đầu',
                 style: TextStyle(

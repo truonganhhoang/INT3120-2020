@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'startquiz.dart';
+import 'package:tutorial/basicknowledge/basicwindow.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -32,12 +33,18 @@ class NavDrawer extends StatelessWidget {
             ListTile(
             leading: Icon(Icons.class_),
             title: Text('Lý thuyết'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => new BasicWindow()));
+            },
           ),
             ListTile(
             leading: Icon(Icons.content_paste),
             title: Text('Thực hành'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: ()  {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => new QuizGame()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.settings),
