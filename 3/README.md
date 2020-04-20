@@ -16,7 +16,7 @@ Phần mềm này bao gồm tất cả các phần của một kỳ thi TOEIC, v
 https://play.google.com/store/apps/details?id=tflat.co.thitoeic&hl=vi
 
 # Link apk
-https://drive.google.com/file/d/134oAlPK-5K-3eAMxJg1gs_Ka7Ehe0v8g/view
+https://drive.google.com/open?id=12YYVWEC1Mjd7xGy7mMyYGrdarxYx38n0
 
 # Các thành viên trong nhóm
 Lê Văn Đức - 17020695
