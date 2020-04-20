@@ -22,6 +22,9 @@ WordSchema.statics = {
   },
   getAll(){
     return this.find().exec();
+  },
+  getWordsToUpdate(time){
+    return this.find({createdAt: {$gte: time}}).exec();
   }
 }
 

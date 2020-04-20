@@ -20,6 +20,9 @@ QuestionSchema.statics = {
   },
   getAll(){
     return this.find().exec();
+  },
+  getQuestionsToUpdate(time){
+    return this.find({createdAt: {$gte: time}}).exec();
   }
 }
 

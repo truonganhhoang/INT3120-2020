@@ -22,6 +22,8 @@ const initRoutes = app => {
 
   router.post('/insertNewQuestion', controller.createNewQuestion);
 
+  router.post('/updateData', controller.updateData);
+
   return app.use('/', router);
 };
 

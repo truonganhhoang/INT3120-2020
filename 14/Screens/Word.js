@@ -36,9 +36,9 @@ const list = [
       subtitle: 'Time'
     },
     {
-        name: 'Công nghệ',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/1003/7610/products/Technological_vector_Wall_Mural_Wallpaper_a.jpg?v=1578614214',
-        subtitle: 'Technology'
+        name: 'Ăn uống',
+        avatar_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg',
+        subtitle: 'Food'
       },
       
   ]

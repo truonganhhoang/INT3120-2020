@@ -32,4 +32,15 @@ const getAllQuestions = () =>{
 const createNewQuestion = question => {
   Question.createNew(question);
 }
-export default {createWords, getAllWords, createNewWord, createQuestions, getAllQuestions, createNewQuestion}
+
+const getDataToUpdate = async time => {
+  const result = {
+    words: await Word.getWordsToUpdate(time),
+    questions: await Question.getQuestionsToUpdate(time)
+  }
+  return new Promise((resolve, reject) => {
+    resolve(result);
+  });
+}
+
+export default {createWords, getAllWords, createNewWord, createQuestions, getAllQuestions, createNewQuestion, getDataToUpdate}

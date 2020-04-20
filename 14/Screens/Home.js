@@ -5,6 +5,7 @@ import { Header } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import * as Permissions from 'expo-permissions';
 import db from '../data/SQLite';
+import host from '../Config/host';
 
 const list = [
     {
@@ -40,7 +41,7 @@ const list = [
     {
         title: 'Câu yêu thích',
         icon: 'star',
-        navigate: 'Exam'
+        navigate: 'FavoriteQuestion'
     },
     {
         title: 'Câu làm gần đây',
@@ -68,7 +69,7 @@ export default class Home extends React.Component{
         const existTabletWords = await (db.checkIfTableWordsExist());
         if (existTabletWords == false){
             console.log('home creates table Words')
-            const response = await fetch('http://192.168.0.104:3299/getAllWords') //local ipv4
+            const response = await fetch(`http://${host.hostname}:${host.port}/getAllWords`) //local ipv4
             const data = await response.json();
             //console.log(data.words.length);
             db.createTable(data.words);
@@ -76,7 +77,7 @@ export default class Home extends React.Component{
         const existTableQuestions = await (db.checkIfTablesQuestionExist());
         if (existTableQuestions == false){
             console.log('home creates tabe Question');
-            const responseQuestion = await fetch('http://192.168.0.104:3299/getAllQuestions') //local ipv4
+            const responseQuestion = await fetch(`http://${host.hostname}:${host.port}/getAllQuestions`) //local ipv4
             const dataQuestion = await responseQuestion.json();
             db.createQuestionTable(dataQuestion.questions);
         }

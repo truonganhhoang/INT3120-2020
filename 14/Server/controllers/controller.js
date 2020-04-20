@@ -44,4 +44,9 @@ const createNewQuestion = (req, res) => {
   res.redirect('/');
 }
 
-export default { insertwords, insertQuestions, getAllWords, getAllQuestions, createNewWord, createNewQuestion }
+const updateData = async (req, res) => {
+  const result = await service.getDataToUpdate(req.body.time);
+  res.json({result: result});
+}
+
+export default { insertwords, insertQuestions, getAllWords, getAllQuestions, createNewWord, createNewQuestion, updateData }
