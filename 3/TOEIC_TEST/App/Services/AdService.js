@@ -32,6 +32,6 @@ class AdService {
 
 export const adService = new AdService
 
-export const UNIT_ID_BANNER = 'ca-app-pub-3940256099942544/6300978111'
+export const UNIT_ID_BANNER = 'ca-app-pub-4274159613831487/5761386270'
 
 export const Banner = firebase.admob.Banner
