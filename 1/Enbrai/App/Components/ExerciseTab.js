@@ -6,7 +6,8 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ExerciseQuestion from './ExerciseQuestion';
 import ExerciseAnswer from './ExerciseAnswer';
 const ExerciseTab = props => {
-    console.log(props.navigation.getParam('level'))
+    //console.log(props.navigation.getParam('level'))
+    //console.log(props.navigation.getParam('data'))
   return (
     <View style={{flex: 1}}>
     <View style={{

@@ -8,6 +8,7 @@ import Exercise from './Exercise'
 import Account from './Account'
 import firebase from 'react-native-firebase'
 import SplashScreen from 'react-native-splash-screen'
+import SQLite from 'react-native-sqlite-storage';
 const Home = (props)=> {
     const [voice,setVoice] = useState(0);
     useEffect(()=>{
@@ -23,7 +24,7 @@ const Home = (props)=> {
                 console.log(error)
             }
         }
-        fetchVoice()
+        fetchVoice();
         return()=>{
             
         }
