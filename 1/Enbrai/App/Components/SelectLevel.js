@@ -11,33 +11,40 @@ import {
 import {withNavigation} from 'react-navigation';
 import {Button, Icon} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
-import {connectSQLite} from './ConnectData';
+import {connectSQLite,requestGET} from './ConnectData';
 import {EmptyFlatlist} from './EmtyFlatList';
+import firebase from 'react-native-firebase';
+import * as Animatable from 'react-native-animatable';
 const SelectLevel = props => {
-  const [data, setData] = useState([]);
+  const [dataResult, setDataResult] = useState([]);
+  const [data, setData] = useState(0);
   useEffect(() => {
-    const fetchData = async () => {
-      var db = await connectSQLite();
-      db.transaction(tx => {
-        tx.executeSql('select * from Levels', [], async (tx, res) => {
-          var results = res.rows;
-          const temp = [];
-          for (let i = 0; i < results.length; i++) {
-            var item = results.item(i);
-            temp.push({
-              id: item.id,
-              partId: item.partId,
-              questCount: item.questCount,
-              questCompleteCount: item.questCompleteCount,
-            });
-          }
-          setData(temp);
-        });
-      });
+    const fetchData = async()=>{
+     
+     
+      // const result = await requestGET(id);
+      // setData(result)
+      //console.log(result)
+    }
+    const fetchDataResult =() => {
+      var partId = props.navigation.getParam('id');
+      console.log(partId)
+      firebase.database().ref('DataResult').child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
+        var data=[];
+          snap.forEach((child)=>{
+            data.push(child.val())
+          })
+          //console.log(data)
+          setDataResult(data)
+      })
     };
-    fetchData();
+    fetchDataResult();
+    fetchData()
     return () => {};
-  }, []);
+  }, [props]);
+  const handlePress = (partId)=>{
+    props.navigation.navigate('SelectLevelScreen', {id: partId})
+  }
   return (
     <View style={{flex: 1}}>
       <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
@@ -64,12 +71,12 @@ const SelectLevel = props => {
       <View style={{flex: 9.2}}>
         <View style={{flex:1, height:'100%', marginTop:30}}>
           <FlatList
-            data={data}
+            data={dataResult}
             keyExtractor={(item, index) => index.toString()}
             ListEmptyComponent={EmptyFlatlist}
             renderItem={(item, index) => (
-              <TouchableOpacity
-                style={{
+              <Animatable.View
+              style={{
                   marginLeft:20,
                   marginRight:20,
                   marginBottom:15,
@@ -81,13 +88,17 @@ const SelectLevel = props => {
                   shadowColor: '#000',
                   shadowOffset: {
                     width: 0,
-                    height: 2,
+                    height: 3,
                   },
-                  shadowOpacity: 0.25,
-                  shadowRadius: 3.84,
+                  shadowOpacity: 0.5,
+                  shadowRadius: 8,
           
                   elevation: 5,
-                }}>
+                }}
+                animation = 'fadeInRight'
+                delay = {item.index*200}
+              >
+                <TouchableOpacity onPress={()=>{handlePress(item.item.id) }}>
                 <View style={{paddingLeft: 20}}>
                   <Text
                     style={{
@@ -119,12 +130,13 @@ const SelectLevel = props => {
                     alignItems:'center',
                     justifyContent:'center',
                   }}
-                  onPress={()=>{props.navigation.navigate('ExerciseTabScreen', {level: item.index+1})}}
+                  onPress={()=>{handlePress(item.item.id) }}
                   >
                   <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
                 </TouchableOpacity>
                 
               </TouchableOpacity>
+              </Animatable.View>
             )}
           />
         </View>
