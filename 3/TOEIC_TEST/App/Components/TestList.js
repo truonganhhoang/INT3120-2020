@@ -25,6 +25,7 @@ class TestList extends Component {
         super(props)
         this.state = {
             data: [],
+            darkMode:false,
         }
     }
     componentDidMount() {
@@ -49,7 +50,7 @@ class TestList extends Component {
             <View style={{
                 flex: 1,
                 width: Dimensions.get("window").width - 30,
-                backgroundColor: this.props.darkMode === false ? "#F5F5F5" : "#263238",
+                backgroundColor: this.state.darkMode === false ? "#F5F5F5" : "#263238",
                 marginVertical: 6,
                 marginHorizontal: 15,
                 elevation: 5,

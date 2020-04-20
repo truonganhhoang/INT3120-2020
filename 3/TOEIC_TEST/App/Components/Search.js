@@ -39,6 +39,7 @@ class SearchTab extends Component {
             input: '',
             data: [],
             dataSource: [],
+            darkMode:false,
         }
     }
     componentDidMount() {

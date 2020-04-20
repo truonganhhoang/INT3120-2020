@@ -21,8 +21,6 @@ import Mailer from 'react-native-mail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
 import { fcmService } from '../Services/FCMService'
-import { adService, Banner, UNIT_ID_BANNER } from '../Services/AdService'
-
 
 const SettingTab = (props) => {
     const [checked, setChecked] = useState(true)

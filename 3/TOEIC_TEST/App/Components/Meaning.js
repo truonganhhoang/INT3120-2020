@@ -31,7 +31,8 @@ class Meaning extends Component {
             dataSearch: [],
             word: '',
             meaning: '',
-            sound: ''
+            sound: '',
+            darkMode:false,
         }
     }
     componentDidMount() {

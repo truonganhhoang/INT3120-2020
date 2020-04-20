@@ -50,6 +50,7 @@ class TestBody extends Component {
             visibleModal: false,
             data3: [],
             id: '',
+            darkMode:false,
         }
     }
     componentDidMount() {
