@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
+import {  View, FlatList } from 'react-native';
+import { Header, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Question from '../components/Question';
 import db from './../data/SQLite';
+import styles from '../AppStyles/Exam';
 export default class Exam extends React.Component{
     constructor(props){
         super(props);
@@ -65,23 +66,3 @@ export default class Exam extends React.Component{
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1
-    },
-    view:{
-        backgroundColor:'#d2d6d9',
-        borderColor:'black',
-        borderBottomWidth:1,
-        paddingLeft:16,
-        paddingRight:16,
-        paddingTop:16
-    },
-    favorite:{
-        color:'yellow',
-        fontSize:25,
-        backgroundColor:'blue',
-        borderRadius:15,
-    }
-});

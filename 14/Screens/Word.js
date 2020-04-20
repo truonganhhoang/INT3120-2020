@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import {  View, FlatList } from 'react-native';
 import { ListItem, Header, ButtonGroup } from 'react-native-elements';
 import Words from '../components/Words';
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable';
+import styles from '../AppStyles/Word';
 
 const list = [
     {
@@ -135,19 +136,3 @@ export default class Word extends React.Component{
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex:1,
-      backgroundColor: '#d2d6d9',
-    },
-    flatlist:{
-        paddingLeft: 16,
-        paddingRight: 16
-    },
-    listitem:{
-        marginTop: 8,
-        marginBottom: 8
-    }
-});
-

@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
-import {Button} from 'react-native-paper';
-
+import { View, Text } from 'react-native';
+import { CheckBox, Icon } from 'react-native-elements';
+import styles from '../AppStyles/Question'
 
 export default class Question extends React.Component{
     
@@ -100,36 +99,3 @@ export default class Question extends React.Component{
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container:{
-        marginLeft:16,
-        marginRight:16,
-        paddingLeft:8,
-        paddingTop:8,
-        paddingBottom:8,
-        borderRadius:8,
-        borderColor: 'black',
-        borderWidth:1,
-        backgroundColor:'white',
-    },
-    item:{
-        marginTop:15,
-        color:'black'
-    },
-    Keycorrect:{
-        color:'green',
-        fontWeight:'bold',
-        textDecorationLine:'underline'
-    },
-    correct:{
-        marginRight:80,
-        color:'green'
-    },
-    notcorrect:{
-        marginRight:80,
-        color:'red'
-    },
-    
-    
-})

@@ -1,9 +1,10 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import { StyleSheet, Text, View, ScrollView, Button, InteractionManager } from 'react-native';
+import {  View, ScrollView } from 'react-native';
 import { Header } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import * as Permissions from 'expo-permissions';
+import styles from '../AppStyles/Home';
 import db from '../data/SQLite';
 import host from '../Config/host';
 
@@ -129,15 +130,3 @@ export default class Home extends React.Component{
     }
     
 }
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#d2d6d9',
-      alignItems: 'center',
-    },
-    scrollview:{
-      width: '100%',
-      paddingLeft:16,
-      paddingRight:16
-    },
-  });
