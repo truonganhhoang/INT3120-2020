@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View, ImageBackground, StyleSheet} from 'react-native';
+import {Text, View, ImageBackground } from 'react-native';
 import {NavigationActions} from 'react-navigation';
+import styles from '../AppStyles/DrawerContent';
 export default class DrawerContent extends React.Component{
 
     navigateToScreen = ( route ) =>(
@@ -39,19 +40,3 @@ export default class DrawerContent extends React.Component{
     )
   }
 }
-
-const styles = StyleSheet.create({
-    item:{
-        width:'100%',
-        height:30,
-        backgroundColor: '#a7b2c4',
-        paddingLeft:8,
-        paddingTop:4,
-        paddingBottom:4,
-        marginTop:4,
-        marginBottom:4
-    },
-    activeBackground:{
-        backgroundColor: '#e9edf5'
-    }
-});

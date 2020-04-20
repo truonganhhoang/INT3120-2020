@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements';
+import {  View, Text, ScrollView } from 'react-native';
+import {  Header, Icon } from 'react-native-elements';
 import DropDownItem from 'react-native-drop-down-item';
+import styles from '../AppStyles/EnglishApp';
 
 const IC_ARR_DOWN = require('../assets/images/down-arrow.png');
 const IC_ARR_UP = require('../assets/images/up-arrow.png');
@@ -66,33 +67,3 @@ export default class EnglishApp extends React.Component{
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#d2d6d9'
-    },
-    header: {
-      width: '100%',
-      paddingVertical: 8,
-      paddingHorizontal: 12,
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    dropDownItem:{
-      marginTop:16,
-      marginLeft:16,
-      marginRight:16,
-      
-    },
-    title:{
-      flexDirection:'row',
-      paddingLeft:16,
-      backgroundColor:'white',
-      paddingTop:16,
-      paddingBottom:16
-    }
-  });
