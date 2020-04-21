@@ -268,15 +268,16 @@ class _DictionaryResultState extends State<DictionaryResult> {
             ),
             child: Stack(
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: 50,
+                  width: double.infinity,
                 ),
                 ListView.builder(
                   itemCount: result.length,
                   itemBuilder: (context, index) {
                     if(result.length == 1){
                       if(index == 0) return Padding(
-                        padding: EdgeInsets.only(top: 50.0),
+                        padding: EdgeInsets.only(top: 30.0),
                         child: ListTile(
                           title: Text(result[index]),
                         ),
@@ -286,10 +287,13 @@ class _DictionaryResultState extends State<DictionaryResult> {
                     else{
                       if(index == 0){
                         return SizedBox(
-                          height: 50.0,
-                          child: ListTile(
-                            title: Text('${result[0]}', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600)),
-                          ),
+                          height: 80.0,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 30.0),
+                            child: ListTile(
+                              title: Text('${result[0]}', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600)),
+                            ),
+                          )
                         );
                       }
                       else{
