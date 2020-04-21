@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import {baseApp} from '../FirebaseConfig.js';
+import {Button} from 'native-base';
 
-export default class Screen3 extends Component {
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+class Screen3 extends Component {
   constructor(props) {
     super();
     this.rootRef = baseApp.database();
@@ -18,10 +21,23 @@ export default class Screen3 extends Component {
       .once('value')
       .then(data => {
         var name = data.val();
+        for (var i in name) {
+          var key = i;
+          var value = name[i];
+          for (var j in value) {
+
+				}
+        }
         this.setState({
-          doan1: name['TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?'].doan_1,
-          doan2: name['TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?'].doan_2,
-          doan3: name['TẦNGKHÍ QUYỂN DÀY BAO NHIÊU?'].doan_3,
+          doan1:
+            name['KHÔNGKHÍ BAO QUANH TRÁI ĐẤT ĐƯỢC HÌNH THÀNH NHƯ THẾ NÀO?']
+              .doan_1,
+          doan2:
+            name['KHÔNGKHÍ BAO QUANH TRÁI ĐẤT ĐƯỢC HÌNH THÀNH NHƯ THẾ NÀO?']
+              .doan_2,
+          doan3:
+            name['KHÔNGKHÍ BAO QUANH TRÁI ĐẤT ĐƯỢC HÌNH THÀNH NHƯ THẾ NÀO?']
+              .doan_3,
         });
       });
   }
@@ -37,7 +53,7 @@ export default class Screen3 extends Component {
               fontWeight: 'bold',
               textAlign: 'center',
             }}>
-            TẦNG KHÍ QUYỂN DÀY BAO NHIÊU?
+            KHÔNG KHÍ BAO QUANH TRÁI ĐẤT ĐƯỢC HÌNH THÀNH NHƯ THẾ NÀO?
           </Text>
           <View
             style={{
@@ -58,9 +74,43 @@ export default class Screen3 extends Component {
           </Text>
         </ScrollView>
       </SafeAreaView>
-    );
+
+		);
   }
   componentDidMount() {
     this.data(this.rootRef);
   }
 }
+
+TTest = ({navigation, route}) => (
+  <View>
+    <Button
+      rounded
+      transparent
+      onPress={() => navigation.goBack()}
+      style={{
+        width: '10%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 5,
+      }}>
+      <Icon name="keyboard-backspace" size={25} color={'white'} />
+    </Button>
+    <Button
+      rounded
+      transparent
+      style={{
+        width: '10%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 5,
+      }}>
+      <Icon name="home" size={25} color={'white'} />
+    </Button>
+    <View style={{color: 'red'}}>
+      <Screen3 />
+    </View>
+  </View>;
+);
+
+export default TTest;
