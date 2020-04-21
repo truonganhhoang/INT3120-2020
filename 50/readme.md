@@ -39,4 +39,4 @@ Link ứng dụng: [https://play.google.com/store/apps/details?id=com.ffff.tudie
 - Tuần 6: Hoàn thiện sản phẩm, refactor code.
           Kết nối với backend để thực hiện tìm kiếm online và dịch văn bản dài, thêm trang yêu thích
 ### Link repo nhóm: [https://github.com/balanced-team/envidict](https://github.com/balanced-team/envidict)
-### Link APK hiện tại: [tại đây](https://drive.google.com/file/d/1FHxKGCErgsk9_EJXO-0-vCeCLjKyqfYU/view?usp=sharing)
+### Link APK hiện tại: [tại đây](https://drive.google.com/file/d/1eDJ2i7bzP9xdmRyfxlNYgShPK2YiNSDC/view?usp=sharing)
