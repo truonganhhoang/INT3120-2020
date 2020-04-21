@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native';
 
 const StarButton = (props: { navigation?: any }) => {
   const { navigation } = props;
@@ -7,12 +8,16 @@ const StarButton = (props: { navigation?: any }) => {
     navigation.navigate('FavoriteScreen');
   }
   return (
-    <Icon
-      name="star"
-      type='font-awesome'
-      color='white'
+    <TouchableOpacity
       onPress={onPress}
-    />
+    >
+      <Icon
+        name="star"
+        type='font-awesome'
+        color='white'
+
+      />
+    </TouchableOpacity>
   )
 }
 

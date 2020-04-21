@@ -1,7 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
+=======
+import { Text, TouchableHighlight, View, TouchableOpacity } from 'react-native';
+>>>>>>> dc53f8409b520b6d01dc31df74be5130da7d3646
 import { Card, Icon } from 'react-native-elements';
-import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 import styles from './style';
 const topic_details = require('../../../../data/topic_detail.json');
 const CardExtend = (props: {
@@ -34,12 +37,6 @@ const CardExtend = (props: {
           <View style={styles.text}>
             <Text style={styles.nameCard}>{topic_name}</Text>
             <Text style={styles.vi}>{vn_meaning}</Text>
-            <ProgressBarAndroid
-              styleAttr="Horizontal"
-              indeterminate={false}
-              progress={0.5}
-              color='#ff5e00'
-            />
           </View>
         </View>
       </Card>

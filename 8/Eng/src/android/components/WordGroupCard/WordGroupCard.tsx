@@ -6,7 +6,7 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { Text, View, Dimensions, Image } from 'react-native';
-import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
+
 
 const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any }) => {
   const { data, topic_name } = props;
@@ -29,16 +29,13 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
   };
 
   const goPracticeTest = () => {
-    navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName:  data.wordGroupName}); 
+    navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName: data.wordGroupName });
   }
- 
+
   return (
     <View style={styles.containers}>
       <View style={styles.viewCard}>
-        <Card
-          containerStyle={styles.container}
-        >
-
+        <Card containerStyle={styles.card}>
           <View style={styles.viewImg}>
             <IconAntDeisign
               name={colorStar}
@@ -53,18 +50,12 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
             />
           </View>
 
-          <View style={{ alignItems: 'center' }}>
-            <ProgressBarAndroid
-              styleAttr="Horizontal"
-              indeterminate={false}
-              progress={0.5}
-              color='#ff5e00'
-            />
+          <View style={{ alignItems: 'center', top: 15 }}>
           </View>
-          <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 24,marginTop:30 }}>
             {data.wordGroupName}
           </Text>
-          <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00' }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00',fontSize:18 }}>
             {data.vn_meaning}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
