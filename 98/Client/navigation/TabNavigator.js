@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import Question from './navigator/Question';
 import Home from './navigator/Home';
 import TFS from './navigator/TFS';
+import VideoHD from './navigator/VideoHD';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,8 +34,8 @@ export default function TabNavigator() {
           title: 'Biển báo ',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-warning" />,
         }}
-      />
-       <Tab.Screen name="Setting" component={Question}
+          />
+          <Tab.Screen name="Setting" component={VideoHD}
         options={{
           title: 'Cài đặt',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,

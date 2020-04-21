@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
     "\\assets\\images",
-    "\\assets\\images\\home",
+    "\\components",
     "\\components\\Home",
     "\\components\\TFS",
-    "\\screens"
+    "\\navigation",
+    "\\navigation\\navigator",
+    "\\screens",
+    "\\screens\\VideoHD"
   ],
-  "SelectedNode": "\\components",
+  "SelectedNode": "\\app.json",
   "PreviewInSolutionExplorer": false
 }
