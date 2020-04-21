@@ -12,8 +12,8 @@
 - Nội dung bài tập: clone lại app "Thi thử bằn lái xe a1" https://play.google.com/store/apps/details?id=team.kiti.gplx
 - Công nghệ được sử dụng:
   Nhóm em chia ra làm 2 công nghệ sử dụng, để vừa trao đổi vừa học tập thêm với nhau
-    _ React Native + Firebase
-    _ Java/Android
+    - React Native + Firebase
+    - Java/Android
 
 ## [APK]
 
