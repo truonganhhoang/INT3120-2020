@@ -1,9 +1,10 @@
 import React from 'react';
-import {  View, FlatList } from 'react-native';
+import {  View, FlatList, TouchableOpacity } from 'react-native';
 import { ListItem, Header, ButtonGroup } from 'react-native-elements';
 import Words from '../components/Words';
 import * as Animatable from 'react-native-animatable';
 import styles from '../AppStyles/Word';
+import PickColor from '../Config/Color'
 
 const list = [
     {
@@ -75,7 +76,7 @@ export default class Word extends React.Component{
     renderSelectedCaterory = selectedIndex => {
       if (selectedIndex == 0){
         return (<FlatList
-          style={styles.flatlist}
+          style={styles().flatlist}
           keyExtractor={this.keyExtractor}
           data={list}
           renderItem={this.renderItem}
@@ -102,7 +103,10 @@ export default class Word extends React.Component{
             onPress = {() => this._onPress(item)}
             title={item.name}
             subtitle={item.subtitle}
+            subtitleStyle={styles().textColor}
             leftAvatar={{ source: { uri: item.avatar_url } }}
+            titleStyle={styles().textColor}
+            containerStyle={styles().listItemContainer}
             bottomDivider
             chevron
         />
@@ -113,23 +117,22 @@ export default class Word extends React.Component{
         const {navigate,state} = this.props.navigation;
         const buttons = ['Từ vựng', 'Từ yêu thích', 'Từ nhắc nhở']
         const { selectedIndex } = this.state
+        const color = PickColor(global.darkmode);
         return(
-            <View style={styles.container}>
+            <View style={styles().container}>
                 <Header
                     leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Danh mục', style: { color: '#fff' } }}
+                    backgroundColor={color.headerColor}
                 />
                 <ButtonGroup
                   onPress={this.updateIndex}
                   selectedIndex={selectedIndex}
                   buttons={buttons}
-                  selectedButtonStyle={{
-                    shadowColor: "#000000",
-                    shadowOpacity: 0.8,
-                    shadowOffset: {
-                    height: 1,
-                    width: 1
-                  }}}
+                  selectedButtonStyle={styles().selectedButton}
+                  buttonStyle={styles().button}
+                  containerStyle={{backgroundColor: color.cardColor, borderRadius: 5}}
+                  innerBorderStyle={{color: color.cardColor}}
                 />
                 {this.renderSelectedCaterory(selectedIndex)}
             </View>

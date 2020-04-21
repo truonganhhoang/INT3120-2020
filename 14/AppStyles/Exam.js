@@ -1,22 +1,21 @@
 import { StyleSheet } from 'react-native';
+import PickColor from '../Config/Color'
 
-const styles = StyleSheet.create({
-  container:{
-      flex:1
-  },
-  view:{
-      backgroundColor:'#d2d6d9',
-      borderColor:'black',
-      borderBottomWidth:1,
-      paddingLeft:16,
-      paddingRight:16,
-      paddingTop:16
-  },
-  favorite:{
-      color:'yellow',
-      fontSize:25,
-      backgroundColor:'blue',
-      borderRadius:15,
-  }
-});
+const styles = () => {
+    const color = PickColor(global.darkmode);
+    return StyleSheet.create({
+        container:{
+            flex:1,
+            backgroundColor: color.containerColor
+        },
+        view:{
+            backgroundColor: color.containerColor,
+            borderColor: color.textColor, //darkmode sẽ màu trắng, bình thường là màu đen
+            borderBottomWidth:1,
+            paddingLeft:16,
+            paddingRight:16,
+            paddingTop:16
+        }
+      });
+}
 export default styles;

@@ -162,40 +162,59 @@ const checkIfTablesQuestionExist= () => {
   })
 }
 
-// UPDATE TABLE
-const createUpdateTable = () => {
+// SETTINGS TABLE
+const createSettingsTable = () => {
   db.transaction(tx => {
     tx.executeSql(
-      "create table if not exists UpdateInfo(time real);",
+      "create table if not exists Settings(updatedTime real, darkmode boolean);",
       [],
       (_) => {
-        _.executeSql(`insert into UpdateInfo (time) values (${Date.now()})`)
+        console.log(`created settings table`)
+        _.executeSql(`insert into Settings (updatedTime, darkmode) values (${Date.now()}, 0)`)
       });
   }, (err)=>{console.log(err)});
 } 
 
 const updateTime = time => {
   db.transaction(tx => {
-    tx.executeSql(`update UpdateInfo set time = ?`, [time])
+    tx.executeSql(`update Settings set updatedTime = ?`, [time])
   }, (err)=> {console.log(err)});
 }
 
-const getLatestUpdateTime = () => {
+const getLatestUpdatedTime = () => {
   return new Promise((resolve, reject) => {
     db.transaction(tx => {
-      tx.executeSql("select time from UpdateInfo",
+      tx.executeSql("select updatedTime from Settings",
       [],
       (_, { rows }) =>
-        {resolve(rows._array[0].time);}
+        {resolve(rows._array[0].updatedTime);}
       );  
     }, (err) => {reject(err)});
   })
 }
 
-const checkIfUpdateTableExist = () => {
+const getCurrentMode = app => {
+  db.transaction(tx => {
+    tx.executeSql("select darkmode from Settings",
+    [],
+    (_, { rows }) => {
+      global.darkmode = rows._array[0].darkmode==1? true : false;
+      app.setState({loading: false, isEnabledDarkmode: global.darkmode});
+    });  
+  }, (err) => {reject(err)});
+}
+
+const changeMode = (value) => {
+  db.transaction(tx => {
+    tx.executeSql(`update Settings set darkmode = ?`, [value])
+  }, (err)=> {console.log(err)});
+}
+
+
+const checkIfSettingsTableExist = () => {
   return new Promise((resolve, reject) => {
     db.transaction(tx => {
-      tx.executeSql(`SELECT name FROM sqlite_master WHERE name ='UpdateInfo' and type='table'`,
+      tx.executeSql(`SELECT name FROM sqlite_master WHERE name ='Settings' and type='table'`,
       [],
       (_, result) => {
         if (result.rows.length > 0){
@@ -210,7 +229,7 @@ const checkIfUpdateTableExist = () => {
 
 const dropUpdateTable = () => {
   db.transaction(tx => {
-    tx.executeSql("drop table UpdateInfo", [], ()=>{console.log('dropped table UpdateInfo')});
+    tx.executeSql("drop table Settings", [], ()=>{console.log('dropped table Settings')});
   }, (err)=> console.log(err));
 }
 
@@ -234,10 +253,12 @@ export default{
   getFavoriteQuestion: getFavoriteQuestion,
   updateFavoriteQuestion:updateFavoriteQuestion,
 
-  // UPDATE TABLE
-  createUpdateTable: createUpdateTable,
+  // SETTING TABLE
+  createSettingsTable: createSettingsTable,
   updateTime: updateTime,
-  getLatestUpdateTime: getLatestUpdateTime,
-  checkIfUpdateTableExist: checkIfUpdateTableExist,
+  getLatestUpdatedTime: getLatestUpdatedTime,
+  checkIfSettingsTableExist: checkIfSettingsTableExist,
+  getCurrentMode: getCurrentMode,
+  changeMode: changeMode,
   dropUpdateTable: dropUpdateTable,
 }
