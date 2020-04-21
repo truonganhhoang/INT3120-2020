@@ -1,10 +1,23 @@
 # INT3120-2020
 Môn học Phát triển ứng dụng di động 2020
 
-# Chú ý
-Mỗi nhóm tạo 1 thư mục với số của nhóm để đưa code của nhóm vào trong thư mục đó. Các thư mục này PHẢI CÓ readme.md mô tả các thông tin về app.
+Bài tập của nhóm 11
+Thông tin
 
-# Nộp bài hàng tuần
-Các nhóm nộp bài hàng tuần bằng cách tạo 1 pull request nộp bài chung cho cả nhóm. Có nghĩa các thành viên sẽ đóng góp thông qua repo của 1 người forked ra từ repo này. 
+Môn học: Phát triển ứng dụng di động
 
-Mọi thành viên tự commit code của mình, không commit hộ, để thống kê trên github thể hiện được đóng góp của từng cá nhân.
+Lớp: INT3120 4, học kỳ 2, năm học 2019-2020
+
+Giảng viên: PGS.TS Trương Anh Hoàng
+
+Thành viên trong nhóm 11:
+- Hoàng Việt Hùng
+- Mai Thế Đại
+- Đặng Thị Duyên
+
+APP clone: https://play.google.com/store/apps/details?id=com.duolingo&hl=vi
+
+Mô tả ứng dụng: 
+Giúp người dùng học tiếng anh thông qua các từ ngữ, ngữ pháp được chia theo từng nội dung học.
+
+link APK: https://drive.google.com/drive/folders/1HZpA0pUEVz2HJrNfZJDqtVbD8YzT1LWU?usp=sharing
