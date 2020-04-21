@@ -125,6 +125,8 @@ class QuizState extends State<Quiz> {
             children: <Widget>[
               //button1
               new MaterialButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(50.0)),
                 minWidth: 120.0,
                 color: btncolor["a"],
                 child: new Text(mydata[1][questionNumber.toString()]["a"],
@@ -152,6 +154,8 @@ class QuizState extends State<Quiz> {
               ),
               //button 2
               new MaterialButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(50.0)),
                 minWidth: 120.0,
                 color: btncolor["b"],
                 child: new Text(mydata[1][questionNumber.toString()]["b"],
@@ -190,6 +194,8 @@ class QuizState extends State<Quiz> {
             children: <Widget>[
               //button3
               new MaterialButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(50.0)),
                 minWidth: 120.0,
                 color: btncolor["c"],
                 child: new Text(mydata[1][questionNumber.toString()]["c"],
@@ -211,7 +217,7 @@ class QuizState extends State<Quiz> {
                     btncolor["c"] = Colors.redAccent;
                     }                        
                   });
-                  Future.delayed(const Duration(milliseconds: 1500), (){
+                  Future.delayed(const Duration(milliseconds: 300), (){
                     updateQuestion();
                   });
                   // updateQuestion();
@@ -219,6 +225,8 @@ class QuizState extends State<Quiz> {
               ),
               //button 4
               new MaterialButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(50.0)),
                 minWidth: 120.0,
                 color: btncolor["d"],
                 child: new Text(mydata[1][questionNumber.toString()]["d"],
