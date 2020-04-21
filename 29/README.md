@@ -1,8 +1,8 @@
-Nhóm 29: Ứng dụng Công thức Toán Free
-Thành viên: 
-    Nguyễn Minh Nghĩa
-    Nguyễn Tuấn Ngọc
-    Bùi Thị Kiều Trinh
+*Nhóm 29: Ứng dụng Công thức Toán Free
+*Thành viên: 
+    - Nguyễn Minh Nghĩa
+    - Nguyễn Tuấn Ngọc
+    - Bùi Thị Kiều Trinh
 *Tính năng ứng dụng
 - Tra cứu công thức toán 
 - Chuyển đổi đơn vị
