@@ -6,7 +6,7 @@ class SliderHome extends Component {
         return (
             <View style={localStyles.slider}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                <Image style={localStyles.img} source={require('../../img/01.jpg')} />
+                <Image style={localStyles.img} source={require('../../img/01.jpg')}/>
                 <Image style={localStyles.img} source={require('../../img/02.jpg')}/>
                 <Image style={localStyles.img} source={require('../../img/03.jpg')}/>
                 {/* <Image source={require('../../img/04.jpg')} /> */}
