@@ -5,8 +5,8 @@ import {Image} from 'react-native'
 function LogoTitle() {
     return (
       <Image
-        style={{ width: 50, height: 50 }}
-        source={require('../assets/uet-logo.png')}
+        style={{ width: 75, height: 75 }}
+        source={require('../assets/logo.png')}
       />
     );
 }
