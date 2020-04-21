@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 import styles from './style';
@@ -16,7 +16,7 @@ const CardExtend = (props: {
     });
   }
   return (
-    <TouchableHighlight onPress={() => { onPress() }}>
+    <TouchableOpacity onPress={() => { onPress() }}>
       <Card
         title={topic_name}
         image={{ uri: img_top }}
@@ -43,7 +43,7 @@ const CardExtend = (props: {
           </View>
         </View>
       </Card>
-    </TouchableHighlight>
+    </TouchableOpacity>
 
   );
 }

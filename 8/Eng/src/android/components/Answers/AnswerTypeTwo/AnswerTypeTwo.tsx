@@ -17,6 +17,7 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any }) => {
       // console.log(snapshot); 
       if (snapshot.val().text == selected) {
         console.log("True"); 
+        console.log(snapshot); 
       } else {
         console.log("False"); 
       }

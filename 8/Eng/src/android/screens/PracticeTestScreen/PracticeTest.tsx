@@ -23,7 +23,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   const [contentOfQuestion, setContentOfQ] = useState({type: ''}); 
   const [contentOfAnswer, setContentOfA] = useState({type: ''}); 
 
-  let questionNumber = 0; 
+  let questionNumber = 15; 
   
   useEffect(() => {
     setAmountOfQ(0); 
@@ -77,11 +77,11 @@ const Practice = (props: {route?: any; navigation?: any}) => {
           ContentQuestion = <QuestionTypeTwo content={contentOfQuestion}/>
         }
         else if (contentOfQuestion.type == '3') {
-          ContentQuestion = <QuestionTypeThree />
+          ContentQuestion = <QuestionTypeThree content={contentOfQuestion}/>
         }
         else if (contentOfQuestion.type == '4') {
-          ContentQuestion = <QuestionTypeFour />
-        }
+          ContentQuestion = <QuestionTypeFour content={contentOfQuestion}/>
+        } 
       } else {
         ContentQuestion = (<View>
           <Text>Waiting data ...</Text>
@@ -100,10 +100,10 @@ const Practice = (props: {route?: any; navigation?: any}) => {
           ContentAnswer = <AnswerTypeTwo content={contentOfAnswer} lessonInfo={lessonInfo}/>
         }
         else if (contentOfAnswer.type == '3') {
-          ContentAnswer = <AnswerTypeThree />
+          ContentAnswer = <AnswerTypeThree content={contentOfAnswer} lessonInfo={lessonInfo}/>
         }
         else if (contentOfAnswer.type == '4') {
-          ContentAnswer = <AnswerTypeFour />
+          ContentAnswer = <AnswerTypeFour content={contentOfAnswer} lessonInfo={lessonInfo}/>
         }
       } else {
         ContentAnswer = (<View>
