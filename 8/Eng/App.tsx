@@ -9,7 +9,6 @@
  */
 
 import * as React from 'react';
-
 import { MyApp } from './src/android/navigation'; 
 import firebase from 'firebase'; 
 
@@ -28,6 +27,7 @@ const App = () => {
   if (!firebase.apps.length){
     firebase.initializeApp(firebaseConfig); 
   }
+  
   return (
     <MyApp />
   )

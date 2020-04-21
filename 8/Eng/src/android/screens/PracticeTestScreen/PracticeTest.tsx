@@ -23,7 +23,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   const [contentOfQuestion, setContentOfQ] = useState({type: ''}); 
   const [contentOfAnswer, setContentOfA] = useState({type: ''}); 
 
-  let questionNumber = 15; 
+  let questionNumber = 0; 
   
   useEffect(() => {
     setAmountOfQ(0); 
@@ -33,7 +33,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   useEffect(() => {
     if (amountOfQuestion > 0) {
       const database = firebase.database(); 
-      // questionNumber = random(0, amountOfQuestion-1); 
+      questionNumber = random(0, 19); 
       // console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
       // console.log(questionNumber)
       // console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')

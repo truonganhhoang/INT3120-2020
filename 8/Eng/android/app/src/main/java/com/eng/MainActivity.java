@@ -1,7 +1,7 @@
 package com.eng;
 
 import com.facebook.react.ReactActivity;
-// import com.reactnativecommunity.androidprogressbar.RNCAndroidprogressbarPackage;
+
 public class MainActivity extends ReactActivity {
 
   /**

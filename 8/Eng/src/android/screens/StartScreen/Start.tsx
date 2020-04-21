@@ -29,10 +29,12 @@ const StartScreen = (props: { navigation: any }) => {
   }
   else {
     const topics: any = [];
-    Object.keys(data).forEach((item, index) => {
-      topics.push(data[item]);
-      topics[index].topic_Name = item
-    });
+    let index = 0; 
+    for (let [key, value] of Object.entries(data)) {
+      topics.push(value); 
+      topics[index++].topic_Name = key
+    }
+    
     return (
       <View style={styles.container}>
         <Header

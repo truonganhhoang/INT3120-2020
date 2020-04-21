@@ -42,6 +42,7 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       data.push(lessons[item])
       data[index].wordGroupName = item
     })
+    
     return (
       <View style={styles.containers}>
         <Header containerStyle={styles.container}

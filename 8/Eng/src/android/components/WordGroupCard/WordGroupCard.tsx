@@ -10,7 +10,7 @@ import { Text, View, Dimensions, Image } from 'react-native';
 
 const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any }) => {
   const { data, topic_name } = props;
-  console.log(topic_name);
+  // console.log(topic_name);
   const { navigation } = props;
   const [colorStar, setColorStar] = useState("staro");
   const changeStar = () => {
@@ -22,10 +22,10 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
     }
   };
   const onPress = () => {
-    navigation.navigate('DetailWordGroupScreen', { data: data });
+    navigation.navigate('DetailWordGroupScreen', { topicName: topic_name, lessonName: data.wordGroupName });
   }
   const onFlipCard = () => {
-    navigation.navigate('FlipCardWord', { data: data.wordGroupName, topic_name: topic_name });
+    navigation.navigate('FlipCardWord', { topicName: topic_name, lessonName: data.wordGroupName });
   };
 
   const goPracticeTest = () => {

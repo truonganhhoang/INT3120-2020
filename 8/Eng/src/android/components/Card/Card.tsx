@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
-=======
 import { Text, TouchableHighlight, View, TouchableOpacity } from 'react-native';
->>>>>>> dc53f8409b520b6d01dc31df74be5130da7d3646
 import { Card, Icon } from 'react-native-elements';
 import styles from './style';
 const topic_details = require('../../../../data/topic_detail.json');
