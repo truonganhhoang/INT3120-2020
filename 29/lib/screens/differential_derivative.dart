@@ -17,7 +17,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Chương 1",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -35,7 +35,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Chương 2",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -53,7 +53,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Chương 3",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -71,7 +71,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Chương 4",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -89,7 +89,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Chương 5",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -107,7 +107,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -125,7 +125,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -143,7 +143,7 @@ class differential_derivative extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),

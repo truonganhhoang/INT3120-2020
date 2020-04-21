@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class oxyz_geometry extends StatelessWidget {
+class analytic_geometry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hình học không gian"),
+        title: Text("Hình học giải tích"),
       ),
       body: Center(
         child: ListView(
@@ -17,7 +17,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "Đang chờ data",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -35,7 +35,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -53,7 +53,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -71,7 +71,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -89,7 +89,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -107,7 +107,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -125,7 +125,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -143,7 +143,7 @@ class oxyz_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Đại Số",
+                    "",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),

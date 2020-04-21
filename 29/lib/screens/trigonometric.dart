@@ -7,7 +7,7 @@ class trigonometric extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Đạo hàm vi phân"),
+        title: Text("Lượng giác"),
       ),
       body: Center(
         child: ListView(

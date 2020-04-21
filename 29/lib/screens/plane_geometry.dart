@@ -7,7 +7,7 @@ class plane_geometry extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hình học phẳng"),
+        title: Text("Hình học"),
       ),
       body: Center(
         child: ListView(
@@ -17,7 +17,7 @@ class plane_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "Chương 1",
+                    "Hình học phẳng",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
@@ -35,7 +35,7 @@ class plane_geometry extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Text(
-                    "2.",
+                    "Hình học không gian",
                     style: TextStyle(fontSize: 25.0),
                     overflow: TextOverflow.fade,
                   ),
