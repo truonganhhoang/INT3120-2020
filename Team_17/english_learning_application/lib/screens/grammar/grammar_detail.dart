@@ -47,8 +47,12 @@ class _GrammarDetailState extends State<GrammarDetail> {
                       itemBuilder: (context, index) {
                         return Card(
                           child: ListTile(
-                            title: Text(snapshot.data.documents[index]['title']),
-                            subtitle: Text(snapshot.data.documents[index]['subtitle']),
+                            title: Text(snapshot.data.documents[index]['title'],
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(snapshot.data.documents[index]['subtitle'],
+                              overflow: TextOverflow.ellipsis,
+                            ),
                             trailing: Icon(Icons.arrow_forward_ios),
                             onTap: () {
                               Navigator.push(
