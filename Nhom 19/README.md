@@ -14,3 +14,5 @@ Link app tham khảo: <br/>
 https://drive.google.com/drive/folders/1zIaOPmglD1Hiy-By_sSzAbf97HbdDqcF?fbclid=IwAR0GTQ4FlXyp4A7kndPRKaZPdiaae37vunp2EhZpqi3Z-oh129EJO9zVfCE
 Hướng dẫn cài đặt apk. <br/>
 Kéo thả file apk vào emulator , file tự động cài <br/>
+![My image](https://github.com/truongshinigami/INT3120-2020/blob/master/Nhom%2019/tutorial/images/guide1.png) 
+![My image](https://github.com/truongshinigami/INT3120-2020/blob/master/Nhom%2019/tutorial/images/guide2.png)
