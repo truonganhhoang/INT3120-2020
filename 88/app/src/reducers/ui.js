@@ -1,8 +1,8 @@
-import { CHANGE_NAV_ICON } from '../constants/actionTypes';
+import {CHANGE_NAV_ICON} from '../constants/actionTypes';
 
 const initialState = {
-  isArrow: false
-}
+  isArrow: false,
+};
 
 /**
  * Manage UI state
@@ -14,7 +14,7 @@ const UIReducer = (state = initialState, action) => {
     case CHANGE_NAV_ICON:
       return {
         ...state,
-        isArrow: action.payload
+        isArrow: action.payload,
       };
     default:
       return state;
@@ -22,3 +22,4 @@ const UIReducer = (state = initialState, action) => {
 };
 
 export default UIReducer;
+

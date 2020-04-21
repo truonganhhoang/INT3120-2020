@@ -10,79 +10,106 @@ const learnList = [
     iconName: 'search',
     title: 'Overview',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 6,
   },
   {
-    iconName: 'search',
+    iconName: 'book-open',
     title: 'Basic Concepts',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 8,
   },
   {
-    iconName: 'search',
+    iconName: 'refresh-cw',
     title: 'Conditionals and Loop',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 8,
   },
   {
-    iconName: 'search',
+    iconName: 'settings',
     title: 'Functions',
     headStack: false,
-    lessonsTotal: 7,
+    lessonsTotal: 5,
   },
   {
-    iconName: 'search',
+    iconName: 'box',
     title: 'Objects',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 4,
   },
   {
-    iconName: 'search',
+    iconName: 'cpu',
     title: 'Core Objects',
     headStack: false,
-    lessonsTotal: 7,
+    lessonsTotal: 6,
   },
   {
-    iconName: 'search',
+    iconName: 'server',
     title: 'DOM & Events',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 9,
   },
   {
-    iconName: 'search',
+    iconName: 'hash',
     title: 'ECMAScript 6',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 9,
   },
   {
-    iconName: 'search',
+    iconName: 'check-square',
     title: 'Certificate',
     headStack: true,
-    lessonsTotal: 7,
+    lessonsTotal: 0,
   },
 ];
 
 const LearnItem = (props) => {
-  const {iconName, title, progressUp, progressDown} = props;
+  const {iconName, title, progressUp, progressDown, status} = props;
   return (
     <PlatformTouchable
-      style={styles.itemContainer}
+      style={[styles.itemContainer]}
       rippleColor="rgba(0, 0, 0, .03)"
       rippleOverflow>
-      <View style={styles.iconContainer}>
-        <Icon name={iconName} style={styles.icon} />
+      <View
+        style={[
+          styles.iconContainer,
+          status === 'learned'
+            ? styles.doneIconContainer
+            : status === 'learning'
+            ? styles.learningIconContainer
+            : styles.notDoneIconContainer,
+        ]}>
+        <Icon
+          name={iconName}
+          style={
+            status === 'learned' || status === 'learning'
+              ? styles.icon
+              : styles.notDoneIcon
+          }
+        />
       </View>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.progressContainer}>
-        <Text style={styles.progressNumber}>
-          {progressUp + '/' + progressDown}
-        </Text>
-        <View style={styles.progressBar}>
+      {status === 'learned' || progressDown === 0 ? (
+        <View style={styles.hiddenProgressContainer} />
+      ) : (
+        <View style={styles.progressContainer}>
+          <Text style={styles.progressNumber}>
+            {progressUp + '/' + progressDown}
+          </Text>
           <View
-            style={[styles.progressFill, {flexGrow: progressUp / progressDown}]}
-          />
+            style={
+              status === 'learned' || status === 'learning'
+                ? styles.progressBar
+                : styles.hiddenProgressBar
+            }>
+            <View
+              style={[
+                styles.progressFill,
+                {flexGrow: progressUp / progressDown},
+              ]}
+            />
+          </View>
         </View>
-      </View>
+      )}
     </PlatformTouchable>
   );
 };
@@ -90,7 +117,8 @@ const LearnItem = (props) => {
 const LearnTab = () => {
   const tempNode = [];
   let k = 0,
-    space = false;
+    space = false,
+    learn = false;
   const renderedList = learnList.reduce((newArray, current, index) => {
     const {iconName, title, lessonsTotal} = current;
     if (tempNode && current.headStack) {
@@ -107,13 +135,21 @@ const LearnTab = () => {
       space = tempNode.length > 1;
       tempNode.length = 0;
     }
+    let status = '';
+    if (title === currentLesson) {
+      status = 'learning';
+      learn = true;
+    } else if (!learn) {
+      status = 'learned';
+    }
     tempNode.push(
       <LearnItem
         key={k++}
         iconName={iconName}
         title={title}
-        progressUp={currentLe}
+        progressUp={status === 'learning' ? currentLe : 0}
         progressDown={lessonsTotal}
+        status={status}
       />,
     );
     return newArray;
@@ -166,10 +202,23 @@ const styles = StyleSheet.create({
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#00bcd4',
     width: 73,
     height: 73,
     borderRadius: 50,
+  },
+  doneIconContainer: {
+    backgroundColor: '#8bc34a',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  learningIconContainer: {
+    backgroundColor: '#00bcd4',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -179,9 +228,24 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 6,
   },
+  notDoneIconContainer: {
+    backgroundColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
   icon: {
     fontSize: 30,
     color: '#fff',
+  },
+  notDoneIcon: {
+    fontSize: 30,
+    color: '#9e9e9e',
   },
   title: {
     textAlign: 'center',
@@ -193,6 +257,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  hiddenProgressContainer: {
+    height: 15,
+  },
   progressNumber: {
     fontSize: 11,
     color: '#757575',
@@ -203,6 +270,9 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     height: 4,
     backgroundColor: '#e0e0e0',
+  },
+  hiddenProgressBar: {
+    display: 'none',
   },
   progressFill: {
     backgroundColor: '#00bcd4',

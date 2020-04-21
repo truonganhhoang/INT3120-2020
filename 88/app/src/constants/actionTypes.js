@@ -17,3 +17,8 @@ export const CHANGE_HEADER = 'CHANGE_HEADER';
  * @constant {ActionType} GO_TO_PAGE - go to another feature of the app
  */
 export const GO_TO_PAGE = 'GO_TO_PAGE';
+
+/**
+ * @constant {ActionType} CHANGE_HOME_TAB - change home tab view to learn or play
+ */
+export const CHANGE_HOME_TAB = 'CHANGE_HOME_TAB';

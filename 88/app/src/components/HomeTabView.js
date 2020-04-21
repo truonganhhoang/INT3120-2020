@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Dimensions, ScrollView, Text} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
+import {useSelector, useDispatch} from 'react-redux';
 
 import LearnTab from './HomeLearnTab';
+import {changeTab} from '../actions/home';
 
 const renderTabBar = (props) => {
   return (
@@ -23,11 +25,18 @@ const initialLayout = {
 };
 
 const HomeTabView = () => {
-  const [index, setIndex] = useState(0);
+  //const [index, setIndex] = useState(0);
   const [routes] = useState([
     {key: 'learn', title: 'LEARN'},
     {key: 'play', title: 'PLAY'},
   ]);
+
+  const index = useSelector((state) => state.home.tab);
+
+  const dispatch = useDispatch();
+  const setIndex = (i) => {
+    dispatch(changeTab(i));
+  };
 
   const renderScene = SceneMap({
     learn: LearnTab,
