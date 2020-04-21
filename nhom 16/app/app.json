@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Ôn thi GPLX ( A1 )",
     "slug": "app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -11,11 +11,11 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon18.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon18.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#01DF3A"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +24,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "bundleIdentifier": "com.nhom16.GPLX",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.nhom16.GPLX",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }
