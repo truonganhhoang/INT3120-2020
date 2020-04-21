@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, Image, StatusBar, ScrollView, ImageBackground, Dimensions } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import React from 'react'
+import {
+  StyleSheet, View, Text, Button,
+  Image, StatusBar, ScrollView,
+  ImageBackground, Dimensions,
+  useWindowDimensions
+} from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 import {
@@ -20,38 +24,18 @@ import Tutorial from './Tutorial'
 import Skill from './Skill'
 import Signs from './Signs'
 import Rules from './Rules'
-import Practice from './Tips/Practive'
-import Theory from './Tips/Theory'
+import Tips from './Tips'
 import Taplo from './Taplo'
-
+import Policy from './Policy'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-// function Feed({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Feed Screen</Text>
-//       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-//       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-//     </View>
-//   );
-// }
-
-
-// function Notifications() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-//   );
-// }
-
-
 
 function CustomDrawerContent(props) {
+  var { width } = Dimensions.get('window')
   return (
     <DrawerContentScrollView {...props}>
-      <LinearGradient
+      {/* <LinearGradient
         colors={['#66bb6a', '#d4fc79', '#96e6a1', 'transparent']}
         style={{
           position: 'absolute',
@@ -65,53 +49,39 @@ function CustomDrawerContent(props) {
           <Image source={require('../assets/car.png')} />
           <Text style={{ left: 10, color: '#0094D5', fontWeight: 'bold', fontSize: 15 }}>Ôn thi {'\n'}Giấy phép lái xe B1</Text>
         </View>
-      </LinearGradient>
-      <ScrollView style={{ backgroundColor: '#fff', marginTop: 130 }}>
-          <DrawerItem
-            label='Học bằng lái xe'
-            onPress={() => props.navigation.navigate('Home')}
-            icon={() => <Icon style={styles.menuIcon} name='car' />}
-          />
-          <DrawerItem
-            label='Hướng dẫn sử dụng'
-            onPress={() => props.navigation.navigate('Tutorial')}
-            icon={() => <Icon style={styles.menuIcon} name='information-outline' />}
-          />
-          <DrawerItem
-            label='Kỹ năng lái xe'
-            onPress={() => props.navigation.navigate('Skill')}
-            icon={() => <Icon style={styles.menuIcon} name='car' />}
-          />
-          <DrawerItem
-            label='Chính sách và điều khoản'
-            onPress={() => props.navigation.navigate('Skill')}
-            icon={() => <Icon style={styles.menuIcon} name='contacts' />}
-          />
-      </ScrollView>
+      </LinearGradient> */}
+      <View style={{ flex: 0.4 }}>
+        <Image source={require('../assets/car.png')} style={{ width: 150, height: 150, resizeMode: 'center' }} />
+      </View>
+      <DrawerItem
+        label='Học bằng lái xe'
+        onPress={() => props.navigation.navigate('Home')}
+        icon={() => <Icon size={30} color='#08B62C' name='car' />}
+        style={{ backgroundColor: '#CCCCCC' }}
+        labelStyle={{ color: '#08B62C' }}
+      />
+      <DrawerItem
+        label='Hướng dẫn sử dụng'
+        onPress={() => props.navigation.navigate('Tutorial')}
+        icon={() => <Icon size={30} color='gray' name='information-outline' />}
+      />
+      <DrawerItem
+        label='Kỹ năng lái xe'
+        onPress={() => props.navigation.navigate('Skill')}
+        icon={() => <Icon size={30} color='gray' name='car' />}
+      />
+      <DrawerItem
+        label='Chính sách và điều khoản'
+        onPress={() => props.navigation.navigate('Policy')}
+        icon={() => <Icon size={30} color='gray' name='contacts' />}
+      />
+      {/* <DrawerItemList {...props} /> */}
     </DrawerContentScrollView>
   );
 }
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
-const Tab = createMaterialTopTabNavigator();
-
-function MyTabs() {
-  return (
-    <Tab.Navigator tabBarOptions={{
-      activeTintColor: '#fff',
-      labelStyle: { fontSize: 12, fontWeight: 'bold' },
-      style: { backgroundColor: '#66bb6a' },
-      pressColor: 'green',
-      scrollEnabled: false,
-      indicatorStyle: { backgroundColor: '#fff' }
-    }}>
-      <Tab.Screen name="Mẹo lý thuyết" component={Theory} />
-      <Tab.Screen name="Mẹo thực hành" component={Practice} />
-    </Tab.Navigator>
-  );
-}
-
 
 function MyStack({ navigation }) {
   return (
@@ -133,6 +103,10 @@ function MyStack({ navigation }) {
       <Stack.Screen name="Skill" component={Skill} options={{
         title: 'Kỹ năng và kinh nghiệm lái xe',
       }} />
+      <Stack.Screen name="Policy" component={Policy} options={{
+        title: 'chình sách',
+      }} />
+      
 
 
 
@@ -145,7 +119,7 @@ function MyStack({ navigation }) {
       <Stack.Screen name="Signs" component={Signs} options={{
         title: 'Biển báo đường bộ',
       }} />
-      <Stack.Screen name="Tips" component={MyTabs} options={{
+      <Stack.Screen name="Tips" component={Tips} options={{
         title: 'Mẹo thi kết quả cao',
       }} />
       <Stack.Screen name="Rules" component={Rules} options={{
@@ -159,15 +133,19 @@ function MyStack({ navigation }) {
 }
 
 function MyDrawer() {
+
+  const dimensions = useWindowDimensions();
   return (
-    <Drawer.Navigator drawerStyle={{ width: '80%', }} hideStatusBar={true} initialRouteName='Home'
+    <Drawer.Navigator drawerStyle={dimensions.width > 900 ? 'permanent' : 'front'} initialRouteName='Home'
       drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Home" component={MyStack} />
+      <Drawer.Screen name="Screens" component={MyStack} options={{ gestureEnabled: true }} />
+      {/* <Drawer.Screen name="Hướng dẫn sử dụng" component={Tutorial} />
+      <Drawer.Screen name="Kỹ năng lái xe" component={Skill} /> */}
     </Drawer.Navigator>
   );
 }
 
-export default function App() {
+export default function Index() {
   return (
     <NavigationContainer>
       <MyDrawer />
@@ -181,8 +159,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
-  menuIcon: {
-    fontSize: 30,
-    color: 'gray',
-  }
 })

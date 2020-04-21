@@ -18,7 +18,6 @@ var GridListItems = [
     { id: require("../assets/icon_taplo/13.jpeg"), key: "Đèn cảnh báo động cơ khí thải", content: "Ý nghĩa: Động cơ gặp trục trặc khiến lượng khí thải cao hơn mức tiêu chuẩn. Điều này có thế do:\n- Động cơ bị hỏng.\n- Một cảm biến nào đó của động cơ bị lồi hoặc bị hỏng.\nXử lý: Đưa xe đi kiểm tra." },
     { id: require("../assets/icon_taplo/14.jpeg"), key: "Đèn cảnh báo bộ lọc hạt diesel", content: "Ý nghĩa: Bộ lọc hạt diesel hoạt động không tốt khiến lượng khí thải cao hơn tiêu chuẩn.\nXử lý: Đưa xe đi kiểm tra." },
 ]
-
 var { width } = Dimensions.get('window')
 
 export default class Taplo extends Component {

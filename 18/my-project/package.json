@@ -18,7 +18,6 @@
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
-    "react-native-elements": "^1.2.7",
     "react-native-fast-image": "^8.1.5",
     "react-native-fast-image-expo": "0.0.5",
     "react-native-gesture-handler": "~1.5.0",
