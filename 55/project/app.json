@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Tukky",
     "slug": "project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -24,7 +24,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tukky.thibanglaixe"
+    },
+    "android": {
+      "package": "com.tukky.thibanglaixe",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }
