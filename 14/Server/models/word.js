@@ -13,7 +13,7 @@ const WordSchema = new Schema({
   pronounce: String,
   type: String,
   example: String,
-  createdAt: {type: Number, default: Date.now()} 
+  createdAt: {type: Number, default: Date.now} 
 });
 
 WordSchema.statics = {

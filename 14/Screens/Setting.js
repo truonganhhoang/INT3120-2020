@@ -1,9 +1,10 @@
 import React from 'react';
-import {  View, Text, FlatList, ScrollView, Modal } from 'react-native';
+import {  View, Text, FlatList, ScrollView, Modal, Switch } from 'react-native';
 import { ListItem, Header, CheckBox, Card, Button } from 'react-native-elements';
 import styles from '../AppStyles/setting';
 import db from '../data/SQLite';
-import host from '../Config/host'
+import host from '../Config/host';
+import PickColor from '../Config/Color';
 
 export default class Setting extends React.Component{
     constructor(){
@@ -14,13 +15,14 @@ export default class Setting extends React.Component{
             data: {
                 words: [],
                 questions: []
-            }
+            },
+            refesh: false
         }
     }
 
     updateData = async () => {
-      // db.dropUpdateTable();
-        this.setState({time: await db.getLatestUpdateTime()});
+        // db.dropUpdateTable();
+        this.setState({time: await db.getLatestUpdatedTime()});
         const response = await fetch(`http://${host.hostname}:${host.port}/updateData`,{ // local ipv4
                 method: 'POST',
                 headers: {
@@ -39,9 +41,12 @@ export default class Setting extends React.Component{
     renderWords = ({item}) => {
         return (
         <ListItem
-            title={`Chủ đề: ${item.category}\n${item.eng}`}
-            subtitle={item.vie}
             leftAvatar={{ source: { uri: item.picture } }}
+            title={`Chủ đề: ${item.category}\n${item.eng}`}
+            titleStyle={styles().textColor}
+            subtitle={item.vie}
+            subtitleStyle={styles().textColor}
+            containerStyle={styles().listItemContainer}
             bottomDivider
         />)
     }
@@ -50,7 +55,10 @@ export default class Setting extends React.Component{
         return (
         <ListItem
             title={item.category}
+            titleStyle={styles().textColor}
             subtitle={item.question.length <= 30 ? item.question : item.question.substring(0, 30) + '...'}
+            subtitleStyle={styles().textColor}
+            containerStyle={styles().listItemContainer}
             bottomDivider
         />)
     }
@@ -63,9 +71,9 @@ export default class Setting extends React.Component{
             db.updateTime(Date.now());
         }
         return(
-        <View style={styles.modalView}>
+        <View style={styles().modalView}>
             { hasWords ? 
-            <View style={styles.textContainer}>
+            <View style={styles().textContainer}>
                 <Text style={{color: "#ffffff", fontSize: 18}}>Từ mới cập nhật</Text>
             </View> : 
             null }
@@ -75,10 +83,10 @@ export default class Setting extends React.Component{
                 data={this.state.data.words}
                 renderItem={this.renderWords}
                 showsVerticalScrollIndicator={false}
-                style={styles.flatList}
+                style={styles().flatList}
             />
             {hasQuestions ?
-            <View style={styles.textContainer}>
+            <View style={styles().textContainer}>
                 <Text style={{color: "#ffffff", fontSize: 18}}>Câu hỏi mới cập nhật</Text>
             </View> : 
             null}
@@ -87,52 +95,68 @@ export default class Setting extends React.Component{
                 data={this.state.data.questions}
                 renderItem={this.renderQuestions}
                 showsVerticalScrollIndicator={false}
-                style={styles.flatList}
+                style={styles().flatList}
             />
             {nothingToUpdate ?
-            <View style={styles.textContainer}>
-                <Text style={{color: "#ffffff"}}>Dữ liệu của bạn đang là mới nhất</Text>
+            <View style={{width: 250, alignItems: 'center'}}>
+                <Text style={styles().textColor}>Dữ liệu của bạn đang là mới nhất!</Text>
             </View> : 
             null}
-            <Button style={styles.button} title="OK" onPress={()=>{this.setState({modalVisible: false})}}/>
+            <Button buttonStyle={styles().closeModalButton} title="OK" onPress={()=>{this.setState({modalVisible: false})}}/>
         </View>);
     }
 
+    toggleSwitch = (value) => {
+        this.setState({refesh: true})
+        db.changeMode(!value? 1:0);
+        global.darkmode = !value;
+        this.props.navigation.state.params.reload();
+    }
+
     render(){
+        const color = PickColor(global.darkmode);
         const {navigate,state} = this.props.navigation;
         return(
-            <View style={{backgroundColor:'#d2d6d9',height:'100%'}}>
+            <View style={styles().container}>
                 <Header
                         leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                         centerComponent={{ text: 'Setting', style: { color: '#fff' } }}
+                        backgroundColor={color.headerColor}
                     />
                 <ScrollView>
-                    <Card>
+                    <Card containerStyle={styles().card}>
                         <View style={{flexDirection:'row'}}>
-                            <Text>Cài đặt trò chơi</Text>
+                            <Text style={styles().textColor}>Cài đặt trò chơi</Text>
                         </View>
-                        <CheckBox title="Âm thanh"/>
-                        <CheckBox title="Thông báo"/>
+                        <CheckBox containerStyle={styles().checkboxColor} textStyle={styles().textColor} title="Âm thanh"/>
+                        <CheckBox containerStyle={styles().checkboxColor} textStyle={styles().textColor} title="Thông báo"/>
                         
                     </Card>
-                    <Card>
-                        <Text>Màu sắc giao diện</Text>
+                    <Card containerStyle={styles().card}>
+                        <View Style={{flex: 1, flexDirection: 'row'}}>
+                            <Text style={[{alignSelf: 'flex-start', marginBottom: -15, marginTop: 5}, styles().textColor]}>Giao diện tối</Text>
+                            <Switch 
+                                style={{alignSelf: 'flex-end', marginTop: -10}}
+                                onValueChange={() => this.toggleSwitch(global.darkmode)}
+                                value={global.darkmode}
+                            />
+                        </View>
                     </Card>
-                    <Card>
-                        <Text>Đánh giá 5*</Text>
+                    <Card containerStyle={styles().card}>
+                        <Text style={styles().textColor}>Đánh giá 5*</Text>
                     </Card>
-                    <Card>
-                        <Text>Chia sẻ ứng dụng</Text>
+                    <Card containerStyle={styles().card}>
+                        <Text style={styles().textColor}>Chia sẻ ứng dụng</Text>
                     </Card>
-                    <Card>
-                        <Text>Thông tin liên hệ</Text>
+                    <Card containerStyle={styles().card}>
+                        <Text style={styles().textColor}>Thông tin liên hệ</Text>
                     </Card>
-                    <Card>
-                        <Button title='Cập nhật dữ liệu' onPress={() => this.updateData()}/>
+                    <Card containerStyle={styles().card}>
+                        <Button buttonStyle={styles().updateButton} title='Cập nhật dữ liệu' onPress={() => this.updateData()}/>
                     </Card>
                 </ScrollView>
                 <Modal animationType="slide" transparent={true} visible={this.state.modalVisible}>
-                    <View style={styles.centeredView}>
+                    <View style={styles().centeredView}>
                         <this.list/>
                     </View>
                 </Modal>

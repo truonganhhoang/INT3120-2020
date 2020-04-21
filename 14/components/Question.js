@@ -60,8 +60,8 @@ export default class Question extends React.Component{
     }
     render(){
         return(
-            <View style={styles.container}>                
-                <Text>{this.props.question}</Text>
+            <View style={styles().container}>                
+                <Text style={styles().questionText}>{this.props.question}</Text>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
                             checked={this.state.one}
@@ -69,7 +69,7 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="one")? styles.Keycorrect:null]}>{this.props.answer1}</Text>
+                        <Text style={[styles().item, (this.state.key=="one")? styles().Keycorrect:null]}>{this.props.answer1}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
@@ -78,7 +78,7 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="two")? styles.Keycorrect:null]}>{this.props.answer2}</Text>
+                        <Text style={[styles().item, (this.state.key=="two")? styles().Keycorrect:null]}>{this.props.answer2}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
@@ -87,10 +87,10 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="three")? styles.Keycorrect:null]}>{this.props.answer3}</Text>
+                        <Text style={[styles().item, (this.state.key=="three")? styles().Keycorrect:null]}>{this.props.answer3}</Text>
                     </View>
                     <View style={{flexDirection:'row',justifyContent:'flex-end',width:'100%'}} >
-                        {this.state.checked?this.state.correct?<Text style={styles.correct}>Correct!</Text>:<Text style={styles.notcorrect}>Not correct!</Text>:null}
+                        {this.state.checked?this.state.correct?<Text style={styles().correct}>Correct!</Text>:<Text style={styles().notcorrect}>Not correct!</Text>:null}
                         <Icon name='check' iconStyle={{color:'white',fontSize:25,backgroundColor:'green',borderRadius:15,marginRight:4}} onPress={()=>this.check(this.props.result) }/>
                         <Icon name='refresh' iconStyle={{color:'white',fontSize:25,backgroundColor:'red',borderRadius:15,marginRight:4}} onPress={()=>this.reset()}/>
                     </View>

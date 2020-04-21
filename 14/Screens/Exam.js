@@ -6,6 +6,8 @@ import * as Animatable from 'react-native-animatable';
 import Question from '../components/Question';
 import db from './../data/SQLite';
 import styles from '../AppStyles/Exam';
+import PickColor from '../Config/Color'
+
 export default class Exam extends React.Component{
     constructor(props){
         super(props);
@@ -28,35 +30,37 @@ export default class Exam extends React.Component{
 
     renderItem = ({ item, index }) => {
         return(
-            <Animatable.View animation={"fadeInLeft"} delay={200}>
-                <View style={styles.view}>
-                    <Question
-                        question={item.question}
-                        answer1={item.answer1}
-                        answer2={item.answer2}
-                        answer3={item.answer3}
-                        result={item.result}
+        <Animatable.View animation={"fadeInLeft"} delay={200}>
+            <View style={styles().view}>
+                <Question
+                    question={item.question}
+                    answer1={item.answer1}
+                    answer2={item.answer2}
+                    answer3={item.answer3}
+                    result={item.result}
+                />
+                <TouchableOpacity style={styles().normal} onPress={() => this.favoriteQuestionSwitch(item)}>
+                    <Icon
+                        //style={styles.normal}
+                        name={'star'}
+                        type='material-community'
+                        color={item.favorite == 1 ? 'yellow' : 'gray'}
+                        size={40}
                     />
-                    <TouchableOpacity style={styles.normal} onPress={() => this.favoriteQuestionSwitch(item)}>
-                        <Icon
-                            //style={styles.normal}
-                            name={'star'}
-                            type='material-community'
-                            color={item.favorite == 1 ? 'yellow' : 'gray'}
-                            size={40}
-                        />
-                    </TouchableOpacity>
-                </View>
+                </TouchableOpacity>
+            </View>
         </Animatable.View>
       )
     }
     render(){
+        const color = PickColor(global.darkmode);
         const {navigate} = this.props.navigation;
         return(
-            <View style={styles.container}>
+            <View style={styles().container}>
                 <Header
                     leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: this.props.navigation.state.params.type, style: { color: '#fff' } }}
+                    backgroundColor={color.headerColor}
                 /> 
                 <FlatList
                     keyExtractor={this.keyExtractor}

@@ -7,6 +7,7 @@ import * as Permissions from 'expo-permissions';
 import styles from '../AppStyles/Home';
 import db from '../data/SQLite';
 import host from '../Config/host';
+import PickColor from '../Config/Color'
 
 const list = [
     {
@@ -64,8 +65,12 @@ const list = [
 export default class Home extends React.Component{
     constructor(){
         super();
+        this.state = {
+            loading: true
+        }
         this.init();
     }
+
     async init(){
         const existTabletWords = await (db.checkIfTableWordsExist());
         if (existTabletWords == false){
@@ -82,51 +87,59 @@ export default class Home extends React.Component{
             const dataQuestion = await responseQuestion.json();
             db.createQuestionTable(dataQuestion.questions);
         }
-        const existUpdateTable = await db.checkIfUpdateTableExist();
-        if (!existUpdateTable){
-            db.createUpdateTable()
+        const existSettingsTable = await db.checkIfSettingsTableExist();
+        if (!existSettingsTable){
+            db.createSettingsTable()
         }
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         if (existingStatus !== 'granted') {
             await Permissions.askAsync(Permissions.NOTIFICATIONS);
         }
+        db.getCurrentMode(this);
     }
     static navigationOptions = {
         title: 'Home',
     }
+
     render(){
         const {navigate} = this.props.navigation;
-        return(
-            
-            <View style={styles.container}>
-                <Header
-                    style={{height:20}}
-                    centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
-                />
-                <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
-                    <View>
-                    {
-                        list.map((item, i) => {
-                            return (
-                                <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
-                                    <ListItem
-                                        onPress={()=> navigate(
-                                            item.navigate, {type: item.title}
-                                        )}
-                                        key={i}
-                                        title={item.title}
-                                        leftIcon={{ name: item.icon }}
-                                        bottomDivider
-                                        chevron
-                                    />
-                                </Animatable.View>
-                            )
-                        })
-                    }
-                    </View>
-                </ScrollView>
-            </View>
-        );
+        if (!this.state.loading){
+            const color = PickColor(global.darkmode);
+            return(       
+                <View style={styles().container}>
+                    <Header
+                        centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
+                        backgroundColor={color.headerColor}
+                    />
+                    <ScrollView style={styles().scrollview} showsVerticalScrollIndicator={false}>
+                        <View>
+                        {
+                            list.map((item, i) => {
+                                return (
+                                    <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
+                                        <ListItem
+                                            onPress={()=> navigate(
+                                                item.navigate, {type: item.title, reload: ()=>{this.setState({reload: true})}}
+                                            )}
+                                            key={i}
+                                            title={item.title}
+                                            leftIcon={{ name: item.icon, color: color.iconColor }}
+                                            titleStyle={styles().textColor}
+                                            containerStyle={styles().listItemContainer}
+                                            bottomDivider
+                                            chevron={{color: color.iconColor}}
+                                        />
+                                    </Animatable.View>
+                                )
+                            })
+                        }
+                        </View>
+                    </ScrollView>
+                </View>
+            );
+        }else{
+        return <View></View>
+        }
     }
     
 }
