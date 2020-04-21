@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Header from '../Layout/Header';
 //Component
 import Lesson from './Lesson';
+import WordDetail from './WordDetail';
 
 
 const Stack = createStackNavigator();
@@ -104,6 +105,7 @@ export default function HomeScreen() {
             <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Lesson" component={Lesson} />
+                <Stack.Screen name="WordDetail" component={WordDetail} />
             </Stack.Navigator>
         </NavigationContainer>
 

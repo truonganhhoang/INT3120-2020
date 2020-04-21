@@ -2,31 +2,40 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default class WordTag extends Component {
+    goToWordDetail() {
+        this.props.navigation.navigate('WordDetail', {
+            word: this.props.word,
+            spelling: this.props.spelling,
+            type: this.props.type,
+            meaning: this.props.meaning
+        });
+    }
     render() {
         return (
             <View style={word.container}>
-                <View>
-                    <Text style={word.textWord}>{this.props.word}</Text>
-                    <Image
-                        style={word.icon}
-                        source={require('../../assets/Image/heart-inactive.png')}
-                    />
-                </View>
-                <View>
-                    <Text style={word.textSpelling}>{this.props.spelling}</Text>
-                    <Image
-                        style={word.icon}
-                        source={require('../../assets/Image/speaker.png')}
-                    />
-                </View>
-                <View>
-                    <Text style={word.textType}>{this.props.type}</Text>
-                </View>
-                <View>
-                    <Text style={word.textMeaning}>{this.props.meaning}</Text>
-                </View>
-                <TouchableOpacity>
-                    <Text>Abc</Text>
+                <TouchableOpacity
+                    onPress={this.goToWordDetail.bind(this)}
+                >
+                    <View>
+                        <Text style={word.textWord}>{this.props.word}</Text>
+                        <Image
+                            style={word.icon}
+                            source={require('../../assets/Image/heart-inactive.png')}
+                        />
+                    </View>
+                    <View>
+                        <Text style={word.textSpelling}>{this.props.spelling}</Text>
+                        <Image
+                            style={word.icon}
+                            source={require('../../assets/Image/speaker.png')}
+                        />
+                    </View>
+                    <View>
+                        <Text style={word.textType}>{this.props.type}</Text>
+                    </View>
+                    <View>
+                        <Text style={word.textMeaning}>{this.props.meaning}</Text>
+                    </View>
                 </TouchableOpacity>
             </View>
         );

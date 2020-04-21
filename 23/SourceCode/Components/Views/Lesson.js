@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import WordTag from './WordTag';
+import WordDetail from './WordDetail';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -29,9 +30,8 @@ const state = {
         { word: 'wednesday', spelling: '/wenzdei/', type: 'noun', meaning: 'Thứ tư, Thứ 4' }
 
     ]
-}
-export default function Lesson({ navigation }) {
-
+};
+export default function Lesson({ route, navigation }) {
     return (
         <View style={lesson.container}>
             <View style={lesson.header}>
@@ -45,7 +45,7 @@ export default function Lesson({ navigation }) {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={{ flex: 6, flexDirection: "row", justifyContent: "space-between" }}>
+                <View style={{ flex: 6, flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text style={lesson.text}>Bài 2</Text>
                     <Text style={lesson.text}>Luyện tập</Text>
                 </View>
@@ -65,6 +65,8 @@ export default function Lesson({ navigation }) {
                             <View style={{ flex: 1, flexDirection: 'row' }}>
                                 <View style={{ flex: 1 }}>
                                     <WordTag
+                                        route={route}
+                                        navigation={navigation}
                                         word={item.word}
                                         spelling={item.spelling}
                                         type={item.type}
@@ -73,6 +75,8 @@ export default function Lesson({ navigation }) {
                                 </View>
                                 <View style={{ flex: 1 }}>
                                     <WordTag
+                                        route={route}
+                                        navigation={navigation}
                                         word={item.word}
                                         spelling={item.spelling}
                                         type={item.type}
@@ -86,15 +90,21 @@ export default function Lesson({ navigation }) {
                 </ScrollView>
             </View>
 
-            <View style={lesson.footer}>
-                <Text style={lesson.text}>HỌC NGAY
-                    
-                </Text>
+            <TouchableOpacity
+                style={lesson.footer}
+                // onPress={() => navigation.navigate('WordDetail'), {
+                //     word: 'he',
+                //     spelling: '/hi/',
+                //     type: 'pronoun',
+                //     meaning: 'anh ấy'
+                // }}
+            >
+                <Text style={lesson.text}>HỌC NGAY</Text>
                 <Image
-                        style={lesson.icon}
-                        source={require('../../assets/Image/double-arrow-right.png')}
+                    style={lesson.icon}
+                    source={require('../../assets/Image/double-arrow-right.png')}
                 />
-            </View>
+            </TouchableOpacity>
         </View>
     );
 }
