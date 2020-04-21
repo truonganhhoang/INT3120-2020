@@ -36,7 +36,7 @@ export class SignInService {
   }
 
   signInWithFacebook(): Observable<firebase.auth.UserCredential | void> {
-    if (this.platform.is('mobile')) {
+    if (this.platform.is('cordova')) {
       return this.signInWithFacebookNative();
     }
     return this.signInWithFacebookWeb();

@@ -234,3 +234,8 @@ ionic g page profile -f
 - Sửa lại ảnh được dùng trong splash screen: trasnparent background -> white background.
 - Gửi email xác nhận.
 - Sửa mật khẩu (cho email provider và facebook provider).
+
+# 2019-04-21
+
+- Thêm spinner ở change password component.
+- Initialize cloud function projects.

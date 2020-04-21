@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Ngo Quang Duong",
   "private": true,
-  "homepage": "https://coursera-vnu.now.sh/",
+  "homepage": "https://coursera-vnu-int3120.now.sh/",
   "description": "School Project for Mobile App Development",
   "repository": {
     "url": "https://github.com/duong755/INT3120-2020",
@@ -23,7 +23,7 @@
     "format": "prettier --write ./src",
     "cdv:prepare": "ionic cdv prepare android",
     "cdv:build": "ionic cdv build android",
-    "cdv:dev": "ionic cdv run android --debug --livereload",
+    "cdv:dev": "ionic cdv run android --device --debug --livereload",
     "cdv:prod": "ionic cdv run android --release --prod"
   },
   "dependencies": {
