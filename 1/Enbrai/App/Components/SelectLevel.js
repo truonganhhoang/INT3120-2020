@@ -17,7 +17,8 @@ import firebase from 'react-native-firebase';
 import * as Animatable from 'react-native-animatable';
 const SelectLevel = props => {
   const [dataResult, setDataResult] = useState([]);
-  const [data, setData] = useState(0);
+  const [data, setData] = useState();
+  const [partId, setPartId] = useState();
   useEffect(() => {
     const fetchData = async()=>{
      
@@ -28,7 +29,7 @@ const SelectLevel = props => {
     }
     const fetchDataResult =() => {
       var partId = props.navigation.getParam('id');
-      console.log(partId)
+      setPartId(partId);
       firebase.database().ref('DataResult').child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
         var data=[];
           snap.forEach((child)=>{
@@ -42,8 +43,8 @@ const SelectLevel = props => {
     fetchData()
     return () => {};
   }, [props]);
-  const handlePress = (partId)=>{
-    props.navigation.navigate('SelectLevelScreen', {id: partId})
+  const handlePress = (partId, levelId, index)=>{
+    props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index })
   }
   return (
     <View style={{flex: 1}}>
@@ -98,7 +99,7 @@ const SelectLevel = props => {
                 animation = 'fadeInRight'
                 delay = {item.index*200}
               >
-                <TouchableOpacity onPress={()=>{handlePress(item.item.id) }}>
+                <TouchableOpacity onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}>
                 <View style={{paddingLeft: 20}}>
                   <Text
                     style={{
@@ -130,7 +131,7 @@ const SelectLevel = props => {
                     alignItems:'center',
                     justifyContent:'center',
                   }}
-                  onPress={()=>{handlePress(item.item.id) }}
+                  onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}
                   >
                   <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
                 </TouchableOpacity>

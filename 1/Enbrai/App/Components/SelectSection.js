@@ -13,7 +13,7 @@ import {Button, Icon} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
 import {connectSQLite} from './ConnectData';
 import firebase from 'react-native-firebase'
-import {EmptyFlatlist} from './EmtyFlatList';
+import EmptyFlatlist from './EmtyFlatList';
 import * as Animatable from 'react-native-animatable';
 const SelectSection = props => {
   const [data, setData] = useState([]);
@@ -39,6 +39,7 @@ const SelectSection = props => {
   fetchData()
     return () => {};
   }, []);
+  
   const handlePress = (partId)=>{
     props.navigation.navigate('SelectLevelScreen', {id: partId})
   }
@@ -70,7 +71,6 @@ const SelectSection = props => {
           <FlatList
             data={data}
             keyExtractor={(item, index) => index.toString()}
-            ListEmptyComponent={EmptyFlatlist}
             renderItem={(item, index) => (
               <Animatable.View
               style={{
