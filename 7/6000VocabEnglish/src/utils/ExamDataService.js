@@ -9,9 +9,17 @@ export async function createExamData(topicName, categoryName) {
   });
   const numberQuestion = remoteData.length;
 
-  const questionTwoChoice = Math.floor((numberQuestion * 50) / 100); //question have 2 choice
-  const questionFourChoice = Math.floor((numberQuestion * 35) / 100); //question have 4 choice
-  const questionNineChoice = 1 - questionFourChoice - questionTwoChoice; //question have 9 choice
+  let questionTwoChoice = Math.floor((numberQuestion * 50) / 100); //question have 2 choice
+  let questionFourChoice; //question have 4 choice
+  let questionNineChoice; //question have 9 choice
+  if (numberQuestion < 9) {
+    questionFourChoice = numberQuestion - questionTwoChoice;
+  } else {
+    //Question has 9 choice will be created if data has more than 9 words
+    questionFourChoice = Math.floor((numberQuestion * 35) / 100);
+    questionNineChoice =
+      numberQuestion - questionFourChoice - questionTwoChoice;
+  }
 
   // Genarate exam
   const examData = [];
@@ -26,7 +34,6 @@ export async function createExamData(topicName, categoryName) {
     do {
       indexWord = randomInt(numberQuestion);
     } while (usedWords.find((e) => e === indexWord) + 1); //add 1 to avoid while(0)
-    console.log(`${indexWord}`);
     usedWords.push(indexWord); //add to array to mark this word was used
     initQuestion = { ...initQuestion, word: remoteData[indexWord].word };
 
@@ -39,7 +46,7 @@ export async function createExamData(topicName, categoryName) {
       let ch2;
       do {
         ch2 = randomInt(numberQuestion);
-      } while (indexWord === ch2);
+      } while (usedAnswers.find((e) => e === ch2) + 1);
       let choice2 = remoteData[ch2];
       myOption.push(choice2);
     } else if (
@@ -67,7 +74,8 @@ export async function createExamData(topicName, categoryName) {
       }
     }
 
-    shuffle(myOption); //shuffle choices
+    myOption = shuffle(myOption); //shuffle choices
+    // console.log(myOption);
     initQuestion = { ...initQuestion, options: myOption };
     examData.push(initQuestion);
   }
