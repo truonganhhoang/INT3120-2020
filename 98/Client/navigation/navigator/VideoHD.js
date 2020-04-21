@@ -2,7 +2,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
 
-import DetailScreen from '../../screens/VideoHD/DetailScreen';
+import DetailVideo from '../../screens/VideoHD/DetailVideo';
 import VideoListScreen from '../../screens/VideoHD/VListScreen';
 
 
@@ -21,8 +21,8 @@ export default function VideoHD() {
                 }}
             />
             <Stack.Screen
-                name="Detail"
-                component={DetailScreen}
+                name="DetailVideo"
+                component={DetailVideo}
                 options={{
                     title: 'Video',
                 }}

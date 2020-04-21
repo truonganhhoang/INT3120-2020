@@ -20,7 +20,7 @@ const DATA = [
         button: 'Xem video',
         iconName: 'video',
         iconColor: 'gray',
-        route:"MemoryTricks",
+        route:"VideoHD",
     },
     {
         id: '3',

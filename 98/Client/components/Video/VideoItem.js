@@ -7,7 +7,7 @@ export default function Item(props) {
     const { navigation, title, content, vid } = props;
     return (
         <TouchableOpacity onPress={() => {
-            navigation.navigate('Detail', { vid: vid });
+            navigation.navigate('DetailVideo', { vid: vid });
         }} >
             <View style={styles.item}>
                 <Image style={styles.tinyLogo} source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS1SxQs9wgEqtGTP5G_IS1NR4-LofYlG2BkcekBKOmIdFRaUe6b&usqp=CAU" }} />

@@ -35,7 +35,7 @@ export default function DetailScreen(props) {
 import React from "react";
 import { WebView } from 'react-native-webview';
 
-export default function VideoDetail(props) {
+export default function DetailVideo(props) {
     const { link } = props;
     return (
         <WebView

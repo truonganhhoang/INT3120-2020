@@ -6,7 +6,7 @@ import Question from './navigator/Question';
 import Home from './navigator/Home';
 import TFS from './navigator/TFS';
 import VideoHD from './navigator/VideoHD';
-
+import Map from './navigator/Map';
 const Tab = createBottomTabNavigator();
 
 
@@ -35,10 +35,16 @@ export default function TabNavigator() {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-warning" />,
         }}
           />
-          <Tab.Screen name="Setting" component={VideoHD}
+          <Tab.Screen name="VideoHD" component={VideoHD}
         options={{
-          title: 'Cài đặt',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+          title: 'Video',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-film" />,
+        }}
+      />
+           <Tab.Screen name="MapScreen" component={Map}
+        options={{
+          title: 'Map',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-globe" />,
         }}
       />
     </Tab.Navigator>
