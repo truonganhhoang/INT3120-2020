@@ -29,7 +29,7 @@ const DATA = [
         button: 'XEM BẢN ĐỒ',
         iconName: 'zoom-in',
         iconColor: '#3399ff',
-        route: "TFS",
+        route: "Map",
     },
     {
         id: '4',

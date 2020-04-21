@@ -8,6 +8,7 @@ import TrafficSignList from '../../screens/TFS/TFSListScreen';
 import DetailScreen from '../../screens/TFS/DetailScreen';
 import QuestionPractice from '../../screens/Question/QuestionPractice';
 import QuestionSet from '../../screens/Question/QuestionSet';
+import MapScreen from '../../screens/Map/MapScreen';
 
 //
 
@@ -54,6 +55,13 @@ export default function Home() {
         component={DetailScreen}
         options={{
           title: 'Danh sách',
+        }}
+      />
+         <Stack.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          title: 'Map',
         }}
       />
 
