@@ -53,6 +53,7 @@ class Exam2Screen extends Component {
                     this.props.myData.length * 5
                   );
                   this.props.navigation.goBack(null);
+                  this.props.onFinishExam();
                 },
               },
             ],
@@ -85,6 +86,7 @@ class Exam2Screen extends Component {
                     this.props.myData.length * 5
                   );
                   this.props.navigation.goBack(null);
+                  this.props.onFinishExam(); //clear old exam
                 },
               },
             ],

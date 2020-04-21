@@ -4,6 +4,7 @@ const defaultDataExam = [];
 
 const dataExam = (state = defaultDataExam, action) => {
   if (action.type === "REFRESH_EXAM") {
+    state = [];
     return state;
   }
 
