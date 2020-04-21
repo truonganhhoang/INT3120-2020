@@ -1,0 +1,90 @@
+[
+    {
+    "1":    "Tìm một số, biết tổng của số đó với 45 bằng số bé nhất có ba chữ số?",	
+    "2":    "Tìm một số, biết hiệu của số đó với 28 bằng số bé nhất có 1 chữ số?",	
+    "3":    "Một ô tô chở khách dừng tại bến đỗ. Có 8 người xuống xe và 5 người lên xe. Xe tiếp tục chạy, lúc này trên xe có tất cả 50 hành khách. Hỏi trước khi xe dừng lại bến đỗ đó, trên xe có bao nhiêu hành khách?",	
+    "4":    "Cho 2 số có tích bằng 12 và số lớn gấp 3 lần số bé. Tìm số lớn?",	
+    "5":    "Hà có 40 viên bi màu xanh và đỏ. Hà cho Tú 15 viên bi xanh thì Hà còn lại 8 viên bi xanh.Hỏi Hà còn bao nhiêu viên bi đỏ?",	
+    "7":    "Nếu Nam cho Hà 4 viên bi thì số bi của 2 bạn bằng nhau, và mỗi bạn có 18 viên bi. Hỏi trước khi cho Nam có bao nhiêu viên bi?",	
+    "8":    "Từ 9 giờ sáng đến 3 giờ chiều, kim giờ và kim phút gặp nhau mấy lần?",	
+    "9":    "Số kẹo của Lan là số nhỏ nhất có hai chữ số giống nhau. Lan cho Hoa số kẹo là số chẵn nhỏ nhất có hai chữ số. Hỏi Lan còn bao nhiêu cái kẹo?",	
+    "10":    "Có hai thùng đựng dầu, thùng thứ nhất chứa 55 lít dầu. Nếu đổ từ thùng thứ nhất sang thùng thứ hai 13 lít dầu thì số dầu hai thùng bằng nhau. Hỏi lúc đầu thùng thứ hai chứa bao nhiêu lít dầu?",	
+    "6":   "Tìm hiệu giữa số chẵn lớn nhất có hai chữ số và số lẻ bé nhất có một chữ số?"
+
+    },
+    {
+        "1": {
+            "a": "26",
+            "b": "55",
+            "c": "30",
+            "d": "69"
+        },
+        "2": {
+            "a": "29",
+            "b": "42",
+            "c": "30",
+            "d": "23"
+        },
+        "3": {
+            "a": "53",
+            "b": "61",
+            "c": "50",
+            "d": "71"
+        },
+        "4": {
+            "a": "8",
+            "b": "4",
+            "c": "6",
+            "d": "10"
+        },
+        "5": {
+            "a": "20",
+            "b": "17",
+            "c": "15",
+            "d": "12"
+        },
+        "6": {
+            "a": "100",
+            "b": "97",
+            "c": "95",
+            "d": "90"
+        },
+        "7": {
+            "a": "20",
+            "b": "26",
+            "c": "24",
+            "d": "30"
+        },
+        "8": {
+            "a": "7",
+            "b": "6",
+            "c": "5",
+            "d": "8"
+        },
+        "9": {
+            "a": "29",
+            "b": "27",
+            "c": "30",
+            "d": "25"
+        },
+        "10": {
+            "a": "10",
+            "b": "9",
+            "c": "5",
+            "d": "7"
+        }
+        
+    },
+    {
+        "1": "55",
+        "2": "29",
+        "3": "53",
+        "4": "6",
+        "5": "17",
+        "6": "97",
+        "7": "24",
+        "8": "6",
+        "9": "31",
+        "10": "29"
+    }
+]

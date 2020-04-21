@@ -43,6 +43,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/mathapp.json
+    - assets/lop2.json
+    - assets/lop3.json
+    - assets/lop4.json
+    - assets/lop5.json
     - images/good.png
     - images/bad.png
     - images/godlike.png
@@ -53,6 +57,7 @@ flutter:
     - images/lop3.png
     - images/lop4.png
     - images/lop5.jpg
+    - images/background.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

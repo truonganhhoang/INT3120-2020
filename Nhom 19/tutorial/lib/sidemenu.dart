@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial/main.dart';
 import 'startquiz.dart';
 import 'package:tutorial/basicknowledge/basicwindow.dart';
 
@@ -23,7 +24,10 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Trang chủ'),
-            onTap: () => {},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => new MyHomePage()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.account_box),
