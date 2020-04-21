@@ -4,13 +4,19 @@ import { View, StyleSheet, Text, TouchableOpacity, Image, Dimensions } from 'rea
 const windowWidth = Dimensions.get('window').width;
 
 export default function Item(props) {
-    const { navigation, title, content, vid } = props;
+    const { navigation, title, content, color, name, vid } = props;
     return (
         <TouchableOpacity onPress={() => {
             navigation.navigate('DetailVideo', { vid: vid });
         }} >
             <View style={styles.item}>
-                <Image style={styles.tinyLogo} source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS1SxQs9wgEqtGTP5G_IS1NR4-LofYlG2BkcekBKOmIdFRaUe6b&usqp=CAU" }} />
+                <View style={{ backgroundColor: color, height: 45, width: 65, justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <Text style={{ color: '#fff', fontSize: 14, alignItems: 'center' }}>{name}</Text>
+                    <View style={{ backgroundColor: 'black', height: 15, width: 35, alignItems: 'center' }}>
+                        <Text style={{ color: '#fff', fontSize: 10, }}>1:30</Text>
+                    </View>
+                </View>
+
                 <View style={styles.text}>
                     <Text style={{ fontSize: 15, }}>{title}</Text>
                     <Text style={styles.content}>{content}</Text>
@@ -38,6 +44,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     tinyLogo: {
+        backgroundColor: 'blue',
         width: 65,
         height: 50,
     },
