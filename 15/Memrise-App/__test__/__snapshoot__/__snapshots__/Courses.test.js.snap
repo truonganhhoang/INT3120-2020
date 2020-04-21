@@ -1,0 +1,1071 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test courses Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#fff",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    animated={true}
+    animationConfig={
+      Object {
+        "bounciness": 0,
+      }
+    }
+    animationType="spring"
+    indeterminate={false}
+    indeterminateAnimationDuration={1000}
+    onLayout={[Function]}
+    progress={0.3}
+    style={
+      Array [
+        Object {
+          "backgroundColor": undefined,
+          "borderColor": "rgba(0, 122, 255, 1)",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "overflow": "hidden",
+          "width": 750,
+        },
+        undefined,
+      ]
+    }
+    useNativeDriver={false}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 122, 255, 1)",
+          "height": 6,
+          "transform": Array [
+            Object {
+              "translateX": -2.842170943040401e-14,
+            },
+            Object {
+              "translateX": -261.8,
+            },
+            Object {
+              "scaleX": 0.30007,
+            },
+          ],
+        }
+      }
+    />
+  </View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "unitName": "lession 1",
+        },
+        Object {
+          "id": 2,
+          "unitName": "lession 2 ",
+        },
+        Object {
+          "id": 3,
+          "unitName": "lession 3",
+        },
+        Object {
+          "id": 4,
+          "unitName": "lession 4",
+        },
+        Object {
+          "id": 5,
+          "unitName": "lession 5",
+        },
+        Object {
+          "id": 6,
+          "unitName": "lession 6",
+        },
+        Object {
+          "id": 7,
+          "unitName": "lession 7",
+        },
+        Object {
+          "id": 8,
+          "unitName": "lession 8",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              1
+               - 
+              lession 1
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              2
+               - 
+              lession 2 
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              3
+               - 
+              lession 3
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              4
+               - 
+              lession 4
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              5
+               - 
+              lession 5
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              6
+               - 
+              lession 6
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              7
+               - 
+              lession 7
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 4,
+                "marginBottom": 2,
+                "padding": 16,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/planet.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "marginBottom": 10,
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.3}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": undefined,
+                    "borderColor": "rgba(0, 122, 255, 1)",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "overflow": "hidden",
+                    "width": 150,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 122, 255, 1)",
+                    "height": 6,
+                    "transform": Array [
+                      Object {
+                        "translateX": 0,
+                      },
+                      Object {
+                        "translateX": -51.8,
+                      },
+                      Object {
+                        "scaleX": 0.30007,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+            <Text
+              style={
+                Object {
+                  "fontWeight": "700",
+                  "marginTop": 10,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+               
+              8
+               - 
+              lession 8
+               
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
