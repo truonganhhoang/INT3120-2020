@@ -17,4 +17,4 @@ Timetable là ứng dụng sắp xếp thời khóa biểu hoàn hảo và phù 
 - React-native
 - firebase
 ## Link file apk
-https://drive.google.com/drive/u/0/folders/15J4B1i7bdLRH5uV-QnKZJwzDYNfiO2CV
+https://github.com/supernaruto16/INT3120-2020/raw/master/9/TimeTable.apk
