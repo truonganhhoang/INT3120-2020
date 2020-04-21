@@ -14,7 +14,9 @@ Thành viên trong nhóm 11:
 - Hoàng Việt Hùng
 - Mai Thế Đại
 - Đặng Thị Duyên
+
 APP clone: https://play.google.com/store/apps/details?id=com.duolingo&hl=vi
+
 Mô tả ứng dụng: 
 Giúp người dùng học tiếng anh thông qua các từ ngữ, ngữ pháp được chia theo từng nội dung học.
 
