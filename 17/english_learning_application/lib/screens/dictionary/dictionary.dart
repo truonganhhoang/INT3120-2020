@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:html/parser.dart';
 // import 'dart:async';
@@ -273,7 +274,7 @@ class _DictionaryResultState extends State<DictionaryResult> {
                 ListView.builder(
                   itemCount: result.length,
                   itemBuilder: (context, index) {
-                    if(result.length < 3){
+                    if(result.length == 1){
                       if(index == 0) return Padding(
                         padding: EdgeInsets.only(top: 50.0),
                         child: ListTile(
@@ -311,7 +312,18 @@ class _DictionaryResultState extends State<DictionaryResult> {
                       children: <Widget>[
                         IconButton(
                             icon: Icon(Icons.content_copy),
-                            onPressed: null),
+                            onPressed: () {
+                              Clipboard.setData(new ClipboardData(text: result[0])).then((result) {
+                                final snackBar = SnackBar(
+                                  content: Text('Copied'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {},
+                                  ),
+                                );
+                                Scaffold.of(context).showSnackBar(snackBar);
+                              });;
+                            }),
                         IconButton(
                           icon: Icon(Icons.volume_up),
                           onPressed: _speak,
