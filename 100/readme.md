@@ -9,7 +9,8 @@ Bài tập lớn môn Phát triển ứng dụng di động
 Đề tài: [Edumall](https://play.google.com/store/apps/details?id=topica.edumall.edu.vn)
 ----
 
----
+(Toàn bộ code nằm trong folder MyApp)
+
 Hướng dẫn chạy file apk:
 ------------------------
 
