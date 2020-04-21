@@ -9,6 +9,7 @@ const Home = React.lazy(() => import('./screens/Home'));
 const ListComponent= React.lazy(() => import('./screens/ListComponent'));
 const ListTrafficSigns= React.lazy(() => import('./screens/ListTrafficSigns'));
 const ListTopicExam= React.lazy(() => import('./screens/ListTopicExam'));
+const initExam = React.lazy(()=> import('./screens/initExam'));
 
 const Stack = createStackNavigator();
 
@@ -17,12 +18,11 @@ const AuthNavigator = () => {
         <NavigationContainer>
             <Suspense fallback={<Spinner style={{marginTop: 200}}/>}>
             <Stack.Navigator headerMode='none'>
-                <Stack.Screen name={"Home"} component={Home}
-                />
-                <Stack.Screen name={"ListComponent"} component={ListComponent}
-                />
+                <Stack.Screen name={"Home"} component={Home}/>
+                <Stack.Screen name={"ListComponent"} component={ListComponent}/>
                 <Stack.Screen name= {"ListTrafficSigns"} component={ListTrafficSigns} />
                 <Stack.Screen name= {"ListTopicExam"} component={ListTopicExam} />
+                <Stack.Screen name={"initExam"} component={initExam} />
             </Stack.Navigator>
             </Suspense>
         </NavigationContainer>

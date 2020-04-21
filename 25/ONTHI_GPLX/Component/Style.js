@@ -1,8 +1,13 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import {color} from './color';
 
-const height = Dimensions.get('window').height / 5.5;
-const heightHeader = Dimensions.get('window').height / 8;
+const heightWindow = Dimensions.get('window').height;
+const widthWindow = Dimensions.get('window').width;
+const heightCard = heightWindow / 5.5;
+const heightHeader = heightWindow / 8;
+const heightCardExam = (widthWindow - 30)/3;
+
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -17,6 +22,10 @@ export const styles = StyleSheet.create({
         backgroundColor: color.header,
         color: color.textButton,
         height: heightHeader,
+    },
+    iconHeader: {
+        fontSize: 20, 
+        color: color.textButton,
     },
     Heading: {
         color: color.colorDark,
@@ -46,7 +55,7 @@ export const styles = StyleSheet.create({
     buttonCard: {
         backgroundColor: color.ButtonColor,
         alignItems: "center", 
-        height: height,
+        height: heightCard,
         // textAlign: "center",
     },
     pass: {
@@ -57,5 +66,13 @@ export const styles = StyleSheet.create({
     },
     cardExplain: {
         backgroundColor: color.colorExplain,
+    },
+    CardExam: {
+        backgroundColor: color.textButton,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: heightCardExam,
+        width: heightCardExam,
+        marginRight: 4,
     }
   });

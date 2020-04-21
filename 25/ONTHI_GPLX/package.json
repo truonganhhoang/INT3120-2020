@@ -18,6 +18,7 @@
     "react": "16.11.0",
     "react-native": "0.62.1",
     "react-native-easy-grid": "^0.2.2",
+    "react-native-file-viewer": "^2.0.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.7.1",
     "react-native-safe-area-context": "^0.7.3",
