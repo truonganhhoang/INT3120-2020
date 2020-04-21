@@ -1,0 +1,89 @@
+[
+    {
+    "1":    "Chu vi đáy của một hình hộp chữ nhật là 28 cm, diện tích xung quanh của nó là 336cm2. Tính chiều cao của cái hộp đó?",	
+    "2":    "Một cái thùng không nắp có dạng hình lập phương có cạnh 7,5 dm. Người ta quét sơn toàn bộ mặt trong và ngoài của thùng đó. Tính diện tích quét sơn?",	
+    "3":    "Tính thể tích 1 hình hộp chữ nhật có chiều dài là 13dm, chiều rộng là 8dm; chiều cao 1,8m (đề xi mét khối)",	
+    "4":    "Một bể nước hình hộp chữ nhật có chiều dài 3m, chiều rộng 1,7m, chiều cao 2,2m. Trong bể đang chứa lượng nước. Hỏi bể đang chứa bao nhiêu lít nước? (1dm3 = 1 lít)",	
+    "5":    "Thể tích của 1 hình hộp chữ nhật là 60dm3 chiều dài là 4dm, chiều rộng 3dm. Tìm chiều cao (đề xi mét)",	
+    "6":    "Tìm thể tích hình hộp chữ nhật biết diện tích xung quanh là 600cm2, chiều cao 10cm, chiều dài hơn chiều rộng là 6cm.",	
+    "7":    "Thể tích của một hình lập phương bé là 125cm3 và bằng 5/8 thể tích của hình lập phương lớn.Tìm thể tích hình lập phương lớn.",	
+    "8":    "1/5 giờ = ...phút",	
+    "9":    "Một người làm từ 8 giờ đến 11 giờ thì xong 6 sản phẩm. Hỏi trung bình người đó làm một sản phẩm hết bao nhiêu thời gian? (phút)",	
+    "10":   "Một người phải đi 30 km đường. Sau 2 giờ đạp xe, người đó còn cách nơi đến 3 km. Hỏi vận tốc của người đó là bao nhiêu?(km/h)"
+
+    },
+    {
+        "1": {
+            "a": "9",
+            "b": "8",
+            "c": "5",
+            "d": "6"
+        },
+        "2": {
+            "a": "675",
+            "b": "625",
+            "c": "600",
+            "d": "700"
+        },
+        "3": {
+            "a": "1872",
+            "b": "1782",
+            "c": "1827",
+            "d": "1278"
+        },
+        "4": {
+            "a": "11221",
+            "b": "11220",
+            "c": "11222",
+            "d": "12121"
+        },
+        "5": {
+            "a": "5",
+            "b": "6",
+            "c": "7",
+            "d": "4"
+        },
+        "6": {
+            "a": "2160",
+            "b": "1260",
+            "c": "6210",
+            "d": "1620"
+        },
+        "7": {
+            "a": "200",
+            "b": "300",
+            "c": "400",
+            "d": "100"
+        },
+        "8": {
+            "a": "20",
+            "b": "12",
+            "c": "15",
+            "d": "10"
+        },
+        "9": {
+            "a": "40",
+            "b": "20",
+            "c": "30",
+            "d": "10"
+        },
+        "10": {
+            "a": "12.5",
+            "b": "17.5",
+            "c": "15.5",
+            "d": "13.5"
+        }
+    },
+    {
+        "1": "6",
+        "2": "675",
+        "3": "1872",
+        "4": "11220",
+        "5": "5",
+        "6": "2160",
+        "7": "200",
+        "8": "12",
+        "9": "30",
+        "10": "13.5"
+    }
+]

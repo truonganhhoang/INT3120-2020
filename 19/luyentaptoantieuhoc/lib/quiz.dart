@@ -1,156 +1,258 @@
 import 'package:flutter/material.dart';
+import 'summary.dart';
+import 'dart:convert';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
 
-class QuestionQuiz{
-  var questions = [
-    "Ngạn có 6 quả táo, Hà Lan cho ngạn 4 quả táo. Hỏi Ngạn có bao nhiêu quả",
-    "Tèo mua 10 quả dưa gang giúp mẹ, trên đường đi Tèo làm rơi 2 quả. Hỏi Tèo còn bao nhiêu quả dưa gang. ",
-    "Từ nhà Hùng đến trường mất 10 cây số. Hỏi cả đi cả về hùng đi bao nhiêu cây số"
-  ];
-  var choices = [
-    ["1","5","7","10"],
-    ["4","2","12","8"],
-    ["2","43","15","20"]
-  ];
 
-  var answers = [
-    "10", "8","20"
-  ];
-}
+  Map<String, Color> btncolor = {
+    "a": Colors.indigoAccent,
+    "b": Colors.indigoAccent,
+    "c": Colors.indigoAccent,
+    "d": Colors.indigoAccent
+  };
+  String x = "normal";
+  String assettoload;
 
-var finalScore = 0; //Tổng điểm
-var questionNumber = 0; //Chạy câu hỏi
-var quiz = new QuestionQuiz();
+class GetData extends StatelessWidget {
+  // accept the langname as a parameter
 
-class Quiz extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-    return new QuizState();
-      }
-    
+  final String _currentClass;
+  GetData(this._currentClass);
+  
+
+  // a function
+  // sets the asset to a particular JSON file
+  // and opens the JSON
+  setasset() {
+    if (_currentClass == "Lớp 1") {
+      assettoload = "assets/mathapp.json";
+    } else if (_currentClass == "Lớp 2") {
+      assettoload = "assets/lop2.json";
+    } else if (_currentClass == "Lớp 3") {
+      assettoload = "assets/lop3.json";
+    } else if (_currentClass == "Lớp 4") {
+      assettoload = "assets/lop4.json";
+    } else {
+      assettoload = "assets/lop5.json";
+    }
   }
-    
-class QuizState extends State<Quiz> {
-  TextEditingController _controller = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-        return WillPopScope(
-          child: Scaffold(
-            
-            body: new Container(
-              
+    // this function is called before the build so that
+    // the string assettoload is avialable to the DefaultAssetBuilder
+    setasset();
+    // and now we return the FutureBuilder to load and decode JSON
+    return FutureBuilder(
+      future:
+      DefaultAssetBundle.of(context).loadString(assettoload),
+      builder: (context, snapshot) {
+        List mydata = json.decode(snapshot.data.toString());
+        if (mydata == null) {
+          return Scaffold(
+            body: Center(
+              child: Text(
+                "Loading",
+              ),
+            ),
+          );
+        } else {
+          return Quiz(mydata: mydata);
+        }
+      },
+    );
+  }
+}
+
+
+class Quiz extends StatefulWidget{
+  final mydata;
+
+  Quiz({Key key, @required this.mydata}) : super(key: key);
+
+  @override
+  QuizState createState() => QuizState(mydata);
     
-              margin: const EdgeInsets.all(20.0),
-              alignment: Alignment.topCenter,
-              child: Column(
-                children: <Widget>[
+}
     
-                  Padding(padding: EdgeInsets.all(20.0)),
-                  
-                  // Container show đề bài
-                  new Container(
-                    alignment: Alignment.centerRight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+class QuizState extends State<Quiz> {
+  var mydata;
+  var finalScore = 0; //Tổng điểm
+  int questionNumber = 1; //Chạy câu hỏi
+  QuizState(this.mydata);
+
+  @override
+  Widget build(BuildContext context) {
     
-                        //Câu số ...
-                        new Text("Câu ${questionNumber +1}",
-                          style: TextStyle(fontSize: 20.0),
-                        ),
+    return WillPopScope(
+      child: Scaffold(
     
-                        // Điểm 
-                        new Text("Điểm : $finalScore",
-                          style: TextStyle(fontSize: 20.0),
-                        ),
-                      ],
-                    )
+      body: Column(
+        
+        children: <Widget>[
+
+          Padding(padding: EdgeInsets.all(20.0)),
+          
+          new Container(
+            padding: EdgeInsets.all(20.0),
+            alignment: Alignment.centerRight,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                new Text("Câu $questionNumber",
+                  style: TextStyle(fontSize: 20.0),
+                ),
+
+                new Text("Điểm : $finalScore",
+                  style: TextStyle(fontSize: 20.0),
+                ),
+
+              ],
+            )
+          ),
+          new Container(
+            padding: EdgeInsets.all(20.0),
+            alignment: Alignment.centerRight,
+            child: Text(mydata[0][questionNumber.toString()],
+              style: TextStyle(fontSize:20.0),
+              ),
+          ),
+          new Padding(padding: EdgeInsets.all(50.0)),
+
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              //button1
+              new MaterialButton(
+                minWidth: 120.0,
+                color: btncolor["a"],
+                child: new Text(mydata[1][questionNumber.toString()]["a"],
+                  style: new TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
                   ),
-    
-                  //Show quiz
-                  new Padding(padding: EdgeInsets.all(20.0)),
-                  new Text(quiz.questions[questionNumber],
-                      style: TextStyle(fontSize:20.0),
-                      ),
-    
-
-                  // Text Answer
-                    new Container(
-                  
-                      margin: const EdgeInsets.only(left: 150.0, right: 150.0,top: 15.0),
-                      
-                      child: new TextFormField(
-                        textAlign: TextAlign.center,
-                        controller: _controller,
-                        decoration: InputDecoration(
-                          hintText: "Số",
-                        ),
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 22.0),
-                        onEditingComplete: (){
-                          if (_controller.text == quiz.answers[questionNumber]){
-                            debugPrint("Câu trả lời chính xác");
-                            finalScore++;
-                          }
-                          else{
-                            debugPrint("Câu trả lời chưa chính xác");
-                          }
-                          _controller.clear();
-                          updateQuestion();
-                        },
-                      ),
-                    ),
-              
-
-              // Exit Button    
-              new Padding(padding: EdgeInsets.all(30.0)),
-                new Container(
-                  alignment: Alignment.bottomCenter,
-                  child:  new MaterialButton(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-                      minWidth: 80.0,
-                      height: 30.0,
-                      color: Colors.blueAccent,
-                      onPressed: (){
-                        if (_controller.text == quiz.answers[questionNumber]){
-                            debugPrint("Câu trả lời chính xác");
-                            finalScore++;
-                          }
-                          else{
-                            debugPrint("Câu trả lời chưa chính xác");
-                          }
-                          _controller.clear();
-                          updateQuestion();
-                      },
-                      child: new Text("OK",
-                        style: new TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.white
-                        ),)
-                  )
                 ),
-                
-                new Container(
-                  alignment: Alignment.bottomCenter,
-                  child:  new MaterialButton(                      
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-                    minWidth: 180.0,
-                    height: 30.0,
-                    color: Colors.red,
-                    onPressed: resetQuiz,
-                    child: new Text("Thoát",
-                      style: new TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.white
-                      ),
-                    )
-                  )
+                onPressed: () {
+                  setState(() {
+                  if (mydata[1][questionNumber.toString()]["a"] == mydata[2][questionNumber.toString()]){
+                    debugPrint("Câu trả lời chính xác");
+                    btncolor["a"] = Colors.greenAccent;
+                    finalScore++;
+                    }
+                    else{
+                    debugPrint("Câu trả lời chưa chính xác");
+                    btncolor["a"] = Colors.redAccent;
+                    }                        
+                  });
+                  Future.delayed(const Duration(milliseconds: 1500), (){
+                    updateQuestion();
+                  });
+                }
+              ),
+              //button 2
+              new MaterialButton(
+                minWidth: 120.0,
+                color: btncolor["b"],
+                child: new Text(mydata[1][questionNumber.toString()]["b"],
+                  style: new TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
                 ),
+                onPressed: () {
+
+                  setState(() {
+                  if (mydata[1][questionNumber.toString()]["b"] == mydata[2][questionNumber.toString()]){
+                    debugPrint("Câu trả lời chính xác");
+                    btncolor["b"] = Colors.greenAccent;
+                    finalScore++;
+                    }
+                    else{
+                    debugPrint("Câu trả lời chưa chính xác");
+                    btncolor["b"] = Colors.redAccent;
+                    }                        
+                  });
+                  Future.delayed(const Duration(milliseconds: 1500), (){
+                    updateQuestion();
+                  });
+                  // updateQuestion();
+                }
+              ),
+
+
+            ],
+          ),
+        new Padding(padding: EdgeInsets.all(10.0)),
+
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              //button3
+              new MaterialButton(
+                minWidth: 120.0,
+                color: btncolor["c"],
+                child: new Text(mydata[1][questionNumber.toString()]["c"],
+                  style: new TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+
+                  setState(() {
+                  if (mydata[1][questionNumber.toString()]["c"] == mydata[2][questionNumber.toString()]){
+                    debugPrint("Câu trả lời chính xác");
+                    btncolor["c"] = Colors.greenAccent;
+                    finalScore++;
+                    }
+                    else{
+                    debugPrint("Câu trả lời chưa chính xác");
+                    btncolor["c"] = Colors.redAccent;
+                    }                        
+                  });
+                  Future.delayed(const Duration(milliseconds: 1500), (){
+                    updateQuestion();
+                  });
+                  // updateQuestion();
+                }
+              ),
+              //button 4
+              new MaterialButton(
+                minWidth: 120.0,
+                color: btncolor["d"],
+                child: new Text(mydata[1][questionNumber.toString()]["d"],
+                  style: new TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+
+                  setState(() {
+                  if (mydata[1][questionNumber.toString()]["d"] == mydata[2][questionNumber.toString()]){
+                    debugPrint("Câu trả lời chính xác");
+                    btncolor["d"] = Colors.greenAccent;
+                    finalScore++;
+                    }
+                    else{
+                    debugPrint("Câu trả lời chưa chính xác");
+                    btncolor["d"] = Colors.redAccent;
+                    }                        
+                  });
+                  Future.delayed(const Duration(milliseconds: 1500), (){
+                    updateQuestion();
+                  });
+                  // updateQuestion();
+                }
+              ),
+
 
             ],
           ),
 
-        ),
-
+        ],
+      ),
       ),
 
       onWillPop: ()async => false,
@@ -158,17 +260,16 @@ class QuizState extends State<Quiz> {
     
   }
 
-  void resetQuiz(){
-      setState(() {
-      Navigator.pop(context);
-      finalScore = 0;
-      questionNumber = 0;
-    });
-  }
+
 
   void updateQuestion(){
+
     setState(() {
-      if (questionNumber == quiz.questions.length -1){
+      btncolor["a"] = Colors.indigoAccent;
+      btncolor["b"] = Colors.indigoAccent;
+      btncolor["c"] = Colors.indigoAccent;
+      btncolor["d"] = Colors.indigoAccent;
+      if (questionNumber == 10){
         Navigator.push(context, new MaterialPageRoute(builder: (context) => new Summary(score : finalScore)));
       }
       else{
@@ -178,43 +279,3 @@ class QuizState extends State<Quiz> {
   }
 }
 
-class Summary extends StatelessWidget{
-  final int score;
-  Summary({Key key, @required this.score}) : super(key : key);
-  @override
-  Widget build(BuildContext context) {
-    return new WillPopScope(
-      child: Scaffold(
-        
-        body: new Container(
-          margin: const EdgeInsets.all(10.0),
-          alignment: Alignment.center,
-          child: new Column(
-            children: <Widget>[
-              new Padding(padding: EdgeInsets.all(10.0)),
-              new Text("Điểm tổng :  $score",
-                style: new TextStyle(
-                  fontSize :25.0,
-                  ),
-                ),
-              
-              new Padding(padding: EdgeInsets.all(10.0)),
-
-              new MaterialButton(
-                color: Colors.redAccent,
-                onPressed: (){
-                  questionNumber = 0;
-                  finalScore = 0;
-                  Navigator.pop(context);
-                },
-                child: new Text("Làm lại"),
-              )
-            ],
-          )
-        ),
-      ), 
-      onWillPop: ()async => false
-    );
-  }
-
-}
