@@ -1,0 +1,287 @@
+{
+  "Earth" : {
+    "answers" : [ {
+      "content_a" : "True",
+      "content_b" : "False",
+      "id" : 0,
+      "type" : 1
+    }, {
+      "content_a" : "True",
+      "content_b" : "False",
+      "id" : 1,
+      "type" : 1
+    }, {
+      "content_a" : "True",
+      "content_b" : "False",
+      "id" : 2,
+      "type" : 1
+    }, {
+      "content_a" : "True",
+      "content_b" : "False",
+      "id" : 3,
+      "type" : 1
+    }, {
+      "content_a" : "True",
+      "content_b" : "False",
+      "id" : 4,
+      "type" : 1
+    }, {
+      "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
+      "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fchamber.jpg?alt=media&token=514f0137-6c97-41ab-b422-07e32e0056c2",
+      "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcontinent.png?alt=media&token=95f93c00-9a96-430e-b6f2-d33b3a0a6bf2",
+      "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
+      "id" : 5,
+      "type" : 2
+    }, {
+      "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcontinent.png?alt=media&token=95f93c00-9a96-430e-b6f2-d33b3a0a6bf2",
+      "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fisland.jpg?alt=media&token=de43e9b8-e193-4352-b886-c9e41815e076",
+      "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fland.jpg?alt=media&token=dc07b0b8-0ec8-41df-ba61-de132ce7c1ba",
+      "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Flava.jpg?alt=media&token=c259e38d-ece0-4628-b5ff-9bae4dcff43c",
+      "id" : 6,
+      "type" : 2
+    }, {
+      "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fland.jpg?alt=media&token=dc07b0b8-0ec8-41df-ba61-de132ce7c1ba",
+      "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fmantle.jpg?alt=media&token=8fbb25eb-86ac-48c4-813c-1fc2d19fdc1d",
+      "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Focean.jpg?alt=media&token=e8d92f3c-1401-4536-b183-81aaee14592d",
+      "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fpeninsula.jpg?alt=media&token=b65aaf45-7a5e-4e94-bfdb-fd336e46164d",
+      "id" : 7,
+      "type" : 2
+    }, {
+      "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Focean.jpg?alt=media&token=e8d92f3c-1401-4536-b183-81aaee14592d",
+      "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fpole.jpg?alt=media&token=afa5e921-3775-4311-aa22-55172dc02a9c\"\"",
+      "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fsea.jpg?alt=media&token=f23dd8f6-7789-4914-ac69-d5989878d4a0",
+      "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fvolcano.jpg?alt=media&token=b0770992-f669-427a-9ff2-9b1af13b56e2",
+      "id" : 8,
+      "type" : 2
+    }, {
+      "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fsea.jpg?alt=media&token=f23dd8f6-7789-4914-ac69-d5989878d4a0",
+      "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fland.jpg?alt=media&token=dc07b0b8-0ec8-41df-ba61-de132ce7c1ba",
+      "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
+      "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fpeninsula.jpg?alt=media&token=b65aaf45-7a5e-4e94-bfdb-fd336e46164d",
+      "id" : 9,
+      "type" : 2
+    }, {
+      "content_a" : "lục địa",
+      "content_b" : "tro núi lửa",
+      "content_c" : "vỏ trái đất",
+      "content_d" : "hòn đảo",
+      "id" : 10,
+      "type" : 3
+    }, {
+      "content_a" : "đất đai",
+      "content_b" : "dung nham",
+      "content_c" : "lớp phủ trái đất",
+      "content_d" : "đại dương",
+      "id" : 11,
+      "type" : 3
+    }, {
+      "content_a" : "ash",
+      "content_b" : "continent",
+      "content_c" : "island",
+      "content_d" : "land",
+      "id" : 12,
+      "type" : 3
+    }, {
+      "content_a" : "ocean",
+      "content_b" : "pole",
+      "content_c" : "sea",
+      "content_d" : "volcano",
+      "id" : 13,
+      "type" : 3
+    }, {
+      "content_a" : "crust",
+      "content_b" : "peninsula",
+      "content_c" : "chamber",
+      "content_d" : "land",
+      "id" : 14,
+      "type" : 3
+    }, {
+      "id" : 15,
+      "num_character" : 5,
+      "sugges_characters" : [ "m", "a", "i", "n", "l", "e", "t" ],
+      "type" : 4
+    }, {
+      "id" : 16,
+      "num_character" : 4,
+      "sugges_characters" : [ "o", "a", "p", "n", "l", "e", "h" ],
+      "type" : 4
+    }, {
+      "id" : 17,
+      "num_character" : 3,
+      "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+      "type" : 4
+    }, {
+      "id" : 18,
+      "num_character" : 5,
+      "sugges_characters" : [ "r", "a", "c", "n", "s", "e", "t" ],
+      "type" : 4
+    }, {
+      "id" : 19,
+      "num_character" : 7,
+      "sugges_characters" : [ "l", "a", "0", "n", "v", "e", "l" ],
+      "type" : 4
+    } ],
+    "questions" : [ {
+      "id" : 0,
+      "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
+      "type" : "1",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fash.mp3?alt=media&token=dbfba58c-3db4-4097-8f1e-f8900f230c34"
+    }, {
+      "id" : 1,
+      "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fchamber.jpg?alt=media&token=514f0137-6c97-41ab-b422-07e32e0056c2",
+      "type" : "1",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
+    }, {
+      "id" : 2,
+      "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
+      "type" : "1",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
+    }, {
+      "id" : 3,
+      "txt_content" : "island",
+      "type" : "1",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fisland.mp3?alt=media&token=ff5e67b8-4047-4f65-99e4-ce322e88c3d8"
+    }, {
+      "id" : 4,
+      "txt_content" : "land",
+      "type" : "1",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Flava.mp3?alt=media&token=069d56fd-5abf-476a-9c4d-37f4e63c37e5"
+    }, {
+      "id" : 5,
+      "txt_content" : "continenr",
+      "type" : "2"
+    }, {
+      "id" : 6,
+      "txt_content" : "lava",
+      "type" : "2"
+    }, {
+      "id" : 7,
+      "txt_content" : "land",
+      "type" : "2"
+    }, {
+      "id" : 8,
+      "txt_content" : "pole",
+      "type" : "2"
+    }, {
+      "id" : 9,
+      "txt_content" : "sea",
+      "type" : "2"
+    }, {
+      "id" : 10,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcontinent.png?alt=media&token=95f93c00-9a96-430e-b6f2-d33b3a0a6bf2",
+      "type" : "3"
+    }, {
+      "id" : 11,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Flava.jpg?alt=media&token=c259e38d-ece0-4628-b5ff-9bae4dcff43c",
+      "type" : "3"
+    }, {
+      "id" : 12,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fisland.jpg?alt=media&token=de43e9b8-e193-4352-b886-c9e41815e076",
+      "type" : "3"
+    }, {
+      "id" : 13,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fvolcano.jpg?alt=media&token=b0770992-f669-427a-9ff2-9b1af13b56e2",
+      "type" : "3"
+    }, {
+      "id" : 14,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fland.jpg?alt=media&token=dc07b0b8-0ec8-41df-ba61-de132ce7c1ba",
+      "type" : "3"
+    }, {
+      "id" : 15,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fmantle.jpg?alt=media&token=8fbb25eb-86ac-48c4-813c-1fc2d19fdc1d",
+      "type" : "4",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fmantle.mp3?alt=media&token=9874d438-6a5e-44c7-9145-2e1d0c5d9ba1"
+    }, {
+      "id" : 16,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fpole.jpg?alt=media&token=afa5e921-3775-4311-aa22-55172dc02a9c",
+      "type" : "4",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fpole.mp3?alt=media&token=ac4c5706-7a4c-4be6-b1b8-f0c11ebc7510"
+    }, {
+      "id" : 17,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
+      "type" : "4",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fash.mp3?alt=media&token=dbfba58c-3db4-4097-8f1e-f8900f230c34"
+    }, {
+      "id" : 18,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
+      "type" : "4",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcrust.mp3?alt=media&token=0559b3c7-0071-4bc0-94e7-166db0aa17b9"
+    }, {
+      "id" : 19,
+      "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fvolcano.jpg?alt=media&token=b0770992-f669-427a-9ff2-9b1af13b56e2",
+      "type" : "4",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fvolcano.mp3?alt=media&token=354ee3de-0276-4e0e-a572-4bc1ea4a7644"
+    } ],
+    "results" : [ {
+      "id" : 0,
+      "text" : "a"
+    }, {
+      "id" : 1,
+      "text" : "b"
+    }, {
+      "id" : 2,
+      "text" : "b"
+    }, {
+      "id" : 3,
+      "text" : "a"
+    }, {
+      "id" : 4,
+      "text" : "b"
+    }, {
+      "id" : 5,
+      "text" : "c",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
+    }, {
+      "id" : 6,
+      "text" : "d",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Flava.mp3?alt=media&token=069d56fd-5abf-476a-9c4d-37f4e63c37e5"
+    }, {
+      "id" : 7,
+      "text" : "a",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fland.mp3?alt=media&token=ad798903-8587-454a-bcf0-cddfb0ac5350"
+    }, {
+      "id" : 8,
+      "text" : "b",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fpole.mp3?alt=media&token=ac4c5706-7a4c-4be6-b1b8-f0c11ebc7510"
+    }, {
+      "id" : 9,
+      "text" : "a",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fsea.mp3?alt=media&token=80c42c15-b290-413d-99ba-ddb998f90b1a"
+    }, {
+      "id" : 10,
+      "text" : "c",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
+    }, {
+      "id" : 11,
+      "text" : "b",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Flava.mp3?alt=media&token=069d56fd-5abf-476a-9c4d-37f4e63c37e5"
+    }, {
+      "id" : 12,
+      "text" : "c",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fisland.mp3?alt=media&token=ff5e67b8-4047-4f65-99e4-ce322e88c3d8"
+    }, {
+      "id" : 13,
+      "text" : "d",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fvolcano.mp3?alt=media&token=354ee3de-0276-4e0e-a572-4bc1ea4a7644"
+    }, {
+      "id" : 14,
+      "text" : "d",
+      "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fland.mp3?alt=media&token=ad798903-8587-454a-bcf0-cddfb0ac5350"
+    }, {
+      "id" : 15,
+      "text" : "mantle"
+    }, {
+      "id" : 16,
+      "text" : "pole"
+    }, {
+      "id" : 17,
+      "text" : "ash"
+    }, {
+      "id" : 18,
+      "text" : "crust"
+    }, {
+      "id" : 19,
+      "text" : "volcano"
+    } ]
+  }
+}
