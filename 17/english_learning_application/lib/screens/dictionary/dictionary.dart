@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:html/parser.dart';
 // import 'dart:async';
 import 'package:englishlearningapplication/services/word_search.dart';
@@ -45,14 +47,95 @@ class DictionaryResult extends StatefulWidget {
   _DictionaryResultState createState() => _DictionaryResultState(controller);
 }
 
+enum TtsState { playing, stopped }
 class _DictionaryResultState extends State<DictionaryResult> {
   _DictionaryResultState(this.controller);
   final controller;
   List result = [];
-//  TextEditingController _controller = TextEditingController();
-  // Timer _debounce;
   bool isLoading = false;
   String _notFound = 'This word is not found';
+
+  FlutterTts flutterTts;
+  dynamic languages;
+  double volume = 0.5;
+  double pitch = 1.0;
+  double rate = 0.5;
+
+  String _newVoiceText;
+
+  TtsState ttsState = TtsState.stopped;
+
+  get isPlaying => ttsState == TtsState.playing;
+
+  get isStopped => ttsState == TtsState.stopped;
+
+  @override
+  initState() {
+    super.initState();
+    initTts();
+  }
+
+  initTts() {
+    flutterTts = FlutterTts();
+
+//    _getLanguages();
+
+    flutterTts.setStartHandler(() {
+      setState(() {
+        print("playing");
+        ttsState = TtsState.playing;
+      });
+    });
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        print("Complete");
+        ttsState = TtsState.stopped;
+      });
+    });
+
+    flutterTts.setErrorHandler((msg) {
+      setState(() {
+        print("error: $msg");
+        ttsState = TtsState.stopped;
+      });
+    });
+  }
+
+//  Future _getLanguages() async {
+//    languages = flutterTts.setLanguage()  await flutterTts.getLanguages;
+//    if (languages != null) setState(() => languages);
+//  }
+
+  Future _speak() async {
+    await flutterTts.setVolume(volume);
+    await flutterTts.setSpeechRate(rate);
+    await flutterTts.setPitch(pitch);
+
+    if(ttsState == TtsState.stopped){
+      if (_newVoiceText != null) {
+        if (_newVoiceText.isNotEmpty) {
+          var result = await flutterTts.speak(_newVoiceText);
+          if (result == 1) setState(() => ttsState = TtsState.playing);
+        }
+      }
+    }
+    else{
+      _stop();
+    }
+  }
+
+  Future _stop() async {
+    var result = await flutterTts.stop();
+    if (result == 1) setState(() => ttsState = TtsState.stopped);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    flutterTts.stop();
+  }
+
 
   void translateToEnglish() async {
     result = [];
@@ -63,7 +146,10 @@ class _DictionaryResultState extends State<DictionaryResult> {
     final translator = new GoogleTranslator();
     translator.translate(controller.text, from: 'vi',to: 'en').then((s){
       result.add(s);
+
       setState(() {
+        languages = flutterTts.setLanguage("en");
+        _newVoiceText = result[0];
         isLoading = false;
       });
     });
@@ -88,8 +174,11 @@ class _DictionaryResultState extends State<DictionaryResult> {
             });
           }
         });
+
         setState(() {
+          languages = flutterTts.setLanguage("vi");
           isLoading = false;
+          _newVoiceText = result[0];
         });
       });
     }
@@ -97,7 +186,9 @@ class _DictionaryResultState extends State<DictionaryResult> {
       translator.translate(controller.text, from: 'en',to: 'vi').then((s){
         result.add(s);
         setState(() {
+          languages = flutterTts.setLanguage("vi");
           isLoading = false;
+          _newVoiceText = result[0];
         });
       });
     }
@@ -177,22 +268,32 @@ class _DictionaryResultState extends State<DictionaryResult> {
             ),
             child: Stack(
               children: <Widget>[
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                ),
                 ListView.builder(
                   itemCount: result.length,
                   itemBuilder: (context, index) {
-                    if(result.length < 3){
-                      if(index == 0) return ListTile(
-                        title: Text(result[index]),
+                    if(result.length == 1){
+                      if(index == 0) return Padding(
+                        padding: EdgeInsets.only(top: 30.0),
+                        child: ListTile(
+                          title: Text(result[index]),
+                        ),
                       );
                       return null;
                     }
                     else{
                       if(index == 0){
                         return SizedBox(
-                          height: 50.0,
-                          child: ListTile(
-                            title: Text('${result[0]}', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600)),
-                          ),
+                          height: 80.0,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 30.0),
+                            child: ListTile(
+                              title: Text('${result[0]}', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600)),
+                            ),
+                          )
                         );
                       }
                       else{
@@ -215,10 +316,21 @@ class _DictionaryResultState extends State<DictionaryResult> {
                       children: <Widget>[
                         IconButton(
                             icon: Icon(Icons.content_copy),
-                            onPressed: null),
+                            onPressed: () {
+                              Clipboard.setData(new ClipboardData(text: result[0])).then((result) {
+                                final snackBar = SnackBar(
+                                  content: Text('Copied'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {},
+                                  ),
+                                );
+                                Scaffold.of(context).showSnackBar(snackBar);
+                              });;
+                            }),
                         IconButton(
                           icon: Icon(Icons.volume_up),
-                          onPressed: null,
+                          onPressed: _speak,
                         )
                       ],
                     ),
@@ -236,21 +348,6 @@ class _DictionaryResultState extends State<DictionaryResult> {
           ],
         ),
       );
-
-
-
-
-//      ListView.builder(
-//        itemCount: result.length,
-//        itemBuilder: (context, index) {
-//          return Card(
-//            child: ListTile(
-//              title: Text(removeTagHTML('${result[index]['en']}')),
-//              subtitle: Text('${result[index]['vi']}'),
-//            ),
-//          );
-//        },
-//      );
     }
   }
 }
