@@ -1,13 +1,16 @@
 package com.example.dictbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DictionaryFragment dictionaryFragment;
     BookmarkFragment bookmarkFragment;
+
+    EditText edit_search;
+
+    private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        EditText edit_search = findViewById(R.id.edit_search);
+        edit_search = findViewById(R.id.edit_search);
         edit_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -166,9 +173,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
+        if (id == R.id.nav_voice) {
+            speak();
+        }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer((GravityCompat.START));
         return true;
+    }
+
+    private void speak() {
+        //intent to show speech to text dialog
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Hi speak something");
+
+        //start intent
+        try {
+            //show dialog
+            startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
+        } catch (Exception e) {
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_CODE_SPEECH_INPUT:{
+                if (resultCode == RESULT_OK && null!=data) {
+                    //get text array from voice intent
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    String value = result.get(0);
+                    goToFragment(DetailFragment.getNewInstance(value, dbHelper), false);
+                }
+                break;
+            }
+        }
     }
 
     void goToFragment(Fragment fragment, boolean isTop) {
