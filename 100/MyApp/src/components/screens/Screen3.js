@@ -8,7 +8,7 @@ export default class Screen3 extends Component {
         return (
             <View style={{flex: 1, justifyContent: "space-evenly"}}>
                 <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Giỏ hàng</Text>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Giỏ hàng</Text>
                 </View>
                 <View style={[Styles.container]}>
                     <ScrollView>
@@ -21,8 +21,8 @@ export default class Screen3 extends Component {
                         width: "100%",
                         height: 60,
                         backgroundColor: "#42A5F5",
-                        borderTopLeftRadius: 10,
-                        borderTopRightRadius: 10,
+                        borderTopLeftRadius: 8,
+                        borderTopRightRadius: 8,
                         alignItems: "center",
                         justifyContent: "center"
                     }}>
