@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const SettingButton = (props: { navigation?: any; }) => {
   const { navigation } = props;
@@ -7,12 +8,16 @@ const SettingButton = (props: { navigation?: any; }) => {
     navigation.navigate('SettingScreen');
   }
   return (
-    <Icon
-      name="cog"
-      type='font-awesome'
-      color='white'
+    <TouchableOpacity
       onPress={onPress}
-    />
+      >
+      <Icon
+        name="cog"
+        type='font-awesome'
+        color='white'
+      />
+    </TouchableOpacity>
+
   )
 }
 export default SettingButton; 
