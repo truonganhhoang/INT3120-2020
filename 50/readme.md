@@ -37,4 +37,6 @@ Link ứng dụng: [https://play.google.com/store/apps/details?id=com.ffff.tudie
 - Tuần 5: Bắt đầu hoàn thiện sản phẩm. Link issues: [Issues](https://github.com/balanced-team/envidict/issues?q=is%3Aissue+is%3Aclosed)
           Tuần 5, nhóm đã thực hiện hoàn thiện sản phẩm. Chỉnh sửa những lỗi giao diện sau khi nhận review từ các bạn cùng lớp.
 - Tuần 6: Hoàn thiện sản phẩm, refactor code.
+          Kết nối với backend để thực hiện tìm kiếm online và dịch văn bản dài, thêm trang yêu thích
 ### Link repo nhóm: [https://github.com/balanced-team/envidict](https://github.com/balanced-team/envidict)
+### Link APK hiện tại: [tại đây](https://drive.google.com/file/d/1eDJ2i7bzP9xdmRyfxlNYgShPK2YiNSDC/view?usp=sharing)
