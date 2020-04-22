@@ -30,35 +30,37 @@ export default function MenuTab() {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesome5 name="home" size={22} color={color} />
-            ),}}
+              <FontAwesome5 name="home" size={24} color={color} />
+            ),
+          }}
+          
         />
         <Tab.Screen name="D/M" component={Screen2}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesome5 name="th" size={22} color={color} />
+              <FontAwesome5 name="th" size={24} color={color} />
             ),}}
         />
         <Tab.Screen name="Cart" component={Cartscreen3} 
           options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="shopping-cart" size={22} color={color} />
+            <FontAwesome5 name="shopping-cart" size={24} color={color} />
           ),}}
         />
         <Tab.Screen name="T/B" component={Screen4}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="bell" size={22} color={color} />
+            <FontAwesome name="bell" size={24} color={color} />
           ),}}
         />
         <Tab.Screen name="Acc" component={Screen5}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" size={22} color={color} />
+            <FontAwesome name="user" size={24} color={color} />
           ),}}
         />
       </Tab.Navigator>

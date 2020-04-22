@@ -7,7 +7,7 @@ export default class Screen4 extends Component {
         return (
             <View style={{flex: 1}}>
                 <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Thông báo</Text>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Thông báo</Text>
                 </View>
                 <View style={Styles.container}>
                     <ScrollView>

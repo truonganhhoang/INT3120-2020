@@ -1,6 +1,7 @@
-import { View, StyleSheet, ScrollView, Image } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 import React, { Component } from 'react';
 import SwiperFlatList from 'react-native-swiper-flatlist';
+// import Pagination from './PaginationSlider';
 class SliderHome extends Component {
     render() {
         return (
@@ -10,12 +11,13 @@ class SliderHome extends Component {
                 autoplayDelay={2}
                 autoplayLoop
                 index={1}
-                showPagination
+                showPagination={true}
                 autoplayInvertDirection={true}
                 paginationStyleItem={
-                   { width: 350,
-                    height: 240,}
+                   { width: 320,
+                    height: 220,}
                 }
+                // PaginationComponent = {Pagination}
             >
                 <Image style={localStyles.img} source={require('../../img/01.jpg')}/>
                 <Image style={localStyles.img} source={require('../../img/02.jpg')}/>
@@ -26,27 +28,27 @@ class SliderHome extends Component {
         );
     }
 }
-function Slider() {
-    return(
-        <View>
-            <Image style={localStyles.img} source={require('../../img/01.jpg')}/>
-                <Image style={localStyles.img} source={require('../../img/02.jpg')}/>
-                <Image style={localStyles.img} source={require('../../img/03.jpg')}/>
-        </View>
-    );
-}
+// function Slider() {
+//     return(
+//         <View style={{flex:"row",}}>
+//                 <Image style={localStyles.img} source={require('../../img/01.jpg')}/>
+//                 <Image style={localStyles.img} source={require('../../img/02.jpg')}/>
+//                 <Image style={localStyles.img} source={require('../../img/03.jpg')}/>
+//         </View>
+//     );
+// }
 export default SliderHome;
 const localStyles = StyleSheet.create({
     slider: {
         marginTop: 20,
         width: "100%",
-        height: 230,
+        height: 232,
         // flexDirection: "row"
     },
     img: {
         width: 320,
         height: 220,
         borderRadius: 12,
-        marginHorizontal: 10,
+        marginHorizontal: 8,
     }
 });

@@ -7,7 +7,7 @@ export default class Screen5 extends Component {
         return (
             <View style={{ flex: 1}}>
                 <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Thông báo</Text>
+                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Thông báo</Text>
                 </View>
                 <View style={Styles.container}>
                     <View style={localStyles.header}>
@@ -15,27 +15,27 @@ export default class Screen5 extends Component {
                         <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="user-circle" size={25} color="gray"/>
+                        <FontAwesome5 name="user-circle" size={24} color="gray"/>
                         <Text style={[Styles.h3text, localStyles.text]}>Thiết lập tài khoản</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="unlock-alt"  size={25} color="gray" />
+                        <FontAwesome5 name="unlock-alt"  size={24} color="gray" />
                         <Text style={[Styles.h3text, localStyles.text]}>Kích hoạt khóa học</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="list-alt"  size={25} color="gray" />
+                        <FontAwesome5 name="list-alt"  size={24} color="gray" />
                         <Text style={[Styles.h3text, localStyles.text]}>Điều khoản chính sách</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="question-circle"  size={25} color="gray"/>
+                        <FontAwesome5 name="question-circle"  size={24} color="gray"/>
                         <Text style={[Styles.h3text, localStyles.text]}>Trợ giúp</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="star"  size={25} color="gray"/>
+                        <FontAwesome5 name="star"  size={24} color="gray"/>
                         <Text style={[Styles.h3text, localStyles.text]}>Đánh giá Edumall</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="power-off"  size={25} color="hotpink" />
+                        <FontAwesome5 name="power-off"  size={24} color="hotpink" />
                         <Text style={[Styles.h3text, localStyles.text]}>Đăng xuất</Text>
                     </View>
                     <View style={[Styles.list1s, {flexDirection: "row"}]}>
@@ -49,8 +49,8 @@ export default class Screen5 extends Component {
 
 const localStyles = StyleSheet.create({
     header: {
-        flex: 1.8,
-        padding: 10,
+        flex: 1.6,
+        padding: 8,
         borderColor: "gray",
         borderBottomWidth: 1,
         flexDirection: "row",
@@ -58,7 +58,7 @@ const localStyles = StyleSheet.create({
         alignItems: "center"
     },
     name: {
-        marginHorizontal: 10,
+        marginHorizontal: 8,
         marginLeft: 20,
     },
     text:{

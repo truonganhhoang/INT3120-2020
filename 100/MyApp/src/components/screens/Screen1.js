@@ -21,13 +21,13 @@ class Store extends Component {
                     />
                     <SliderHome />
                     <View style={Styles.container}>
-                        <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Khuyến mại</Text>
+                        <Text style={[Styles.h2text, {marginTop: 4, marginBottom: 8}]}>Khuyến mại</Text>
                         <Provideo />
-                        <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Top bán chạy</Text>
+                        <Text style={[Styles.h2text, {marginTop: 4, marginBottom: 8}]}>Top bán chạy</Text>
                         <Provideo />
-                        <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Đánh giá cao</Text>
+                        <Text style={[Styles.h2text, {marginTop: 4, marginBottom: 8}]}>Đánh giá cao</Text>
                         <Provideo />
-                        <Text style={[Styles.h2text, {marginTop: 5, marginBottom: 8}]}>Mới nhất</Text>
+                        <Text style={[Styles.h2text, {marginTop: 4, marginBottom: 8}]}>Mới nhất</Text>
                         <Provideo />
                         <TouchableOpacity onPress={() => navigation.navigate('Details')}>
                             <View style={[Styles.vbox, {flexDirection:"column", justifyContent:"space-between"}]}>
@@ -68,7 +68,7 @@ export default function Screen1() {
                 backgroundColor: "#0288D1",
             },
             headerTitleStyle:{
-                color: "#E1F5FE"
+                color: "#E1F4FE"
             }
           }}
         />
@@ -79,7 +79,7 @@ export default function Screen1() {
                 height: 60,
                 backgroundColor: "#0288D1",
             },
-            headerTintColor: "#E1F5FE",
+            headerTintColor: "#E1F4FE",
         }}
         />
          <Stack.Screen name="Mycourses" component={Mycourses} 
@@ -89,7 +89,7 @@ export default function Screen1() {
                 height: 60,
                 backgroundColor: "#0288D1",
             },
-            headerTintColor: "#E1F5FE",
+            headerTintColor: "#E1F4FE",
         }}
         />
     </Stack.Navigator>
