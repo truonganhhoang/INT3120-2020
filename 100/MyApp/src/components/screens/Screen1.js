@@ -9,13 +9,18 @@ import Details1 from './Details1';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Search from './Search';
 import Mycourses from './Mycourses';
+import { useScrollToTop } from '@react-navigation/native';
 
 class Store extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
         const {navigation} = this.props;
         return (
             <View >
-                <ScrollView showsHorizontalScrollIndicator={false}>
+                <ScrollView showsHorizontalScrollIndicator={false} ref={this.props.scrollRef}>
                     <Header onPress1= {()=> navigation.navigate('Search')}
                             onPress2= {()=> navigation.navigate('Mycourses')}
                     />
@@ -50,12 +55,19 @@ class Store extends Component {
         )
     }
 }
+function Stores(props) {
+    const ref = React.useRef(null);
+  
+    useScrollToTop(ref);
+  
+    return <Store {...props} scrollRef={ref} />;
+  }
 const Stack = createStackNavigator();
 
 export default function Screen1() {
     return (
     <Stack.Navigator>
-        <Stack.Screen name="Store" component={Store}
+        <Stack.Screen name="Store" component={Stores}
          options={{
             header: ()=> null
           }}

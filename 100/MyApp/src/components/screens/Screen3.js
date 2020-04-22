@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView} from 'react-native'
 import { Styles } from '../../styles'
 import Moikhoahoc from '../components/Moikhoahoc'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 export default class Screen3 extends Component {
     render() {
         return (
@@ -11,7 +11,7 @@ export default class Screen3 extends Component {
                     <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Giỏ hàng</Text>
                 </View>
                 <View style={[Styles.container]}>
-                    <ScrollView>
+                    <ScrollView >
                         <Moikhoahoc />
                     </ScrollView>
                    
