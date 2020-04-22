@@ -1,21 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { StyleSheet, View, Text, Image , Alert } from 'react-native';
+import { View, Text, Image , Alert } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Speech from 'expo-speech';
 import IconFont from 'react-native-vector-icons/FontAwesome';
 import  * as Animatable from 'react-native-animatable';
 import { Notifications } from 'expo';
+import styles from '../AppStyles/Words';
 import db from './../data/SQLite';
+import PickColor from '../Config/Color'
 
 console.disableYellowBox = true;
 export default class Words extends React.Component {
-
+  color
   constructor(props){
     super(props);
     this.state = {
-      data: db.getTaggedWord(this, this.props.type)
+      data: db.getTaggedWord(this, this.props.type),
     }
     // db.clearAllWords();
   }
@@ -80,75 +82,73 @@ export default class Words extends React.Component {
 
   renderItem = ({ item, index }) => (
     <Animatable.View animation="zoomInLeft" delay={750} duration={2000}>
-		<View style = {styles.container}>
-			<Image style = {styles.image} source = {{uri: item.picture}}/>
-			<View style = {styles.content}>
+		<View style = {styles().container}>
+			<Image style = {styles().image} source = {{uri: item.picture}}/>
+			<View style = {styles().content}>
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <Text style = {styles.englishWord}>{item.eng} </Text>
-          <Icon name='volume-high' type='material-community' onPress={() => this.speakWord(item.eng)}/>
+          <Text style = {styles().englishWord}>{item.eng} </Text>
+          <Icon color={this.color.iconColor} name='volume-high' type='material-community' onPress={() => {console.log(this.color.iconColor);this.speakWord(item.eng)}}/>
         </View>
-        <Text>
-          <Text>{item.type} </Text>
-          <Text>{item.pronounce}</Text></Text>
-				<Text>{item.vie}</Text>  
+        <View style={{marginBottom: 7}}>
+          <Text style={styles().textColor}>{item.type} {item.pronounce} </Text>
+          <Text style={styles().textColor}>{item.vie}</Text>
+        </View>  
       </View>
-      <View style={styles.add}>
-        <IconFont name='exchange' iconStyle={styles.add}/>
+      <View style={styles().add}>
+        <IconFont name='exchange' style={styles().add} color={this.color.iconColor}/>
       </View>
 		</View>
     </Animatable.View>
   );
 
   renderHiddenItem = ({ item }) => (
-    <View style={styles.iconContainer}>
-      <Animatable.View animation="slideInRight" duration={1000}>
+    <View style={styles().iconContainer}>
+      <Animatable.View style={{marginLeft: 5}} animation="slideInRight" duration={1000}>
         <TouchableOpacity onPress={() => this.favoriteSwitch(item)}>
           <Icon
-              style={styles.icon}
               name={'heart'}
               type='material-community'
               color={item.favorite == 1 ? 'red' : 'gray'}
-              size={40}
+              size={45}
           />
         </TouchableOpacity>
       </Animatable.View>
-      <Animatable.View animation="slideInRight" duration={1000}>
+      <Animatable.View style={{marginLeft: 5}} animation="slideInRight" duration={1000}>
         <TouchableOpacity onPress={() => this.remindSwitch(item)}>
           <Icon
-          style={styles.icon}
           name='alarm'
           type='material-community'
           color={item.remind == 1 ? 'green' : 'gray'}
-          size={40}
+          size={45}
           />
         </TouchableOpacity>
       </Animatable.View>
-      <Animatable.View animation="slideInRight" duration={1000}>
+      <Animatable.View style={{marginLeft: 5}} animation="slideInRight" duration={1000}>
         <TouchableOpacity onPress={() => this.showWordExample(item)}>
           <Icon
-          style={styles.icon}
           name='comment-text'
           type='material-community'
           color='#457fe1'
-          size={40}
+          size={45}
           />
         </TouchableOpacity>
       </Animatable.View>
     </View>
   );
-  render(){   
+  render(){
     if (this.state.data != undefined){
+      this.color = PickColor(global.darkmode);
       return (
         <View>
           <SwipeListView
-            style={styles.swipeListView}
+            style={styles().swipeListView}
             keyExtractor={this.keyExtractor}
             contentContainerStyle={{paddingBottom: 240}}
             data={this.state.data}
             renderItem={this.renderItem}
             renderHiddenItem={this.renderHiddenItem}
             leftOpenValue={0}
-            rightOpenValue={-150}
+            rightOpenValue={-160}
             disableRightSwipe={true}
             refreshing={true}
           />
@@ -162,45 +162,3 @@ export default class Words extends React.Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  swipeListView:{
-      paddingLeft: 10,
-      paddingRight: 10,
-      height:'100%'
-  },
-  listitem:{
-      marginTop: 8,
-      marginBottom: 8
-	},
-	container:{
-		backgroundColor: 'white', // Set your own custom Color
-		flexDirection: 'row',
-		marginBottom: 10
-	},
-	image:{
-		width: 70, 
-		height: 70,
-		marginVertical: 10,
-  	marginHorizontal: 20
-	},
-	content:{
-		marginVertical: 10
-	},
-	englishWord:{
-		fontSize: 20,
-		color: 'blue'
-  },
-  add:{
-    right:2,
-    top:4,
-    position:'absolute'
-  },
-  iconContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    marginLeft: 'auto',
-    marginRight:15,
-    marginTop:15
-  }
-});

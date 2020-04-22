@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
-import { ListItem, Header, CheckBox, Card, Icon } from 'react-native-elements'
-import {Button} from 'react-native-paper'
+import { View, Text } from 'react-native';
+import { CheckBox, Icon } from 'react-native-elements';
+import styles from '../AppStyles/Question'
+
 export default class Question extends React.Component{
-    state={
-        one:false,
-        two:false,
-        three:false,
-        correct:false,
-        checked:false,
-        key:''
-    }
     
+    state = {
+          one:false,
+          two:false,
+          three:false,
+          correct:false,
+          checked:false,
+          key:''
+        }
+      
     onePressed(){
        this.setState({
            one:true,
@@ -58,8 +60,8 @@ export default class Question extends React.Component{
     }
     render(){
         return(
-            <View style={styles.container}>                
-                <Text>{this.props.question}</Text>
+            <View style={styles().container}>                
+                <Text style={styles().questionText}>{this.props.question}</Text>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
                             checked={this.state.one}
@@ -67,7 +69,7 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="one")? styles.Keycorrect:null]}>{this.props.answer1}</Text>
+                        <Text style={[styles().item, (this.state.key=="one")? styles().Keycorrect:null]}>{this.props.answer1}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
@@ -76,7 +78,7 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="two")? styles.Keycorrect:null]}>{this.props.answer2}</Text>
+                        <Text style={[styles().item, (this.state.key=="two")? styles().Keycorrect:null]}>{this.props.answer2}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
                         <CheckBox
@@ -85,10 +87,10 @@ export default class Question extends React.Component{
                             checkedIcon='dot-circle-o'
                             uncheckedIcon='circle-o'
                         />
-                        <Text style={[styles.item, (this.state.key=="three")? styles.Keycorrect:null]}>{this.props.answer3}</Text>
+                        <Text style={[styles().item, (this.state.key=="three")? styles().Keycorrect:null]}>{this.props.answer3}</Text>
                     </View>
                     <View style={{flexDirection:'row',justifyContent:'flex-end',width:'100%'}} >
-                        {this.state.checked?this.state.correct?<Text style={styles.correct}>Correct!</Text>:<Text style={styles.notcorrect}>Not correct!</Text>:null}
+                        {this.state.checked?this.state.correct?<Text style={styles().correct}>Correct!</Text>:<Text style={styles().notcorrect}>Not correct!</Text>:null}
                         <Icon name='check' iconStyle={{color:'white',fontSize:25,backgroundColor:'green',borderRadius:15,marginRight:4}} onPress={()=>this.check(this.props.result) }/>
                         <Icon name='refresh' iconStyle={{color:'white',fontSize:25,backgroundColor:'red',borderRadius:15,marginRight:4}} onPress={()=>this.reset()}/>
                     </View>
@@ -97,37 +99,3 @@ export default class Question extends React.Component{
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container:{
-        marginLeft:16,
-        marginRight:16,
-        marginTop:8,
-        marginBottom:8,
-        paddingLeft:8,
-        paddingTop:8,
-        paddingBottom:8,
-        borderRadius:8,
-        borderColor: 'black',
-        borderWidth:1,
-        backgroundColor:'white'
-    },
-    item:{
-        marginTop:15,
-        color:'black'
-    },
-    Keycorrect:{
-        color:'green',
-        fontWeight:'bold',
-        textDecorationLine:'underline'
-    },
-    correct:{
-        marginRight:80,
-        color:'green'
-    },
-    notcorrect:{
-        marginRight:80,
-        color:'red'
-    }
-    
-})

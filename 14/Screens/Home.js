@@ -1,10 +1,13 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import { StyleSheet, Text, View, ScrollView, Button, InteractionManager } from 'react-native';
+import {  View, ScrollView } from 'react-native';
 import { Header } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import * as Permissions from 'expo-permissions';
+import styles from '../AppStyles/Home';
 import db from '../data/SQLite';
+import host from '../Config/host';
+import PickColor from '../Config/Color'
 
 const list = [
     {
@@ -40,7 +43,7 @@ const list = [
     {
         title: 'Câu yêu thích',
         icon: 'star',
-        navigate: 'Exam'
+        navigate: 'FavoriteQuestion'
     },
     {
         title: 'Câu làm gần đây',
@@ -62,67 +65,81 @@ const list = [
 export default class Home extends React.Component{
     constructor(){
         super();
+        this.state = {
+            loading: true
+        }
         this.init();
     }
+
     async init(){
-        const exist = await db.checkIfTablesExist();
-        if (exist == false){
-            console.log('home creates table')
-            db.createTable();
+        const existTabletWords = await (db.checkIfTableWordsExist());
+        if (existTabletWords == false){
+            console.log('home creates table Words')
+            const response = await fetch(`http://${host.hostname}:${host.port}/getAllWords`) //local ipv4
+            const data = await response.json();
+            //console.log(data.words.length);
+            db.createTable(data.words);
         };
+        const existTableQuestions = await (db.checkIfTablesQuestionExist());
+        if (existTableQuestions == false){
+            console.log('home creates tabe Question');
+            const responseQuestion = await fetch(`http://${host.hostname}:${host.port}/getAllQuestions`) //local ipv4
+            const dataQuestion = await responseQuestion.json();
+            db.createQuestionTable(dataQuestion.questions);
+        }
+        const existSettingsTable = await db.checkIfSettingsTableExist();
+        if (!existSettingsTable){
+            db.createSettingsTable()
+        }
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         if (existingStatus !== 'granted') {
             await Permissions.askAsync(Permissions.NOTIFICATIONS);
         }
+        db.getCurrentMode(this);
     }
     static navigationOptions = {
         title: 'Home',
     }
+
     render(){
         const {navigate} = this.props.navigation;
-        return(
-            
-            <View style={styles.container}>
-                <Header
-                    style={{height:20}}
-                    centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
-                />
-                <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
-                    <View>
-                    {
-                        list.map((item, i) => {
-                            return (
-                                <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
-                                    <ListItem
-                                        onPress={()=> navigate(
-                                            item.navigate
-                                        )}
-                                        key={i}
-                                        title={item.title}
-                                        leftIcon={{ name: item.icon }}
-                                        bottomDivider
-                                        chevron
-                                    />
-                                </Animatable.View>
-                            )
-                        })
-                    }
-                    </View>
-                </ScrollView>
-            </View>
-        );
+        if (!this.state.loading){
+            const color = PickColor(global.darkmode);
+            return(       
+                <View style={styles().container}>
+                    <Header
+                        centerComponent={{ text: 'THI TOEIC - TFLAT', style: { color: '#fff' } }}
+                        backgroundColor={color.headerColor}
+                    />
+                    <ScrollView style={styles().scrollview} showsVerticalScrollIndicator={false}>
+                        <View>
+                        {
+                            list.map((item, i) => {
+                                return (
+                                    <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
+                                        <ListItem
+                                            onPress={()=> navigate(
+                                                item.navigate, {type: item.title, reload: ()=>{this.setState({reload: true})}}
+                                            )}
+                                            key={i}
+                                            title={item.title}
+                                            leftIcon={{ name: item.icon, color: color.iconColor }}
+                                            titleStyle={styles().textColor}
+                                            containerStyle={styles().listItemContainer}
+                                            bottomDivider
+                                            chevron={{color: color.iconColor}}
+                                        />
+                                    </Animatable.View>
+                                )
+                            })
+                        }
+                        </View>
+                    </ScrollView>
+                </View>
+            );
+        }else{
+        return <View></View>
+        }
     }
     
 }
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#d2d6d9',
-      alignItems: 'center',
-    },
-    scrollview:{
-      width: '100%',
-      paddingLeft:16,
-      paddingRight:16
-    },
-  });
