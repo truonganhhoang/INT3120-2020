@@ -1,0 +1,88 @@
+[
+    {
+        "1": "images/weather/cloudy.jpeg",
+        "2": "images/weather/cold.jpg",
+        "3": "images/weather/dry.jpeg",
+        "4": "images/weather/foggy.jpeg",
+        "5": "images/weather/icy.jpeg",
+        "6": "images/weather/foggy.jpeg",
+        "7": "images/weather/snowy.jpeg",
+        "8": "images/weather/sunny.jpeg",
+        "9": "images/weather/wet.jpeg",
+        "10": "images/weather/windy.jpeg"
+    },
+    {
+        "1": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "2": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "3": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "4": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "5": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "icy",
+            "d": "foggy"
+        },
+        "6": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "7": {
+            "a": "cloudy",
+            "b": "snowy",
+            "c": "dry",
+            "d": "foggy"
+        },
+        "8": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "sunny",
+            "d": "foggy"
+        },
+        "9": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "wet"
+        },
+        "10": {
+            "a": "cloudy",
+            "b": "cold",
+            "c": "dry",
+            "d": "windy"
+        }
+    },
+    {
+        "1": "cloudy",
+        "2": "cold",
+        "3": "dry",
+        "4": "foggy",
+        "5": "icy",
+        "6": "foggy",
+        "7": "snowy",
+        "8": "sunny",
+        "9": "wet",
+        "10": "windy"
+    }
+]
