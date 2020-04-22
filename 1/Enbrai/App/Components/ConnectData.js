@@ -24,7 +24,7 @@ const connectSQLite = async()=>{
     var db = SQLite.openDatabase(
         {
           name: 'dataResult.db',
-          createFromLocation: '~www/dataResult.db',
+          createFromLocation: '~www/Result.db',
           location: 'Library',
         },
         openDB,
