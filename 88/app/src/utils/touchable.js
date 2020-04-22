@@ -20,16 +20,18 @@ const PlatformTouchable = (props) => {
   return Platform.OS === 'android' && Platform.Version >= LOLLIPOP ? (
     <TouchableNativeFeedback
       {...rest}
-      background={TouchableNativeFeedback.Ripple(rippleColor ? rippleColor : 'rgba(255, 255, 255, .4)', rippleOverflow)}
-    >
+      background={TouchableNativeFeedback.Ripple(
+        rippleColor ? rippleColor : 'rgba(255, 255, 255, .4)',
+        rippleOverflow,
+      )}
+      useForeground={true}>
       <View style={style}>{children}</View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity
       {...rest}
       style={style}
-      activeOpacity={activeOpacity ? activeOpacity : 0.6}
-    >
+      activeOpacity={activeOpacity ? activeOpacity : 0.6}>
       {children}
     </TouchableOpacity>
   );
