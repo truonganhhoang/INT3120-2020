@@ -120,10 +120,10 @@ const insertQuestion = question => {
   });
 }
 
-const getQuestion = (app, tag) => {
+const getQuestion = (app, tag, index) => {
   db.transaction(tx => {
-      tx.executeSql("select * from Questions where category = ?",
-      [tag],
+      tx.executeSql("select * from Questions where category = ? limit ?,2",
+      [tag,index],
       (_, { rows }) =>
         {app.setState({data: rows._array})}
       );  
