@@ -75,7 +75,7 @@ export class SignUpPage implements OnDestroy {
           },
           complete: () => {
             this.isSubmitting = false;
-            this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
+            this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true, state: { fromSignUp: true } });
           },
           error: (err: string) => {
             this.isSubmitting = false;
@@ -96,7 +96,7 @@ export class SignUpPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
+        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true, state: { fromSignUp: true } });
       },
       error: async (err) => {
         this.isSubmitting = false;

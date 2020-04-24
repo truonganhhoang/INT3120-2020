@@ -24,10 +24,9 @@ export class SignUpService {
           return userCredentials.user;
         })
         .then((user) => {
-          user.updateProfile({ displayName: fullName });
-        })
-        .then(() => {
-          observer.complete();
+          user.updateProfile({ displayName: fullName }).then(() => {
+            observer.complete();
+          });
         })
         .catch((err) => {
           let message: string;

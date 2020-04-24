@@ -22,6 +22,23 @@ export class UserService {
     return this.ngFireAuth.user;
   }
 
+  /**
+   * @description
+   * write user data to firestore
+   */
+  updateUserData() {
+    const currentUser = this.ngFireAuth.auth.currentUser;
+    const jsonUser = JSON.parse(JSON.stringify(currentUser));
+    return this.ngFireFunctions.httpsCallable('updateUserData')({
+      displayName: jsonUser.displayName,
+      email: jsonUser.email,
+      phoneNumber: jsonUser.phoneNumber,
+      photoURL: jsonUser.photoURL,
+      uid: jsonUser.uid,
+      createdAt: jsonUser.createdAt
+    });
+  }
+
   sendEmailVerification() {
     return this.ngFireAuth.auth.currentUser.sendEmailVerification();
   }

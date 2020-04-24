@@ -17,7 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SentryErrorHandlerService } from './core/services/sentry-error-handler.service';
 import { environment } from '../environments/environment';
@@ -55,7 +55,8 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
     AppVersion,
     AngularFireAuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: ErrorHandler, useClass: SentryErrorHandlerService }
+    { provide: ErrorHandler, useClass: SentryErrorHandlerService },
+    { provide: REGION, useValue: 'asia-east2' }
   ],
   bootstrap: [AppComponent]
 })
