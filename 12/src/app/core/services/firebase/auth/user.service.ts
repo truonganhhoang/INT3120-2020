@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFireStorage } from '@angular/fire/storage';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
@@ -9,7 +11,12 @@ import { SignInService } from './sign-in.service';
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private ngFireAuth: AngularFireAuth, private signInService: SignInService) {}
+  constructor(
+    private ngFireAuth: AngularFireAuth,
+    private ngFireFunctions: AngularFireFunctions,
+    private ngFireStorage: AngularFireStorage,
+    private signInService: SignInService
+  ) {}
 
   currentUser(): Observable<firebase.User> {
     return this.ngFireAuth.user;

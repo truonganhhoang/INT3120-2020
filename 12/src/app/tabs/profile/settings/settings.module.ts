@@ -11,6 +11,7 @@ import { SettingsPage } from './settings.page';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangePasswordForEmailProviderComponent } from './change-password/email-provider/email-provider.component';
 import { SetPasswordForFacebookProviderComponent } from './change-password/facebook-provider/facebook-provider.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UserService } from '../../../core/services/firebase/auth/user.service';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UserService } from '../../../core/services/firebase/auth/user.service';
     SettingsPage,
     ChangePasswordComponent,
     ChangePasswordForEmailProviderComponent,
-    SetPasswordForFacebookProviderComponent
+    SetPasswordForFacebookProviderComponent,
+    UpdateProfileComponent
   ],
   providers: [UserService]
 })

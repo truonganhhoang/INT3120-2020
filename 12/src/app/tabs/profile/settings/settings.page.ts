@@ -9,6 +9,7 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { UserService } from '../../../core/services/firebase/auth/user.service';
 import { SignOutService } from '../../../core/services/firebase/auth/sign-out.service';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @Component({
   selector: 'app-settings',
@@ -65,6 +66,18 @@ export class SettingsPage implements OnInit, OnDestroy {
       keyboardClose: true
     });
     await changePasswordModal.present();
+  }
+
+  async openUpdateProfileModal() {
+    const updateProfileModal = await this.modalController.create({
+      component: UpdateProfileComponent,
+      keyboardClose: true,
+      componentProps: {
+        displayName: this.currentUser?.displayName,
+        photoURL: this.currentUser?.photoURL
+      }
+    });
+    await updateProfileModal.present();
   }
 
   async sendVerficationEmail() {

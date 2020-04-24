@@ -239,3 +239,8 @@ ionic g page profile -f
 
 - Thêm spinner ở change password component.
 - Initialize cloud function projects.
+
+# 2019-04-24
+
+- `@angular/fire/storage`, `@angular/fire/functions`
+- `UpdateProfileComponent`: tạo UI và hiển thị dữ liệu hiện tại.

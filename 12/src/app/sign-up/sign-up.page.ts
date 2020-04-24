@@ -9,6 +9,7 @@ import { ToastController } from '@ionic/angular';
 import { SignUpService } from '../core/services/firebase/auth/sign-up.service';
 import { SignUpFailedComponent } from './sign-up-failed/sign-up-failed.component';
 import { SignInService } from '../core/services/firebase/auth/sign-in.service';
+import { UserService } from '../core/services/firebase/auth/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -38,7 +39,8 @@ export class SignUpPage implements OnDestroy {
     private router: Router,
     private dialog: MatDialog,
     private signUpService: SignUpService,
-    private signInService: SignInService
+    private signInService: SignInService,
+    private userService: UserService
   ) {}
 
   ngOnDestroy() {
@@ -73,7 +75,7 @@ export class SignUpPage implements OnDestroy {
           },
           complete: () => {
             this.isSubmitting = false;
-            this.router.navigate(['/tabs/learn/courses']);
+            this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
           },
           error: (err: string) => {
             this.isSubmitting = false;
@@ -94,7 +96,7 @@ export class SignUpPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/tabs/learn/courses']);
+        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
       },
       error: async (err) => {
         this.isSubmitting = false;
