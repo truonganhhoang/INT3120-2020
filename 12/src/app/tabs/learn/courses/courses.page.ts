@@ -20,7 +20,7 @@ export class CoursesPage implements AfterViewInit {
 
   async ngAfterViewInit() {
     this.navigationEnd$.subscribe(() => {
-      if (this.router.getCurrentNavigation().extras.state.fromSignUp) {
+      if (this.router.getCurrentNavigation().extras.state?.fromSignUp) {
         this.updateUserDate$.subscribe();
       }
     });
