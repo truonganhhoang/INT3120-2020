@@ -12,11 +12,14 @@ let heightPhone = Dimensions.get('window').height;
 class Setting extends React.Component {
   state = {
     onChangePass: false,
+    userInfo: {},
+    onChangeInfo: false,
+    changeInfo : {},
   };
 
   componentDidMount = async () => {
     let userInfo = await getInfo();
-    console.log(userInfo);
+    this.setState({userInfo : userInfo});
   };
 
   render() {
@@ -38,11 +41,9 @@ class Setting extends React.Component {
             size={45}
             style={{ color: '#4f6a6e', paddingBottom: '2.5%' }}
           />
-          <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
-            PROFILE
-          </Text>
         </View>
-
+        <View style={{height: 50}} />
+        <Text style={styles.titleGroup}>Your Information</Text>
         <View style={styles.information}>
           <ListItem
             Component={TouchableScale}
@@ -50,11 +51,113 @@ class Setting extends React.Component {
             tension={100}
             activeScale={0.95}
             title="Name"
-            subtitle="Quyet Nguyen"
+            subtitle={this.state.userInfo.displayName}
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
             style={styles.list}
           />
+        </View>
+        <View style={styles.information}>
+          <ListItem
+            Component={TouchableScale}
+            friction={90}
+            tension={100}
+            activeScale={0.95}
+            title="Email"
+            subtitle={this.state.userInfo.email}
+            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+            chevron
+            style={styles.list}
+          />
+        </View>
+        <View style={styles.information}>
+          <ListItem
+            Component={TouchableScale}
+            friction={90}
+            tension={100}
+            activeScale={0.95}
+            title="Phone Number"
+            subtitle={this.state.userInfo.phoneNumber}
+            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+            chevron
+            style={styles.list}
+          />
+        </View>
+        <View style={{height: 50}} />
+        <Text style={styles.titleGroup}> Setting </Text>
+        <View>
+          <ListItem
+            Component={TouchableScale}
+            friction={90}
+            tension={100}
+            activeScale={0.95}
+            title="Change Info"
+            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+            chevron
+            onPress={() => {
+              this.setState({ onChangeInfo: true })
+              this.setState({ changeInfo: this.state.userInfo })
+            }}
+            style={styles.list}
+          />
+          <Overlay
+            isVisible={this.state.onChangeInfo}
+            onBackdropPress={() => this.setState({ onChangeInfo: false })}
+          >
+            <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
+              Change User Info
+            </Text>
+            <View style={styles.padding} />
+            <Input
+              label="Name"
+              labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+              value={this.state.changeInfo.displayName}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                let info = this.state.changeInfo;
+                info.displayName = text;
+                this.setState({ changeInfo : info });
+              }}
+            />
+            <View style={styles.padding} />
+            <Input
+              label="Phone Number"
+              labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+              value = {this.state.changeInfo.phoneNumber}
+              leftIcon={
+                <Ionicons
+                  name="ios-finger-print"
+                  size={30}
+                  style={{ paddingRight: 20, color: '#1976D2' }}
+                />
+              }
+              onChangeText={(text) => {
+                let info = this.state.changeInfo;
+                info.phoneNumber = text;
+                this.setState({ changeInfo : info });
+              }}
+            />
+            <View style={styles.padding} />
+            <View style={styles.padding} />
+              <Button
+                title="Change Info"
+                titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
+                buttonStyle={{
+                  borderRadius: 25,
+                  backgroundColor: '#23a6d5',
+                }}
+                onPress={async () => {
+                  this.setState({ userInfo: this.state.changeInfo });
+                  if (await updateInfo(this.state.userInfo)) alert("Successful"); else alert("Unsuccessfull");
+                }}
+              />
+          </Overlay>
         </View>
         <View>
           <ListItem
@@ -66,14 +169,6 @@ class Setting extends React.Component {
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
             onPress={() => this.setState({ onChangePass: true })}
-            //          onPress={() =>
-            //            Alert.alert(
-            //              'Change Password',
-            //              'Do you want change your password?',
-            //              [{ text: 'YES', onPress: this.setState({ onChangePass: true })}, { text: 'NO' }],
-            //              { cancelable: false }
-            //            )
-            //          }
             style={styles.list}
           />
           <Overlay
@@ -136,20 +231,21 @@ class Setting extends React.Component {
             />
             <View style={styles.padding} />
             <View style={styles.padding} />
-            <View style={{ width: '40%', flexDirection: 'row' }}>
+            <View style={{}}>
               <Button
                 title="Change Password"
                 titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                 buttonStyle={{
                   borderRadius: 25,
-                  height: 50,
                   backgroundColor: '#23a6d5',
                   alignItems: 'flex-end',
                 }}
                 onPress={async () => {
                   if (this.state.password != this.state.password1)
                     alert("Those new passwords didn't match. Try again");
-                  else {
+                  else if (this.state.password == this.state.currentPaswword) 
+                    alert("New Password is same with Current Password. Try Again");
+                 else { 
                     let ret = await auth.changePassword(
                       this.state.currentPassword,
                       this.state.password
@@ -200,6 +296,12 @@ const styles = StyleSheet.create({
     paddingTop: '5%',
   },
   list: {},
+  titleGroup: {
+    paddingLeft: 5,
+    fontSize: 25,
+    fontWeight:'bold',
+    color: '#4f6a6e',
+  },
   padding: {
     height: heightPhone * 0.025,
   },

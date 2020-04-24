@@ -89,9 +89,10 @@ class LoginScreen extends Component {
                     title="SIGN IN"
                     titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
-                    onPress={async () =>
-                      await auth.signInWithEmail(this.state.email, this.state.password)
-                    }
+                    onPress={async () =>{
+                      if (!await auth.signInWithEmail(this.state.email, this.state.password))
+                      alert ("The user or password is invalid");
+                    }}
                   />
                 </View>
                 <View style={{ height: heightPhone * 0.01 }} />

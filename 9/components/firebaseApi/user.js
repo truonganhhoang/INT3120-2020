@@ -14,7 +14,7 @@ const getInfo = async () => {
 const addInfo = async (info) => {
   info = JSON.parse(JSON.stringify(info));
   // console.log(info);
-  const uid = info.uid;
+  const uid = firebase.auth().currentUser.uid;
   let prepared_info = {
     createdAt: info.createdAt,
     displayName: info.displayName,
