@@ -90,7 +90,7 @@ export class SignInPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
+        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true, state: { fromSignUp: true } });
       },
       error: (err) => {
         this.isSubmitting = false;
