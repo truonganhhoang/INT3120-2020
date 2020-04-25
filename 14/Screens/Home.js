@@ -46,7 +46,7 @@ const list = [
         navigate: 'Exam'
     },
     {
-        title: 'Google dịch',
+        title: 'Dịch online',
         icon: 'g-translate',
         navigate: 'Translate'
     },
