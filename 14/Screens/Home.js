@@ -36,11 +36,6 @@ const list = [
         navigate: 'Exam'
     },
     {
-        title: 'Part V',
-        icon: 'school',
-        navigate: 'Exam'
-    },
-    {
         title: 'Câu yêu thích',
         icon: 'star',
         navigate: 'FavoriteQuestion'
@@ -49,6 +44,11 @@ const list = [
         title: 'Câu làm gần đây',
         icon: 'timelapse',
         navigate: 'Exam'
+    },
+    {
+        title: 'Google dịch',
+        icon: 'g-translate',
+        navigate: 'Translate'
     },
     {
         title: 'Phần mềm học tiếng anh',

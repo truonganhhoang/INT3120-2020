@@ -9,6 +9,7 @@ import Setting from './Screens/Setting';
 import NewWordList from './Screens/NewWordList';
 import EnglishApp from './Screens/EnglishApp';
 import FavoriteQuestion from './Screens/FavoriteQuestion';
+import Translate from './Screens/Translate'
 
 const Navigator = createStackNavigator({
   DrawerNavigator: {screen:DrawerNavigator},
@@ -18,7 +19,8 @@ const Navigator = createStackNavigator({
   FavoriteQuestion: {screen: FavoriteQuestion},
   EnglishApp: {screen: EnglishApp},
   Setting: {screen: Setting},
-  NewWordList: {screen: NewWordList}
+  NewWordList: {screen: NewWordList},
+  Translate: {screen: Translate}
 },
 { 
   headerMode: 'none',
