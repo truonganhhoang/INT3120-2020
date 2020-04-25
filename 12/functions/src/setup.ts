@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 const app = admin.initializeApp();
-const fn = functions.region('asia-east2');
+const fn = functions.region('asia-east2').runWith({ memory: '128MB' });
 
 const filterUserKeys = (user: any) => {
   delete user.customClaims;

@@ -7,7 +7,7 @@ const isFirebaseUser = (obj: any): obj is admin.auth.UserRecord => {
 };
 
 export const updateUserData = fn.https.onCall(async (data, context) => {
-  if (isFirebaseUser(data) && context.auth?.uid === data.uid) {
+  if (isFirebaseUser(data) && context.auth?.uid && context.auth?.uid === data.uid) {
     await app.firestore().collection('users').doc(data.uid).set(filterUserKeys(data));
   }
 });
