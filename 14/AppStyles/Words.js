@@ -1,13 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import PickColor from '../Config/Color';
 
-const styles = () => {
+const device = {
+  height: Dimensions.get('window').height,
+  width: Dimensions.get('window').width
+}
+
+const styles = (type) => {
   const color = PickColor(global.darkmode);
   return StyleSheet.create({
     swipeListView:{
         paddingLeft: 10,
         paddingRight: 10,
-        height:'100%'
+        height: type=='favorite' || type=='remind'? device.height*0.83 : device.height*0.9,
     },
     listitem:{
         marginTop: 8,

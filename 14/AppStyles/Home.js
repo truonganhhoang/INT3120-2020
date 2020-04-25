@@ -24,7 +24,7 @@ const styles = () => {
       shadowOffset: {
         height: 1,
         width: 1
-      }
+      },
     },
     textColor: {
       color: color.textColor
