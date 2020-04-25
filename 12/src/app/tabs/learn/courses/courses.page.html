@@ -9,6 +9,18 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <!-- <div class="ion-text-center ion-padding ion-margin no-course">
+
+    <ion-text color="light">
+      <h2>Welcome</h2>
+    </ion-text>
+
+    <ion-text color="light ion-padding-bottom">It looks like you aren't enrolled in any courses, but it's easy to get started</ion-text>
+
+    <ion-button [routerLink]="['/explore']" expand="block" color="secondary">
+      Find something to learn
+    </ion-button>
+  </div> -->
   <ion-list>
     <ion-item lines="none" *ngFor="let i of [1, 2, 3, 4, 5, 6]">
       <app-course-item [routerLink]="['/tabs/learn/course/' + i]"></app-course-item>
