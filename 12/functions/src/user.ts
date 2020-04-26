@@ -8,12 +8,12 @@ const isFirebaseUser = (obj: any): obj is admin.auth.UserRecord => {
 
 export const updateUserData = fn.https.onCall(async (data, context) => {
   if (isFirebaseUser(data) && context.auth?.uid && context.auth?.uid === data.uid) {
-    await app.firestore().collection('users').doc(data.uid).set(filterUserKeys(data));
+    await app.firestore().collection('users').doc(`${data.uid}/profile`).set(filterUserKeys(data));
   }
 });
 
 export const handleCreateUser = auth.user().onCreate(async (user) => {
-  await app.firestore().collection('users').doc(user.uid).set(filterUserKeys(user));
+  await app.firestore().collection('users').doc(`${user.uid}/profile`).set(filterUserKeys(user));
 });
 
 export const handleDeleteUser = auth.user().onDelete(async (user) => {
