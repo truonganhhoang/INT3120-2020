@@ -27,7 +27,7 @@ export default class Signup extends Component {
                 password: ''
             })
         })
-        .catch(function(error) {
+        .catch(function() {
             Alert.alert(
                 'Thong bao',
                 'Dang ky that bai',
