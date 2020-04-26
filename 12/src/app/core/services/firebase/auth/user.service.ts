@@ -34,8 +34,7 @@ export class UserService {
       email: jsonUser.email,
       phoneNumber: jsonUser.phoneNumber,
       photoURL: jsonUser.photoURL,
-      uid: jsonUser.uid,
-      createdAt: jsonUser.createdAt
+      uid: jsonUser.uid
     });
   }
 

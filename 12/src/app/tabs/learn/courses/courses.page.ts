@@ -15,13 +15,12 @@ export class CoursesPage implements AfterViewInit {
   updateUserDate$: Observable<any>;
   constructor(private router: Router, private userService: UserService) {
     this.navigationEnd$ = this.router.events.pipe(filter((event: RouterEvent) => event instanceof NavigationEnd));
-    this.updateUserDate$ = this.userService.updateUserData();
   }
 
   async ngAfterViewInit() {
     this.navigationEnd$.subscribe(() => {
       if (this.router.getCurrentNavigation().extras.state?.fromSignUp) {
-        this.updateUserDate$.subscribe();
+        this.userService.updateUserData().subscribe();
       }
     });
   }
