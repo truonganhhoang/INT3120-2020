@@ -13,7 +13,13 @@ export const updateUserData = fn.https.onCall(async (data, context) => {
 });
 
 export const handleCreateUser = auth.user().onCreate(async (user) => {
-  await app.firestore().collection('users').doc(`${user.uid}/profile`).set(filterUserKeys(user));
+  await app
+    .firestore()
+    .collection('users')
+    .doc(`${user.uid}`)
+    .set({
+      profile: filterUserKeys(user)
+    });
 });
 
 export const handleDeleteUser = auth.user().onDelete(async (user) => {
