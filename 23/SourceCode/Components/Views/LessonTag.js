@@ -42,7 +42,7 @@ var styles = StyleSheet.create({
     },
     col_2:{
         flex: 1,
-        alignItems: "flex-end",
+        alignItems: 'flex-end',
         
     },
     progress_bar:{

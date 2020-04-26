@@ -1,19 +1,44 @@
 //Core
 import * as React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 //Layout
 import Header from '../Layout/Header';
+
 //Component
 import Lesson from './Lesson';
 import WordDetail from './WordDetail';
+import OnlineTranslation from './Home/OnlineTranslation';
+import Practice from './Home/Practice';
 
+//Style
+import { mainLayout, commonStyles, styles, stylesSection1, styles_section_2, styles_section_3 } from '../../assets/Styles/Home/home';
 
 const Stack = createStackNavigator();
 
-function Home({ navigation }) {
+const data = {
+    listWord: [
+        { word: 'wednesday', spelling: '/wenzdei/', type: 'noun', meaning: 'thứ tư, Thứ 4' },
+        { word: 'basket', spelling: '/baskit/', type: 'noun', meaning: 'cái giỏ, cái rổ' },
+        { word: 'bathroom', spelling: '/bathrum/', type: 'noun', meaning: 'phòng tắm, nhà tắm' },
+        { word: 'bed', spelling: '/bed/', type: 'noun', meaning: 'giường, cái gường' },
+        { word: 'bedroom', spelling: '/bedrum/', type: 'noun', meaning: 'phòng ngủ' },
+        { word: 'beef', spelling: '/bi:f/', type: 'noun', meaning: 'thịt bò' },
+        { word: 'beer', spelling: '/bier/', type: 'noun', meaning: 'bia' },
+        { word: 'bell', spelling: '/bel/', type: 'noun', meaning: 'cái chuông, quả chuông' },
+        { word: 'bicycle', spelling: '/baisikl/', type: 'noun', meaning: 'chiếc xe đạp, xe đạp' },
+        { word: 'big', spelling: '/big/', type: 'adjective', meaning: 'to, lớn, béo' }
+    ],
+    index: 0
+};
+
+function Home({ route, navigation }) {
+    const [word, setWord] = useState(data.listWord[data.index].word);
+    const [type, setType] = useState(data.listWord[data.index].type);
+    const [meaning, setMeaning] = useState(data.listWord[data.index].meaning);
     return (
         <View style={{ flex: 1 }}>
             <View style={mainLayout.header}>
@@ -27,16 +52,31 @@ function Home({ navigation }) {
                         <View style={stylesSection1.wrapper}>
                             <View style={stylesSection1.content_wrapper}>
                                 <View>
-                                    <Text style={stylesSection1.title}>palace</Text>
-                                    <Image style={stylesSection1.icon_refresh} source={require('../../assets/Image/refresh.png')} />
+                                    <Text style={stylesSection1.title}>{word}</Text>
+                                    <TouchableOpacity
+                                        style={stylesSection1.wrapperIconRefresh}
+                                        onPress={() => {
+                                            if (data.index < data.listWord.length - 1) { data.index++; } else data.index = 0;
+                                            setWord(data.listWord[data.index % data.listWord.length].word);
+                                            setType(data.listWord[data.index % data.listWord.length].type);
+                                            setMeaning(data.listWord[data.index % data.listWord.length].meaning);
+                                        }}
+                                    >
+                                        <Image style={stylesSection1.icon_refresh} source={require('../../assets/Image/refresh.png')} />
+                                    </TouchableOpacity>
                                 </View>
                                 <View>
-                                    <Text style={stylesSection1.word_type}>Danh từ</Text>
-                                    <Image style={stylesSection1.icon_speaker} source={require('../../assets/Image/speaker.png')} />
+                                    <Text style={stylesSection1.word_type}>{type}</Text>
+                                    <TouchableOpacity
+                                        style={stylesSection1.wrapperIconSpeaker}
+                                        onPress={() => alert('click')}
+                                    >
+                                        <Image style={stylesSection1.icon_speaker} source={require('../../assets/Image/speaker.png')} />
+                                    </TouchableOpacity>
                                 </View>
                                 <Text style={stylesSection1.meaning}>
-                                    Nhà ở chính thức của vua, tổng giám mục hoặc giám mục, cung điện
-                            </Text>
+                                    {meaning}
+                                </Text>
                             </View>
 
                         </View>
@@ -46,7 +86,10 @@ function Home({ navigation }) {
                         <View style={styles_section_2.wrapper}>
                             <Text style={commonStyles.title}>Tìm kiếm gần đây</Text>
                             <View>
-                                <TouchableOpacity style={{ alignItems: "center", justifyContent: "center" }}>
+                                <TouchableOpacity
+                                    style={{ alignItems: 'center', justifyContent: 'center' }}
+                                    onPress={() => navigation.navigate('OnlineTranslation')}
+                                >
                                     <View style={styles_section_2.button}>
                                         <Image style={styles_section_2.icon_online_translate} source={require('../../assets/Image/online-translate.png')} />
                                         <Text style={styles_section_2.button_text}>DỊCH ONLINE</Text>
@@ -72,20 +115,30 @@ function Home({ navigation }) {
                                 <View style={[styles_section_3.row, { flexDirection: "row" }]}>
                                     <View style={styles_section_3.tag}>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate('Lesson')} 
+                                            onPress={() => navigation.navigate('Lesson')}
                                         >
                                             <Text style={styles_section_3.tag_text}>Xem trước</Text>
                                         </TouchableOpacity>
                                     </View>
                                     <View style={styles_section_3.tag}>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate('Lesson')}>
+                                            onPress={() => navigation.navigate('WordDetail', {
+                                                title: '1/15',
+                                                word: 'wednesday',
+                                                spelling: 'abc',
+                                                type: 'noun',
+                                                meaning: 'Thứ tư',
+                                                route: { route },
+                                                navigation: { navigation }
+                                            })}
+                                        >
                                             <Text style={styles_section_3.tag_text}>Học ngay</Text>
                                         </TouchableOpacity>
                                     </View>
                                     <View style={styles_section_3.tag}>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate('Lesson')}>
+                                            onPress={() => navigation.navigate('Practice')}
+                                        >
                                             <Text style={styles_section_3.tag_text}>Luyện tập</Text>
                                         </TouchableOpacity>
                                     </View>
@@ -106,160 +159,40 @@ export default function HomeScreen() {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Lesson" component={Lesson} />
                 <Stack.Screen name="WordDetail" component={WordDetail} />
+                <Stack.Screen 
+                    name="Practice" 
+                    component={Practice} 
+                    options={{
+                        headerShown: true,
+                    }}
+                />
+                <Stack.Screen
+                    name="OnlineTranslation"
+                    component={OnlineTranslation}
+                    options={{
+                        headerShown: true,
+                        title: 'Dịch online',
+                        headerStyle: {
+                            backgroundColor: '#00BFFF',
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                        },
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() => alert('click')}
+                            >
+                                <Image
+                                    style={{ width: 32, height: 32, marginRight: 20 }}
+                                    source={require('../../assets/Image/speaker-lesson.png')}
+                                />
+                            </TouchableOpacity>
+                        ),
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
 
     );
 }
-
-let mainLayout = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'row'
-    },
-    header: {
-        flex: 1,
-    },
-    content: {
-        flex: 12,
-    },
-    footer: {
-        flex: 1,
-    }
-});
-
-const common = {
-    mainBackgroundColor: "#00BFFF",
-    mainColor: '#ffffff'
-};
-
-let commonStyles = StyleSheet.create({
-    wrapper: {
-        margin: 10,
-    },
-    title: {
-        color: '#483D8B',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-});
-
-
-let styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    section: {
-
-    },
-    section_1: {
-        flex: 3
-    },
-    section_2: {
-        flex: 2
-    },
-    section_3: {
-        flex: 5,
-        margin: 10
-    }
-});
-
-let stylesSection1 = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-        backgroundColor: common.mainBackgroundColor,
-        borderRadius: 8,
-        borderColor: '#6A5ACD',
-        margin: 10,
-    },
-    content_wrapper: {
-        margin: 10,
-    },
-    title: {
-        fontSize: 32,
-        color: '#ffffff',
-        fontWeight: 'bold'
-    },
-    icon_refresh: {
-        width: 24,
-        height: 24,
-        position: 'absolute',
-        right: 0
-    },
-    word_type: {
-        color: "#483D8B",
-        fontWeight: "bold",
-        marginVertical: 10
-    },
-    icon_speaker: {
-        width: 24,
-        height: 24,
-        position: 'absolute',
-        right: 5,
-        top: 8
-    },
-    meaning: {
-        color: '#ffffff'
-    }
-});
-
-let styles_section_2 = StyleSheet.create({
-    wrapper: {
-        margin: 10,
-    },
-    button: {
-        backgroundColor: common.mainBackgroundColor,
-        padding: 10,
-        borderRadius: 5,
-        width: '50%',
-        marginTop: 8
-    },
-    button_text: {
-        color: "#ffffff",
-        textAlign: "center"
-    },
-    icon_online_translate: {
-        width: 32,
-        height: 32,
-        position: "absolute",
-        left: 5,
-        top: 3
-    }
-});
-
-let styles_section_3 = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-
-    },
-    row: {
-        marginBottom: 10,
-    },
-    tag_wrapper: {
-        borderWidth: 1,
-        borderColor: common.mainBackgroundColor,
-        borderRadius: 5,
-        padding: 10,
-        marginTop: 10
-    },
-    progress_bar: {
-        height: 10,
-        width: '100%',
-        backgroundColor: '#fafaff',
-        borderWidth: 1,
-        borderRadius: 10,
-    },
-    tag: {
-        borderWidth: 1,
-        borderColor: '#0000ff',
-        borderRadius: 5,
-        padding: 5,
-        backgroundColor: common.mainBackgroundColor,
-        marginRight: 10
-    },
-    tag_text: {
-        textAlign: 'center',
-        color: common.mainColor,
-    }
-
-});

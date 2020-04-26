@@ -18,7 +18,7 @@ export default class WordDetail extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 6, flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Text style={wordDetail.text}>Bài 2</Text>
+                        <Text style={wordDetail.text}>{this.props.route.params.title}</Text>
                         <Text style={wordDetail.text}>Luyện tập</Text>
                     </View>
 
@@ -31,10 +31,15 @@ export default class WordDetail extends Component {
                 </View>
                 <View style={wordDetail.wordContainer}>
                     <Text style={wordDetail.textWord}>{this.props.route.params.word}</Text>
-                    <View>
-                        <Text>{this.props.route.params.spelling}</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Image
+                            style={wordDetail.icon}
+                            source={require('../../assets/Image/speaker.png')}
+                        />
+                        <Text style={wordDetail.textSpelling}>{this.props.route.params.spelling}</Text>
                     </View>
                     <Text style={wordDetail.textType}>{this.props.route.params.type}</Text>
+                    <Text style={wordDetail.textMeaning}>{this.props.route.params.meaning}</Text>
                 </View>
                 <View style={wordDetail.whiteSpace}>
 
@@ -86,19 +91,23 @@ let wordDetail = StyleSheet.create({
         color: '#ffffff',
     },
     textSpelling: {
-        textColor: '#00BFFF',
+        color: '#00BFFF',
+        fontSize: 24
     },
     textWord: {
-        fontSize: 32,
-        textColor: '#483D8B',
+        fontSize: 40,
+        color: '#483D8B',
         fontWeight: 'bold',
     },
     textType: {
-        textColor: 'gray'
+        textColor: 'gray',
+        fontSize: 24,
+        marginLeft: 10
     },
     textMeaning: {
-        fontSize: 18,
-        textColor: 'black'
+        fontSize: 26,
+        color: 'black',
+        marginLeft: 30
     },
     icon: {
         width: 32,
