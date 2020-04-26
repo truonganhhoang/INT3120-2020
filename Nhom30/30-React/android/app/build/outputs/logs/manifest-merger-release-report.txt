@@ -1,0 +1,241 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+MERGED from [:react-native-screens] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-reanimated] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
+MERGED from [:@react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-gesture-handler] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-splash-screen] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-14:12
+MERGED from [:react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/pony/.gradle/caches/transforms-2/files-2.1/71fb71daaea2422d08379bc807e3e1e0/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r245459] /Users/pony/.gradle/caches/transforms-2/files-2.1/60971b6e6f02821b04b32d201678ab7b/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83bdcadcd6058070a3310e05e55f31f8/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cc3923d264cfe9316d1632db9a2ed87a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/887d26c56adc28e4e84c7e9b138f6aff/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/pony/.gradle/caches/transforms-2/files-2.1/82d53da134085e9a24cace9824dbc5de/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/01f7df1f767ceb982c0d7cc3458e1a35/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f286c779dc32663b24397203fe302c19/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/21f56b8741d10f5e8df042062b2f0cc8/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83d20831e8202ce886e9e291baeece23/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd49e166ac7c5ee2bb75c3112b5144ee/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/1be54dfb7da1ad02067fe73edcca7921/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/038bb5ee237c17ba79fe4ec02653361b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/9e9d88130939925e69fe1805e3d9697d/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/4013690eb84d429a666e0630f7e219e6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8c2e1e8440a0fd0034cea070ca1ad3fa/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/ae03e90f3aad9ea344b8989f718a39be/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/045c98e5dad1ecfcee4b192193d5dbe8/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd55070e2708577137b19ad87abf153a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/2ceeeb2de1d007ef41eec3be51feacb0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6a4f127161d18c0a06afdef9836b552f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cfcef26f8d13c07763f314ba0051fcba/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/19a12756ec5fc694912b7599bb63402d/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/a9242ca12f665619570e2196aa4e14ea/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/7cdb43e9f401ea2625dcf4de352a5768/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/07d7e46cdbb29fa826fde3cad3fac25a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/d16bd10e3f702b5e2bfc944d094de04e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/b512e7991d012719549a50d014510e2d/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/5a5ae48650493517be6662b1adfdf69e/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/263bffb4a7fed2550cd8f1d924af04c5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f26874457a283eb52b87d715ad7f465d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/722ce70d021a86175179a9e746ae60fc/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/00ae2311f78489e7971384c44600756b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8a20a28eaeb6eae24fb694b38fc41bb4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/772f58de880d41b13606ccb47e49ab8f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/32cd1781b066e8ad724cf8e237213de2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/15376b280dbcd6571ea275bee80e09cc/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/c8009d2f19717dc9928c5744e0bc691a/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+	package
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:2:3-24
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:1-34:12
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:6:5-32:19
+MERGED from [:react-native-splash-screen] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-splash-screen] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-12:19
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/pony/.gradle/caches/transforms-2/files-2.1/71fb71daaea2422d08379bc807e3e1e0/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/pony/.gradle/caches/transforms-2/files-2.1/71fb71daaea2422d08379bc807e3e1e0/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83bdcadcd6058070a3310e05e55f31f8/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83bdcadcd6058070a3310e05e55f31f8/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/ae03e90f3aad9ea344b8989f718a39be/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/ae03e90f3aad9ea344b8989f718a39be/AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/b512e7991d012719549a50d014510e2d/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/b512e7991d012719549a50d014510e2d/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:8:7-39
+	android:roundIcon
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:10:7-52
+	android:icon
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:9:7-41
+	android:allowBackup
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:7:7-38
+activity#com.project.SplashActivity
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:13:9-21:20
+	android:label
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:16:13-45
+	android:theme
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:15:13-47
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:14:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:17:13-20:29
+action#android.intent.action.MAIN
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:19:27-74
+activity#com.project.MainActivity
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:23:7-30:18
+	android:label
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:25:9-41
+	android:windowSoftInputMode
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:27:9-51
+	android:exported
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:28:11-34
+	android:configChanges
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:26:9-79
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:24:9-37
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:31:7-84
+	android:name
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml:31:17-81
+uses-sdk
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-screens] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:@react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:@react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-splash-screen] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-splash-screen] /Users/pony/WorkSpace/MobilieAppDev/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] /Users/pony/WorkSpace/MobilieAppDev/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/pony/.gradle/caches/transforms-2/files-2.1/71fb71daaea2422d08379bc807e3e1e0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/pony/.gradle/caches/transforms-2/files-2.1/71fb71daaea2422d08379bc807e3e1e0/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/pony/.gradle/caches/transforms-2/files-2.1/60971b6e6f02821b04b32d201678ab7b/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/pony/.gradle/caches/transforms-2/files-2.1/60971b6e6f02821b04b32d201678ab7b/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83bdcadcd6058070a3310e05e55f31f8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83bdcadcd6058070a3310e05e55f31f8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cc3923d264cfe9316d1632db9a2ed87a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cc3923d264cfe9316d1632db9a2ed87a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/887d26c56adc28e4e84c7e9b138f6aff/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/887d26c56adc28e4e84c7e9b138f6aff/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/pony/.gradle/caches/transforms-2/files-2.1/82d53da134085e9a24cace9824dbc5de/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/pony/.gradle/caches/transforms-2/files-2.1/82d53da134085e9a24cace9824dbc5de/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/01f7df1f767ceb982c0d7cc3458e1a35/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/01f7df1f767ceb982c0d7cc3458e1a35/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f286c779dc32663b24397203fe302c19/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f286c779dc32663b24397203fe302c19/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/21f56b8741d10f5e8df042062b2f0cc8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/21f56b8741d10f5e8df042062b2f0cc8/AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83d20831e8202ce886e9e291baeece23/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/83d20831e8202ce886e9e291baeece23/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd49e166ac7c5ee2bb75c3112b5144ee/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd49e166ac7c5ee2bb75c3112b5144ee/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/1be54dfb7da1ad02067fe73edcca7921/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/1be54dfb7da1ad02067fe73edcca7921/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/038bb5ee237c17ba79fe4ec02653361b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/038bb5ee237c17ba79fe4ec02653361b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/9e9d88130939925e69fe1805e3d9697d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/9e9d88130939925e69fe1805e3d9697d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/4013690eb84d429a666e0630f7e219e6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/4013690eb84d429a666e0630f7e219e6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8c2e1e8440a0fd0034cea070ca1ad3fa/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8c2e1e8440a0fd0034cea070ca1ad3fa/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/ae03e90f3aad9ea344b8989f718a39be/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/ae03e90f3aad9ea344b8989f718a39be/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/045c98e5dad1ecfcee4b192193d5dbe8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/045c98e5dad1ecfcee4b192193d5dbe8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd55070e2708577137b19ad87abf153a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cd55070e2708577137b19ad87abf153a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/2ceeeb2de1d007ef41eec3be51feacb0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/2ceeeb2de1d007ef41eec3be51feacb0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6a4f127161d18c0a06afdef9836b552f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6a4f127161d18c0a06afdef9836b552f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cfcef26f8d13c07763f314ba0051fcba/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/cfcef26f8d13c07763f314ba0051fcba/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/19a12756ec5fc694912b7599bb63402d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/19a12756ec5fc694912b7599bb63402d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/a9242ca12f665619570e2196aa4e14ea/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/a9242ca12f665619570e2196aa4e14ea/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/7cdb43e9f401ea2625dcf4de352a5768/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/7cdb43e9f401ea2625dcf4de352a5768/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/07d7e46cdbb29fa826fde3cad3fac25a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/07d7e46cdbb29fa826fde3cad3fac25a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/6cd812eabf9bb968e1209aace318e3bf/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/d16bd10e3f702b5e2bfc944d094de04e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/d16bd10e3f702b5e2bfc944d094de04e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/b512e7991d012719549a50d014510e2d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/b512e7991d012719549a50d014510e2d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/5a5ae48650493517be6662b1adfdf69e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/5a5ae48650493517be6662b1adfdf69e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/263bffb4a7fed2550cd8f1d924af04c5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/263bffb4a7fed2550cd8f1d924af04c5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f26874457a283eb52b87d715ad7f465d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/f26874457a283eb52b87d715ad7f465d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/722ce70d021a86175179a9e746ae60fc/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/722ce70d021a86175179a9e746ae60fc/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/00ae2311f78489e7971384c44600756b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/00ae2311f78489e7971384c44600756b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8a20a28eaeb6eae24fb694b38fc41bb4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/8a20a28eaeb6eae24fb694b38fc41bb4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/772f58de880d41b13606ccb47e49ab8f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/772f58de880d41b13606ccb47e49ab8f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/32cd1781b066e8ad724cf8e237213de2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/32cd1781b066e8ad724cf8e237213de2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/15376b280dbcd6571ea275bee80e09cc/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/15376b280dbcd6571ea275bee80e09cc/AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/c8009d2f19717dc9928c5744e0bc691a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/pony/.gradle/caches/transforms-2/files-2.1/c8009d2f19717dc9928c5744e0bc691a/AndroidManifest.xml:5:5-7:41
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/pony/WorkSpace/MobilieAppDev/android/app/src/main/AndroidManifest.xml

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/hoan/INT3120-2020/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/hoan/.gradle/caches/transforms-2/files-2.1/49a9c8e0bb1c0e8b8bb828ecd2d38737/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
