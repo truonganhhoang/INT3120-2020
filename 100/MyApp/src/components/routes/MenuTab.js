@@ -8,7 +8,6 @@ import Screen2 from '../screens/Screen2';
 import Screen3 from '../screens/Screen3';
 import Screen5 from '../screens/Screen5';
 import Screen4 from '../screens/Screen4';
-import Cartscreen3 from '../rnfirebase/Routes';
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialTopTabNavigator();
 export default function MenuTab() {
@@ -42,7 +41,7 @@ export default function MenuTab() {
               <FontAwesome5 name="th" size={24} color={color} />
             ),}}
         />
-        <Tab.Screen name="Cart" component={Cartscreen3} 
+        <Tab.Screen name="Cart" component={Screen3} 
           options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
