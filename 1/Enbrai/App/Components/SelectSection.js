@@ -19,7 +19,8 @@ const SelectSection = props => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async()=>{
-      firebase.database().ref('DataResult').child('Part').on('value', (snap)=>{
+      var userId = firebase.auth().currentUser.uid;
+      firebase.database().ref('DataResult').child(`${userId}`).child('Part').on('value', (snap)=>{
           var data1=[];
           var data=[];
             snap.forEach((child)=>{

@@ -28,9 +28,10 @@ const SelectLevel = props => {
       //console.log(result)
     }
     const fetchDataResult =() => {
+      var userId = firebase.auth().currentUser.uid;
       var partId = props.navigation.getParam('id');
       setPartId(partId);
-      firebase.database().ref('DataResult').child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
+      firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
         var data=[];
           snap.forEach((child)=>{
             data.push(child.val())

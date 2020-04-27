@@ -28,7 +28,7 @@ const ExerciseAnswer = props=> {
         const renderData = ()=>{
            return(
                <View>
-                   {headerNew()}
+                   {header()}
                    <View style ={{padding:15, paddingLeft:20}}>
                        <Text style={{fontSize:24, color: '#424242', fontWeight: 'bold'}}>{quest.text}</Text>    
                    </View>

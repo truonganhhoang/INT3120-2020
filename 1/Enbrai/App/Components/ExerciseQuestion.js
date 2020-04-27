@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, TouchableOpacity,FlatList } from 'react-native'
 import {withNavigation} from 'react-navigation'
+import firebase from 'react-native-firebase'
 const ExerciseQuestion = props=> {
         const [data, setData] = useState([])
+        const [questResult, setQuestResult] = useState()
         const [partId, setPartId] = useState();
         const [levelId, setLevelId] = useState();
         useEffect(() => {
@@ -28,6 +30,23 @@ const ExerciseQuestion = props=> {
         const renderQuestion = ()=>{
              var index = Math.floor(Math.random() * props.length);
              var quest = props.data[index]
+             var userId = firebase.auth().currentUser.uid;
+             console.log(quest.id);
+             firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').child(`${levelId}`).child('questions').child(`${quest.id}`).on('value', (snap)=>{
+                var temp=[];  
+                snap.forEach((child)=>{
+                    temp.push(child.val())
+                  })
+                  var item = {
+                    id: temp[0],
+                    isCorrect: temp[1],
+                    isReview: temp[2],
+                    levelId: temp[3],
+                    parId: temp[4]
+                  }
+                  //setQuestResult(item)
+                  
+              })
              var choices = shuffleArray(quest.choices)
             return(
                 <View>
