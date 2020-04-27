@@ -33,7 +33,7 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   useEffect(() => {
     if (amountOfQuestion > 0) {
       const database = firebase.database(); 
-      questionNumber = random(0, 19); 
+      questionNumber = random(0, 19);
       // console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
       // console.log(questionNumber)
       // console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')

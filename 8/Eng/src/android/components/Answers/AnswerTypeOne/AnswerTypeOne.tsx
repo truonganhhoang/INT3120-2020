@@ -3,6 +3,10 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements'; 
 import firebase from 'firebase'; 
 import styles from './styles'; 
+import layout from '../../../constants/layout'; 
+const WIDTH = layout.window.width;
+const HEIGHT = layout.window.height;
+console.log(HEIGHT);
 
 const TypeOne = (props: {content?: any; lessonInfo?: any}) => {
   const { content, lessonInfo } = props; 
@@ -10,12 +14,12 @@ const TypeOne = (props: {content?: any; lessonInfo?: any}) => {
   const result = database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
   '/results/' + content.id); 
-  const [styleButtonA, setStyleButtonA] = useState({color: 'white', disabled: false}); 
-  const [styleButtonB, setStyleButtonB] = useState({color: 'white', disabled: false}); 
+  const [styleButtonA, setStyleButtonA] = useState({color: '#f57f17', disabled: false}); 
+  const [styleButtonB, setStyleButtonB] = useState({color: '#f57f17', disabled: false}); 
 
   useEffect(() => {
-    setStyleButtonA({color: 'white', disabled: false}); 
-    setStyleButtonB({color: 'white', disabled: false}); 
+    setStyleButtonA({color: '#f57f17', disabled: false}); 
+    setStyleButtonB({color: '#f57f17', disabled: false}); 
   }, [content])
 
   // console.log(content);   
@@ -25,12 +29,12 @@ const TypeOne = (props: {content?: any; lessonInfo?: any}) => {
     result.on('value', function(snapshot: any){
       if (snapshot.val().text == "a") {
         console.log('True'); 
-        setStyleButtonA({color: 'green', disabled: true}); 
+        setStyleButtonA({color: '#43a047', disabled: true}); 
         setStyleButtonB({color: 'white', disabled: true})
       } else if (snapshot.val().text == "b"){
         console.log('False'); 
-        setStyleButtonB({color: 'green', disabled: true}); 
-        setStyleButtonA({color: 'red', disabled: true}); 
+        setStyleButtonB({color: '#43a047', disabled: true}); 
+        setStyleButtonA({color: '#f44336', disabled: true}); 
       }
     })
   }
@@ -38,41 +42,47 @@ const TypeOne = (props: {content?: any; lessonInfo?: any}) => {
   const contentBPress = () => {
     result.on('value', function(snapshot: any){
       if (snapshot.val().text == "b") {
-        console.log('True'); 
-        setStyleButtonB({color: 'green', disabled: true}); 
+        setStyleButtonB({color: '#43a047', disabled: true}); 
         setStyleButtonA({color: 'white', disabled: true}); 
       } else if (snapshot.val().text == "a") {
         console.log('False'); 
-        setStyleButtonA({color: 'green', disabled: true});
-        setStyleButtonB({color: 'red', disabled: true});  
+        setStyleButtonA({color: '#43a047', disabled: true});
+        setStyleButtonB({color: '#f44336', disabled: true});  
       }
     })
   }
 
   return (
-    <View>
-      <Text>Answer Type One</Text>
+    <View style={{flexDirection:'row',alignItems:"center",justifyContent:'center',marginTop:HEIGHT*0.1}}>
       <Button 
         title={content.content_a}
-        type="outline"
+        titleStyle={{color:'#FFF'}}
+        type="clear"
         style={styles.answerA}
         onPress={contentAPress}
         disabled={styleButtonA.disabled}
         buttonStyle={
           {
-            backgroundColor: styleButtonA.color
+            backgroundColor: styleButtonA.color,
+            marginRight:50,
+            width:100,
+            bottom:HEIGHT*0.001
           }
         }
       />
       <Button 
         title={content.content_b}
-        type="outline"
+        titleStyle={{color:'#FFF'}}
+        type="clear"
         style={styles.answerB}
         onPress={contentBPress}
         disabled={styleButtonB.disabled}
         buttonStyle={
           {
-            backgroundColor: styleButtonB.color
+            backgroundColor: styleButtonB.color,
+            width:100,
+            bottom:HEIGHT*0.001,
+            
           }
         }
       />

@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
     height: 200
   }, 
   speak: {
-    
+  },
+  container:{
+    alignItems:'center'
   }
 }); 
 

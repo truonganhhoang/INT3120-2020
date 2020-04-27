@@ -7,7 +7,7 @@ import firebase from 'firebase';
 const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
   const { content, lessonInfo } = props; 
   const [listCharShow, setListCharShow] = useState([""]); 
-  const [colorListChar, setColorListChar] = useState('yellow'); 
+  const [colorListChar, setColorListChar] = useState('#f57f17'); 
   const [disabledListChar, setDisabledListChar] = useState(false); 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
@@ -39,10 +39,10 @@ const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
         }
         if (check_count == size) {
           console.log('True')
-          setColorListChar('green')
+          setColorListChar('#43a047')
         } else {
           console.log('False')
-          setColorListChar('red')
+          setColorListChar('#f44336')
         }
         setDisabledListChar(true)
       })
@@ -50,8 +50,7 @@ const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
   }, listCharShow)
 
   return (
-    <View>
-      <Text>Answer Type Four</Text>
+    <View style={{alignItems:'center'}}>
       <ListCharacterShow 
         data={listCharShow}
         setListCharShow={setListCharShow}
