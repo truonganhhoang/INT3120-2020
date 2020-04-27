@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "41535986986",
+    "firebase_url": "https://fakeedumall.firebaseio.com",
+    "project_id": "fakeedumall",
+    "storage_bucket": "fakeedumall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41535986986:android:da362d069f3b3e7d6d1253",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41535986986-jna4ii9po100ku25nsacscd3o9gcn8ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwhd73qu5v53c2maQYjh7ax_y_OxLfdg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41535986986-jna4ii9po100ku25nsacscd3o9gcn8ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41535986986:android:c764a3abc89dc1546d1253",
+        "android_client_info": {
+          "package_name": "vn.fakeedumall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41535986986-jna4ii9po100ku25nsacscd3o9gcn8ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwhd73qu5v53c2maQYjh7ax_y_OxLfdg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41535986986-jna4ii9po100ku25nsacscd3o9gcn8ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

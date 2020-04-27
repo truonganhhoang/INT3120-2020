@@ -13,10 +13,10 @@ class SliderHome extends Component {
                 index={1}
                 showPagination={true}
                 autoplayInvertDirection={true}
-                paginationStyleItem={
-                   { width: 320,
-                    height: 220,}
-                }
+                // paginationStyleItem={
+                //    { width: 320,
+                //     height: 220,}
+                // }
                 // PaginationComponent = {Pagination}
             >
                 <Image style={localStyles.img} source={require('../../img/01.jpg')}/>

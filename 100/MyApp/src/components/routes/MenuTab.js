@@ -8,7 +8,7 @@ import Screen2 from '../screens/Screen2';
 import Screen3 from '../screens/Screen3';
 import Screen5 from '../screens/Screen5';
 import Screen4 from '../screens/Screen4';
-import Cartscreen3 from '../account/Routes';
+import Cartscreen3 from '../rnfirebase/Routes';
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialTopTabNavigator();
 export default function MenuTab() {
