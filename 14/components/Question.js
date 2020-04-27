@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements';
-import styles from '../AppStyles/Question'
+import styles from '../AppStyles/Question';
+import db from './../data/SQLite';
 
 export default class Question extends React.Component{
     
@@ -35,7 +36,7 @@ export default class Question extends React.Component{
             three:true
         })
     }
-    check(result){
+    check(result,ques){
         if(result=='one'){
             if(this.state.one) this.setState({correct:true});
         }else if(result=='two'){
@@ -47,6 +48,9 @@ export default class Question extends React.Component{
             checked:true,
             key:result
         })
+        var dateTime = Date.now();
+        db.updateTimeQuestion(ques,dateTime);
+        console.log(dateTime);
     }
     reset(){
         this.setState({
@@ -91,7 +95,7 @@ export default class Question extends React.Component{
                     </View>
                     <View style={{flexDirection:'row',justifyContent:'flex-end',width:'100%'}} >
                         {this.state.checked?this.state.correct?<Text style={styles().correct}>Correct!</Text>:<Text style={styles().notcorrect}>Not correct!</Text>:null}
-                        <Icon name='check' iconStyle={{color:'white',fontSize:25,backgroundColor:'green',borderRadius:15,marginRight:4}} onPress={()=>this.check(this.props.result) }/>
+                        <Icon name='check' iconStyle={{color:'white',fontSize:25,backgroundColor:'green',borderRadius:15,marginRight:4}} onPress={()=>this.check(this.props.result,this.props.question) }/>
                         <Icon name='refresh' iconStyle={{color:'white',fontSize:25,backgroundColor:'red',borderRadius:15,marginRight:4}} onPress={()=>this.reset()}/>
                     </View>
                     

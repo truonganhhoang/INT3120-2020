@@ -9,6 +9,7 @@ import Setting from './Screens/Setting';
 import NewWordList from './Screens/NewWordList';
 import EnglishApp from './Screens/EnglishApp';
 import FavoriteQuestion from './Screens/FavoriteQuestion';
+import RecentQuestion from './Screens/RecentQuestion';
 import Translate from './Screens/Translate'
 
 const Navigator = createStackNavigator({
@@ -17,6 +18,7 @@ const Navigator = createStackNavigator({
   Word: { screen: Word },
   Exam: { screen: Exam},
   FavoriteQuestion: {screen: FavoriteQuestion},
+  RecentQuestion: {screen: RecentQuestion},
   EnglishApp: {screen: EnglishApp},
   Setting: {screen: Setting},
   NewWordList: {screen: NewWordList},

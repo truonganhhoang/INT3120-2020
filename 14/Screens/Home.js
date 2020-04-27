@@ -43,7 +43,7 @@ const list = [
     {
         title: 'Câu làm gần đây',
         icon: 'timelapse',
-        navigate: 'Exam'
+        navigate: 'RecentQuestion'
     },
     {
         title: 'Dịch online',
