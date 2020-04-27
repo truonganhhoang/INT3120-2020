@@ -67,16 +67,7 @@ export default class Translate extends React.Component {
       />
       <View style={styles().content}>
 
-      <View style={{marginTop: 20}}>
-          <View style={styles().label}>
-            <Text style={styles().textLabel}>{this.state.outputLabel}</Text>
-          </View>
-          <ScrollView style={styles().outputContainer}>
-            <Text style={styles().outputText}>{this.state.output}</Text>
-          </ScrollView>
-        </View>
-
-        <View>
+      <View>
           <View style={styles().label}>
             <Text style={styles().textLabel}>{this.state.inputLabel}</Text>
             <TouchableOpacity 
@@ -94,6 +85,14 @@ export default class Translate extends React.Component {
           />
         </View>
 
+      <View style={{marginTop: 20}}>
+          <View style={styles().label}>
+            <Text style={styles().textLabel}>{this.state.outputLabel}</Text>
+          </View>
+          <ScrollView style={styles().outputContainer}>
+            <Text style={styles().outputText}>{this.state.output}</Text>
+          </ScrollView>
+        </View>
       </View>
     </View>
     );  

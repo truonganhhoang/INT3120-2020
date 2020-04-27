@@ -20,27 +20,30 @@ export default () => {
     },
     content:{
       height: device.height*0.9,
-      width: device.width
+      width: device.width,
+      paddingTop: 20
     },
     inputTextField: {
       width: device.width*0.9,
-      height: device.height*0.07,
+      height: device.height*0.1,
       backgroundColor: color.translateField,
       color: color.textColor,
       margin: device.width*0.05,
       paddingHorizontal: device.width*0.02,
-      borderRadius: device.height*0.2*0.08,
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0
+      borderBottomLeftRadius: 4,
+      borderBottomRightRadius:4,
+      borderWidth:1,
+      borderColor:'black'
     },
     outputContainer: {
       width: device.width*0.9,
-      height: device.height*0.27,
+      height: device.height*0.2,
       margin: device.width*0.05,
       backgroundColor: color.translateField,
-      borderRadius: device.height*0.2*0.08,
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0
+      borderBottomLeftRadius: 4,
+      borderBottomRightRadius:4,
+      borderWidth:1,
+      borderColor:'black'
     },
     outputText: {
       margin: device.width*0.02,
@@ -48,7 +51,7 @@ export default () => {
     },
     textLabel: {
       color: "white",
-      fontSize: 22,
+      fontSize: 20,
       padding: 5,
       alignSelf: 'flex-start',
     },
@@ -60,11 +63,13 @@ export default () => {
     },
     label: {
       width: device.width*0.9,
-      backgroundColor: color.buttonColor,
+      backgroundColor: 'black',
       marginLeft: device.width*0.05,
-      marginBottom: -device.height*0.028,
-      borderTopRightRadius: device.height*0.2*0.08,
-      borderTopLeftRadius: device.height*0.2*0.08,
+      marginBottom: -device.height*0.04,
+      borderTopLeftRadius:4,
+      borderTopRightRadius:4,
+      borderBottomWidth:2,
+      borderColor:'black'
     },
   });
 }

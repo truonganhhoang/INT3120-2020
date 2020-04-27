@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { Text,View, FlatList } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
@@ -28,10 +28,32 @@ export default class RecentQuestion extends React.Component{
         this.setState({data: filterData});
     }
 
+    caculateTime(time) {
+        time = Date.now()-time;
+        let second = Math.floor(time/1000);
+        let days = Math.floor(second/86400);
+        let hours = Math.floor(second/3600);
+        let minutes = Math.floor(second/60);
+        if(days > 0){
+            return days + " ngày trước";
+        }else{
+            if(hours>0){
+                return hours + " giờ trước";
+            }else{
+                if(minutes>0){
+                    return minutes + " phút trước";
+                }else{
+                    return second + " giây trước";
+                }
+            }
+        }
+    }
+
     renderItem = ({ item, index }) => {
         return(
         <Animatable.View animation={"fadeInLeft"} delay={200}>
             <View style={styles().view}>
+            <Text style={styles().textTime}>{this.caculateTime(item.createdAt)}</Text>
                 <Question
                     question={item.question}
                     answer1={item.answer1}

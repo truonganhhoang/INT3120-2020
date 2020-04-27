@@ -15,6 +15,11 @@ const styles = () => {
             paddingLeft:16,
             paddingRight:16,
             paddingTop:16
+        },
+        textTime:{
+            alignSelf:'center',
+            marginBottom:14,
+            color:'gray'
         }
       });
 }
