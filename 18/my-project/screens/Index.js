@@ -29,6 +29,7 @@ import Taplo from './Taplo'
 import Policy from './Policy'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Hide from './hide';
 
 
 function CustomDrawerContent(props) {
@@ -127,6 +128,10 @@ function MyStack({ navigation }) {
       }} />
       <Stack.Screen name="Taplo" component={Taplo} options={{
         title: 'Đèn cảnh báo trên taplo Ô tô',
+      }} />
+
+      <Stack.Screen name="Hide" component={Hide} options={{
+        title: 'Khái niệm và quy tắc',
       }} />
     </Stack.Navigator>
   );

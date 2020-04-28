@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Image, Dimensions, FlatList } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Hide from './hide'
 
 
 var instruction = [{
@@ -35,7 +36,7 @@ export default class Instruction extends Component {
           data={instruction}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) =>
-            <TouchableOpacity style={styles.dong}>
+            <TouchableOpacity style={styles.dong} onPress={() => this.props.navigation.navigate('Hide')}>
               <View style={styles.trai}>
                 <Image style={styles.hinh}
                   source={{ uri: item.image1 } && item.image}
