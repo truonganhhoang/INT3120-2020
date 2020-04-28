@@ -2,7 +2,7 @@ import { app, admin, fn, filterUserKeys } from './setup';
 
 const auth = fn.auth;
 
-const isFirebaseUser = (obj: any): obj is admin.auth.UserRecord => {
+const isFirebaseUser = (obj: object): obj is admin.auth.UserRecord => {
   return 'uid' in obj;
 };
 
@@ -18,7 +18,13 @@ export const handleCreateUser = auth.user().onCreate(async (user) => {
     .collection('users')
     .doc(`${user.uid}`)
     .set({
-      profile: filterUserKeys(user)
+      profile: {
+        displayName: user.displayName,
+        email: user.email,
+        disabled: user.disabled,
+        photoURL: user.photoURL,
+        phoneNumber: user.phoneNumber
+      }
     });
 });
 
