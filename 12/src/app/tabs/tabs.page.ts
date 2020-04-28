@@ -4,8 +4,8 @@ import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss']
+  templateUrl: './tabs.page.html',
+  styleUrls: ['./tabs.page.scss']
 })
 export class TabsPage implements AfterViewInit, OnDestroy {
   currentTab: string | null | undefined;

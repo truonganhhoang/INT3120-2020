@@ -17,10 +17,6 @@ const routes: Routes = [
         loadChildren: () => import('./grades/grades.module').then((m) => m.GradesPageModule)
       },
       {
-        path: 'forums',
-        loadChildren: () => import('./forums/forums.module').then((m) => m.ForumsPageModule)
-      },
-      {
         path: 'info',
         loadChildren: () => import('./info/info.module').then((m) => m.InfoPageModule)
       },

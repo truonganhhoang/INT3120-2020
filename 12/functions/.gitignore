@@ -1,0 +1,6 @@
+## Compiled JavaScript files
+lib
+**/*.js
+**/*.js.map
+
+node_modules/
