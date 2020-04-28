@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
-import auth from './firebaseApi/auth';
+import auth from '../firebaseApi/auth';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
-import { signInWithEmail } from './firebaseApi/auth';
 
 let heightPhone = Dimensions.get('window').height;
 
-class LoginScreen extends Component {
+class SignUpScreen extends Component {
   constructor(props) {
     super(props);
   }
 
   back = () => {
-    this.props.navigation.navigate('HelloScreen');
+    this.props.navigation.navigate('Setting');
   };
 
   render() {
@@ -30,7 +29,7 @@ class LoginScreen extends Component {
             />
             <View style={{alignItems:'center'}}>
               <Image
-                source={require('../image/icon.png')}
+                source={require('../../image/icon.png')}
                 style={{ width: 80, height: 80}}
               />
               <Text
@@ -81,45 +80,51 @@ class LoginScreen extends Component {
                   this.setState({ password: text });
                 }}
               />
+              <View style={styles.padding} />
+              <Input
+                label="Retype Password"
+                labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
+                placeholder="Password"
+                secureTextEntry={true}
+                leftIcon={
+                  <Ionicons
+                    name="ios-finger-print"
+                    size={30}
+                    style={{ paddingRight: 20, color: '#1976D2' }}
+                  />
+                }
+                onChangeText={(text) => {
+                  this.setState({ password1: text });
+                }}
+              />
 
               <View style={{ alignItems: 'center' }}>
                 <View style={{ height: heightPhone * 0.03 }} />
                 <View style={{ width: '80%' }}>
                   <Button
-                    title="SIGN IN"
+                    title="SIGN UP"
                     titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
-                    onPress={async () =>{
-                      if (!await auth.signInWithEmail(this.state.email, this.state.password))
-                      alert ("The user or password is invalid");
+                    onPress={async () => {
+                      if (this.state.password == this.state.password1) {
+                     //   await auth.signUpWithEmail(this.state.email, this.state.password);
+                        await auth.linkWithEmail(this.sate.email, this.state.password);
+                      } else alert('Password is incorrect!');
                     }}
                   />
                 </View>
-                <View style={{ height: heightPhone * 0.01 }} />
+                <View style={{ height: heightPhone * 0.02 }} />
                 <Text style={{ fontSize: 20 }}>-----Or-----</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ width: '80%' }}>
                     <SocialIcon
-                      title="Sign in with Facebook"
+                      title="Link with Facebook"
                       type="facebook"
                       button
-                      onPress={async () => await auth.signInWithFacebook()}
+                      onPress={async () => await auth.linkWithFacebook()}
                     />
                   </View>
                 </View>
-                <View style={styles.padding} />
-                <Text
-                  onPress={() => this.props.navigation.navigate('SignUpScreen')}
-                  style={{ fontSize: 15, color: '#939393', fontWeight: 'bold' }}>
-                  Don't have Account? Sign Up
-                </Text>
-                <View style={styles.padding} />
-                <Text
-                  onPress={async () => await auth.signInAnonymously()}
-                  style={{ fontSize: 17, color: '#23d5a6', fontWeight: 'bold' }}
-                >
-                  Use Anonymous? Sign In Anonymously
-                </Text>
               </View>
             </View>
           </View>
@@ -128,7 +133,7 @@ class LoginScreen extends Component {
     );
   }
 }
-export default LoginScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -138,15 +143,15 @@ const styles = StyleSheet.create({
     height: heightPhone,
   },
   logo: {
-    height: heightPhone * 0.4,
+    height: heightPhone * 0.3,
   },
   login: {
     backgroundColor: '#fff',
-    height: heightPhone * 0.6,
+    height: heightPhone * 0.7,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
   padding: {
-    height: heightPhone * 0.03,
+    height: heightPhone * 0.025,
   },
 });

@@ -1,6 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { AppSwitchLessonTask } from '../DashboardScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { NewTask, NewLesson } from './index';
+
+const SwitchLessonTask = createSwitchNavigator({
+  NewTaskScreen: NewTask,
+  NewLessonScreen: NewLesson,
+});
+
+export const AppSwitchLessonTask = createAppContainer(SwitchLessonTask);
 
 class News extends React.Component {
   render() {

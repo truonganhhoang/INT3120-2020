@@ -9,7 +9,7 @@ import { ViewLesson } from './lessons';
 import { NewTask, NewLesson, News } from './news';
 import { ViewTask } from './tasks';
 import { ViewExam } from './exams';
-import { Setting } from './setting';
+import { SettingScreen } from './setting';
 import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
@@ -67,7 +67,7 @@ class DashboardScreen extends Component {
           <Tab.Screen name="New" component={News} />
           <Tab.Screen name="Lesson" component={ViewLesson} />
           <Tab.Screen name="Exam" component={ViewExam} />
-          <Tab.Screen name="Setting" component={Setting} />
+          <Tab.Screen name="Setting" component={SettingScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     );

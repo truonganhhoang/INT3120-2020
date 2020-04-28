@@ -107,8 +107,8 @@ class Setting extends React.Component {
             title="Link with Email"
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
-            onPress={() => auth.linkWithEmail()}
-            style={styles.list}
+            onPress={() => this.props.navigation.navigate('SignupWithEmail')}
+            style={styles.list} 
           />
           <ListItem
             Component={TouchableScale}
@@ -348,7 +348,9 @@ const styles = StyleSheet.create({
   },
   warning: {
     fontSize: 20,
-    color: '#FDD835'
+    color: '#FDD835',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
 });
 

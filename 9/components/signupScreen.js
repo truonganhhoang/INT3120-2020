@@ -20,30 +20,30 @@ class SignUpScreen extends Component {
     return (
       <View style={styles.container}>
         <LinearGradient colors={['#23a6d5', '#23d5ab']} style={styles.background}>
-          <View style={styles.logo}>
+          <View style={[styles.logo,{flex: 1}]}>
             <Ionicons
               name="ios-arrow-back"
               size={30}
               style={{ paddingLeft: '10%', color: '#fff', paddingTop: '10%' }}
               onPress={() => this.back()}
             />
-            <Image
-              source={require('../image/icon.png')}
-              style={{ width: 80, height: 80, marginLeft: '40%' }}
-            />
-            <Text
-              style={{
-                fontSize: 25,
-                letterSpacing: 4,
-                fontWeight: 'bold',
-                color: '#fff',
-                marginLeft: '25%',
-                marginTop: 20,
-              }}
-            >
-              {' '}
-              TIME TABLE{' '}
-            </Text>
+            <View style={{alignItems:'center'}}>
+              <Image
+                source={require('../image/icon.png')}
+                style={{ width: 80, height: 80}}
+              />
+              <Text
+                style={{
+                  fontSize: 25,
+                  letterSpacing: 4,
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  marginTop: 20,
+                }}
+              >
+                TIME TABLE
+              </Text>
+            </View>
           </View>
           <View style={styles.login}>
             <View style={{ paddingLeft: 40, paddingRight: 40 }}>
