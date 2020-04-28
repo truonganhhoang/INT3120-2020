@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class GrammarResult extends StatefulWidget {
@@ -79,7 +78,6 @@ class _GrammarResultState extends State<GrammarResult> {
         startIndex++;
       }
     }
-//    text += "\n";
     listText.add(Padding(padding: EdgeInsets.only(),
       child: RichText(
         text: TextSpan(
@@ -224,32 +222,6 @@ class _GrammarResultState extends State<GrammarResult> {
     ));
     return startIndex;
   }
-
-//  int addText4(String context, int startIndex, int lastParent) {
-//    String text = "";
-//    while (context.substring(startIndex, startIndex + 1) != '~') {
-//      text += context.substring(startIndex, startIndex + 1);
-//      startIndex++;
-//    }
-//    if (lastParent == 2) {
-//      listText.add(TextSpan(
-//          text: text,
-//          style: TextStyle(
-//              color: Colors.black,
-//              fontWeight: FontWeight.w900,
-//              fontSize: 25.0)));
-//    } else {
-//      listText.add(TextSpan(
-//          text: text,
-//          style: TextStyle(
-//              color: Colors.black,
-//              fontWeight: FontWeight.w400,
-//              fontSize: 20.0)));
-//    }
-//
-//    startIndex++;
-//    return startIndex;
-//  }
 
   int addText5(String context, int startIndex) {
     String text = "";

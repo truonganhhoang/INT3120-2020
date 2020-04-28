@@ -20,8 +20,6 @@ class Dictionary extends StatelessWidget{
       body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
-//        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//    padding: EdgeInsets.all(10.0),
           children: <Widget>[
             SizedBox(
               height: 170.0,
@@ -77,9 +75,6 @@ class _DictionaryResultState extends State<DictionaryResult> {
 
   initTts() {
     flutterTts = FlutterTts();
-
-//    _getLanguages();
-
     flutterTts.setStartHandler(() {
       setState(() {
         print("playing");
@@ -101,11 +96,6 @@ class _DictionaryResultState extends State<DictionaryResult> {
       });
     });
   }
-
-//  Future _getLanguages() async {
-//    languages = flutterTts.setLanguage()  await flutterTts.getLanguages;
-//    if (languages != null) setState(() => languages);
-//  }
 
   Future _speak() async {
     await flutterTts.setVolume(volume);
