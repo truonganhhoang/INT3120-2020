@@ -14,7 +14,7 @@ const data = [
     {
         id: 2,
         title: "Bài sát hạch 1: Xuất phát",
-        vid: "https://www.youtube.com/watch?v=guqQP1wOOBs",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Các bước thực hiện: Thắt dây an toàn. Xe nổ máy ở vị trí trước vạch xuất phát",
         color: "lightseagreen",
         name: "BSH1"
@@ -22,7 +22,7 @@ const data = [
     {
         id: 3,
         title: "Bài sát hạch 2: Dừng xe nhường đường cho ngừi đi bộ",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút",
         color: "tomato",
         name: "BSH2"
@@ -30,7 +30,7 @@ const data = [
     {
         id: 4,
         title: "Bài sát hạch 3: Dừng và khởi hành xe ngang dốc",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Dừng xe cách vạch dừng quy định cách không quá 500m, khởi hành êm dịu, không bị tụt dốc quá 500mm",
         color: "green",
         name: "BSH3"
@@ -46,7 +46,7 @@ const data = [
     {
         id: 6,
         title: "Bài sát hạch 5: Qua ngã tư có tín hiệu điều khiển giao thông",
-        vid: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Chấp hành theo tín hiệu đèn điều khiển giao thông; Dừng xe cách vạch dừng quy định không quá 500m",
         color: "orange",
         name: "BSH5"
@@ -54,7 +54,7 @@ const data = [
     {
         id: 7,
         title: "Bài sát hạch 6: Qua đường vòng quanh co",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Lái xe qua đường vòng quanh co trong vùng giưới hạn của hình thi trong thời gian 2 phút",
         color: "mediumspringgreen",
         name: "BSH6"
@@ -62,7 +62,7 @@ const data = [
     {
         id: 8,
         title: "Bài sát hạch 7: Ghép xe vào nơi đỗ (ghép dọc)",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Đi đúng hình quy định của hạng xe thi; Bánh xe không đè vào đường giói hạn ống khí",
         color: "dodgerblue",
         name: "BSH7"
@@ -70,7 +70,7 @@ const data = [
     {
         id: 9,
         title: "Bài sát hạch 8: Tạm dừng ở chỗ cso đường sắt chạy qua",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút",
         color: "goldenrod",
         name: "BSH8"
@@ -78,7 +78,7 @@ const data = [
     {
         id: 10,
         title: "Bài sát hạch 9: Thay đổi số trên đường bằng",
-        vid: "https://www.youtube.com/watch?v=RlBkvjVss-s",
+        vid: "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
         content: "Trên quãng đường dài 25m kể từ khi bắt đầu vào bài thi, phải thay đổi số và tốc độ",
         color: "indianred",
         name: "BSH9"

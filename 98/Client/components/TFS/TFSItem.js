@@ -3,12 +3,12 @@ import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 import config from '../config';
 
 export default function Item(props) {
-    const { navigation, title,image,content } = props;
+    const { navigation, title, image, content } = props;
 
     return (
-        <TouchableOpacity onPress={() => { 
-            navigation.navigate('Detail', { image:image, title:title, content:content });
-            }} >
+        <TouchableOpacity onPress={() => {
+            navigation.navigate('Detail', { image: image, title: title, content: content });
+        }} >
             <View style={styles.item}>
                 <View style={styles.item_header}>
                     <Text style={styles.item_title}>{title}</Text>
@@ -16,7 +16,7 @@ export default function Item(props) {
 
                 <View>
                     <Image
-                        source={{ uri: config.IP_SEVER+image }}
+                        source={{ uri: config.IP_SEVER + image }}
                         style={styles.item_image}
                     />
                 </View>
@@ -25,9 +25,9 @@ export default function Item(props) {
     )
 }
 
-  
+
 const styles = StyleSheet.create({
-  
+
     item: {
         backgroundColor: '#fdf5e6',
         height: 165,
@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     item_image: {
         marginTop: 10,
         height: 90,
-        resizeMode:"contain",
+        resizeMode: "contain",
     },
- 
+
 });
 

@@ -46,7 +46,7 @@ export default function TrafficSignList(props) {
                     renderItem={({ item }) =>
 
                         <Item title={item.tfs_name} image={item.tfs_image} content={item.tfs_content} navigation={navigation} />}
-                     keyExtractor={(item, index) => index.toString()}
+                    keyExtractor={(item, index) => index.toString()}
 
                     style={{ marginLeft: 16, }}
                 />
@@ -61,12 +61,9 @@ const styles = StyleSheet.create({
     container: {
         borderBottomWidth: 1.5,
         borderColor: '#808080',
-        //marginTop: 50,
     },
     head: {
         height: 35,
-        //borderTopWidth: 0.7,
-        //borderColor: '#dcdcdc',
         justifyContent: 'center',
     },
     head_content: {
@@ -83,7 +80,6 @@ const styles = StyleSheet.create({
         marginBottom: -0.3,
         alignItems: 'center',
         flexDirection: 'row',
-        //justifyContent: 'space-between'
     },
     select_items_title: {
         fontSize: 18,
@@ -94,7 +90,6 @@ const styles = StyleSheet.create({
     detail: {
         height: 50,
         justifyContent: 'center',
-        //alignContent: 'center',
     },
     detail_text: {
         color: '#808080',

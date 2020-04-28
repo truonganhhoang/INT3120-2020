@@ -17,13 +17,13 @@ export default function MapScreen() {
                     longitudeDelta: 0.1,
                 }}
             />
-               <Marker
+            <Marker
                 coordinate={{
                     latitude: 105.78825,
                     longitude: 18.4324,
                 }}
-                    title={'test'}
-                    description={"test"}
+                title={'test'}
+                description={"test"}
             />
         </View>
     );

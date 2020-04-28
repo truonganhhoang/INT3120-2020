@@ -9,7 +9,7 @@ export default function QuestionSet({ route, navigation }) {
     const questionSet = route.params.questionSet;
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const [index_,setIndex_] = useState(0);
+    const [index_, setIndex_] = useState(0);
     useEffect(() => {
         fetch(config.IP_SEVER + '/admin/questions/json/' + questionSet)
             .then((response) => response.json())
@@ -29,18 +29,18 @@ export default function QuestionSet({ route, navigation }) {
                         renderItem={({ item, index }) => (
                             <TouchableOpacity onPress={() => {
                                 setIndex_(index);
-                              
+
                             }}>
                                 <View style={{ paddingVertical: 15, paddingHorizontal: 30, borderBottomColor: "#cccccc", borderBottomWidth: 2 }}>
                                     <Text style={{ fontSize: 15, textTransform: 'uppercase' }}>{item.Q_name}</Text>
-                        
+
                                 </View>
                             </TouchableOpacity>)}
                         keyExtractor={(item, index) => index.toString()}
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                     />
-                 
+
                     <View style={{ marginLeft: 25, marginRight: 10, marginTop: 20 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{data[index_].Q_title}</Text>
 
@@ -73,5 +73,5 @@ export default function QuestionSet({ route, navigation }) {
 
         </View>
     );
-                        
+
 }

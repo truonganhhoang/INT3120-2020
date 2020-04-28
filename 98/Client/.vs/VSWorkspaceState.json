@@ -3,14 +3,15 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\components",
     "\\components\\Home",
-    "\\components\\TFS",
-    "\\navigation",
-    "\\navigation\\navigator",
+    "\\components\\Video",
     "\\screens",
-    "\\screens\\VideoHD"
+    "\\screens\\Map",
+    "\\screens\\Question",
+    "\\screens\\TFS",
+    "\\screens\\VideoHD",
+    "\\styles"
   ],
-  "SelectedNode": "\\app.json",
+  "SelectedNode": "\\If",
   "PreviewInSolutionExplorer": false
 }

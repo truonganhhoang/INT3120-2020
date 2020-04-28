@@ -6,19 +6,19 @@ import config from '../config';
 export default function Item(props) {
     const { route, image, title, navigation } = props;
     return (
-  
-      <TouchableOpacity onPress={() => {
-        navigation.navigate('TFSL', { route: route,image:image,title:title });
-      }} >
-        <View style={styles.item}>
-          <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER+image}} />
-          <Text style={styles.item_title}>{title}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
 
-  const styles = StyleSheet.create({
+        <TouchableOpacity onPress={() => {
+            navigation.navigate('TFSL', { route: route, image: image, title: title });
+        }} >
+            <View style={styles.item}>
+                <Image style={styles.tinyLogo} source={{ uri: config.IP_SEVER + image }} />
+                <Text style={styles.item_title}>{title}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+}
+
+const styles = StyleSheet.create({
     item: {
         paddingVertical: 3,
         flexDirection: 'row',
@@ -32,7 +32,7 @@ export default function Item(props) {
         borderRadius: 100 / 2,
         borderWidth: 2,
     },
-  
+
     item_title: {
         // color: '#696969',
         fontSize: 18,
@@ -49,4 +49,4 @@ export default function Item(props) {
         marginTop: 5,
         marginLeft: 25,
     },
-  });
+});
