@@ -29,7 +29,7 @@ const signInWithFacebook = async () => {
 
 const signInAnonymously = async () => {
   try {
-    await firebase.auth().signInAnonymously(); 
+    await firebase.auth().signInAnonymously();
     return true;
   } catch (err) {
     console.log(err);
@@ -46,10 +46,10 @@ const signUpWithEmail = async (email, password) => {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
     let info = {
       createdAt: Date.now(),
-      displayName: "Your Name",
+      displayName: 'Your Name',
       email: email,
-      phoneNumber: "012345678",
-      photoURL: "",
+      phoneNumber: '012345678',
+      photoURL: '',
     };
     await addInfo(info);
     return true;
@@ -61,7 +61,7 @@ const signUpWithEmail = async (email, password) => {
 
 const signInWithEmail = async (email, password) => {
   try {
-    await firebase.auth().signInWithEmailAndPassword(email, password); 
+    await firebase.auth().signInWithEmailAndPassword(email, password);
     return true;
   } catch (err) {
     console.log(err);

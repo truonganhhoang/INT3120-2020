@@ -40,7 +40,7 @@ export default class ViewTask extends React.Component {
 
   componentDidMount = async () => {
     let arrret = [];
-    let table =[];
+    let table = [];
     try {
       arrret = await getAllTasks();
       table = await getLessonsName();
@@ -48,7 +48,7 @@ export default class ViewTask extends React.Component {
       console.log(err);
     }
     this.setState({ data: arrret.filter((item) => item.type == 'Task') });
-    this.setState({table : table});
+    this.setState({ table: table });
   };
 
   onRefresh = () => {
@@ -112,7 +112,7 @@ export default class ViewTask extends React.Component {
     let newState = Object.assign({}, this.state);
     newState.data[id].done = !newState.data[id].done;
     this.setState(newState);
-    await updateTask(item); 
+    await updateTask(item);
   };
 
   renderRow = (item, id) => {
@@ -139,7 +139,10 @@ export default class ViewTask extends React.Component {
         <View>
           <TouchableOpacity onPress={() => this.openModal(item, id)} key={id}>
             <View style={styles.rowContainer}>
-              <CheckBox checked={this.state.data[id].done} onPress={() => this.handleChange(item, id)} />
+              <CheckBox
+                checked={this.state.data[id].done}
+                onPress={() => this.handleChange(item, id)}
+              />
               <Text style={styles.note}>
                 {id + 1}. {item.name}
               </Text>
@@ -236,8 +239,8 @@ export default class ViewTask extends React.Component {
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Ionicons name="ios-list-box" size={30} style={{ padding: 20, color: '#d32f2f' }} />
-              <View style={{paddingTop:20, paddingLeft: 10, width: widthPhone* 0.5}}>
-                <RNPickerSelect 
+              <View style={{ paddingTop: 20, paddingLeft: 10, width: widthPhone * 0.5 }}>
+                <RNPickerSelect
                   onValueChange={(value, index) =>
                     this.setState((prevState) => ({
                       dataSelected: {

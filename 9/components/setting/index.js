@@ -1,8 +1,4 @@
 import Setting from './setting';
 import SignupWithEmail from './signupWithEmail';
 import SettingScreen from './settingScreen';
-export { 
-  Setting,
-  SignupWithEmail,
-  SettingScreen,
-};
+export { Setting, SignupWithEmail, SettingScreen };

@@ -20,18 +20,15 @@ class SignUpScreen extends Component {
     return (
       <View style={styles.container}>
         <LinearGradient colors={['#23a6d5', '#23d5ab']} style={styles.background}>
-          <View style={[styles.logo,{flex: 1}]}>
+          <View style={[styles.logo, { flex: 1 }]}>
             <Ionicons
               name="ios-arrow-back"
               size={30}
               style={{ paddingLeft: '10%', color: '#fff', paddingTop: '10%' }}
               onPress={() => this.back()}
             />
-            <View style={{alignItems:'center'}}>
-              <Image
-                source={require('../../image/icon.png')}
-                style={{ width: 80, height: 80}}
-              />
+            <View style={{ alignItems: 'center' }}>
+              <Image source={require('../../image/icon.png')} style={{ width: 80, height: 80 }} />
               <Text
                 style={{
                   fontSize: 25,
@@ -107,8 +104,8 @@ class SignUpScreen extends Component {
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
                     onPress={async () => {
                       if (this.state.password == this.state.password1) {
-                     //   await auth.signUpWithEmail(this.state.email, this.state.password);
-                        await auth.linkWithEmail(this.sate.email, this.state.password);
+                        //   await auth.signUpWithEmail(this.state.email, this.state.password);
+                        await auth.linkWithEmail(this.state.email, this.state.password);
                       } else alert('Password is incorrect!');
                     }}
                   />

@@ -18,7 +18,7 @@ export default class Calendar extends Component {
     super(props);
 
     this.state = {
-      items : {},
+      items: {},
       isVisible: true,
       refreshing: false,
     };
@@ -58,66 +58,70 @@ export default class Calendar extends Component {
           arr.push(item);
           data[day] = arr;
         }
-      }); 
+      });
     } catch (err) {
       console.log(err);
-    } 
-      this.setState({ items: data });
-      const date = new Date();
-      let today ={};
-      today.day = date.getDay();
-      today.month = date.getMonth();
-      today.year = date.getFullYear();
-      today.timestamp = date.getTime();
-      today.dateString = date.toISOString().substring(0,10);
-      this.loadItems(today);
+    }
+    this.setState({ items: data });
+    const date = new Date();
+    let today = {};
+    today.day = date.getDay();
+    today.month = date.getMonth();
+    today.year = date.getFullYear();
+    today.timestamp = date.getTime();
+    today.dateString = date.toISOString().substring(0, 10);
+    this.loadItems(today);
   };
 
   renderItem(item) {
     if (item.type == 'Theory') {
       return (
         <View style={[styles.theory, { height: item.height }]}>
-            <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={styles.itemTime}>
-              Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
-            </Text>
-            <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
-            <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
-            <Text style={styles.itemType}>Type:  &emsp;&emsp;&emsp;{item.type}</Text>
+          <Text style={styles.itemTitle}>{item.name}</Text>
+          <Text style={styles.itemTime}>
+            Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
+          </Text>
+          <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
+          <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
+          <Text style={styles.itemType}>Type: &emsp;&emsp;&emsp;{item.type}</Text>
         </View>
       );
-    } else  if ( item.type == 'Practice') {
+    } else if (item.type == 'Practice') {
       return (
         <View style={[styles.practice, { height: item.height }]}>
-            <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={styles.itemTime}>
-              Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
-            </Text>
-            <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
-            <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
-            <Text style={styles.itemType}>Type:  &emsp;&emsp;&emsp;{item.type}</Text>
+          <Text style={styles.itemTitle}>{item.name}</Text>
+          <Text style={styles.itemTime}>
+            Time: &emsp;&emsp;&emsp; {item.startTime} - {item.endTime}
+          </Text>
+          <Text style={styles.itemLocation}>Location:&emsp;&emsp;{item.location}</Text>
+          <Text style={styles.itemTeacher}>Teacher: &emsp;&emsp;{item.teacher}</Text>
+          <Text style={styles.itemType}>Type: &emsp;&emsp;&emsp;{item.type}</Text>
         </View>
       );
     } else if (item.type == 'Task') {
       return (
-        <View style={[styles.task, {height: item.height}]}>
-            <Text style={styles.itemTitle}>{item.name} {item.done == true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
-            <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
-            <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
+        <View style={[styles.task, { height: item.height }]}>
+          <Text style={styles.itemTitle}>
+            {item.name}{' '}
+            {item.done == true && <Text style={{ color: '#00acc1', fontSize: 20 }}> (Done)</Text>}
+          </Text>
+          <Text style={styles.itemType}>Lesson: &emsp; &emsp;{item.lesson}</Text>
+          <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
         </View>
       );
     } else if (item.type == 'Exam') {
       return (
-        <View style={[styles.exam, {height: item.height}]}>
-            <Text style={styles.itemTitle}>{item.name} {item.done == true && <Text style={{color: '#00acc1', fontSize: 20}}> (Done)</Text>}</Text>
-            <Text style={styles.itemType}>Lesson:  &emsp; &emsp;{item.lesson}</Text>
-            <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
+        <View style={[styles.exam, { height: item.height }]}>
+          <Text style={styles.itemTitle}>
+            {item.name}{' '}
+            {item.done == true && <Text style={{ color: '#00acc1', fontSize: 20 }}> (Done)</Text>}
+          </Text>
+          <Text style={styles.itemType}>Lesson: &emsp; &emsp;{item.lesson}</Text>
+          <Text style={styles.itemTime}>Description:&emsp;{item.description} </Text>
         </View>
       );
     } else {
-      return(
-        <View style={{height: 0}} />
-      );
+      return <View style={{ height: 0 }} />;
     }
   }
 
@@ -132,36 +136,33 @@ export default class Calendar extends Component {
 
   renderCalendar = (day) => {
     this.loadItems(day);
-  }
+  };
 
-  loadItems(day) { 
-      for (let i = -5; i < 5; i++) {
-        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
-        const strTime = this.timeToString(time);
-        if (!this.state.items[strTime]) {
-          this.state.items[strTime] = [];
-        }
+  loadItems(day) {
+    for (let i = -5; i < 5; i++) {
+      const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+      const strTime = this.timeToString(time);
+      if (!this.state.items[strTime]) {
+        this.state.items[strTime] = [];
       }
-      const newItems = {};
-      Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
-      this.setState({
-        items: newItems
-      });
+    }
+    const newItems = {};
+    Object.keys(this.state.items).forEach((key) => {
+      newItems[key] = this.state.items[key];
+    });
+    this.setState({
+      items: newItems,
+    });
   }
 
-
-    timeToString(time) {
+  timeToString(time) {
     const date = new Date(time);
     return date.toISOString().split('T')[0];
   }
 
   renderEmptyDate() {
-    return (
-      <View style={styles.emptyDate}></View>
-    );
+    return <View style={styles.emptyDate}></View>;
   }
-
-
 
   render() {
     return (
@@ -187,9 +188,11 @@ export default class Calendar extends Component {
           renderItem={(item) => this.renderItem(item)}
           renderEmptyDate={() => this.renderEmptyDate()}
           selected={this.timeToString(new Date())}
-          refreshing = { false }
-          onDayChange = {(day) => this.renderCalendar(day)}
-          rowHasChanged={(r1, r2) => {return r1 !== r2}}
+          refreshing={false}
+          onDayChange={(day) => this.renderCalendar(day)}
+          rowHasChanged={(r1, r2) => {
+            return r1 !== r2;
+          }}
           onDayPress={this.onDaySelected.bind(this)}
           loadItemsForMonth={this.loadItems.bind(this)}
           //minDate={}

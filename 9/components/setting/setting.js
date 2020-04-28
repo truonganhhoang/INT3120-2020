@@ -14,17 +14,17 @@ class Setting extends React.Component {
     onChangePass: false,
     userInfo: {},
     onChangeInfo: false,
-    changeInfo : {},
+    changeInfo: {},
     login: true,
   };
 
   componentDidMount = async () => {
     let userInfo = await getInfo();
-    if (userInfo==undefined) {
+    if (userInfo == undefined) {
       userInfo = {};
       this.setState({ login: false });
     }
-    this.setState({userInfo : userInfo});
+    this.setState({ userInfo: userInfo });
   };
 
   render() {
@@ -47,9 +47,9 @@ class Setting extends React.Component {
             style={{ color: '#4f6a6e', paddingBottom: '2.5%' }}
           />
         </View>
-        <View style={{height: 50}} />
+        <View style={{ height: 50 }} />
         <Text style={styles.titleGroup}>Your Information</Text>
-        { this.state.login && (
+        {this.state.login && (
           <View>
             <View style={styles.information}>
               <ListItem
@@ -95,36 +95,37 @@ class Setting extends React.Component {
         {!this.state.login && (
           <View>
             <View>
-              <Text style={styles.warning}> You don't have an account. Do you want save your calendar? 
+              <Text style={styles.warning}>
+                {' '}
+                You don't have an account. Do you want save your calendar?
               </Text>
-              <Text style={styles.warning}> Link your app with Email or Facebook now. </Text> 
-          </View>
-          <ListItem
-            Component={TouchableScale}
-            friction={90}
-            tension={100}
-            activeScale={0.95}
-            title="Link with Email"
-            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
-            chevron
-            onPress={() => this.props.navigation.navigate('SignupWithEmail')}
-            style={styles.list} 
-          />
-          <ListItem
-            Component={TouchableScale}
-            friction={90}
-            tension={100}
-            activeScale={0.95}
-            title="Link with Facebook"
-            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
-            chevron
-            onPress={() => auth.linkWithFacebook()}
-            style={styles.list}
-          />
-          
+              <Text style={styles.warning}> Link your app with Email or Facebook now. </Text>
+            </View>
+            <ListItem
+              Component={TouchableScale}
+              friction={90}
+              tension={100}
+              activeScale={0.95}
+              title="Link with Email"
+              titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+              chevron
+              onPress={() => this.props.navigation.navigate('SignupWithEmail')}
+              style={styles.list}
+            />
+            <ListItem
+              Component={TouchableScale}
+              friction={90}
+              tension={100}
+              activeScale={0.95}
+              title="Link with Facebook"
+              titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+              chevron
+              onPress={() => auth.linkWithFacebook()}
+              style={styles.list}
+            />
           </View>
         )}
-        <View style={{height: 50}} />
+        <View style={{ height: 50 }} />
         <Text style={styles.titleGroup}> Setting </Text>
         <View>
           <ListItem
@@ -136,8 +137,8 @@ class Setting extends React.Component {
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
             onPress={() => {
-              this.setState({ onChangeInfo: true })
-              this.setState({ changeInfo: this.state.userInfo })
+              this.setState({ onChangeInfo: true });
+              this.setState({ changeInfo: this.state.userInfo });
             }}
             style={styles.list}
           />
@@ -163,14 +164,14 @@ class Setting extends React.Component {
               onChangeText={(text) => {
                 let info = this.state.changeInfo;
                 info.displayName = text;
-                this.setState({ changeInfo : info });
+                this.setState({ changeInfo: info });
               }}
             />
             <View style={styles.padding} />
             <Input
               label="Phone Number"
               labelStyle={{ fontSize: 15, letterSpacing: 1, fontWeight: 'bold', paddingLeft: 13 }}
-              value = {this.state.changeInfo.phoneNumber}
+              value={this.state.changeInfo.phoneNumber}
               leftIcon={
                 <Ionicons
                   name="ios-finger-print"
@@ -181,23 +182,24 @@ class Setting extends React.Component {
               onChangeText={(text) => {
                 let info = this.state.changeInfo;
                 info.phoneNumber = text;
-                this.setState({ changeInfo : info });
+                this.setState({ changeInfo: info });
               }}
             />
             <View style={styles.padding} />
             <View style={styles.padding} />
-              <Button
-                title="Change Info"
-                titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
-                buttonStyle={{
-                  borderRadius: 25,
-                  backgroundColor: '#23a6d5',
-                }}
-                onPress={async () => {
-                  this.setState({ userInfo: this.state.changeInfo });
-                  if (await updateInfo(this.state.userInfo)) alert("Successful"); else alert("Unsuccessfull");
-                }}
-              />
+            <Button
+              title="Change Info"
+              titleStyle={{ fontWeight: 'bold', letterSpacing: 1 }}
+              buttonStyle={{
+                borderRadius: 25,
+                backgroundColor: '#23a6d5',
+              }}
+              onPress={async () => {
+                this.setState({ userInfo: this.state.changeInfo });
+                if (await updateInfo(this.state.userInfo)) alert('Successful');
+                else alert('Unsuccessfull');
+              }}
+            />
           </Overlay>
         </View>
         <View>
@@ -284,9 +286,9 @@ class Setting extends React.Component {
                 onPress={async () => {
                   if (this.state.password != this.state.password1)
                     alert("Those new passwords didn't match. Try again");
-                  else if (this.state.password == this.state.currentPaswword) 
-                    alert("New Password is same with Current Password. Try Again");
-                 else { 
+                  else if (this.state.password == this.state.currentPaswword)
+                    alert('New Password is same with Current Password. Try Again');
+                  else {
                     let ret = await auth.changePassword(
                       this.state.currentPassword,
                       this.state.password
@@ -340,7 +342,7 @@ const styles = StyleSheet.create({
   titleGroup: {
     paddingLeft: 5,
     fontSize: 25,
-    fontWeight:'bold',
+    fontWeight: 'bold',
     color: '#4f6a6e',
   },
   padding: {

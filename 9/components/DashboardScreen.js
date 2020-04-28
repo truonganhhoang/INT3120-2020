@@ -53,7 +53,7 @@ class DashboardScreen extends Component {
                 ionicon = focused ? 'ios-book' : 'ios-bookmarks';
               } else if (route.name === 'Lesson') {
                 ionicon = focused ? 'ios-book' : 'ios-bookmarks';
-              } 
+              }
               return <Ionicons name={ionicon} size={size} color={color} />;
             },
           })}

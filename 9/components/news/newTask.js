@@ -13,16 +13,15 @@ class NewTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        table: [],
-        selectedLesson: '',
-        selectedType: '',
-        isDateTimePickerVisible: false,
-        datePicked: 'Pick a Date',
-        date: Date.now(),
-        name: '',
-        description: '',
-      };
-
+      table: [],
+      selectedLesson: '',
+      selectedType: '',
+      isDateTimePickerVisible: false,
+      datePicked: 'Pick a Date',
+      date: Date.now(),
+      name: '',
+      description: '',
+    };
   }
 
   showDateTimePicker = () => {
@@ -33,15 +32,15 @@ class NewTask extends React.Component {
     this.setState({ isDateTimePickerVisible: false });
   };
 
-  componentDidMount = async() => {
+  componentDidMount = async () => {
     let table = [];
     try {
       table = await getLessonsName();
     } catch (err) {
       console.log(err);
     }
-    this.setState({table: table});
-  }
+    this.setState({ table: table });
+  };
 
   handleDatePicked = (date) => {
     const month = [
@@ -89,7 +88,7 @@ class NewTask extends React.Component {
   };
 
   render() {
-    const buttons = ['New Lesson', 'New Task']; 
+    const buttons = ['New Lesson', 'New Task'];
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Header
@@ -139,7 +138,7 @@ class NewTask extends React.Component {
         <View style={{ padding: 10 }} />
         <Input
           placeholder="Set name for Task"
-          value = {this.state.name}
+          value={this.state.name}
           leftIcon={
             <Ionicons
               name="md-checkbox-outline"
@@ -158,11 +157,11 @@ class NewTask extends React.Component {
             size={30}
             style={{ padding: 10, marginLeft: 15, color: '#1976D2' }}
           />
-          <View style={{paddingTop:10, paddingLeft: 10, paddingRight: 10, width: '35%'}}>
+          <View style={{ paddingTop: 10, paddingLeft: 10, paddingRight: 10, width: '35%' }}>
             <RNPickerSelect
               onValueChange={(value) => this.setState({ selectedLesson: value })}
               items={this.state.table}
-              placeholder = {{label: 'Choose...', vaule: null}}
+              placeholder={{ label: 'Choose...', vaule: null }}
               useNativeAndroidPickerStyle={false}
             />
           </View>
@@ -220,8 +219,5 @@ class NewTask extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-
-
-});
+const styles = StyleSheet.create({});
 export default NewTask;

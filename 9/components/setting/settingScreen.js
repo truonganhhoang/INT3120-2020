@@ -11,7 +11,7 @@ const LinkEmail = createSwitchNavigator({
 const AppLink = createAppContainer(LinkEmail);
 
 export default class SettingScreen extends React.Component {
-  render () {
-    return <AppLink />
+  render() {
+    return <AppLink />;
   }
 }

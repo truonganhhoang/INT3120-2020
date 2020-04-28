@@ -109,7 +109,7 @@ export default class ViewLesson extends React.Component {
   };
 
   handleTimePicked1 = (time) => {
-    const timeP = time.getHours() + ': ' + time.getMinutes(); 
+    const timeP = time.getHours() + ': ' + time.getMinutes();
     let data = this.state.dataSelected;
     data.end = time;
     data.endTime = timeP;
@@ -243,8 +243,12 @@ export default class ViewLesson extends React.Component {
                 }}
               />
             </View>
-            <View style={{flexDirection:'row', paddingTop: 15}} > 
-              <Ionicons name="ios-person" size={30} style={{ paddingLeft: 40, color: '#ec407a', paddingTop: 6 }} />
+            <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+              <Ionicons
+                name="ios-person"
+                size={30}
+                style={{ paddingLeft: 40, color: '#ec407a', paddingTop: 6 }}
+              />
               <TextInput
                 value={this.state.dataSelected.teacher}
                 style={styles.lesson}
@@ -259,11 +263,11 @@ export default class ViewLesson extends React.Component {
                 }
               />
             </View>
-            <View style={{flexDirection: 'row', paddingTop: 15 }} > 
+            <View style={{ flexDirection: 'row', paddingTop: 15 }}>
               <Ionicons
                 name="ios-pin"
                 size={30}
-                style={{ paddingLeft: 44, color: '#7e57c2', paddingTop: 6, }}
+                style={{ paddingLeft: 44, color: '#7e57c2', paddingTop: 6 }}
               />
               <TextInput
                 value={this.state.dataSelected.location}
@@ -279,7 +283,7 @@ export default class ViewLesson extends React.Component {
                 }
               />
             </View>
-            <View style={{flexDirection: 'row' , paddingTop: 15 }}> 
+            <View style={{ flexDirection: 'row', paddingTop: 15 }}>
               <Ionicons
                 name="ios-clipboard"
                 size={30}
@@ -300,7 +304,11 @@ export default class ViewLesson extends React.Component {
               />
             </View>
             <View style={{ flexDirection: 'row', paddingTop: 15 }}>
-              <Ionicons name="ios-list-box" size={30} style={{ paddingLeft: 40, color: '#d32f2f', paddingTop: 6 }} />
+              <Ionicons
+                name="ios-list-box"
+                size={30}
+                style={{ paddingLeft: 40, color: '#d32f2f', paddingTop: 6 }}
+              />
               <Picker
                 selectedValue={this.state.dataSelected.type}
                 enabled={this.state.editModal}
@@ -330,7 +338,7 @@ export default class ViewLesson extends React.Component {
                 onPress={this.showDateTimePicker}
                 disabled={!this.state.editModal}
                 disabledTitleStyle={{ color: '#ffc107' }}
-                buttonStyle={{ width: widthPhone * 0.5}}
+                buttonStyle={{ width: widthPhone * 0.5 }}
                 titleStyle={{ fontSize: 18, color: '#ffc107' }}
               />
               <DateTimePicker
@@ -339,22 +347,22 @@ export default class ViewLesson extends React.Component {
                 onCancel={this.hideDateTimePicker}
               />
             </View>
-            <View style={{flexDirection: 'row', paddingTop: 20}}>  
-              <View style={{ width: widthPhone*0.5}}>
+            <View style={{ flexDirection: 'row', paddingTop: 20 }}>
+              <View style={{ width: widthPhone * 0.5 }}>
                 <Button
                   title={this.state.dataSelected.startTime}
                   icon={
                     <Ionicons
                       name="ios-clock"
                       size={30}
-                      style={{ color: '#1976D2', paddingRight: 20}}
+                      style={{ color: '#1976D2', paddingRight: 20 }}
                     />
                   }
                   type="clear"
                   onPress={this.showTimePicker}
                   disabledTitleStyle={{ color: '#1976D2' }}
                   disabled={!this.state.editModal}
-                 // buttonStyle={{ color: '#1976D2'}}
+                  // buttonStyle={{ color: '#1976D2'}}
                 />
                 <DateTimePicker
                   isVisible={this.state.isTimePickerVisible}
@@ -365,7 +373,7 @@ export default class ViewLesson extends React.Component {
                   display="clock"
                 />
               </View>
-              <View style={{width: widthPhone*0.5}}>
+              <View style={{ width: widthPhone * 0.5 }}>
                 <Button
                   title={this.state.dataSelected.endTime}
                   icon={
@@ -379,7 +387,7 @@ export default class ViewLesson extends React.Component {
                   onPress={this.showTimePicker1}
                   disabled={!this.state.editModal}
                   disabledTitleStyle={{ color: '#1976D2' }}
-                 // buttonStyle={{ color: '#1976D2'}}
+                  // buttonStyle={{ color: '#1976D2'}}
                 />
                 <DateTimePicker
                   isVisible={this.state.isTimePickerVisible1}
@@ -391,7 +399,7 @@ export default class ViewLesson extends React.Component {
                 />
               </View>
             </View>
-            </View>
+          </View>
         </Modalize>
       </SafeAreaView>
     );
