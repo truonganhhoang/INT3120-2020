@@ -1,69 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react'; 
 import { Text, View } from 'react-native';
-import { Button } from 'react-native-elements';
-import firebase from 'firebase';
+import { Button } from 'react-native-elements'; 
+import firebase from 'firebase'; 
 import styles from './styles';
+import Sound from 'react-native-sound'; 
 
-const TypeThree = (props: { content?: any; lessonInfo?: any }) => {
-  const { content, lessonInfo } = props;
-  const database = firebase.database();
-  const result = database.ref('/topic_detail/' +
-    lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
-    '/results/' + content.id);
+const TypeThree = (props: {content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
+  const { content, lessonInfo, setNextQuestion, id } = props; 
+  const database = firebase.database(); 
+  const result =  database.ref('/topic_detail/' + 
+  lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
+  '/results/' + content.id);
   const [colorAnswerA, setColorAnswerA] = useState('white');
-  const [colorAnswerB, setColorAnswerB] = useState('white');
-  const [colorAnswerC, setColorAnswerC] = useState('white');
-  const [colorAnswerD, setColorAnswerD] = useState('white');
-  const [disabled, setDisabled] = useState(false);
+  const [colorAnswerB, setColorAnswerB] = useState('white'); 
+  const [colorAnswerC, setColorAnswerC] = useState('white'); 
+  const [colorAnswerD, setColorAnswerD] = useState('white'); 
+  const [disabled, setDisabled] = useState(false); 
 
   useEffect(() => {
-    setColorAnswerA('white');
-    setColorAnswerB('white');
-    setColorAnswerC('white');
-    setColorAnswerD('white');
-    setDisabled(false);
-  }, [content])
+    setColorAnswerA('white'); 
+    setColorAnswerB('white'); 
+    setColorAnswerC('white'); 
+    setColorAnswerD('white'); 
+    setDisabled(false); 
+    setNextQuestion(false); 
+  }, [id])
 
-  function onPress(selected = 'a') {
-    result.on('value', function (snapshot: any) {
+  function onPress(selected='a') {
+    result.on('value', function(snapshot: any){
       if (selected == snapshot.val().text) {
         // xử lý khi chọn đúng 
         if (selected == "a") {
-          setColorAnswerA('green');
+          setColorAnswerA('green'); 
         } else if (selected == "b") {
-          setColorAnswerB('green');
+          setColorAnswerB('green'); 
         } else if (selected == "c") {
-          setColorAnswerC('green');
+          setColorAnswerC('green'); 
         } else if (selected == "d") {
-          setColorAnswerD('green');
+          setColorAnswerD('green'); 
         }
-        setDisabled(true);
       }
       else {
         // xử lý khi chọn sai
-        console.log('False');
+        console.log('False'); 
         // đáp án sai tô màu đỏ
         if (selected == "a") {
-          setColorAnswerA('#f44336')
+          setColorAnswerA('red')
         } else if (selected == "b") {
-          setColorAnswerB('#f44336')
+          setColorAnswerB('red')
         } else if (selected == "c") {
-          setColorAnswerC('#f44336')
+          setColorAnswerC('red')
         } else if (selected == "d") {
-          setColorAnswerD('#f44336')
+          setColorAnswerD('red')
         }
         // đáp án đúng tô màu xanh
         if (snapshot.val().text == "a") {
-          setColorAnswerA('#43a047')
+          setColorAnswerA('green')
         } else if (snapshot.val().text == "b") {
-          setColorAnswerB('#43a047')
+          setColorAnswerB('green')
         } else if (snapshot.val().text == "c") {
-          setColorAnswerC('#43a047')
+          setColorAnswerC('green')
         } else if (snapshot.val().text == "d") {
-          setColorAnswerD('#43a047')
+          setColorAnswerD('green')
         }
-        setDisabled(true);
       }
+      setDisabled(true); 
+      const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error); 
+          return; 
+        }
+        setTimeout(() => {
+          speaker.release(); 
+          setNextQuestion(true); 
+        }, speaker.getDuration()*1000)
+        speaker.play((success) => {
+          if (success) {
+            console.log('successfully finished playing'); 
+          } else {
+            console.log('playback failed due to audio decoding errors')
+          }
+        })
+      })
     })
   }
 

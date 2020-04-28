@@ -3,11 +3,12 @@ import { View, Text } from 'react-native';
 import { ListCharacterShow } from '../../../components/ListCharacterShow'; 
 import { ListCharacterInput } from '../../../components/ListCharacterInput'; 
 import firebase from 'firebase'; 
+import Sound from 'react-native-sound'; 
 
-const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
-  const { content, lessonInfo } = props; 
+const TypeFour = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
+  const { content, lessonInfo, setNextQuestion, id } = props; 
   const [listCharShow, setListCharShow] = useState([""]); 
-  const [colorListChar, setColorListChar] = useState('#f57f17'); 
+  const [colorListChar, setColorListChar] = useState('yellow'); 
   const [disabledListChar, setDisabledListChar] = useState(false); 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
@@ -21,7 +22,9 @@ const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
     }
     setListCharShow(l); 
     setDisabledListChar(false); 
-  }, [content])
+    setNextQuestion(false); 
+    setColorListChar('yellow'); 
+  }, [id])
 
   useEffect(() => {
     let size = content.num_character; 
@@ -39,12 +42,30 @@ const TypeFour = (props: { content?: any; lessonInfo?: any }) => {
         }
         if (check_count == size) {
           console.log('True')
-          setColorListChar('#43a047')
+          setColorListChar('green')
         } else {
           console.log('False')
-          setColorListChar('#f44336')
+          setColorListChar('red')
         }
         setDisabledListChar(true)
+        const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
+          if (error) {
+            console.log('failed to load the sound', error); 
+            return; 
+          }
+          setTimeout(() => {
+            speaker.release();
+            setNextQuestion(true); 
+          }, speaker.getDuration()*1000)
+          speaker.play((success) => {
+            if (success) {
+              console.log('successfully finished playing'); 
+            } else {
+              console.log('playback failed due to audio decoding errors')
+            }
+          })
+        })
+
       })
     }
   }, listCharShow)

@@ -1,7 +1,8 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Button } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
+import React from 'react'; 
+import { View } from 'react-native'; 
+import { Button } from 'react-native-elements'; 
+import { StyleSheet } from 'react-native'; 
+
 const styles = StyleSheet.create({
   button: {
     width: 30,
@@ -25,8 +26,8 @@ const styles = StyleSheet.create({
 
 });
 
-const Char = (props: { onPress?: any; char?: any; disabled?: any }) => {
-  const { onPress, char, disabled } = props;
+const Char = (props: {onPress?: any; char?: any; disabled?: any}) => {
+  const { onPress, char, disabled } = props; 
   return (
     <View>
       <Button

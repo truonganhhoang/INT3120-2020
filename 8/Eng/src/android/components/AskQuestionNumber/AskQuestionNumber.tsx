@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'; 
 import { Text, View } from 'react-native'; 
-import { Overlay, ButtonGroup, Button, withBadge } from 'react-native-elements'; 
-import styles from './style';
+import { Overlay, ButtonGroup, Button } from 'react-native-elements'; 
+import styles from './styles';
 
-const Ask = (props: { setQuestionNumber?: any; Visible?: any }) => {
-  const { setQuestionNumber, Visible } = props; 
-  const buttons = ['20', '50', '100']
+const Ask = (props: { setAmountOfQ?: any; Visible?: any }) => {
+  const { setAmountOfQ, Visible } = props; 
+  const buttons = ['5', '10', '20']
   const [selectedIndex, setSelected] = useState(0); 
   const [isVisible, setIsVisible] = useState(true); 
 
@@ -19,8 +19,7 @@ const Ask = (props: { setQuestionNumber?: any; Visible?: any }) => {
 
   const start = () => {
     setIsVisible(false); 
-    // console.log(buttons[selectedIndex]); 
-    setQuestionNumber(buttons[selectedIndex]); 
+    setAmountOfQ(buttons[selectedIndex]); 
   }
 
   return (
@@ -40,7 +39,7 @@ const Ask = (props: { setQuestionNumber?: any; Visible?: any }) => {
           selectedTextStyle={{color:'#FFF',fontWeight:'bold'}}
         />
         <Button
-          title="Bắt đầu"
+          title="Start"
           containerStyle={styles.btnStart}
           onPress={start}
           buttonStyle={{backgroundColor:'#f57f17'}}

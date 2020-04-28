@@ -1,42 +1,46 @@
-import React, { useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { Image, Button, Icon, Card } from 'react-native-elements';
-import styles from './styles';
-import Sound from 'react-native-sound';
+import React, { useEffect } from 'react'; 
+import { View, TouchableOpacity } from 'react-native'; 
+import { Image, Icon, Card } from 'react-native-elements'; 
+import styles from './styles'; 
+import Sound from 'react-native-sound'; 
 
-const TypeFour = (props: { content?: any }) => {
-  const { content } = props;
+const TypeFour = (props: { content?: any; id?: any }) => {
+  const { content, id } = props; 
 
   useEffect(() => {
-    const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
-      speaker.play((success) => {
-        if (success) {
-          console.log('successfully finished playing');
-        } else {
-          console.log('playback failed due to audio decoding errors')
-        }
-      })
-    })
-  }, [])
+    // if (content.type == '4') {
+    //   const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
+    //     if (error) {
+    //       console.log('failed to load the sound', error); 
+    //       return; 
+    //     }
+    //     speaker.play((success) => {
+    //       if (success) {
+    //         console.log('successfully finished playing'); 
+    //       } else {
+    //         console.log('playback failed due to audio decoding errors')
+    //       }
+    //     })
+    //   })
+    //   speaker.release(); 
+    // }
+  }, [id])
 
   const onPress = () => {
     const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
       if (error) {
-        console.log('failed to load the sound', error);
-        return;
+        console.log('failed to load the sound', error); 
+        return; 
       }
       speaker.play((success) => {
         if (success) {
-          console.log('successfully finished playing');
+          console.log('successfully finished playing'); 
         } else {
           console.log('playback failed due to audio decoding errors')
         }
       })
     })
+    speaker.release(); 
   }
 
   return (

@@ -36,7 +36,6 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
     )
   }
   else {
-    console.log(nameTopic);
     var index = 0;
     const data: any = [];
     Object.keys(lessons).forEach((item, index) => {

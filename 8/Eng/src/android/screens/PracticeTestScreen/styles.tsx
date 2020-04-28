@@ -10,8 +10,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '700',
     fontSize: 20,
+  }, 
+  slider: {
+    alignItems: 'stretch', 
+    justifyContent: 'center', 
+    paddingLeft: 10, 
+    paddingRight: 10, 
+  }, 
+  score: {
+    
   }
-
 }); 
 
 export default styles; 

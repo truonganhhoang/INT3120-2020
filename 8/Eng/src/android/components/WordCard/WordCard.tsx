@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import { Card, Icon, Image } from 'react-native-elements';
-import { Text, TouchableOpacity, View } from 'react-native';
-import styles from './styles';
+import React, { useState } from 'react'; 
+import { Card, Icon, Image } from 'react-native-elements'; 
+import { Text, TouchableOpacity, View } from 'react-native'; 
+import styles from './styles'; 
 import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 import Sound from 'react-native-sound';
 
-
-const Word = (props: { data?: any; icon: any }) => {
-  const { data } = props;
-  console.log(data);
+const Word = (props: {data?: any; icon: any}) => {
+  const { data } = props; 
   const { icon } = props;
   const [colorStar, setColorStar] = useState(icon)
   const onPressStar = () => {
-    if (colorStar == 'star') {
-      setColorStar('staro');
-    }
-    else if (colorStar == 'staro') {
-      setColorStar('star');
+    console.log(colorStar)
+    if (colorStar == 'star'){
+      setColorStar('staro'); 
+    } 
+    else if (colorStar == 'staro'){
+      setColorStar('star'); 
     }
   }
+
   const onSpeaking = () => {
     const speaker = new Sound(data.void_uri, Sound.MAIN_BUNDLE, (error) => {
       if (error) {
@@ -34,6 +34,7 @@ const Word = (props: { data?: any; icon: any }) => {
       })
     })
   }
+
   return (
     <TouchableOpacity style={styles.btn}>
       <Card
