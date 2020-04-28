@@ -1,4 +1,4 @@
-
+import 'react-native-get-random-values';
 import React, {
   Component,
 } from 'react';
@@ -46,6 +46,9 @@ export default class App extends Component {
           <Stack.Screen options={{ headerShown: false }}
             name="Tips"
             component={AppComponents.Tips} />
+          <Stack.Screen options={{ headerShown: false }}
+            name="ViewPageWeb"
+            component={AppComponents.ViewPageWeb} />
         </Stack.Navigator>
       </NavigationContainer>
     );
