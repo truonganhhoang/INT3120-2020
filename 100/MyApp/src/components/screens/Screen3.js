@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView, Modal, TouchableOpacity } from 'react-native'
 import { Styles } from '../../styles'
 import Moikhoahoc from '../components/Moikhoahoc';
-import SignModal from '../rnfirebase/Routes';
+import SignModal from '../rnfirebase/SignModal';
 export default class Screen3 extends Component {
     constructor(props){
         super(props);
