@@ -1,23 +1,22 @@
 import React from 'react';
-import {  View,Text, FlatList, Button, Alert, Modal } from 'react-native';
+import { Text,View, FlatList } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
 import Question from '../components/Question';
 import db from './../data/SQLite';
-import styles from '../AppStyles/Exam';
+import styles from '../AppStyles/FavoriteQuestion';
 import PickColor from '../Config/Color'
 
-export default class Exam extends React.Component{
-    index = 0;
+export default class RecentQuestion extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          modalVisible:false ,
-          data: db.getQuestion(this,this.props.navigation.state.params.type,this.index),
+          data: db.getRecentQuestion(this)
         }
     }
     keyExtractor = (item, index) => index.toString()
+
     favoriteQuestionSwitch = ques =>{
         if (ques.favorite == 1){
             ques.favorite = 0;
@@ -25,34 +24,36 @@ export default class Exam extends React.Component{
             ques.favorite = 1;
           }
         db.updateFavoriteQuestion(ques.question, ques.favorite);
-            let filterData = this.state.data.filter(item => item);
-            this.setState({data: filterData});
+        let filterData = this.state.data.filter(item => item.question != ques.question);
+        this.setState({data: filterData});
     }
 
-    async nextQuestion(){
-        if(Object.keys(this.state.data).length>0){
-            this.index+=2;
-            this.setState({
-                data: await db.getQuestion(this,this.props.navigation.state.params.type,this.index)
-            })
+    caculateTime(time) {
+        time = Date.now()-time;
+        let second = Math.floor(time/1000);
+        let days = Math.floor(second/86400);
+        let hours = Math.floor(second/3600);
+        let minutes = Math.floor(second/60);
+        if(days > 0){
+            return days + " ngày trước";
         }else{
-            this.setState({
-                modalVisible:true
-            })
+            if(hours>0){
+                return hours + " giờ trước";
+            }else{
+                if(minutes>0){
+                    return minutes + " phút trước";
+                }else{
+                    return second + " giây trước";
+                }
+            }
         }
-    }
-
-    backQuestion(){
-        this.index-=2;
-        this.setState({
-            data: db.getQuestion(this,this.props.navigation.state.params.type,this.index)
-        })
     }
 
     renderItem = ({ item, index }) => {
         return(
         <Animatable.View animation={"fadeInLeft"} delay={200}>
             <View style={styles().view}>
+            <Text style={styles().textTime}>{this.caculateTime(item.createdAt)}</Text>
                 <Question
                     question={item.question}
                     answer1={item.answer1}
@@ -74,13 +75,13 @@ export default class Exam extends React.Component{
       )
     }
     render(){
-        const color = PickColor(global.darkmode);
+        const color = PickColor(global.darkmode)
         const {navigate} = this.props.navigation;
         return(
             <View style={styles().container}>
                 <Header
                     leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
-                    centerComponent={{ text: this.props.navigation.state.params.type, style: { color: '#fff' } }}
+                    centerComponent={{ text: 'Câu làm gần đây', style: { color: '#fff' } }}
                     backgroundColor={color.headerColor}
                 /> 
                 <FlatList
@@ -89,26 +90,6 @@ export default class Exam extends React.Component{
                     renderItem={this.renderItem}
                     showsVerticalScrollIndicator={false}
                 />
-                <Modal animationType="fade" transparent={true} visible={this.state.modalVisible}>
-                    <View style={styles().centeredView}>
-                        <View style={styles().modalView}>
-                            <Text>You have completed {this.props.navigation.state.params.type}</Text>
-                            <Button buttonStyle={styles().closeModalButton} title="OK" onPress={()=>{this.setState({modalVisible: false})}}/>
-                        </View>
-                    </View>
-                </Modal>
-                <View style={{flexDirection:'row'}}>
-                    {this.index==0 ?
-                        <View style={{width:'50%', }}>
-                        </View>:
-                        <View style={styles().viewButtonLeft}>
-                            <Button title="Back" onPress={() => this.backQuestion()}/>
-                        </View>
-                    }
-                    <View style={styles().viewButtonRight}>
-                        <Button title="Next" onPress={() => this.nextQuestion()}/>
-                    </View>
-                </View>
             </View>
             
         );

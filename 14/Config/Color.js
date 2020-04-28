@@ -9,7 +9,8 @@ export default pickColor = (darkmode) => {
       cardColor : '#242424',
       checkboxColor : '#303030',
       iconColor: '#ffffff',
-      englistWord: '#ffffff'
+      englistWord: '#ffffff',
+      translateField: '#323232',
     }
   } else {
     return {
@@ -22,6 +23,7 @@ export default pickColor = (darkmode) => {
       checkboxColor : '#ffffff',
       iconColor: '#000000',
       englistWord: '#2089db',
+      translateField: '#f0f0f0',
     }
   }
 }

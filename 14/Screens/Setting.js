@@ -23,7 +23,7 @@ export default class Setting extends React.Component{
     updateData = async () => {
         // db.dropUpdateTable();
         this.setState({time: await db.getLatestUpdatedTime()});
-        const response = await fetch(`http://${host.hostname}:${host.port}/updateData`,{ // local ipv4
+        const response = await fetch(`https://toeic-test-server.herokuapp.com/updateData`,{ // local ipv4
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',
@@ -110,7 +110,9 @@ export default class Setting extends React.Component{
         this.setState({refesh: true})
         db.changeMode(!value? 1:0);
         global.darkmode = !value;
-        this.props.navigation.state.params.reload();
+        if (this.props.navigation.state.params.reload()){
+            this.props.navigation.state.params.reload();
+        }
     }
 
     render(){

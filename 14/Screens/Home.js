@@ -1,6 +1,6 @@
 import React from 'react';
 import {ListItem} from 'react-native-elements'
-import {  View, ScrollView } from 'react-native';
+import {  View, ScrollView, TouchableOpacity } from 'react-native';
 import { Header } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import * as Permissions from 'expo-permissions';
@@ -36,11 +36,6 @@ const list = [
         navigate: 'Exam'
     },
     {
-        title: 'Part V',
-        icon: 'school',
-        navigate: 'Exam'
-    },
-    {
         title: 'Câu yêu thích',
         icon: 'star',
         navigate: 'FavoriteQuestion'
@@ -48,7 +43,12 @@ const list = [
     {
         title: 'Câu làm gần đây',
         icon: 'timelapse',
-        navigate: 'Exam'
+        navigate: 'RecentQuestion'
+    },
+    {
+        title: 'Dịch online',
+        icon: 'g-translate',
+        navigate: 'Translate'
     },
     {
         title: 'Phần mềm học tiếng anh',
@@ -75,7 +75,7 @@ export default class Home extends React.Component{
         const existTabletWords = await (db.checkIfTableWordsExist());
         if (existTabletWords == false){
             console.log('home creates table Words')
-            const response = await fetch(`http://${host.hostname}:${host.port}/getAllWords`) //local ipv4
+            const response = await fetch(`https://toeic-test-server.herokuapp.com/getAllWords`) //local ipv4
             const data = await response.json();
             //console.log(data.words.length);
             db.createTable(data.words);
@@ -83,7 +83,7 @@ export default class Home extends React.Component{
         const existTableQuestions = await (db.checkIfTablesQuestionExist());
         if (existTableQuestions == false){
             console.log('home creates tabe Question');
-            const responseQuestion = await fetch(`http://${host.hostname}:${host.port}/getAllQuestions`) //local ipv4
+            const responseQuestion = await fetch(`https://toeic-test-server.herokuapp.com/getAllQuestions`) //local ipv4
             const dataQuestion = await responseQuestion.json();
             db.createQuestionTable(dataQuestion.questions);
         }
@@ -117,19 +117,24 @@ export default class Home extends React.Component{
                             list.map((item, i) => {
                                 return (
                                     <Animatable.View key={i} animation="fadeInDown" delay={i*100} duration={500}>
-                                        <ListItem
+                                        <TouchableOpacity 
                                             onPress={()=> navigate(
                                                 item.navigate, {type: item.title, reload: ()=>{this.setState({reload: true})}}
                                             )}
-                                            key={i}
-                                            title={item.title}
-                                            leftIcon={{ name: item.icon, color: color.iconColor }}
-                                            titleStyle={styles().textColor}
-                                            containerStyle={styles().listItemContainer}
-                                            bottomDivider
-                                            chevron={{color: color.iconColor}}
-                                        />
+                                            activeOpacity={0.5}
+                                        >
+                                            <ListItem
+                                                key={i}
+                                                title={item.title}
+                                                leftIcon={{ name: item.icon, color: color.iconColor }}
+                                                titleStyle={styles().textColor}
+                                                containerStyle={styles().listItemContainer}
+                                                bottomDivider
+                                                chevron={{color: color.iconColor}}
+                                            />
+                                        </TouchableOpacity>
                                     </Animatable.View>
+                                    
                                 )
                             })
                         }

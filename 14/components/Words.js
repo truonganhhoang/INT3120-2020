@@ -50,7 +50,7 @@ export default class Words extends React.Component {
     if (word.remind == 1){
       word.remind = 0;
       const nID = await db.getNotificationID(word.eng);
-      console.log(nID);
+      // console.log(nID);
       if (nID != 'null'){
         Notifications.cancelScheduledNotificationAsync(nID);
       }
@@ -141,9 +141,9 @@ export default class Words extends React.Component {
       return (
         <View>
           <SwipeListView
-            style={styles().swipeListView}
+            style={styles(this.props.type).swipeListView}
             keyExtractor={this.keyExtractor}
-            contentContainerStyle={{paddingBottom: 240}}
+            contentContainerStyle={{paddingBottom: 10}}
             data={this.state.data}
             renderItem={this.renderItem}
             renderHiddenItem={this.renderHiddenItem}

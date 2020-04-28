@@ -99,17 +99,21 @@ export default class Word extends React.Component{
       }
       return(
       <Animatable.View animation={animation} delay={index*100}>
-        <ListItem
-            onPress = {() => this._onPress(item)}
-            title={item.name}
-            subtitle={item.subtitle}
-            subtitleStyle={styles().textColor}
-            leftAvatar={{ source: { uri: item.avatar_url } }}
-            titleStyle={styles().textColor}
-            containerStyle={styles().listItemContainer}
-            bottomDivider
-            chevron
-        />
+        <TouchableOpacity
+          onPress = {() => this._onPress(item)}
+          activeOpacity={0.5}
+        >
+          <ListItem
+              title={item.name}
+              subtitle={item.subtitle}
+              subtitleStyle={styles().textColor}
+              leftAvatar={{ source: { uri: item.avatar_url } }}
+              titleStyle={styles().textColor}
+              containerStyle={styles().listItemContainer}
+              bottomDivider
+              chevron
+          />
+        </TouchableOpacity>
       </Animatable.View>
     )}
 
