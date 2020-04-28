@@ -1,19 +1,7 @@
-/*data[
-  {
-    QuestionText:,
-    {
-      AnswerText:,
-      select:,
-      AnswerResult:
-    }
-  },{}
-]
-
-*/
 
 import React, { Component, useState, useEffect } from 'react';
 import {
-  Text, View,Image
+  Text, View, Image
 } from 'react-native';
 import {
   Container, Header, Tab, Tabs,
@@ -21,19 +9,19 @@ import {
   Icon, Title, Right, Content,
   ListItem, CheckBox
 } from 'native-base';
-import {FirebaseApp} from '../component/FirebaseConfig';
+import { FirebaseApp } from '../component/FirebaseConfig';
 export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data:[]
+      data: []
     };
   }
-  componentDidMount(){
-    var listQuestion=this.props.route.params.data.Question.split(" ");
-    for(var i=0;i<listQuestion.length;i++){
+  componentDidMount() {
+    var listQuestion = this.props.route.params.data.Question.split(" ");
+    for (var i = 0; i < listQuestion.length; i++) {
       FirebaseApp.database().ref('Question').child(listQuestion[i]).once('value').then(snapshot => {
-        this.setState({data:[...this.state.data,snapshot.val()]});
+        this.setState({ data: [...this.state.data, snapshot.val()] });
       })
     }
   }
@@ -60,8 +48,8 @@ export default class Test extends Component {
             </Button>
           </Right>
         </Header>
-        <Content style={{ margin:1 }}>
-          <Header style={{ height: 30}}>
+        <Content style={{ margin: 1 }}>
+          <Header style={{ height: 30 }}>
             <Content>
               <CountDown startM={20} navigation={navigation} data={this.state.data} />
             </Content>
@@ -69,28 +57,28 @@ export default class Test extends Component {
 
           <Tabs renderTabBar={() => <ScrollableTab />}>
             {this.state.data.map((question, i) => {
-                let count=i+1;
-                return (
-                  <Tab heading={"Câu "+ count} key={i}>
-                    {this.ShowTabContent( question)}
-                    <Tab />
-                  </Tab>)
-              })}
+              let count = i + 1;
+              return (
+                <Tab heading={"Câu " + count} key={i}>
+                  {this.ShowTabContent(question)}
+                  <Tab />
+                </Tab>)
+            })}
           </Tabs>
         </Content>
       </Container>
     );
   }
-  ShowTabContent(question){
+  ShowTabContent(question) {
     const show = [];
-    for(var key in question.Answers){
+    for (var key in question.Answers) {
       show.push(<ShowCheckBox answer={question.Answers[key]} key={key} />)
     };
     return (
-      <View style={{ paddingTop: 10,paddingRight: 10 }}>
+      <View style={{ paddingTop: 10, paddingRight: 10 }}>
         <View >
-          <Text style={{ color: 'blue', fontSize: 16,paddingLeft:10 }}>{question.QuestionText}</Text>
-          <Image style={{resizeMode:'center'}} source={{uri:question.LinkImage,height:200}}/>
+          <Text style={{ color: 'blue', fontSize: 16, paddingLeft: 10 }}>{question.QuestionText}</Text>
+          <Image style={{ resizeMode: 'center' }} source={{ uri: question.LinkImage, height: 200 }} />
         </View>
         {show}
       </View>
@@ -128,7 +116,7 @@ const CountDown = (props) => {
 
 const ShowCheckBox = (props) => {
   const [select, setSelect] = useState(false);
-  props.answer.select =select;
+  props.answer.select = select;
   return (
     <ListItem stype={{ flexDirection: 'row' }}>
       <CheckBox style={{ marginRight: 20 }} checked={select} onPress={() => {
