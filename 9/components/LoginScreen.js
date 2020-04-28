@@ -108,7 +108,9 @@ class LoginScreen extends Component {
                   </View>
                 </View>
                 <View style={styles.padding} />
-                <Text style={{ fontSize: 15, color: '#939393', fontWeight: 'bold' }}>
+                <Text
+                  onPress={() => this.props.navigation.navigate('SignUpScreen')}
+                  style={{ fontSize: 15, color: '#939393', fontWeight: 'bold' }}>
                   Don't have Account? Sign Up
                 </Text>
                 <View style={styles.padding} />

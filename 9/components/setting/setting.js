@@ -15,10 +15,15 @@ class Setting extends React.Component {
     userInfo: {},
     onChangeInfo: false,
     changeInfo : {},
+    login: true,
   };
 
   componentDidMount = async () => {
     let userInfo = await getInfo();
+    if (userInfo==undefined) {
+      userInfo = {};
+      this.setState({ login: false });
+    }
     this.setState({userInfo : userInfo});
   };
 
@@ -44,45 +49,81 @@ class Setting extends React.Component {
         </View>
         <View style={{height: 50}} />
         <Text style={styles.titleGroup}>Your Information</Text>
-        <View style={styles.information}>
+        { this.state.login && (
+          <View>
+            <View style={styles.information}>
+              <ListItem
+                Component={TouchableScale}
+                friction={90}
+                tension={100}
+                activeScale={0.95}
+                title="Name"
+                subtitle={this.state.userInfo.displayName}
+                titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+                chevron
+                style={styles.list}
+              />
+            </View>
+            <View style={styles.information}>
+              <ListItem
+                Component={TouchableScale}
+                friction={90}
+                tension={100}
+                activeScale={0.95}
+                title="Email"
+                subtitle={this.state.userInfo.email}
+                titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+                chevron
+                style={styles.list}
+              />
+            </View>
+            <View style={styles.information}>
+              <ListItem
+                Component={TouchableScale}
+                friction={90}
+                tension={100}
+                activeScale={0.95}
+                title="Phone Number"
+                subtitle={this.state.userInfo.phoneNumber}
+                titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+                chevron
+                style={styles.list}
+              />
+            </View>
+          </View>
+        )}
+        {!this.state.login && (
+          <View>
+            <View>
+              <Text style={styles.warning}> You don't have an account. Do you want save your calendar? 
+              </Text>
+              <Text style={styles.warning}> Link your app with Email or Facebook now. </Text> 
+          </View>
           <ListItem
             Component={TouchableScale}
             friction={90}
             tension={100}
             activeScale={0.95}
-            title="Name"
-            subtitle={this.state.userInfo.displayName}
+            title="Link with Email"
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
+            onPress={() => auth.linkWithEmail()}
             style={styles.list}
           />
-        </View>
-        <View style={styles.information}>
           <ListItem
             Component={TouchableScale}
             friction={90}
             tension={100}
             activeScale={0.95}
-            title="Email"
-            subtitle={this.state.userInfo.email}
+            title="Link with Facebook"
             titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
             chevron
+            onPress={() => auth.linkWithFacebook()}
             style={styles.list}
           />
-        </View>
-        <View style={styles.information}>
-          <ListItem
-            Component={TouchableScale}
-            friction={90}
-            tension={100}
-            activeScale={0.95}
-            title="Phone Number"
-            subtitle={this.state.userInfo.phoneNumber}
-            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
-            chevron
-            style={styles.list}
-          />
-        </View>
+          
+          </View>
+        )}
         <View style={{height: 50}} />
         <Text style={styles.titleGroup}> Setting </Text>
         <View>
@@ -304,6 +345,10 @@ const styles = StyleSheet.create({
   },
   padding: {
     height: heightPhone * 0.025,
+  },
+  warning: {
+    fontSize: 20,
+    color: '#FDD835'
   },
 });
 
