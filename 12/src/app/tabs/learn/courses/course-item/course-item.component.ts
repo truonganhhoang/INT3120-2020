@@ -9,4 +9,8 @@ export class CourseItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  handleClickCourseMenuTrigger(event: Event) {
+    event.stopPropagation();
+  }
 }

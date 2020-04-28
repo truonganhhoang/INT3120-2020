@@ -6,7 +6,7 @@ export default function Thongbao() {
     return (
         <View style={localStyles.each}>
             <View style={localStyles.header}>
-                <Foundation name="burst-new" size={50} color="hotpink" style={{marginTop: 3, flex: 1}}/>
+                <Foundation name="burst-new" size={48} color="hotpink" style={{marginTop: 3, flex: 1}}/>
                 <Text style={localStyles.content}>Bạn chưa tìm được khóa học ưng ý ?</Text>
             </View>
             <View>
@@ -18,20 +18,20 @@ export default function Thongbao() {
 }
 const localStyles = StyleSheet.create({
     each:{
-        height: 150,
+        height: 152,
         justifyContent: "space-around",
         backgroundColor: "#B3E5FC",
         borderRadius: 8,
-        padding: 10,
-        marginBottom: 10,
+        padding: 8,
+        marginBottom: 8,
     },
     header: { 
         flexDirection: "row",
-        marginBottom: 10,
+        marginBottom: 8,
     },
     content: {
         flex: 8,
-        fontSize: 26,
+        fontSize: 24,
         fontWeight: "700"
     },
     date:{

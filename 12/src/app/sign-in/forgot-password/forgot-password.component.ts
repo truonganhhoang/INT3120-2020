@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+
 import { ForgotPasswordService } from '../../core/services/firebase/auth/forgot-password.service';
 
 @Component({
@@ -9,8 +11,10 @@ import { ForgotPasswordService } from '../../core/services/firebase/auth/forgot-
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit, OnDestroy {
   email = new FormControl('', [Validators.required, Validators.email]);
+  sendForgotPasswordEmailSubscription?: Subscription;
+  dialogClosedSubscription?: Subscription;
 
   constructor(
     public dialogRef: MatDialogRef<ForgotPasswordComponent>,
@@ -19,9 +23,14 @@ export class ForgotPasswordComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dialogRef.afterClosed().subscribe(() => {
+    this.dialogClosedSubscription = this.dialogRef.afterClosed().subscribe(() => {
       this.clear();
     });
+  }
+
+  ngOnDestroy() {
+    this.sendForgotPasswordEmailSubscription?.unsubscribe();
+    this.dialogClosedSubscription?.unsubscribe();
   }
 
   private clear() {
@@ -29,26 +38,31 @@ export class ForgotPasswordComponent implements OnInit {
     this.email.clearValidators();
   }
 
-  async handleSubmitForgotPassword() {
+  handleSubmitForgotPassword() {
     if (this.email.valid) {
-      this.forgotPasswordService.sendPasswordResetEmail(this.email.value).subscribe({
-        next: () => {},
-        complete: async () => {
-          this.dialogRef.close();
-          const toast = await this.toastController.create({
-            message: 'Your reset password request has been sent. Please check your email',
-            duration: 3000
-          });
-          await toast.present();
-        },
-        error: async () => {
-          const toast = await this.toastController.create({
-            message: 'Failed while handling your request. Please try again.',
-            duration: 3000
-          });
-          await toast.present();
-        }
-      });
+      this.sendForgotPasswordEmailSubscription = this.forgotPasswordService
+        .sendPasswordResetEmail(this.email.value)
+        .subscribe({
+          next: () => {},
+          complete: async () => {
+            this.dialogRef.close();
+            const toast = await this.toastController.create({
+              message: 'Your reset password request has been sent. Please check your email',
+              duration: 3000,
+              position: 'bottom'
+            });
+            await toast.present();
+          },
+          error: async () => {
+            const toast = await this.toastController.create({
+              message: 'Failed while handling your request. Please try again.',
+              duration: 3000,
+              position: 'bottom',
+              color: 'danger'
+            });
+            await toast.present();
+          }
+        });
     }
   }
 }

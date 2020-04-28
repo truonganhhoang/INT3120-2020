@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button (click)="goToIntro()" defaultHref="/intro"></ion-back-button>
@@ -41,7 +41,7 @@
 
       <div class="text-divider">or</div>
 
-      <ion-button (click)="handleLoginWithFacebook()" expand="block" fill="clear">Login with Facebook</ion-button>
+      <ion-button (click)="handleLoginWithFacebook()" [disabled]="isSubmitting" expand="block" fill="clear">Login with Facebook</ion-button>
     </div>
   </form>
 </ion-content>

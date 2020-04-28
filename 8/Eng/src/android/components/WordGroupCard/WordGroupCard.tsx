@@ -6,11 +6,11 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { Text, View, Dimensions, Image } from 'react-native';
-import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
+
 
 const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any }) => {
   const { data, topic_name } = props;
-  console.log(topic_name);
+  // console.log(topic_name);
   const { navigation } = props;
   const [colorStar, setColorStar] = useState("staro");
   const changeStar = () => {
@@ -22,18 +22,20 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
     }
   };
   const onPress = () => {
-    navigation.navigate('DetailWordGroupScreen', { data: data });
+    navigation.navigate('DetailWordGroupScreen', { topicName: topic_name, lessonName: data.wordGroupName });
   }
   const onFlipCard = () => {
-    navigation.navigate('FlipCardWord', { data: data.wordGroupName, topic_name: topic_name });
+    navigation.navigate('FlipCardWord', { topicName: topic_name, lessonName: data.wordGroupName });
   };
+
+  const goPracticeTest = () => {
+    navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName: data.wordGroupName });
+  }
+
   return (
     <View style={styles.containers}>
       <View style={styles.viewCard}>
-        <Card
-          containerStyle={styles.container}
-        >
-
+        <Card containerStyle={styles.card}>
           <View style={styles.viewImg}>
             <IconAntDeisign
               name={colorStar}
@@ -48,18 +50,12 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
             />
           </View>
 
-          <View style={{ alignItems: 'center' }}>
-            <ProgressBarAndroid
-              styleAttr="Horizontal"
-              indeterminate={false}
-              progress={0.5}
-              color='#ff5e00'
-            />
+          <View style={{ alignItems: 'center', top: 15 }}>
           </View>
-          <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 24,marginTop:30 }}>
             {data.wordGroupName}
           </Text>
-          <Text style={{ marginBottom: 10, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00' }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00',fontSize:18 }}>
             {data.vn_meaning}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
@@ -80,6 +76,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
         <View style={styles.viewIcon}>
           <IconFeather style={styles.iconTool}
             name='edit'
+            onPress={goPracticeTest}
           />
         </View>
         <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 3 }}></View>

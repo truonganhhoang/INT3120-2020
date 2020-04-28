@@ -23,10 +23,10 @@ export default function Boxlearn(props, { navigation }) {
 }
 const localStyles = StyleSheet.create({
     button:{
-        width: 35, 
-        marginTop: 3,
+        width: 36, 
+        marginTop: 4,
         backgroundColor:"#269361",
-        padding: 3,
-        borderRadius: 3,
+        padding: 4,
+        borderRadius: 4,
     }
 })

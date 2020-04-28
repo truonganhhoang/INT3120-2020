@@ -1,0 +1,88 @@
+[
+    {
+        "1": "images/animals/africa_1.gif",
+        "2": "images/animals/africa_2.gif",
+        "3": "images/animals/africa_3.gif",
+        "4": "images/animals/africa_4.gif",
+        "5": "images/animals/africa_5.gif",
+        "6": "images/animals/africa_8.gif",
+        "7": "images/animals/africa_10.gif",
+        "8": "images/animals/africa_12.gif",
+        "9": "images/animals/africa_13.gif",
+        "10": "images/animals/africa_17.gif"
+    },
+    {
+        "1": {
+            "a": "elephant",
+            "b": "cheetah",
+            "c": "hyena",
+            "d": "camel"
+        },
+        "2": {
+            "a": "camel",
+            "b": "giraffe",
+            "c": "monkey",
+            "d": "gnu"
+        },
+        "3": {
+            "a": "rhinoceros",
+            "b": "camel",
+            "c": "monkey",
+            "d": "gnu"
+        },
+        "4": {
+            "a": "camel",
+            "b": "monkey",
+            "c": "zebra",
+            "d": "gnu"
+        },
+        "5": {
+            "a": "camel",
+            "b": "monkey",
+            "c": "lion",
+            "d": "gnu"
+        },
+        "6": {
+            "a": "camel",
+            "b": "monkey",
+            "c": "gnu",
+            "d": "cheetah"
+        },
+        "7": {
+            "a": "camel",
+            "b": "hyena",
+            "c": "monkey",
+            "d": "gnu"
+        },
+        "8": {
+            "a": "hyena",
+            "b": "monkey",
+            "c": "cheetah",
+            "d": "camel"
+        },
+        "9": {
+            "a": "monkey",
+            "b": "typeof",
+            "c": "gnu",
+            "d": "camel"
+        },
+        "10": {
+            "a": "camel",
+            "b": "def",
+            "c": "monkey",
+            "d": "gnu"
+        }
+    },
+    {
+        "1": "elephant",
+        "2": "giraffe",
+        "3": "rhinoceros",
+        "4": "zebra",
+        "5": "lion",
+        "6": "cheetah",
+        "7": "hyena",
+        "8": "camel",
+        "9": "monkey",
+        "10": "gnu"
+    }
+]

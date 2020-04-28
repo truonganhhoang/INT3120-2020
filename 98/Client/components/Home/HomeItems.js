@@ -20,7 +20,7 @@ const DATA = [
         button: 'Xem video',
         iconName: 'video',
         iconColor: 'gray',
-        route:"MemoryTricks",
+        route:"VideoHD",
     },
     {
         id: '3',
@@ -29,7 +29,7 @@ const DATA = [
         button: 'XEM BẢN ĐỒ',
         iconName: 'zoom-in',
         iconColor: '#3399ff',
-        route: "TFS",
+        route: "Map",
     },
     {
         id: '4',

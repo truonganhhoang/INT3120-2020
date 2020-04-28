@@ -1,27 +1,44 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { Text, View, StyleSheet, Button, Image, Dimensions, Alert} from 'react-native';
+import { Text, View, StyleSheet, Button, Image, Dimensions, Alert } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+function Category({ navigation }) {
+    return (
+        <View style={styles.cell}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Profile")}
+            >
+                <Image
+                    source={require("../images/thi_sat_hach.jpg")}
+                    style={styles.icon}
+                />
+            </TouchableOpacity>
+        </View>
 
-class Category extends Component {
-    
-    render(){
-        
-        return(
-            <View style={{backgroundColor: "blue", height: 150, width: 160}}>
-                <TouchableOpacity>
+    )
+}
+
+export class Cell extends React.Component {
+    render() {
+        return (
+            <View style={styles.cell}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Thi_sat_hach")}>
                     <Image
-                        source={"ng"}
-                        resizeMode="stretch"
-                        style={{ width: "100%", height: "100%" }}
+                        source={require("../images/thi_sat_hach.jpg")}
+                        style={styles.icon}
                     />
                 </TouchableOpacity>
             </View>
-
         )
     }
 }
+
+function bam({ navigation }) {
+    navigation.navigate("Profile");
+}
+
 export function Home({ navigation }) {
     //const {navigate} = this.props.navigation;
 
@@ -38,82 +55,94 @@ export function Home({ navigation }) {
 
             <View style={styles.content}>
 
-                <View style={styles.row1}>
-                    <TouchableOpacity
-                        style={styles.touch}
-                        onPress={ () => navigation.navigate('Profile', {name: 'Chien', age: '17'})}
-                    >
-                        <Image
-                            source={require("../images/thi_sat_hach.jpg")}
-                            resizeMode="stretch"
-                            style={ styles.icon }
-                        />
-                    </TouchableOpacity>
+                <View style={styles.row}>
 
-                    <TouchableOpacity style={styles.touch}
-                        onPress={ () => Alert.alert("Chiến Ca", width.toString())}
-                    >
-                        <Image
-                            source={require("../images/tra_cuu_luat.jpg")}
-                            resizeMode="stretch"
-                            style={styles.icon}
-                        />
-                    </TouchableOpacity>
-                </View>
-
-
-                <View style={styles.row1}>
                     <View style={styles.cell}>
-                        <TouchableOpacity style={styles.touch}
-                        onPress={() => navigation.navigate('Profile', { name: 'Chien', age: '17' })}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Thi_sat_hach")}>
                             <Image
                                 source={require("../images/thi_sat_hach.jpg")}
-                                resizeMode="stretch"
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+
+                    </View>
+
+                    <View style={styles.cell}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Hoc_li_thuyet")}>
+                            <Image
+                                source={require("../images/hoc_li_thuyet.jpg")}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+
+                    </View>
+                </View>
+
+                <View style={styles.row}>
+                    <View style={styles.cell}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Hoc_li_thuyet")}>
+                            <Image
+                                source={require("../images/bien_bao.jpg")}
                                 style={styles.icon}
                             />
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.cell1}>
-                        
+
+                    <View style={styles.cell}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Meo_thi")}>
+                            <Image
+                                source={require("../images/meo_thi.jpg")}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
-                <View style={styles.row1}>
-                    <TouchableOpacity
-                        style={styles.touch}
-                        onPress={() => navigation.navigate('Profile', { name: 'Chien', age: '17' })}
-                    >
-                        <Image
-                            source={require("../images/thi_sat_hach.jpg")}
-                            resizeMode="contain"
-                            style={styles.icon}
-                        />
-                    </TouchableOpacity>
+                <View style={styles.row}>
+                    <View style={styles.cell}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Tra_cuu_luat")}>
+                            <Image
+                                source={require("../images/tra_cuu_luat.jpg")}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+                    </View>
 
-                    <TouchableOpacity style={styles.touch}
-                        onPress={() => Alert.alert("Chiến Ca", width.toString())}
-                    >
-                        <Image
-                            source={require("../images/tra_cuu_luat.jpg")}
-                            resizeMode="contain"
-                            style={styles.icon}
-                        />
-                    </TouchableOpacity>
+
+                    <View style={styles.cell}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Thi_sat_hach")}>
+                            <Image
+                                source={require("../images/cau_hay_sai.jpg")}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
-                
+
+
+
             </View>
 
-            
-            
-        </View>        
-    
+
+
+        </View>
+
     );
-   
+
 }
 
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
+const a = 20 / 100 * height;
+const b = 43 / 100 * width;
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
@@ -126,57 +155,34 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 10,
-        
+        borderWidth: 10,
+        borderColor: "#EDEDF1",
     },
 
-    row1: {
+    row: {
         flex: 1,
         flexDirection: "row",
-        
-    },
-    row2: {
-        flex: 1,
-        backgroundColor: "red",
-        flexDirection: "row",
+        backgroundColor: "#EDEDF1",
     },
 
     cell: {
+        justifyContent: "center",
+        alignItems: 'center',
         flex: 1,
-        backgroundColor: "blue",
-    },
-
-    cell1: {
-        flex: 1,
-        backgroundColor: "yellow",
     },
 
     icon: {
-        flex: 1,
-        width: 200,
-        height: 100,
 
-        justifyContent: 'center',
-        alignItems: 'center',
-        
-        borderTopRightRadius: 30,
-        borderBottomLeftRadius: 30,
-        borderTopLeftRadius: 5,
-        borderBottomRightRadius: 5,
+        width: b,
+        height: a,
+        borderRadius: 10,
+        borderColor: "#ECAB53",
+        borderWidth: 3,
+
+        // borderTopRightRadius: 30,
+        // borderBottomLeftRadius: 30,
+        //  borderTopLeftRadius: 50,
+        // borderBottomRightRadius: 50,
     },
-
-    icon2: {
-        flex: 1,
-        backgroundColor: "gray",
-    },
-
-    touch: {
-        flex: 1,
-        
-    },
-
-    foot: {
-        flex: 1,
-        backgroundColor: "yellow",
-    }
 
 });

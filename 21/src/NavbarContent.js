@@ -44,16 +44,16 @@ export default function CustomDrawerContent(props) {
           style={styles.hr}
         />
         <TouchableOpacity
-          // onPress={() =>
-          // }
-          >
+        // onPress={() =>
+        // }
+        >
           {/* <DrawerItem
             label={() => <Text>Chia sẻ</Text>}
             icon={() => <Icon name="share-variant" size={30} color="yellow" />}
           /> */}
           <View style={styles.btnClickContain}>
-          <Icon name="share-variant" size={30} color="yellow" />
-          <Text style={{paddingLeft: 30}}>Chia sẻ</Text>
+            <Icon name="share-variant" size={30} color="yellow" />
+            <Text style={{paddingLeft: 30}}>Chia sẻ</Text>
           </View>
         </TouchableOpacity>
         {/* <DrawerItem
@@ -63,11 +63,13 @@ export default function CustomDrawerContent(props) {
         /> */}
         <TouchableOpacity
           onPress={() =>
-            Linking.openURL('https://play.google.com/store/apps/details?id=com.noobstudio.cauhoivisao')
+            Linking.openURL(
+              'https://play.google.com/store/apps/details?id=com.noobstudio.cauhoivisao',
+            )
           }>
           <View style={styles.btnClickContain}>
-          <Icon name="star-outline" size={30} color="yellow" />
-          <Text style={{paddingLeft: 30}}>Đánh giá</Text>
+            <Icon name="star-outline" size={30} color="yellow" />
+            <Text style={{paddingLeft: 30}}>Đánh giá</Text>
           </View>
         </TouchableOpacity>
         {/* <DrawerItem
@@ -80,8 +82,8 @@ export default function CustomDrawerContent(props) {
             Linking.openURL('https://maps.google.com?q=stack+overflow+offices')
           }>
           <View style={styles.btnClickContain}>
-          <Icon name="email-open" size={30} color="yellow" />
-          <Text style={{paddingLeft: 30}}>Góp ý</Text>
+            <Icon name="email-open" size={30} color="yellow" />
+            <Text style={{paddingLeft: 30}}>Góp ý</Text>
           </View>
         </TouchableOpacity>
         {/* <DrawerItem
@@ -92,11 +94,13 @@ export default function CustomDrawerContent(props) {
         /> */}
         <TouchableOpacity
           onPress={() =>
-            Linking.openURL('https://play.google.com/store/apps/dev?id=6177645018936344750')
+            Linking.openURL(
+              'https://play.google.com/store/apps/dev?id=6177645018936344750',
+            )
           }>
           <View style={styles.btnClickContain}>
-          <Icon1 name="nav-icon-grid" size={28} color="yellow" />
-          <Text style={{paddingLeft: 30}}>Ứng dụng khác</Text>
+            <Icon1 name="nav-icon-grid" size={28} color="yellow" />
+            <Text style={{paddingLeft: 30}}>Ứng dụng khác</Text>
           </View>
         </TouchableOpacity>
       </DrawerContentScrollView>
@@ -136,7 +140,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     fontSize: 15,
   },
-  btnClickContain:{
+  btnClickContain: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -145,5 +149,5 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 10,
     paddingLeft: 15,
-  }
+  },
 });

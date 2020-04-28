@@ -1,14 +1,17 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 import mainReducer from './main';
 import UIReducer from './ui';
+import homeReducer from './home';
 
 /**
  * Combine reducers
  */
 const rootReducer = combineReducers({
   main: mainReducer,
-  ui: UIReducer
+  home: homeReducer,
+  ui: UIReducer,
 });
 
 export default rootReducer;
+

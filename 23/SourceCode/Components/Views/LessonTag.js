@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 // style color
-import { commonColor,commonStyle } from '../Common/Color';
+import { commonStyle } from '../Common/Color';
 
-export default class HeaderHomeScreen extends Component {
+export default class LessonTag extends Component {
 
     render() {
         return (

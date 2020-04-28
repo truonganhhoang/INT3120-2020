@@ -4,7 +4,6 @@ import Word from "../components/Word";
 
 import { Button } from "react-native-elements";
 
-
 import sample from "../Data";
 // const AppContainer = createAppContainer(AppNavigator);
 
@@ -25,13 +24,14 @@ export default function ListWord({ navigation }) {
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
       />
-      <View style={styles.footer} >
-       
+      <View style={styles.footer}>
         <Text
-              style = {styles.review}
-              onPress={() => navigation.navigate("Review")} 
-        > Review now !!! 
-         </Text>
+          style={styles.review}
+          onPress={() => navigation.navigate("Review")}
+        >
+          {" "}
+          Review now !!!
+        </Text>
       </View>
     </View>
   );
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: screenHeight - 200,
     height: 70,
-    width: screenWidth ,
+    width: screenWidth,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fffa00",
@@ -65,11 +65,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "#daa520",
     // #FF8C00
   },
-  review:{
-    textTransform:'uppercase',           
-    paddingLeft : 30,
-    fontWeight: '500',
-    fontSize:30
-
-  }
+  review: {
+    textTransform: "uppercase",
+    paddingLeft: 30,
+    fontWeight: "500",
+    fontSize: 30,
+  },
 });

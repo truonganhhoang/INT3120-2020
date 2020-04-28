@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GPLX4</string>
+    <string name="tracuu_label">Tra cứu luật nhanh</string>
+    <string name="causai_label">Các câu hay sai</string>
+    <string name="meothi_label">Mẹo thi kết quả cao</string>
+    <string name="bienbao_label">Biển báo đường bộ</string>
+    <string name="thi_label">Thi sát hạch</string>
+    <string name="lythuyet_label">Học lý thuyết</string>
+    <string name="home">Thi thử bằng lái xe a1 2019</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment2">Hello blank fragment 2</string>
+    <string name="title_activity_meothi">MeothiActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>

@@ -1,0 +1,7 @@
+television
+loc
+vegetable
+meat
+clear
+orange
+family

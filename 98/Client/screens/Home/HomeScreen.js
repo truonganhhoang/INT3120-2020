@@ -30,8 +30,8 @@ const {navigation}=props;
           </View>
         </View>
 
-        <View style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
-          <Foundation name='clipboard-pencil' size={80} color='#7d26ff' />
+        <View style={{ flex: 0.28, justifyContent: 'center', alignItems: 'center' }}>
+                  <Foundation name='clipboard-pencil' size={100} color='#f0ffff' />
         </View> 
       </View>
        

@@ -4,9 +4,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Tag from '../Views/Tag'
 
 export default class Content extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             selectedTab: "home"
         }
     }
@@ -48,7 +48,7 @@ export default class Content extends Component {
                 </View>
                 {/* Section 3 */}
                 <View style={[styles.section_3]}>
-                    <Tag />
+                    {/* <Tag /> */}
                 </View>
             </View>
         )

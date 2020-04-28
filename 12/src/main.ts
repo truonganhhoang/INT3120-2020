@@ -5,11 +5,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
-  try {
-    enableProdMode();
-  } catch {
-    // ignore error
-  }
+  enableProdMode();
 }
 
 platformBrowserDynamic()

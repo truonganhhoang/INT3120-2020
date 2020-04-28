@@ -18,12 +18,12 @@ const screenWidth= Math.round(Dimensions.get('window').width);
 const screenHeight= Math.round(Dimensions.get('window').height);
 
 export default function listWord( {navigation ,route}) {
-  React.useEffect(() => {
-    if (route.params?.post) {
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-    }
-  }, [route.params?.post]);
+  // React.useEffect(() => {
+  //   if (route.params?.post) {
+  //     // Post updated, do something with `route.params.post`
+  //     // For example, send the post to the server
+  //   }
+  // }, [route.params?.post]);
   return (
     <View style={styles.container}>
         <View style={styles.DetailsBox}>

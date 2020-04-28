@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableHighlight, View, TouchableOpacity } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
-import { ProgressBarAndroid } from "@react-native-community/progress-bar-android";
 import styles from './style';
 const topic_details = require('../../../../data/topic_detail.json');
 const CardExtend = (props: {
@@ -16,7 +15,7 @@ const CardExtend = (props: {
     });
   }
   return (
-    <TouchableHighlight onPress={() => { onPress() }}>
+    <TouchableOpacity onPress={() => { onPress() }}>
       <Card
         title={topic_name}
         image={{ uri: img_top }}
@@ -34,16 +33,10 @@ const CardExtend = (props: {
           <View style={styles.text}>
             <Text style={styles.nameCard}>{topic_name}</Text>
             <Text style={styles.vi}>{vn_meaning}</Text>
-            <ProgressBarAndroid
-              styleAttr="Horizontal"
-              indeterminate={false}
-              progress={0.5}
-              color='#ff5e00'
-            />
           </View>
         </View>
       </Card>
-    </TouchableHighlight>
+    </TouchableOpacity>
 
   );
 }
