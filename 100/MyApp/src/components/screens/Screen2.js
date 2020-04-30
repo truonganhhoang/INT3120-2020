@@ -1,9 +1,7 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { Styles } from '../../styles'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useScrollToTop } from '@react-navigation/native'
-import { Container, Header, Left, Body, Title, Right } from 'native-base'
+import { Container, Header, Left, Body, Title, Right, Content, List, ListItem, Icon, Text } from 'native-base'
 
 export default function Screen2({navigation}) {
     const [danhmuc, setdanhmuc] = useState([
@@ -34,14 +32,20 @@ export default function Screen2({navigation}) {
                 </Body>
             </Header>
             <ScrollView ref={ref}>
-                {danhmuc.map( (value) =>(
-                        <View key={value.key}>
-                            <TouchableOpacity onPress={()=>(navigation.navigate('Tungdanhmuc'))}>
-                                <Text style={Styles.list2s}>{value.danhmuc}</Text>
-                            </TouchableOpacity>
-                        </View>
-                    )
-                )}
+                <Content>
+                    <List ref={ref}>
+                        {danhmuc.map( (value) =>(
+                            <ListItem key={value.key}>
+                                <Left>
+                                    <Text>{value.danhmuc}</Text>
+                                </Left>
+                                <Right>
+                                    <Icon name="arrow-forward" />
+                                </Right>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Content>
             </ScrollView>
         </Container>
     )

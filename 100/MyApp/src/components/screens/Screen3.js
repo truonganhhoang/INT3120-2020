@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView, Modal, TouchableOpacity } from 'react-native'
 import { Styles } from '../../styles'
 import Moikhoahoc from '../components/Moikhoahoc';
-import { Header, Body, Title } from 'native-base';
+import { Header, Body, Title, Content, Container } from 'native-base';
 export default class Screen3 extends Component {
     constructor(props){
         super(props);
@@ -15,18 +15,18 @@ export default class Screen3 extends Component {
     // }
     render() {
         return (
-            <View style={{flex: 1, justifyContent: "space-evenly"}}>
+            <Container style={{flex: 1, justifyContent: "space-evenly"}}>
                 <Header>
                     <Body>
                         <Title>Giỏ hàng</Title>
                     </Body>
                 </Header>
-                <View style={[Styles.container]}>
-                    <ScrollView >
+                <Content scrollEnabled={false}>
+                    {/* <ScrollView > */}
                         <Moikhoahoc />
-                    </ScrollView>
+                    {/* </ScrollView> */}
                    
-                </View>
+                </Content>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                     <View style={{
                         width: "100%",
@@ -50,7 +50,7 @@ export default class Screen3 extends Component {
                     </View>
                     
                 </Modal> */}
-            </View>
+            </Container>
         )
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { Styles } from '../../styles';
 export default function BoxLearn(props, { navigation }) {
     const urls = props.imglink;
