@@ -15,7 +15,7 @@ export function NoSingIn(){
             if (error.code === 'auth/operation-not-allowed') {
             console.log('Enable anonymous in your firebase console.');
             }
-
+            
             console.error(error);
         });
 }

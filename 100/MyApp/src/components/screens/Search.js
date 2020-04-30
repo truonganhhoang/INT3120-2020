@@ -1,17 +1,21 @@
-import { Button, View } from 'react-native'
 import React, { Component } from 'react'
-
+import { Container, Header, Left, Button, Icon, Body, Title, Right} from 'native-base';
 export default class Search extends Component {
-    static navigationOptions = {
-        headerShown: false,
-        headerTitle: "LoLolo"
-      };
-    
     render() {
         return (   
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Button title="Go back" onPress={() => this.props.navigation.goBack()} />
-            </View>
+            <Container>
+                <Header>
+                    <Left>
+                    <Button transparent onPress={() => this.props.navigation.goBack()}>
+                        <Icon name='arrow-back' size={32} />
+                    </Button>
+                    </Left>
+                    <Body>
+                        <Title>Tim kiem</Title>
+                    </Body>
+                    <Right></Right>
+                </Header>
+            </Container>
         )
     }
 }

@@ -5,20 +5,38 @@ import { NavigationContainer } from '@react-navigation/native';
 import Details1 from '../screens/Details1';
 import Search from '../screens/Search';
 import MyCourses from '../screens/MyCourses';
+import Screen2 from '../screens/Screen2';
+import Screen3 from '../screens/Screen3';
+import Screen4 from '../screens/Screen4';
+import Screen5 from '../screens/Screen5';
+import Screen1 from '../screens/Screen1';
+import Login from '../rnfirebase/Login';
+import Signup from '../rnfirebase/Signup';
 
 const Stack = createStackNavigator();
 
 export default function Router() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={{
+                    header: ()=> null
+                  }}
+            >
                 <Stack.Screen name="Main" component={Main} 
                 options={{
                 header: ()=> null
                 }}/>
+                <Stack.Screen name="Screen1" component={Screen1} />
+                <Stack.Screen name="Screen2" component={Screen2} />
+                <Stack.Screen name="Screen3" component={Screen3} />
+                <Stack.Screen name="Screen4" component={Screen4} />
+                <Stack.Screen name="Screen5" component={Screen5} />
                 <Stack.Screen name="Details1" component={Details1} />
                 <Stack.Screen name="Search" component={Search} />
                 <Stack.Screen name="MyCourses" component={MyCourses} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="Signup" component={Signup} />
             </Stack.Navigator>
         </NavigationContainer>
     )

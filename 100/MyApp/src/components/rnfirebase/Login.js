@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert  } from 'react-native'
 import auth from '@react-native-firebase/auth';
-// import firebase from '@react-native-firebase/app';
-
+import { Container, Header, Left, Button, Icon, Body, Title, Right } from 'native-base';
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -44,10 +43,24 @@ export default class Login extends Component {
     }
     render() {
         return (
-          <View 
-          style={{flex: 1, justifyContent:"center", alignItems:"center", backgroundColor: "#E1F5FE"}}
-          >
-            <Text style={{fontSize: 24, fontWeight: "bold"}}>Dang nhap</Text>
+          <Container>
+            <Header>
+              <Left>
+                <Button transparent onPress={() => this.props.navigation.goBack()}>
+                  <Icon name='arrow-back' size={32} />
+                </Button>
+              </Left>
+              <Body>
+                <Title>Đăng nhập</Title>
+              </Body>
+              <Right>
+                <Button transparent>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Screen3')} >
+                    <Text style={{fontSize: 16, color: "#fff"}}>Cancel</Text>
+                  </TouchableOpacity>
+                </Button>
+              </Right>  
+            </Header>
             <TextInput
             style={Styles.input}
             autoCapitalize='none'
@@ -69,7 +82,7 @@ export default class Login extends Component {
             <TouchableOpacity style={{alignItems:"center"}}
                 onPress = {() => this.props.navigation.navigate('Signup')}
             ><Text style={Styles.input}>Đăng ký</Text></TouchableOpacity>
-        </View>
+        </Container>
         )
     }
 }

@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import Styles from '../../styles/Styles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { Container, Header, Body, Title } from 'native-base';
 export default class Screen5 extends Component {
     render() {
         return (
-            <View style={{ flex: 1}}>
-                <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Thông báo</Text>
-                </View>
+            <Container>
+                <Header>
+                    <Body>
+                        <Title>Cá nhân</Title>
+                    </Body>
+                </Header>
                 <View style={Styles.container}>
                     <View style={localStyles.header}>
                         <View style={Styles.avt}></View>
@@ -42,7 +45,7 @@ export default class Screen5 extends Component {
                         <Text>Phiên bản: 0.0.1</Text>
                     </View>
                 </View>
-            </View>
+            </Container>
         )
     }
 }

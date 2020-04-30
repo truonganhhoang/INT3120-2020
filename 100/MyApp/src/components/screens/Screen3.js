@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView, Modal, TouchableOpacity } from 'react-native'
 import { Styles } from '../../styles'
 import Moikhoahoc from '../components/Moikhoahoc';
-import SignModal from '../rnfirebase/SignModal';
+import { Header, Body, Title } from 'native-base';
 export default class Screen3 extends Component {
     constructor(props){
         super(props);
@@ -10,22 +10,24 @@ export default class Screen3 extends Component {
             modalVisible: false
         };
     }
-    setModalVisible = (visible) => {
-        this.setState({ modalVisible: visible });
-    }
+    // setModalVisible = (visible) => {
+    //     this.setState({ modalVisible: visible });
+    // }
     render() {
         return (
             <View style={{flex: 1, justifyContent: "space-evenly"}}>
-                <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Giỏ hàng</Text>
-                </View>
+                <Header>
+                    <Body>
+                        <Title>Giỏ hàng</Title>
+                    </Body>
+                </Header>
                 <View style={[Styles.container]}>
                     <ScrollView >
                         <Moikhoahoc />
                     </ScrollView>
                    
                 </View>
-                <TouchableOpacity onPress={() => {this.setModalVisible(true)}}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                     <View style={{
                         width: "100%",
                         height: 60,
@@ -38,7 +40,7 @@ export default class Screen3 extends Component {
                         <Text style={{color: "#212121", fontSize: 24, fontWeight: "600"}}>Thanh toán</Text>
                     </View>
                 </TouchableOpacity>
-                <Modal
+                {/* <Modal
                   animationType="slide"
                   transparent={true}
                   visible={this.state.modalVisible}
@@ -47,7 +49,7 @@ export default class Screen3 extends Component {
                         <SignModal />
                     </View>
                     
-                </Modal>
+                </Modal> */}
             </View>
         )
     }

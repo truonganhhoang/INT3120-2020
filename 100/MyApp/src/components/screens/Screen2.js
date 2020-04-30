@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Styles } from '../../styles'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useScrollToTop } from '@react-navigation/native'
+import { Container, Header, Left, Body, Title, Right } from 'native-base'
 
 export default function Screen2({navigation}) {
     const [danhmuc, setdanhmuc] = useState([
@@ -26,10 +27,12 @@ export default function Screen2({navigation}) {
 
     useScrollToTop(ref);
     return (
-        <View >
-            <View style={Styles.header}>
-                <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Danh mục</Text>
-            </View>
+        <Container>
+            <Header>
+                <Body>
+                    <Title>Danh mục</Title>
+                </Body>
+            </Header>
             <ScrollView ref={ref}>
                 {danhmuc.map( (value) =>(
                         <View key={value.key}>
@@ -40,6 +43,6 @@ export default function Screen2({navigation}) {
                     )
                 )}
             </ScrollView>
-        </View>
+        </Container>
     )
 }

@@ -25,12 +25,11 @@ export default function Provideo(props,{navigation}) {
         },
     ]
     return (
-        <ScrollView horizontal={true} style={{flexDirection: "row"}} showsHorizontalScrollIndicator={false}>
-            {/* <Boxlearn imglink={require('../../img/05.jpg')}/>
-            <Boxlearn imglink={require('../../img/04.png')}/>
-            <Boxlearn imglink={require('../../img/06.png')}/>
-            <Boxlearn imglink={require('../../img/05.jpg')}/>
-            <Boxlearn imglink={require('../../img/05.jpg')}/> */}
+        <ScrollView 
+            horizontal={true} 
+            style={{flexDirection: "row"}} 
+            showsHorizontalScrollIndicator={false}
+        >
             {
                 image.map((value)=>(
                     <TouchableOpacity onPress={props.toDetail} key={value.key}>
