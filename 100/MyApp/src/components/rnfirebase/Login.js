@@ -45,7 +45,7 @@ export default class Login extends Component {
     render() {
         return (
           <View 
-          style={{flex: 1, justifyContent:"center", alignItems:"center"}}
+          style={{flex: 1, justifyContent:"center", alignItems:"center", backgroundColor: "#E1F5FE"}}
           >
             <Text style={{fontSize: 24, fontWeight: "bold"}}>Dang nhap</Text>
             <TextInput
