@@ -7,7 +7,7 @@ export default class HeaderScreen1 extends Component {
             <Header>
                 <Left>
                     <Button transparent onPress={this.props.onPress2}>
-                    <Icon name='md-albums' size={24} />
+                    <Icon name='md-clipboard' size={24} />
                     </Button>
                 </Left>
                 <Body>

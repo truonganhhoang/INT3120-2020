@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet } from 'react-native'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { Card, Left, Thumbnail, Body, Right, CardItem, List, H3 } from 'native-base';
+import {  Text, StyleSheet } from 'react-native'
+import {  Left, Thumbnail, Body, Right, H3, ListItem } from 'native-base';
 export default function Moikhoahoc() {
     return (
         // <View style={localStyles.content}>
@@ -12,20 +11,19 @@ export default function Moikhoahoc() {
         //     </View>
         //     <FontAwesome5 name="trash" size={24} color="#333" style={localStyles.icon} />
         // </View>
-        <Card>
-            <CardItem>
-                <Left>
-                    <Thumbnail square source={require("../../img/203.jpg") } style={{width: 100, height:100}} />
-                </Left>
-                <Body>
-                    <H3>NativeBase</H3>
-                    <Text note>299.000đ</Text>
-                </Body>
-                <Right>
 
-                </Right>
-            </CardItem>
-        </Card>
+        <ListItem thumbnail>
+            <Left>
+                <Thumbnail square large source={require("../../img/203.jpg")} />
+            </Left>
+            <Body>
+                <H3>NativeBase</H3>
+                <Text note>299.000đ</Text>
+            </Body>
+            <Right>
+
+            </Right>
+        </ListItem>
     )
 }
 

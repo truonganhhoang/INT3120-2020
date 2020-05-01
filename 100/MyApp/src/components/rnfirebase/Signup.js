@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert  } from 'react-native'
 import auth from '@react-native-firebase/auth';
-import { Container, Header, Left, Button, Icon, Body, Title, Right } from 'native-base';
+import { Container, Header, Left, Button, Icon, Body, Title, Right, Content } from 'native-base';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 export default class Signup extends Component {
     constructor(props) {
         super(props);
@@ -10,9 +11,10 @@ export default class Signup extends Component {
             isAuthenticated: false,
             email: '',
             password: '',
+            rePassword: '',
         }
     }
-    onLogin(){
+    onSignup(){
       auth().createUserWithEmailAndPassword( this.state.email, this.state.password)
       .then(() => {
           Alert.alert(
@@ -59,39 +61,109 @@ export default class Signup extends Component {
                     </Button>
                 </Right>  
                 </Header>
-                <TextInput
-                style={Styles.input}
-                autoCapitalize='none'
-                onChangeText={(email) => this.setState({email})}
-                value={this.state.email} placeholder="Nhap email"
-                />
-                <TextInput
-                style={Styles.input}
-                autoCapitalize='none'
-                onChangeText={(password) => this.setState({password})}
-                value={this.state.password} placeholder="Nhap mat khau"
-                secureTextEntry={true}
-                />
-                <TouchableOpacity style={{alignItems:"center"}}
-                onPress={()=> (this.onLogin())}
-                >
-                    <Text style={Styles.input}> Đăng ký </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center"}}
-                    onPress = {() => this.props.navigation.navigate('Login')}
-                >
-                    <Text style={Styles.input}>Quay ve dang nhap</Text>
-                </TouchableOpacity>
-            </Container>
+                <Content>
+                    <View style={{
+                        marginTop: 112,
+                        paddingHorizontal: 8,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        }} >
+                        <TextInput
+                        style={Styles.input}
+                        autoCapitalize='none'
+                        onChangeText={(email) => this.setState({email})}
+                        value={this.state.email} placeholder="Tên tài khoản"
+                        />
+                        <TextInput
+                        style={Styles.input}
+                        autoCapitalize='none'
+                        onChangeText={(password) => this.setState({password})}
+                        value={this.state.password} placeholder="Mât khẩu"
+                        secureTextEntry={true}
+                        />
+                        <TextInput
+                        style={Styles.input}
+                        autoCapitalize='none'
+                        onChangeText={(rePassword) => this.setState({rePassword})}
+                        value={this.state.rePassword} placeholder="Nhập lại mật khẩu"
+                        secureTextEntry={true}
+                        />
+                        <TouchableOpacity
+                            style={Styles.button}
+                            onPress={()=> (this.onSignup())}
+                        >
+                            <Text style={Styles.text}>Đăng ký</Text>
+                        </TouchableOpacity>
+                        <View style={{
+                            flexDirection:"row",
+                            justifyContent:"space-around",
+                            width: "100%",
+                            marginTop: 32,
+                            }}>
+                            <TouchableOpacity style={Styles.link}>
+                                <FontAwesome name="facebook-square" color="#1976D2" size={28} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={Styles.link}>
+                                <FontAwesome name="github" color="#1976D2" size={28} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={Styles.link}>
+                                <FontAwesome name="google-plus" color="#1976D2" size={28} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{
+                            marginTop: 32,
+                            flexDirection:"row",
+                            justifyContent:"center",
+                            alignItems:"center"
+                            }}>
+                            <Text style={{color:"#000", fontSize:16, fontWeight: "600"}}>Bạn đã có tài khoản ? </Text>
+                            <TouchableOpacity
+                            onPress = {() => this.props.navigation.navigate('Login')}
+                            >
+                                <Text style={{color:"hotpink", fontSize:16, fontWeight: "800", fontStyle:"italic"}}>Đăng nhập ngay</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Content>
+           
+        </Container>
         )
     }
 }
 
 const Styles = StyleSheet.create({
     input:{
-        width: 300, padding: 20, margin: 10, fontSize: 24, fontWeight: "800", borderRadius: 8,
-        backgroundColor: "#0288B1",
-        color: "white"
+        width: "100%", 
+        paddingTop: 20, 
+        margin: 10, 
+        fontSize: 20, 
+        fontWeight: "800", 
+        borderRadius: 8,
+        color: "#000",
+        borderBottomColor: "gray",
+        borderBottomWidth: 0.5,
+        paddingHorizontal:16
+    },
+    button:{
+      width: "100%",
+      backgroundColor:"#0D47A1",
+      marginTop: 20,
+      marginBottom: 8,
+      padding: 16,
+      justifyContent:"center",
+      alignItems:"center",
+      borderRadius: 4,
+    },
+    text:{
+      fontSize: 22,
+      color: "#fff",
+    },
+    link:{
+      padding: 4,
+      backgroundColor: "#E3F2FD",
+      width: 80,
+      justifyContent:"center",
+      alignItems:"center",
+      borderRadius: 8,
     }
-    
 })
