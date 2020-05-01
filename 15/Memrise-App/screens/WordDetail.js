@@ -1,18 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View ,Image,Dimensions , TextInput ,Button, ViewComponent } from 'react-native';
 import Word from '../components/Word';
+import WordContainer from '../components/WordContainer';
 
 import sample  from '../Data';
-
-import tree0 from '../assets/tree/tree0.png';
-import tree1 from '../assets/tree/tree1.png';
-import tree2 from '../assets/tree/tree2.png';
-import tree3 from '../assets/tree/tree3.png';
-import tree4 from '../assets/tree/tree4.png';
-import tree5 from '../assets/tree/tree5.png';
-import thunder from '../assets/thunder.png';
-import water from '../assets/watering-can.png';
-const treeArr = [tree0,tree1,tree2,tree3,tree4,tree5];
 
 const screenWidth= Math.round(Dimensions.get('window').width);
 const screenHeight= Math.round(Dimensions.get('window').height);
@@ -26,25 +17,8 @@ export default function listWord( {navigation ,route}) {
   // }, [route.params?.post]);
   return (
     <View style={styles.container}>
-        <View style={styles.DetailsBox}>
-            <View style= {styles.WordContainer}>
-                <Text style={styles.Word}>登録</Text>
-                <Text style={styles.Title} >Means : </Text>
-                <Text style={styles.Mean}>Đăng ký</Text>
-            </View>
-                
-            <View >
-                <Image  style={styles.WordImage}  source ={tree4}/>
-              
-                <View styles= {styles.ThunderWater }>
-                    <Image  style={styles.ThunderImage}  source ={thunder}/>
-                    {/* <Image  style={styles.WaterImage}  source ={water}/> */}
-                </View>
-              
-                
-            </View>
-        </View>
 
+        <WordContainer/>
 
         <View style = {styles.Mem}>
                 <Button

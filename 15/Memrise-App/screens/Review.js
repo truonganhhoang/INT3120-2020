@@ -8,48 +8,48 @@ import {
   TextInput,
   Button,
   ViewComponent,
+  FlatList,
 } from "react-native";
 import Word from "../components/Word";
+import WordContainer from "../components/WordContainer";
 
 import sample from "../Data";
-
-import tree0 from "../assets/tree/tree0.png";
-import tree1 from "../assets/tree/tree1.png";
-import tree2 from "../assets/tree/tree2.png";
-import tree3 from "../assets/tree/tree3.png";
-import tree4 from "../assets/tree/tree4.png";
-import tree5 from "../assets/tree/tree5.png";
 import thunder from "../assets/thunder.png";
 import water from "../assets/watering-can.png";
-import TreeImages from '../TreeImages';
-// const TreeImages = [tree0, tree1, tree2, tree3, tree4, tree5];
+import TreeImages from "../TreeImages";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
 
+const testData = [
+  { key: 1 },
+  { key: 2 },
+  { key: 3 },
+  { key: 4 },
+  { key: 5 },
+  { key: 6 },
+];
+
+const _renderItem = ({ item, index }) => {
+  return (
+    <View style={styles.WordBox}>
+      <Text>{item.key}</Text>
+    </View>
+  );
+};
+
 export default function Review({ navigation, route }) {
   return (
     <View style={styles.container}>
-      <View style={styles.DetailsBox}>
-        <View style={styles.WordContainer}>
-          <Text style={styles.Word}>登録</Text>
-          <Text style={styles.Title}>Means : </Text>
-          <Text style={styles.Mean}>Đăng ký</Text>
-        </View>
+      
+      <WordContainer/>
 
-        <View>
-          <Image style={styles.WordImage} source={tree4} />
-
-          <View styles={styles.ThunderWater}>
-            <Image style={styles.ThunderImage} source={thunder} />
-            {/* <Image  style={styles.WaterImage}  source ={water}/> */}
-          </View>
-        </View>
-      </View>
-
-      <View style={styles.WordBox}>
-        <Text>Hello</Text>
-      </View>
+      <FlatList
+        data={testData}
+        renderItem={_renderItem}
+        keyExtractor={(item) => `${item.key}`}
+        numColumns={2}
+      />
     </View>
   );
 }
@@ -95,15 +95,6 @@ const styles = StyleSheet.create({
     height: 35,
     marginLeft: "auto",
   },
-  Mem: {
-    padding: 30,
-  },
-  MemText: {
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderBottomWidth: 0.2,
-    borderStyle: "solid",
-  },
   Word: {
     textTransform: "lowercase",
     fontWeight: "700",
@@ -114,14 +105,9 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 15,
   },
-  Title: {
-    paddingTop: 30,
-    paddingBottom: 5,
-    color: "red",
-    fontWeight: "500",
-    fontSize: 15,
-  },
   WordBox: {
+    width: screenWidth / 2,
+    height: screenWidth / 2,
     borderStyle: "solid",
     borderWidth: 0.3,
     borderColor: "black",

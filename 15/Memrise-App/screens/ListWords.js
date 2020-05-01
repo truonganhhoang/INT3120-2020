@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderStyle: "solid",
     borderBottomColor: "#daa520",
-    // #FF8C00
   },
   review: {
     textTransform: "uppercase",
