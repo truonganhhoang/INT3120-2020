@@ -21,7 +21,8 @@ import tree4 from "../assets/tree/tree4.png";
 import tree5 from "../assets/tree/tree5.png";
 import thunder from "../assets/thunder.png";
 import water from "../assets/watering-can.png";
-const treeArr = [tree0, tree1, tree2, tree3, tree4, tree5];
+import TreeImages from '../TreeImages';
+// const TreeImages = [tree0, tree1, tree2, tree3, tree4, tree5];
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
