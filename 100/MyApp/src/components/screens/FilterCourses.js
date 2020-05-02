@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Container, Content, Header, Left, Button, Body, Right, Icon, Title } from 'native-base'
 import Course from '../components/Course'
+import { connect } from 'react-redux';
 
-export default class FilterCourses extends Component {
+class FilterCourses extends Component {
     constructor(props){
         super(props);
     }
     render() {
-        const {navigation} = this.props;
+        const {navigation, courses} = this.props;
         return (
             <Container>
                 <Header>
@@ -22,16 +23,24 @@ export default class FilterCourses extends Component {
                     <Right></Right>
                 </Header>
                 <Content>
-                    <Course 
-                        GoEach={()=> navigation.navigate('EachCourses')} 
-                        GoAuthor={()=> navigation.navigate('Author')}
-                    />
-                    <Course />
-                    <Course />
-                    <Course />
-                    <Course />
+                    {
+                        courses.map( (item) => (
+                            <Course 
+                                GoEach={()=> navigation.navigate('EachCourses')} 
+                                GoAuthor={()=> navigation.navigate('Author')}
+                                course = {item}
+                                key={item.id}
+                            />
+                        ))
+                    }
                 </Content>
             </Container>
         )
     }
 }
+function mapStateToProps(state){
+    return{ 
+        courses: state.courses
+    };
+}
+export default connect(mapStateToProps)(FilterCourses);
