@@ -15,10 +15,12 @@ import Signup from '../rnfirebase/Signup';
 import FilterCourses from '../screens/FilterCourses';
 import Course from '../components/Course';
 import EachCourses from '../screens/EachCourses';
+import Author from '../screens/Author';
+import { connect } from 'react-redux';
 
 const Stack = createStackNavigator();
 
-export default function Router() {
+function Router() {
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -42,8 +44,15 @@ export default function Router() {
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="FilterCourses" component={FilterCourses} />
                 <Stack.Screen name="Course" component={Course} />
+                <Stack.Screen name="Author" component={Author} />
                 <Stack.Screen name="EachCourses" component={EachCourses} />
             </Stack.Navigator>
         </NavigationContainer>
     )
 }
+function mapStateToProps(state){
+    return{ 
+        courses: state.courses
+    }; 
+    }
+export default connect(mapStateToProps)(Router);

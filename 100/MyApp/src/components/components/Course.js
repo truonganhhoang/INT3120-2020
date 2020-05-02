@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 import * as Animatable from 'react-native-animatable';
 import { Card, CardItem, Thumbnail, Text, Icon, Left, Body, Right } from 'native-base';
-import { Image, View, TouchableOpacity, TouchableHighlight } from 'react-native';
-export default class Course extends Component {
+import { Image, View, TouchableOpacity, TouchableHighlight, Alert } from 'react-native';
+import { connect } from 'react-redux';
+class Course extends Component {
     constructor(props){
         super(props);
     }
     render() {
+        const { author, onMark, date, price, image, beta } = this.props.course;
+        const colorMark = onMark ? "#90CAF9" : "gray";
         return (
             <Animatable.View animation="zoomInRight" style={{marginBottom: 20}}>
                 <Card style={{flex: 0}}>
-                    <CardItem cardBody button>
+                    <CardItem cardBody button onPress={this.props.GoAuthor}>
                         <Left style={{margin: 4}}>
                             <Thumbnail source={require('../../img/005.jpg')} />
                             <Body>
-                                <Text>NativeBase</Text>
-                                <Text note>20/02/2020</Text>
+                                <Text style={{width: 200}}>{author}</Text>
+                                <Text note>{date}</Text>
                             </Body>
                         </Left>
-                        <Right style={{margin: 16}}>
-                            <TouchableOpacity>
-                                <Icon name="md-bookmark" style={{fontSize: 28 }} />
+                        <Right style={{marginRight: 16}}>
+                            <TouchableOpacity >
+                                <Icon name="md-bookmark" style={{fontSize: 28, color: colorMark }} />
                             </TouchableOpacity>
                         </Right>
                     </CardItem>
@@ -30,14 +33,14 @@ export default class Course extends Component {
                     <CardItem cardBody button>
                         <Left style={{marginTop: 4}}>
                             <Text>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, impedit. Accusantium culpa quos aperiam delectus iure veniam ab
+                                {beta}
                             </Text>
                         </Left>
                     </CardItem>
                     <CardItem button>
                         <Left>
                             <Text>
-                                200.000 ₫
+                                {price}
                             </Text>
                         </Left>
                         <Right>
@@ -55,3 +58,5 @@ export default class Course extends Component {
         )
     }
 }
+
+export default connect()(Course);

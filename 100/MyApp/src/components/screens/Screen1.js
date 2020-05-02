@@ -9,6 +9,7 @@ import HeaderScreen1 from '../components/HeaderScreen1';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Course from '../components/Course';
+import { connect } from 'react-redux';
 class Store extends Component {
     constructor(props) {
         super(props)
@@ -18,19 +19,25 @@ class Store extends Component {
       }
     render() {
         
-        const {navigation} = this.props;
+        const {navigation, courses} = this.props;
         return (
             <Container >
-                <HeaderScreen1 onPress1= {()=> navigation.navigate('Search')}
-                        onPress2= {()=> navigation.navigate('MyCourses')}
+                <HeaderScreen1 
+                    onPress1= {()=> navigation.navigate('Search')}
+                    onPress2= {()=> navigation.navigate('MyCourses')}
                 />
                 <ScrollView showsHorizontalScrollIndicator={false} ref={this.props.scrollRef}> 
                     <Content>
-                        <Course GoEach={()=> navigation.navigate('EachCourses')}/>
-                        <Course />
-                        <Course />
-                        <Course />
-                        <Course />
+                        {
+                            courses.map( (item) => (
+                                <Course 
+                                    GoEach={()=> navigation.navigate('EachCourses')} 
+                                    GoAuthor={()=> navigation.navigate('Author')}
+                                    course = {item}
+                                    key={item.id}
+                                />
+                            ))
+                        }
                     </Content>
                 </ScrollView>
                 <Fab
@@ -60,11 +67,16 @@ class Store extends Component {
         )
     }
 }
-
-export default function Screen1(props) {
+function Screen1(props) {
     const ref = React.useRef(null);
   
     useScrollToTop(ref);
   
     return <Store {...props} scrollRef={ref} />;
-  }
+}
+function mapStateToProps(state){
+    return{ 
+        courses: state.courses
+    };
+}
+export default connect(mapStateToProps)(Screen1);
