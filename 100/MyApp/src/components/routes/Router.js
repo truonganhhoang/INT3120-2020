@@ -12,6 +12,9 @@ import Screen5 from '../screens/Screen5';
 import Screen1 from '../screens/Screen1';
 import Login from '../rnfirebase/Login';
 import Signup from '../rnfirebase/Signup';
+import FilterCourses from '../screens/FilterCourses';
+import Course from '../components/Course';
+import EachCourses from '../screens/EachCourses';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +40,9 @@ export default function Router() {
                 <Stack.Screen name="MyCourses" component={MyCourses} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
+                <Stack.Screen name="FilterCourses" component={FilterCourses} />
+                <Stack.Screen name="Course" component={Course} />
+                <Stack.Screen name="EachCourses" component={EachCourses} />
             </Stack.Navigator>
         </NavigationContainer>
     )

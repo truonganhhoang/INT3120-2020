@@ -5,7 +5,6 @@ import Screen2 from '../screens/Screen2';
 import Screen3 from '../screens/Screen3';
 import Screen5 from '../screens/Screen5';
 import Screen4 from '../screens/Screen4';
-import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 const Tab = createMaterialTopTabNavigator();
 export default function Main() {
@@ -21,39 +20,37 @@ export default function Main() {
           style: {height: 55, backgroundColor: "#0D47A1"}
         }}
       >
-        <Tab.Screen name="Home" 
+        <Tab.Screen name="Screen1" 
           component={Screen1} 
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              // <FontAwesome5 name="home" size={24} color={color} />
               <Icon name='md-home' size={28} color={color}/>
             ),
           }}
-          
         />
-        <Tab.Screen name="D/M" component={Screen2}
+        <Tab.Screen name="Screen2" component={Screen2}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
               <Icon name="md-list-box" size={28} color={color} />
             ),}}
         />
-        <Tab.Screen name="Cart" component={Screen3} 
+        <Tab.Screen name="Screen3" component={Screen3} 
           options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <Icon name="md-basket" size={28} color={color} />
           ),}}
         />
-        <Tab.Screen name="T/B" component={Screen4}
+        <Tab.Screen name="Screen4" component={Screen4}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <Icon name="md-notifications" size={28} color={color} />
           ),}}
         />
-        <Tab.Screen name="Acc" component={Screen5}
+        <Tab.Screen name="Screen5" component={Screen5}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (

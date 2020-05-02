@@ -35,7 +35,7 @@ export default function Screen2({navigation}) {
                 <Content>
                     <List ref={ref}>
                         {danhmuc.map( (value) =>(
-                            <ListItem key={value.key}>
+                            <ListItem key={value.key} button onPress={()=>{ navigation.navigate('FilterCourses', {key: value.key})}}>
                                 <Left>
                                     <Text>{value.danhmuc}</Text>
                                 </Left>

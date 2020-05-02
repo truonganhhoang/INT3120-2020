@@ -15,6 +15,7 @@ Các công nghệ sử dung :
  * Reactjs
  * React-Native
  * Redux
+ * Native base
  * @react-native-firebase
  * Các thư viện khác được liệt kê trong file [package.json](https://github.com/phamquyetthang/INT3120-2020/blob/master/100/MyApp/package.json)
 
