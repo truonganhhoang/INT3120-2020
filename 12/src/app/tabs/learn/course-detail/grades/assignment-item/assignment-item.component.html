@@ -4,8 +4,8 @@
     <ion-icon slot="start" color="success" name="checkmark-circle"></ion-icon>
   </ng-template>
   <div class="ion-padding-vertical" (click)="openAssignment()">
-    <div>
-      <strong>Assignment {{ assignmentNumber }}: {{ assignmentTitle }}</strong>
+    <div class="assignment-title">
+      Assignment {{ assignmentNumber }}: {{ assignmentTitle }}
     </div>
     <ion-text *ngIf="!assignmentSubmitted" color="medium">
       <small>Not submitted</small>
