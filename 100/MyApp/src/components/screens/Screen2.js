@@ -2,7 +2,7 @@ import { ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { useScrollToTop } from '@react-navigation/native'
 import { Container, Header, Left, Body, Title, Right, Content, List, ListItem, Icon, Text } from 'native-base'
-
+import FooterScreen from '../components/Footer';
 export default function Screen2({navigation}) {
     const [danhmuc, setdanhmuc] = useState([
         {danhmuc: "Ngoại ngữ", key: "1"},
@@ -47,6 +47,14 @@ export default function Screen2({navigation}) {
                     </List>
                 </Content>
             </ScrollView>
+            {/* <FooterScreen
+                active2={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
         </Container>
     )
 }

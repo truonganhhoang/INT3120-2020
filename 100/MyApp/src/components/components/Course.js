@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import * as Animatable from 'react-native-animatable';
 import { Card, CardItem, Thumbnail, Text, Icon, Left, Body, Right } from 'native-base';
-import { Image, View, TouchableOpacity, TouchableHighlight, Alert } from 'react-native';
+import { Image, View, TouchableOpacity, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import onBookmark from '../../redux/action';
 class Course extends Component {
     constructor(props){
         super(props);
     }
     render() {
-        const { author, onMark, date, price, image, beta } = this.props.course;
+        const { id, author, onMark, date, price, image, beta, name, hot } = this.props.course;
         const colorMark = onMark ? "#90CAF9" : "gray";
+        const colorHot = hot ? "#90CAF9" : "#fff";
         return (
             <Animatable.View animation="zoomInRight" style={{marginBottom: 20}}>
                 <Card style={{flex: 0}}>
@@ -18,30 +20,40 @@ class Course extends Component {
                             <Thumbnail source={require('../../img/005.jpg')} />
                             <Body>
                                 <Text style={{width: 200}}>{author}</Text>
-                                <Text note>{date}</Text>
+                                <View style={{flexDirection: "row"}}>
+                                    <Text note style={{paddingHorizontal: 0}}>{date}</Text>   
+                                    <Icon name="md-flame" style={{color: colorHot, fontSize: 18}} />
+                                </View>
                             </Body>
                         </Left>
                         <Right style={{marginRight: 16}}>
-                            <TouchableOpacity >
+                            <TouchableOpacity
+                            onPress={()=> this.props.onBookmark(id)}
+                            >
                                 <Icon name="md-bookmark" style={{fontSize: 28, color: colorMark }} />
                             </TouchableOpacity>
                         </Right>
                     </CardItem>
+                    <CardItem cardBody button>
+                        <Left style={{marginTop: 4, marginBottom: 4}}>
+                            <Body>
+                                <Text style={{fontWeight: "700", fontSize: 18, color:"#90CAF9"}}>{name}</Text>
+                            </Body>
+                        </Left>
+                    </CardItem>
                     <CardItem cardBody button onPress={this.props.GoEach}>
-                        <Image source={require('../../img/005.jpg')} style={{height: 200, width: null, flex: 1}}/>
+                        <Image source={image} style={{height: 200, width: null, flex: 1}}/>
                     </CardItem>
                     <CardItem cardBody button>
                         <Left style={{marginTop: 4}}>
-                            <Text>
-                                {beta}
-                            </Text>
+                            <Body>
+                                <Text>{beta}</Text>
+                            </Body>
                         </Left>
                     </CardItem>
                     <CardItem button>
                         <Left>
-                            <Text>
-                                {price}
-                            </Text>
+                            <Text>{price}</Text>
                         </Left>
                         <Right>
                             <View style={{flexDirection: "row"}}>
@@ -59,4 +71,4 @@ class Course extends Component {
     }
 }
 
-export default connect()(Course);
+export default connect(null, {onBookmark})(Course);

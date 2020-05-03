@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView} from 'react-native'
-import { Styles } from '../../styles'
 import Thongbao from '../components/Thongbao'
 import { Header, Body, Title, Container, Content } from 'native-base'
+import FooterScreen from '../components/Footer';
 export default class Screen4 extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
+        const {navigation} = this.props;
         return (
             <Container>
                 <Header>
@@ -15,6 +18,14 @@ export default class Screen4 extends Component {
                 <Content>
                     <Thongbao />
                 </Content>
+                {/* <FooterScreen
+                active4={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
             </Container>
         )
     }

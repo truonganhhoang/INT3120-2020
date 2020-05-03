@@ -2,7 +2,6 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './Main';
 import { NavigationContainer } from '@react-navigation/native';
-import Details1 from '../screens/Details1';
 import Search from '../screens/Search';
 import MyCourses from '../screens/MyCourses';
 import Screen2 from '../screens/Screen2';
@@ -16,11 +15,10 @@ import FilterCourses from '../screens/FilterCourses';
 import Course from '../components/Course';
 import EachCourses from '../screens/EachCourses';
 import Author from '../screens/Author';
-import { connect } from 'react-redux';
 
 const Stack = createStackNavigator();
 
-function Router() {
+export default function Router() {
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -28,16 +26,12 @@ function Router() {
                     header: ()=> null
                   }}
             >
-                <Stack.Screen name="Main" component={Main} 
-                options={{
-                header: ()=> null
-                }}/>
+                <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="Screen1" component={Screen1} />
                 <Stack.Screen name="Screen2" component={Screen2} />
                 <Stack.Screen name="Screen3" component={Screen3} />
                 <Stack.Screen name="Screen4" component={Screen4} />
                 <Stack.Screen name="Screen5" component={Screen5} />
-                <Stack.Screen name="Details1" component={Details1} />
                 <Stack.Screen name="Search" component={Search} />
                 <Stack.Screen name="MyCourses" component={MyCourses} />
                 <Stack.Screen name="Login" component={Login} />
@@ -50,9 +44,3 @@ function Router() {
         </NavigationContainer>
     )
 }
-function mapStateToProps(state){
-    return{ 
-        courses: state.courses
-    }; 
-    }
-export default connect(mapStateToProps)(Router);

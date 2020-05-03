@@ -7,7 +7,7 @@ export default class MyCourses extends Component {
                 <Header>
                     <Left>
                     <Button transparent onPress={() => this.props.navigation.goBack()}>
-                        <Icon name='arrow-back' size={32} />
+                        <Icon name='arrow-back'/>
                     </Button>
                     </Left>
                     <Body>

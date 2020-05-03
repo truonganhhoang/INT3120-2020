@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView } from 'react-native';
-// import SliderHome from '../components/SliderHome';
-// import { Styles } from '../../styles';
-// import Provideo from '../components/Provideo';
+import { View, Text, ScrollView, FlatList } from 'react-native';
 import { Container, Content, H3, Fab, Icon, Button } from 'native-base';
 import { useScrollToTop } from '@react-navigation/native';
 import HeaderScreen1 from '../components/HeaderScreen1';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Course from '../components/Course';
 import { connect } from 'react-redux';
+import FilterScreen1 from '../components/FilterScreen1';
 class Store extends Component {
     constructor(props) {
         super(props)
@@ -17,9 +13,17 @@ class Store extends Component {
           active: false
         };
       }
+    getCourses(){
+        const {filterCourses, courses} = this.props;
+        if (filterCourses === 'SHOW_ALL') return courses;
+        if (filterCourses === 'BOOK_MARK') return courses.filter( (item) => {return item.onMark == true});
+        if (filterCourses === 'SHOW_HOT') return courses.filter( (item) => {return item.hot == true});
+        return courses;
+    }
     render() {
         
-        const {navigation, courses} = this.props;
+        const { navigation } = this.props;
+        const  courses  = this.getCourses();
         return (
             <Container >
                 <HeaderScreen1 
@@ -40,29 +44,7 @@ class Store extends Component {
                         }
                     </Content>
                 </ScrollView>
-                <Fab
-                    active={this.state.active}
-                    direction="up"
-                    containerStyle={{ padding: 0}}
-                    style={{ backgroundColor: '#5067FF', padding: 0, width: 50, height: 50 }}
-                    position="bottomRight"
-                    onPress={() => this.setState({ active: !this.state.active })}>
-                    <Icon name="md-funnel"/>
-                    <Button style={{ backgroundColor: '#34A34F' }}>
-                        <Icon name="md-bookmark" />
-                    </Button>
-                    <Button style={{ backgroundColor: '#34A34F' }}>
-                        <MaterialIcons name="fiber-new" color="#fff" size={24} />
-                    </Button>
-                    <Button style={{ backgroundColor: '#3B5998' }}>
-                        {/* <Icon name="md-flame" /> */}
-                        <Fontisto name="shopping-sale" size={22} color='white' />
-                    </Button>
-                    <Button style={{ backgroundColor: '#DD5144' }}>
-                        <Icon name="md-flame" color="#fff" />
-                    </Button>
-                    
-                </Fab>
+                <FilterScreen1 />
             </Container>
         )
     }
@@ -76,7 +58,8 @@ function Screen1(props) {
 }
 function mapStateToProps(state){
     return{ 
-        courses: state.courses
+        courses: state.courses,
+        filterCourses: state.filterCourses
     };
 }
 export default connect(mapStateToProps)(Screen1);

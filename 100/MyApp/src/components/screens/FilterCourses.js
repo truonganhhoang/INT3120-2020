@@ -14,7 +14,7 @@ class FilterCourses extends Component {
                 <Header>
                     <Left>
                     <Button transparent onPress={() => navigation.goBack()}>
-                        <Icon name='arrow-back' size={32} />
+                        <Icon name='arrow-back' />
                     </Button>
                     </Left>
                     <Body>

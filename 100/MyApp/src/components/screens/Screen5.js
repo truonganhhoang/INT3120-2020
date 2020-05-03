@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet} from 'react-native'
-import Styles from '../../styles/Styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Container, Header, Body, Title, Content, ListItem, Left, Button, Right, List, Thumbnail, Card, CardItem, Footer, H3 } from 'native-base';
+import FooterScreen from '../components/Footer';
 export default class Screen5 extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
+        const{navigation} = this.props;
         return (
             <Container>
                 <Header>
@@ -82,7 +86,14 @@ export default class Screen5 extends Component {
                         </ListItem>
                     </List>
                 </Content>
-                
+                {/* <FooterScreen
+                active5={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
             </Container>
         )
     }
