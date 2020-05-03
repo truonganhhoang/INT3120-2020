@@ -1,54 +1,93 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  TextInput,
-  Button,
-  ViewComponent,
-  FlatList,
-} from "react-native";
-import Word from "../components/Word";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Dimensions, FlatList } from "react-native";
+
 import WordContainer from "../components/WordContainer";
+import ReviewWord from "../components/ReviewWord";
 
-import sample from "../Data";
-import thunder from "../assets/thunder.png";
-import water from "../assets/watering-can.png";
-import TreeImages from "../TreeImages";
-
-const screenWidth = Math.round(Dimensions.get("window").width);
-const screenHeight = Math.round(Dimensions.get("window").height);
-
-const testData = [
-  { key: 1 },
-  { key: 2 },
-  { key: 3 },
-  { key: 4 },
-  { key: 5 },
-  { key: 6 },
+var testData = [
+  {
+    id: 1,
+    word: "ありがとうございます",
+    mean: "cảm ơn ",
+    miss: false,
+    level: 0,
+  },
+  { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
+  { id: 3, word: "野菜", mean: "rau", miss: true, level: 1 },
+  { id: 4, word: "指輪", mean: "nhẫn", miss: true, level: 2 },
+  { id: 5, word: "なべ", mean: "nồi", miss: false, level: 3 },
+  { id: 60, word: "果物", mean: "hoa quả", miss: true, level: 4 },
 ];
 
-const _renderItem = ({ item, index }) => {
-  return (
-    <View style={styles.WordBox}>
-      <Text>{item.key}</Text>
-    </View>
-  );
+const boxBackGroundColor = {
+  correct: "#1a3",
+  incorrect: "#e13",
+  waiting: "#eee",
 };
 
+//
+function Test(props) {
+  var { check, op } = props;
+  return (
+    <View>
+      <Text onPress={() => op()}> {check}</Text>
+    </View>
+  );
+}
+
 export default function Review({ navigation, route }) {
+  const [check, setCheck] = useState(() => {
+    let arr = [];
+    testData.forEach(() => {
+      arr.push("waiting");
+    });
+    return arr;
+  });
+  // const [check, setCheck] = useState('waiting');
+
+  // van de la ko check ko thay doi
+
+  function handleOnPress(objWord) {
+    
+    const index = testData.indexOf(objWord);
+    if (index == -1) return;
+    console.log(index);
+    var box = [...check.slice(0,index) , 'correct',...check.slice(index+1 ) ];
+    setCheck(box);
+    console.log(check[index]);
+    // =/======
+    // const index = testData.indexOf(objWord);
+    // if (index == -1) return;
+    // console.log(index);
+    // var box = check;
+    // box.splice(index, 1, "correct");
+    // setCheck(box);
+    // console.log(check[index]);
+    
+
+  }
+
+  const _renderItem = ({ item, index }) => {
+    return (
+      // <ReviewWord wordObj={item} onPress={handleOnPress} check={check} />
+      <ReviewWord wordObj={item} onPress={handleOnPress} check={check[index]} />
+    );
+  };
+
+  
+
   return (
     <View style={styles.container}>
-      
-      <WordContainer/>
+      <WordContainer objWord={testData[2]} hideMean={true} />
+  
 
       <FlatList
         data={testData}
         renderItem={_renderItem}
-        keyExtractor={(item) => `${item.key}`}
+        keyExtractor={(item) => `${item.id}`}
         numColumns={2}
+        contentContainerStyle={styles.ReviewContainer}
+        scrollEnabled={false}
       />
     </View>
   );
@@ -63,56 +102,9 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     justifyContent: "flex-start",
   },
-  DetailsBox: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 30,
-    marginBottom: 30,
-  },
-  WordContainer: {
-    flexGrow: 1,
-  },
-  ThunderWater: {
-    flexDirection: "row",
-  },
-  WordImage: {
-    width: 65,
-    height: 65,
-    backgroundColor: "green",
-    borderStyle: "solid",
-    borderWidth: 0.5,
-    borderRadius: 80,
-  },
-  ThunderImage: {
-    marginTop: 20,
-    width: 35,
-    height: 35,
-    opacity: 0.4,
-  },
-  WaterImage: {
-    marginTop: 20,
-    width: 35,
-    height: 35,
-    marginLeft: "auto",
-  },
-  Word: {
-    textTransform: "lowercase",
-    fontWeight: "700",
-    fontSize: 30,
-  },
-  Mean: {
-    textTransform: "lowercase",
-    fontWeight: "500",
-    fontSize: 15,
-  },
-  WordBox: {
-    width: screenWidth / 2,
-    height: screenWidth / 2,
-    borderStyle: "solid",
-    borderWidth: 0.3,
-    borderColor: "black",
-    shadowOffset: { width: 10, height: 10 },
-    shadowColor: "black",
-    shadowOpacity: 1.0,
+  ReviewContainer: {
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    paddingTop: 0,
   },
 });

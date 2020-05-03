@@ -5,7 +5,6 @@ import {
     View,
     StyleSheet,
     TouchableOpacity,
-    Alert
 } from "react-native";
 
 import TreeImages from '../TreeImages';

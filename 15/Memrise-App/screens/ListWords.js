@@ -24,12 +24,13 @@ export default function ListWord({ navigation }) {
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
       />
+
       <View style={styles.footer}>
         <Text
           style={styles.review}
           onPress={() => navigation.navigate("Review")}
         >
-          {" "}
+         
           Review now !!!
         </Text>
       </View>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fffa00",
     borderBottomWidth: 10,
     borderRadius: 50,
-    borderStyle: "solid",
+    // borderStyle: "solid",
     borderBottomColor: "#daa520",
   },
   review: {

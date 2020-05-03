@@ -7,18 +7,19 @@ import thunder from "../assets/thunder.png";
 import wateringCan from "../assets/watering-can.png";
 
 export default function WordContainer(props) {
-  const { word, mean } = props.objWord;
-
+  const { word, mean,level } = props.objWord;
+  const hideMean =props.hideMean;
   return (
     <View style={styles.WordContainer}>
       <View style={styles.WordInfor}>
         <Text style={styles.Word}>{word}</Text>
 
-        <Text style={styles.Mean}>{mean}</Text>
+        {hideMean||<Text style={styles.Mean}>{mean}</Text>}
+
       </View>
 
       <View>
-        <Image style={styles.WordImage} source={TreeImages[4]} />
+        <Image style={styles.WordImage} source={TreeImages[level]} />
 
         <View styles={styles.ThunderWater}>
           <Image style={styles.ThunderImage} source={thunder} />
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   Mean: {
     textTransform: "lowercase",
     fontWeight: "500",
-    color:'#030',
+    color: "#030",
     fontSize: 30,
   },
 });
