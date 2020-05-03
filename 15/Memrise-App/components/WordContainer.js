@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Text,
-  Image,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import { Text, Image, View, StyleSheet } from "react-native";
 
 import TreeImages from "../TreeImages";
 import planet from "../assets/planet.png";
@@ -14,13 +7,14 @@ import thunder from "../assets/thunder.png";
 import wateringCan from "../assets/watering-can.png";
 
 export default function WordContainer(props) {
- 
+  const { word, mean } = props.objWord;
+
   return (
     <View style={styles.WordContainer}>
       <View style={styles.WordInfor}>
-        <Text style={styles.Word}>登録</Text>
+        <Text style={styles.Word}>{word}</Text>
 
-        <Text style={styles.Mean}>Đăng ký</Text>
+        <Text style={styles.Mean}>{mean}</Text>
       </View>
 
       <View>
@@ -29,59 +23,57 @@ export default function WordContainer(props) {
         <View styles={styles.ThunderWater}>
           <Image style={styles.ThunderImage} source={thunder} />
           {/* <Image  style={styles.WaterImage}  source ={water}/> */}
-
         </View>
-
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-      WordContainer: {
-        flexDirection: "row",
-        alignItems: "flex-start",
-        padding: 30,
-        marginBottom: 30,
-      },
-      WordInfor: {     
-        flexDirection: "column",
-        flexGrow: 1,
-        alignItems: "flex-start",
-      },
-      ThunderWater: {
-        flexDirection: "row",
-      },
-      WordImage: {
-        width: 65,
-        height: 65,
-        backgroundColor: "green",
-        borderStyle: "solid",
-        borderWidth: 0.5,
-        borderRadius: 80,
-      },
-      ThunderImage: {
-        marginTop: 20,
-        width: 35,
-        height: 35,
-        opacity: 0.4,
-      },
-      WaterImage: {
-        marginTop: 20,
-        width: 35,
-        height: 35,
-        marginLeft: "auto",
-      },
-      Word: {
-        textTransform: "lowercase",
-        fontWeight: "700",
-        fontSize: 55,
-        marginBottom :20,
-      },
-      Mean: {
-        textTransform: "lowercase",
-        fontWeight: "500",
-        fontSize: 20,
-      },
-     
+  WordContainer: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    padding: 30,
+    marginBottom: 30,
+  },
+  WordInfor: {
+    flexDirection: "column",
+    flexGrow: 1,
+    alignItems: "flex-start",
+  },
+  ThunderWater: {
+    flexDirection: "row",
+  },
+  WordImage: {
+    width: 65,
+    height: 65,
+    backgroundColor: "green",
+    // borderStyle: "solid",
+    borderWidth: 0.5,
+    borderRadius: 80,
+  },
+  ThunderImage: {
+    marginTop: 20,
+    width: 35,
+    height: 35,
+    opacity: 0.4,
+  },
+  WaterImage: {
+    marginTop: 20,
+    width: 35,
+    height: 35,
+    marginLeft: "auto",
+  },
+  Word: {
+    textTransform: "lowercase",
+    fontWeight: "700",
+    fontSize: 50,
+    marginBottom: 20,
+  },
+  Mean: {
+    textTransform: "lowercase",
+    fontWeight: "500",
+    color:'#030',
+    fontSize: 30,
+  },
 });
