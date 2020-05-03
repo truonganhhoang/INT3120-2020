@@ -20,7 +20,7 @@ export class MyProfilePage implements OnInit, OnDestroy {
         this.user = user;
       },
       complete: () => {},
-      error: console.error
+      error: () => {}
     });
   }
 

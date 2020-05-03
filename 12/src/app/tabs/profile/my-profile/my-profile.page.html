@@ -9,4 +9,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <div *ngIf="user === null || user === undefined; else loadedUser" class="ion-padding-vertical ion-text-center">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ng-template #loadedUser>
+    <ion-grid class="profile-header ion-padding-vertical">
+      <ion-row class="ion-align-items-center">
+        <ion-col sizeSm="3" size="12">
+          <div class="profile-header--avatar ion-padding-vertical ion-text-center">
+            <object width="90" height="90" [data]="user?.photoURL">
+              <ion-icon name="person-circle-outline"></ion-icon>
+            </object>
+          </div>
+        </ion-col>
+        <ion-col sizeSm="9" size="12">
+          <div class="profile-header--displayname ion-padding-bottom">
+            {{ user?.displayName }}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>

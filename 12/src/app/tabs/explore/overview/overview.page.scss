@@ -1,0 +1,44 @@
+ion-button {
+  font-weight: 400;
+}
+
+.topics { 
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.explore-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .explore-header--title {
+    font-size: 1.5em;
+    font-weight: 500!important;
+  }
+}
+
+.courses {
+  .courses--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .courses--title {
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .courses--all {
+      font-size: 1.1em;
+      font-weight: 300;
+    }
+  }
+
+  .courses--list {
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
