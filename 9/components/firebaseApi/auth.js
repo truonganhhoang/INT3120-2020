@@ -52,20 +52,20 @@ const signUpWithEmail = async (email, password) => {
       photoURL: '',
     };
     await addInfo(info);
-    return true;
+    return [true,''];
   } catch (err) {
     console.log(err);
-    return false;
+    return [false,err];
   }
 };
 
 const signInWithEmail = async (email, password) => {
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password);
-    return true;
+    return [true,''];
   } catch (err) {
     console.log(err);
-    return false;
+    return [false, err];
   }
 };
 
@@ -97,10 +97,19 @@ const linkWithEmail = async (email, password) => {
   try {
     var credential = firebase.auth.EmailAuthProvider.credential(email, password);
     await firebase.auth().currentUser.linkWithCredential(credential);
-    return true;
+    
+    let info = {
+      createdAt: Date.now(),
+      displayName: 'Your Name',
+      email: email,
+      phoneNumber: '012345678',
+      photoURL: '',
+    };
+    await addInfo(info);
+    return [true, ''];
   } catch (err) {
     console.log(err);
-    return false;
+    return [false, err];
   }
 };
 

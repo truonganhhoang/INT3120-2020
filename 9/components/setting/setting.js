@@ -46,6 +46,7 @@ class Setting extends React.Component {
             size={45}
             style={{ color: '#4f6a6e', paddingBottom: '2.5%' }}
           />
+          {this.state.login && (<Text style={styles.profile}>{this.state.userInfo.displayName}</Text>)}
         </View>
         <View style={{ height: 50 }} />
         <Text style={styles.titleGroup}>Your Information</Text>
@@ -144,9 +145,10 @@ class Setting extends React.Component {
           />
           <Overlay
             isVisible={this.state.onChangeInfo}
+            height="auto"
             onBackdropPress={() => this.setState({ onChangeInfo: false })}
           >
-            <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
+            <Text style={{ color: '#4f6a6e', fontSize: 22, fontWeight: 'bold', letterSpacing: 1 }}>
               Change User Info
             </Text>
             <View style={styles.padding} />
@@ -198,6 +200,7 @@ class Setting extends React.Component {
                 this.setState({ userInfo: this.state.changeInfo });
                 if (await updateInfo(this.state.userInfo)) alert('Successful');
                 else alert('Unsuccessfull');
+                this.setState({onChangeInfo: false });
               }}
             />
           </Overlay>
@@ -216,9 +219,10 @@ class Setting extends React.Component {
           />
           <Overlay
             isVisible={this.state.onChangePass}
+            height="auto"
             onBackdropPress={() => this.setState({ onChangePass: false })}
           >
-            <Text style={{ color: '#4f6a6e', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 }}>
+            <Text style={{ color: '#4f6a6e', fontSize: 22, fontWeight: 'bold', letterSpacing: 1 }}>
               Change Password
             </Text>
             <View style={styles.padding} />
@@ -295,6 +299,7 @@ class Setting extends React.Component {
                     );
                     alert(ret[1]);
                   }
+                  this.setState({onChangePass: false});
                 }}
               />
             </View>
@@ -336,7 +341,9 @@ const styles = StyleSheet.create({
   },
   profile: {
     alignItems: 'center',
-    paddingTop: '5%',
+    color: '#4f6a6e',
+    fontSize: 22,
+    fontWeight: 'bold',
   },
   list: {},
   titleGroup: {

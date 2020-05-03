@@ -104,7 +104,8 @@ class SignUpScreen extends Component {
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
                     onPress={async () => {
                       if (this.state.password == this.state.password1) {
-                        await auth.signUpWithEmail(this.state.email, this.state.password);
+                        const check = await auth.signUpWithEmail(this.state.email, this.state.password);
+                        if (!check[0]) alert(check[1]);
                       } else alert('Password is incorrect!');
                     }}
                   />

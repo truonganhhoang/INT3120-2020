@@ -94,7 +94,6 @@ class SignUpScreen extends Component {
                   this.setState({ password1: text });
                 }}
               />
-
               <View style={{ alignItems: 'center' }}>
                 <View style={{ height: heightPhone * 0.03 }} />
                 <View style={{ width: '80%' }}>
@@ -104,8 +103,13 @@ class SignUpScreen extends Component {
                     buttonStyle={{ borderRadius: 30, height: 55, backgroundColor: '#23a6d5' }}
                     onPress={async () => {
                       if (this.state.password == this.state.password1) {
-                        //   await auth.signUpWithEmail(this.state.email, this.state.password);
-                        await auth.linkWithEmail(this.state.email, this.state.password);
+                        const check = await auth.linkWithEmail(this.state.email, this.state.password);
+                        if(check[0]) {
+                          alert("Successful");
+                          this.props.navigation.navigate('Setting');
+                        } else {
+                          alert(check[1]);
+                        }
                       } else alert('Password is incorrect!');
                     }}
                   />
