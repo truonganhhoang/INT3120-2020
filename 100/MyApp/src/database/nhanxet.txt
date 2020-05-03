@@ -25,3 +25,7 @@ json:
         Ten khach hang
         avt
         id cac san pham
+
+nhung package tam go: 
+    "react-native-swiper": "^1.6.0",
+    "react-native-swiper-flatlist": "^2.0.4",
