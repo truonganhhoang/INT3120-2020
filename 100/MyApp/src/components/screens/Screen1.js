@@ -32,16 +32,14 @@ class Store extends Component {
                 />
                 <ScrollView showsHorizontalScrollIndicator={false} ref={this.props.scrollRef}> 
                     <Content>
-                        {
-                            courses.map( (item) => (
-                                <Course 
-                                    GoEach={()=> navigation.navigate('EachCourses')} 
-                                    GoAuthor={()=> navigation.navigate('Author')}
-                                    course = {item}
-                                    key={item.id}
-                                />
-                            ))
-                        }
+                        {courses.map( (item) => (
+                            <Course 
+                                GoEach={()=> navigation.navigate('EachCourses', {course: item})} 
+                                GoAuthor={()=> navigation.navigate('Author')}
+                                course = {item}
+                                key={item.id}
+                            />
+                        ))}
                     </Content>
                 </ScrollView>
                 <FilterScreen1 />
