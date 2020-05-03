@@ -2,18 +2,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:CWCFlutter/quiz/homequiz.dart';
 
-class splashscreen extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
   @override
-  _splashscreenState createState() => _splashscreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _splashscreenState extends State<splashscreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
     Timer(Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => homepage(),
+        builder: (context) => HomePage(),
       ));
     });
   }
