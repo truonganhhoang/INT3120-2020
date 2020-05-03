@@ -1,0 +1,2 @@
+var listWordFavorite = [];
+export { listWordFavorite }
