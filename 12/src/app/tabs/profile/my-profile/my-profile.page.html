@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="medium">
     <ion-title>Profile</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/tabs/profile/settings']">
@@ -35,5 +35,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <app-completed-courses></app-completed-courses>
   </ng-template>
 </ion-content>

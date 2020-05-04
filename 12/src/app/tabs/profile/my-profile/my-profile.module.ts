@@ -7,9 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { MyProfilePageRoutingModule } from './my-profile-routing.module';
 
 import { MyProfilePage } from './my-profile.page';
+import { CompletedCoursesComponent } from './completed-courses/completed-courses.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, MyProfilePageRoutingModule],
-  declarations: [MyProfilePage]
+  declarations: [MyProfilePage, CompletedCoursesComponent]
 })
 export class MyProfilePageModule {}

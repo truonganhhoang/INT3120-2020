@@ -1,0 +1,30 @@
+.no-course {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .no-course--icon {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      height: 10px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    }
+
+    ion-icon[name="book-outline"] {
+      font-size: 700%;
+    }
+    ion-icon[name="checkmark-circle-outline"] {
+      font-size: 500%;
+      position: absolute;
+      z-index: 2;
+      left: 60%;
+      top: 43%;
+    }
+  }
+}

@@ -258,6 +258,11 @@ ionic g page profile -f
 
 # 2019-05-03
 
-- Thêm UI cho:
+- Thêm UI:
   - `/tabs/profile/my-profile`
   - `/tabs/explore/overview`
+
+# 2019-05-05
+
+- Thêm UI:
+  - `/tabs/recommended`
