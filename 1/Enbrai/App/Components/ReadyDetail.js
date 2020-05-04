@@ -33,7 +33,7 @@ const ReadyDetail = (props) => {
               width: widthW * 0.7,
               borderBottomColor: '#D0D0D0'
             }}>
-              <Text style={{ marginBottom: heightW * 0.01, fontSize: 18, fontWeight: 'bold' }}>{item.word}</Text>
+              <Text style={{ marginBottom: heightW * 0.01, fontSize: 18, fontWeight: 'bold', color: 'black' }}>{item.word}</Text>
               <Text style={{ marginBottom: heightW * 0.01, fontSize: 16, color: '#6E6E6E' }}>{item.meaning}</Text>
             </View>
           }

@@ -3,32 +3,23 @@ import { View, Text } from 'react-native'
 import { withNavigation } from 'react-navigation';
 
 const ChooseCorresponding = (props) => {
-
   const data = props.navigation.getParam('data')
-  var listData = []
-  const setData = () => {data.map(i => {
-    listData.push(i.word)
-    listData.push(i.meaning)
-  })}
+  var list = []
+  data.map(i => {
+    list.push(i.word)
+    list.push(i.meaning)
+  })
 
-  const renderList = () => {
-    setData()
-    return listData.map(item => {
-      return (
-        <View > 
-          <Text >{item}</Text>
-        </View>
-      )
-    })
-  }
 
   return (
-    <View style={{flex: 1}}>
-      <View style={{ flex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> 
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Text style={{ color: '#0592D2', fontSize: 18 }}>Chọn các từ và bản dịch theo cặp</Text>
       </View>
-      <View style={{flex: 7, display: 'none'}}>
-        {renderList()}
+      <View style={{ flex: 7, display: 'none' }}>
+        {list!=[]&&list.map(item => {return (
+          <Text>{item}</Text>
+        )})}
       </View>
     </View>
   )
