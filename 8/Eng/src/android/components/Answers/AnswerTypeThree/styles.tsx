@@ -1,12 +1,13 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Dimensions } from 'react-native';
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   text: {
-    color: "black"
+    color: "black",
+    fontSize:18
   },
   btn: {
     flexDirection: 'row',
-    marginBottom: 50
   },
   button: {
     shadowColor: "#000",
@@ -18,6 +19,9 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
+    padding:20,
+    marginBottom:5,
+    bottom:HEIGHT*0.0001
   }
 });
 

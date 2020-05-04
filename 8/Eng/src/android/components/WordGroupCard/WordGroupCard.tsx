@@ -64,7 +64,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
             Giúp bạn nắm vững {data.num_word} từ liên quan đến
-             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 13 }}> {data.vn_meaning}</Text> trong tiếng anh
+             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 14 }}> {data.vn_meaning}</Text> trong tiếng anh
       </Text>
 
         </Card>
@@ -76,18 +76,18 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
             onPress={onFlipCard}
           />
         </View>
-        <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 3 }}></View>
+        <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 5 }}></View>
         <View style={styles.viewIcon}>
           <IconFeather style={styles.iconTool}
             name='edit'
             onPress={goPracticeTest}
           />
         </View>
-        <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 3 }}></View>
+        <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 5 }}></View>
         <View style={styles.viewIcon}>
           <IconFontAwesome5 style={styles.iconTool}
             name='medal'
-            onPress={goGameChallenge}
+            onPress={goGameChallenge} 
           />
         </View>
       </View>

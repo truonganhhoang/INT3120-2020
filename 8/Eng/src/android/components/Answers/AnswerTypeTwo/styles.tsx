@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
   }, 
   view_a: {
     top: 0,
-    left: 10, 
-    position: "absolute"
+    left: 10,
+    position: "absolute",
   }, 
   view_b: {
     top: 0, 
-    left: imageSize + 50, 
-    right: 10,
+    left: imageSize + 70, 
+    right:10,
   }, 
   view_c: {
     top: 0, 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   }, 
   view_d: {
     top: 0, 
-    left: imageSize + 50, 
+    left: imageSize + 70, 
     right: 10,
   }
 }); 

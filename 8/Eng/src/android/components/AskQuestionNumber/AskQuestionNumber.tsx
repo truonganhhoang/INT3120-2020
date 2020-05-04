@@ -39,7 +39,7 @@ const Ask = (props: { setAmountOfQ?: any; Visible?: any }) => {
           selectedTextStyle={{color:'#FFF',fontWeight:'bold'}}
         />
         <Button
-          title="Start"
+          title="Bắt đầu"
           containerStyle={styles.btnStart}
           onPress={start}
           buttonStyle={{backgroundColor:'#f57f17'}}

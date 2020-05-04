@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { View, Text, TouchableOpacity } from 'react-native'; 
 import { Image, Card } from 'react-native-elements'; 
 import firebase from 'firebase'; 
@@ -13,9 +13,10 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
   const result =  database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
   '/results/' + content.id);
-
+  const [backgrounColor,setBackgroundColor]=useState('#FFF');
   useEffect(() => {
-    setNextQuestion(false); 
+    setNextQuestion(false);
+    setBackgroundColor('#FFF'); 
   }, [id])
   
   function onPress(selected: any) {
@@ -23,10 +24,9 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
     result.on('value', function(snapshot: any){
       // console.log(snapshot); 
       if (snapshot.val().text == selected) {
-        console.log("True"); 
-        console.log(snapshot); 
+        setBackgroundColor('blue')
       } else {
-        console.log("False"); 
+        setBackgroundColor('red')
       }
       // speaker
       const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
@@ -50,13 +50,13 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
   }
 
   return (
-    <View style={{width:200,bottom:HEIGHT/6}}>
+    <View style={{width:200,bottom:HEIGHT*0.01}}>
       <View>
         <TouchableOpacity
           style={styles.view_a}
           onPress={() => onPress('a')}
         >
-          <Card containerStyle={{alignItems:'center'}}>
+          <Card containerStyle={{alignItems:'center',backgroundColor:backgrounColor}}>
             <Image
               source={{ uri: content.content_a }}
               containerStyle={styles.image}
@@ -68,7 +68,7 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
           style={styles.view_b}
           onPress={() => onPress('b')}
         >
-          <Card>
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
             <Image
               source={{ uri: content.content_b }}
               style={styles.image}
@@ -82,7 +82,7 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
           style={styles.view_c}
           onPress={() => onPress('c')}
         >
-          <Card>
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
             <Image
               source={{ uri: content.content_c }}
               style={styles.image}
@@ -93,7 +93,7 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
           style={styles.view_d}
           onPress={() => onPress('d')}
         >
-          <Card>
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
             <Image
               source={{ uri: content.content_d }}
               style={styles.image}

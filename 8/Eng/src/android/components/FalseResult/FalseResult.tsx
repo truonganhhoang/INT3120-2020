@@ -22,16 +22,25 @@ const Failed = (props: { navigation?: any, lessonInfo?: any, id?: any }) => {
   }
 
   return (
-    <Overlay isVisible={visible}>
+    <Overlay isVisible={visible}
+    overlayBackgroundColor='#f68383'
+    overlayStyle={styles.containers}
+    >
       <View style={styles.container}>
-        <Text style={styles.title}>FAILED</Text>
-        <Text style={styles.comment}>Too bad you fail, try again!</Text>
+        <Text style={styles.title}>CHƯA HOÀN THÀNH</Text>
+        <Text style={styles.comment}>Tiếc quá bạn chưa hoàn thành,</Text>
+        <Text style={[styles.comment,{marginBottom:10}]}>thử lại nào</Text>
+        
         <Button 
-          title='TRY AGAIN'
+        buttonStyle={styles.button}
+          title='THỬ LẠI'
+          titleStyle={{color:'#f68383'}}
           onPress={tryAgain}
         />
         <Button 
-          title='CLOSE'
+         buttonStyle={styles.button}
+          title='ĐÓNG'
+          titleStyle={{color:'#f68383'}}
           onPress={close}
         />
       </View>
