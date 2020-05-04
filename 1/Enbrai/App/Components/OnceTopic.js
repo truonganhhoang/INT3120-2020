@@ -9,7 +9,7 @@ import {
   BackHandler,
   StatusBar
 } from 'react-native';
-import {withNavigation} from 'react-navigation';
+import {withNavigation,StackActions, NavigationActions} from 'react-navigation';
 import I18n from 'react-native-i18n';
 import {Icon, CheckBox, ButtonGroup} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
@@ -33,7 +33,7 @@ const OnceTopic = props => {
       );
       db.transaction(tx => {
         tx.executeSql(
-          'select _id,name, translations from topic order by _id asc limit 15',
+          'select _id,name, translations from topic order by _id asc limit 20',
           [],
           async (tx, res) => {
             var results = res.rows;
@@ -50,7 +50,7 @@ const OnceTopic = props => {
 
             setDataTopic(temp);
             setDataTopic1(temp);
-            await AsyncStorage.setItem('Topic', temp);
+            await AsyncStorage.setItem('Topic', JSON.stringify(temp));
           },
         );
       });
@@ -68,7 +68,7 @@ const OnceTopic = props => {
     };
   }, []);
   const backAction =()=>{
-      props.navigation.goBack(null)
+      props.navigation.goBack()
   }
   const updateIndex = async index => {
     setIndex(index);
@@ -153,12 +153,16 @@ const OnceTopic = props => {
             flexDirection: 'row',
             borderRadius: 5,
           }}
-          disabled={dataTopic ? false : true}
+          disabled={dataTopic.length ? false : true}
           onPress={async () => {
             try {
               await AsyncStorage.setItem('once', '1');
-              await AsyncStorage.setItem('Topic', JSON.stringify(dataTopic));
-              props.navigation.navigate('HomeScreen');
+              await AsyncStorage.setItem('Topic', JSON.stringify(dataTopic1));
+              const resetAction = StackActions.reset({
+                index: 0,
+                actions: [NavigationActions.navigate({ routeName: 'AppStackNavigation' })],
+            });
+            props.navigation.dispatch(resetAction)
             } catch (error) {
               console.log(error);
             }
