@@ -57,6 +57,7 @@ const TypeFour = (props: { content?: any; lessonInfo?: any; setNextQuestion?: an
             speaker.release();
             setNextQuestion(true); 
           }, speaker.getDuration()*1000)
+          
           speaker.play((success) => {
             if (success) {
               console.log('successfully finished playing'); 

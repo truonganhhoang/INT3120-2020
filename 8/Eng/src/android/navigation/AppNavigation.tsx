@@ -7,7 +7,8 @@ import { StartScreen } from '../screens/StartScreen';
 import { WordGroupScreen } from '../screens/WordGroupScreen';
 import { DetailWordGroupScreen } from '../screens/DetailWordGroupScreen';
 import { FlipCardWord } from '../screens/FlipCardWord';
-import { PracticeTestScreen } from '../screens/PracticeTestScreen';   
+import { PracticeTestScreen } from '../screens/PracticeTestScreen';  
+import { GameChallengeScreen } from '../screens/GameChallengeScreen';  
 
 const Drawer = createDrawerNavigator();
 function MyApp() {
@@ -26,6 +27,7 @@ function MyApp() {
         <Drawer.Screen name="DetailWordGroupScreen" component={DetailWordGroupScreen} />
         <Drawer.Screen name="FlipCardWord" component={FlipCardWord} />
         <Drawer.Screen name="PracticeTestScreen" component={PracticeTestScreen} />
+        <Drawer.Screen name="GameChallengeScreen" component={GameChallengeScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   )

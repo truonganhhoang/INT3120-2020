@@ -30,6 +30,10 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
 
   const goPracticeTest = () => {
     navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName: data.wordGroupName });
+  }; 
+
+  const goGameChallenge = () => {
+    navigation.navigate('GameChallengeScreen', { topicName: topic_name, lessonName: data.wordGroupName }); 
   }
 
   return (
@@ -83,6 +87,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
         <View style={styles.viewIcon}>
           <IconFontAwesome5 style={styles.iconTool}
             name='medal'
+            onPress={goGameChallenge}
           />
         </View>
       </View>

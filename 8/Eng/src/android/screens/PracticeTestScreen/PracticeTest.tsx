@@ -15,13 +15,14 @@ import { AnswerTypeThree } from '../../components/Answers/AnswerTypeThree';
 import { AnswerTypeFour } from '../../components/Answers/AnswerTypeFour'; 
 import { AskQuestionNumber } from '../../components/AskQuestionNumber'; 
 import { PracticeTestResult } from '../../components/PracticeTestResult'; 
+import { Activity } from '../Utils/activity';
 
 const Practice = (props: {route?: any; navigation?: any}) => {
   const { route, navigation } = props;  
   const lessonInfo = route.params; 
   const [amountOfQuestion, setAmountOfQ] = useState(0); 
-  const [contentOfQuestion, setContentOfQ] = useState({type: ''}); 
-  const [contentOfAnswer, setContentOfA] = useState({type: ''}); 
+  const [contentOfQuestion, setContentOfQ] = useState({ type: '', status: 'loading' }); 
+  const [contentOfAnswer, setContentOfA] = useState({ type: '', status: 'loading' }); 
   const [questionNumber, setQuestionNumber] = useState(0);  
   const [nextQuestion, setNextQuestion] = useState(false); 
   const [count, setCount] = useState(0); 
@@ -30,8 +31,8 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   useEffect(() => {
     setAmountOfQ(0); 
     setCount(0); 
-    setContentOfQ({type: ''}); 
-    setContentOfA({type: ''}); 
+    setContentOfQ({type: '', status: 'loading'}); 
+    setContentOfA({type: '', status: 'loading'}); 
     if (nextQuestion){
       setNextQuestion(false); 
     }
@@ -58,24 +59,26 @@ const Practice = (props: {route?: any; navigation?: any}) => {
     lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
     '/questions/' + questionNumber); 
     question.on('value', function(snapshot: any){
-      setContentOfQ(snapshot.val()); 
+      if (snapshot.val()) {
+        setContentOfQ(snapshot.val()); 
+      } else {
+        setContentOfQ({type: '', status: 'null'}); 
+      }
     }); 
     const answer = database.ref('/topic_detail/' + 
     lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
     '/answers/' + questionNumber); 
     answer.on('value', function(snapshot: any){ 
-      setContentOfA(snapshot.val()); 
+      if (snapshot.val()) {
+        setContentOfA(snapshot.val()); 
+      } else {
+        setContentOfA({ type: '', status: 'null' })
+      }
     })
     if (nextQuestion){
       setNextQuestion(false); 
     }
   }, [questionNumber])
-
-  useEffect(() => {
-    if (count == amountOfQuestion) {
-
-    }
-  }, [count])
 
   if (amountOfQuestion == 0) {
     return (
@@ -84,13 +87,23 @@ const Practice = (props: {route?: any; navigation?: any}) => {
   } 
   else {
     if (count < amountOfQuestion) {
-      if (contentOfQuestion.type == '' || contentOfAnswer.type == '') {
+      if (contentOfQuestion.status == 'loading' || contentOfAnswer.status == 'loading') {
+        return (<Activity/>)
+      } 
+      else if (contentOfQuestion.status == 'null' || contentOfAnswer.status == 'null') {
         return (
           <View>
-            <Text>Waiting data ...</Text>
+            <Header containerStyle={styles.headerContainer}
+              leftComponent={
+                <Back
+                  navigation={navigation}
+                />}
+              centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
+            />
+            <View><Text>Sorry! The data is not available.</Text></View>
           </View>
         )
-      } 
+      }
       else {
         let ContentQuestion; 
         if (contentOfQuestion) {
@@ -164,7 +177,6 @@ const Practice = (props: {route?: any; navigation?: any}) => {
             <Text>Waiting data ...</Text>
           </View>)
         }
-  
         return (
           <View>
             <Header containerStyle={styles.headerContainer}

@@ -41,7 +41,7 @@ const Word = (props: {data?: any; icon: any}) => {
         containerStyle={styles.card}
       >
         <Image
-          source={require('../../../../images/cards/food.jpg')}
+          source={{ uri: data.image_uri }}
           style={styles.img}
         />
         <IconFontAwesome5
