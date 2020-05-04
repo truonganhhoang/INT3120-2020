@@ -18,9 +18,14 @@
       <ion-row class="ion-align-items-center">
         <ion-col sizeSm="3" size="12">
           <div class="profile-header--avatar ion-padding-vertical ion-text-center">
-            <object width="90" height="90" [data]="user?.photoURL">
+            <ng-container *ngIf="!user.photoURL; else loadedPhoto">
               <ion-icon name="person-circle-outline"></ion-icon>
-            </object>
+            </ng-container>
+            <ng-template #loadedPhoto>
+              <object width="90" height="90" [data]="user?.photoURL">
+                <ion-icon name="person-circle-outline"></ion-icon>
+              </object>
+            </ng-template>
           </div>
         </ion-col>
         <ion-col sizeSm="9" size="12">

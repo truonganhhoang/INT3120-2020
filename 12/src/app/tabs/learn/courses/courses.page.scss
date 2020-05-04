@@ -25,12 +25,35 @@ ion-content {
   background-color: var(--ion-color-primary);
   border-radius: 8px;
   display: flex;
+  height: 25%;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 10px #353535;
+  justify-content: space-around;
+  box-shadow: 0 5px 10px var(--ion-color-primary-shade);
 
-  ion-button {
-    background-image: linear-gradient(to bottom right, var(--ion-color-secondary-tint), var(--ion-color-primary-shade));
+  @media (max-width: 575.99px) {
+    height: 40%;
+  }
+
+  ion-text:first-child {
+    @media (max-width: 575.99px) {
+      padding-top: 16px;
+    }
+  }
+
+  ion-button:last-child {
+    @media (max-width: 575.99px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .no-course--title {
+    font-weight: 500;
+  }
+
+  .no-course--button {
+    --background: none;
+    border-radius: 3px;
+    background: linear-gradient(to bottom right, var(--ion-color-secondary-tint), var(--ion-color-primary)) !important;
   }
 }
 
