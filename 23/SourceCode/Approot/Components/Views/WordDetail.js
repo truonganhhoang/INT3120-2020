@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import { lesson1 } from '../../assets/Data/ListLesson/lesson1';
 
@@ -23,6 +23,21 @@ export default class WordDetail extends Component {
     goToNextWord() {
         if (this.state.indexWord < lesson1.length - 1) {
             this.state.indexWord += 1;
+            if (lesson1[this.state.indexWord].isRemembered === false) {
+                this.setState({
+                    rememberButton: {
+                        title: 'Nhớ',
+                        pressStatus: false
+                    }
+                });
+            } else {
+                this.setState({
+                    rememberButton: {
+                        title: 'Đã nhớ',
+                        pressStatus: true
+                    }
+                });
+            }
             this.setState({
                 word: lesson1[this.state.indexWord].word,
                 spelling: lesson1[this.state.indexWord].spelling,
@@ -36,6 +51,21 @@ export default class WordDetail extends Component {
     goToPreviousWord() {
         if (this.state.indexWord > 0) {
             this.state.indexWord -= 1;
+            if (lesson1[this.state.indexWord].isRemembered === false) {
+                this.setState({
+                    rememberButton: {
+                        title: 'Nhớ',
+                        pressStatus: false
+                    }
+                });
+            } else {
+                this.setState({
+                    rememberButton: {
+                        title: 'Đã nhớ',
+                        pressStatus: true
+                    }
+                });
+            }
             this.setState({
                 word: lesson1[this.state.indexWord].word,
                 spelling: lesson1[this.state.indexWord].spelling,
@@ -47,8 +77,13 @@ export default class WordDetail extends Component {
     }
 
     rememberWord() {
-        this.state.rememberButton.title = 'Đã nhớ';
-        this.state.rememberButton.pressStatus = true;
+        lesson1[this.state.indexWord].isRemembered = true;
+        this.setState({
+            rememberButton: {
+                title: 'Đã nhớ',
+                pressStatus: true
+            }
+        });
     }
 
     render() {
@@ -106,11 +141,16 @@ export default class WordDetail extends Component {
                             source={this.state.indexWord === 0 ? require('../../assets/Image/arrow-left-inactive.png') : require('../../assets/Image/arrow-left.png')}
                         />
                     </TouchableOpacity>
-                    <Button
+                    <TouchableOpacity
                         onPress={() => this.rememberWord()}
                         style={this.state.rememberButton.pressStatus ? button.press : button.unPress}
-                        title={this.state.rememberButton.title}
-                    />
+                    >
+                        <Image
+                            style={button.icon}
+                            source={require('../../assets/Image/tick.png')}
+                        />
+                        <Text>{this.state.rememberButton.title}</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => this.goToNextWord()}
                         disabled={this.state.indexWord === lesson1.length - 1}
@@ -188,12 +228,28 @@ let wordDetail = StyleSheet.create({
 
 const button = StyleSheet.create({
     unPress: {
-        padding: 10
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        backgroundColor: '#00FF7F',
+        borderRadius: 5
     },
     press: {
         padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 15,
         backgroundColor: 'white',
-        color: 'black'
+        borderWidth: 1,
+        borderColor: 'blue',
+        borderRadius: 5
+    },
+    icon: {
+        width: 24,
+        height: 24
     }
 });
 

@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 //library
 import { ScrollView } from "react-native-gesture-handler";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationNativeContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 //Layout
@@ -87,9 +87,12 @@ function Learn({ navigation, route }) {
                     </View>
                     {
                         names.map((item, index) => (
-                            <TouchableOpacity key={index}>
-                                <LessonTag lesson={item.name} />
-                            </TouchableOpacity>
+                            <LessonTag
+                                navigation={navigation}
+                                route={route}
+                                lesson={item.name}
+                                key={index}
+                            />
                         ))
                     }
                 </ScrollView>
