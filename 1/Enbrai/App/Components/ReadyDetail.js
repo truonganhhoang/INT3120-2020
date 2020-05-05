@@ -3,16 +3,38 @@ import { View, FlatList, StatusBar, Dimensions } from 'react-native'
 import { Text, Button } from 'react-native-elements'
 import { withNavigation } from 'react-navigation';
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 const ReadyDetail = (props) => {
 
   const heightW = Dimensions.get('window').height
   const widthW = Dimensions.get('window').width
 
-  const data = props.navigation.getParam('dataSelected')
+  
+  var data = props.navigation.getParam('dataSelected')
+  var list = []
+  data.map(i => {
+    list.push(i.word)
+    list.push(i.meaning)
+  })
+  var listCorresponding = []
+  data.map(i => {
+    listCorresponding.push(i.word)
+    listCorresponding.push(i.meaning)
+  })
+
+  shuffleArray(list)
+
   useEffect(() => {
+    
     return () => {
     }
-  }, [props])
+  }, [])
   return (
     <View style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
@@ -46,7 +68,7 @@ const ReadyDetail = (props) => {
           buttonStyle={{ backgroundColor: '#0592D2', borderRadius: 30, height: 50 }}
           titleStyle={{ color: 'white', fontSize: 15 }}
           containerStyle={{ width: 150, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-          onPress={() => { props.navigation.navigate('ChooseCorrespondingScreen', { data: data }) }}
+          onPress={() => { props.navigation.navigate('ChooseCorrespondingScreen', { data: data, list: list, listCorresponding: listCorresponding }) }}
         ></Button>
       </View>
     </View>

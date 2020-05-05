@@ -40,7 +40,6 @@ const HomeStudy = (props) => {
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
                             onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected})}}
-                            // onPress={() => {console.log('Pressed')}}
                         />
                     </View>
                 </LinearGradient>
