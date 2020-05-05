@@ -35,6 +35,8 @@ import bienbao from './HocLiThuyet/bienBao';
 import sahinh from './HocLiThuyet/sahinh';
 import vanhoa from './HocLiThuyet/vanHoa';
 
+import LoiThucHanh from './component/LoiThucHanh';
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -182,6 +184,40 @@ function tab({navigate}) {
       </Tab.Navigator>
   );
 }
+function loitab({navigate}) {
+  return (
+
+      <Tab.Navigator  screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name ==='Li Thuyet') {
+            iconName = focused
+              ? require('./assets/car.png')
+              : require('./assets/carblack.png');
+          } else if (route.name ==='Thực Hành') {
+            iconName = focused 
+            ? require('./assets/craneblack.png') 
+            : require('./assets/crane.png');
+          }
+
+          // You can return any component that you like here!
+          return <Image source ={iconName} size={{width:20,height:20}} 
+           resizeMethod="contain" />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: 'blue',
+        inactiveTintColor: '#A4A4A4',
+        labelStyle: {
+          fontSize: 17,
+        },
+      }}>
+        <Tab.Screen name="Li Thuyet" component={CauHaySai}  />
+        <Tab.Screen name="Thực Hành" component={LoiThucHanh} />
+      </Tab.Navigator>
+  );
+}
 function Mystack({navigation}) {
   return (
     
@@ -207,7 +243,7 @@ function Mystack({navigation}) {
         <Stack.Screen name="Bien bao" component={BienBao} />
         <Stack.Screen name="Mẹo thi kết quả cao" component={tab} />
         <Stack.Screen name="Tra cứu luật nhanh" component={luattab} />
-        <Stack.Screen name="Câu hỏi hay sai" component={CauHaySai} />
+        <Stack.Screen name="Lỗi thường gặp" component={loitab} />
         <Stack.Screen name="de1" component={de1} />
         <Stack.Screen name="Khái Niệm và quy tắc" component={khainiem} />
         <Stack.Screen name="Hệ thống các biển báo đường bộ" component={bienbao} />

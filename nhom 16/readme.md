@@ -1,6 +1,6 @@
 #NHÓM 16
 
-## Ứng dụng [Ôn thi GPLX ]
+## Ứng dụng [Ôn thi GPLX A1]
 ### Thành viên nhóm 16
 - Vũ Đức Tiến
 - Nguyễn Đức Hiếu

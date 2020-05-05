@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View ,StyleSheet,Image, Button,FlatList} from 'react-native';
 import bienphu from '../Data/bienphu';
- 
+
 class Bienbaocam extends Component{
     render(){
         return(
@@ -19,6 +19,7 @@ class Bienbaocam extends Component{
         );
     }
 }
+
 export default class BienCam extends Component{
     render(){
         return(

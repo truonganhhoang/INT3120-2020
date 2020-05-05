@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View ,StyleSheet,Image} from 'react-native';
-
+import { Text, View ,StyleSheet,ScrollView} from 'react-native';
 export default class TrangChu extends Component{
     render(){
         return(
-            <View>  
-                <Text>helll</Text>
-                <Image source={require('../assets/thi.png')} />
-                <Image source={require('../assets/car.png')} />
-            </View>
+            <ScrollView style={{backgroundColor:'#F5ECCE'}}>
+               
+            </ScrollView>
         );
     }
     
    }
+   

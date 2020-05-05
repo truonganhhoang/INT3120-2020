@@ -67,9 +67,9 @@ export default class TrangChu extends Component{
                                 <Image  style={styles.anh} source={test}/>
                                 <Text style={styles.text}
                                 onPress={() =>
-                                    this.props.navigation.navigate('Câu hỏi hay sai')
+                                    this.props.navigation.navigate('Lỗi thường gặp')
                                 }
-                                >câu hỏi hay sai</Text>
+                                >Lỗi thường mắc</Text>
                             </View>
                     </View>
                            
