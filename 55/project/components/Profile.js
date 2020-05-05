@@ -42,7 +42,7 @@ const Tab = createMaterialTopTabNavigator();
 
 export function Profile(route, navigation) {
     return (
-        <Tab.Navigator 
+        <Tab.Navigator
             initialRouteName="Settings"
             tabBarOptions={{
                 showIcon: "true",
@@ -53,11 +53,11 @@ export function Profile(route, navigation) {
                 tabStyle: {
                     backgroundColor: "#66BB6A",
                 },
-                style: { },              
+                style: {},
             }}
 
         >
-            
+
             <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
             <Tab.Screen name="Acount" component={AcountScreen} />

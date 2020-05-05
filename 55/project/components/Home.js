@@ -3,21 +3,21 @@ import { Component } from 'react';
 import { Text, View, StyleSheet, Button, Image, Dimensions, Alert } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function Category({ navigation }) {
-    return (
-        <View style={styles.cell}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Profile")}
-            >
-                <Image
-                    source={require("../images/thi_sat_hach.jpg")}
-                    style={styles.icon}
-                />
-            </TouchableOpacity>
-        </View>
+// function Category({ navigation }) {
+//     return (
+//         <View style={styles.cell}>
+//             <TouchableOpacity
+//                 onPress={() => navigation.navigate("Profile")}
+//             >
+//                 <Image
+//                     source={require("../images/thi_sat_hach.jpg")}
+//                     style={styles.icon}
+//                 />
+//             </TouchableOpacity>
+//         </View>
 
-    )
-}
+//     )
+// }
 
 export class Cell extends React.Component {
     render() {
@@ -40,7 +40,6 @@ function bam({ navigation }) {
 }
 
 export function Home({ navigation }) {
-    //const {navigate} = this.props.navigation;
 
     return (
         <View style={styles.screen}>
@@ -83,7 +82,7 @@ export function Home({ navigation }) {
                 <View style={styles.row}>
                     <View style={styles.cell}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Hoc_li_thuyet")}>
+                            onPress={() => navigation.navigate("Bien_bao")}>
                             <Image
                                 source={require("../images/bien_bao.jpg")}
                                 style={styles.icon}
@@ -117,7 +116,7 @@ export function Home({ navigation }) {
 
                     <View style={styles.cell}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Thi_sat_hach")}>
+                            onPress={(event) => navigation.navigate('Animated')}>
                             <Image
                                 source={require("../images/cau_hay_sai.jpg")}
                                 style={styles.icon}

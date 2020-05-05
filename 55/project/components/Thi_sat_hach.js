@@ -75,10 +75,10 @@ export function Thi_sat_hach() {
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Image style={styles.cell}
-                        source={require('../images/lam_bai.jpg')}
+                        source={require('../images/ngau_nhien.jpg')}
                     />
-                    <Text style={styles.textCau}> 0/20 câu </Text>
-                    <Text style={styles.textDe}> Đề số 9 </Text>
+                    <Text style={styles.textCau}> Ngẫu nhiên </Text>
+                    <Text style={styles.textDe}> TẠO ĐỀ </Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -89,8 +89,8 @@ const { height, width } = Dimensions.get('window');
 const row = width / 3;
 const RowHeight = 90 / 100 * row;
 const TopHeight = 10 / 100 * row;
-const BotTextCau = 25 / 100 * row;
-const BotTextDe = 10.5 / 100 * row;
+const BotTextCau = 23 / 100 * row;
+const BotTextDe = 10 / 100 * row;
 const ImageSize = 90 / 100 * row;
 
 const styles = StyleSheet.create({

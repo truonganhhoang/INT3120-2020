@@ -1,8 +1,34 @@
 import * as React from 'react';
 import { View, Image, Text } from 'react-native';
 import { StyleSheet, Dimensions, ProgressBarAndroid } from "react-native"
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView, FlatList } from 'react-native-gesture-handler';
 
+const dataHoc = [
+    {
+        id: '1',
+        img: require('../images/khai_niem.jpg'),
+        name: 'KHÁI NIỆM VÀ QUY TẮC',
+        number: 75,
+    },
+    {
+        id: '2',
+        img: require('../images/he_thong.jpg'),
+        name: 'BIỂN BÁO ĐƯỜNG BỘ',
+        number: 36,
+    },
+    {
+        id: '3',
+        img: require('../images/sa_hinh.jpg'),
+        name: 'SA HÌNH',
+        number: 34,
+    },
+    {
+        id: '4',
+        img: require('../images/van_hoa.jpg'),
+        name: 'VĂN HÓA VÀ ĐẠO ĐỨC',
+        number: 36,
+    },
+]
 
 export class Row extends React.Component {
     constructor(props) {
@@ -26,7 +52,7 @@ export class Row extends React.Component {
                         <View style={styles.inleft}>
 
                             <Image style={styles.image}
-                                source={this.props.src} />
+                                source={this.props.element.img} />
 
                         </View>
 
@@ -35,21 +61,21 @@ export class Row extends React.Component {
                     <View style={styles.right}>
 
                         <Text style={styles.tit}>
-                            {this.props.title}
+                            {this.props.element.name}
                         </Text>
 
                         <Text style={styles.socau}>
-                            {this.props.number + " câu"}
+                            {this.props.element.number + " câu"}
                         </Text>
 
                         <Text style={styles.pass}>
-                            {this.state.pass + "/" + this.props.number}
+                            {this.state.pass + "/" + this.props.element.number}
                         </Text>
 
                         <ProgressBarAndroid style={styles.progress}
                             styleAttr="Horizontal"
                             indeterminate={false}
-                            progress={this.state.pass / this.props.number}
+                            progress={this.state.pass / this.props.element.number}
                             color={"#66BB6A"}
                         />
                     </View>
@@ -61,7 +87,8 @@ export class Row extends React.Component {
 
 export function Hoc_li_thuyet() {
     return (
-        <View style={styles.container}>
+        /*
+        <ScrollView style={styles.container}>
             <Row
                 src={require('../images/khai_niem.jpg')}
                 title="KHÁI NIỆM VÀ QUY TẮC"
@@ -82,10 +109,19 @@ export function Hoc_li_thuyet() {
                 title="VĂN HÓA VÀ ĐẠO ĐỨC"
                 number="36"
             />
-        </View>
+        </ScrollView>
+*/
 
+        <FlatList
+            data={dataHoc}
+            renderItem={({ item }) => {
+                return (
+                    <Row element={item} />
+                )
+            }}
+        >
 
-
+        </FlatList>
     )
 }
 

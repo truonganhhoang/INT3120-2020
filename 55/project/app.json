@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Tukky",
+    "name": "Ôn Thi GPLX",
     "slug": "project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -31,6 +31,6 @@
       "package": "com.tukky.thibanglaixe",
       "versionCode": 1
     },
-    "description": ""
+    "description": "Ứng dụng học ôn thi Giấy phép lái xe"
   }
 }

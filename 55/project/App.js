@@ -8,13 +8,17 @@ import { Profile } from './components/Profile';
 import { Man } from './components/Man';
 import { Home } from './components/Home';
 import { Menu } from './components/Drawer';
-import { test } from './components/test'
+import { test } from './components/test';
 import { ProgressBar } from './components/ProgressBar';
 import { Thi_sat_hach } from './components/Thi_sat_hach';
 import { Hoc_li_thuyet } from './components/Hoc_li_thuyet';
 import { Form } from './components/State';
 import { Tra_cuu_luat } from './components/Tra_cuu_luat';
 import { Meo_thi } from './components/Meo_thi';
+import { Bien_bao } from './components/Bien_bao'
+import { Anima } from './components/Anima'
+import { FlatListTest } from './components/FlatListTest';
+// import { Panel } from './components/Collapse'
 
 const Stack = createStackNavigator();
 
@@ -66,10 +70,10 @@ export default function App({ navigation }) {
           component={Menu}
         />
 
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Test"
           component={test}
-        />
+        /> */}
 
         <Stack.Screen
           name="Progress"
@@ -102,6 +106,11 @@ export default function App({ navigation }) {
         />
 
         <Stack.Screen
+          name="Bien_bao"
+          component={Bien_bao}
+        />
+
+        <Stack.Screen
           name="State"
           component={Form}
         />
@@ -121,6 +130,22 @@ export default function App({ navigation }) {
             title: "Mẹo thi kết quả cao",
           }}
         />
+
+        <Stack.Screen
+          name="Animated"
+          component={Anima}
+        />
+
+        <Stack.Screen
+          name="FlatListTest"
+          component={FlatListTest}
+        />
+
+        {/* <Stack.Screen
+          name="Collapse"
+          component={Panel}
+        /> */}
+
 
 
       </Stack.Navigator>
