@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'; 
+import layout  from '../../constants/layout'; 
 
 const styles = StyleSheet.create({
   header: {
@@ -10,6 +11,9 @@ const styles = StyleSheet.create({
     color: '#ff5e00', 
     fontWeight: '700', 
     fontSize: 20,  
+  }, 
+  list: {
+    marginBottom: 80
   }
 }); 
 

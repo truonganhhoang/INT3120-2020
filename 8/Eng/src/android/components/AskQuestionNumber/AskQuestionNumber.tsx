@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'; 
 import { Text, View } from 'react-native'; 
 import { Overlay, ButtonGroup, Button } from 'react-native-elements'; 
+import styles from './styles';
 
-const Ask = (props: { setQuestionNumber?: any; Visible?: any }) => {
-  const { setQuestionNumber, Visible } = props; 
-  const buttons = ['20', '50', '100']
+const Ask = (props: { setAmountOfQ?: any; Visible?: any }) => {
+  const { setAmountOfQ, Visible } = props; 
+  const buttons = ['5', '10', '20']
   const [selectedIndex, setSelected] = useState(0); 
   const [isVisible, setIsVisible] = useState(true); 
 
@@ -18,25 +19,30 @@ const Ask = (props: { setQuestionNumber?: any; Visible?: any }) => {
 
   const start = () => {
     setIsVisible(false); 
-    // console.log(buttons[selectedIndex]); 
-    setQuestionNumber(buttons[selectedIndex]); 
+    setAmountOfQ(buttons[selectedIndex]); 
   }
 
   return (
     <Overlay 
       isVisible={isVisible}
+      height={200}
     >
-      <View>
-        <Text>Select question number in your test!</Text>
+      <View style={{alignItems:"center"}}>
+        <Text style={styles.txtTitle}>Lựa chọn số câu hỏi:</Text>
         <ButtonGroup
           onPress={onChange}
           selectedIndex={selectedIndex}
           buttons={buttons}
-          containerStyle={{height: 100}}
+          containerStyle={styles.button}
+          textStyle={{color:'#ff5e00'}}
+          selectedButtonStyle={{backgroundColor:'#f57f17'}}
+          selectedTextStyle={{color:'#FFF',fontWeight:'bold'}}
         />
         <Button
-          title="Start"
+          title="Bắt đầu"
+          containerStyle={styles.btnStart}
           onPress={start}
+          buttonStyle={{backgroundColor:'#f57f17'}}
         />
       </View>
     </Overlay>  

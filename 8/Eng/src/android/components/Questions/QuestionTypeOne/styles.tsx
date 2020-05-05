@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: 200
   }, 
   speak: {
-    
+    color:'#FFF'
   }
 }); 
 

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         width:150
     },
     containers:{
-        top:10,
+        top:HEIGHT*0.05,
         height:HEIGHT,
         width:WIDTH*0.8,
         left:WIDTH/6
@@ -47,29 +47,29 @@ const styles = StyleSheet.create({
         height:150,
         borderRadius:100,
         borderWidth:1,
-        borderColor:'#80808085'
+        borderColor:'#80808085',
     },
     viewTool:{
         flexDirection:'column',
         backgroundColor:'#ff5e00',
-        width:40,
+        width:50,
         alignItems:'center',
         padding:5,
         position:'absolute',
-        right:20,
+        right:18,
         borderRadius:6,
         zIndex:2,
         top:100
     },
     iconTool:{
         color:'white',
-        fontSize:12,
+        fontSize:16,
     },
     viewIcon:{
-        borderRadius:30,
+        borderRadius:100,
         borderWidth:1,
         borderColor:'white',
-        padding:6,
+        padding:8,
         marginTop:5,
         marginBottom:5,
     },

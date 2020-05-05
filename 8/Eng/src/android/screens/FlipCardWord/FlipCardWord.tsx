@@ -6,7 +6,7 @@ import MenuButton from '../../components/Menu/Menu';
 import { Back } from '../../components/Back';
 import firebase from 'firebase';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, StyleSheet, View, Text } from 'react-native';
+import { Dimensions, View, Text } from 'react-native';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
 
@@ -20,22 +20,45 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
   const database = firebase.database();
   const wordsOfLesson = database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/lessons_detail/' + lessonInfo.lessonName); 
-  const [Data, setData] = useState({});
+  const [Data, setData] = useState({ status: 'loading' });
   const [state, setState] = useState(0);
 
   useEffect(() => {
+    setData({ status: 'loading' })
     wordsOfLesson.on('value', function (snapshot: any) {
-      console.log(snapshot.val()); 
-      setData(snapshot.val());
+      if (snapshot.val()) {
+        setData(snapshot.val());
+      } else {
+        setData({ status: 'null' })
+      }
     });
   }, [lessonInfo])
   //get value people
 
-  if (Object.keys(Data).length == 0) {
+  if (Data.status == 'loading') {
     return (
       <Activity />
     )
   } 
+  else if (Data.status == 'null') {
+    return (
+      <View>
+        <Header
+          containerStyle={styles.header}
+          leftComponent={
+              <Back navigation={navigation} color={'#fff'} />
+          }
+          rightComponent={
+              <MenuButton />
+          }
+          centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
+        />
+        <View>
+          <Text>Sorry! The data is not available.</Text>
+        </View>
+      </View>
+    )
+  }
   else {
     let index = 0; 
     for (let [key, value] of Object.entries(Data)) {

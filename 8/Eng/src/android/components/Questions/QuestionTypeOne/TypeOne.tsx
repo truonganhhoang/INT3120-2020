@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native'; 
+import { View, Text, TouchableOpacity } from 'react-native'; 
 import { Button, Icon } from 'react-native-elements'; 
 import Sound from 'react-native-sound';
 
 import styles from './styles'; 
 
-const TypeOne = (props: {content?: any}) => {
+const TypeOne = (props: { content?: any; id?: any }) => {
 
-  const { content } = props; 
+  const { content, id } = props; 
 
   useEffect(() => {
-    const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
-      if (error) {
-        console.log('failed to load the sound', error); 
-        return; 
-      }
-      speaker.play((success) => {
-        if (success) {
-          console.log('successfully finished playing'); 
-        } else {
-          console.log('playback failed due to audio decoding errors')
-        }
-      })
-    })
-  }, [])
+    // if (content.type == '1') {
+    //   const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
+    //     if (error) {
+    //       console.log('failed to load the sound', error); 
+    //       return; 
+    //     }
+    //     speaker.play((success) => {
+    //       if (success) {
+    //         console.log('successfully finished playing'); 
+    //       } else {
+    //         console.log('playback failed due to audio decoding errors')
+    //       }
+    //     })
+    //   })
+    //   speaker.release(); 
+    // }
+  }, [id])
 
   const onPress = () => {
     const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
@@ -39,23 +42,23 @@ const TypeOne = (props: {content?: any}) => {
         }
       })
     })
+    speaker.release(); 
   }
 
-  // console.log(content); 
-
   return (
-    <View>
-      <Text>Question Type One</Text>
-      <Text>{content.txt_content}</Text>
+    <View style={{ justifyContent: 'center', alignItems: 'center', marginTop:50 }}>
+      <Text style={{ fontSize: 40, color: '#f57f17' }}>{content.txt_content}</Text>
       <Text>{content.f_void_uri}</Text>
-      <Button 
-        icon={<Icon 
-          name="volume-up"
-          type="font-awesome"
-          style={styles.speak}
-        />}
-        onPress={onPress}
-      />
+      <View style={{ backgroundColor: '#f57f17', width: 70, padding: 20, borderRadius: 100,marginTop:50 }}>
+        <TouchableOpacity onPress={onPress}>
+          <Icon
+            name="volume-up"
+            type="font-awesome"
+            style={styles.speak}
+            iconStyle={{ color: '#FFF', fontSize: 30 }}
+          />
+        </TouchableOpacity >
+      </View>
     </View>
   )
 }

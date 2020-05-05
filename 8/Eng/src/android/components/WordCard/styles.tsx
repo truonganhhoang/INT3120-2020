@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     width: layout.window.width, 
     height: 148, 
     marginTop: 5, 
-    marginBottom: 12
+    marginBottom: 12, 
   }, 
   card: {
     marginTop: 10, 

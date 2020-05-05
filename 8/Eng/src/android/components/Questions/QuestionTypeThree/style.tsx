@@ -2,8 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
-    width: 200, 
-    height: 200
+    width: 150, 
+    height: 150
+  },
+  container:{
+    alignItems:'center',
+    marginBottom:50
   }
 })
 

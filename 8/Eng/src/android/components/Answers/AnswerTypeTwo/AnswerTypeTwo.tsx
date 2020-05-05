@@ -1,53 +1,79 @@
-import React from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { View, Text, TouchableOpacity } from 'react-native'; 
-import { Image } from 'react-native-elements'; 
+import { Image, Card } from 'react-native-elements'; 
 import firebase from 'firebase'; 
 import styles from './styles'; 
+import Sound from 'react-native-sound'; 
+import layout from '../../../constants/layout'; 
+const HEIGHT = layout.window.height;
 
-const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any }) => {
-  const { content, lessonInfo } = props; 
+const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
+  const { content, lessonInfo, setNextQuestion, id } = props; 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
   '/results/' + content.id);
-
+  const [backgrounColor,setBackgroundColor]=useState('#FFF');
+  useEffect(() => {
+    setNextQuestion(false);
+    setBackgroundColor('#FFF'); 
+  }, [id])
+  
   function onPress(selected: any) {
     // console.log(selected); 
     result.on('value', function(snapshot: any){
       // console.log(snapshot); 
       if (snapshot.val().text == selected) {
-        console.log("True"); 
-        console.log(snapshot); 
+        setBackgroundColor('blue')
       } else {
-        console.log("False"); 
+        setBackgroundColor('red')
       }
+      // speaker
+      const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error); 
+          return; 
+        }
+        setTimeout(() => {
+          speaker.release(); 
+          setNextQuestion(true); 
+        }, speaker.getDuration()*1000)
+        speaker.play((success) => {
+          if (success) {
+            console.log('successfully finished playing'); 
+          } else {
+            console.log('playback failed due to audio decoding errors')
+          }
+        })
+      })
     })
   }
 
   return (
-    <View>
-      <Text>
-        Answer Type Two
-      </Text>
+    <View style={{width:200,bottom:HEIGHT*0.01}}>
       <View>
         <TouchableOpacity
           style={styles.view_a}
           onPress={() => onPress('a')}
         >
-          <Image
-            source={{ uri: content.content_a }}
-            containerStyle={styles.image}
-          />
+          <Card containerStyle={{alignItems:'center',backgroundColor:backgrounColor}}>
+            <Image
+              source={{ uri: content.content_a }}
+              containerStyle={styles.image}
+            />
+          </Card>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.view_b}
           onPress={() => onPress('b')}
         >
-          <Image
-            source={{ uri: content.content_b }}
-            style={styles.image}
-          />
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
+            <Image
+              source={{ uri: content.content_b }}
+              style={styles.image}
+            />
+          </Card>
         </TouchableOpacity>
       </View>
 
@@ -56,19 +82,23 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any }) => {
           style={styles.view_c}
           onPress={() => onPress('c')}
         >
-          <Image
-            source={{ uri: content.content_c }}
-            style={styles.image}
-          />
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
+            <Image
+              source={{ uri: content.content_c }}
+              style={styles.image}
+            />
+          </Card>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.view_d}
           onPress={() => onPress('d')}
         >
-          <Image
-            source={{ uri: content.content_d }}
-            style={styles.image}
-          />
+          <Card containerStyle={{backgroundColor:backgrounColor}}>
+            <Image
+              source={{ uri: content.content_d }}
+              style={styles.image}
+            />
+          </Card>
         </TouchableOpacity>
       </View>
     </View>

@@ -1,15 +1,12 @@
 import React from 'react'; 
 import { View, Text } from 'react-native'; 
-
-const TypeTwo = (props: {content?: any}) => {
+import layout from '../../../constants/layout'; 
+const HEIGHT = layout.window.height;
+const TypeTwo = (props: { content?: any; id?: any }) => {
   const { content } = props; 
-  console.log(content); 
   return (
-    <View>
-      <Text>
-        Question Type Two
-      </Text>
-      <Text>{content.txt_content}</Text>
+    <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:HEIGHT*0.05,marginBottom: HEIGHT*0.1}}>
+      <Text  style={{ fontSize: 40, color: '#f57f17' }}>{content.txt_content}</Text>
     </View>
   )
 }
