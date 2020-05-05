@@ -1,13 +1,10 @@
 ﻿import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
 import DetailVideo from '../../screens/VideoHD/DetailVideo';
 import VideoListScreen from '../../screens/VideoHD/VListScreen';
 
-
 const Stack = createStackNavigator();
-
 
 export default function VideoHD() {
 

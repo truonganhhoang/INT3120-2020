@@ -3,13 +3,13 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import config from '../../components/config';
 
 export default function DetailScreen(props) {
-    const { title,image,content } = props.route.params;
+    const { title, image, content } = props.route.params;
     return (
         <View style={styles.container}>
 
             <Text style={styles.title} >{title}</Text>
 
-            <Image style={styles.image} source={{ uri: config.IP_SEVER+image }} />
+            <Image style={styles.image} source={{ uri: config.IP_SEVER + image }} />
 
             <View style={styles.topic} >
                 <Text>Loại biển báo:</Text>
@@ -21,7 +21,7 @@ export default function DetailScreen(props) {
                 <Text style={styles.content_number} >......</Text>
             </View>
 
-            <View style={{ marginLeft: 10,}}>
+            <View style={{ marginLeft: 10, }}>
                 <Text>Mô tả:</Text>
                 <Text style={styles.content_detail} >{content}</Text>
             </View>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     image: {
         height: 150,
-        resizeMode:"contain",
+        resizeMode: "contain",
         margin: 10,
     },
 });
