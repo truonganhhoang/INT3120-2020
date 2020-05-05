@@ -21,11 +21,7 @@ const SelectLevel = props => {
   const [partId, setPartId] = useState();
   useEffect(() => {
     const fetchData = async()=>{
-     
-     
-      // const result = await requestGET(id);
-      // setData(result)
-      //console.log(result)
+   
     }
     const fetchDataResult =() => {
       var userId = firebase.auth().currentUser.uid;
@@ -34,7 +30,15 @@ const SelectLevel = props => {
       firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
         var data=[];
           snap.forEach((child)=>{
-            data.push(child.val())
+            var temp = child.val();
+              var item ={
+                  id: temp.id,
+                  questCompleteCount: temp.questCompleteCount,
+                  questCount : temp.questCount,
+                  partId : temp.partId,
+                  lock : temp.lock,
+              }
+              data.push(item)
           })
           //console.log(data)
           setDataResult(data)
@@ -45,7 +49,7 @@ const SelectLevel = props => {
     return () => {};
   }, [props]);
   const handlePress = (partId, levelId, index)=>{
-    props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index })
+    props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index})
   }
   return (
     <View style={{flex: 1}}>
