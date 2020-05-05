@@ -28,37 +28,39 @@ const styles = StyleSheet.create({
   
   container: {
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#f7f7f7',
+    backgroundColor: '#f8fff9',
     height:'100%',
   },
   paragraph: {
     color: 'white',
     fontSize: 25,
-    paddingLeft:10,
     fontWeight: 'bold',
   },
   banner:{
     paddingTop: Constants.statusBarHeight,
-    backgroundColor:'#65a844',
+    backgroundColor:'#42b309',
+    width:'100%',
+    textAlign:'center',
+    paddingVertical:20,
   },
 
   button:{
     backgroundColor:'#ffffff',
-    width:'100%',
+    width:'95%',
     height:60,
     marginTop:10,
     flexDirection:'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#dfeae1',
+    borderRadius:5,
+    
   },
   icon_back:{
     marginLeft:10,
-    height:20,
-    width:20,
-    paddingBottom:7,
-    paddingLeft:10,
-    flexDirection: "row",
+    height:36,
+    width:36,
+    marginHorizontal:20,
   },
   icon:{
     marginLeft:10,
@@ -70,7 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal:10,
     marginTop:10,
-    backgroundColor:'#f7f7f7',
+    backgroundColor:'#f8fff9',
+    
   },
   paragraph2: {
     marginHorizontal:24,

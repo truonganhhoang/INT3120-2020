@@ -1,97 +1,116 @@
 import * as React from 'react';
-import { ScrollView, View,StyleSheet ,Alert,Text, TextInput,Button,Image} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  List,
+  Text,
+  Alert,
+  Image,
+  ScrollView,
+  TextInput,
+  ListView,
+} from 'react-native';
+
+import Constants from 'expo-constants';
 
 import styles from '../assets/css/css';
 
-class ListWords extends React.Component {
-  render(){
+const Titles= require('./database.json');
+      const LENGTH=Titles.length
+class DetailItemComponent extends React.Component {
+  //Custom Component for the Expandable List
+  render() {
     return (
-  <ScrollView style={styles.container}>
-    <View style={styles.banner}>
-      <Text style={[styles.text_banner,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
-      <Image style={styles.icon_back} source={require('../assets/icon/back.png')}/>
-      Danh Sách Từ Vựng</Text>
-       <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
-    </View>
-    <View style={styles.container2}>
-     <TextInput
-        title='Tìm kiếm'
-        placeholder="Tìm Kiếm..."
-        style={styles.TextInput}
-      />
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('1')} >Ăn uống</Text>
-        </View>
+      <View>
+        {/*Header of the Expandable List Item*/}
         
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('2')}>Địa lý </Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('3')}>Điện ảnh</Text>
-        </View>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={this.props.onClickFunction}
+          style={styles1.button}>
+            <Text>{this.props.item.key}</Text>
+        </TouchableOpacity>
         
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('4')}>Đo lường</Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('5')} >Đô thị</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('6')}>Động vật </Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('7')} >Gia đình</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('8')}>Giải trí </Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('9')} >Giao thông</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('10')}>Hành động</Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('11')} >Họ hàng</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('12')}>Mua sắm</Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('13')} >Thời tiết</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('14')}>Du lịch</Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('15')} >Giao thông</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('16')}>Phụ kiện</Text>
-        </View>
-        <View style={styles.button}>
-          <Text style={styles.text} onPress={() =>Alert.alert('17')} >Động vật</Text>
-        </View>
-        
-        <View style={styles.button}> 
-          <Text style={styles.text} onPress={() =>Alert.alert('18')}>Thực vật</Text>
-        </View>
-         
-    </View>
-    </ScrollView>
-  );
-  
+      </View>
+    );
   }
-   _Done= async () => {
-    this.props.navigation.navigate('Menu');
-    }
- 
 }
+class ListWords1 extends React.Component {
+  
+  constructor() {
+    super();
+    this.state = { listDataSource: Titles };
+  }
+ 
+  SearchFilterFunction(_text) {
+    let temp=Titles.slice(0, LENGTH);
+    let newData =temp.filter((item)=>{
+      let itemData = item.key.toUpperCase();
+      let textData = _text.toUpperCase();
+       return itemData.indexOf(textData)>-1;
+    });
 
-export default ListWords;
+    this.setState({
+      data: newData,
+    });
+  }
+
+  _Detail(item) {
+    this.props.navigation.navigate({item});
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.banner}>
+          <Text style={[styles.paragraph,]} onPress={this._Done}>
+            <Image style={[styles.icon_back,]} source={require('../assets/icon/back.png')}/>
+            Danh sách từ vựng
+          </Text>
+        </View>
+        <View style={{backgroundColor: '#f8fff9',padding: 10,}}>
+          <TextInput
+            title="Tìm kiếm"
+            placeholder="Tìm kiếm..."
+            style={styles.TextInput}
+            onChangeText={text => this.SearchFilterFunction(text)}
+          />
+        </View>
+        <ScrollView>
+          {this.state.listDataSource.map((item, key) => (
+            < DetailItemComponent
+              key={item.key}
+              onClickFunction={this._Detail.bind(this, key)}
+              item={item}
+            />
+          ))}
+        </ScrollView>
+      </View>
+    );
+  }
+  _Done = async () => {
+    this.props.navigation.navigate('Menu');
+  };
+}
+export default createAppContainer(createSwitchNavigator(
+  {
+     List:ListWords1,
+     QuestionDetail: QuestionDetailScreen,
+  },
+  {
+    initialRouteName: 'List',
+  }
+  ));
+
+const styles1 = StyleSheet.create({
+  button: {
+    justifyContent: 'center',
+    marginHorizontal: 10,
+    marginVertical:5,
+    backgroundColor: '#ffffff',
+    height: 60,
+    borderWidth: 1,
+    borderColor: '#dfeae1',
+  },
+});

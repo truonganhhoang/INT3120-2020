@@ -1,6 +1,4 @@
-import * as React from 'react';
-import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
-import styles from './assets/css/css';
+import {createSwitchNavigator, createAppContainer } from 'react-navigation';
 import Welcome from './components/Welcome';
 import Menu2 from './components/Menu2';
 import AddWord from './components/AddWord';
@@ -20,6 +18,6 @@ export default createAppContainer(createSwitchNavigator(
      Search:SearchWords,
   },
   {
-    initialRouteName: 'Menu',
+    initialRouteName: 'List',
   }
   ));

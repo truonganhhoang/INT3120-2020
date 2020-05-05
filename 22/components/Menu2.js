@@ -3,44 +3,67 @@ import { Button,ScrollView, View,StyleSheet ,Alert,Image,Text,TextInput,FlatList
 import Constants from 'expo-constants';
 
 import styles from '../assets/css/css';
+import Lists from './Database';
 
 
 
 class Menu2 extends React.Component {
+  constructor(props) {
+    let temp=Lists.slice(0, 3000);
+    super(props);
+    this.state = {
+      data:temp,
+    };
+  }
+ 
+  SearchFilterFunction(_text) {
+    let temp=Lists.slice(0, 3000);
+    let newData =temp.filter((item)=>{
+      let itemData = item.word.toUpperCase();
+      let textData = _text.toUpperCase();
+       return itemData.indexOf(textData)>-1 ;
+    });
+
+    this.setState({
+      data: newData,
+    });
+  }
+
   Headder=()=>{
     return(
+      <View>
       <View style={styles.banner}>
-          <Text style={[styles.paragraph,{ textAlign: 'center',flex: 1, flexDirection: 'column' }]}>
-         3000 Từ Vựng Tiếng Anh
-          </Text>
-          <Text style={{ flex: 1, flexDirection: 'column' }} />
-          <View style={{backgroundColor: '#f7f7f7',padding: 10,}}>
-            <TextInput
-              title="Tra từ"
-              placeholder="Tra từ..."
-              style={styles.TextInput}
-            />
-          </View>
+          <Text style={[styles.paragraph,{ textAlign: 'center'}]}>3000 Từ vựng Tiếng Anh</Text>
       </View>
+      <View style={{backgroundColor: '#f8fff9',padding: 10,}}>
+      <TextInput
+        title="Tra từ"
+        placeholder="Tra từ..."
+        style={styles.TextInput}
+        onChangeText={text => this.SearchFilterFunction(text)}
+      />
+      </View>
+  </View>
     );
   }
 
+  
 MenuList=()=>{
     return(
       <View style={styles.container2}>
         <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/star.png')}/>
-          <Text style={styles.text} onPress={this._Tick}>Từ Đã Học</Text>
+          <Text style={styles.text} onPress={this._Tick}>Từ đã học</Text>
         </View>
         
          <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/list.png')}/>
-          <Text style={styles.text} onPress={this._List}>Danh Sách Từ</Text>
+          <Text style={styles.text} onPress={this._List}>Danh sách từ</Text>
           </View>
 
          <View style={styles.button}>
           <Image style={styles.icon} source={require('../assets/icon/add.png')}/>
-          <Text style={styles.text} onPress={this._Add}>Thêm Từ</Text>
+          <Text style={styles.text} onPress={this._Add}>Thêm từ</Text>
         </View>
         
         <View style={styles.button}>
@@ -49,7 +72,7 @@ MenuList=()=>{
         </View>
 
         <View style={[styles.button,{justifyContent: 'center', backgroundColor:'red'}]}>
-          <Text style={[styles.text,{color:'#ffffff'}]} onPress={this._Back} >Trở Về</Text>
+          <Text style={[styles.text,{color:'#ffffff'}]} onPress={this._Back} >Trở về</Text>
         </View>
       </View>
     );
@@ -95,8 +118,9 @@ MenuList=()=>{
   
   render(){
     return (
-  <ScrollView style={{marginTop: Constants.statusBarHeight,backgroundColor:'#f7f7f7'}} stickyHeaderIndices={[0]}>
+  <ScrollView style={{marginTop: Constants.statusBarHeight,backgroundColor:'#f8fff9'}} stickyHeaderIndices={[0]}>
         {this.Headder()}
+        
         {this.MenuList()}
         {this.OtherApps()}
 

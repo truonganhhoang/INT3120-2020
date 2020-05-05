@@ -8,10 +8,9 @@ class Tutorial extends React.Component {
     return (
     <ScrollView style={{marginTop: Constants.statusBarHeight,backgroundColor:'#f7f7f7'}} stickyHeaderIndices={[0]}>
     <View style={styles.banner}>
-      <Text style={[styles.paragraph,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
-      <Image style={[styles.icon_back,{marginHorizontal:20}]} source={require('../assets/icon/back.png')}/>
+      <Text style={[styles.paragraph,]} onPress={this._Done}>
+      <Image style={[styles.icon_back,]} source={require('../assets/icon/back.png')}/>
       Hướng dẫn học</Text>
-      <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
     </View>
     <View style={styles.container2}>
       <View>
@@ -33,7 +32,7 @@ class Tutorial extends React.Component {
 
 const styles1= StyleSheet.create({
   text1:{
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     color: '#33CCFF',
 

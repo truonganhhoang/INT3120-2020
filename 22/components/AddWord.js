@@ -14,44 +14,49 @@ class AddWord extends React.Component {
 
   render() {
     return (
-    <ScrollView style={{marginTop: Constants.statusBarHeight,backgroundColor:'#f7f7f7'}} stickyHeaderIndices={[0]}>
+    <ScrollView style={{marginTop: Constants.statusBarHeight,backgroundColor:'#f8fff9'}} stickyHeaderIndices={[0]}>
     <View style={styles.banner}>
-      <Text style={[styles.paragraph,{ flex: 1, flexDirection: 'column' }]} onPress={this._Done}>
-      <Image style={[styles.icon_back,{marginHorizontal:20}]} source={require('../assets/icon/back.png')}/>
-      Thêm Từ</Text>
-      <Text style={{ flex: 1, flexDirection: 'column' }}></Text>
+      <Text style={[styles.paragraph,]} onPress={this._Done}>
+      <Image style={[styles.icon_back]} source={require('../assets/icon/back.png')}/>
+      Thêm từ</Text>
     </View>
-    <View style={styles1.container2}>
-      <Text style={styles1.text}>Nhập từ mới</Text>
+      <Text style={{textAlign:'center',fontWeight:'bold',fontSize:30,marginTop:20,color:'#166d18'}}>Thêm từ mới</Text>
+      <Text style={{textAlign:'center',fontSize:20,color:'#166d18'}}>(Điền đầy đủ các trường)</Text>
+      <Text style={[styles1.text,{marginTop:15}]}>Từ mới</Text>
       <TextInput
         title='Nhập Từ Mới:'
+        placeholder = 'VD: Word'
         style={styles1.TextInput}
       />
       <Text style={styles1.text}>Nghĩa rút gọn</Text>
       <TextInput
         title='Nghĩa rút gọn:'
+        placeholder = 'VD: Từ vựng'
         style={styles1.TextInput}
       />
       <Text style={styles1.text}>Nghĩa đầy đủ</Text>
       <TextInput
         title='Nghĩa đầy đủ:'
+        placeholder = 'VD: Từ vựng'
         style={styles1.TextInput}
       />
-      <Text style={styles1.text}>Phiên Âm</Text>
+      <Text style={styles1.text}>Phiên âm</Text>
       <TextInput
         title='Phiên âm:'
+        placeholder = 'VD: wə:d'
         style={styles1.TextInput}
       />
-      <Text style={styles1.text}>Từ Loại</Text>
+      <Text style={styles1.text}>Từ loại</Text>
       <TextInput
         title='Từ loại:'
+        placeholder = 'VD: Danh từ'
         style={styles1.TextInput}
       />
-      <View style={[styles.button,{justifyContent: 'center',backgroundColor:'#65a844'}]}>
-         <Text style={[styles.text,{color:'#ffffff'}]} onPress={this._Done}> Thêm Từ</Text>
+      <View style={[styles1.button]}>
+         <Text style={[styles.text,{color:'#ffffff'}]} onPress={this._Done}> Thêm từ</Text>
       </View>
       
-  </View>
+ 
     </ScrollView>
   );
   }
@@ -63,25 +68,39 @@ class AddWord extends React.Component {
 
 const styles1=StyleSheet.create({
   container2: {
-    padding: 24,
-    margin:10,
-    marginTop:20,
+    paddingHorizontal:20,
+    paddingVertical:40,
+    marginHorizontal:20,
+    marginVertical:40,
     backgroundColor:'#ffffff',
     borderColor: 'grey',
     borderWidth: 1,
-    borderStyle: 'dashed',
+    borderRadius:5,
   },
   TextInput: {
-    width: '100%',
-    height: 40,
+    height: 50,
     borderWidth: 1,
     fontSize: 20,
-    padding:5,
-    borderColor: '#65a844',
+    borderColor: '#848383',
+    borderRadius:20,
+    backgroundColor: '#ffffff',
+    paddingLeft:10,
+    marginHorizontal:20,
   },
   text:{
     fontSize: 20,
-    paddingVertical:5,
+    paddingTop:25,
+    paddingBottom:5,
+    marginHorizontal:20,
+  },
+  button:{
+    height:60,
+    alignItems: 'center',
+    marginHorizontal:20,
+    justifyContent: 'center',
+    backgroundColor:'#65a844', 
+    marginTop:50,
+    borderRadius:5,
   },
 });
 export default AddWord;
