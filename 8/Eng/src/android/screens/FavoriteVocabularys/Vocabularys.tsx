@@ -5,7 +5,6 @@ import styles from './styles';
 const Data = require('../../../../data/list-word.json'); 
 
 const Vocabularys = () => {
-  console.log(Data.words); 
   return (
     <ScrollView>
       {
