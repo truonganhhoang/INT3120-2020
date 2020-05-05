@@ -91,7 +91,7 @@ const pushLevels = (userId,parId) =>{
           var item = results.item(i);
           firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${parId}`).child('levels').child(`${item.id}`).set({
             id:item.id,
-            parId:item.partId,
+            partId:item.partId,
             questCount:item.questCount,
             questCompleteCount:item.questCompleteCount,
             lock: item.lock
@@ -122,7 +122,7 @@ const pushQuestions = (userId,parId,levelId) =>{
           var item = results.item(i);
           firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${parId}`).child('levels').child(`${levelId}`).child('questions').child(`${item.id}`).set({
             id:item.id,
-            parId:item.partId,
+            partId:item.partId,
             levelId:item.levelId,
             isReview:item.isReview,
             isCorrect:item.isCorrect,
