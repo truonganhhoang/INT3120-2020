@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView} from 'react-native'
-import { Styles } from '../../styles'
 import Thongbao from '../components/Thongbao'
+import { Header, Body, Title, Container, Content } from 'native-base'
+import FooterScreen from '../components/Footer';
 export default class Screen4 extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
+        const {navigation} = this.props;
         return (
-            <View style={{flex: 1}}>
-                <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Thông báo</Text>
-                </View>
-                <View style={Styles.container}>
-                    <ScrollView>
-                        <Thongbao />
-                    </ScrollView>
-                </View>
-            </View>
+            <Container>
+                <Header>
+                    <Body>
+                        <Title>Thông báo</Title>
+                    </Body>
+                </Header>
+                <Content>
+                    <Thongbao />
+                </Content>
+                {/* <FooterScreen
+                active4={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
+            </Container>
         )
     }
 }

@@ -1,48 +1,100 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet} from 'react-native'
-import Styles from '../../styles/Styles';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { Container, Header, Body, Title, Content, ListItem, Left, Button, Right, List, Thumbnail, Card, CardItem, Footer, H3 } from 'native-base';
+import FooterScreen from '../components/Footer';
 export default class Screen5 extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
+        const{navigation} = this.props;
         return (
-            <View style={{ flex: 1}}>
-                <View style={Styles.header}>
-                    <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 8}]}>Thông báo</Text>
-                </View>
-                <View style={Styles.container}>
-                    <View style={localStyles.header}>
-                        <View style={Styles.avt}></View>
-                        <Text style={[localStyles.name, Styles.h1text]}>Tên Của Bạn</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="user-circle" size={24} color="gray"/>
-                        <Text style={[Styles.h3text, localStyles.text]}>Thiết lập tài khoản</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="unlock-alt"  size={24} color="gray" />
-                        <Text style={[Styles.h3text, localStyles.text]}>Kích hoạt khóa học</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="list-alt"  size={24} color="gray" />
-                        <Text style={[Styles.h3text, localStyles.text]}>Điều khoản chính sách</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="question-circle"  size={24} color="gray"/>
-                        <Text style={[Styles.h3text, localStyles.text]}>Trợ giúp</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="star"  size={24} color="gray"/>
-                        <Text style={[Styles.h3text, localStyles.text]}>Đánh giá Edumall</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <FontAwesome5 name="power-off"  size={24} color="hotpink" />
-                        <Text style={[Styles.h3text, localStyles.text]}>Đăng xuất</Text>
-                    </View>
-                    <View style={[Styles.list1s, {flexDirection: "row"}]}>
-                        <Text>Phiên bản: 0.0.1</Text>
-                    </View>
-                </View>
-            </View>
+            <Container>
+                <Header>
+                    <Body>
+                        <Title>Cá nhân</Title>
+                    </Body>
+                </Header>
+                <Content>
+                    <List> 
+                        <ListItem thumbnail>
+                            <Left>
+                                <Thumbnail square large source={require('../../img/avt.png')} />
+                            </Left>
+                            <Body>
+                                <H3>Sankhadeep</H3>
+                                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
+                            </Body>
+                            <Right>
+                            </Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button info >
+                                    <Icon size={30} color="#fff" name="md-contact" />
+                                </Button>
+                                
+                            </Left>
+                            <Body><H3>Thiết lập tài khoản</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button danger >
+                                    <Icon size={24} color="#fff" name="md-lock" />
+                                </Button>
+                            </Left>
+                            <Body><H3>Kích hoạt khóa học</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button style={{ backgroundColor: "#FF9501" }}>
+                                    <Icon size={24} color="#fff"active name="md-paper" />
+                                </Button>
+                            </Left>
+                            <Body><H3>Điều khoản chính sách</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button success >
+                                    <Icon size={24} color="#fff" active name="md-help-buoy" />
+                                </Button>
+                            </Left>
+                            <Body><H3>Trợ giúp</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button info>
+                                    <Icon size={24} color="#fff" active name="md-star-half" />
+                                </Button>
+                            </Left>
+                            <Body><H3>Đánh giá Edumall</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                            <Left>
+                                <Button danger>
+                                    <Icon size={24} color="#fff" active name="md-log-out" />
+                                </Button>
+                            </Left>
+                            <Body><H3>Đăng xuất</H3></Body>
+                            <Right></Right>
+                        </ListItem>
+                    </List>
+                </Content>
+                {/* <FooterScreen
+                active5={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
+            </Container>
         )
     }
 }

@@ -1,0 +1,31 @@
+- Mau nen co the de nguyen trang
+- khoang cach cac muc con o Screen1 nen co khoang cach
+- Danh sach cac khoa hoc khong nen de trong box, Nen lam danh sach giong voi Screen 5
+- Doi icon danh sach khoa hoc
+- Chu chuyen ve het tieng Viet
+- Khoang trang dong nhat giua cac man hinh
+
+
+
+json:
+    San pham:
+        id san pham
+        id danh muc
+        ten san pham
+        ten tac giua
+        gia ban
+        trang thai: moi/ cu
+        anh minh hoa
+    Chi tiet san pham:
+        id san pham
+        Gioi thieu san pham
+        Noi dung san pham
+    Khach hang:
+        id khach hang
+        Ten khach hang
+        avt
+        id cac san pham
+
+nhung package tam go: 
+    "react-native-swiper": "^1.6.0",
+    "react-native-swiper-flatlist": "^2.0.4",
