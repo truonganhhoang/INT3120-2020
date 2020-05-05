@@ -2,9 +2,9 @@ import 'package:CWCFlutter/model/word.dart';
 import 'package:CWCFlutter/notifier/word_notifier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-getListWords(WordNotifier wordNotifier, var ten) async {
+getListWords(WordNotifier wordNotifier, var name) async {
   QuerySnapshot snapshot = await Firestore.instance
-      .collection(ten)
+      .collection(name)
       .orderBy("createdAt", descending: true)
       .getDocuments();
 

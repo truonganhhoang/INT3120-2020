@@ -1,9 +1,7 @@
 import 'package:CWCFlutter/notifier/word_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class WordDetail extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();
@@ -21,49 +19,7 @@ class WordDetail extends StatelessWidget {
       // nút voice
     }
 
-    void compareString(String result, String first) {
-      if (first.compareTo(result) == 0) {
-        Alert(
-          context: context,
-          type: AlertType.success,
-          title: "Correct:" + result,
-          buttons: [
-            DialogButton(
-              radius: BorderRadius.circular(10),
-              child: Icon(
-                MdiIcons.arrowRightThick,
-                size: 30.0,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              width: 127,
-              height: 52,
-            )
-          ],
-        ).show();
-      } else {
-        Alert(
-          context: context,
-          type: AlertType.error,
-          title: "Wrong" + result,
-          buttons: [
-            DialogButton(
-              radius: BorderRadius.circular(10),
-              child: Icon(
-                MdiIcons.arrowRightThick,
-                size: 30.0,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              width: 127,
-              height: 52,
-            )
-          ],
-        ).show();
-      }
-    }
+
 
     return Scaffold(
       appBar: AppBar(

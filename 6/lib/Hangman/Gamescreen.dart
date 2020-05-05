@@ -78,8 +78,6 @@ class _GameScreenState extends State<GameScreen> {
     wordList = [];
     hintLetters = [];
     word = widget.hangmanObject.getWord();
-//    p
-    ('this is word ' + word);
     if (word.length != 0) {
       hiddenWord = widget.hangmanObject.getHiddenWord(word.length);
     } else {

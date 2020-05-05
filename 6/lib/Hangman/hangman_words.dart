@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:CWCFlutter/model/word.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart' show rootBundle;
+
 
 class HangmanWords {
   int wordCounter = 0;

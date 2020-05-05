@@ -1,10 +1,8 @@
-import 'package:CWCFlutter/Favorite/getUserFavorite.dart';
 import 'package:CWCFlutter/Hangman/homescreen.dart';
 import 'package:CWCFlutter/notifier/fire_base_auth.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
-import 'package:CWCFlutter/notifier/word_notifier.dart';
 import 'package:CWCFlutter/screens/favorite.dart';
-import 'package:CWCFlutter/screens/product.dart';
+import 'package:CWCFlutter/screens/topic.dart';
 import 'package:CWCFlutter/screens/reset.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +17,6 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     AuthNotifier authNotifier = Provider.of<AuthNotifier>(context);
-    WordNotifier wordNotifier = new WordNotifier();
-    Favorite favorite = new Favorite();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -29,12 +25,12 @@ class _HomepageState extends State<Homepage> {
         actions: <Widget>[
           // action button
           FlatButton(
-              onPressed: () => signout(authNotifier, context),
+              onPressed: () => signOut(authNotifier, context),
               child: Icon(
                 Icons.exit_to_app,
                 color: Colors.white,
               ) // sửa thanh logout
-              ),
+          ),
         ],
       ),
       //thanh menu
@@ -57,7 +53,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ),
-              decoration: new BoxDecoration(color: Colors.blue),
+              decoration: new BoxDecoration(color: Colors.blue), accountEmail: null,
             ),
 
             //body
@@ -95,7 +91,7 @@ class _HomepageState extends State<Homepage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => new splashscreen()));
+                        builder: (context) => new SplashScreen()));
               },
               child: ListTile(
                 title: Text('Quiz'),
@@ -172,7 +168,7 @@ class _HomepageState extends State<Homepage> {
           ),
 
           //grid view
-          Flexible(child: Products()),
+          Flexible(child: Topics()),
         ],
       ),
     );

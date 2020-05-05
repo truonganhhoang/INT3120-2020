@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:CWCFlutter/quiz/homequiz.dart';
 
-class resultpage extends StatefulWidget {
+// ignore: must_be_immutable
+class ResultPage extends StatefulWidget {
   int marks;
 
-  resultpage({Key key, @required this.marks}) : super(key: key);
+  ResultPage({Key key, @required this.marks}) : super(key: key);
 
   @override
-  _resultpageState createState() => _resultpageState(marks);
+  _ResultPageState createState() => _ResultPageState(marks);
 }
 
-class _resultpageState extends State<resultpage> {
+class _ResultPageState extends State<ResultPage> {
   List<String> images = [
     "images/success.png",
     "images/good.png",
@@ -37,7 +38,7 @@ class _resultpageState extends State<resultpage> {
 
   int marks;
 
-  _resultpageState(this.marks);
+  _ResultPageState(this.marks);
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +80,7 @@ class _resultpageState extends State<resultpage> {
                             message,
                             style: TextStyle(
                               fontSize: 18.0,
-                              // fontFamily: "Quando",
+                              
                             ),
                           ),
                         )),
@@ -96,7 +97,7 @@ class _resultpageState extends State<resultpage> {
                 OutlineButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => homepage(),
+                      builder: (context) => HomePage(),
                     ));
                   },
                   child: Text(

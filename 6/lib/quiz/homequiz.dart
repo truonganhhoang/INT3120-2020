@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:CWCFlutter/quiz/quizpage.dart';
 
-class homepage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _homepageState createState() => _homepageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _homepageState extends State<homepage> {
+class _HomePageState extends State<HomePage> {
   List<String> images = [
     "images/quan_he.jpg",
     "images/animal.jpg",
@@ -28,7 +28,7 @@ class _homepageState extends State<homepage> {
             // in changelog 1 we will pass the langname name to ther other widget class
             // this name will be used to open a particular JSON file
             // for a particular language
-            builder: (context) => getjson(langname),
+            builder: (context) => GetJson(langname),
           ));
         },
         child: Material(
@@ -66,7 +66,6 @@ class _homepageState extends State<homepage> {
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
-                      // fontFamily: "Quando",
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -87,9 +86,6 @@ class _homepageState extends State<homepage> {
       appBar: AppBar(
         title: Text(
           "Quizstar",
-          style: TextStyle(
-              // fontFamily: "Quando",
-              ),
         ),
       ),
       body: ListView(

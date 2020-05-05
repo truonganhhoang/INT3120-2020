@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     AuthNotifier authNotifier =
-        Provider.of<AuthNotifier>(context, listen: false);
+    Provider.of<AuthNotifier>(context, listen: false);
     initializeCurrentUser(authNotifier);
     super.initState();
   }
@@ -52,11 +52,11 @@ class _LoginState extends State<Login> {
     _formKey.currentState.save();
 
     AuthNotifier authNotifier =
-        Provider.of<AuthNotifier>(context, listen: false);
+    Provider.of<AuthNotifier>(context, listen: false);
 
     if (_authMode == AuthMode.Login) {
       LoadingDialog.showLoadingDialog(context, "Loading...");
-      login(_user, authNotifier, () {
+      loginEmail(_user, authNotifier, () {
         LoadingDialog.hideLoadingDialog(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => Homepage()));
@@ -66,7 +66,7 @@ class _LoginState extends State<Login> {
       });
     } else {
       LoadingDialog.showLoadingDialog(context, "Loading...");
-      signup(_user, authNotifier, () {
+      signUp(_user, authNotifier, () {
         LoadingDialog.hideLoadingDialog(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => Homepage()));
@@ -121,7 +121,7 @@ class _LoginState extends State<Login> {
         }
 
         if (!RegExp(
-                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
           return 'Please enter a valid email address';
         }
@@ -238,33 +238,33 @@ class _LoginState extends State<Login> {
                   ),
                   _authMode == AuthMode.Signup
                       ? Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.only(left: 0.0, right: 0.0),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: this.foregroundColor,
-                                  width: 0.5,
-                                  style: BorderStyle.solid),
-                            ),
-                          ),
-                          padding: const EdgeInsets.only(
-                              left: 0.0, top: 0.0, right: 10.0),
-                          child: new Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 0.0, bottom: 20.0, right: 00.0),
-                              ),
-                              Expanded(
-                                child: _buildDisplayNameField(),
-                              ),
-                            ],
-                          ),
-                        )
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: this.foregroundColor,
+                            width: 0.5,
+                            style: BorderStyle.solid),
+                      ),
+                    ),
+                    padding: const EdgeInsets.only(
+                        left: 0.0, top: 0.0, right: 10.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 0.0, bottom: 20.0, right: 00.0),
+                        ),
+                        Expanded(
+                          child: _buildDisplayNameField(),
+                        ),
+                      ],
+                    ),
+                  )
                       : Container(),
                   Container(
                     width: MediaQuery.of(context).size.width,
@@ -279,7 +279,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     padding:
-                        const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
+                    const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
                     child: new Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -307,7 +307,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     padding:
-                        const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
+                    const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
                     child: new Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -324,33 +324,33 @@ class _LoginState extends State<Login> {
                   ),
                   _authMode == AuthMode.Signup
                       ? Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.only(left: 0.0, right: 0.0),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: this.foregroundColor,
-                                  width: 0.5,
-                                  style: BorderStyle.solid),
-                            ),
-                          ),
-                          padding: const EdgeInsets.only(
-                              left: 0.0, top: 0.0, right: 20.0),
-                          child: new Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 0.0, bottom: 0.0, right: 00.0),
-                              ),
-                              Expanded(
-                                child: _buildConfirmPasswordField(),
-                              ),
-                            ],
-                          ),
-                        )
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: this.foregroundColor,
+                            width: 0.5,
+                            style: BorderStyle.solid),
+                      ),
+                    ),
+                    padding: const EdgeInsets.only(
+                        left: 0.0, top: 0.0, right: 20.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 0.0, bottom: 0.0, right: 00.0),
+                        ),
+                        Expanded(
+                          child: _buildConfirmPasswordField(),
+                        ),
+                      ],
+                    ),
+                  )
                       : Container(),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
@@ -391,7 +391,7 @@ class _LoginState extends State<Login> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => new Reset()));
-                                }),
+                                }), onPressed: () {},
                           ),
                         ),
                       ],

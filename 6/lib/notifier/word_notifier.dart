@@ -22,8 +22,8 @@ class WordNotifier with ChangeNotifier {
     notifyListeners();
   }
 
-  set currentWord(Word Word) {
-    _currentWord = Word;
+  set currentWord(Word word) {
+    _currentWord = word;
     notifyListeners();
   }
 }

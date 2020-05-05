@@ -8,11 +8,12 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 final FlutterTts flutterTts = FlutterTts();
 
-class getjson extends StatelessWidget {
+// ignore: must_be_immutable
+class GetJson extends StatelessWidget {
   // accept the langname as a parameter
 
   String langname;
-  getjson(this.langname);
+  GetJson(this.langname);
   String assettoload;
 
   // a function
@@ -42,8 +43,8 @@ class getjson extends StatelessWidget {
       future:
       DefaultAssetBundle.of(context).loadString(assettoload, cache: true),
       builder: (context, snapshot) {
-        List mydata = json.decode(snapshot.data.toString());
-        if (mydata == null) {
+        List topics = json.decode(snapshot.data.toString());
+        if (topics == null) {
           return Scaffold(
             body: Center(
               child: Text(
@@ -52,24 +53,25 @@ class getjson extends StatelessWidget {
             ),
           );
         } else {
-          return quizpage(mydata: mydata);
+          return QuizPage(topics: topics);
         }
       },
     );
   }
 }
 
-class quizpage extends StatefulWidget {
-  var mydata;
+// ignore: must_be_immutable
+class QuizPage extends StatefulWidget {
+  var topics;
 
-  quizpage({Key key, @required this.mydata}) : super(key: key);
+  QuizPage({Key key, @required this.topics}) : super(key: key);
   @override
-  _quizpageState createState() => _quizpageState(mydata);
+  _QuizPageState createState() => _QuizPageState(topics);
 }
 
-class _quizpageState extends State<quizpage> {
-  var mydata;
-  _quizpageState(this.mydata);
+class _QuizPageState extends State<QuizPage> {
+  var topics;
+  _QuizPageState(this.topics);
 
   Color colortoshow = Colors.blue;
   Color right = Colors.green;
@@ -91,7 +93,7 @@ class _quizpageState extends State<quizpage> {
   bool canceltimer = false;
 
 
-  var random_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var random = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   // overriding the initstate function to start timer as this screen is created
   @override
@@ -130,11 +132,11 @@ class _quizpageState extends State<quizpage> {
     timer = 30;
     setState(() {
       if (j < 10) {
-        i = random_array[j];
+        i = random[j];
         j++;
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => resultpage(marks: marks),
+          builder: (context) => ResultPage(marks: marks),
         ));
       }
       btncolor["a"] = Colors.indigoAccent;
@@ -146,23 +148,14 @@ class _quizpageState extends State<quizpage> {
   }
 
   void checkanswer(String k) {
-    // in the previous version this was
-    // mydata[2]["1"] == mydata[1]["1"][k]
-    // which i forgot to change
-    // so nake sure that this is now corrected
-    if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2][i.toString()] + " is equal to " + mydata[1][i.toString()][k]);
+    if (topics[2][i.toString()] == topics[1][i.toString()][k]) {
       marks = marks + 5;
       // changing the color variable to be green
       colortoshow = right;
     } else {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2]["1"] + " is equal to " + mydata[1]["1"][k]);
       colortoshow = wrong;
     }
     setState(() {
-      // applying the changed color to the particular button that was selected
       btncolor[k] = colortoshow;
       canceltimer = true;
     });
@@ -180,7 +173,7 @@ class _quizpageState extends State<quizpage> {
       child: MaterialButton(
         onPressed: () => checkanswer(k),
         child: Text(
-          mydata[1][i.toString()][k],
+          topics[1][i.toString()][k],
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -237,7 +230,7 @@ class _quizpageState extends State<quizpage> {
           title: InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => new homepage()));
+                    MaterialPageRoute(builder: (context) => new HomePage()));
               },
               child: Text('Quizstar')),
         ),
@@ -252,12 +245,12 @@ class _quizpageState extends State<quizpage> {
                   height: 220.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(mydata[0][i.toString()]),
+                      image: AssetImage(topics[0][i.toString()]),
                     ),
                   ),
                   child: FlatButton(
                     padding: EdgeInsets.all(0.0),
-                    onPressed: () => _speak(mydata[2][i.toString()]),
+                    onPressed: () => _speak(topics[2][i.toString()]),
                     child: null,
                   ),
                 ),
@@ -267,7 +260,7 @@ class _quizpageState extends State<quizpage> {
               flex: 1,
               child: Container(
                 child: IconButton(
-                  onPressed: () => _speak(mydata[2][i.toString()]),
+                  onPressed: () => _speak(topics[2][i.toString()]),
                   icon: Icon(Icons.volume_up),
                   color: Colors.black,
                 ),

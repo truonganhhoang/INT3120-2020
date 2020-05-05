@@ -1,7 +1,6 @@
 import 'package:CWCFlutter/notifier/fire_base_auth.dart';
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
-import 'package:CWCFlutter/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +22,7 @@ class _ResetState extends State<Reset> {
   @override
   void initState() {
     AuthNotifier authNotifier =
-        Provider.of<AuthNotifier>(context, listen: false);
+    Provider.of<AuthNotifier>(context, listen: false);
     initializeCurrentUser(authNotifier);
     super.initState();
   }
@@ -35,8 +34,8 @@ class _ResetState extends State<Reset> {
 
     _formKey.currentState.save();
     AuthNotifier authNotifier =
-        Provider.of<AuthNotifier>(context, listen: false);
-    resetemail(_user.email, authNotifier, context);
+    Provider.of<AuthNotifier>(context, listen: false);
+    resetEmail(_user.email, authNotifier, context);
   }
 
   Widget _buildEmailField() {
@@ -56,7 +55,7 @@ class _ResetState extends State<Reset> {
         }
 
         if (!RegExp(
-                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
           return 'Please enter a valid email address';
         }
@@ -111,7 +110,7 @@ class _ResetState extends State<Reset> {
                       ),
                     ),
                     padding:
-                        const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
+                    const EdgeInsets.only(left: 0.0, top: 0.0, right: 10.0),
                     child: new Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

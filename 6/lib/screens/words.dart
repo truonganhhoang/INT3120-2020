@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'dart:convert';
 import 'package:CWCFlutter/Favorite/getUserFavorite.dart';
 import 'package:CWCFlutter/api/word_api.dart';
@@ -6,19 +6,19 @@ import 'package:CWCFlutter/dialog/msg_dilog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:CWCFlutter/notifier/fire_base_auth.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
 import 'package:CWCFlutter/notifier/word_notifier.dart';
 import 'package:CWCFlutter/screens/detail.dart';
 import 'package:provider/provider.dart';
 
-class getjson extends StatelessWidget {
+// ignore: must_be_immutable
+class Words extends StatelessWidget {
+
   // accept the langname as a parameter
 
   String langname;
 
-  getjson(this.langname);
+  Words(this.langname);
 
   String assettoload;
 
@@ -49,8 +49,8 @@ class getjson extends StatelessWidget {
       future:
           DefaultAssetBundle.of(context).loadString(assettoload, cache: true),
       builder: (context, snapshot) {
-        List mydata = json.decode(snapshot.data.toString());
-        if (mydata == null) {
+        List topics = json.decode(snapshot.data.toString());
+        if (topics == null) {
           return Scaffold(
             body: Center(
               child: Text(
@@ -59,43 +59,42 @@ class getjson extends StatelessWidget {
             ),
           );
         } else {
-          return quizpage(mydata: mydata);
+          return WordsPage(topics: topics);
         }
       },
     );
   }
 }
 
-class quizpage extends StatefulWidget {
-  var mydata;
+// ignore: must_be_immutable
+class WordsPage extends StatefulWidget {
 
-  quizpage({Key key, @required this.mydata}) : super(key: key);
+  var topics;
+
+  WordsPage({Key key, @required this.topics}) : super(key: key);
 
   @override
-  _quizpageState createState() => _quizpageState(mydata);
+  _WordsPageState createState() => _WordsPageState(topics);
 }
 
-class _quizpageState extends State<quizpage> {
+class _WordsPageState extends State<WordsPage> {
   @override
   void initState() {
     WordNotifier wordNotifier =
         Provider.of<WordNotifier>(context, listen: false);
-    getListWords(wordNotifier, mydata[0]["name"]);
+    getListWords(wordNotifier, topics[0]["name"]);
     super.initState();
   }
 
-  var mydata;
+  var topics;
 
-  _quizpageState(this.mydata);
+  _WordsPageState(this.topics);
 
   @override
   Widget build(BuildContext context) {
     AuthNotifier authNotifier = Provider.of<AuthNotifier>(context);
     WordNotifier wordNotifier = Provider.of<WordNotifier>(context);
     Favorite favorite = new Favorite();
-    Future<void> _refreshList() async {
-      getListWords(wordNotifier, mydata[0]["name"]);
-    }
 
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
@@ -103,7 +102,7 @@ class _quizpageState extends State<quizpage> {
       appBar: new AppBar(
         elevation: 0.1,
         backgroundColor: Colors.blue,
-        title: InkWell(onTap: () {}, child: Text(mydata[0]["name"])),
+        title: InkWell(onTap: () {}, child: Text(topics[0]["name"])),
       ),
       body:
           // new RefreshIndicator(
@@ -138,7 +137,7 @@ class _quizpageState extends State<quizpage> {
                           wordNotifier.wordList[index].user,
                           authNotifier.user.email,
                           wordNotifier.wordList[index],
-                          mydata[0]["name"]);
+                          topics[0]["name"]);
                       String msg = "Từ " +
                           wordNotifier.wordList[index].name +
                           " vừa xóa khỏi favorite";
@@ -148,7 +147,7 @@ class _quizpageState extends State<quizpage> {
                           wordNotifier.wordList[index].user,
                           authNotifier.user.email,
                           wordNotifier.wordList[index],
-                          mydata[0]["name"]);
+                          topics[0]["name"]);
                       String msg = "Từ " +
                           wordNotifier.wordList[index].name +
                           " vừa thêm vào Favorite";

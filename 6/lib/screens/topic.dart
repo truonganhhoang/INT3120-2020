@@ -1,16 +1,14 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:CWCFlutter/screens/product_detail.dart';
-import 'package:flutter/material.dart';
+import 'package:CWCFlutter/screens/words.dart';
 import 'package:flutter/services.dart';
 
-class Products extends StatefulWidget {
+class Topics extends StatefulWidget {
   @override
-  _homepageState createState() => _homepageState();
+  _TopicsState createState() => _TopicsState();
 }
 
-class _homepageState extends State<Products> {
+class _TopicsState extends State<Topics> {
   List<String> images = [
     "images/quan_he.jpg",
     "images/animal.jpg",
@@ -31,7 +29,7 @@ class _homepageState extends State<Products> {
             // in changelog 1 we will pass the langname name to ther other widget class
             // this name will be used to open a particular JSON file
             // for a particular language
-            builder: (context) => getjson(langname),
+            builder: (context) => Words(langname),
           ));
         },
         child: Material(
