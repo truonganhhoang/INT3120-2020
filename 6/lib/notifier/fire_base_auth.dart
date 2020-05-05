@@ -1,20 +1,14 @@
-import 'dart:io';
 
-import 'package:CWCFlutter/model/word.dart';
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
-import 'package:CWCFlutter/notifier/word_notifier.dart';
+
 import 'package:CWCFlutter/screens/Homepage.dart';
 import 'package:CWCFlutter/screens/login.dart';
-import 'package:CWCFlutter/screens/product.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as path;
-import 'package:uuid/uuid.dart';
 
 login(User user, AuthNotifier authNotifier, Function onSuccess,
     Function(String) onSignInError) async {

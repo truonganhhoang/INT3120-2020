@@ -1,7 +1,6 @@
 import 'package:CWCFlutter/notifier/fire_base_auth.dart';
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
-import 'package:CWCFlutter/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

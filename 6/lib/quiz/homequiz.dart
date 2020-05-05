@@ -66,7 +66,6 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
-                      // fontFamily: "Quando",
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -87,9 +86,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(
           "Quizstar",
-          style: TextStyle(
-              // fontFamily: "Quando",
-              ),
         ),
       ),
       body: ListView(
