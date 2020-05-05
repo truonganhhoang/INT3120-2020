@@ -69,7 +69,7 @@ export class SignInPage implements OnDestroy {
           },
           complete: () => {
             this.isSubmitting = false;
-            this.router.navigate(['/tabs/learn/courses']);
+            this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
           },
           error: (message) => {
             this.isSubmitting = false;
@@ -90,7 +90,7 @@ export class SignInPage implements OnDestroy {
       },
       complete: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/tabs/learn/courses']);
+        this.router.navigate(['/tabs/learn/courses'], { replaceUrl: true });
       },
       error: (err) => {
         this.isSubmitting = false;

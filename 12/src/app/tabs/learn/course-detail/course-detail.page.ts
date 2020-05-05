@@ -19,7 +19,6 @@ export class CourseDetailPage implements OnInit {
       this.navLinks = [
         { path: `/tabs/learn/course/${this.courseId}/overview`, label: 'Overview' },
         { path: `/tabs/learn/course/${this.courseId}/grades`, label: 'Grades' },
-        { path: `/tabs/learn/course/${this.courseId}/forums`, label: 'Forums' },
         { path: `/tabs/learn/course/${this.courseId}/info`, label: 'Info' }
       ];
     });

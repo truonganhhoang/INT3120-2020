@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { GradesPageRoutingModule } from './grades-routing.module';
 
 import { GradesPage } from './grades.page';
+import { AssignmentItemComponent } from './assignment-item/assignment-item.component';
+import { AssignmentContentComponent } from './assignment-content/assignment-content.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, GradesPageRoutingModule],
-  declarations: [GradesPage]
+  declarations: [GradesPage, AssignmentItemComponent, AssignmentContentComponent]
 })
 export class GradesPageModule {}
