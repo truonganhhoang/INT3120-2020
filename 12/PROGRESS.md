@@ -250,3 +250,19 @@ ionic g page profile -f
 - Xóa tab forum ở trang `/tabs/learn/course/:courseId`.
 - Thêm UI cho tab grades ở trang `/tabs/learn/course/:courseId`.
 - UI cho trang `/tabs/learn/courses`, `/tabs/downloads/courses` khi chưa có nội dung.
+
+# 2019-05-02
+
+- Update to `@angular/core@~9.1.4`
+- Bắt chước UI của coursera ở `/tabs/learn/courses`.
+
+# 2019-05-03
+
+- Thêm UI:
+  - `/tabs/profile/my-profile`
+  - `/tabs/explore/overview`
+
+# 2019-05-05
+
+- Thêm UI:
+  - `/tabs/recommended`

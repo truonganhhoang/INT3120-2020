@@ -9,15 +9,18 @@ import { UserService } from '../../../core/services/firebase/auth/user.service';
   styleUrls: ['./my-profile.page.scss']
 })
 export class MyProfilePage implements OnInit, OnDestroy {
+  user?: firebase.User;
   userInfoSubscription?: Subscription;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userInfoSubscription = this.userService.currentUser().subscribe({
-      next: console.log,
+      next: (user) => {
+        this.user = user;
+      },
       complete: () => {},
-      error: console.error
+      error: () => {}
     });
   }
 
