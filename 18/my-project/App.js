@@ -1,7 +1,6 @@
 /*This is an Example of Animated Splash Screen*/
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import './screens/firebase/config'
 import Splash from './screens/Splash'
 import Index from './screens/Index'
 

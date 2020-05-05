@@ -1,31 +1,31 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-
-import Ban from './signs/Ban'
-import Command from './signs/Command'
-import Danger from './signs/Danger'
-import Instruction from './signs/Instruction'
+import Ban from './signs/Ban';
+import Command from './signs/Command';
+import Danger from './signs/Danger';
+import Instruction from './signs/Instruction';
 
 const Tab = createMaterialTopTabNavigator();
 
 export default class Signs extends React.Component {
-  render(){
+  render() {
     return (
-        <Tab.Navigator tabBarOptions={{
+      <Tab.Navigator
+        tabBarOptions={{
           activeTintColor: '#fff',
           labelStyle: { fontSize: 12, fontWeight: 'bold' },
           style: { backgroundColor: '#66bb6a' },
-          pressColor:'green',
+          pressColor: 'green',
           scrollEnabled: true,
-          indicatorStyle:{backgroundColor:'#fff'}
-        }}>
-          <Tab.Screen name="Biển báo cấm" component={Ban} />
-          <Tab.Screen name="Biển báo nguy hiểm" component={Danger} />
-          <Tab.Screen name="Biển báo chỉ dẫn" component={Instruction} />
-          <Tab.Screen name="Biển báo hiệu lệnh" component={Command} />
-        </Tab.Navigator>
+          indicatorStyle: { backgroundColor: '#fff' },
+        }}
+      >
+        <Tab.Screen name="Biển báo cấm" component={Ban} />
+        <Tab.Screen name="Biển báo nguy hiểm" component={Danger} />
+        <Tab.Screen name="Biển báo chỉ dẫn" component={Instruction} />
+        <Tab.Screen name="Biển báo hiệu lệnh" component={Command} />
+      </Tab.Navigator>
     );
   }
 }
@@ -44,7 +44,7 @@ export default class Signs extends React.Component {
 //     return <ScrollableTabView
 //       initialPage={0}
 //       tabBarBackgroundColor='#66bb6a'
-//       tabBarTextStyle={{ fontSize: 15, fontWeight: 'bold'}}
+//       tabBarTextStyle={{fontSize: 15, fontWeight: 'bold'}}
 //       tabBarActiveTextColor='#fff'
 //       tabBarInactiveTextColor='green'
 //       tabBarUnderlineStyle={{backgroundColor:'#fff',height: 0}}
@@ -63,11 +63,6 @@ export default class Signs extends React.Component {
 //       <View tabLabel='Biển báo hiệu lệnh'>
 //         <Command />
 //       </View>
-      
 //     </ScrollableTabView>
 //   }
 // }
-
-
-
-
