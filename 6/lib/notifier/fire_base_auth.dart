@@ -1,16 +1,12 @@
-
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
-
 import 'package:CWCFlutter/screens/Homepage.dart';
 import 'package:CWCFlutter/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-login(User user, AuthNotifier authNotifier, Function onSuccess,
+loginEmail(User user, AuthNotifier authNotifier, Function onSuccess,
     Function(String) onSignInError) async {
   AuthResult authResult = await FirebaseAuth.instance
       .signInWithEmailAndPassword(email: user.email, password: user.password)
@@ -32,18 +28,18 @@ login(User user, AuthNotifier authNotifier, Function onSuccess,
   }
 }
 
-resetemail(
+resetEmail(
     String email, AuthNotifier authNotifier, BuildContext context) async {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  signout(authNotifier, context);
+  signOut(authNotifier, context);
   return _firebaseAuth.sendPasswordResetEmail(email: email);
 }
 
-signup(User user, AuthNotifier authNotifier, Function onSuccess,
+signUp(User user, AuthNotifier authNotifier, Function onSuccess,
     Function(String) onRegisterError, BuildContext context) async {
   AuthResult authResult = await FirebaseAuth.instance
       .createUserWithEmailAndPassword(
-          email: user.email, password: user.password)
+      email: user.email, password: user.password)
       .catchError((err) {
     _onSignUpErr(err.code, onRegisterError);
   });
@@ -68,7 +64,7 @@ signup(User user, AuthNotifier authNotifier, Function onSuccess,
   }
 }
 
-signout(AuthNotifier authNotifier, BuildContext context) async {
+signOut(AuthNotifier authNotifier, BuildContext context) async {
   await FirebaseAuth.instance
       .signOut()
       .catchError((error) => print(error.code));
@@ -83,19 +79,6 @@ initializeCurrentUser(AuthNotifier authNotifier) async {
     print(firebaseUser);
     authNotifier.setUser(firebaseUser);
   }
-}
-
-_createUser(String userId, String name, String email, Function onSuccess,
-    Function(String) onRegisterError) {
-  var user = Map<String, String>();
-  user["name"] = name;
-  user["email"] = email;
-  var ref = FirebaseDatabase.instance.reference().child("users");
-  ref.child(userId).set(user).then((vl) {
-    onSuccess();
-  }).catchError((err) {
-    onRegisterError("SignUp fail, please try again");
-  }).whenComplete(() {});
 }
 
 _onSignUpErr(String code, Function(String) onRegisterError) {
