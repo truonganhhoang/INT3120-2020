@@ -11,6 +11,7 @@ import SplashScreen from 'react-native-splash-screen'
 import SQLite from 'react-native-sqlite-storage';
 const Home = (props)=> {
     const [voice,setVoice] = useState(0);
+    const [user,setUser] = useState();
     useEffect(()=>{
         SplashScreen.hide();
         const fetchVoice = async()=>{
@@ -25,11 +26,26 @@ const Home = (props)=> {
             }
         }
         fetchVoice();
+        
         return()=>{
             
         }
     },[props])
-        var user = firebase.auth().currentUser;
+    useEffect(() => {
+        const fetchUser=()=>{
+            const param = props.navigation.getParam('user');
+            if(param){
+                setUser(param)
+            } else{
+                var user = firebase.auth().currentUser
+                user? setUser(true): setUser(false)
+            }
+            //console.log(user)
+        }
+        fetchUser()
+        return () => {
+        }
+    }, [props.navigation.getParam('user')])
         return (
             <View style={{ flex: 1 }}>
                  <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>

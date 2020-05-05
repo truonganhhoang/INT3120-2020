@@ -3,6 +3,8 @@ import {View, Text,TextInput, Alert,Dimensions, StatusBar, ToastAndroid} from 'r
 import {Input, Icon, Button, Header} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
+import SQLite from 'react-native-sqlite-storage'
+import {pushParts} from './ConnectData';
 const SignUp = props =>{
     const [email,setEmail] = useState('');
     const [pass,setPass] = useState('');
@@ -33,13 +35,20 @@ const SignUp = props =>{
       firebase
         .auth()
         .createUserWithEmailAndPassword(email,pass)
-        .then(() =>{
+        .then((res) =>{
           ToastAndroid.showWithGravity(
             'Đăng kí thành công.',
             ToastAndroid.SHORT,
             ToastAndroid.CENTER,
           )
-          setTimeout(()=> props.navigation.navigate('HomeScreen'), 1000)
+            console.log(res.user.uid);
+            var userId = res.user.uid;
+            firebase.database().ref('User').child(`${userId}`).set({
+                userId: userId,
+                email: res.user.email
+            })
+            pushParts(userId)
+          setTimeout(()=> props.navigation.navigate('HomeScreen',{user: true}), 1000)
       }) 
         .catch(error => console.log(error))
     }}
