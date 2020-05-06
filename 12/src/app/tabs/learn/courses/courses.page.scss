@@ -25,14 +25,9 @@ ion-content {
   background-color: var(--ion-color-primary);
   border-radius: 8px;
   display: flex;
-  height: 25%;
   flex-direction: column;
   justify-content: space-around;
   box-shadow: 0 5px 10px var(--ion-color-primary-shade);
-
-  @media (max-width: 575.99px) {
-    height: 40%;
-  }
 
   ion-text:first-child {
     @media (max-width: 575.99px) {
