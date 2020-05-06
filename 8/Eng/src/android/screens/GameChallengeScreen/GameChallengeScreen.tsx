@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text } from 'react-native'; 
-import { Header, Slider } from 'react-native-elements'; 
+import { View, Text, Dimensions } from 'react-native'; 
+import { Header } from 'react-native-elements'; 
 import { CountDown } from '../../components/CountDown'; 
 import { Back } from '../../components/Back'; 
 import firebase from 'firebase'; 
 import { random } from '../../services'; 
-import { QuestionTypeOne } from '../../components/Questions/QuestionTypeOne'; 
-import { QuestionTypeTwo } from '../../components/Questions/QuestionTypeTwo'; 
-import { QuestionTypeThree } from '../../components/Questions/QuestionTypeThree'; 
-import { QuestionTypeFour } from '../../components/Questions/QuestionTypeFour'; 
-import { AnswerTypeOne } from '../../components/Answers/AnswerTypeOne';
-import { AnswerTypeTwo } from '../../components/Answers/AnswerTypeTwo'; 
-import { AnswerTypeThree } from '../../components/Answers/AnswerTypeThree'; 
-import { AnswerTypeFour } from '../../components/Answers/AnswerTypeFour'; 
+import { QuestionContent } from '../../components/QuestionContent'; 
+import { AnswerContent } from '../../components/AnswerContent';  
 import { Activity } from '../Utils/activity';
 import { FalseResult } from '../../components/FalseResult'; 
+import { PassResult } from '../../components/PassResult'; 
+import * as Progress from 'react-native-progress';
 import styles from './styles'; 
+const WIDTH = Dimensions.get('window').width;
 
 const Game = (props: {route?: any; navigation?: any}) => {
   const { route, navigation } = props;
@@ -27,8 +24,10 @@ const Game = (props: {route?: any; navigation?: any}) => {
   const [questionNumber, setQuestionNumber] = useState(0);  
   const [nextQuestion, setNextQuestion] = useState(false); 
   const [count, setCount] = useState(0); 
-  const [timeOut, setTimeOut] = useState(false); 
+  const [failed, setFailed] = useState(false); 
+  const [passed, setPassed] = useState(false); 
   const database = firebase.database();
+  const amountOfQuestion = 10; 
 
   useEffect(() => {
     setId(lessonInfo.lessonName + random(0, 10000)); 
@@ -40,7 +39,8 @@ const Game = (props: {route?: any; navigation?: any}) => {
     }
     setCount(0); 
     setQuestionNumber(random(0, 19)); 
-    setTimeOut(false);
+    setFailed(false);
+    setPassed(false); 
   }, [lessonInfo])
 
   useEffect(() => {
@@ -78,102 +78,33 @@ const Game = (props: {route?: any; navigation?: any}) => {
   }, [nextQuestion])
 
   useEffect(() => {
-    if(timeOut) {
+    if(failed || passed) {
       setNextQuestion(false); 
     }
-  }, [timeOut])
+  }, [failed, passed])
 
-  if (contentOfQuestion.status == 'loading' || contentOfAnswer.status == 'loading') {
-    return (<Activity />)
+  useEffect(() => {
+    // set passed
+    if (count == amountOfQuestion && heart > 0) {
+      setPassed(true); 
+    }
+    else if (heart <= 0) {
+      setFailed(true); 
+    }
+  }, [count, heart])
+
+  // check failed if true => show FalseResult then teminate
+  if (failed) {
+    return (<FalseResult navigation={navigation} lessonInfo={lessonInfo}/>)
   }
-  else if (contentOfQuestion.status == 'null' || contentOfAnswer.status == 'null') {
-    return (
-      <View>
-        <Header containerStyle={styles.headerContainer}
-          leftComponent={
-            <Back
-              navigation={navigation}
-            />}
-          centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
-        />
-        <View><Text>Sorry! The data is not available.</Text></View>
-      </View>
-    )
+  else if (passed) {
+    return (<PassResult navigation={navigation} lessonInfo={lessonInfo}/>)
   }
   else {
-    if (!timeOut) {
-      let ContentQuestion; 
-      if (contentOfQuestion) {
-        if (contentOfQuestion.type == '1'){
-          ContentQuestion = <QuestionTypeOne 
-            content={contentOfQuestion} 
-            id={count}
-          />
-        }
-        else if (contentOfQuestion.type == '2') {
-          ContentQuestion = <QuestionTypeTwo 
-            content={contentOfQuestion}
-            id={count}
-          />
-        }
-        else if (contentOfQuestion.type == '3') {
-          ContentQuestion = <QuestionTypeThree 
-            content={contentOfQuestion}
-            id={count}
-          />
-        }
-        else if (contentOfQuestion.type == '4') {
-          ContentQuestion = <QuestionTypeFour 
-            content={contentOfQuestion}
-            id={count}
-          />
-        } 
-      } else {
-        ContentQuestion = (<View>
-          <Text>Waiting data ...</Text>
-        </View>)
-      }
-
-      let ContentAnswer; 
-
-      if(contentOfAnswer) {
-        if (contentOfAnswer.type == '1'){
-          ContentAnswer = <AnswerTypeOne 
-            content={contentOfAnswer} 
-            lessonInfo={lessonInfo}
-            setNextQuestion={setNextQuestion}
-            id={count}
-          />
-        }
-        else if (contentOfAnswer.type == '2') {
-          ContentAnswer = <AnswerTypeTwo 
-            content={contentOfAnswer} 
-            lessonInfo={lessonInfo}
-            setNextQuestion={setNextQuestion}
-            id={count}
-          />
-        }
-        else if (contentOfAnswer.type == '3') {
-          ContentAnswer = <AnswerTypeThree 
-            content={contentOfAnswer} 
-            lessonInfo={lessonInfo}
-            setNextQuestion={setNextQuestion}
-            id={count}
-          />
-        }
-        else if (contentOfAnswer.type == '4') {
-          ContentAnswer = <AnswerTypeFour 
-            content={contentOfAnswer} 
-            lessonInfo={lessonInfo}
-            setNextQuestion={setNextQuestion}
-            id={count}
-          />
-        }
-      } else {
-        ContentAnswer = (<View>
-          <Text>Waiting data ...</Text>
-        </View>)
-      }
+    if (contentOfQuestion.status == 'loading' || contentOfAnswer.status == 'loading') {
+      return (<Activity />)
+    }
+    else if (contentOfQuestion.status == 'null' || contentOfAnswer.status == 'null') {
       return (
         <View>
           <Header containerStyle={styles.headerContainer}
@@ -183,30 +114,44 @@ const Game = (props: {route?: any; navigation?: any}) => {
               />}
             centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
           />
-
+          <View><Text>Sorry! The data is not available.</Text></View>
+        </View>
+      )
+    }
+    else {
+      return (
+        <View>
+          <Header containerStyle={styles.headerContainer}
+            leftComponent={
+              <Back
+                navigation={navigation}
+              />}
+            centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
+          />
           <View style={styles.infoView}>
             <Text>Remain Heart: {heart}</Text>
             <CountDown 
               hours={0} 
-              minutes={0} 
+              minutes={1} 
               seconds={10} 
               id={id}
-              setTimeOut={setTimeOut}
+              setTimeOut={setFailed}
             />
+            <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} color="#ff5e00" height={8}/>
           </View>
-
           <View style={styles.puzzleView}>
-            {ContentQuestion}
-            {ContentAnswer}
+            <QuestionContent contentOfQuestion={contentOfQuestion} count={count}/>
+            <AnswerContent 
+              contentOfAnswer={contentOfAnswer} 
+              lessonInfo={lessonInfo}
+              setNextQuestion={setNextQuestion}
+              count={count}
+              heart={heart}
+              setHeart={setHeart}
+            />
           </View>
         </View>
       )
-    } else {
-      return (
-        <FalseResult 
-          navigation={navigation} 
-          lessonInfo={lessonInfo}
-        />)
     }
   }
 }

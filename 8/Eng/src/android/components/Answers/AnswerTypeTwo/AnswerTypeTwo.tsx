@@ -7,8 +7,10 @@ import Sound from 'react-native-sound';
 import layout from '../../../constants/layout'; 
 const HEIGHT = layout.window.height;
 
-const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
-  const { content, lessonInfo, setNextQuestion, id } = props; 
+const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any;
+   setNextQuestion?: any; id?: any; heart?: any; setHeart?: any }) => {
+
+  const { content, lessonInfo, setNextQuestion, id, heart, setHeart } = props; 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
@@ -27,6 +29,7 @@ const AnswerTypeTwo = (props: { content?: any; lessonInfo?: any; setNextQuestion
         setBackgroundColor('blue')
       } else {
         setBackgroundColor('red')
+        setHeart(heart-1)
       }
       // speaker
       const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
