@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "3000_tu_vung",
+    "slug": "3000_tu_vung",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/icon_app.png",
+    "splash": {
+      "image": "./assets/img/icon_app.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "packagerOpts": {
+      "assetExts": "./assets/data/dict_hh.db"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "description": ""
+  }
+}
