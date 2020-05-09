@@ -5,6 +5,7 @@ import {
   View
 } from 'react-native';
 import KanjiTest from '../components/KanjiTest';
+import ProgressComponent from '../components/ProgressComponent';
 
 export default class KanjiTests extends React.Component {
   static navigationOptions = () => ({
@@ -25,7 +26,20 @@ export default class KanjiTests extends React.Component {
       <View style={styles.container}>
         <View style={styles.top}>
           <Text>Câu hỏi 1/10</Text>
-          <View style={styles.BarCount} />
+          <View style={{ width: '80%' }}>
+            <ProgressComponent propsStyle={{
+              bar: {
+                height: 10,
+                backgroundColor: 'rgb(0, 98, 101)',
+              },
+              progress: {
+                width: `${10}%`,
+                height: 10,
+                backgroundColor: '#fff',
+              }
+            }}
+            />
+          </View>
         </View>
         <View style={styles.Word}>
           <Text style={styles.WordRandom}>モン</Text>
@@ -43,7 +57,6 @@ export default class KanjiTests extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
     alignItems: 'center',
   },
   content: {

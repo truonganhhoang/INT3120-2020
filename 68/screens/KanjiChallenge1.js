@@ -5,6 +5,8 @@ import {
   View,
 } from 'react-native';
 import KanjiChallenge from '../components/KanjiChallenge';
+import ProgressComponent from '../components/ProgressComponent';
+
 
 
 export default class KanjiChallenge1 extends React.Component {
@@ -25,7 +27,20 @@ export default class KanjiChallenge1 extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.top}>
-          <View style={styles.BarCount} />
+          <View style={{ width: '80%' }}>
+            <ProgressComponent propsStyle={{
+              bar: {
+                height: 10,
+                backgroundColor: 'rgb(0, 98, 101)',
+              },
+              progress: {
+                width: `${10}%`,
+                height: 10,
+                backgroundColor: '#fff',
+              }
+            }}
+            />
+          </View>
         </View>
         <View style={styles.Word}>
           <Text style={styles.WordRandom}>Học</Text>

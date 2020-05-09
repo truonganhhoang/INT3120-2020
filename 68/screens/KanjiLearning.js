@@ -1,18 +1,16 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import loadBar from '../assets/loading.png';
-import persen from '../assets/percentage.png';
 import menu from '../assets/menu.png';
 import flashcard from '../assets/wallet.png';
 import test from '../assets/test.png';
 import challenge1 from '../assets/mission.png';
 import challenge2 from '../assets/top.png';
 import KanjiLearn from '../components/KanjiLearn';
+import ProgressComponent from '../components/ProgressComponent';
 
 export default class KanjiLearning extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -44,25 +42,26 @@ export default class KanjiLearning extends React.Component {
     const { images } = this.state;
     const { navigation } = this.props;
     const groupKanji = navigation.getParam('kanjiGroup');
-
     return (
       <View>
         <View style={styles.persen}>
-          <Text style={styles.number}>90</Text>
-          <Image source={persen} style={styles.ImagePersen} />
-        </View>
-        <View>
-          <Image source={loadBar} style={styles.loadBar} />
+          <View style={{ width: '80%', marginTop: 20 }}>
+            <ProgressComponent propsStyle={{
+              bar: {
+                height: 10,
+                backgroundColor: 'rgb(0, 98, 101)',
+              },
+              progress: {
+                width: `${90}%`,
+                height: 10,
+                backgroundColor: '#fff',
+              }
+            }}
+            />
+          </View>
+          <Text style={styles.number}>90%</Text>
         </View>
         <View style={styles.container}>
-          {/* <FlatList
-            data={images}
-            renderItem = {({item}) => <KanjiLearn image={item}
-            onPress={()=> navigation.navigate('KanjiGroupDetail',{kanjiList : groupKanji.item.kanjiList})}/>}
-            keyExtractor= {item => `${item.id}`}
-            contentContainerStyle={styles.container}
-          />
-          */}
           <KanjiLearn image={images[0]} onPress={() => navigation.navigate('KanjiGroupDetail', { kanjiList: groupKanji.item.kanjiList })} />
           <KanjiLearn image={images[1]} onPress={() => navigation.navigate('KanjiFlashCards')} />
           <KanjiLearn image={images[2]} onPress={() => navigation.navigate('KanjiTests')} />
@@ -84,12 +83,13 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   persen: {
-    flexDirection: 'row',
-    justifyContent: 'center'
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   number: {
     marginRight: 2,
-    marginTop: 21,
+    marginTop: 10,
     color: '#006265',
     fontSize: 16
   },
