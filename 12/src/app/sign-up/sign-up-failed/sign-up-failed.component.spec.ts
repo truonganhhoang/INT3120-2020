@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { environment } from '../../../environments/environment';
 import { IonicModule } from '@ionic/angular';
 
 import { SignUpFailedComponent } from './sign-up-failed.component';
@@ -10,7 +15,8 @@ describe('SignUpFailedComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SignUpFailedComponent],
-      imports: [IonicModule]
+      imports: [IonicModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireAuthModule],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignUpFailedComponent);

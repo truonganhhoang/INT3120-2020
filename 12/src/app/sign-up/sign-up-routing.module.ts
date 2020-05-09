@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SignUpPage } from './sign-up.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: SignUpPage

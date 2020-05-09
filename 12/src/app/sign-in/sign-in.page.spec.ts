@@ -1,7 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormBuilder } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { IonicModule } from '@ionic/angular';
 
+import { environment } from '../../environments/environment';
 import { SignInPage } from './sign-in.page';
+import { routes } from './sign-in-routing.module';
 
 describe('SignInPage', () => {
   let component: SignInPage;
@@ -10,7 +18,14 @@ describe('SignInPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SignInPage],
-      imports: [IonicModule]
+      imports: [
+        IonicModule,
+        RouterTestingModule.withRoutes(routes),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        MatDialogModule
+      ],
+      providers: [FormBuilder, Facebook, { provide: MAT_DIALOG_DATA, useValue: {} }]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignInPage);

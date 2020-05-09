@@ -39,8 +39,7 @@ export class SignUpPage implements OnDestroy {
     private router: Router,
     private dialog: MatDialog,
     private signUpService: SignUpService,
-    private signInService: SignInService,
-    private userService: UserService
+    private signInService: SignInService
   ) {}
 
   ngOnDestroy() {
