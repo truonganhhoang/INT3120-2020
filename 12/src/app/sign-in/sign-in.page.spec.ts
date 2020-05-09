@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -24,7 +24,9 @@ describe('SignInPage', () => {
         RouterTestingModule.withRoutes(routes),
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
-        MatDialogModule
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [FormBuilder, Facebook, { provide: MAT_DIALOG_DATA, useValue: {} }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

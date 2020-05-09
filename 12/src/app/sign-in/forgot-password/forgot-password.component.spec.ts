@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Facebook } from '@ionic-native/facebook/ngx';
@@ -16,13 +16,14 @@ describe('ForgotPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ForgotPasswordComponent],
+      declarations: [ForgotPasswordComponent, MatDialogClose],
       imports: [
         IonicModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         MatDialogModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [Facebook, MatDialogRef],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

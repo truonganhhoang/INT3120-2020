@@ -4,7 +4,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { IonicModule } from '@ionic/angular';
 
@@ -23,7 +23,9 @@ describe('SetPasswordForFacebookProviderComponent', () => {
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         AngularFireFunctionsModule,
-        AngularFireStorageModule
+        AngularFireStorageModule,
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [FormBuilder, Facebook],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
