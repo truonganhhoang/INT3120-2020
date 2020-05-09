@@ -85,7 +85,7 @@ export default class Translate extends React.Component {
           />
         </View>
 
-      <View style={{marginTop: 20}}>
+      <View>
           <View style={styles().label}>
             <Text style={styles().textLabel}>{this.state.outputLabel}</Text>
           </View>
