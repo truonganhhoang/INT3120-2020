@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { WeekComponent } from './week.component';
+import { CourseOverviewWeekComponent } from './week.component';
 
 describe('WeekComponent', () => {
-  let component: WeekComponent;
-  let fixture: ComponentFixture<WeekComponent>;
+  let component: CourseOverviewWeekComponent;
+  let fixture: ComponentFixture<CourseOverviewWeekComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WeekComponent],
+      declarations: [CourseOverviewWeekComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WeekComponent);
+    fixture = TestBed.createComponent(CourseOverviewWeekComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

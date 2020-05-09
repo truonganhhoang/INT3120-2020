@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { TopicPage } from './topic.page';
+import { TopicPageRoutingModule } from './topic-routing.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 describe('TopicPage', () => {
   let component: TopicPage;
@@ -10,7 +13,7 @@ describe('TopicPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TopicPage],
-      imports: [IonicModule.forRoot()]
+      imports: [CommonModule, FormsModule, IonicModule.forRoot(), TopicPageRoutingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopicPage);
