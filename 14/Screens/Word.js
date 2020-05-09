@@ -86,7 +86,7 @@ export default class Word extends React.Component{
       else if (selectedIndex == 1){
         return <Words type='favorite'/>
       } else if (selectedIndex == 2){
-        return <View><Words type='remind'/></View>
+        return <Words type='remind'/>
       }
     }
 

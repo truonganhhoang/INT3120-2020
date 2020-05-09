@@ -22,6 +22,12 @@ export default class Words extends React.Component {
     // db.clearAllWords();
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (this.props.type != nextProps.type) {
+      this.setState({ data: db.getTaggedWord(this, nextProps.type) });
+    }
+  }
+
   keyExtractor = (item, index) => index.toString()
   showWordExample = word => {
     Alert.alert(word.eng, word.example, [{text: 'Đã xem'}]);
@@ -136,25 +142,31 @@ export default class Words extends React.Component {
     </View>
   );
   render(){
-    if (this.state.data != undefined){
-      this.color = PickColor(global.darkmode);
-      return (
-        <View>
-          <SwipeListView
-            style={styles(this.props.type).swipeListView}
-            keyExtractor={this.keyExtractor}
-            contentContainerStyle={{paddingBottom: 10}}
-            data={this.state.data}
-            renderItem={this.renderItem}
-            renderHiddenItem={this.renderHiddenItem}
-            leftOpenValue={0}
-            rightOpenValue={-160}
-            disableRightSwipe={true}
-            refreshing={true}
-          />
-          <SwipeListView />
-        </View>
-      )
+    if (this.state.data){
+      if (this.state.data.length > 0) {
+        this.color = PickColor(global.darkmode);
+        return (
+          <View>
+            <SwipeListView
+              style={styles(this.props.type).swipeListView}
+              keyExtractor={this.keyExtractor}
+              contentContainerStyle={{paddingBottom: 10}}
+              data={this.state.data}
+              renderItem={this.renderItem}
+              renderHiddenItem={this.renderHiddenItem}
+              leftOpenValue={0}
+              rightOpenValue={-160}
+              disableRightSwipe={true}
+              refreshing={true}
+            />
+            <SwipeListView />
+          </View>
+        )
+      } else {
+        return(
+          <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}><Text style={{fontSize: 21, color: 'gray'}}>Trống</Text></View>
+        )
+      }
     }else{
       return(
         <View></View>
