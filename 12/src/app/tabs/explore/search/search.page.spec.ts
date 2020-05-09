@@ -10,7 +10,7 @@ describe('SearchPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchPage);

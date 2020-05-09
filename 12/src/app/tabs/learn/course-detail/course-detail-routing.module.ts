@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CourseDetailPage } from './course-detail.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: CourseDetailPage,
@@ -22,7 +22,8 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'overview'
+        redirectTo: 'overview',
+        pathMatch: 'full'
       }
     ]
   }

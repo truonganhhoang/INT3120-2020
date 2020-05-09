@@ -10,7 +10,7 @@ describe('MyRecommendedListPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MyRecommendedListPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MyRecommendedListPage);

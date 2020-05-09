@@ -13,7 +13,7 @@ describe('TopicPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TopicPage],
-      imports: [CommonModule, FormsModule, IonicModule.forRoot(), TopicPageRoutingModule]
+      imports: [CommonModule, FormsModule, IonicModule, TopicPageRoutingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopicPage);

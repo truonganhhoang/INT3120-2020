@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { UrlSerializer } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CourseLessonContentComponent } from './lesson-content.component';
@@ -10,7 +11,8 @@ describe('CourseLessonContentComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CourseLessonContentComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule],
+      providers: [UrlSerializer]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseLessonContentComponent);

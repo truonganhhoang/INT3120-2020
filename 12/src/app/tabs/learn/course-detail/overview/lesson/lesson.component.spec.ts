@@ -10,7 +10,7 @@ describe('CourseOverviewLessonComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CourseOverviewLessonComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseOverviewLessonComponent);

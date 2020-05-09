@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SetPasswordForFacebookProviderComponent } from './facebook-provider.component';
@@ -10,7 +11,8 @@ describe('SetPasswordForFacebookProviderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SetPasswordForFacebookProviderComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule],
+      providers: [FormBuilder]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SetPasswordForFacebookProviderComponent);

@@ -266,3 +266,7 @@ ionic g page profile -f
 
 - Thêm UI:
   - `/tabs/recommended`
+
+# 2019-05-09
+
+- Chỉnh sửa các test suite.

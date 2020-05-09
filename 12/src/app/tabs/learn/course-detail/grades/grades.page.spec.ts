@@ -10,7 +10,7 @@ describe('GradesPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GradesPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(GradesPage);

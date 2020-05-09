@@ -10,7 +10,7 @@ describe('SignUpFailedComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SignUpFailedComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignUpFailedComponent);

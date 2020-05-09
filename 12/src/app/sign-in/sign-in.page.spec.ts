@@ -10,7 +10,7 @@ describe('SignInPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SignInPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignInPage);

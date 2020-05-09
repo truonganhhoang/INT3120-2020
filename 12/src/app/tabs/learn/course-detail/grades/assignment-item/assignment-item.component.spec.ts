@@ -10,7 +10,7 @@ describe('AssignmentItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AssignmentItemComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AssignmentItemComponent);

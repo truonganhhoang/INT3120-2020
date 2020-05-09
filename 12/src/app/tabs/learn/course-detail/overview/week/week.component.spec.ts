@@ -3,14 +3,14 @@ import { IonicModule } from '@ionic/angular';
 
 import { CourseOverviewWeekComponent } from './week.component';
 
-describe('WeekComponent', () => {
+describe('CourseOverviewWeekComponent', () => {
   let component: CourseOverviewWeekComponent;
   let fixture: ComponentFixture<CourseOverviewWeekComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CourseOverviewWeekComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseOverviewWeekComponent);
