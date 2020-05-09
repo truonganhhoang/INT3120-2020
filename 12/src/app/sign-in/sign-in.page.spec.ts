@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormBuilder } from '@angular/forms';
@@ -25,7 +26,8 @@ describe('SignInPage', () => {
         AngularFireAuthModule,
         MatDialogModule
       ],
-      providers: [FormBuilder, Facebook, { provide: MAT_DIALOG_DATA, useValue: {} }]
+      providers: [FormBuilder, Facebook, { provide: MAT_DIALOG_DATA, useValue: {} }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignInPage);

@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -8,7 +9,6 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 import { IonicModule } from '@ionic/angular';
 
 import { environment } from '../../../../../../environments/environment';
-
 import { SetPasswordForFacebookProviderComponent } from './facebook-provider.component';
 
 describe('SetPasswordForFacebookProviderComponent', () => {
@@ -25,7 +25,8 @@ describe('SetPasswordForFacebookProviderComponent', () => {
         AngularFireFunctionsModule,
         AngularFireStorageModule
       ],
-      providers: [FormBuilder, Facebook]
+      providers: [FormBuilder, Facebook],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SetPasswordForFacebookProviderComponent);

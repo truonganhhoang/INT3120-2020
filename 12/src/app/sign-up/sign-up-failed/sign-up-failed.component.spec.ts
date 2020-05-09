@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFireModule } from '@angular/fire';
@@ -16,7 +17,8 @@ describe('SignUpFailedComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SignUpFailedComponent],
       imports: [IonicModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireAuthModule],
-      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignUpFailedComponent);

@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IonicModule } from '@ionic/angular';
@@ -12,7 +13,8 @@ describe('SignInFailedComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SignInFailedComponent],
       imports: [IonicModule, MatDialogModule],
-      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignInFailedComponent);

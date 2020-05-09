@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { IonicModule } from '@ionic/angular';
@@ -12,7 +13,8 @@ describe('OverviewPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [OverviewPage],
-      imports: [IonicModule, RouterTestingModule.withRoutes(routes)]
+      imports: [IonicModule, RouterTestingModule.withRoutes(routes)],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(OverviewPage);
