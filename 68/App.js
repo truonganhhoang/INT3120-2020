@@ -1,39 +1,28 @@
 import React from 'react';
-import { 
-  StyleSheet,YellowBox
+import {
+  YellowBox
 } from 'react-native';
 import {
   createAppContainer
 } from 'react-navigation';
+import { decode, encode } from 'base-64';
 import AppNavigator from './AppNavigator';
-import {decode, encode} from 'base-64'
+import AddData from './screens/Adddata';
 
-if (!global.btoa) {  global.btoa = encode }
+if (!global.btoa) { global.btoa = encode; }
 
-if (!global.atob) { global.atob = decode }
+if (!global.atob) { global.atob = decode; }
 
-const AppContainer  =  createAppContainer(AppNavigator);
-import firebase from './config/firebase';
-export default class App extends React.Component {
-  
-  render(){
-  
-YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
-    //return(<AddData/>)
+const AppContainer = createAppContainer(AppNavigator);
+// eslint-disable-next-line react/prefer-stateless-function
+class App extends React.Component {
+  render() {
+    YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
+    //return (<AddData />);
     return (
-      <AppContainer/>
+      <AppContainer />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'stretch',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-end',
-    paddingLeft: 16,
-    paddingRight: 16,
-    marginBottom: 40
-  },
-});
+export default App;

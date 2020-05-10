@@ -52,12 +52,12 @@ class DetailsScreen extends React.Component {
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                   {
-                                kun.map((kunItem, index) => (
-                                  <View key={index.toString()}>
-                                    <Text style={styles.styleLabel}>{kunItem}</Text>
-                                  </View>
-                                ))
-                            }
+                    kun.map((kunItem, index) => (
+                      <View key={index.toString()}>
+                        <Text style={styles.styleLabel}>{kunItem}</Text>
+                      </View>
+                    ))
+                  }
 
                 </View>
               </View>
@@ -67,12 +67,12 @@ class DetailsScreen extends React.Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                   {
-                            on.map((onItem, index) => (
-                              <View key={index.toString()}>
-                                <Text style={styles.styleLabel}>{onItem}</Text>
-                              </View>
-                            ))
-                        }
+                    on.map((onItem, index) => (
+                      <View key={index.toString()}>
+                        <Text style={styles.styleLabel}>{onItem}</Text>
+                      </View>
+                    ))
+                  }
 
                 </View>
               </View>

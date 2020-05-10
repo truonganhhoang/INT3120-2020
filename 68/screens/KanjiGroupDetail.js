@@ -26,13 +26,19 @@ export default class KanjiGroupDetail extends React.Component {
   render() {
     const { navigation } = this.props;
     const kanjiList = navigation.getParam('kanjiList');
+    console.log(kanjiList);
 
     return (
       <ScrollView>
         <View style={styles.listItem}>
-
           {
-            kanjiList.map((kanjiItem) => <KanjiCard kanjiText={kanjiItem.kanji} />)
+            kanjiList.map((kanjiItem, i) => (
+              <KanjiCard
+                key={i.toString()}
+                hantu={kanjiItem.hantu}
+                kanjiText={kanjiItem.kanji}
+              />
+            ))
           }
         </View>
       </ScrollView>

@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   StyleSheet,
@@ -20,12 +23,38 @@ export default class KanjiTests extends React.Component {
     },
   });
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      questionIndex: 0,
+      indexRan: 0,
+    };
+  }
+
+  nextQuestion = () => {
+    const { questionIndex } = this.state;
+    this.setState({
+      questionIndex: (questionIndex + 1) % this.answers.length,
+      indexRan: Math.floor(Math.random() * 4)
+    });
+  }
+
   render() {
-    // const kanjiList = this.props.navigation.getParam('kanjiList')
+    const { questionIndex } = this.state;
+    const { indexRan } = this.state;
+    // eslint-disable-next-line react/destructuring-assignment
+    const kanjiList = this.props.navigation.getParam('kanjiList');
+    this.answers = kanjiList.map((kanji) => kanji.kanji);
+    this.question = kanjiList.map((kanji) => kanji.kun[0]);
     return (
       <View style={styles.container}>
         <View style={styles.top}>
-          <Text>Câu hỏi 1/10</Text>
+          <Text>
+            Câu hỏi
+            {` ${(questionIndex + 1).toString()}`}
+            /
+            {`${this.answers.length}`}
+          </Text>
           <View style={{ width: '80%' }}>
             <ProgressComponent propsStyle={{
               bar: {
@@ -33,7 +62,7 @@ export default class KanjiTests extends React.Component {
                 backgroundColor: 'rgb(0, 98, 101)',
               },
               progress: {
-                width: `${10}%`,
+                width: `${questionIndex / this.questions * 100}%`,
                 height: 10,
                 backgroundColor: '#fff',
               }
@@ -42,13 +71,29 @@ export default class KanjiTests extends React.Component {
           </View>
         </View>
         <View style={styles.Word}>
-          <Text style={styles.WordRandom}>モン</Text>
+          <Text style={styles.WordRandom}>{this.question ? this.question[this.state.questionIndex] : ''}</Text>
         </View>
         <View style={styles.content}>
-          <KanjiTest />
-          <KanjiTest />
-          <KanjiTest />
-          <KanjiTest />
+          <KanjiTest
+            text={this.answers[(questionIndex + indexRan) % this.answers.length]}
+            isAnswer={indexRan === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 1) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 1) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 2) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 2) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 3) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 3) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
         </View>
       </View>
     );

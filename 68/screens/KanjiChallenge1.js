@@ -7,8 +7,6 @@ import {
 import KanjiChallenge from '../components/KanjiChallenge';
 import ProgressComponent from '../components/ProgressComponent';
 
-
-
 export default class KanjiChallenge1 extends React.Component {
   static navigationOptions = () => ({
     title: 'Kanji cơ bản 1',

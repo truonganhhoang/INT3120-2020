@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,11 +6,21 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function KanjiTest() {
+export default function KanjiTest({ isAnswer, text, nextQuestion }) {
+  const [answerStatus, setAnswerStatus] = useState('default');
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <Text style={styles.text}>習</Text>
+    <TouchableOpacity onPress={() => {
+      setAnswerStatus(isAnswer ? ('answerTrue') : ('answerFalse'));
+      setTimeout(() => {
+        if (isAnswer) {
+          nextQuestion();
+        }
+        setAnswerStatus('default');
+      }, 700);
+    }}
+    >
+      <View style={{ ...styles.container, ...styles[answerStatus] }}>
+        <Text style={(answerStatus === 'answerTrue' ? styles.textAnswerTrue : styles.text)}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -25,6 +35,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 3,
     elevation: 2
+  },
+  default: {
+    backgroundColor: 'white',
+  },
+  answerTrue: {
+    backgroundColor: '#006265',
+  },
+  answerFalse: {
+    backgroundColor: 'red',
+  },
+  textAnswerTrue: {
+    color: 'white',
+    fontSize: 35,
   },
   text: {
     color: '#006265',
