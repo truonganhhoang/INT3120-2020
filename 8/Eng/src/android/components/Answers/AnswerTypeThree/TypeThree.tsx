@@ -6,8 +6,10 @@ import styles from './styles';
 import Sound from 'react-native-sound';
 const WIDTH = Dimensions.get('window').width;
 
-const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
-  const { content, lessonInfo, setNextQuestion, id } = props;
+const TypeThree = (props: { content?: any; lessonInfo?: any;
+   setNextQuestion?: any; id?: any; heart?: any; setHeart?: any }) => {
+
+  const { content, lessonInfo, setNextQuestion, id, heart, setHeart } = props;
   const database = firebase.database();
   const result = database.ref('/topic_detail/' +
     lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
@@ -64,6 +66,7 @@ const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: a
         } else if (snapshot.val().text == "d") {
           setColorAnswerD('#81C784')
         }
+        setHeart(heart-1)
       }
       setDisabled(true);
       const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {

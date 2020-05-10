@@ -5,8 +5,10 @@ import { ListCharacterInput } from '../../../components/ListCharacterInput';
 import firebase from 'firebase'; 
 import Sound from 'react-native-sound'; 
 
-const TypeFour = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
-  const { content, lessonInfo, setNextQuestion, id } = props; 
+const TypeFour = (props: { content?: any; lessonInfo?: any; 
+  setNextQuestion?: any; id?: any; setHeart?: any; heart?: any}) => {
+
+  const { content, lessonInfo, setNextQuestion, id, setHeart, heart } = props; 
   const [listCharShow, setListCharShow] = useState([""]); 
   const [colorListChar, setColorListChar] = useState('yellow'); 
   const [disabledListChar, setDisabledListChar] = useState(false); 
@@ -46,6 +48,7 @@ const TypeFour = (props: { content?: any; lessonInfo?: any; setNextQuestion?: an
         } else {
           console.log('False')
           setColorListChar('red')
+          setHeart(heart-1)
         }
         setDisabledListChar(true)
         const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {

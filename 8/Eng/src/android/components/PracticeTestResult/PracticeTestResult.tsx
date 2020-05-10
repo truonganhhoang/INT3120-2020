@@ -5,7 +5,9 @@ import styles from './styles';
 
 const Result = (props: { content?: any; navigation?: any }) => {
   const { content, navigation } = props;
-  const percent = Math.round(content.correct / (content.incorrect + content.correct) * 100);
+  const correct = content.correct.amountOfTrue; 
+  const incorrect = content.amountOfQuestion.amountOfQuestion - correct; 
+  const percent = Math.round(correct / (incorrect + correct) * 100);
   const retest = () => {
     navigation.navigate('PracticeTestScreen', { topicName: content.topicName, lessonName: content.lessonName });
   }
@@ -19,10 +21,10 @@ const Result = (props: { content?: any; navigation?: any }) => {
       </View>
       <View style={styles.viewInfo}>
         <View style={styles.viewChildInfo}>
-          <Text style={styles.textInfo}>ĐÚNG: {content.correct}</Text>
+          <Text style={styles.textInfo}>ĐÚNG: {correct}</Text>
         </View>
         <View style={styles.viewChildInfo}>
-          <Text style={styles.textInfo}>SAI: {content.incorrect}</Text>
+          <Text style={styles.textInfo}>SAI: {incorrect}</Text>
         </View>
       </View>
       <View style={styles.viewButtons}>

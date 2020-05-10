@@ -7,8 +7,9 @@ import timer from '../../../constants/timer';
 import layout from '../../../constants/layout'; 
 const HEIGHT = layout.window.height;
 
-const TypeOne = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
-  const { content, lessonInfo, setNextQuestion, id } = props; 
+const TypeOne = (props: { content?: any; lessonInfo?: any; 
+  setNextQuestion?: any; id?: any; heart?: any; setHeart?: any }) => {
+  const { content, lessonInfo, setNextQuestion, id, heart, setHeart } = props; 
   const database = firebase.database(); 
   const result = database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
@@ -35,6 +36,7 @@ const TypeOne = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any
         console.log('False'); 
         setStyleButtonB({color: '#43a047', disabled: true}); 
         setStyleButtonA({color: '#f44336', disabled: true}); 
+        setHeart(heart-1)
       }
       setTimeout(() => {
         setNextQuestion(true);
@@ -52,6 +54,7 @@ const TypeOne = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any
         console.log('False'); 
         setStyleButtonA({color: '#43a047', disabled: true});
         setStyleButtonB({color: '#f44336', disabled: true}); 
+        setHeart(heart-1)
       }
       setTimeout(() => {
         setNextQuestion(true);
