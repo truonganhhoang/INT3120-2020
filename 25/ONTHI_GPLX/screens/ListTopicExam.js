@@ -16,7 +16,6 @@ const ListTopicExam = (props) => {
     const { navigation,route } = props;
     const { itemId,mainId } = route.params;
 
-    // const [state, setState] = useState(data); 
 
     return (
         <Container style={styles.container}>

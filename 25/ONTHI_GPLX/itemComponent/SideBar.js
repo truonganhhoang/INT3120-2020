@@ -12,7 +12,7 @@ import {
 import {styles} from '../Component/Style';
 import {color} from '../Component/color';
 
-
+// component cửa sổ danh sách câu hỏi trong bài thi
 const SideBar = (props) => {
     const {data} = props;
     return (

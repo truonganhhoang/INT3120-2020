@@ -14,16 +14,23 @@ import {
     Drawer,
 } from 'native-base';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { color } from '../Component/color';
 import { styles } from '../Component/Style.js';
 import InitQuestion from '../itemComponent/InitQuestion';
 import SideBar from '../itemComponent/SideBar';
+import Clock from '../itemComponent/Clock';
+import ModalEndExam from '../itemComponent/ModalEndExam';
+// import modalReducer from '../reactRedux/modalReducer';
+
+
 
 const initExam = (props) => {
     const { navigation, route } = props;
     const { mainId,itemId,positionExam } = route.params;
-
-    // const [userAnswers, setUserAnswer] = useState();
+    const isVisiable = useSelector(state => ({...state.modalReducer}));
+    console.log(isVisiable);
     const [drawer, setDrawer] = useState();
 
     const closeDrawer = () => {
@@ -33,6 +40,14 @@ const initExam = (props) => {
         drawer._root.open();
     };
 
+    const dispatch = useDispatch();
+
+    function openModal() {
+        dispatch({
+            type: "OPEN_MODAL"
+        })
+    }
+    
     return (
         <Drawer 
         ref={(ref) => setDrawer(ref)} 
@@ -52,10 +67,14 @@ const initExam = (props) => {
                         <Title>Đề thi số {positionExam}</Title>
                     </Body>
                     <Right >
-                        <Button success bordered style={{alignItems: 'center'}}>
-                            <FontAwesome5Icon name="check" 
+                        <Clock />
+                        <Button success transparent 
+                        onPress = {() => openModal}
+                        style={{alignItems: 'center'}}>
+                            <FontAwesome5Icon name="check-double" 
                             style={{fontSize: 20, color: color.textButton}} solid/>
-                            <Text style={{color: color.textButton}}>Nộp bài</Text>
+                            {/* <Text style={{color: color.textButton}}>Nộp bài</Text> */}
+                        
                         </Button>
                     </Right>
                 </Header>
@@ -77,6 +96,7 @@ const initExam = (props) => {
                         })
                     }
                 </Tabs>
+                <ModalEndExam setVisiable ={isVisiable} />
             </Container>
             
         </Drawer>

@@ -18,41 +18,44 @@ const ListComponent = (props) => {
     const onPress = (key_id) => {
         const { navigation, route } = props;
         const { mainId } = route.params;
-        if (key_id == 1) {
+        if (key_id == "randomExam") {
             alert(key_id);
         }
-        if (key_id == 2) {
+        if (key_id == "ListExam") {
             navigation.navigate("ListTopicExam", {
                 itemId: key_id,
                 mainId: mainId
             });
         }
-        if (key_id == 3) {
+        if (key_id == "CheckFalseQuestion") {
             alert(key_id);
         }
-        if (key_id == 4) {
+        if (key_id == "ReviewQuestion") {
             alert(key_id);
         }
-        if (key_id == 5) {
+        if (key_id == "TrafficSigns") {
             navigation.navigate("ListTrafficSigns", {
                 itemId: key_id,
                 mainId: mainId
             });
 
         }
-        if (key_id == 6) {
+        if (key_id == "TipRemembers") {
+            navigation.navigate("TipRemember", {
+                itemId: key_id,
+                mainId: mainId
+            });
+        }
+        if (key_id == "PracticeExam") {
             alert(key_id);
         }
-        if (key_id == 7) {
-            alert(key_id);
-        }
-        if (key_id == 8) {
+        if (key_id == "Top50Fail") {
             alert(key_id);
         }
     }
     const { route, navigation } = props;
     const { mainId } = route.params;
-    // const height = Dimensions.get('window').height / 6;
+
     return (
         <Container style={styles.container}>
             <Header style={styles.header}>
@@ -73,9 +76,9 @@ const ListComponent = (props) => {
             <Grid style={styles.body}>
                 <Col style={{ marginRight: 10 }}>
                     {
-                        Card_item.map((item) => {
+                        Card_item.map((item, index) => {
                             const key_id = item.key_id;
-                            if (key_id % 2 == 1) {
+                            if (index % 2 == 0) {
 
                                 return (
                                     <TouchableOpacity
@@ -94,9 +97,9 @@ const ListComponent = (props) => {
                 </Col>
                 <Col>
                     {
-                        Card_item.map((item) => {
+                        Card_item.map((item, index) => {
                             const key_id = item.key_id;
-                            if (key_id % 2 == 0) {
+                            if (index % 2 == 1) {
 
                                 return (
                                     <TouchableOpacity
