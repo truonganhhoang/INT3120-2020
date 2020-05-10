@@ -4,7 +4,7 @@ import {
   View,
   Dimensions,
   SafeAreaView,
-  Image
+  Image,
 } from "react-native";
 import Text from "../../sharedComponents/Text";
 import Swiper from "react-native-swiper";
@@ -18,10 +18,10 @@ const data = [
   appImages.sa_hinh,
   appImages.lt_a1,
   appImages.de_thi_thu_a1,
-  appImages.luat_giao_thong
+  appImages.luat_giao_thong,
 ];
 
-export default function() {
+export default function () {
   return (
     <Swiper
       autoplay={true}
@@ -31,11 +31,11 @@ export default function() {
       activeDotStyle={{ marginBottom: 7 }}
       paginationStyle={{
         bottom: 0,
-        alignItems: "flex-end"
+        alignItems: "flex-end",
       }}
     >
       {data.map((item, index, items) => (
-        <View style={styles.swiperItem}>
+        <View style={styles.swiperItem} key={index}>
           <Image
             source={item.image}
             style={{ width: "100%", height: "100%" }}
@@ -47,7 +47,7 @@ export default function() {
               bottom: 0,
               height: 50,
               backgroundColor: "rgba(0,0,0,0.5)",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <Text style={styles.swipperTitle}>{item.title}</Text>
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   container: { height: SCREEN_HEIGHT / 3 },
   swiperItem: {
     height: SCREEN_HEIGHT / 3,
-    alignItems: "center"
+    alignItems: "center",
   },
   swipperTitle: {
     color: "white",
     fontWeight: "bold",
     position: "absolute",
-    bottom: 20
-  }
+    bottom: 20,
+  },
 });

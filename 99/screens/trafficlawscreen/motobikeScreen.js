@@ -1,18 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import { render } from "react-dom";
 import appIcons from "../../constants/appIcons";
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default function MotobikeScreen() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={styles.item}>
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => navigation.navigate("LawDetail")}
+      >
         <Image style={{ width: 64, height: 64 }} source={appIcons.hieulenh} />
         <Text style={styles.text}>Hiệu lệnh, chỉ dẫn</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.item}>
         <Image
           style={{ width: 64, height: 64 }}
