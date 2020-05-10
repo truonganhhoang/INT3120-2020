@@ -29,7 +29,7 @@ const PassResult = (props: { navigation?: any, lessonInfo?: any, id?: any }) => 
       <View style={styles.container}>
         <Text style={styles.title}>HOÀN THÀNH</Text>
         <Text style={styles.comment}>Chúc mừng bạn đã vượt qua thử thách này.</Text>
-        <Text style={[styles.comment,{marginBottom:10}]}>thử lại nào</Text>
+        {/* <Text style={[styles.comment,{marginBottom:10}]}>thử lại nào</Text> */}
         <Button 
         buttonStyle={styles.button}
           title='THỬ LẠI'
