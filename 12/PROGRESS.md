@@ -271,3 +271,7 @@ ionic g page profile -f
 
 - Chỉnh sửa các test suite cho một số component.
 - Chỉnh sửa test suite cho các service.
+
+# 2019-05-10
+
+- Chỉnh sửa xong tất cả các test suite.
