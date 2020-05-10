@@ -5,6 +5,7 @@ import {
   View
 } from 'react-native';
 import KanjiTest from '../components/KanjiTest';
+import ProgressCount from '../components/ProgressCount'
 
 export default class KanjiTests extends React.Component {
   static navigationOptions = () => ({
@@ -25,7 +26,8 @@ export default class KanjiTests extends React.Component {
       <View style={styles.container}>
         <View style={styles.top}>
           <Text>Câu hỏi 1/10</Text>
-          <View style={styles.BarCount} />
+          <View />
+          <ProgressCount/>
         </View>
         <View style={styles.Word}>
           <Text style={styles.WordRandom}>モン</Text>
