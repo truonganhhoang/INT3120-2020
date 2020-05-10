@@ -1,13 +1,35 @@
 /*This is an Example to Hide/Show View  Component in React Native on button Click*/
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { TouchableHighlight, FlatList } from 'react-native-gesture-handler';
+
+var data1 = [
+  {
+    header:
+      'Phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại là gì',
+    answer: [
+      {
+        content: 'Phần mặt đường và lề đường',
+        value: true,
+      },
+      {
+        content: 'Phần đường xe chạy',
+        value: true,
+      },
+      {
+        content: 'Phần đường xe cơ giới',
+        value: false,
+      },
+    ],
+  },
+];
 
 export default class Hide extends Component {
   constructor() {
     super();
     this.state = {
       show: true,
+      show1: true,
     };
   }
 
@@ -18,34 +40,48 @@ export default class Hide extends Component {
       this.setState({ show: true });
     }
   };
+  ShowHideComponen = () => {
+    if (this.state.show1 == true) {
+      this.setState({ show1: false });
+    } else {
+      this.setState({ show1: true });
+    }
+  };
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.headerQuestion}>
-          Phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại
-          là gì
-        </Text>
-        <TouchableHighlight
-          activeOpacity={1}
-          style={this.state.show ? styles.answer1 : styles.answer}
-          onPress={this.ShowHideComponent}
-        >
-          <Text>Phần mặt đường và lề đường</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          activeOpacity={1}
-          style={this.state.show ? styles.answer2 : styles.answer}
-          onPress={this.ShowHideComponent}
-        >
-          <Text>Phần đường xe chạy</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          activeOpacity={1}
-          style={this.state.show ? styles.answer2 : styles.answer}
-          onPress={this.ShowHideComponent}
-        >
-          <Text>Phần đường xe cơ giới</Text>
-        </TouchableHighlight>
+        <FlatList
+          data={data1}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View>
+              <Text style={styles.headerQuestion}>{item.header}</Text>
+              <FlatList
+                data={item.answer}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) =>
+                  item.value ? (
+                    <TouchableHighlight
+                      activeOpacity={1}
+                      style={this.state.show ? styles.answer1 : styles.answer}
+                      onPress={this.ShowHideComponent}
+                    >
+                      <Text>{item.content}</Text>
+                    </TouchableHighlight>
+                  ) : (
+                    <TouchableHighlight
+                      activeOpacity={1}
+                      style={this.state.show1 ? styles.answer2 : styles.answer}
+                      onPress={this.ShowHideComponen}
+                    >
+                      <Text>{item.content}</Text>
+                    </TouchableHighlight>
+                  )
+                }
+              />
+            </View>
+          )}
+        />
         {/*Here we will return the view when state is true 
         and will return false if state is false*/}
         {this.state.show ? (
