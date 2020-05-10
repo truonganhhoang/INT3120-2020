@@ -14,7 +14,7 @@ export default function KanjiCard(props) {
     <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
       <View style={styles.container}>
         <Text style={styles.title}>{props.kanjiText}</Text>
-        <Text style={styles.titleSmall}>Tự</Text>
+        <Text style={styles.titleSmall}>{props.hantu}</Text>
       </View>
     </TouchableOpacity>
   );

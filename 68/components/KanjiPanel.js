@@ -3,9 +3,9 @@ import {
   TouchableOpacity,
   Dimensions,
   View,
+  Text,
   StyleSheet
 } from 'react-native';
-import { SvgUri } from 'react-native-svg';
 import firebase from '../config/firebase';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -15,7 +15,7 @@ const screen = (percent) => deviceWidth * percent / 100;
 const storage = firebase.storage();
 const storageRef = storage.ref('imgKanji/35506.svg');
 
-export default function Speaker() {
+export default function kanjiPanel({ kanji }) {
   const [setUriSvg] = useState('');
   useEffect(() => {
     storageRef.getDownloadURL().then((url) => {
@@ -31,7 +31,7 @@ export default function Speaker() {
     >
       <View style={styles.KanjiPanel}>
         <View style={styles.centerAlighElement}>
-          <SvgUri width="100%" height="100%" uri="https://firebasestorage.googleapis.com/v0/b/perfect-tape-242508.appspot.com/o/imgKanji/35506.svg?alt=media&token=b93b88d8-43a7-47e2-ad74-6b9a34359067" />
+          <Text>{kanji}</Text>
         </View>
       </View>
     </TouchableOpacity>

@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   StyleSheet,
@@ -5,7 +8,11 @@ import {
   View
 } from 'react-native';
 import KanjiTest from '../components/KanjiTest';
+<<<<<<< HEAD
 import ProgressCount from '../components/ProgressCount'
+=======
+import ProgressComponent from '../components/ProgressComponent';
+>>>>>>> 72b12d22ab268cd880eb8c1008948c81a52ff138
 
 export default class KanjiTests extends React.Component {
   static navigationOptions = () => ({
@@ -20,23 +27,83 @@ export default class KanjiTests extends React.Component {
     },
   });
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      questionIndex: 0,
+      indexRan: 0,
+    };
+  }
+
+  nextQuestion = () => {
+    const { questionIndex } = this.state;
+    this.setState({
+      questionIndex: (questionIndex + 1) % this.answers.length,
+      indexRan: Math.floor(Math.random() * 4)
+    });
+  }
+
   render() {
-    // const kanjiList = this.props.navigation.getParam('kanjiList')
+    const { questionIndex } = this.state;
+    const { indexRan } = this.state;
+    // eslint-disable-next-line react/destructuring-assignment
+    const kanjiList = this.props.navigation.getParam('kanjiList');
+    this.answers = kanjiList.map((kanji) => kanji.kanji);
+    this.question = kanjiList.map((kanji) => kanji.kun[0]);
     return (
       <View style={styles.container}>
         <View style={styles.top}>
+<<<<<<< HEAD
           <Text>Câu hỏi 1/10</Text>
           <View />
           <ProgressCount/>
+=======
+          <Text>
+            Câu hỏi
+            {` ${(questionIndex + 1).toString()}`}
+            /
+            {`${this.answers.length}`}
+          </Text>
+          <View style={{ width: '80%' }}>
+            <ProgressComponent propsStyle={{
+              bar: {
+                height: 10,
+                backgroundColor: 'rgb(0, 98, 101)',
+              },
+              progress: {
+                width: `${questionIndex / this.questions * 100}%`,
+                height: 10,
+                backgroundColor: '#fff',
+              }
+            }}
+            />
+          </View>
+>>>>>>> 72b12d22ab268cd880eb8c1008948c81a52ff138
         </View>
         <View style={styles.Word}>
-          <Text style={styles.WordRandom}>モン</Text>
+          <Text style={styles.WordRandom}>{this.question ? this.question[this.state.questionIndex] : ''}</Text>
         </View>
         <View style={styles.content}>
-          <KanjiTest />
-          <KanjiTest />
-          <KanjiTest />
-          <KanjiTest />
+          <KanjiTest
+            text={this.answers[(questionIndex + indexRan) % this.answers.length]}
+            isAnswer={indexRan === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 1) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 1) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 2) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 2) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 3) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 3) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
         </View>
       </View>
     );
@@ -45,7 +112,6 @@ export default class KanjiTests extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
     alignItems: 'center',
   },
   content: {

@@ -13,12 +13,15 @@ export default function KanjiLearn(props) {
     <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
       <View style={styles.container}>
         <Image source={image.url} style={styles.ImageChallenge} />
-        <Text style={styles.title}>{image.name}</Text>
+        <View style={styles.constainerTitle}>
+          <Text style={styles.title}>{image.name}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
+
   container: {
     alignItems: 'center',
     padding: 16,
@@ -30,15 +33,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 
   },
+  constainerTitle: {
+    height: '100%',
+    width: '70%',
+    marginRight: 0,
+  },
   title: {
     fontSize: 19,
     color: '#006265',
     marginLeft: '15%',
-    textAlign: 'center'
   },
   ImageChallenge: {
     width: 30,
     height: 30,
-    marginLeft: '2%'
+    marginLeft: '2%',
   }
 });

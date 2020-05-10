@@ -5,15 +5,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export default function WordItem() {
+export default function KanjiFlashCard({ kanji }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.kanji}>
-          <Text style={styles.kanjiFont}>習</Text>
+          <Text style={styles.kanjiFont}>{kanji.kanji}</Text>
         </View>
         <View>
-          <Text style={styles.Vi}>Học</Text>
+          <Text style={styles.Vi}>{kanji.hantu}</Text>
         </View>
         <View style={styles.OnKun}>
           <Text>シュウ  ジュ</Text>
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   OnKun: {
-    paddingTop: '28%'
+    paddingTop: 30
   }
 });
