@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   StyleSheet,
@@ -20,8 +21,74 @@ export default class KanjiChallenge1 extends React.Component {
     },
   });
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      questionIndex: 0,
+      progress: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.timer();
+    this.dataRamdom = this.randomData();
+    this.result = this.listHantu.map(() => false);
+  }
+
+  randomData = () => {
+    const order = this.listHantu.map((kanji, i) => i);
+    return this.listKanji.map(() => {
+      const random = Math.floor(Math.random() * order.length);
+      const index = order[random];
+      order.splice(random, 1);
+      return (
+        <KanjiChallenge
+          key={index.toString()}
+          kanji={this.listKanji[index]}
+          isAnswer={(index === this.state.questionIndex)}
+          setTrueQuestion={this.setTrueQuestion}
+        />
+      );
+    });
+  }
+
+  setTrueQuestion = () => {
+    this.result[this.state.questionIndex] = true;
+  }
+
+  nextQuestion = () => {
+    const { questionIndex } = this.state;
+    if (this.state.questionIndex < this.listHantu.length - 1) {
+      this.setState({
+        questionIndex: questionIndex + 1,
+      });
+      this.dataRamdom = this.randomData();
+    } else {
+      console.log(this.result);
+      clearInterval(this.setInterval);
+    }
+  }
+
+  timer = () => {
+    this.setInterval = setInterval(() => {
+      const { progress } = this.state;
+      this.setState({
+        progress: progress + 0.2
+      });
+      if (this.state.progress > 99) {
+        this.nextQuestion();
+        this.setState({
+          progress: 0
+        });
+      }
+    }, 10);
+  }
+
   render() {
-    // const kanjiList = this.props.navigation.getParam('kanjiList')
+    const kanjiList = this.props.navigation.getParam('kanjiList');
+    this.listHantu = kanjiList.map((kanji) => kanji.hantu);
+    this.listKanji = kanjiList.map((kanji) => (kanji.kanji));
+    const { questionIndex } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.top}>
@@ -32,7 +99,7 @@ export default class KanjiChallenge1 extends React.Component {
                 backgroundColor: 'rgb(0, 98, 101)',
               },
               progress: {
-                width: `${10}%`,
+                width: `${this.state.progress}%`,
                 height: 10,
                 backgroundColor: '#fff',
               }
@@ -41,25 +108,12 @@ export default class KanjiChallenge1 extends React.Component {
           </View>
         </View>
         <View style={styles.Word}>
-          <Text style={styles.WordRandom}>Học</Text>
+          <Text style={styles.WordRandom}>{this.listHantu[questionIndex]}</Text>
         </View>
         <View style={styles.content}>
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
-          <KanjiChallenge />
+          {
+            this.dataRamdom
+          }
         </View>
       </View>
     );
