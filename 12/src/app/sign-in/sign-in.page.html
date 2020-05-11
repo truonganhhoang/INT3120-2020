@@ -12,15 +12,15 @@
   </div>
 
   <form class="sign-in-form-container" [formGroup]="signInForm" (ngSubmit)="handleLogin()">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="email">
       <mat-label>E-mail (Required)</mat-label>
-      <input type="email" matInput="true" [formControl]="email" />
+      <input name="email" type="email" matInput="true" [formControl]="email" />
       <mat-error *ngIf="email.errors">
         <div *ngIf="email.errors.required">Please enter your email address.</div>
         <div *ngIf="email.errors.email">Email address format is in valid.</div>
       </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="password">
       <mat-label>Password (Required)</mat-label>
       <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" autocomplete="on" />
       <button mat-icon-button="true" matSuffix="true" (click)="togglePassword()">
