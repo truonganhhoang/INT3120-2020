@@ -45,7 +45,10 @@ const SignUp = props =>{
             var userId = res.user.uid;
             firebase.database().ref('User').child(`${userId}`).set({
                 userId: userId,
-                email: res.user.email
+                email: res.user.email,
+                name : " ",
+                phone : " ",
+                age : " "
             })
             pushParts(userId)
           setTimeout(()=> props.navigation.navigate('HomeScreen',{user: true}), 1000)
