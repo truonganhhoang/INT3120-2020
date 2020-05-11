@@ -22,24 +22,21 @@ import InitQuestion from '../itemComponent/InitQuestion';
 import SideBar from '../itemComponent/SideBar';
 import Clock from '../itemComponent/Clock';
 import ModalEndExam from '../itemComponent/ModalEndExam';
-// import modalReducer from '../reactRedux/modalReducer';
 
 
-
-const initExam = (props) => {
+const InitExam = (props) => {
     const { navigation, route } = props;
     const { mainId,itemId,positionExam } = route.params;
-    const isVisiable = useSelector(state => ({...state.modalReducer}));
-    console.log(isVisiable);
     const [drawer, setDrawer] = useState();
-
+    
     const closeDrawer = () => {
         drawer._root.close();
     };
     const openDrawer = () => { 
         drawer._root.open();
     };
-
+    
+    
     const dispatch = useDispatch();
 
     function openModal() {
@@ -69,13 +66,14 @@ const initExam = (props) => {
                     <Right >
                         <Clock />
                         <Button success transparent 
-                        onPress = {() => openModal}
+                        onPress = {openModal}
                         style={{alignItems: 'center'}}>
                             <FontAwesome5Icon name="check-double" 
                             style={{fontSize: 20, color: color.textButton}} solid/>
                             {/* <Text style={{color: color.textButton}}>Nộp bài</Text> */}
                         
                         </Button>
+                        
                     </Right>
                 </Header>
                 <Tabs 
@@ -96,7 +94,7 @@ const initExam = (props) => {
                         })
                     }
                 </Tabs>
-                <ModalEndExam setVisiable ={isVisiable} />
+                <ModalEndExam />
             </Container>
             
         </Drawer>
@@ -193,4 +191,4 @@ const data = [
         status: null,
     },
 ];
-export default initExam;
+export default InitExam;
