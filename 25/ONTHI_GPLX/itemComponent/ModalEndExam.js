@@ -1,39 +1,36 @@
 import React from 'react';
-import { Modal } from 'react-native-modal';
-import {Card, Text, CardItem, Body, Button} from 'native-base';
-import { Provider, useSelector, useDispatch } from 'react-redux';
+import Modal from 'react-native-modal';
+import { Text, View} from 'react-native';
+import { Button } from 'native-base';
+import { useSelector, useDispatch } from 'react-redux';
 
-const ModalEndExam = (props) => {
-    const {setVisiable} = props;
-
+const ModalEndExam = () => {
+    const {isVisiable} = useSelector(state => ({...state.modalReducer}));
     const dispatch = useDispatch();
-    function closeModal() {
+    function onCloseModal() {
         dispatch({
             type: "CLOSE_MODAL"
         })
     }
     return (
-        <Modal isVisible={setVisiable}>
-            <Card>
-                <CardItem>
-                    <Body>
-                        <Text>Kết thúc bài thi?</Text>
-                    </Body>
-                </CardItem>
-                <CardItem footer style={{flex: 1, alignContent: 'flex-end'}}>
-                    <Button style={{ margin: 2}}>
-                        <Text>Hủy</Text>
+        <Modal isVisible={isVisiable}>
+            <View style={{backgroundColor: 'white', padding: 16, height: 100, borderRadius: 3}}>
+                <View>
+                    <Text style={{ fontSize: 15}}>Kết thúc bài thi?</Text>
+                </View>  
+                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', padding: 4}}>
+                    <Button transparent
+                    onPress = {onCloseModal}
+                    style={{ padding: 4, marginRight: 4}}>
+                        <Text style={{ color: 'black', opacity: 0.83}}>Hủy</Text>
                     </Button>
-                    <Button
-                    onPress = {closeModal}
-                    style={{ margin: 2}}>
-                        <Text>Kết thúc</Text>
+                    <Button style={{ padding: 4, backgroundColor: 'green', borderRadius: 3}}>
+                        <Text style={{ color: 'white'}}>Kết thúc</Text>
                     </Button>
-                    
-                </CardItem>
-            </Card>
+                </View>
+            </View>
         </Modal>
     );
-}
+};
 
 export default ModalEndExam;
