@@ -5,7 +5,15 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest",
+    "test:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.5",
@@ -39,8 +47,10 @@
     "react-navigation-stack": "^2.3.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "jest-expo": "^37.0.0",
+    "react-test-renderer": "^16.13.1"
   },
   "private": true
 }
