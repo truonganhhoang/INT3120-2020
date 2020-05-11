@@ -10,7 +10,7 @@ import {
   ViewComponent,
 } from "react-native";
 import Word from "../components/Word";
-
+import Learning from "../components/Learning";
 import sample from "../Data";
 
 import tree0 from "../assets/tree/tree0.png";
@@ -21,6 +21,7 @@ import tree4 from "../assets/tree/tree4.png";
 import tree5 from "../assets/tree/tree5.png";
 import thunder from "../assets/thunder.png";
 import water from "../assets/watering-can.png";
+import { FlatList } from "react-native-gesture-handler";
 const treeArr = [tree0, tree1, tree2, tree3, tree4, tree5];
 
 const screenWidth = Math.round(Dimensions.get("window").width);
@@ -46,9 +47,22 @@ export default function Review({ navigation, route }) {
         </View>
       </View>
 
-      <View style={styles.WordBox}>
+      {/* <View style={styles.WordBox}>
         <Text>Hello</Text>
-      </View>
+      </View> */}
+
+
+      <FlatList
+        data={sample.listWordData}
+        numColumns={2}
+        renderItem={({ item }) => 
+          <View style={styles.wrapper}>
+            <Learning wordLearning={item}/>
+          </View>
+        }
+        keyExtractor = {item => `${item.id}`} 
+        contentContainerStyle={styles.containerFlatList}
+      />
     </View>
   );
 }
@@ -128,4 +142,11 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 1.0,
   },
+  wrapper: {
+    flex: 1, 
+    paddingTop: 8
+  },
+  containerFlatList: {
+    paddingHorizontal: 8
+  }
 });
