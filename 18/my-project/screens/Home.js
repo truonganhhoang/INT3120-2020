@@ -22,6 +22,7 @@ export default class Home extends Component {
   //   Alert.alert(item);
   // }
   render() {
+    var lists = this.props.lists;
     return (
       <View style={styles.container}>
         {/* <StatusBar
@@ -66,7 +67,9 @@ export default class Home extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Signs')}
+              onPress={() =>
+                this.props.navigation.navigate('Signs', { lists: { lists } })
+              }
             >
               <Image
                 style={styles.imageButton}
