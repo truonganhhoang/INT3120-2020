@@ -8,6 +8,6 @@ export class SanitizePipe implements PipeTransform {
   constructor(private domSanitizer: DomSanitizer) {}
 
   transform(value: string) {
-    return this.domSanitizer.bypassSecurityTrustUrl(value);
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(value);
   }
 }
