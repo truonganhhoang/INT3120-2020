@@ -22,3 +22,4 @@ it('rerender WordCard Component correctly', () => {
     />
   )
 })
+

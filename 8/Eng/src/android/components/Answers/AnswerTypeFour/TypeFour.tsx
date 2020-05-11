@@ -10,7 +10,7 @@ const TypeFour = (props: { content?: any; lessonInfo?: any;
 
   const { content, lessonInfo, setNextQuestion, id, setHeart, heart } = props; 
   const [listCharShow, setListCharShow] = useState([""]); 
-  const [colorListChar, setColorListChar] = useState('yellow'); 
+  const [colorListChar, setColorListChar] = useState('#ff5e00'); 
   const [disabledListChar, setDisabledListChar] = useState(false); 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
@@ -25,7 +25,7 @@ const TypeFour = (props: { content?: any; lessonInfo?: any;
     setListCharShow(l); 
     setDisabledListChar(false); 
     setNextQuestion(false); 
-    setColorListChar('yellow'); 
+    setColorListChar('#FFF'); 
   }, [id])
 
   useEffect(() => {

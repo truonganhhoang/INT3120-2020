@@ -61,9 +61,9 @@ const CountDown = (props: {hours?: any, minutes?: any,
   }, [id])
 
   return (
-    <View>
-      <Text>
-        {time.hours.toString().padStart(2, '0')}: 
+    <View style={{alignItems:'center'}}>
+      <Text style={{color:'#ff5e00',fontSize:16,fontWeight:'bold'}}>
+        {/* {time.hours.toString().padStart(2, '0')}:  */}
         {time.minutes.toString().padStart(2, '0')}:
         {time.seconds.toString().padStart(2, '0')}
       </Text>
