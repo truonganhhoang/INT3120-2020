@@ -22,9 +22,7 @@
               <ion-icon name="person-circle-outline"></ion-icon>
             </ng-container>
             <ng-template #loadedPhoto>
-              <object width="90" height="90" [data]="user?.photoURL | sanitize">
-                <ion-icon name="person-circle-outline"></ion-icon>
-              </object>
+              <img width="90" height="90" [src]="user?.photoURL | sanitize" />
             </ng-template>
           </div>
         </ion-col>
