@@ -15,33 +15,54 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props;
   const nameTopic = route.params.nameTopic;
   const database = firebase.database();
-  const [lessons, setLessons] = useState({});
-  const [wait, setWait] = useState(true);
+  const [lessons, setLessons] = useState({ status: 'loading' });
 
   useEffect(() => {
+    setLessons({ status: 'loading' })
     const lessons_db = database.ref('/topic_detail/' + nameTopic + '/lessons');
     lessons_db.on('value', function (snapshot: any) {
-      setLessons(snapshot.val());
-      setWait(false)
+      if (snapshot.val()) {
+        setLessons(snapshot.val());
+      } else {
+        setLessons({ status: 'null' }); 
+      }
     });
   }, [nameTopic])
+
   const _renderItem = (item: any) => {
     return (
       <WordGroupCard data={item.item} navigation={navigation} key={index++} topic_name={nameTopic}></WordGroupCard>
     );
   }
-  if (wait) {
+  if (lessons.status == 'loading') {
     return (
       <Activity />
+    )
+  }
+  else if(lessons.status == 'null') {
+    return (
+      <View style={styles.containers}>
+        <Header containerStyle={styles.container}
+          leftComponent={
+            <Back
+              navigation={navigation}
+            />}
+          centerComponent={{ text: nameTopic, style: styles.centerComponent }}
+        />
+        <View>
+          <Text>Sorry! The data is not available.</Text>
+        </View>
+      </View>
     )
   }
   else {
     var index = 0;
     const data: any = [];
-    Object.keys(lessons).forEach((item, index) => {
-      data.push(lessons[item])
-      data[index].wordGroupName = item
-    })
+    let i = 0; 
+    for (let [key, value] of Object.entries(lessons)) {
+      data.push(value); 
+      data[i++].wordGroupName = key
+    }
     
     return (
       <View style={styles.containers}>

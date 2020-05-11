@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { View, Text } from 'react-native'; 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'; 
 import { Vocabularys } from '../FavoriteVocabularys'; 
 import { Lessons } from '../FavoriteLessons'; 

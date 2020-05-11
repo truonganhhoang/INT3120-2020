@@ -9,20 +9,20 @@ const TypeFour = (props: { content?: any; id?: any }) => {
 
   useEffect(() => {
     // if (content.type == '4') {
-    //   const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
-    //     if (error) {
-    //       console.log('failed to load the sound', error); 
-    //       return; 
-    //     }
-    //     speaker.play((success) => {
-    //       if (success) {
-    //         console.log('successfully finished playing'); 
-    //       } else {
-    //         console.log('playback failed due to audio decoding errors')
-    //       }
-    //     })
-    //   })
-    //   speaker.release(); 
+      const speaker = new Sound(content.void_uri, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error); 
+          return; 
+        }
+        speaker.play((success) => {
+          if (success) {
+            console.log('successfully finished playing'); 
+          } else {
+            console.log('playback failed due to audio decoding errors')
+          }
+        })
+      })
+      speaker.release(); 
     // }
   }, [id])
 

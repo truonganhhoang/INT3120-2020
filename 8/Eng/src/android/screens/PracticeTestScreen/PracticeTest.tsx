@@ -52,6 +52,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   }, [nextQuestion])
 
   useEffect(() => {
+    console.log(questionNumber); 
     const question = database.ref('/topic_detail/' +
       lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
       '/questions/' + questionNumber);
