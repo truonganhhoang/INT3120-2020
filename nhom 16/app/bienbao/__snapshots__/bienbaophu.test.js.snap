@@ -1,0 +1,801 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginLeft": 10,
+      "marginRight": 10,
+      "marginTop": 10,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/502-khoang-cach-den-doi-tuong-bao-hieu.jpg",
+          "Key": "a1",
+          "Name": "Khoảng cách đến đối tượng báo hiệu",
+          "Noidung": "Để thông báo khoảng cách thực tế từ vị trí đặt biển đến đối tượng báo hiệu ở phía trước.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/503b-huong-tac-dung-cua-bien.jpg",
+          "Key": "a2",
+          "Name": "Hướng tác dụng của biển",
+          "Noidung": "Để chỉ đồng thời 2 hướng tác dụng (trái và phải) của biển chính hoặc được đặt với biển báo nhắc lại lệnh cấm và hiệu lệnh.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/501-pham-vi-tac-dung-cua-bien.jpg",
+          "Key": "a3",
+          "Name": "Phạm vi tác dụng của biển",
+          "Noidung": "Để thông báo chiều dài đoạn đường nguy hiểm hay đoạn đường phải thi hành lệnh cấm hoặc hạn chế.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/503a-huong-tac-dung-cua-bien.jpg",
+          "Key": "a4",
+          "Name": "Hướng tác dụng của biển",
+          "Noidung": "Đặt bên dưới các biển báo cấm, biển hiệu lệnh để chỉ hướng tác dụng của biển là hướng vuông góc với chiều đi.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/504-lan-duong.jpg",
+          "Key": "a5",
+          "Name": "làn đường",
+          "Noidung": "Biển được đặt bên dưới các biển báo cấm và biển hiệu lệnh hay bên dưới đèn hiệu để chỉ làn đường chịu hiệu lực của biển (hay đèn hiệu) báo lệnh cấm - và hiệu lệnh trên làn đường đó.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/505-loai-xe.jpg",
+          "Key": "a6",
+          "Name": "Loại xe",
+          "Noidung": "Biển được đặt bên dưới các biển báo cấm và biển hiệu lệnh hay biển chỉ dẫn để chỉ loại xe chịu hiệu lực của biển báo cấm, biển hiệu lệnh hay biển chỉ dẫn đối với riêng loại xe đó.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/508-huong-re.jpg",
+          "Key": "a7",
+          "Name": "Hướng rẽ",
+          "Noidung": "Biển được sử dụng độc lập để báo trước cho người biết gần đến chỗ rẽ nguy hiểm và để chỉ hướng rẽ..",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/509-bieu-thi-thoi-gian.jpg",
+          "Key": "a7",
+          "Name": "hiển thị thời gian",
+          "Noidung": "Biểu thị thời gian.",
+        },
+        Object {
+          "Img": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/510-chieu-cao-an-toan.jpg",
+          "Key": "a8",
+          "Name": "Chiều cao an toàn",
+          "Noidung": "Để bổ sung cho biển 239 Đường cáp điện ở phía trên, phải đặt biển số 509 chiều cao an toàn, biển này chỉ rõ chiều cao an toàn cho các phương tiện đi qua đoạn đường có dây điện bên trên.",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/502-khoang-cach-den-doi-tuong-bao-hieu.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Khoảng cách đến đối tượng báo hiệu
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Để thông báo khoảng cách thực tế từ vị trí đặt biển đến đối tượng báo hiệu ở phía trước.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/503b-huong-tac-dung-cua-bien.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Hướng tác dụng của biển
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Để chỉ đồng thời 2 hướng tác dụng (trái và phải) của biển chính hoặc được đặt với biển báo nhắc lại lệnh cấm và hiệu lệnh.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/501-pham-vi-tac-dung-cua-bien.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Phạm vi tác dụng của biển
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Để thông báo chiều dài đoạn đường nguy hiểm hay đoạn đường phải thi hành lệnh cấm hoặc hạn chế.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/503a-huong-tac-dung-cua-bien.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Hướng tác dụng của biển
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Đặt bên dưới các biển báo cấm, biển hiệu lệnh để chỉ hướng tác dụng của biển là hướng vuông góc với chiều đi.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/504-lan-duong.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                làn đường
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Biển được đặt bên dưới các biển báo cấm và biển hiệu lệnh hay bên dưới đèn hiệu để chỉ làn đường chịu hiệu lực của biển (hay đèn hiệu) báo lệnh cấm - và hiệu lệnh trên làn đường đó.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/505-loai-xe.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Loại xe
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Biển được đặt bên dưới các biển báo cấm và biển hiệu lệnh hay biển chỉ dẫn để chỉ loại xe chịu hiệu lực của biển báo cấm, biển hiệu lệnh hay biển chỉ dẫn đối với riêng loại xe đó.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/508-huong-re.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Hướng rẽ
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Biển được sử dụng độc lập để báo trước cho người biết gần đến chỗ rẽ nguy hiểm và để chỉ hướng rẽ..
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/509-bieu-thi-thoi-gian.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                hiển thị thời gian
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Biểu thị thời gian.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 80,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://i.xeoto.com.vn/bien-bao-giao-thong/bien-bao-phu/510-chieu-cao-an-toan.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 2.7,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Chiều cao an toàn
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Để bổ sung cho biển 239 Đường cáp điện ở phía trên, phải đặt biển số 509 chiều cao an toàn, biển này chỉ rõ chiều cao an toàn cho các phương tiện đi qua đoạn đường có dây điện bên trên.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
