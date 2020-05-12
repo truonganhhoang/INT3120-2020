@@ -1,16 +1,17 @@
 import React, { Component , useState,  } from 'react';
-import {View, Text,StatusBar, ToastAndroid, AsyncStorage} from 'react-native';
+import {View, Text,StatusBar, ToastAndroid, AsyncStorage, Alert} from 'react-native';
 import {Input, Icon, Button} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
 const ForgetPass = props =>{
    const [email,setEmail] = useState('');
-   const handleConfirm = async(value) => {
-     // const auth = firebase.auth();
-      //auth.sendPasswordResetEmail(email).then(() => {
+   const handleConfirm = (value) => {
+      const auth = firebase.auth();
+      auth.sendPasswordResetEmail(email).then(() => {
+      ToastAndroid.CENTER("Thông báo đã được gửi tới email của bạn")
        console.log(value)
        // Email sent.
-     //  }).catch(() => {console.log('Có gì đó sai')})
+      }).catch(() => {console.log('Có gì đó sai')})
    }
     return (    
       <View style = {{flex : 1}}>
