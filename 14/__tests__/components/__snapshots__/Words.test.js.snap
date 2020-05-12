@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Words renders correctly 1`] = `
+exports[`test words renders correctly 1`] = `
 <View>
   <RCTScrollView
     closeOnRowBeginSwipe={false}

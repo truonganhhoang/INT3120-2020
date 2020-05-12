@@ -36,5 +36,26 @@ jest.mock('./data/SQLite', () => {
     ]),
     getNotificationID: jest.fn(),
     setNotificationID: jest.fn(),
+    updateTimeQuestion: jest.fn(),
+    getQuestion: jest.fn(() => [
+      {
+        question:"test 1",
+        category:"Part I",
+        favorite:0,
+        answer1:"f",
+        answer2:"t",
+        answer3:"f",
+        result:"two"
+      },
+      {
+          question:"test 2",
+          category:"Part II",
+          favorite:0,
+          answer1:"t",
+          answer2:"f",
+          answer3:"f",
+          result:"one"
+      },
+    ]),
   }
 })

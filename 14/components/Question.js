@@ -50,7 +50,7 @@ export default class Question extends React.Component{
         })
         var dateTime = Date.now();
         db.updateTimeQuestion(ques,dateTime);
-        console.log(dateTime);
+        // console.log(dateTime);
     }
     reset(){
         this.setState({
