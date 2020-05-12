@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, View, Text, Alert } from 'react-native';
-import { Easing } from 'react-native-reanimated';
+import { Animated, View, Text } from 'react-native';
 
 
 class FadeInView extends Component {

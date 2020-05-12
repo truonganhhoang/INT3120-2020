@@ -1,36 +1,9 @@
 import * as React from 'react';
 import { View, Image, Text } from 'react-native';
 import { StyleSheet, Dimensions, ProgressBarAndroid } from "react-native"
-import { TouchableOpacity, ScrollView, FlatList } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const dataHoc = [
-    {
-        id: '1',
-        img: require('../images/khai_niem.jpg'),
-        name: 'KHÁI NIỆM VÀ QUY TẮC',
-        number: 75,
-    },
-    {
-        id: '2',
-        img: require('../images/he_thong.jpg'),
-        name: 'BIỂN BÁO ĐƯỜNG BỘ',
-        number: 36,
-    },
-    {
-        id: '3',
-        img: require('../images/sa_hinh.jpg'),
-        name: 'SA HÌNH',
-        number: 34,
-    },
-    {
-        id: '4',
-        img: require('../images/van_hoa.jpg'),
-        name: 'VĂN HÓA VÀ ĐẠO ĐỨC',
-        number: 36,
-    },
-]
-
-export class Row extends React.Component {
+export class RowLearn extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -44,7 +17,7 @@ export class Row extends React.Component {
 
     render() {
         return (
-            <TouchableOpacity onPress={this.add}>
+            <TouchableOpacity onPress={this.props.Press}>
                 <View style={styles.row}>
 
                     <View styles={styles.left}>
@@ -85,45 +58,6 @@ export class Row extends React.Component {
     }
 }
 
-export function Hoc_li_thuyet() {
-    return (
-        /*
-        <ScrollView style={styles.container}>
-            <Row
-                src={require('../images/khai_niem.jpg')}
-                title="KHÁI NIỆM VÀ QUY TẮC"
-                number="75"
-            />
-            <Row
-                src={require('../images/he_thong.jpg')}
-                title="BIỂN BÁO ĐƯỜNG BỘ"
-                number="36"
-            />
-            <Row
-                src={require('../images/sa_hinh.jpg')}
-                title="SA HÌNH"
-                number="34"
-            />
-            <Row
-                src={require('../images/van_hoa.jpg')}
-                title="VĂN HÓA VÀ ĐẠO ĐỨC"
-                number="36"
-            />
-        </ScrollView>
-*/
-
-        <FlatList
-            data={dataHoc}
-            renderItem={({ item }) => {
-                return (
-                    <Row element={item} />
-                )
-            }}
-        >
-
-        </FlatList>
-    )
-}
 
 const { height, width } = Dimensions.get('window');
 const RowHeight = 90 / 810 * height;
@@ -131,10 +65,6 @@ const ImageSize = 70 / 410 * width;
 const ProgressWidth = 230 / 410 * width;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-
     row: {
         height: 90,
         marginTop: 10,
@@ -188,7 +118,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 17,
         bottom: 17,
-        color: "#FF9933"
+        color: "#FF9933",
     }
 
 })

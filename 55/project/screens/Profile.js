@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 
@@ -40,7 +39,7 @@ function Acount1Screen() {
 
 const Tab = createMaterialTopTabNavigator();
 
-export function Profile(route, navigation) {
+export default function Profile(route, navigation) {
     return (
         <Tab.Navigator
             initialRouteName="Settings"

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { View, Image, Text, Animated, Alert, } from 'react-native';
 import { StyleSheet, Dimensions } from "react-native"
-import { TouchableOpacity, ScrollView, FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { RowBoard } from '../components/RowBoard'
 
 var dataCam = [
     {
@@ -101,51 +101,53 @@ var dataLenh = [
 
 ]
 
-
-export class Row extends React.Component {
-
-    render() {
-
-        return (
-            <TouchableOpacity>
-                <View style={styles.row}>
-
-                    <View style={styles.left}>
-                        <Image
-                            style={styles.image}
-                            source={this.props.element.img}
-                        />
-                    </View>
-
-
-                    <View style={styles.right}>
-                        <Text style={styles.name}>
-                            {this.props.element.name}
-                        </Text>
-
-                        <Text style={styles.text}>
-                            {this.props.element.text}
-                        </Text>
-                    </View>
-                </View>
-            </TouchableOpacity>
-        )
-    }
-}
+var dataDanger = [
+    {
+        id: '1',
+        img: require('../images/bien_bao_nguy_hiem/1.jpg'),
+        name: 'Chỗ ngoặt nguy hiểm vòng bên trái',
+        text: 'Báo trước sắp đến chỗ ngoặt nguy hiểm vòng bên trái.'
+    },
+    {
+        id: '2',
+        img: require('../images/bien_bao_nguy_hiem/2.jpg'),
+        name: 'Chỗ ngoặt nguy hiểm vòng bên phải',
+        text: 'Báo trước sắp đến chỗ ngoặt nguy hiểm vòng bên phải.'
+    },
+]
 
 const Tab = createMaterialTopTabNavigator();
 
-export function Bien_bao() {
+export default function Bien_bao() {
     return (
         <Tab.Navigator
             tabBarOptions={{
-                tabStyle: {
+                activeTintColor: "white",
+                inactiveTintColor: "#555555",
+                scrollEnabled: true,
+                style: {
                     backgroundColor: "#66BB6A",
+                    height: 60,
                 },
-            }}>
+                labelStyle: {
+                    paddingVertical: 7,
+                    width: 155,
+                    fontWeight: "bold",
+                    backgroundColor: "#008B00",
+                    borderRadius: 15,
+                },
+                pressColor: "white",
+                indicatorStyle: {
+                    backgroundColor: 'white',
+                    height: 3,
+                },
+            }}
+        >
 
             <Tab.Screen name='BIỂN BÁO CẤM' component={Cam} />
             <Tab.Screen name='BIỂN BÁO HIỆU LỆNH' component={Hieu_lenh} />
+            <Tab.Screen name='BIỂN BÁO NGUY HIỂM' component={Nguy_hiem} />
+            <Tab.Screen name='BIỂN BÁO PHỤ' component={Phu} />
         </Tab.Navigator>
     )
 }
@@ -158,7 +160,7 @@ export function Cam() {
             data={dataCam}
             renderItem={({ item }) => {
                 return (
-                    <Row element={item} />
+                    <RowBoard element={item} />
                 )
             }}
         >
@@ -173,61 +175,48 @@ export function Hieu_lenh() {
             data={dataLenh}
             renderItem={({ item }) => {
                 return (
-                    <Row element={item} />
+                    <RowBoard element={item} />
                 )
             }}
         >
         </FlatList>
-        // <Text> Hiệu lệnh nè a </Text>
     )
 }
 
+export function Nguy_hiem() {
+    return (
+        <FlatList
+            style={styles.container}
+            data={dataDanger}
+            renderItem={({ item }) => {
+                return (
+                    <RowBoard element={item} />
+                )
+            }}
+        >
+        </FlatList>
+    )
+}
 
-const { height, width } = Dimensions.get('window');
-const left = 120 / 410 * width;
-const right = width - left;
-const imageSize = 90 / 120 * left;
+export function Phu() {
+    return (
+        <FlatList
+            style={styles.container}
+            data={dataDanger}
+            renderItem={({ item }) => {
+                return (
+                    <RowBoard element={item} />
+                )
+            }}
+        >
+        </FlatList>
+    )
+}
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#ccc",
     },
-
-    row: {
-        flexDirection: "row",
-        backgroundColor: "white",
-        borderColor: "#ccc",
-        borderTopColor: "#eee",
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
-    },
-
-    left: {
-        width: left,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-
-    right: {
-        width: right,
-    },
-
-    image: {
-        width: imageSize,
-        height: imageSize,
-        margin: 10,
-    },
-
-    name: {
-        fontSize: 15,
-        fontWeight: "bold",
-        marginTop: 5,
-    },
-
-    text: {
-        color: "#B7B7B7",
-        marginRight: 10,
-        marginBottom: 5,
-    }
 })
