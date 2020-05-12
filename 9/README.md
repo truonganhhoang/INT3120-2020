@@ -7,7 +7,7 @@
 - Đinh Quang Vũ - 17020069
 ## Giới thiệu ứng dụng
 
-![icon.png](image/icon.png =250x)
+![icon.png](image/icon.png)
 
 Ứng dụng được viết dựa trên app Timetable.
 Timetable là ứng dụng sắp xếp thời khóa biểu hoàn hảo và phù hợp với mọi lựa tuổi. Với time table bạn có thể quản lý danh sách sách các môn học. Đồng thời có thể lên danh sách các task theo môn học hay lên lịch các bài kiểm tra dự kiến. Bạn cũng có thể sử dụng tài khoản cá nhân để đồng bộ thời khóa biểu của bản thân trên các thiết bị khác nhau
