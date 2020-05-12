@@ -39,6 +39,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   useEffect(() => {
     if (amountOfQuestion > 0) {
       setQuestionNumber(random(0, 19));
+      // setQuestionNumber(15); 
       setAmountOfTrue(amountOfQuestion); 
     }
   }, [amountOfQuestion])
@@ -47,6 +48,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
     if (nextQuestion) {
       let c = count + 1;
       setCount(c);
+      // setQuestionNumber(15); 
       setQuestionNumber(random(0, 19));
     }
   }, [nextQuestion])
@@ -119,6 +121,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
             <View style={styles.slider}>
               <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} color="#ff5e00" height={8}/>
             </View>
+            <Text style={{textAlign:'center'}}>{questionNumber}</Text>
             <View>
               <QuestionContent contentOfQuestion={contentOfQuestion} count={count}/>
               <AnswerContent 

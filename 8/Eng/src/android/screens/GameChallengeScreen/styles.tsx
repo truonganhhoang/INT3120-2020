@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   }, 
   puzzleView: {
 
-  }
+  },
 }); 
 
 export default styles; 

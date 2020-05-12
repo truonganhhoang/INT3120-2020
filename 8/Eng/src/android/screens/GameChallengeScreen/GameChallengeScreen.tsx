@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Dimensions, Image } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { CountDown } from '../../components/CountDown';
-import { Back } from '../../components/Back';
+import { Back } from '../../components/Back'; 
 import firebase from 'firebase';
 import { random } from '../../services';
 import { QuestionContent } from '../../components/QuestionContent';
@@ -26,6 +26,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
   const [count, setCount] = useState(0);
   const [failed, setFailed] = useState(false);
   const [passed, setPassed] = useState(false);
+  const [stop, setStop] = useState(false); 
   const database = firebase.database();
   const amountOfQuestion = 10;
 
@@ -41,9 +42,11 @@ const Game = (props: { route?: any; navigation?: any }) => {
     setQuestionNumber(random(0, 19));
     setFailed(false);
     setPassed(false);
+    setStop(false); 
   }, [lessonInfo])
 
   useEffect(() => {
+    console.log(questionNumber)
     const question = database.ref('/topic_detail/' +
       lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
       '/questions/' + questionNumber);
@@ -74,6 +77,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
       let c = count + 1;
       setCount(c);
       setQuestionNumber(random(0, 19));
+      // setQuestionNumber(15); 
     }
   }, [nextQuestion])
 
@@ -102,6 +106,12 @@ const Game = (props: { route?: any; navigation?: any }) => {
       />
     );
   }
+
+  const EndGame = () => {
+    setStop(true)
+    navigation.goBack();
+  }
+
   // check failed if true => show FalseResult then teminate
   if (failed) {
     return (<FalseResult navigation={navigation} lessonInfo={lessonInfo} />)
@@ -117,10 +127,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
       return (
         <View>
           <Header containerStyle={styles.headerContainer}
-            leftComponent={
-              <Back
-                navigation={navigation}
-              />}
+            leftComponent={<Back navigation={navigation}/>}
             centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
           />
           <View><Text>Sorry! The data is not available.</Text></View>
@@ -134,6 +141,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
             leftComponent={
               <Back
                 navigation={navigation}
+                onPress={EndGame}
               />}
             centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
           />
@@ -145,6 +153,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
                 seconds={10}
                 id={id}
                 setTimeOut={setFailed}
+                stop={stop}
               />
             </View>
             <View style={{padding:6}}>
@@ -156,6 +165,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
               })
             }
           </View>
+          <Text style={{textAlign:'center'}}>{questionNumber}</Text>
           <View style={styles.puzzleView}>
             <QuestionContent contentOfQuestion={contentOfQuestion} count={count} />
             <AnswerContent

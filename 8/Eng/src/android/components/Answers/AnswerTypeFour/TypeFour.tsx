@@ -12,27 +12,41 @@ const TypeFour = (props: { content?: any; lessonInfo?: any;
   const [listCharShow, setListCharShow] = useState([""]); 
   const [colorListChar, setColorListChar] = useState('#ff5e00'); 
   const [disabledListChar, setDisabledListChar] = useState(false); 
+  const [status, setStatus] = useState('loading'); 
   const database = firebase.database(); 
   const result =  database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName + 
   '/results/' + content.id);
 
   useEffect(() => {
-    const l = []; 
-    for (let i=0; i < content.num_character; i++) {
-      l.push(""); 
+    setStatus('loading')
+    let check = 0; 
+    Object.keys(content).forEach((item, index) => {
+      if (item == 'id') check++
+      else if (item == 'num_character') check++
+      else if (item == 'sugges_characters') check++
+    })
+    if ( check == 3 ) {
+      const l = []; 
+      for (let i=0; i < content.num_character; i++) {
+        l.push(""); 
+      }
+      setListCharShow(l); 
+      setDisabledListChar(false); 
+      setNextQuestion(false); 
+      setColorListChar('#FFF'); 
+      setStatus('run')
     }
-    setListCharShow(l); 
-    setDisabledListChar(false); 
-    setNextQuestion(false); 
-    setColorListChar('#FFF'); 
+    else {
+      setStatus('null')
+    }
   }, [id])
 
   useEffect(() => {
     let size = content.num_character; 
     if(listCharShow[size - 1] !== "" && listCharShow.length == size) {
       // load result
-      result.on('value', function(snapshot: any){
+      result.on('value', function(snapshot: any){        
         console.log(snapshot.val()); 
         // function checks result
         const textResult = snapshot.val().text; 
@@ -72,24 +86,48 @@ const TypeFour = (props: { content?: any; lessonInfo?: any;
 
       })
     }
-  }, listCharShow)
+  }, [listCharShow])
 
-  return (
-    <View style={{alignItems:'center'}}>
-      <ListCharacterShow 
-        data={listCharShow}
-        setListCharShow={setListCharShow}
-        color={colorListChar}
-        disabled={disabledListChar}
-      />
-      <ListCharacterInput 
-        data={content.sugges_characters}
-        listCharShow={listCharShow}
-        setListCharShow={setListCharShow}
-        disabled={disabledListChar}
-      />
-    </View>
-  )
+  useEffect(() => {
+    if (status == null) {
+      setTimeout(() => {
+        setNextQuestion(true);
+      }, 3000)
+    }
+  }, [status])
+
+  if (status == 'loading') {
+    return (
+      <View style={{alignItems:'center'}}>
+        <Text>Waiting answer...</Text>
+      </View>
+    )
+  }
+  else if (status == 'null') {
+    return (
+      <View style={{alignItems:'center'}}>
+        <Text>Sorry! The data is not Ready.</Text>
+      </View>
+    )
+  }
+  else {
+    return (
+      <View style={{alignItems:'center'}}>
+        <ListCharacterShow 
+          data={listCharShow}
+          setListCharShow={setListCharShow}
+          color={colorListChar}
+          disabled={disabledListChar}
+        />
+        <ListCharacterInput 
+          data={content.sugges_characters}
+          listCharShow={listCharShow}
+          setListCharShow={setListCharShow}
+          disabled={disabledListChar}
+        />
+      </View>
+    )
+  }
 }
 
 export default TypeFour; 
