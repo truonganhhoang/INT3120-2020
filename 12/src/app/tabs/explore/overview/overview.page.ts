@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TopicService, Topic } from 'src/app/core/services/firebase/firestore/topic.service';
 
 @Component({
   selector: 'app-overview',
@@ -6,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.page.scss']
 })
 export class OverviewPage implements OnInit {
-  constructor() {}
+  topics: Topic[];
 
-  ngOnInit() {}
+  constructor(public topicService: TopicService) {}
+
+  ngOnInit() {
+    this.topicService
+      .allTopics()
+      .valueChanges()
+      .subscribe((result) => {
+        this.topics = result;
+      });
+  }
 }

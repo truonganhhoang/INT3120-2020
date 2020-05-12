@@ -8,7 +8,7 @@
     "codelyzer"
   ],
   "rules": {
-    "prettier": [true, "./.prettierrc", { "ignorePath": "./.prettierignore" }],
+    "prettier": [true, ".prettierrc", { "ignorePath": ".prettierignore" }],
     "array-type": false,
     "deprecation": {
       "severity": "warn"
