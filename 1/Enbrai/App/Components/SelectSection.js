@@ -120,7 +120,7 @@ const SelectSection = props => {
                 <TouchableOpacity
                   style={{
                     marginTop: 10,
-                    height: 50,
+                    height: 60,
                     backgroundColor: '#FAFAFA',
                     borderBottomLeftRadius: 10,
                     borderBottomRightRadius:10,
@@ -130,7 +130,7 @@ const SelectSection = props => {
                   }}
                   onPress={()=>{handlePress(item.item.id)}}
                   >
-                  <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
+                  <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>
                 
               </TouchableOpacity>
