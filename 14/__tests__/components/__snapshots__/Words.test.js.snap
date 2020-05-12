@@ -1,0 +1,1141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Words renders correctly 1`] = `
+<View>
+  <RCTScrollView
+    closeOnRowBeginSwipe={false}
+    closeOnRowOpen={true}
+    closeOnRowPress={true}
+    closeOnScroll={true}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 10,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "category": "Education",
+          "eng": "School",
+          "example": "My school is near my home.",
+          "favorite": 0,
+          "picture": "https://icdn.dantri.com.vn/thumb_w/640/2018/10/23/nhap-truong-10-15402675676881839197893.jpg",
+          "pronounce": "sko͞ol",
+          "remind": 0,
+          "type": "[noun]",
+          "vie": "Trường học",
+        },
+        Object {
+          "category": "Education",
+          "eng": "Math",
+          "example": "My favorite subject is math.",
+          "favorite": 0,
+          "picture": "https://cdn.mos.cms.futurecdn.net/xYiTisbsp2HZPVupAZoNYQ-320-80.jpg",
+          "pronounce": "maTH",
+          "remind": 0,
+          "type": "[noun]",
+          "vie": "Môn toán",
+        },
+      ]
+    }
+    directionalDistanceChangeThreshold={2}
+    disableHiddenLayoutCalculation={false}
+    disableLeftSwipe={false}
+    disableRightSwipe={true}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    leftOpenValue={0}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    previewFirstRow={false}
+    previewRepeat={false}
+    previewRepeatDelay={1000}
+    recalculateHiddenLayout={false}
+    refreshing={true}
+    removeClippedSubviews={false}
+    renderHiddenItem={[Function]}
+    renderItem={[Function]}
+    rightOpenValue={-160}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "height": 1200.6000000000001,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+      }
+    }
+    swipeToClosePercent={50}
+    swipeToOpenPercent={50}
+    swipeToOpenVelocityContribution={0}
+    updateCellsBatchingPeriod={50}
+    useAnimatedList={false}
+    useNativeDriver={true}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "overflow": "hidden",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "zIndex": 1,
+                },
+                Object {
+                  "height": 0,
+                  "width": 0,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "marginLeft": "auto",
+                  "marginTop": 10,
+                  "right": 5,
+                  "top": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+            </View>
+          </View>
+          <View
+            manipulationModes={
+              Array [
+                "translateX",
+              ]
+            }
+            onLayout={[Function]}
+            onMoveShouldSetResponder={[Function]}
+            onMoveShouldSetResponderCapture={[Function]}
+            onResponderEnd={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderReject={[Function]}
+            onResponderRelease={[Function]}
+            onResponderStart={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "zIndex": 2,
+              }
+            }
+          >
+            <View
+              accessible={false}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "opacity": 0,
+                    "transform": Array [
+                      Object {
+                        "scale": 0.1,
+                      },
+                      Object {
+                        "translateX": -1000,
+                      },
+                    ],
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 5,
+                      "flexDirection": "row",
+                      "marginTop": 10,
+                      "shadowColor": "#000000",
+                      "shadowOffset": Object {
+                        "height": 1,
+                        "width": 1,
+                      },
+                      "shadowOpacity": 0.8,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "https://icdn.dantri.com.vn/thumb_w/640/2018/10/23/nhap-truong-10-15402675676881839197893.jpg",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 70,
+                        "marginHorizontal": 20,
+                        "marginVertical": 10,
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "marginVertical": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "row",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#2089db",
+                            "fontSize": 20,
+                          }
+                        }
+                      >
+                        School
+                         
+                      </Text>
+                      <View>
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "transparent",
+                              "justifyContent": "center",
+                            }
+                          }
+                        >
+                          <Text />
+                        </View>
+                      </View>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "marginBottom": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#000000",
+                          }
+                        }
+                      >
+                        [noun]
+                         
+                        sko͞ol
+                         
+                      </Text>
+                      <Text
+                        style={
+                          Object {
+                            "color": "#000000",
+                          }
+                        }
+                      >
+                        Trường học
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "fontSize": 20,
+                        "position": "absolute",
+                        "right": 5,
+                        "top": 16,
+                      }
+                    }
+                  >
+                    <Text />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "overflow": "hidden",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "zIndex": 1,
+                },
+                Object {
+                  "height": 0,
+                  "width": 0,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "marginLeft": "auto",
+                  "marginTop": 10,
+                  "right": 5,
+                  "top": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+              <View
+                style={
+                  Object {
+                    "marginLeft": 5,
+                    "transform": Array [
+                      Object {
+                        "translateX": 100,
+                      },
+                    ],
+                  }
+                }
+              >
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "justifyContent": "center",
+                          }
+                        }
+                        theme={
+                          Object {
+                            "colors": Object {
+                              "disabled": "hsl(208, 8%, 90%)",
+                              "divider": "#bcbbc1",
+                              "error": "#ff190c",
+                              "grey0": "#393e42",
+                              "grey1": "#43484d",
+                              "grey2": "#5e6977",
+                              "grey3": "#86939e",
+                              "grey4": "#bdc6cf",
+                              "grey5": "#e1e8ee",
+                              "greyOutline": "#bbb",
+                              "platform": Object {
+                                "android": Object {
+                                  "error": "#f44336",
+                                  "primary": "#2196f3",
+                                  "secondary": "#9C27B0",
+                                  "success": "#4caf50",
+                                  "warning": "#ffeb3b",
+                                },
+                                "ios": Object {
+                                  "error": "#ff3b30",
+                                  "primary": "#007aff",
+                                  "secondary": "#5856d6",
+                                  "success": "#4cd964",
+                                  "warning": "#ffcc00",
+                                },
+                              },
+                              "primary": "#2089dc",
+                              "searchBg": "#303337",
+                              "secondary": "#8F0CE8",
+                              "success": "#52c41a",
+                              "warning": "#faad14",
+                            },
+                          }
+                        }
+                        underlayColor="white"
+                      >
+                        <Text />
+                      </View>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+            </View>
+          </View>
+          <View
+            manipulationModes={
+              Array [
+                "translateX",
+              ]
+            }
+            onLayout={[Function]}
+            onMoveShouldSetResponder={[Function]}
+            onMoveShouldSetResponderCapture={[Function]}
+            onResponderEnd={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderReject={[Function]}
+            onResponderRelease={[Function]}
+            onResponderStart={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "zIndex": 2,
+              }
+            }
+          >
+            <View
+              accessible={false}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "opacity": 0,
+                    "transform": Array [
+                      Object {
+                        "scale": 0.1,
+                      },
+                      Object {
+                        "translateX": -1000,
+                      },
+                    ],
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 5,
+                      "flexDirection": "row",
+                      "marginTop": 10,
+                      "shadowColor": "#000000",
+                      "shadowOffset": Object {
+                        "height": 1,
+                        "width": 1,
+                      },
+                      "shadowOpacity": 0.8,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "https://cdn.mos.cms.futurecdn.net/xYiTisbsp2HZPVupAZoNYQ-320-80.jpg",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 70,
+                        "marginHorizontal": 20,
+                        "marginVertical": 10,
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "marginVertical": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "row",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#2089db",
+                            "fontSize": 20,
+                          }
+                        }
+                      >
+                        Math
+                         
+                      </Text>
+                      <View>
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "transparent",
+                              "justifyContent": "center",
+                            }
+                          }
+                        >
+                          <Text />
+                        </View>
+                      </View>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "marginBottom": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#000000",
+                          }
+                        }
+                      >
+                        [noun]
+                         
+                        maTH
+                         
+                      </Text>
+                      <Text
+                        style={
+                          Object {
+                            "color": "#000000",
+                          }
+                        }
+                      >
+                        Môn toán
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "fontSize": 20,
+                        "position": "absolute",
+                        "right": 5,
+                        "top": 16,
+                      }
+                    }
+                  >
+                    <Text />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTScrollView
+    closeOnRowBeginSwipe={false}
+    closeOnRowOpen={true}
+    closeOnRowPress={true}
+    closeOnScroll={true}
+    directionalDistanceChangeThreshold={2}
+    disableHiddenLayoutCalculation={false}
+    disableLeftSwipe={false}
+    disableRightSwipe={false}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    leftOpenValue={0}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    previewFirstRow={false}
+    previewRepeat={false}
+    previewRepeatDelay={1000}
+    recalculateHiddenLayout={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    rightOpenValue={0}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    swipeToClosePercent={50}
+    swipeToOpenPercent={50}
+    swipeToOpenVelocityContribution={0}
+    updateCellsBatchingPeriod={50}
+    useAnimatedList={false}
+    useNativeDriver={true}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;

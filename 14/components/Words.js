@@ -13,12 +13,12 @@ import PickColor from '../Config/Color'
 
 console.disableYellowBox = true;
 export default class Words extends React.Component {
-  color
   constructor(props){
     super(props);
+    this.color = PickColor(global.darkmode);
     this.state = {
       data: db.getTaggedWord(this, this.props.type),
-    }
+    };
     // db.clearAllWords();
   }
 
@@ -93,7 +93,7 @@ export default class Words extends React.Component {
 			<View style = {styles().content}>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <Text style = {styles().englishWord}>{item.eng} </Text>
-          <Icon color={this.color.iconColor} name='volume-high' type='material-community' onPress={() => {console.log(this.color.iconColor);this.speakWord(item.eng)}}/>
+          <Icon color={this.color.iconColor} name='volume-high' type='material-community' onPress={() => {this.speakWord(item.eng)}}/>
         </View>
         <View style={{marginBottom: 7}}>
           <Text style={styles().textColor}>{item.type} {item.pronounce} </Text>
@@ -144,7 +144,6 @@ export default class Words extends React.Component {
   render(){
     if (this.state.data){
       if (this.state.data.length > 0) {
-        this.color = PickColor(global.darkmode);
         return (
           <View>
             <SwipeListView
