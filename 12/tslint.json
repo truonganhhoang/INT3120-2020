@@ -8,7 +8,7 @@
     "codelyzer"
   ],
   "rules": {
-    "prettier": [true, "./.prettierrc", { "ignorePath": "./.prettierignore" }],
+    "prettier": [true, ".prettierrc", { "ignorePath": ".prettierignore" }],
     "array-type": false,
     "deprecation": {
       "severity": "warn"
@@ -47,6 +47,7 @@
     ],
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
+    "no-string-literal": false,
     "no-switch-case-fall-through": true,
     "no-var-keyword": true,
     "no-var-requires": false,

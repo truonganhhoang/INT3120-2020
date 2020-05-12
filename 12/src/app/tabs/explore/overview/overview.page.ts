@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ModalController } from '@ionic/angular';
-
-import { ExploreTopicsComponent } from './explore-topics/explore-topics.component';
+import { TopicService, Topic } from 'src/app/core/services/firebase/firestore/topic.service';
 
 @Component({
   selector: 'app-overview',
@@ -10,14 +7,16 @@ import { ExploreTopicsComponent } from './explore-topics/explore-topics.componen
   styleUrls: ['./overview.page.scss']
 })
 export class OverviewPage implements OnInit {
-  constructor(private modalController: ModalController) {}
+  topics: Topic[];
 
-  ngOnInit() {}
+  constructor(public topicService: TopicService) {}
 
-  async viewAllTopics() {
-    const topics = await this.modalController.create({
-      component: ExploreTopicsComponent
-    });
-    await topics.present();
+  ngOnInit() {
+    this.topicService
+      .allTopics()
+      .valueChanges()
+      .subscribe((result) => {
+        this.topics = result;
+      });
   }
 }

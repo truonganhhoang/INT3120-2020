@@ -8,7 +8,7 @@
   <div class="explore-header">
     <div class="explore-header--title ion-padding">Explore</div>
 
-    <ion-button fill="clear" color="dark" class="ion-text-capitalize" (click)="viewAllTopics()">
+    <ion-button fill="clear" color="dark" class="ion-text-capitalize">
       Topics
       <ion-icon name="chevron-down-outline"></ion-icon>
     </ion-button>
@@ -49,20 +49,6 @@
     </ion-chip>
   </div>
 
-  <div class="courses ion-padding-vertical trending-courses">
-    <div class="courses--header ion-padding-horizontal ion-padding-bottom">
-      <ion-text class="courses--title">Trending courses</ion-text>
-      <ion-text class="courses--all" color="dark" [routerLink]="['/tabs/explore/trending']">
-        See All
-      </ion-text>
-    </div>
-    <div class="courses--list">
-      <app-course-item></app-course-item>
-      <app-course-item></app-course-item>
-      <app-course-item></app-course-item>
-    </div>
-  </div>
-
   <div class="courses ion-padding-vertical popular-courses">
     <div class="courses--header ion-padding-horizontal ion-padding-bottom">
       <ion-text class="courses--title">Popular courses</ion-text>
@@ -71,6 +57,8 @@
       </ion-text>
     </div>
     <div class="courses--list">
+      <app-course-item></app-course-item>
+      <app-course-item></app-course-item>
       <app-course-item></app-course-item>
       <app-course-item></app-course-item>
       <app-course-item></app-course-item>
@@ -85,6 +73,8 @@
       </ion-text>
     </div>
     <div class="courses--list">
+      <app-course-item></app-course-item>
+      <app-course-item></app-course-item>
       <app-course-item></app-course-item>
       <app-course-item></app-course-item>
       <app-course-item></app-course-item>

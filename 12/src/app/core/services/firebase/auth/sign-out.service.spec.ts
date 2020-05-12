@@ -18,4 +18,8 @@ describe('SignOutService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should success', async () => {
+    expect(await service.signOut().toPromise()).toBeUndefined();
+  });
 });
