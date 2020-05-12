@@ -6,6 +6,13 @@ class EachCourses extends Component {
     constructor(props){
         super(props);
     }
+    onAdd(){
+        const { id } = this.props.route.params.course;
+        this.props.dispatch({
+            type: 'ADD_CART',
+            key : id
+        });
+    }
     render() {
         const {navigation } = this.props;
         const { course } = this.props.route.params;
@@ -51,6 +58,7 @@ class EachCourses extends Component {
                 </ScrollView>
                 <Fab
                 style={{backgroundColor:"#5067FF"}}
+                onPress = {() => this.onAdd()}
                 >
                     <Icon name="md-add" />
                 </Fab>

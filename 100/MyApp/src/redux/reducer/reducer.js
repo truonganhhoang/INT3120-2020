@@ -22,6 +22,9 @@ const defaultState ={
         {id: 5, name: "Nguyễn Anh Tuấn", avt:require("../../img/nat.jpg")},
         {id: 6, name: "Ngô Thị Hoài Thanh", avt:require("../../img/ntht.jpg")},
         {id: 7, name: "Trần Thanh Thúy", avt:require("../../img/ttt.jpg")},
+    ],
+    myCart : [
+        {id: 1, key: 3},
     ]
 };
   
@@ -44,6 +47,15 @@ const reducer = ( state = defaultState, action )=>{
     }
     if(action.type === 'FILTER_HOT'){
         return {...state, filterCourses: 'SHOW_HOT'};
+    }
+    if (action.type === 'ADD_CART') {
+        return {
+            ...state,
+            myCart: [{
+                id: state.myCart.length + 1, 
+                key: action.key
+            }].concat(state.myCart) // noi len dau
+        }
     }
     return state;
 };
