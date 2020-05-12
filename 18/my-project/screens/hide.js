@@ -1,6 +1,6 @@
 /*This is an Example to Hide/Show View  Component in React Native on button Click*/
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { TouchableHighlight, FlatList } from 'react-native-gesture-handler';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 

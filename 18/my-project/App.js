@@ -10,8 +10,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line no-undef
     setTimeout(() => {
-      console.log('Loading Splash');
       this.setState({ startScreen: 'Index' });
     }, 5);
   }
