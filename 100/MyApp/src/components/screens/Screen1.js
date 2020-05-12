@@ -20,9 +20,10 @@ class Store extends Component {
         if (filterCourses === 'SHOW_HOT') return courses.filter( (item) => {return item.hot == true});
         return courses;
     }
+
     render() {
         
-        const { navigation } = this.props;
+        const { navigation, authors } = this.props;
         const  courses  = this.getCourses();
         return (
             <Container >
@@ -32,14 +33,18 @@ class Store extends Component {
                 />
                 <ScrollView showsHorizontalScrollIndicator={false} ref={this.props.scrollRef}> 
                     <Content>
-                        {courses.map( (item) => (
-                            <Course 
+                        {courses.map( (item) => {
+                            let a = authors.filter( (e)=>(e.id == item.idAuthor));
+                            return(
+                                <Course 
                                 GoEach={()=> navigation.navigate('EachCourses', {course: item})} 
-                                GoAuthor={()=> navigation.navigate('Author')}
+                                GoAuthor={()=> navigation.navigate('Author', {author : a})}
                                 course = {item}
+                                author = {a}
                                 key={item.id}
                             />
-                        ))}
+                            );
+                        })}
                     </Content>
                 </ScrollView>
                 <FilterScreen1 />
@@ -57,7 +62,8 @@ function Screen1(props) {
 function mapStateToProps(state){
     return{ 
         courses: state.courses,
-        filterCourses: state.filterCourses
+        filterCourses: state.filterCourses,
+        authors: state.authors
     };
 }
 export default connect(mapStateToProps)(Screen1);

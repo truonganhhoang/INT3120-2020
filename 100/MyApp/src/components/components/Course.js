@@ -9,17 +9,18 @@ class Course extends Component {
         super(props);
     }
     render() {
-        const { id, author, onMark, date, price, image, beta, name, hot } = this.props.course;
+        const { id, onMark, date, price, image, beta, name, hot } = this.props.course;
         const colorMark = onMark ? "#90CAF9" : "gray";
         const colorHot = hot ? "#90CAF9" : "#fff";
+        const author = this.props.author[0];
         return (
             <Animatable.View animation="zoomInRight" style={{marginBottom: 20}}>
                 <Card style={{flex: 0}}>
                     <CardItem cardBody button onPress={this.props.GoAuthor}>
                         <Left style={{margin: 4}}>
-                            <Thumbnail source={require('../../img/005.jpg')} />
+                            <Thumbnail source={author.avt} />
                             <Body>
-                                <Text style={{width: 200}}>{author}</Text>
+                                <Text style={{width: 200}}>{author.name} </Text>
                                 <View style={{flexDirection: "row"}}>
                                     <Text note style={{paddingHorizontal: 0}}>{date}</Text>   
                                     <Icon name="md-flame" style={{color: colorHot, fontSize: 18}} />
@@ -70,5 +71,9 @@ class Course extends Component {
         )
     }
 }
-
-export default connect(null, {onBookmark})(Course);
+function mapStateToProps(state){
+    return{ 
+        authors: state.authors
+    };
+}
+export default connect(mapStateToProps, {onBookmark})(Course);
