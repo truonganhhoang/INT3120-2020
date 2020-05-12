@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet, StatusBar, Image, FlatList, Alert, Platform } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-import{NavigationContainer} from '@react-navigation/native'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 import { TouchableOpacity } from 'react-native';
-
 
 export default class Home extends Component {
   // constructor(props) {
@@ -25,6 +22,7 @@ export default class Home extends Component {
   //   Alert.alert(item);
   // }
   render() {
+    var lists = this.props.lists;
     return (
       <View style={styles.container}>
         {/* <StatusBar
@@ -39,35 +37,76 @@ export default class Home extends Component {
                </View> */}
 
         <View style={{ backgroundColor: '#31edd1', flex: 3.5 }}>
-          <Image source={require('../assets/img1.jpg')} style={{ width: '100%', height: '100%', resizeMode: 'cover' }} />
+          <Image
+            source={require('../assets/img1.jpg')}
+            style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
+          />
         </View>
 
         <View style={styles.gridList}>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Test')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/1.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => this.props.navigation.navigate('Test')}
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/1.png')}
+              />
               <Text style={styles.button1}>THI SÁT HẠNH</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Learn')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/2.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => this.props.navigation.navigate('Learn')}
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/2.png')}
+              />
               <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Signs')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/3.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() =>
+                this.props.navigation.navigate('Signs', { lists: { lists } })
+              }
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/3.png')}
+              />
               <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Tips')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/4.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => this.props.navigation.navigate('Tips')}
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/4.png')}
+              />
               <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Rules')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/5.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => this.props.navigation.navigate('Rules')}
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/5.png')}
+              />
               <Text style={styles.button1}>TRA CỨU LUẬT NHANH</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Taplo')}>
-              <Image style={styles.imageButton}  source={require('../assets/home/6.png')}/>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => this.props.navigation.navigate('Taplo')}
+            >
+              <Image
+                style={styles.imageButton}
+                source={require('../assets/home/6.png')}
+              />
               <Text style={styles.button1}>ĐÈN CẢNH BÁO TÁP LÔ</Text>
             </TouchableOpacity>
           </View>
@@ -82,12 +121,14 @@ export default class Home extends Component {
                 /> */}
         </View>
         <View style={{ flex: 2 }}>
-          <Image style={{ width: '100%', height: '100%', resizeMode: 'cover' }} source={require('../assets/img2.webp')} />
+          <Image
+            style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
+            source={require('../assets/img2.webp')}
+          />
           {/* <TouchableOpacity style={styles.addButton}>
             <Text style={styles.iconButton}>+</Text>
           </TouchableOpacity> */}
         </View>
-
       </View>
     );
   }
@@ -111,7 +152,7 @@ const styles = StyleSheet.create({
   },
   gridList: {
     flex: 5.5,
-    backgroundColor: "#00000017"
+    backgroundColor: '#00000017',
   },
 
   button: {
@@ -126,23 +167,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     margin: 0.5,
-    padding: 2
+    padding: 2,
   },
   imageButton: {
     resizeMode: 'cover',
-    marginBottom:10
+    marginBottom: 10,
   },
   button1: {
     fontSize: 15,
-    textAlign: 'center'
+    textAlign: 'center',
   },
-
 
   headerText: {
     fontSize: 10,
-    textAlign: "center",
+    textAlign: 'center',
     margin: 10,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   GridViewContainer: {
     flex: 1.5,
@@ -175,5 +215,5 @@ const styles = StyleSheet.create({
   iconButton: {
     color: '#fff',
     fontSize: 24,
-  }
-})
+  },
+});

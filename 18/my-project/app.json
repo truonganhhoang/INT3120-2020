@@ -3,7 +3,6 @@
     "name": "Ôn thi GPLX B1",
     "slug": "GPLX2",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
