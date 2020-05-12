@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test translate renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#d2d6d9",
+      "height": 1334,
+      "width": 750,
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#2089db",
+        "borderBottomColor": "#f2f2f2",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "height": 133.4,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 10,
+        "paddingTop": 20,
+      }
+    }
+  >
+    <Image
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 133.4,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+      testID="headerContainer"
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 3,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "#fff",
+          }
+        }
+        text="Dịch online"
+        theme={
+          Object {
+            "colors": Object {
+              "disabled": "hsl(208, 8%, 90%)",
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "platform": Object {
+                "android": Object {
+                  "error": "#f44336",
+                  "primary": "#2196f3",
+                  "secondary": "#9C27B0",
+                  "success": "#4caf50",
+                  "warning": "#ffeb3b",
+                },
+                "ios": Object {
+                  "error": "#ff3b30",
+                  "primary": "#007aff",
+                  "secondary": "#5856d6",
+                  "success": "#4cd964",
+                  "warning": "#ffcc00",
+                },
+              },
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+              "success": "#52c41a",
+              "warning": "#faad14",
+            },
+          }
+        }
+      >
+        Dịch online
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "height": 1200.6000000000001,
+        "width": 750,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#2089db",
+            "borderTopLeftRadius": 21.344,
+            "borderTopRightRadius": 21.344,
+            "marginBottom": -37.352000000000004,
+            "marginLeft": 37.5,
+            "marginTop": 37.352000000000004,
+            "width": 675,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "alignSelf": "flex-start",
+              "color": "white",
+              "fontSize": 22,
+              "padding": 5,
+            }
+          }
+        >
+          English
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "flex-end",
+              "height": 32,
+              "marginTop": -33,
+              "opacity": 1,
+              "width": 32,
+            }
+          }
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "justifyContent": "center",
+                }
+              }
+              theme={
+                Object {
+                  "colors": Object {
+                    "disabled": "hsl(208, 8%, 90%)",
+                    "divider": "#bcbbc1",
+                    "error": "#ff190c",
+                    "grey0": "#393e42",
+                    "grey1": "#43484d",
+                    "grey2": "#5e6977",
+                    "grey3": "#86939e",
+                    "grey4": "#bdc6cf",
+                    "grey5": "#e1e8ee",
+                    "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
+                    "primary": "#2089dc",
+                    "searchBg": "#303337",
+                    "secondary": "#8F0CE8",
+                    "success": "#52c41a",
+                    "warning": "#faad14",
+                  },
+                }
+              }
+              underlayColor="white"
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        multiline={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "backgroundColor": "#f0f0f0",
+            "borderRadius": 21.344,
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "color": "#000000",
+            "height": 133.4,
+            "margin": 37.5,
+            "paddingHorizontal": 15,
+            "width": 675,
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#2089db",
+            "borderTopLeftRadius": 21.344,
+            "borderTopRightRadius": 21.344,
+            "marginBottom": -37.352000000000004,
+            "marginLeft": 37.5,
+            "marginTop": 37.352000000000004,
+            "width": 675,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "alignSelf": "flex-start",
+              "color": "white",
+              "fontSize": 22,
+              "padding": 5,
+            }
+          }
+        >
+          Tiếng Việt
+        </Text>
+      </View>
+      <RCTScrollView
+        style={
+          Object {
+            "backgroundColor": "#f0f0f0",
+            "borderRadius": 21.344,
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "height": 266.8,
+            "margin": 37.5,
+            "width": 675,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "margin": 15,
+              }
+            }
+          >
+            
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;
