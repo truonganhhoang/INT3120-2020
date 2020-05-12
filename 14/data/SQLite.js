@@ -89,7 +89,7 @@ const getNotificationID = (eng) => {
         if (result.rows.length > 0){
           resolve(result.rows._array[0].notificationID);
         }else{
-          resolve('null');
+          reject('null');
         }
       })
     });
