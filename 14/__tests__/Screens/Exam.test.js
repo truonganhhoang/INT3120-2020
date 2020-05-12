@@ -18,7 +18,6 @@ describe('test exam', () => {
   />);
   const examJSON = exam.toJSON();
   const examInstance = exam.getInstance();
-  console.log(examInstance.state.data)
   // test 1
   it('renders correctly', () => {
     expect(examJSON).toMatchSnapshot();
