@@ -23,7 +23,7 @@ class Moikhoahoc extends Component {
                     </TouchableOpacity>
                 </Body>
                 <Right>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.props.OnDeCart}>
                         <Icon name="md-trash" style={{fontSize: 32, color:"#333"}}/>
                     </TouchableOpacity>
                 </Right>

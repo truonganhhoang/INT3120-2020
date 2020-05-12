@@ -30,33 +30,36 @@ const defaultState ={
   
 // reducer -> tien doan nhung hanh dong se xay ra
 const reducer = ( state = defaultState, action )=>{
-    if(action.type === 'ON_BOOKMARK'){
-        return {
-            ...state,
-            courses : state.courses.map(e => {
-            if (e.id !== action.id) return e;
-            return { ...e, onMark: !e.onMark };
-        })
+    switch(action.type){
+        case 'ON_BOOKMARK':
+            return {
+                ...state,
+                courses : state.courses.map(e => {
+                if (e.id !== action.id) return e;
+                return { ...e, onMark: !e.onMark };
+            })};
+        case 'FILTER_SHOW_ALL':
+            return {...state, filterCourses: 'SHOW_ALL'};
+        case 'FILTER_BOOK_MARK':
+            return {...state, filterCourses: 'BOOK_MARK'};
+        case 'FILTER_HOT':
+            return {...state, filterCourses: 'SHOW_HOT'};
+        case 'ADD_CART':
+            return {
+                ...state,
+                myCart: [{
+                    id: state.myCart.length + 1, 
+                    key: action.key
+                }].concat(state.myCart) // noi len dau
+            };
+        case 'DELETE_CART':
+            return {
+                ...state,
+                myCart: state.myCart.filter((index) => index !== action.payload)
+            }
+        default:
+            break;
     };
-    }
-    if(action.type === 'FILTER_SHOW_ALL'){
-        return {...state, filterCourses: 'SHOW_ALL'};
-    }
-    if(action.type === 'FILTER_BOOK_MARK'){
-        return {...state, filterCourses: 'BOOK_MARK'};
-    }
-    if(action.type === 'FILTER_HOT'){
-        return {...state, filterCourses: 'SHOW_HOT'};
-    }
-    if (action.type === 'ADD_CART') {
-        return {
-            ...state,
-            myCart: [{
-                id: state.myCart.length + 1, 
-                key: action.key
-            }].concat(state.myCart) // noi len dau
-        }
-    }
     return state;
 };
 export default reducer;

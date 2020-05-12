@@ -23,9 +23,16 @@ class Screen3 extends Component {
                     <List>
                         {myCart.map( (item) => {
                             let course = courses.filter( (e)=>(e.id == item.key))
+                            const DeleteCart = (item) => {
+                                this.props.dispatch({
+                                    type: 'DELETE_CART',
+                                    payload: item
+                                })
+                            }
                             return(
                                 <Moikhoahoc
-                                GoEach={()=> navigation.navigate('EachCourses', {course: course[0]})} 
+                                GoEach={()=> navigation.navigate('EachCourses', {course: course[0]})}
+                                OnDeCart = {() => DeleteCart(item)}
                                 course = {course[0]}
                                 key={item.id}
                             />
