@@ -10,17 +10,13 @@ import MoreScreen from "../trafficlawscreen/moreScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
-// function MyTabs() {
-
-// }
-
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default function TrafficLaws() {
+export default function Home({ navigation }) {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Xe máy " component={MotobikeScreen} />
+      <Tab.Screen name="Xe máy" component={MotobikeScreen} />
       <Tab.Screen name="Ô tô" component={CarScreen} />
       <Tab.Screen name="Khác" component={MoreScreen} />
     </Tab.Navigator>

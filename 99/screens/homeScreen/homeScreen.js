@@ -16,7 +16,6 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 
 export default function HomeScreen({ navigation }) {
   navigation.setOptions({
-    title: "Học bằng lái xe máy",
     headerLeft: () => (
       <TouchableOpacity
         style={{ paddingLeft: 10 }}
