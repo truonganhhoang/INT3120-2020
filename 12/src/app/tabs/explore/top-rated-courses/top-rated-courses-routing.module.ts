@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TopRatedCoursesPage } from './top-rated-courses.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: TopRatedCoursesPage

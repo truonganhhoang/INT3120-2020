@@ -10,7 +10,7 @@ describe('InfoPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [InfoPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(InfoPage);

@@ -4,7 +4,7 @@ import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from
 
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then((m) => m.IntroPageModule),

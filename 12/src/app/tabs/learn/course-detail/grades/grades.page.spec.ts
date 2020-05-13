@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
@@ -10,7 +11,8 @@ describe('GradesPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GradesPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(GradesPage);

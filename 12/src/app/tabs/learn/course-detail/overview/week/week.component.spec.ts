@@ -1,19 +1,21 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { WeekComponent } from './week.component';
+import { CourseOverviewWeekComponent } from './week.component';
 
-describe('WeekComponent', () => {
-  let component: WeekComponent;
-  let fixture: ComponentFixture<WeekComponent>;
+describe('CourseOverviewWeekComponent', () => {
+  let component: CourseOverviewWeekComponent;
+  let fixture: ComponentFixture<CourseOverviewWeekComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WeekComponent],
-      imports: [IonicModule.forRoot()]
+      declarations: [CourseOverviewWeekComponent],
+      imports: [IonicModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WeekComponent);
+    fixture = TestBed.createComponent(CourseOverviewWeekComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

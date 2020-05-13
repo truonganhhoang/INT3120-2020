@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { TopRatedCoursesPage } from './top-rated-courses.page';
+import { routes } from './top-rated-courses-routing.module';
 
 describe('TopRatedCoursesPage', () => {
   let component: TopRatedCoursesPage;
@@ -10,7 +12,7 @@ describe('TopRatedCoursesPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TopRatedCoursesPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule, RouterTestingModule.withRoutes(routes)]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopRatedCoursesPage);

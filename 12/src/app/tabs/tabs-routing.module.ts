@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
@@ -30,13 +30,15 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'learn'
+        redirectTo: 'learn',
+        pathMatch: 'prefix'
       }
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs'
+    redirectTo: 'tabs',
+    pathMatch: 'prefix'
   }
 ];
 
