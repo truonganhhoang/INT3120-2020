@@ -136,7 +136,7 @@ const ExerciseQuestion = props => {
         .child('questions')
         .child(`${id}`)
         .update({isReview});
-    } 
+    }
     if (correct == true) {
       isCorrect = 'true';
       firebase
@@ -150,7 +150,7 @@ const ExerciseQuestion = props => {
         .child('questions')
         .child(`${id}`)
         .update({isCorrect});
-      questCompleteCount = questCompleteCount +1
+      questCompleteCount = questCompleteCount + 1;
       firebase
         .database()
         .ref('DataResult')
@@ -160,16 +160,27 @@ const ExerciseQuestion = props => {
         .child('levels')
         .child(`${levelId}`)
         .update({questCompleteCount});
-        if(questCompleteCount == questCount ){
-          questCount= questCount +1
-          firebase
+      if (questCompleteCount == questCount) {
+        levelCompleteCount = levelCompleteCount + 1;
+        var lock = 'No'
+        firebase
           .database()
           .ref('DataResult')
           .child(`${userId}`)
           .child('Part')
           .child(`${partId}`)
-          .update({questCount});
-        }
+          .update({levelCompleteCount});
+          firebase
+        .database()
+        .ref('DataResult')
+        .child(`${userId}`)
+        .child('Part')
+        .child(`${partId}`)
+        .child('levels')
+        .child(`${levelId+1}`)
+        .update({lock});
+        
+      }
     }
 
     props.setPage(1, quest, text, correct);

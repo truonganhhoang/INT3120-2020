@@ -6,6 +6,19 @@ import { withNavigation } from 'react-navigation';
 
 const HomeStudy = (props) => {
     const [isReady, setIsReady] = useState(false)
+    const [dataSelected, setDataSelected] = useState([])
+
+    const handleDataSelected = (data) => {
+        var selected = dataSelected
+        var order = 0
+        data.map(item => {
+            item.order = order
+            order++;
+            selected.push(item)
+        })
+        setDataSelected(selected)
+    }
+    
     const handleReady = () => {
         setIsReady(true)
     }
@@ -26,6 +39,7 @@ const HomeStudy = (props) => {
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
+                            onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected})}}
                         />
                     </View>
                 </LinearGradient>
@@ -45,7 +59,7 @@ const HomeStudy = (props) => {
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-                            onPress={() => props.navigation.navigate('PickNewWordScreen', { handleReady: handleReady })}
+                            onPress={() => props.navigation.navigate('PickNewWordScreen', { handleReady: handleReady, handleDataSelected: handleDataSelected })}
                         />
                         <Button
                             title='TÌM KIẾM MỘT TỪ'
