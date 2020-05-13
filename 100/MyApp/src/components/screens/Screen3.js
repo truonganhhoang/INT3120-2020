@@ -2,19 +2,16 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView, Modal, TouchableOpacity } from 'react-native'
 import Moikhoahoc from '../components/Moikhoahoc';
 import { Header, Body, Title, Content, Container, Card, List } from 'native-base';
-import FooterScreen from '../components/Footer';
-export default class Screen3 extends Component {
+import { connect } from 'react-redux';
+class Screen3 extends Component {
     constructor(props){
         super(props);
         this.state = {
             modalVisible: false
         };
     }
-    // setModalVisible = (visible) => {
-    //     this.setState({ modalVisible: visible });
-    // }
     render() {
-        const {navigation} = this.props;
+        const { navigation, courses, myCart } = this.props;
         return (
             <Container style={{flex: 1, justifyContent: "space-evenly"}}>
                 <Header>
@@ -24,7 +21,23 @@ export default class Screen3 extends Component {
                 </Header>
                 <Content scrollEnabled={false}>
                     <List>
-                        <Moikhoahoc />
+                        {myCart.map( (item) => {
+                            let course = courses.filter( (e)=>(e.id == item.key))
+                            const DeleteCart = (item) => {
+                                this.props.dispatch({
+                                    type: 'DELETE_CART',
+                                    payload: item
+                                })
+                            }
+                            return(
+                                <Moikhoahoc
+                                GoEach={()=> navigation.navigate('EachCourses', {course: course[0]})}
+                                OnDeCart = {() => DeleteCart(item)}
+                                course = {course[0]}
+                                key={item.id}
+                            />
+                            );
+                        })}
                     </List>
                         
                     
@@ -43,15 +56,14 @@ export default class Screen3 extends Component {
                         <Text style={{color: "#212121", fontSize: 24, fontWeight: "600"}}>Thanh toán</Text>
                     </View>
                 </TouchableOpacity>
-                {/* <FooterScreen 
-                active3={true}
-                Go3={()=> navigation.navigate('Screen3')}
-                Go1={()=> navigation.navigate('Screen1')}
-                Go2={()=> navigation.navigate('Screen2')}
-                Go4={()=> navigation.navigate('Screen4')}
-                Go5={()=> navigation.navigate('Screen5')}
-                /> */}
             </Container>
         )
     }
 }
+function mapStateToProps(state){
+    return{ 
+        courses: state.courses,
+        myCart: state.myCart,
+    };
+}
+export default connect(mapStateToProps)(Screen3);

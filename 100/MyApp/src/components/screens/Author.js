@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Content, Header, Left, Button, Body, Right, Icon, Title } from 'native-base';
+import { Container, Content, Header, Left, Button, Body, Right, Icon, Title, Text } from 'native-base';
 export default class Author extends Component {
     constructor(props){
         super(props);
     }
     render() {
         const {navigation} = this.props;
+        const { author } = this.props.route.params;
         return (
             <Container>
                 <Header>
@@ -15,12 +16,12 @@ export default class Author extends Component {
                     </Button>
                     </Left>
                     <Body>
-                        <Title>Ten tac gia</Title>
+                        <Text style={{color: "#fff", fontSize: 18, fontWeight: "700"}}>{author[0].name}</Text>
                     </Body>
-                    <Right></Right>
+                    {/* <Right></Right> */}
                 </Header>
                 <Content>
-                    
+                    <Text>{author[0].name}</Text>
                 </Content>
             </Container>
         )
