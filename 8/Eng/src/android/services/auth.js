@@ -24,4 +24,92 @@ const random = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-export { loadTopics, random }; 
+// verify 1 field of object
+const checkObject1 = (object, f1) => {
+  let check = 0; 
+  Object.keys(object).forEach((item) => {
+    if (item == f1) check++
+  })
+  console.log('1'); 
+  if (check == 1) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// verify 2 fields of object
+const checkObject2 = (object, f1, f2) => {
+  let check = 0; 
+  Object.keys(object).forEach((item) => {
+    if (item == f1) check++
+    else if (item == f2) check++
+  })
+  console.log('2'); 
+  if (check == 2) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// verify 3 fields of object
+const checkObject3 = (object, f1, f2, f3) => {
+  let check = 0; 
+  Object.keys(object).forEach((item) => {
+    if (item == f1) check++
+    else if (item == f2) check++
+    else if (item == f3) check++ 
+  })
+  console.log('3'); 
+  if (check == 3) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// verify 4 fields of object
+const checkObject4 = (object, f1, f2, f3, f4) => {
+  let check = 0; 
+  Object.keys(object).forEach((item) => {
+    if (item == f1) check++
+    else if (item == f2) check++
+    else if (item == f3) check++ 
+    else if (item == f4) check++
+  })
+  console.log('4'); 
+  if (check == 4) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// verify 5 fields of object
+const checkObject5 = (object, f1, f2, f3, f4, f5) => {
+  let check = 0; 
+  Object.keys(object).forEach((item) => {
+    if (item == f1) check++
+    else if (item == f2) check++
+    else if (item == f3) check++ 
+    else if (item == f4) check++
+    else if (item == f5) check++
+  })
+  console.log('5'); 
+  if (check == 5) {
+    return true
+  } else {
+    return false
+  }
+}
+
+export { 
+  loadTopics, 
+  random, 
+  checkObject1, 
+  checkObject2, 
+  checkObject3, 
+  checkObject4, 
+  checkObject5
+ }; 

@@ -41,10 +41,11 @@ const Lessons = (props: { navigation?: any }) => {
         </View>
       )
     } else {
-      Object.keys(lessons).forEach((item, index) => {
-        data.push(lessons[item])
-        data[index].wordGroupName = item
-      })
+      let i = 0; 
+      for (let [key, value] of Object.entries(lessons)) {
+        data.push(value); 
+        data[i++].wordGroupName = key
+      }
       return (
         <View>
           <Carousel

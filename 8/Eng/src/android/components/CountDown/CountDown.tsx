@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native'; 
 
 const CountDown = (props: {hours?: any, minutes?: any,
-  seconds?: any, id?: any, setTimeOut?: any }) => {
-  const { hours, minutes, seconds, id, setTimeOut } = props; 
+  seconds?: any, id?: any, setTimeOut?: any, stop?: any }) => {
+  const { hours, minutes, seconds, id, setTimeOut, stop } = props; 
   const [ over, setOver ] = useState(false); 
+  const [ paused, setPaused ] = useState(false);
   const [ time, setTime ] = useState({
     hours: parseInt(hours, 10), 
     minutes: parseInt(minutes, 10), 
@@ -12,7 +13,7 @@ const CountDown = (props: {hours?: any, minutes?: any,
   })
 
   const tick = () => {
-    if (over) return; 
+    if (over || paused) return; 
 
     // Time up
     if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
@@ -60,10 +61,16 @@ const CountDown = (props: {hours?: any, minutes?: any,
     setOver(false);
   }, [id])
 
+  useEffect(() => {
+    if ( stop == true ) {
+      setPaused(true)
+    }
+  }, [stop])
+
   return (
-    <View>
-      <Text>
-        {time.hours.toString().padStart(2, '0')}: 
+    <View style={{alignItems:'center'}}>
+      <Text style={{color:'#ff5e00',fontSize:16,fontWeight:'bold'}}>
+        {/* {time.hours.toString().padStart(2, '0')}:  */}
         {time.minutes.toString().padStart(2, '0')}:
         {time.seconds.toString().padStart(2, '0')}
       </Text>

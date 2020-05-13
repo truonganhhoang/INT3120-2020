@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
     paddingRight: 10, 
   }, 
   infoView: {
-
+    flexDirection:'row',
+    padding:6
   }, 
   puzzleView: {
 
-  }
+  },
 }); 
 
 export default styles; 

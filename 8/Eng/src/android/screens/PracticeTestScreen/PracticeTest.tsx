@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Dimensions } from 'react-native';
-import { Header, Slider } from 'react-native-elements';
+import { Header } from 'react-native-elements';
 import { Back } from '../../components/Back';
 import styles from './styles';
 import firebase from 'firebase';
 import { random } from '../../services';
-import { QuestionTypeOne } from '../../components/Questions/QuestionTypeOne';
-import { QuestionTypeTwo } from '../../components/Questions/QuestionTypeTwo';
-import { QuestionTypeThree } from '../../components/Questions/QuestionTypeThree';
-import { QuestionTypeFour } from '../../components/Questions/QuestionTypeFour';
-import { AnswerTypeOne } from '../../components/Answers/AnswerTypeOne';
-import { AnswerTypeTwo } from '../../components/Answers/AnswerTypeTwo';
-import { AnswerTypeThree } from '../../components/Answers/AnswerTypeThree';
-import { AnswerTypeFour } from '../../components/Answers/AnswerTypeFour';
+import { QuestionContent } from '../../components/QuestionContent'; 
+import { AnswerContent } from '../../components/AnswerContent';  
 import { AskQuestionNumber } from '../../components/AskQuestionNumber';
 import { PracticeTestResult } from '../../components/PracticeTestResult';
 import { Activity } from '../Utils/activity';
 import * as Progress from 'react-native-progress';
 const WIDTH = Dimensions.get('window').width;
+
 const Practice = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props;
   const lessonInfo = route.params;
@@ -27,8 +22,9 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [nextQuestion, setNextQuestion] = useState(false);
   const [count, setCount] = useState(0);
+  const [amountOfTrue, setAmountOfTrue] = useState(0);
   const database = firebase.database();
-  console.log(count);
+
   useEffect(() => {
     setAmountOfQ(0);
     setCount(0);
@@ -37,12 +33,14 @@ const Practice = (props: { route?: any; navigation?: any }) => {
     if (nextQuestion) {
       setNextQuestion(false);
     }
+    setAmountOfTrue(0)
   }, [lessonInfo])
 
   useEffect(() => {
     if (amountOfQuestion > 0) {
       setQuestionNumber(random(0, 19));
-      // setQuestionNumber(11);
+      // setQuestionNumber(15); 
+      setAmountOfTrue(amountOfQuestion); 
     }
   }, [amountOfQuestion])
 
@@ -50,12 +48,13 @@ const Practice = (props: { route?: any; navigation?: any }) => {
     if (nextQuestion) {
       let c = count + 1;
       setCount(c);
+      // setQuestionNumber(15); 
       setQuestionNumber(random(0, 19));
-      // setQuestionNumber(0);
     }
   }, [nextQuestion])
 
   useEffect(() => {
+    console.log(questionNumber); 
     const question = database.ref('/topic_detail/' +
       lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
       '/questions/' + questionNumber);
@@ -106,78 +105,6 @@ const Practice = (props: { route?: any; navigation?: any }) => {
         )
       }
       else {
-        let ContentQuestion;
-        if (contentOfQuestion) {
-          if (contentOfQuestion.type == '1') {
-            ContentQuestion = <QuestionTypeOne
-              content={contentOfQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfQuestion.type == '2') {
-            ContentQuestion = <QuestionTypeTwo
-              content={contentOfQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfQuestion.type == '3') {
-            ContentQuestion = <QuestionTypeThree
-              content={contentOfQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfQuestion.type == '4') {
-            ContentQuestion = <QuestionTypeFour
-              content={contentOfQuestion}
-              id={count}
-            />
-          }
-        } else {
-          ContentQuestion = (<View>
-            <Text>Waiting data ...</Text>
-          </View>)
-        }
-
-        let ContentAnswer;
-
-        if (contentOfAnswer) {
-          if (contentOfAnswer.type == '1') {
-            ContentAnswer = <AnswerTypeOne
-              content={contentOfAnswer}
-              lessonInfo={lessonInfo}
-              setNextQuestion={setNextQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfAnswer.type == '2') {
-            ContentAnswer = <AnswerTypeTwo
-              content={contentOfAnswer}
-              lessonInfo={lessonInfo}
-              setNextQuestion={setNextQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfAnswer.type == '3') {
-            ContentAnswer = <AnswerTypeThree
-              content={contentOfAnswer}
-              lessonInfo={lessonInfo}
-              setNextQuestion={setNextQuestion}
-              id={count}
-            />
-          }
-          else if (contentOfAnswer.type == '4') {
-            ContentAnswer = <AnswerTypeFour
-              content={contentOfAnswer}
-              lessonInfo={lessonInfo}
-              setNextQuestion={setNextQuestion}
-              id={count}
-            />
-          }
-        } else {
-          ContentAnswer = (<View>
-            <Text>Waiting data ...</Text>
-          </View>)
-        }
         return (
           <View style={styles.container}>
             <Header containerStyle={styles.headerContainer}
@@ -192,16 +119,19 @@ const Practice = (props: { route?: any; navigation?: any }) => {
             </View>
 
             <View style={styles.slider}>
-              {/* <Slider
-                disabled={true}
-                value={count}
-                maximumValue={amountOfQuestion}
-              /> */}
               <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} color="#ff5e00" height={8}/>
             </View>
+            <Text style={{textAlign:'center'}}>{questionNumber}</Text>
             <View>
-              {ContentQuestion}
-              {ContentAnswer}
+              <QuestionContent contentOfQuestion={contentOfQuestion} count={count}/>
+              <AnswerContent 
+                contentOfAnswer={contentOfAnswer} 
+                lessonInfo={lessonInfo}
+                setNextQuestion={setNextQuestion}
+                count={count}
+                heart={amountOfTrue}
+                setHeart={setAmountOfTrue}
+              />
             </View>
           </View>
         )
@@ -222,8 +152,8 @@ const Practice = (props: { route?: any; navigation?: any }) => {
               content={{
                 topicName: lessonInfo.topicName,
                 lessonName: lessonInfo.lessonName,
-                correct: 5,
-                incorrect: 10
+                correct: {amountOfTrue},
+                amountOfQuestion: {amountOfQuestion}
               }}
               navigation={navigation}
             />

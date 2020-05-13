@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
+import { checkObject5 } from '../../../services/auth'; 
 import firebase from 'firebase';
 import styles from './styles';
 import Sound from 'react-native-sound';
 const WIDTH = Dimensions.get('window').width;
 
-const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: any; id?: any }) => {
-  const { content, lessonInfo, setNextQuestion, id } = props;
+const TypeThree = (props: { content?: any; lessonInfo?: any;
+   setNextQuestion?: any; id?: any; heart?: any; setHeart?: any }) => {
+
+  const { content, lessonInfo, setNextQuestion, id, heart, setHeart } = props;
   const database = firebase.database();
   const result = database.ref('/topic_detail/' +
     lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
@@ -17,14 +20,30 @@ const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: a
   const [colorAnswerC, setColorAnswerC] = useState('white');
   const [colorAnswerD, setColorAnswerD] = useState('white');
   const [disabled, setDisabled] = useState(false);
+  const [status, setStatus] = useState('loading'); 
 
   useEffect(() => {
-    setColorAnswerA('white');
-    setColorAnswerB('white');
-    setColorAnswerC('white');
-    setColorAnswerD('white');
-    setDisabled(false);
-    setNextQuestion(false);
+    console.log('type' + 3)
+    setStatus('loading')
+    let check = 0; 
+    Object.keys(content).forEach((item, index) => {
+      if (item == 'id') check++
+      else if (item == 'content_a') check++
+      else if (item == 'content_b') check++
+      else if (item == 'content_c') check++
+      else if (item == 'content_d') check++
+    })
+    if ( check == 5 ) {
+      setColorAnswerA('white');
+      setColorAnswerB('white');
+      setColorAnswerC('white');
+      setColorAnswerD('white');
+      setDisabled(false);
+      setNextQuestion(false);
+      setStatus('run')
+    } else {
+      setStatus('null')
+    }
   }, [id])
 
   function onPress(selected = 'a') {
@@ -64,6 +83,7 @@ const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: a
         } else if (snapshot.val().text == "d") {
           setColorAnswerD('#81C784')
         }
+        setHeart(heart-1)
       }
       setDisabled(true);
       const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
@@ -86,51 +106,75 @@ const TypeThree = (props: { content?: any; lessonInfo?: any; setNextQuestion?: a
     })
   }
 
-  return (
-    <View style={{ flexDirection: 'column', alignItems: "center" }}>
-      <View style={[styles.btn]}>
-        <Button
-          title={content.content_a}
-          type="clear"
-          onPress={() => onPress('a')}
-          disabled={disabled}
-          buttonStyle={[styles.button, { backgroundColor: colorAnswerA, width: WIDTH - 10 }]}
-          titleStyle={styles.text}
-        />
-      </View>
-      <View style={[styles.btn]}>
-        <Button
-          title={content.content_b}
-          type="clear"
-          onPress={() => onPress('b')}
-          disabled={disabled}
-          buttonStyle={[styles.button, { backgroundColor: colorAnswerB, width: WIDTH - 10 }]}
-          titleStyle={styles.text}
-        />
-      </View>
-      <View style={[styles.btn]}>
-        <Button
-          title={content.content_c}
-          type="clear"
-          onPress={() => onPress('c')}
-          disabled={disabled}
-          buttonStyle={[styles.button, { backgroundColor: colorAnswerC, width: WIDTH - 10 }]}
-          titleStyle={styles.text}
-        />
+  useEffect(() => {
+    if (status == null) {
+      setTimeout(() => {
+        setNextQuestion(true);
+      }, 3000)
+    }
+  }, [status])
 
+  if (status == 'loading') {
+    return (
+      <View style={{ flexDirection: 'column', alignItems: "center" }}>
+        <Text>Waiting answer...</Text>
       </View>
-      <View style={[styles.btn]}>
-        <Button
-          title={content.content_d}
-          type="clear"
-          onPress={() => onPress('d')}
-          disabled={disabled}
-          buttonStyle={[styles.button, { backgroundColor: colorAnswerD, width: WIDTH - 10 }]}
-          titleStyle={styles.text}
-        />
+    )
+  }
+  else if (status == 'null') {
+    return (
+      <View style={{ flexDirection: 'column', alignItems: "center" }}>
+        <Text>Sorry! The data is not Ready.</Text>
       </View>
-    </View>
-  )
+    )
+  }
+  else {
+    return (
+      <View style={{ flexDirection: 'column', alignItems: "center" }}>
+        <View style={[styles.btn]}>
+          <Button
+            title={content.content_a}
+            type="clear"
+            onPress={() => onPress('a')}
+            disabled={disabled}
+            buttonStyle={[styles.button, { backgroundColor: colorAnswerA, width: WIDTH - 10 }]}
+            titleStyle={styles.text}
+          />
+        </View>
+        <View style={[styles.btn]}>
+          <Button
+            title={content.content_b}
+            type="clear"
+            onPress={() => onPress('b')}
+            disabled={disabled}
+            buttonStyle={[styles.button, { backgroundColor: colorAnswerB, width: WIDTH - 10 }]}
+            titleStyle={styles.text}
+          />
+        </View>
+        <View style={[styles.btn]}>
+          <Button
+            title={content.content_c}
+            type="clear"
+            onPress={() => onPress('c')}
+            disabled={disabled}
+            buttonStyle={[styles.button, { backgroundColor: colorAnswerC, width: WIDTH - 10 }]}
+            titleStyle={styles.text}
+          />
+
+        </View>
+        <View style={[styles.btn]}>
+          <Button
+            title={content.content_d}
+            type="clear"
+            onPress={() => onPress('d')}
+            disabled={disabled}
+            buttonStyle={[styles.button, { backgroundColor: colorAnswerD, width: WIDTH - 10 }]}
+            titleStyle={styles.text}
+          />
+        </View>
+      </View>
+    )
+  }
 }
 
 export default TypeThree; 
