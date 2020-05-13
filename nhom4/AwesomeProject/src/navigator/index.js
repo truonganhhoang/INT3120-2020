@@ -7,7 +7,7 @@ import TrafficSigns from './TrafficSigns/TrafficSigns';
 import  Practice from './practice';
 import AllQuestion  from './AllQuestion';
 import Tips from './tips/tips';
-
+import ViewPageWeb from './webView/ViewPageWeb';
 const AppComponents = {
     Course,
     ListSelects,
@@ -17,6 +17,7 @@ const AppComponents = {
     TrafficSigns,
     Practice,
     AllQuestion,
-    Tips
+    Tips,
+    ViewPageWeb
 }
 export default AppComponents;
