@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1589256055818" clover="3.2.0">
+  <project timestamp="1589256055819" name="All files">
+    <metrics statements="29" coveredstatements="27" conditionals="6" coveredconditionals="6" methods="15" coveredmethods="13" elements="50" coveredelements="46" complexity="0" loc="29" ncloc="29" packages="4" files="10" classes="10"/>
+    <package name="assets.icon">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="0.webp" path="D:\Github\INT3120-2020\18\my-project\assets\icon\0.webp">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="1.webp" path="D:\Github\INT3120-2020\18\my-project\assets\icon\1.webp">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="2.webp" path="D:\Github\INT3120-2020\18\my-project\assets\icon\2.webp">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="3.webp" path="D:\Github\INT3120-2020\18\my-project\assets\icon\3.webp">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="4.webp" path="D:\Github\INT3120-2020\18\my-project\assets\icon\4.webp">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens">
+      <metrics statements="15" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="7"/>
+      <file name="Learn.js" path="D:\Github\INT3120-2020\18\my-project\screens\Learn.js">
+        <metrics statements="7" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="3"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+      </file>
+      <file name="Skill.js" path="D:\Github\INT3120-2020\18\my-project\screens\Skill.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+      </file>
+      <file name="Tutorial.js" path="D:\Github\INT3120-2020\18\my-project\screens\Tutorial.js">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.Tips">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Practive.js" path="D:\Github\INT3120-2020\18\my-project\screens\Tips\Practive.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="88" count="10" type="stmt"/>
+        <line num="108" count="12" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.rules">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Car.js" path="D:\Github\INT3120-2020\18\my-project\screens\rules\Car.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="72" count="10" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="89" count="10" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -1,0 +1,537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView
+  collapsable={false}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+>
+  <View>
+    <RCTScrollView
+      collapsable={false}
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "key": "Dành cho người mới lái xe",
+          },
+          Object {
+            "id": "2",
+            "key": "Kỹ thuật lái xe ban đêm",
+          },
+          Object {
+            "id": "3",
+            "key": "Kỹ năng lái xe số tự động (AT)",
+          },
+          Object {
+            "id": "4",
+            "key": "Kỹ thuật lái xe ô tô lên, xuống dốc an t...",
+          },
+          Object {
+            "id": "5",
+            "key": "Thế nào là một lái xe giỏi",
+          },
+          Object {
+            "id": "6",
+            "key": "Những dấu hiệu lái xe chưa thành thạo",
+          },
+          Object {
+            "id": "7",
+            "key": "Lái xe qua đường ngập ước",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      renderScrollComponent={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Dành cho người mới lái xe
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  2
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Kỹ thuật lái xe ban đêm
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  3
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Kỹ năng lái xe số tự động (AT)
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  4
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Kỹ thuật lái xe ô tô lên, xuống dốc an t...
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  5
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Thế nào là một lái xe giỏi
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  6
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Những dấu hiệu lái xe chưa thành thạo
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "top": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 4,
+                    "flexDirection": "row",
+                    "marginBottom": 10,
+                    "marginHorizontal": 10,
+                    "paddingStart": 20,
+                    "paddingVertical": 15,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  7
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#A4A4A4",
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  Lái xe qua đường ngập ước
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTScrollView>
+`;

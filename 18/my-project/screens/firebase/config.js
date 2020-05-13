@@ -1,6 +1,7 @@
 import firebase from 'firebase';
+import '@firebase/firestore';
 // TODO: Replace the following with your app's Firebase project configuration
-var Config = {
+const Config = {
   apiKey: 'AIzaSyDrOcOVkvItKxIirPzOhyoa_OP2uIWtx6Q',
   authDomain: 'apptest-29.firebaseapp.com',
   databaseURL: 'https://apptest-29.firebaseio.com',
@@ -11,12 +12,67 @@ var Config = {
 };
 // Initialize Firebase
 const AppConfig = firebase.initializeApp(Config);
-// const rootRef = AppConfig.database().ref('sign');
-// const arrBan = rootRef.child('ban');
-// const arrCommand = rootRef.child('command');
-// const arrDanger = rootRef.child('danger');
-// const arrInstruction = rootRef.child('instruction');
-// export {rootRef, arrBan, arrCommand, arrDanger, arrInstruction}
+const rootRef = AppConfig.database().ref('sign');
+const arrBan = rootRef.child('ban');
+const arrCommand = rootRef.child('command');
+const arrDanger = rootRef.child('danger');
+const arrInstruction = rootRef.child('instruction');
+export { rootRef, arrBan, arrCommand, arrDanger, arrInstruction };
+
+// // Initialize Firebase
+// class Fire {
+//   constructor(callback) {
+//     this.init(callback);
+//   }
+
+//   init(callback) {
+//     if (!firebase.apps.length) {
+//       firebase.initializeApp(Config);
+//     }
+
+//     firebase.auth().onAuthStateChanged((user) => {
+//       if (user) {
+//         callback(null, user);
+//       } else {
+//         firebase
+//           .auth()
+//           .signInAnonymously()
+//           .catch((error) => {
+//             callback(error);
+//           });
+//       }
+//     });
+//   }
+
+//   getLists(callback) {
+//     let ref = firebase
+//       .firestore()
+//       .collection('users')
+//       .doc(this.userId)
+//       .collection('lists')
+//       .doc('ban');
+
+//     this.unsubscribe = ref.onSnapshot((snapshot) => {
+//       lists = [];
+
+//       snapshot.forEach((doc) => {
+//         lists.push({ id: doc.id, ...doc.data() });
+//       });
+
+//       callback(lists);
+//     });
+//   }
+
+//   get userId() {
+//     return firebase.auth().currentUser.uid;
+//   }
+
+//   detach() {
+//     this.unsubscribe();
+//   }
+// }
+// export default Fire;
+
 export async function getSignsBan(signsRetreived) {
   var signsList = [];
   await AppConfig.database()

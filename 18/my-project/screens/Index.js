@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  Dimensions,
-  useWindowDimensions,
-} from 'react-native';
+import { View, Image, useWindowDimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import {
@@ -30,7 +24,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Hide from './hide';
 
 function CustomDrawerContent(props) {
-  var { width } = Dimensions.get('window');
+  // var { width } = Dimensions.get('window');
   return (
     <DrawerContentScrollView {...props}>
       {/* <LinearGradient
@@ -214,10 +208,3 @@ export default function Index() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
