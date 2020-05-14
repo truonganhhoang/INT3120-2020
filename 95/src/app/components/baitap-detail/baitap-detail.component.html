@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title *ngIf="num">ĐỀ {{num}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="baitap && !ketqua">
+  <ion-content>
+    <h1 *ngIf="i">CÂU {{i}}: {{cauhoi.question}}</h1>
+    <div class="ion-no-border">
+     <img [src]="cauhoi.img">
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let item of cauhoi.answers; let i = index" lines="none">
+        
+        <ion-label>{{item.answer}}</ion-label>
+        <ion-checkbox slot="start" [(ngModel)]="item.isChecked" (ionChange)="selectCauTraLoi(item, i)"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+  <ion-footer class="ion-no-border">
+    <ion-grid style="margin: 0px 8px;">
+      <ion-row>
+        <ion-col>
+          <h3 style="text-align: center;">
+            {{time}}
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="success" size="large" (click)="next()" [disabled]='chualam'>TIẾP TỤC</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ng-container>
+<ng-container *ngIf="ketqua">
+  <ion-content >
+    <h1 style= "text-align:center;">
+      {{ketqua}} điểm</h1>
+      <p *ngIf="ketqua >= 9; else poor" style="text-align: center;">
+        BẠN THẬT XUẤT SẮC 😍
+      </p>
+      <ng-template #poor>
+        <p style="text-align: center;">
+          BẠN CẦN CỐ GẮNG HƠN NHÉ 😞
+        </p>
+      </ng-template>
+    <img src="assets/cup1.jpg">
+    </ion-content> 
+    <ion-footer class="ion-no-border">
+      <ion-grid style="margin: 0px 8px;">
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="success" size="large" (click)="dismiss()" >TRỞ VỀ</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-footer>
+  </ng-container>
+  
+

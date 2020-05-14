@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>BÀI TẬP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of questions">
+    <div (click)="openQuestions(item.num)">
+      <h1>
+        ĐỀ SỐ {{item.num}}
+      </h1>
+      <p *ngIf="item.ketqua; else chualam" >
+        {{item.ketqua}} điểm
+      </p>
+      <ng-template #chualam>
+        <p>
+          CHƯA LÀM ! 
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>
