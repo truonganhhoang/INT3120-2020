@@ -42,7 +42,7 @@ class EachCourses extends Component {
                                         <View style={{marginHorizontal: 4, }}>
                                             <Text style={{color: "#fff", fontSize: 20, fontWeight:"700"}}>{course.name}</Text>
                                             <Text style={{color: "#fff", fontSize: 16}}>{course.author}</Text>
-                                            <Text style={{color: "#fff", fontSize: 14, color: "hotpink", fontStyle:"italic"}}>{course.price}</Text>
+                                            <Text style={{color: "#fff", fontSize: 14, color: "hotpink", fontStyle:"italic"}}>{course.price}.000 ₫</Text>
                                         </View>
                                     </ImageBackground>
                                 </ImageBackground> 
