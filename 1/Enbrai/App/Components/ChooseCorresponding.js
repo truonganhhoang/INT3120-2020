@@ -44,7 +44,7 @@ const ChooseCorresponding = (props) => {
   useEffect(() => {
     initProperties()
     return () => {}
-  }, [props,  backgroundColor, textColor, borderColor])
+  }, [props, backgroundColor, textColor, borderColor])
 
   const handleItemSelected = (data, index) => {
     listSelected.push(index)
@@ -96,13 +96,15 @@ const ChooseCorresponding = (props) => {
         })}
       </View>
 
-      <View flex={2} display='flex' justifyContent='center' alignSelf='center' alignItems='center' style={{ width: widthW * 0.7, borderRadius: 5}}>
+      <View flex={2} display='flex' justifyContent='center' alignSelf='center' alignItems='center' style={{ width:250, borderRadius: 5}}>
         <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
-          progress={5/17}
-          style={{ transform: [{ scaleX: 1.0 }, { scaleY: 2.5 }], width: 200, borderRadius: 5 }}
+          progress={0/17}
+          color='#000000'
+          style={{ transform: [{ scaleX: 1.0 }, { scaleY: 2.5 }], width: widthW*0.8, borderRadius: 5, flex: 2 }}
         />
+        <Text style={{flex: 2}}>{`${a} / 17`}</Text>
       </View>
     </View>
   )
