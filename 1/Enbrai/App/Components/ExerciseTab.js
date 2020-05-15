@@ -89,6 +89,9 @@ const ExerciseTab = props => {
     setCorect(correct);
     setQuest(quest);
   };
+  const updPage = (pageNum)=>{
+    setPage(pageNum);
+  }
   return (
     <View style={{flex: 1}}>
       <View
@@ -150,8 +153,15 @@ const ExerciseTab = props => {
             <ExerciseAnswer
               partId={partId}
               levelId={levelId}
-              setPage={setPage}
+              setPage={updPage}
               quest={quest}
+              questResult={questResult}
+              questCompleteCount = {questCompleteCount}
+              levelCompleteCount = {levelCompleteCount}
+              questCount = {questCount}
+              levelCount = {levelCount}
+              correct={correct}
+              levelIndex = {props.navigation.getParam('index')+1}
             />
           </ScrollableTabView>
         </View>

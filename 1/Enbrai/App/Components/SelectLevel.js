@@ -90,7 +90,7 @@ const SelectLevel = props => {
                   borderColor: '#E0E0E0',
                   paddingTop: 15,
                   marginTop: 10,
-                  backgroundColor: 'white',
+                  backgroundColor: item.item.lock=='No'?'white':'#E0E0E0',
                   shadowColor: '#000',
                   shadowOffset: {
                     width: 0,
@@ -104,7 +104,7 @@ const SelectLevel = props => {
                 animation = 'fadeInRight'
                 delay = {item.index*200}
               >
-                <TouchableOpacity onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}>
+                <TouchableOpacity disabled={item.item.lock=='No'? false: true} onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}>
                 <View style={{paddingLeft: 20}}>
                   <Text
                     style={{
@@ -128,17 +128,18 @@ const SelectLevel = props => {
                 <TouchableOpacity
                   style={{
                     marginTop: 10,
-                    height: 50,
-                    backgroundColor: '#FAFAFA',
+                    height: 60,
+                    backgroundColor: item.item.lock=='No'?'#FAFAFA':'#EEEEEE',
                     borderBottomLeftRadius: 10,
                     borderBottomRightRadius:10,
                     flexDirection:'row',
                     alignItems:'center',
                     justifyContent:'center',
                   }}
+                  disabled={item.item.lock=='No'? false: true}
                   onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}
                   >
-                  <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
+                  <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>
                 
               </TouchableOpacity>
