@@ -62,7 +62,7 @@ export default class KanjiTests extends React.Component {
                 backgroundColor: 'rgb(0, 98, 101)',
               },
               progress: {
-                width: `${questionIndex / this.questions * 100}%`,
+                width: `${questionIndex / this.answers.length * 100}%`,
                 height: 10,
                 backgroundColor: '#fff',
               }
@@ -75,23 +75,23 @@ export default class KanjiTests extends React.Component {
         </View>
         <View style={styles.content}>
           <KanjiTest
-            text={this.answers[(questionIndex + indexRan) % this.answers.length]}
-            isAnswer={indexRan === 0}
-            nextQuestion={this.nextQuestion}
-          />
-          <KanjiTest
-            text={this.answers[(questionIndex + ((indexRan + 1) % 4)) % this.answers.length]}
-            isAnswer={((indexRan + 1) % 4) === 0}
-            nextQuestion={this.nextQuestion}
-          />
-          <KanjiTest
             text={this.answers[(questionIndex + ((indexRan + 2) % 4)) % this.answers.length]}
             isAnswer={((indexRan + 2) % 4) === 0}
             nextQuestion={this.nextQuestion}
           />
           <KanjiTest
+            text={this.answers[(questionIndex + indexRan) % this.answers.length]}
+            isAnswer={indexRan === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
             text={this.answers[(questionIndex + ((indexRan + 3) % 4)) % this.answers.length]}
             isAnswer={((indexRan + 3) % 4) === 0}
+            nextQuestion={this.nextQuestion}
+          />
+          <KanjiTest
+            text={this.answers[(questionIndex + ((indexRan + 1) % 4)) % this.answers.length]}
+            isAnswer={((indexRan + 1) % 4) === 0}
             nextQuestion={this.nextQuestion}
           />
         </View>
