@@ -18,7 +18,7 @@ const AppContainer = createAppContainer(AppNavigator);
 class App extends React.Component {
   render() {
     YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
-    return (<AddData />);
+    //return (<AddData />);
     return (
       <AppContainer />
     );
