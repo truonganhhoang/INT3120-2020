@@ -8,11 +8,7 @@ import {
   View
 } from 'react-native';
 import KanjiTest from '../components/KanjiTest';
-<<<<<<< HEAD
-import ProgressCount from '../components/ProgressCount'
-=======
 import ProgressComponent from '../components/ProgressComponent';
->>>>>>> 72b12d22ab268cd880eb8c1008948c81a52ff138
 
 export default class KanjiTests extends React.Component {
   static navigationOptions = () => ({
@@ -53,11 +49,6 @@ export default class KanjiTests extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.top}>
-<<<<<<< HEAD
-          <Text>Câu hỏi 1/10</Text>
-          <View />
-          <ProgressCount/>
-=======
           <Text>
             Câu hỏi
             {` ${(questionIndex + 1).toString()}`}
@@ -78,7 +69,6 @@ export default class KanjiTests extends React.Component {
             }}
             />
           </View>
->>>>>>> 72b12d22ab268cd880eb8c1008948c81a52ff138
         </View>
         <View style={styles.Word}>
           <Text style={styles.WordRandom}>{this.question ? this.question[this.state.questionIndex] : ''}</Text>

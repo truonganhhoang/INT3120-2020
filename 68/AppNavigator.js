@@ -5,6 +5,7 @@ import {
 import LoginScreen from './screens/LoginScreen'
 import Levels from './screens/Levels'
 import KanjiGroup from './screens/KanjiGroup'
+import ProfileScreen from './screens/ProfileScreen'
 import KanjiLearning from './screens/KanjiLearning'
 import KanjiDetail from './screens/KanjiDetail';
 import KanjiGroupDetail from './screens/KanjiGroupDetail'
@@ -14,6 +15,9 @@ import KanjiTests from './screens/KanjiTests'
 import FavoriteKanjiScreen from './screens/FavoriteKanjiScreen'
 
 const Appnavigator = createStackNavigator({
+    ProfileScreen: {
+        screen: ProfileScreen
+    },
     LoginScreen: {
         screen: LoginScreen
     },
