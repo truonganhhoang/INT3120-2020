@@ -47,6 +47,7 @@ export default class KanjiChallenge1 extends React.Component {
           kanji={this.listKanji[index]}
           isAnswer={(index === this.state.questionIndex)}
           setTrueQuestion={this.setTrueQuestion}
+          nextQuestion={this.nextQuestion}
         />
       );
     });
@@ -61,25 +62,24 @@ export default class KanjiChallenge1 extends React.Component {
     if (this.state.questionIndex < this.listHantu.length - 1) {
       this.setState({
         questionIndex: questionIndex + 1,
+        progress: 0
       });
       this.dataRamdom = this.randomData();
     } else {
-      console.log(this.result);
       clearInterval(this.setInterval);
+      console.log(this.result);
     }
   }
 
   timer = () => {
     this.setInterval = setInterval(() => {
       const { progress } = this.state;
-      this.setState({
-        progress: progress + 0.2
-      });
-      if (this.state.progress > 99) {
-        this.nextQuestion();
+      if (this.state.progress < 100) {
         this.setState({
-          progress: 0
+          progress: progress + 0.2
         });
+      } else {
+        this.nextQuestion();
       }
     }, 10);
   }

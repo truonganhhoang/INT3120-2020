@@ -6,17 +6,20 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function KanjiChallenge({ kanji, isAnswer, setTrueQuestion }) {
+function KanjiChallenge({
+  kanji, isAnswer, setTrueQuestion, nextQuestion
+}) {
   const [status, setStatus] = useState('default');
   return (
     <TouchableOpacity
       onPress={() => {
         if (isAnswer) {
           setStatus('blue');
+          setTrueQuestion();
         } else {
           setStatus('red');
         }
-        setTimeout(() => { setStatus('default'); setTrueQuestion(); }, 300);
+        setTimeout(() => { setStatus('default'); nextQuestion(); }, 300);
       }}
     >
       <View style={styles[status]}>
@@ -58,3 +61,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   }
 });
+export default KanjiChallenge;
