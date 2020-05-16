@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  YellowBox
-} from 'react-native';
-import {
-  createAppContainer
-} from 'react-navigation';
+import { YellowBox } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 import { decode, encode } from 'base-64';
 import AppNavigator from './AppNavigator';
 import AddData from './screens/Adddata';
