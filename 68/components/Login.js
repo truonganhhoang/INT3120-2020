@@ -8,6 +8,7 @@ import kanji from '../assets/kanji.png';
 const deviceWidth = Dimensions.get('window').width;
 const screen = (percent) => deviceWidth * percent / 100;
 export default function Login(props) {
+  const { children } = props;
   return (
     <View>
       <View style={styles.title}>
@@ -25,7 +26,7 @@ export default function Login(props) {
         />
       </View>
       {
-        props.children
+        children
       }
     </View>
   );

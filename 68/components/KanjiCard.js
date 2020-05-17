@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   Text,
@@ -10,11 +9,14 @@ import {
 
 export default function KanjiCard(props) {
   const { onPress } = props;
+  const { kanjiText } = props;
+  const { hantu } = props;
+
   return (
     <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
       <View style={styles.container}>
-        <Text style={styles.title}>{props.kanjiText}</Text>
-        <Text style={styles.titleSmall}>{props.hantu}</Text>
+        <Text style={styles.title}>{kanjiText}</Text>
+        <Text style={styles.titleSmall}>{hantu}</Text>
       </View>
     </TouchableOpacity>
   );

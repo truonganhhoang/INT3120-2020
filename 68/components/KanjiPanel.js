@@ -10,8 +10,7 @@ import firebase from '../config/firebase';
 
 const deviceWidth = Dimensions.get('window').width;
 
-// eslint-disable-next-line no-mixed-operators
-const screen = (percent) => deviceWidth * percent / 100;
+const screen = (percent) => (deviceWidth * percent) / 100;
 const storage = firebase.storage();
 const storageRef = storage.ref('imgKanji/35506.svg');
 

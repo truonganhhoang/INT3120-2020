@@ -34,15 +34,15 @@ export default function WordListItem(props) {
           </View>
           <View style={styles.listItem}>
             {
-                            kanji ? kanji.item.kanjiList.map((object, index) => (
-                              <WordItem
-                                key={index.toString()}
-                                text={object.kanji}
-                                object={object}
-                                navigation={props.navigation}
-                              />
-                            )) : <Text />
-                        }
+              kanji ? kanji.item.kanjiList.map((object, index) => (
+                <WordItem
+                  key={index.toString()}
+                  text={object.kanji}
+                  object={object}
+                  navigation={props.navigation}
+                />
+              )) : <Text />
+            }
           </View>
         </View>
       </View>
