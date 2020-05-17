@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, Text, FlatList } from 'react-native';
+import { View, SafeAreaView, Text, FlatList } from 'react-native';
 import { Header } from 'react-native-elements';
 import { Back } from '../../components/Back';
 import { WordCard } from '../../components/WordCard';
@@ -12,9 +12,14 @@ const Screen = (props: { navigation?: any; route?: any }) => {
   const { navigation, route } = props;
   const lessonInfo =  route.params;  
   const [data, setData] = useState({status: 'loading'}); 
-  console.log(lessonInfo);
-
+ 
   useEffect(() => {
+    navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.centerComponent, 
+      headerTitleAlign: "center", 
+      headerTintColor: "#ff5e00",
+    })
     setData({status: 'loading'}); 
     let database = firebase.database(); 
     let wordsOfLesson = database.ref('/topic_detail/' + 
@@ -35,21 +40,9 @@ const Screen = (props: { navigation?: any; route?: any }) => {
   } 
   else if (data.status == 'null') {
     return (
-      <View>
-        <Header
-          containerStyle={styles.header}
-          leftComponent={
-            <Back navigation={navigation} color={'#ff5e00'} />
-          }
-          rightComponent={
-            <MenuButton />
-          }
-          centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
-        />
-        <View>
-          <Text>Sorry! The data is not available.</Text>
-        </View>
-      </View>
+      <SafeAreaView>
+        <Text>Sorry! The data is not available.</Text>
+      </SafeAreaView>
     )
   }
   else {
@@ -58,30 +51,21 @@ const Screen = (props: { navigation?: any; route?: any }) => {
       words.push(value); 
     }
     return (
-      <View>
-        <Header
-          containerStyle={styles.header}
-          leftComponent={
-            <Back navigation={navigation} color={'#ff5e00'} />
-          }
-          rightComponent={
-            <MenuButton />
-          }
-          centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
-        />
-        <ScrollView
-          style={styles.list}
-        >
-          {
-            words.map((e: any) =>
-              <WordCard data={e}
+      <SafeAreaView style={styles.container}>
+        <FlatList 
+          showsVerticalScrollIndicator={true}
+          contentContainerStyle={styles.list}
+          data={words}
+          renderItem={({ item }) => {
+            return (
+              <WordCard data={item}
                 icon="staro"
-                key={e.en_meaning}
+                key={item.en_meaning}
               />
             )
-          }
-        </ScrollView>
-      </View>
+          }}
+        />
+      </SafeAreaView>
     )
   }
 }

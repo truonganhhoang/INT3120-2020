@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { FlipCard } from '../../components/FlipCard';
 import { Header } from 'react-native-elements';
 import styles from './styles';
-import MenuButton from '../../components/Menu/Menu';
+import { MenuButton } from '../../components/Menu';
 import { Back } from '../../components/Back';
 import firebase from 'firebase';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, View, Text } from 'react-native';
+import { Dimensions, View, Text, SafeAreaView } from 'react-native';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
 
@@ -33,75 +33,70 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
       }
     });
   }, [lessonInfo])
-  //get value people
 
   if (Data.status == 'loading') {
+    navigation.setOptions({headerTransparent: true, title: ""})
     return (
       <Activity />
     )
   } 
   else if (Data.status == 'null') {
+    navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.centerComponent, 
+      headerTransparent: true,
+      headerTitleAlign: "center", 
+      headerTintColor: "white",
+      headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      headerRight: () => { return (<MenuButton />) }
+    })
     return (
-      <View>
-        <Header
-          containerStyle={styles.header}
-          leftComponent={
-              <Back navigation={navigation} color={'#fff'} />
-          }
-          rightComponent={
-              <MenuButton />
-          }
-          centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
-        />
-        <View>
+      <SafeAreaView style={{ backgroundColor: '#E65100', paddingTop: 60 }}>
+        <View style={{ backgroundColor: 'white'}}>
           <Text>Sorry! The data is not available.</Text>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
   else {
+    navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.centerComponent, 
+      headerTransparent: true,
+      headerTitleAlign: "center", 
+      headerTintColor: "white",
+      headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      headerRight: () => { return (<MenuButton />) }
+    })
     let index = 0; 
     for (let [key, value] of Object.entries(Data)) {
       listWords.push(value); 
       listWords[index++].word_name = key; 
     }
-
     const _renderItem = (item: any) => {
-        return (
-            <FlipCard data={item.item} />
-        );
+      return (
+        <FlipCard data={item.item} />
+      );
     }
     return (
-      <View style={{ backgroundColor: '#E65100' }}>
-        <Header
-            containerStyle={styles.header}
-            leftComponent={
-                <Back navigation={navigation} color={'#fff'} />
-            }
-            rightComponent={
-                <MenuButton />
-            }
-            centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
+      <SafeAreaView style={{ backgroundColor: '#E65100', paddingTop: 60 }}>
+        <Carousel
+          ref={(ref: any)=>ref=ref}
+          data={listWords}
+          renderItem={_renderItem}
+          sliderWidth={SLIDER_WIDTH}
+          itemWidth={ITEM_WIDTH}
+          containerCustomStyle={styles.carouselContainer}
+          inactiveSlideShift={0}
+          onSnapToItem={(index) => setState(index)}
+          scrollInterpolator={scrollInterpolator}
+          slideInterpolatedStyle={animatedStyles}
+          useScrollView={true}
         />
-        <View>
-          <Carousel
-            ref={(ref: any)=>ref=ref}
-            data={listWords}
-            renderItem={_renderItem}
-            sliderWidth={SLIDER_WIDTH}
-            itemWidth={ITEM_WIDTH}
-            containerCustomStyle={styles.carouselContainer}
-            inactiveSlideShift={0}
-            onSnapToItem={(index) => setState(index)}
-            scrollInterpolator={scrollInterpolator}
-            slideInterpolatedStyle={animatedStyles}
-            useScrollView={true}
-          />
-          <Text style={styles.counter}>
-            {state + 1}/{listWords.length}
-          </Text>
-        </View>
-      </View>
+        <Text style={styles.counter}>
+          {state + 1}/{listWords.length}
+        </Text>
+      </SafeAreaView>
     );
   }
 }

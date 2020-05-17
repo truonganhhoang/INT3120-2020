@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
     backgroundColor:'#ff5e00'
   },
   centerComponent: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 20,
+    color: "#ff5e00",
+    fontWeight: "bold",
+    textTransform: "capitalize",
   },
   textLeft: {
     color: '#ff5e00',

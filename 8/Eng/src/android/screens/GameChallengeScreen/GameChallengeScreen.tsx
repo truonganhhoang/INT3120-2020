@@ -31,6 +31,20 @@ const Game = (props: { route?: any; navigation?: any }) => {
   const amountOfQuestion = 10;
 
   useEffect(() => {
+    navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.headerTitle, 
+      headerTitleAlign: "center", 
+      headerTintColor: "#ff5e00",
+      headerLeft: () => {
+        return (
+          <Back
+            navigation={navigation}
+            onPress={EndGame}
+            color="#ff5e00"
+          />)
+      },
+    })
     setId(lessonInfo.lessonName + random(0, 10000));
     setHeart(3)
     setContentOfQ({ type: '', status: 'loading' });
@@ -126,25 +140,13 @@ const Game = (props: { route?: any; navigation?: any }) => {
     else if (contentOfQuestion.status == 'null' || contentOfAnswer.status == 'null') {
       return (
         <View>
-          <Header containerStyle={styles.headerContainer}
-            leftComponent={<Back navigation={navigation}/>}
-            centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
-          />
-          <View><Text>Sorry! The data is not available.</Text></View>
+          <Text>Sorry! The data is not available.</Text>
         </View>
       )
     }
     else {
       return (
         <View>
-          <Header containerStyle={styles.headerContainer}
-            leftComponent={
-              <Back
-                navigation={navigation}
-                onPress={EndGame}
-              />}
-            centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
-          />
           <View style={styles.infoView}>
             <View>
               <CountDown

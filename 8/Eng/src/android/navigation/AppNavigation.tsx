@@ -1,5 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import { FavoriteScreen } from '../screens/FavoriteScreen';
 import { SettingScreen } from '../screens/SettingScreen';
@@ -10,24 +11,69 @@ import { FlipCardWord } from '../screens/FlipCardWord';
 import { PracticeTestScreen } from '../screens/PracticeTestScreen';  
 import { GameChallengeScreen } from '../screens/GameChallengeScreen';  
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createStackNavigator();
+const Drawer = createStackNavigator()
+
 function MyApp() {
   return (
     <NavigationContainer >
-      <Drawer.Navigator
-        drawerStyle={{
-          backgroundColor: '#c6cbef',
-          width: 0,
-        }}
-      >
-        <Drawer.Screen name="StartScreen" component={StartScreen} />
-        <Drawer.Screen name="SettingScreen" component={SettingScreen} />
-        <Drawer.Screen name="FavoriteScreen" component={FavoriteScreen} />
-        <Drawer.Screen name="WordGroupScreen" component={WordGroupScreen} />
-        <Drawer.Screen name="DetailWordGroupScreen" component={DetailWordGroupScreen} />
-        <Drawer.Screen name="FlipCardWord" component={FlipCardWord} />
-        <Drawer.Screen name="PracticeTestScreen" component={PracticeTestScreen} />
-        <Drawer.Screen name="GameChallengeScreen" component={GameChallengeScreen} />
+      <Drawer.Navigator initialRouteName="StartScreen">
+        <Drawer.Screen 
+          name="StartScreen" 
+          component={StartScreen} 
+        />
+        <Drawer.Screen 
+          name="SettingScreen" 
+          component={SettingScreen} 
+          options={
+            {
+              title: "Cài đặt", 
+              headerTitleStyle: {
+                color: "#ff5e00",
+                fontWeight: "bold",
+                textTransform: "capitalize"
+              },
+              headerTitleAlign: "center",
+              headerTintColor: "#ff5e00",
+            }
+          }
+        />
+        <Drawer.Screen 
+          name="FavoriteScreen" 
+          component={FavoriteScreen} 
+          options={
+            {
+              title: "Yêu Thích",
+              headerTitleStyle: {
+                color: "#ff5e00",
+                fontWeight: "bold",
+                textTransform: "capitalize"
+              },
+              headerTitleAlign: "center",
+              headerTintColor: "#ff5e00",
+            }
+          }
+        />
+        <Drawer.Screen name="WordGroupScreen" 
+          component={WordGroupScreen}
+          options={{ title: "", headerTintColor: "#ff5e00" }}
+        />
+        <Drawer.Screen name="DetailWordGroupScreen" 
+          component={DetailWordGroupScreen} 
+          options={{ title: "", headerTintColor: "#ff5e00" }}
+        />
+        <Drawer.Screen name="FlipCardWord" 
+          component={FlipCardWord} 
+          options={{ headerTransparent: true}}
+        />
+        <Drawer.Screen name="PracticeTestScreen" 
+          component={PracticeTestScreen} 
+          options={{ title: "", headerTintColor: "#ff5e00" }}
+        />
+        <Drawer.Screen name="GameChallengeScreen" 
+          component={GameChallengeScreen} 
+          options={{ title: "", headerTintColor: "#ff5e00" }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   )

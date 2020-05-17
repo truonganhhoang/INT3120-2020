@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Image, Text, ActivityIndicator } from 'react-native';
+import { SafeAreaView, View, Image, FlatList } from 'react-native';
 import { CardExtend } from '../../components/Card';
 import { SettingButton } from '../../components/SettingButton';
 import { StarButton } from '../../components/StarButton';
-import { Header } from 'react-native-elements';
 import firebase from 'firebase';
 import styles from './styles';
 import { Activity } from '../Utils/activity';
 
 const BackgroudUrl = "../../../../images/logo3.png";
+
+const ItemSeparator = () => {
+  return (<View style={styles.separator}></View>)
+}
 
 const StartScreen = (props: { navigation: any }) => {
   const { navigation } = props;
@@ -23,6 +26,7 @@ const StartScreen = (props: { navigation: any }) => {
   }, [])
 
   if (Object.keys(data).length == 0) {
+    navigation.setOptions({headerTransparent: true, headerTitle: ""})
     return (
       <Activity />
     )
@@ -34,31 +38,44 @@ const StartScreen = (props: { navigation: any }) => {
       topics.push(value); 
       topics[index++].topic_Name = key
     }
-    
+    navigation.setOptions({
+      headerTitleAlign: "center", 
+      headerTransparent: true,
+      headerTitleContainerStyle: { marginHorizontal: 20, marginTop: 20 },
+      headerTitle: () => (<Image source={require(BackgroudUrl)}
+        style={{ width: 120, height: 120 }}
+      />), 
+      headerLeftContainerStyle: { marginTop: 16, padding: 16 },
+      headerLeft: () => {
+        return (<SettingButton navigation={navigation} />);
+      },
+      headerRightContainerStyle: { marginTop: 16, padding: 16 },
+      headerRight: () => {
+        return (<StarButton navigation={navigation} />);
+      }
+    })
     return (
-      <View style={styles.container}>
-        <Header
-          containerStyle={{ paddingTop: 0, height: 60, backgroundColor: '#ff5e00' }}
-          leftComponent={<SettingButton navigation={navigation} />}
-          centerComponent={<Image source={require(BackgroudUrl)}
-            style={{ width: 120, height: 100 }}
-          />}
-          rightComponent={<StarButton navigation={navigation} />}
+      <SafeAreaView style={styles.container}>
+        <FlatList 
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={ItemSeparator}
+          contentContainerStyle={styles.listItems}
+          data={topics}
+          renderItem={({ item }) => {
+            return (
+              <CardExtend
+                icon_top={item.icon_top}
+                icon_type={item.icon_type}
+                img_top={item.img_top}
+                vn_meaning={item.vn_meaning}
+                topic_name={item.topic_Name}
+                navigation={navigation}
+                key={item.topic_Name}
+              />
+            );
+          }}
         />
-        <ScrollView>
-          {topics.map((e: { topic_Name: any, icon_top: any, img_top: any, vn_meaning: any, icon_type: any }) =>
-            <CardExtend
-              icon_top={e.icon_top}
-              icon_type={e.icon_type}
-              img_top={e.img_top}
-              vn_meaning={e.vn_meaning}
-              topic_name={e.topic_Name}
-              navigation={navigation}
-              key={e.topic_Name}
-            />
-          )}
-        </ScrollView>
-      </View>
+      </SafeAreaView>
     )
   }
 }

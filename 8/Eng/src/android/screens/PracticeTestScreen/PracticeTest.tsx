@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Dimensions } from 'react-native';
-import { Header } from 'react-native-elements';
-import { Back } from '../../components/Back';
+import { SafeAreaView, View, Text, Dimensions } from 'react-native';
 import styles from './styles';
 import firebase from 'firebase';
 import { random } from '../../services';
@@ -26,6 +24,12 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   const database = firebase.database();
 
   useEffect(() => {
+    navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.headerTitle, 
+      headerTitleAlign: "center", 
+      headerTintColor: "#ff5e00",
+    })
     setAmountOfQ(0);
     setCount(0);
     setContentOfQ({ type: '', status: 'loading' });
@@ -39,7 +43,6 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   useEffect(() => {
     if (amountOfQuestion > 0) {
       setQuestionNumber(random(0, 19));
-      // setQuestionNumber(15); 
       setAmountOfTrue(amountOfQuestion); 
     }
   }, [amountOfQuestion])
@@ -48,7 +51,6 @@ const Practice = (props: { route?: any; navigation?: any }) => {
     if (nextQuestion) {
       let c = count + 1;
       setCount(c);
-      // setQuestionNumber(15); 
       setQuestionNumber(random(0, 19));
     }
   }, [nextQuestion])
@@ -92,32 +94,17 @@ const Practice = (props: { route?: any; navigation?: any }) => {
       }
       else if (contentOfQuestion.status == 'null' || contentOfAnswer.status == 'null') {
         return (
-          <View>
-            <Header containerStyle={styles.headerContainer}
-              leftComponent={
-                <Back
-                  navigation={navigation}
-                />}
-              centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
-            />
-            <View><Text>Sorry! The data is not available.</Text></View>
-          </View>
+          <SafeAreaView>
+            <Text>Sorry! The data is not available.</Text>
+          </SafeAreaView>
         )
       }
       else {
         return (
-          <View style={styles.container}>
-            <Header containerStyle={styles.headerContainer}
-              leftComponent={
-                <Back
-                  navigation={navigation}
-                />}
-              centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
-            />
+          <SafeAreaView style={styles.container}>
             <View style={styles.count}>
               <Text style={{ paddingTop: 10, fontSize: 16, color: '#ff5e00' }}>{count}/{amountOfQuestion}</Text>
             </View>
-
             <View style={styles.slider}>
               <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} color="#ff5e00" height={8}/>
             </View>
@@ -133,32 +120,23 @@ const Practice = (props: { route?: any; navigation?: any }) => {
                 setHeart={setAmountOfTrue}
               />
             </View>
-          </View>
+          </SafeAreaView>
         )
       }
     }
     else {
       return (
-        <View>
-          <Header containerStyle={styles.headerContainer}
-            leftComponent={
-              <Back
-                navigation={navigation}
-              />}
-            centerComponent={{ text: lessonInfo.lessonName, style: styles.headerTitle }}
+        <SafeAreaView>
+          <PracticeTestResult
+            content={{
+              topicName: lessonInfo.topicName,
+              lessonName: lessonInfo.lessonName,
+              correct: {amountOfTrue},
+              amountOfQuestion: {amountOfQuestion}
+            }}
+            navigation={navigation}
           />
-          <View>
-            <PracticeTestResult
-              content={{
-                topicName: lessonInfo.topicName,
-                lessonName: lessonInfo.lessonName,
-                correct: {amountOfTrue},
-                amountOfQuestion: {amountOfQuestion}
-              }}
-              navigation={navigation}
-            />
-          </View>
-        </View>
+        </SafeAreaView>
       )
     }
   }
