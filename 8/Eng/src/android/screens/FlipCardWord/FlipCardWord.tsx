@@ -9,6 +9,8 @@ import Carousel from 'react-native-snap-carousel';
 import { Dimensions, View, Text } from 'react-native';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
@@ -72,7 +74,7 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
         );
     }
     return (
-      <View style={{ backgroundColor: '#E65100' }}>
+      <View style={{ backgroundColor: '#E65100',height:HEIGHT }}>
         <Header
             containerStyle={styles.header}
             leftComponent={

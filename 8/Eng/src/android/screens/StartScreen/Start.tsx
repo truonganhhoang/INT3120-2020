@@ -67,7 +67,7 @@ const StartScreen = (props: { navigation: any }) => {
           <View style={{ flex: 1, height: 50,justifyContent:'center',left:-30}}>
             <SettingButton navigation={navigation} />
           </View>
-          <View style={{ flex: 2, height: 50 ,justifyContent:'center'}}>
+          <View style={{ flex: 2, height: 50 ,justifyContent:'center',alignItems:'center'}}>
             <Image source={require(BackgroudUrl)} style={{ width: 150, height: 150 }} />
           </View>
           <View style={{ flex: 1, height: 50,justifyContent:'center',right:-30 }}>

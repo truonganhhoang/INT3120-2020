@@ -4,7 +4,7 @@ const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
 const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 3 / 4);
 const styles = StyleSheet.create({
   containers: {
-    height:Dimensions.get('window').height,
+    height:510,
   },
   container:{
     height:60,

@@ -9,8 +9,9 @@ import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
 const SLIDER_WIDTH = Dimensions.get('window').width;
+const SLIDER_HEIGTH = Dimensions.get('window').height;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
-
+const ITEM_HEGHT = Math.round(SLIDER_HEIGTH);
 const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props;
   const nameTopic = route.params.nameTopic;
@@ -73,7 +74,7 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
             />}
           centerComponent={{ text: nameTopic, style: styles.centerComponent }}
         />
-        <View>
+        <View style={{top:ITEM_HEGHT*0.1}}>
           <Carousel
             ref={(ref: any) => ref = ref}
             data={data}

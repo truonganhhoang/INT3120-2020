@@ -157,7 +157,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
               />
             </View>
             <View style={{padding:6}}>
-              <Progress.Bar progress={(count / amountOfQuestion)} width={WIDTH - 120} color="#ff5e00" height={8} />
+              <Progress.Bar progress={(count / amountOfQuestion)} borderColor="#dddee0" width={WIDTH - 120} color="#ff5e00" height={8} style={{backgroundColor:'#dddee0'}} />
             </View>
             {
               hearts.map(item => {
@@ -165,7 +165,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
               })
             }
           </View>
-          <Text style={{textAlign:'center'}}>{questionNumber}</Text>
+          {/* <Text style={{textAlign:'center'}}>{questionNumber}</Text> */}
           <View style={styles.puzzleView}>
             <QuestionContent contentOfQuestion={contentOfQuestion} count={count} />
             <AnswerContent

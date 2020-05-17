@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
         height: HEIGHT,
     },
     flipCard: {
-        width: WIDTH / 2,
-        height: HEIGHT / 2,
+        width: 250,
+        height: 360,
         backfaceVisibility: 'hidden',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     flipCardBack: {
         position: "absolute",
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
         top:30
     },
     containerCard:{
-        width: WIDTH / 1.5,
-        height: HEIGHT / 1.5,
+        width: WIDTH / 1.4,
+        height: 500,
         position:'relative',
         marginBottom:HEIGHT/3,
-        zIndex:0
+        zIndex:0,
     },
     speaking:{
         backgroundColor: '#ff5e00',
@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
         paddingLeft: 15,
         paddingRight: 14,
-        marginTop: 10,
+        marginTop: 30,
         position:'absolute',
         zIndex:1,
         top:200,
-        left:95,
+        left:120,
         backfaceVisibility: 'hidden',
     },
     footer:{

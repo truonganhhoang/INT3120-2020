@@ -56,15 +56,15 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any })
 
           <View style={{ alignItems: 'center', top: 15 }}>
           </View>
-          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 24,marginTop:30 }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 30,marginTop:30 }}>
             {data.wordGroupName}
           </Text>
-          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00',fontSize:18 }}>
+          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00',fontSize:24 }}>
             {data.vn_meaning}
           </Text>
           <Text style={{ marginBottom: 10, textAlign: 'center' }}>
             Giúp bạn nắm vững {data.num_word} từ liên quan đến
-             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 14 }}> {data.vn_meaning}</Text> trong tiếng anh
+             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 18 }}> {data.vn_meaning}</Text> trong tiếng anh
       </Text>
 
         </Card>
