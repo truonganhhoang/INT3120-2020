@@ -36,12 +36,14 @@ const styles = StyleSheet.create({
     },
     nameCard: {
       alignItems: 'center',
-      color: '#ff5e00',
+      color: '#fff',
       fontSize: 20,
       fontWeight: '700',
     },
     vi: {
-      color: '#ff5e00'
+      color: '#fff',
+      fontWeight:'bold',
+      justifyContent:'center'
     }
   });
   export default styles;
