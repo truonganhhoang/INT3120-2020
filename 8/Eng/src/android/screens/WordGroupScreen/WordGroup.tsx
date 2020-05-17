@@ -1,4 +1,3 @@
-  
 import React, { useEffect, useState } from 'react';
 import { Header } from 'react-native-elements';
 import { View, ScrollView, Text, Dimensions } from 'react-native';
@@ -20,6 +19,12 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const [lessons, setLessons] = useState({ status: 'loading' });
 
   useEffect(() => {
+	navigation.setOptions({
+      title: nameTopic === '' ? 'No title' : nameTopic,
+      headerTitleStyle: styles.centerComponent, 
+      headerTitleAlign: "center", 
+      headerTintColor: "#ff5e00",
+    })
     setLessons({ status: 'loading' })
     const lessons_db = database.ref('/topic_detail/' + nameTopic + '/lessons');
     lessons_db.on('value', function (snapshot: any) {
@@ -44,13 +49,6 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   else if(lessons.status == 'null') {
     return (
       <View style={styles.containers}>
-        <Header containerStyle={styles.container}
-          leftComponent={
-            <Back
-              navigation={navigation}
-            />}
-          centerComponent={{ text: nameTopic, style: styles.centerComponent }}
-        />
         <View>
           <Text>Sorry! The data is not available.</Text>
         </View>
@@ -68,13 +66,6 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
     
     return (
       <View style={styles.containers}>
-        <Header containerStyle={styles.container}
-          leftComponent={
-            <Back
-              navigation={navigation}
-            />}
-          centerComponent={{ text: nameTopic, style: styles.centerComponent }}
-        />
         <View style={{top:ITEM_HEGHT*0.1}}>
           <Carousel
             ref={(ref: any) => ref = ref}

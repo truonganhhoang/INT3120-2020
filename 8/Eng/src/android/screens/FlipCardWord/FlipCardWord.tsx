@@ -38,30 +38,39 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
   //get value people
 
   if (Data.status == 'loading') {
+	navigation.setOptions({headerTransparent: true, title: ""})
     return (
       <Activity />
     )
   } 
   else if (Data.status == 'null') {
+	navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.centerComponent, 
+      headerTransparent: true,
+      headerTitleAlign: "center", 
+      headerTintColor: "white",
+      headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      headerRight: () => { return (<MenuButton />) }
+    })
     return (
-      <View>
-        <Header
-          containerStyle={styles.header}
-          leftComponent={
-              <Back navigation={navigation} color={'#fff'} />
-          }
-          rightComponent={
-              <MenuButton />
-          }
-          centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
-        />
-        <View>
+      <SafeAreaView style={{ backgroundColor: '#E65100', paddingTop: 60 }}>
+        <View style={{ backgroundColor: 'white'}}>
           <Text>Sorry! The data is not available.</Text>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
   else {
+	navigation.setOptions({
+      title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
+      headerTitleStyle: styles.centerComponent, 
+      headerTransparent: true,
+      headerTitleAlign: "center", 
+      headerTintColor: "white",
+      headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      headerRight: () => { return (<MenuButton />) }
+    })
     let index = 0; 
     for (let [key, value] of Object.entries(Data)) {
       listWords.push(value); 
@@ -75,16 +84,6 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     }
     return (
       <View style={{ backgroundColor: '#E65100',height:HEIGHT }}>
-        <Header
-            containerStyle={styles.header}
-            leftComponent={
-                <Back navigation={navigation} color={'#fff'} />
-            }
-            rightComponent={
-                <MenuButton />
-            }
-            centerComponent={{ text: lessonInfo.lessonName, style: styles.centerComponent }}
-        />
         <View>
           <Carousel
             ref={(ref: any)=>ref=ref}

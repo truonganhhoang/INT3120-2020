@@ -31,10 +31,14 @@ const styles = StyleSheet.create({
   },
   container: {
     // backgroundColor: '#f8a136', 
+    // flex: 1,
+    // backgroundColor: "#ff5e00",
+    // alignItems: "stretch",
+    // justifyContent: "flex-start",
+
     flex: 1,
-    backgroundColor: "#ff5e00",
-    alignItems: "stretch",
-    justifyContent: "flex-start",
+    // backgroundColor: "#ff5e00",
+    flexDirection: "column", 
   },
   separator: {
     height: 2,
@@ -42,12 +46,17 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   listItems: {
-    paddingTop: 60,
+    paddingTop: 70,
     paddingBottom: 20,
     justifyContent: "space-around",
-    paddingLeft: 16,
-    paddingRight: 16,
+    // paddingLeft: 16,
+    // paddingRight: 16,
   }, 
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
 })
 
 export default styles; 
