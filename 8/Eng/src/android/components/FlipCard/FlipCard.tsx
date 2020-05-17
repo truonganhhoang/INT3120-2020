@@ -145,7 +145,7 @@ const FlipCard = (props: { data: any }) => {
                                     style={{ width: WIDTH / 2, height: HEIGHT / 4 }}
                                 />
                             </View>
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 80 }}>
+                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 92 }}>
                                 <Text style={{ fontWeight: '700', color: '#666' }}>
                                     Lật về sau
                                 </Text>
@@ -164,7 +164,7 @@ const FlipCard = (props: { data: any }) => {
                                 {data.vn_meaning}
                             </Text>
 
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 130 }}>
+                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 200 }}>
                                 <Text style={{ fontWeight: '700', color: '#666' }}>
                                     Lật về sau
                                 </Text>

@@ -1,6 +1,7 @@
+  
 import React, { useEffect, useState } from 'react';
 import { Header } from 'react-native-elements';
-import { View, ScrollView, Text, Dimensions, BackHandler, Alert} from 'react-native';
+import { View, ScrollView, Text, Dimensions } from 'react-native';
 import { Back } from '../../components/Back';
 import { WordGroupCard } from '../../components/WordGroupCard';
 import firebase from 'firebase';
@@ -9,8 +10,9 @@ import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
 const SLIDER_WIDTH = Dimensions.get('window').width;
+const SLIDER_HEIGTH = Dimensions.get('window').height;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
-
+const ITEM_HEGHT = Math.round(SLIDER_HEIGTH);
 const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props;
   const nameTopic = route.params.nameTopic;
@@ -27,12 +29,6 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
         setLessons({ status: 'null' }); 
       }
     });
-    navigation.setOptions({
-      title: nameTopic === '' ? 'No title' : nameTopic,
-      headerTitleStyle: styles.centerComponent, 
-      headerTitleAlign: "center", 
-      headerTintColor: "#ff5e00",
-    })
   }, [nameTopic])
 
   const _renderItem = (item: any) => {
@@ -48,13 +44,13 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   else if(lessons.status == 'null') {
     return (
       <View style={styles.containers}>
-        {/* <Header containerStyle={styles.container}
+        <Header containerStyle={styles.container}
           leftComponent={
             <Back
               navigation={navigation}
             />}
           centerComponent={{ text: nameTopic, style: styles.centerComponent }}
-        /> */}
+        />
         <View>
           <Text>Sorry! The data is not available.</Text>
         </View>
@@ -69,16 +65,17 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       data.push(value); 
       data[i++].wordGroupName = key
     }
+    
     return (
       <View style={styles.containers}>
-        {/* <Header containerStyle={styles.container}
+        <Header containerStyle={styles.container}
           leftComponent={
             <Back
               navigation={navigation}
             />}
           centerComponent={{ text: nameTopic, style: styles.centerComponent }}
-        /> */}
-        <View>
+        />
+        <View style={{top:ITEM_HEGHT*0.1}}>
           <Carousel
             ref={(ref: any) => ref = ref}
             data={data}

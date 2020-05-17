@@ -106,9 +106,9 @@ const Practice = (props: { route?: any; navigation?: any }) => {
               <Text style={{ paddingTop: 10, fontSize: 16, color: '#ff5e00' }}>{count}/{amountOfQuestion}</Text>
             </View>
             <View style={styles.slider}>
-              <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} color="#ff5e00" height={8}/>
+              <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} borderColor="#dddee0" color='#ff5e00' style={{backgroundColor:'#dddee0'}} height={8}/>
             </View>
-            <Text style={{textAlign:'center'}}>{questionNumber}</Text>
+            {/* <Text style={{textAlign:'center'}}>{questionNumber}</Text> */}
             <View>
               <QuestionContent contentOfQuestion={contentOfQuestion} count={count}/>
               <AnswerContent 
