@@ -24,7 +24,7 @@ export default function TFS() {
                 name="Detail"
                 component={DetailScreen}
                 options={{
-                    title: 'Danh sách',
+                    title: '',
                 }}
             />
 
