@@ -7,17 +7,12 @@ export default function Learning(props) {
         <TouchableOpacity>
             <View style={styles.shadow}>
                 <View style={styles.container}>
-                    <View style={styles.info}>
-                        <Text style={styles.name}></Text>
-                        <View styles={styles.priceRow}>
-                            <Text style={styles.price}>{word}</Text>
-                        </View>  
-                    </View>
+                    <Text style={styles.text}>{word}</Text>
                 </View>
             </View>
-            
+
         </TouchableOpacity>
-        
+
     );
 }
 
@@ -33,22 +28,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderRadius: 4,
         backgroundColor: '#FFF',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        padding: 20,
+        height: 100
     },
-    info: {
-        padding: 8
-    },
-    name: {
+    text: {
+        //alignItems: 'center',
         fontSize: 16,
-        marginBottom: 8
-    },
-    priceRow: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    price: {
-        fontSize: 16,
-        color: '#888',
+        color: '#4B4B4B',
         flex: 1
     }
 });

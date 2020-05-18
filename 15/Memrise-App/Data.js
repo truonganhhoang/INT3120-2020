@@ -18,6 +18,10 @@ const listWordData= [
     { id:16 , word:'庭' ,mean:'Vườn' , miss:false , level:0 },
 ];
 
-
+const listQuestion = [
+    { id:1, question:'ありがとうございます', correctAnswer:'cảm ơn', incorrectAnswer:['xe hơi', 'rau', 'nhẫn'], miss:false, level: 0 },
+    { id:2, question:'車', correctAnswer:'xe hơi', incorrectAnswer:['cảm ơn', 'rau', 'nhẫn'], miss:false, level: 0 },
+    { id:3, question:'野菜', correctAnswer:'rau', incorrectAnswer:['cảm ơn', 'xe hơi', 'nhẫn'], miss:false, level: 1 },
+];
 
 module.exports.listWordData= listWordData;
