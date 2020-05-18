@@ -24,7 +24,7 @@ const datas = [
   },
   {
     name: "Tra từ, dịch văn bản",
-    route: "Header",
+    route: "Translator",
     icon: "arrow-up",
     bg: "#477EEA",
     //types: "11"

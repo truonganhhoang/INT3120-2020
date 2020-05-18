@@ -194,7 +194,7 @@ class Anatomy extends Component {
   }
 
   render() {
-  if(!this.state.dataFirebase) return null
+  //if(!this.state.dataFirebase) return null
     return (
       <Container style={styles.container}>
         <Header hasSegment>
