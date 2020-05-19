@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, StatusBar } from 'react-native';
 import { CellHome } from '../components/CellHome'
 
 const dataHome = {
-    imgTop: require("../images/home/qc.jpg"),
+    imgTop: require("../images/home/image_home_top.jpg"),
     img1: require("../images/home/thi_sat_hach.jpg"),
     img2: require("../images/home/hoc_li_thuyet.jpg"),
     img3: require("../images/home/bien_bao.jpg"),
@@ -16,11 +16,17 @@ const dataHome = {
 export default function Home({ navigation }) {
 
     function MyNavigate(desScreen) {
-        navigation.navigate(desScreen);
+        navigation.navigate(desScreen, { type: 'data2' });
     };
 
     return (
         <View style={styles.container}>
+            <StatusBar
+                translucent={true}
+                backgroundColor="#00000044"
+                barStyle='light-content'
+            />
+
             <View style={styles.top}>
                 <Image
                     source={dataHome.imgTop}
@@ -44,7 +50,7 @@ export default function Home({ navigation }) {
 
                 <View style={styles.row}>
                     <CellHome img={dataHome.img5} Press={() => MyNavigate("Tra_cuu_luat")} />
-                    <CellHome img={dataHome.img6} Press={() => MyNavigate("Help")} />
+                    <CellHome img={dataHome.img6} Press={() => MyNavigate("Khai_niem")} />
                 </View>
 
             </View>
@@ -72,6 +78,7 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 10,
+        backgroundColor: "#ccc",
         // borderWidth: 10,
         // borderColor: "#EDEDF1",
     },
@@ -81,6 +88,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        backgroundColor: "#EDEDF1",
+        // backgroundColor: "#EDEDF1",
     }
 });

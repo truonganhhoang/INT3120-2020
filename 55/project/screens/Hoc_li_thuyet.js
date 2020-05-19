@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { StyleSheet } from "react-native"
 import { FlatList } from 'react-native-gesture-handler';
-import { RowLearn } from '../components/RowLearn';
+import RowLearn from '../components/RowLearn';
+
+import { connect } from 'react-redux';
 
 const dataHoc = [
     {
@@ -30,20 +32,30 @@ const dataHoc = [
     },
 ]
 
-export default function Hoc_li_thuyet({ navigation }) {
-    return (
-        <FlatList style={styles.container}
-            data={dataHoc}
-            renderItem={({ item }) => {
-                return (
-                    <RowLearn element={item} Press={() => navigation.navigate('Khai_niem')} />
-                )
-            }}
-        >
+class Hoc_li_thuyet extends React.Component {
 
-        </FlatList>
-    )
+    render() {
+        return (
+            <FlatList style={styles.container}
+                data={this.props.Learns}
+                keyExtractor={item => item.id.toString()}
+                renderItem={({ item }) => {
+                    return (
+                        <RowLearn element={item} Press={() => navigation.navigate('Khai_niem')} />
+                    )
+                }}
+            >
+
+            </FlatList>
+        )
+    }
 }
+
+function mapStateToProps(state) {
+    return { Learns: state.Learns }
+}
+
+export default connect(mapStateToProps)(Hoc_li_thuyet);
 
 
 const styles = StyleSheet.create({

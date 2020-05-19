@@ -8,15 +8,15 @@ export class CellHome extends React.Component {
             // <Text> huhu </Text>
             <View style={styles.cell}>
                 <TouchableOpacity
-                    onPress={this.props.Press}>
+                    onPress={this.props.Press}
+                >
 
-                    {/* <View style={styles.cell}> */}
                     <Image
                         resizeMode="stretch"
                         source={this.props.img}
                         style={styles.icon}
                     />
-                    {/* </View> */}
+
                 </TouchableOpacity>
             </View>
         )
@@ -40,6 +40,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // backgroundColor: "blue",
         // borderWidth: 1,
+
+
+        // shadowRadius: 16.00,
+        // shadowColor: "red",
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 2,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 3.84,
+
+        // elevation: 5,
     },
 
     icon: {
@@ -49,6 +61,15 @@ const styles = StyleSheet.create({
 
         // borderTopRightRadius: 60,
         // borderBottomLeftRadius: 60,
+        // shadowColor: "red",
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 2,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 3.84,
+
+        // elevation: 5,
 
     },
 

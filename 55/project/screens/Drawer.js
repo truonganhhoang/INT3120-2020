@@ -3,6 +3,7 @@ import { Button, View, Image, Text, StatusBar } from 'react-native';
 import { createDrawerNavigator, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 import StackScreen from './Stack';
 import Help from './Help';
 
@@ -28,26 +29,30 @@ function Usage({ navigation }) {
 function CustomDrawerContent(props) {
 
     return (
+        <DrawerContentScrollView {...props}
 
-        <DrawerContentScrollView {...props}>
+            drawerStyle={{
+                height: 100,
+            }}
+            drawerContentOptions={{
+                labelStyle: {
+                    color: "red"
+                }
+            }}
+        >
 
-            <StatusBar
-                translucent={true}
-                backgroundColor={'transparent'}
-                barStyle={'dark-content'}
-            />
 
             <Image
-                resizeMode="stretch"
-                source={require("../images/cat.jpg")}
-                style={{ height: 200, width: "100%" }}
+                resizeMode="cover"
+                source={require("../images/home/image_drawer_top.jpg")}
+                style={{ height: 200, width: "100%", marginTop: -40 }}
             />
 
             <DrawerItem
                 label='Học, học nữa, học mãi!'
-                color="red"
+                labelStyle={{ color: "green", fontWeight: "bold" }}
                 onPress={() => props.navigation.navigate('Stack')}
-                icon={() => <Icon size={25} name='car' />}
+                icon={() => <Icon size={25} color='green' name='car' />}
             />
 
             <DrawerItem
@@ -73,39 +78,40 @@ export default class MyDrawer extends React.Component {
     render() {
         const { navigation } = this.props;
         return (
+
             <Drawer.Navigator
 
                 initialRouteName="Home"
                 // hideStatusBar={true}
 
                 drawerContent={(props) => <CustomDrawerContent {...props} />}
-                // drawerContent={() => <CustomDrawerContent />}
+
 
                 drawerStyle={{
                     // backgroundColor: "red",
-                    width: 310,
+                    width: 320,
                 }}
 
                 drawerContentOptions={{
 
-                    // activeTintColor: "green",
-                    // activeBackgroundColor: "#eee",
-                    labelStyle: {
-                        color: "green",
-                    },
-                    itemStyle: {
-                        // height: 200,
-                        // backgroundColor: "yellow",
-                    },
+                    activeTintColor: "green",
+                    activeBackgroundColor: "#eee",
+                    // labelStyle: {
+                    //     color: "green",
+                    // },
+                    // itemStyle: {
+                    //     // height: 200,
+                    //     // backgroundColor: "yellow",
+                    // },
 
                 }}
             >
 
 
-
                 <Drawer.Screen name="Stack" component={StackScreen} />
                 <Drawer.Screen name="Help" component={Help} />
             </Drawer.Navigator>
+
         );
     }
 }
