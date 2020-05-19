@@ -29,7 +29,7 @@ const SignIn = props =>{
     }}
     return (    
       <View style = {{flex : 1}}>
-        <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+        <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
         <View style = {{flex : 1, backgroundColor: '#0592D2', flexDirection: 'row', alignItems:'flex-end'}}>
           <View style = {{marginBottom: 15, marginLeft: 15, flexDirection: 'row'}}>
             <Icon

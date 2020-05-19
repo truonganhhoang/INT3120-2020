@@ -48,7 +48,7 @@ const Home = (props)=> {
     }, [props.navigation.getParam('user')])
         return (
             <View style={{ flex: 1 }}>
-                 <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+                 <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
                 <ScrollableTabView
                     tabBarPosition='bottom'
                     tabBarTextStyle={{ fontSize: 20 }}

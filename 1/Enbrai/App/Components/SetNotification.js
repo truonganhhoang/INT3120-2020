@@ -25,7 +25,7 @@ const SetNotification = props => {
 
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
-     <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+     <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
       <View style={{flex: 9}}>
         <View style={{alignItems: 'center', marginTop: 30}}>
           <Text style={{fontSize: 18, color: '#0288D1'}}>Nhắc nhở học tập hàng ngày</Text>
