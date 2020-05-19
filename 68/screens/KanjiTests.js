@@ -20,6 +20,8 @@ export default class KanjiTests extends React.Component {
     },
   });
 
+  isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,12 +30,23 @@ export default class KanjiTests extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this.isMounted = false;
+  }
+
+
   nextQuestion = () => {
-    const { questionIndex } = this.state;
-    this.setState({
-      questionIndex: (questionIndex + 1) % this.answers.length,
-      indexRan: Math.floor(Math.random() * 4)
-    });
+    if (this.isMounted === true) {
+      const { questionIndex } = this.state;
+      this.setState({
+        questionIndex: (questionIndex + 1) % this.answers.length,
+        indexRan: Math.floor(Math.random() * 4)
+      });
+    }
   }
 
   render() {

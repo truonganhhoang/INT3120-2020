@@ -41,6 +41,8 @@ export default class LoginScreen extends React.Component {
         firebase.auth().signInWithCredential(credential);
         // console.log(result);
         // return result.accessToken;
+        const { navigation } = this.props;
+        navigation.navigate('Levels');
       }
       console.log('asdasd');
       return { cancelled: true };
