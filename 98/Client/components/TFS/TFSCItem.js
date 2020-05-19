@@ -20,33 +20,27 @@ export default function Item(props) {
 
 const styles = StyleSheet.create({
     item: {
-        paddingVertical: 3,
         flexDirection: 'row',
-        elevation: 3,
+        elevation: 1.6,
         height: 70,
         marginLeft: 20,
         marginRight: 20,
         marginTop: 10,
-        borderColor: '#deb887',
-        backgroundColor: '#faf0e6',
-        borderRadius: 100 / 2,
-        borderWidth: 2,
     },
 
     item_title: {
-        // color: '#696969',
+        color: '#696969',
         fontSize: 18,
         fontWeight: 'bold',
         marginLeft: 15,
         marginTop: 15,
-        //textAlign: 'center',
         justifyContent: 'center',
         alignContent: 'center',
     },
     tinyLogo: {
         width: 50,
         height: 50,
-        marginTop: 5,
-        marginLeft: 25,
+        marginTop: 10,
+        marginLeft: 20,
     },
 });
