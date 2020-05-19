@@ -2,17 +2,11 @@ import { StyleSheet, Dimensions } from 'react-native';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
-    btnDetail: {
-        backgroundColor: '#ff5e00',
-        alignItems: 'center',
-        borderRadius: 20,
-        width: 150
-    },
     containers: {
         top: HEIGHT * 0.05,
         height: 510,
-        width: 300,
-        left: WIDTH / 6,
+        width: WIDTH*0.7,
+        left: WIDTH*0.3/ 2,
         position: 'relative'
     },
     card: {
@@ -26,7 +20,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.32,
         shadowRadius: 5.46,
-
         elevation: 9,
     },
     viewCard: {
@@ -43,8 +36,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         bottom:60,
-        left: 80,
+        left: WIDTH*0.329/2,
         zIndex: 2,
+    },
+    btnDetail: {
+        backgroundColor: '#ff5e00',
+        alignItems: 'center',
+        borderRadius: 20,
+        width: WIDTH*0.371
     },
     viewImg: {
         alignItems: 'center',

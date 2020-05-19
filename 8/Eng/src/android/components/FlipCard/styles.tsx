@@ -3,9 +3,8 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
-        justifyContent: "center",
-        width: WIDTH/1.5+30,
+        top: HEIGHT*0.14, 
+        width: WIDTH*0.82,
         height: HEIGHT,
     },
     flipCard: {

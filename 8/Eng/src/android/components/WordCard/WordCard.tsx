@@ -1,21 +1,38 @@
 import React, { useState } from 'react'; 
-import { Card, Icon, Image } from 'react-native-elements'; 
-import { Text, TouchableWithoutFeedback, View, TouchableOpacity } from 'react-native'; 
+import { Icon, Image } from 'react-native-elements'; 
+import { Text, View, TouchableHighlight } from 'react-native'; 
 import styles from './styles'; 
 import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 import Sound from 'react-native-sound';
+import { getDataFromStorage, mergeItem, delFavoriteWordFromStorage } from '../../services'; 
 
-const Word = (props: {data?: any; icon: any}) => {
-  const { data } = props; 
-  const { icon } = props;
+const Word = (props: {data?: any; icon: string; lessonInfo?: any; remove?: any}) => {
+  const { data, lessonInfo, icon, remove } = props; 
   const [colorStar, setColorStar] = useState(icon)
   const onPressStar = () => {
-    console.log(colorStar)
-    if (colorStar == 'star'){
+    if (colorStar == 'star') {
       setColorStar('staro'); 
+      delFavoriteWordFromStorage(data.en_meaning, remove)
     } 
     else if (colorStar == 'staro'){
       setColorStar('star'); 
+      if (lessonInfo) {
+        let words = {
+          [data.en_meaning]: {
+            en_meaning: data.en_meaning, 
+            image_uri: data.image_uri, 
+            spelling: data.spelling, 
+            vn_meaning: data.vn_meaning, 
+            void_uri: data.void_uri, 
+            lesson: lessonInfo.lessonName, 
+            topic: lessonInfo.topicName
+          }
+        }
+        mergeItem('favoriteWords', JSON.stringify(words)); 
+        getDataFromStorage('favoriteWords')
+      } else {
+        console.log('[WordCard] Lesson Info errors for set')
+      }
     }
   }
 
@@ -36,26 +53,23 @@ const Word = (props: {data?: any; icon: any}) => {
   }
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => {console.log('Go FlipCard')}}
-      style={styles.btn}
+    <TouchableHighlight 
+      style={styles.item}
+      underlayColor={'white'}
+      onPress={() => {console.log('OKOKOKOKOKOKOKO')}}
     >
-      <View style={styles.card}>
-        <View
-          style={styles.left}
-        >
+      <View>
+        <View style={styles.left}>
           <Image 
             source={{ uri: data.image_uri }}
             style={styles.img}
           />
         </View>
-        <View
-          style={styles.right}
-        >
+        <View style={styles.right}>
           <IconFontAwesome5
             name={colorStar}
             color='#ff5e00'
-            size={30}
+            size={20}
             style={styles.star_icon}
             onPress={onPressStar}
           />
@@ -77,7 +91,7 @@ const Word = (props: {data?: any; icon: any}) => {
           </Text>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableHighlight>
   )
 }
 

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FlipCard } from '../../components/FlipCard';
-import { Header } from 'react-native-elements';
 import styles from './styles';
 import MenuButton from '../../components/Menu/Menu';
-import { Back } from '../../components/Back';
 import firebase from 'firebase';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, View, Text } from 'react-native';
+import { Dimensions, View, Text, SafeAreaView, AsyncStorage } from 'react-native';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
 const WIDTH = Dimensions.get('window').width;
@@ -24,9 +22,21 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
   lessonInfo.topicName + '/lessons_detail/' + lessonInfo.lessonName); 
   const [Data, setData] = useState({ status: 'loading' });
   const [state, setState] = useState(0);
+  const [favoriteWords, setFavoriteWords] = useState({ keys: [""] })
+  const getFavoriteWords = async() => {
+    try {
+      await AsyncStorage.getItem('favoriteWords', (err, result: any) => {
+        let data = JSON.parse(result); 
+        setFavoriteWords({ keys: Object.keys(data) })
+      })
+    } catch(error) {
+      console.log(error); 
+    }
+  }
 
   useEffect(() => {
     setData({ status: 'loading' })
+    setFavoriteWords({ keys: [''] })
     wordsOfLesson.on('value', function (snapshot: any) {
       if (snapshot.val()) {
         setData(snapshot.val());
@@ -36,6 +46,12 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     });
   }, [lessonInfo])
   //get value people
+
+  useEffect(() => {
+    if ( favoriteWords.keys[0] === '' ) {
+      getFavoriteWords()
+    }
+  }, [favoriteWords])
 
   if (Data.status == 'loading') {
 	navigation.setOptions({headerTransparent: true, title: ""})
@@ -50,8 +66,8 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
       headerTransparent: true,
       headerTitleAlign: "center", 
       headerTintColor: "white",
-      headerRightContainerStyle: { marginTop: 5, padding: 16 },
-      headerRight: () => { return (<MenuButton />) }
+      // headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      // headerRight: () => { return (<MenuButton />) }
     })
     return (
       <SafeAreaView style={{ backgroundColor: '#E65100', paddingTop: 60 }}>
@@ -62,14 +78,14 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     )
   }
   else {
-	navigation.setOptions({
+	  navigation.setOptions({
       title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
       headerTitleStyle: styles.centerComponent, 
       headerTransparent: true,
       headerTitleAlign: "center", 
       headerTintColor: "white",
-      headerRightContainerStyle: { marginTop: 5, padding: 16 },
-      headerRight: () => { return (<MenuButton />) }
+      // headerRightContainerStyle: { marginTop: 5, padding: 16 },
+      // headerRight: () => { return (<MenuButton />) }
     })
     let index = 0; 
     for (let [key, value] of Object.entries(Data)) {
@@ -78,31 +94,36 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     }
 
     const _renderItem = (item: any) => {
+      if ( favoriteWords.keys.includes(item.item.en_meaning) ) {
+        console.log('[FlipCardWord] favorite Word')
         return (
-            <FlipCard data={item.item} />
+          <FlipCard data={item.item} icon='star' lessonInfo={lessonInfo}/>
         );
+      } else {
+        return (
+          <FlipCard data={item.item} icon='staro' lessonInfo={lessonInfo}/>
+        );
+      }
     }
     return (
-      <View style={{ backgroundColor: '#E65100',height:HEIGHT }}>
-        <View>
-          <Carousel
-            ref={(ref: any)=>ref=ref}
-            data={listWords}
-            renderItem={_renderItem}
-            sliderWidth={SLIDER_WIDTH}
-            itemWidth={ITEM_WIDTH}
-            containerCustomStyle={styles.carouselContainer}
-            inactiveSlideShift={0}
-            onSnapToItem={(index) => setState(index)}
-            scrollInterpolator={scrollInterpolator}
-            slideInterpolatedStyle={animatedStyles}
-            useScrollView={true}
-          />
-          <Text style={styles.counter}>
-            {state + 1}/{listWords.length}
-          </Text>
-        </View>
-      </View>
+      <SafeAreaView style={{ backgroundColor: '#E65100', height: HEIGHT }}>
+        <Carousel
+          ref={(ref: any)=>ref=ref}
+          data={listWords}
+          renderItem={_renderItem}
+          sliderWidth={SLIDER_WIDTH}
+          itemWidth={ITEM_WIDTH}
+          containerCustomStyle={styles.carouselContainer}
+          inactiveSlideShift={0}
+          onSnapToItem={(index) => setState(index)}
+          scrollInterpolator={scrollInterpolator}
+          slideInterpolatedStyle={animatedStyles}
+          useScrollView={true}
+        />
+        <Text style={styles.counter}>
+          {state + 1}/{listWords.length}
+        </Text>
+      </SafeAreaView>
     );
   }
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, SafeAreaView, Text, FlatList } from 'react-native';
-import { Header } from 'react-native-elements';
-import { Back } from '../../components/Back';
+import { SafeAreaView, Text, FlatList, AsyncStorage } from 'react-native';
 import { WordCard } from '../../components/WordCard';
 import { MenuButton } from '../../components/Menu';
 import { Activity } from '../Utils/activity';
@@ -12,8 +10,22 @@ const Screen = (props: { navigation?: any; route?: any }) => {
   const { navigation, route } = props;
   const lessonInfo =  route.params;  
   const [data, setData] = useState({status: 'loading'}); 
- 
+  const [favoriteWords, setFavoriteWords] = useState({ keys: [""] })
+  const getFavoriteWords = async() => {
+    try {
+      await AsyncStorage.getItem('favoriteWords', (err, result: any) => {
+        let data = JSON.parse(result); 
+        setFavoriteWords({ keys: Object.keys(data) })
+      })
+    } catch(error) {
+      console.log(error); 
+    }
+  }
+
   useEffect(() => {
+    console.log('[DetailWordGroupScreen] LessonInfo')
+    console.log(lessonInfo)
+    console.log('[DetailWordGroupScreen] LessonInfo')
     navigation.setOptions({
       title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
       headerTitleStyle: styles.centerComponent, 
@@ -21,6 +33,7 @@ const Screen = (props: { navigation?: any; route?: any }) => {
       headerTintColor: "#ff5e00",
     })
     setData({status: 'loading'}); 
+    setFavoriteWords({ keys: [''] })
     let database = firebase.database(); 
     let wordsOfLesson = database.ref('/topic_detail/' + 
     lessonInfo.topicName + '/lessons_detail/' + lessonInfo.lessonName)
@@ -33,7 +46,13 @@ const Screen = (props: { navigation?: any; route?: any }) => {
     }); 
   }, [lessonInfo])
 
-  if (data.status == 'loading') {
+  useEffect(() => {
+    if ( favoriteWords.keys[0] === '' ) {
+      getFavoriteWords()
+    }
+  }, [favoriteWords])
+
+  if (data.status === 'loading' || favoriteWords.keys[0] === '') {
     return (
       <Activity />
     )
@@ -53,17 +72,29 @@ const Screen = (props: { navigation?: any; route?: any }) => {
     return (
       <SafeAreaView style={styles.container}>
         <FlatList 
-          showsVerticalScrollIndicator={true}
-          contentContainerStyle={styles.list}
           data={words}
           renderItem={({ item }) => {
-            return (
-              <WordCard data={item}
-                icon="staro"
-                key={item.en_meaning}
-              />
-            )
+            if ( favoriteWords.keys.includes(item.en_meaning) ){
+              console.log('[DetailWordGroupScreen] favorite word: ' + item.en_meaning)
+              return (
+                <WordCard data={item}
+                  icon="star"
+                  key={item.en_meaning}
+                  lessonInfo={lessonInfo}
+                />
+              )
+            }
+            else {
+              return (
+                <WordCard data={item}
+                  icon="staro"
+                  key={item.en_meaning}
+                  lessonInfo={lessonInfo}
+                />
+              )
+            }
           }}
+          keyExtractor={ item => item.en_meaning }
         />
       </SafeAreaView>
     )

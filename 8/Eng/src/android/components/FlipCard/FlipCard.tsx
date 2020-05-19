@@ -5,13 +5,15 @@ import styles from './styles';
 import { Card, Image, Icon } from 'react-native-elements';
 import IconAntDeisign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Sound from 'react-native-sound';
+import { getDataFromStorage, mergeItem, delFavoriteWordFromStorage } from '../../services'; 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 var values = 0;
-const FlipCard = (props: { data: any }) => {
-    const { data } = props;
+
+const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
+    const { data, icon, lessonInfo } = props;
     const animatedValue = new Animated.Value(0);
     animatedValue.addListener(({ value }) => {
         values = value;
@@ -44,7 +46,6 @@ const FlipCard = (props: { data: any }) => {
     })
     const flipCard = () => {
         if (values >= 90) {
-            
             Animated.spring(animatedValue, {
                 toValue: 0,
                 friction: 8,
@@ -60,15 +61,34 @@ const FlipCard = (props: { data: any }) => {
     }
 
 
-    const [colorStar, setColorStar] = useState("staro");
+    const [colorStar, setColorStar] = useState(icon);
     const changeFavor = () => {
-        if (colorStar == 'staro') {
-            setColorStar('star');
+      if (colorStar == 'staro') {
+        setColorStar('star');
+        if (lessonInfo) {
+          let word = {
+            [data.en_meaning]: {
+            en_meaning: data.en_meaning, 
+            image_uri: data.image_uri, 
+            spelling: data.spelling, 
+            vn_meaning: data.vn_meaning, 
+            void_uri: data.void_uri, 
+            lesson: lessonInfo.lessonName, 
+            topic: lessonInfo.topicName
+          }
         }
-        else if (colorStar == 'star') {
-            setColorStar('staro');
+        mergeItem('favoriteWords', JSON.stringify(word)); 
+        getDataFromStorage('favoriteWords')
+        } else {
+          console.log('[WordCard] Lesson Info errors for set')
         }
+      }
+      else if (colorStar == 'star') {
+        setColorStar('staro');
+        delFavoriteWordFromStorage(data.en_meaning, () => {})
+      }
     }
+
     const [colorLight, setColorLight] = useState("lightbulb-on-outline");
     const changeLight = () => {
         if (colorLight == 'lightbulb-on') {
@@ -109,80 +129,80 @@ const FlipCard = (props: { data: any }) => {
         })
     }
     return (
-        <View style={styles.container}>
-            <View style={styles.containerCard}>
-                <Animated.View style={[styles.iconTool, frontAnimatedStyle, { opacity: frontOpacity }]}>
-                    <View style={
-                        {
-                            marginRight: 6
-                        }
-                    }>
-                        <MaterialCommunityIcons
-                            name={colorLight}
-                            color='#00badd'
-                            size={25}
-                            onPress={changeLight}
-                        />
-                    </View>
-                    <View>
-                        <IconAntDeisign
-                            name={colorStar}
-                            color='#ff5e00'
-                            size={24}
-                            onPress={changeFavor}
-                        />
-                    </View>
-                </Animated.View>
-                <TouchableOpacity onPress={flipCard}>
+      <View style={styles.container}>
+        <View style={styles.containerCard}>
+          <Animated.View style={[styles.iconTool, frontAnimatedStyle, { opacity: frontOpacity }]}>
+              {/* <View style={
+                  {
+                      marginRight: 6
+                  }
+              }>
+                  <MaterialCommunityIcons
+                      name={colorLight}
+                      color='#00badd'
+                      size={25}
+                      onPress={changeLight}
+                  />
+              </View> */}
+              <View>
+                  <IconAntDeisign
+                      name={colorStar}
+                      color='#ff5e00'
+                      size={24}
+                      onPress={changeFavor}
+                  />
+              </View>
+          </Animated.View>
+          <TouchableOpacity onPress={flipCard}>
 
-                    <Card containerStyle={{ borderRadius: 10 }}>
-                        <Animated.View style={[styles.flipCard, frontAnimatedStyle, { opacity: frontOpacity }]}>
+              <Card containerStyle={{ borderRadius: 10 }}>
+                  <Animated.View style={[styles.flipCard, frontAnimatedStyle, { opacity: frontOpacity }]}>
 
-                            <View style={{ marginTop: 60 }}>
-                                <Image
-                                    source={{ uri: data.image_uri }}
-                                    resizeMode='cover'
-                                    style={{ width: WIDTH / 2, height: HEIGHT / 4 }}
-                                />
-                            </View>
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 92 }}>
-                                <Text style={{ fontWeight: '700', color: '#666' }}>
-                                    Lật về sau
-                                </Text>
-                            </View>
-                        </Animated.View>
+                      <View style={{ marginTop: 60 }}>
+                          <Image
+                              source={{ uri: data.image_uri }}
+                              resizeMode='cover'
+                              style={{ width: WIDTH / 2, height: HEIGHT / 4 }}
+                          />
+                      </View>
+                      <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 92 }}>
+                          <Text style={{ fontWeight: '700', color: '#666' }}>
+                              Lật về sau
+                          </Text>
+                      </View>
+                  </Animated.View>
 
 
-                        <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle, { opacity: backOpacity }]}>
-                            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
-                                {data.en_meaning}
-                            </Text>
-                            <Text style={{ color: '#666' }}>
-                                {data.spelling}
-                            </Text>
-                            <Text style={{ marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
-                                {data.vn_meaning}
-                            </Text>
+                  <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle, { opacity: backOpacity }]}>
+                      <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
+                          {data.en_meaning}
+                      </Text>
+                      <Text style={{ color: '#666' }}>
+                          {data.spelling}
+                      </Text>
+                      <Text style={{ marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
+                          {data.vn_meaning}
+                      </Text>
 
-                            <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 200 }}>
-                                <Text style={{ fontWeight: '700', color: '#666' }}>
-                                    Lật về sau
-                                </Text>
-                            </View>
-                        </Animated.View>
+                      <View style={{ alignItems: 'center', flexDirection: 'column-reverse', marginTop: 200 }}>
+                          <Text style={{ fontWeight: '700', color: '#666' }}>
+                              Lật về sau
+                          </Text>
+                      </View>
+                  </Animated.View>
 
-                    </Card>
-                </TouchableOpacity>
-                <Animated.View style={[styles.speaking, backAnimatedStyle, { opacity: backOpacity }]}>
-                    <Ionicons
-                        name='ios-volume-high'
-                        color='#FFF'
-                        size={50}
-                        onPress={onSpeaking}
-                    />
-                </Animated.View>
-            </View>
+              </Card>
+          </TouchableOpacity>
+          <Animated.View style={[styles.speaking, backAnimatedStyle, { opacity: backOpacity }]}>
+              <Ionicons
+                  name='ios-volume-high'
+                  color='#FFF'
+                  size={50}
+                  onPress={onSpeaking}
+              />
+          </Animated.View>
         </View>
+      </View>
     )
 }
 
