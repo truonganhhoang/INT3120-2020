@@ -14,14 +14,14 @@ import KanjiTests from './screens/KanjiTests';
 import FavoriteKanjiScreen from './screens/FavoriteKanjiScreen';
 
 const Appnavigator = createStackNavigator({
-  ProfileScreen: {
-    screen: ProfileScreen
-  },
   LoginScreen: {
     screen: LoginScreen
   },
   FavoriteKanjiScreen: {
     screen: FavoriteKanjiScreen
+  },
+  ProfileScreen: {
+    screen: ProfileScreen
   },
   Levels: {
     screen: Levels

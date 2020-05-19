@@ -10,17 +10,19 @@ function KanjiChallenge({
   kanji, isAnswer, setTrueQuestion, nextQuestion
 }) {
   const [status, setStatus] = useState('default');
+  const onPress = () => {
+    if (isAnswer) {
+      setStatus('blue');
+      setTrueQuestion();
+    } else {
+      setStatus('red');
+    }
+    setTimeout(() => { setStatus('default'); nextQuestion(); }, 300);
+  };
+
   return (
     <TouchableOpacity
-      onPress={() => {
-        if (isAnswer) {
-          setStatus('blue');
-          setTrueQuestion();
-        } else {
-          setStatus('red');
-        }
-        setTimeout(() => { setStatus('default'); nextQuestion(); }, 300);
-      }}
+      onPress={onPress}
     >
       <View style={styles[status]}>
         <Text style={styles.text}>{kanji}</Text>

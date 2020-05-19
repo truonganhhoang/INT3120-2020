@@ -101,13 +101,6 @@ export default class LoginScreen extends React.Component {
             color="#e73232"
           />
         </View>
-        <View style={styles.button}>
-          <Button
-            onPress={this.logout}
-            title=" logout"
-            color="#e73232"
-          />
-        </View>
       </Login>
     );
   }

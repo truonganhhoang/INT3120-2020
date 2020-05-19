@@ -1,6 +1,3 @@
-/* eslint-disable no-mixed-operators */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   StyleSheet,
@@ -42,8 +39,8 @@ export default class KanjiTests extends React.Component {
   render() {
     const { questionIndex } = this.state;
     const { indexRan } = this.state;
-    // eslint-disable-next-line react/destructuring-assignment
-    const kanjiList = this.props.navigation.getParam('kanjiList');
+    const { navigation } = this.props;
+    const kanjiList = navigation.getParam('kanjiList');
     this.answers = kanjiList.map((kanji) => kanji.kanji);
     this.question = kanjiList.map((kanji) => kanji.kun[0]);
     return (
@@ -62,7 +59,7 @@ export default class KanjiTests extends React.Component {
                 backgroundColor: 'rgb(0, 98, 101)',
               },
               progress: {
-                width: `${questionIndex / this.answers.length * 100}%`,
+                width: `${(questionIndex / this.answers.length) * 100}%`,
                 height: 10,
                 backgroundColor: '#fff',
               }
@@ -71,7 +68,7 @@ export default class KanjiTests extends React.Component {
           </View>
         </View>
         <View style={styles.Word}>
-          <Text style={styles.WordRandom}>{this.question ? this.question[this.state.questionIndex] : ''}</Text>
+          <Text style={styles.WordRandom}>{this.question ? this.question[questionIndex] : ''}</Text>
         </View>
         <View style={styles.content}>
           <KanjiTest
