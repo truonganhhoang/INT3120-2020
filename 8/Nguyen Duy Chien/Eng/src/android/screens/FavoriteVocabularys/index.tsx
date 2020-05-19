@@ -1,0 +1,1 @@
+export { default as Vocabularys } from './Vocabularys'; 

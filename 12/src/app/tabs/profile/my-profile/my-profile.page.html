@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/tabs/profile/settings']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="user === null || user === undefined; else loadedUser" class="ion-padding-vertical ion-text-center">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ng-template #loadedUser>
+    <ion-grid class="profile-header ion-padding-vertical">
+      <ion-row class="ion-align-items-center">
+        <ion-col sizeSm="3" size="12">
+          <div class="profile-header--avatar ion-padding-vertical ion-text-center">
+            <ng-container *ngIf="!user?.photoURL; else loadedPhoto">
+              <ion-icon name="person-circle-outline"></ion-icon>
+            </ng-container>
+            <ng-template #loadedPhoto>
+              <img width="90" height="90" [src]="user?.photoURL | sanitize" />
+            </ng-template>
+          </div>
+        </ion-col>
+        <ion-col sizeSm="9" size="12">
+          <div class="profile-header--displayname ion-padding-bottom">
+            {{ user?.displayName }}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <app-completed-courses></app-completed-courses>
+  </ng-template>
+</ion-content>

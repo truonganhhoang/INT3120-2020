@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-list-header>
+    <div class="ion-padding-vertical">
+      Complete the course by passing all assigments.
+    </div>
+  </ion-list-header>
+  <app-course-assignment-item *ngFor="let i of [1, 2, 3, 4, 5]" [assignmentNumber]="i" [assignmentTitle]="'Ionic Component'" [assignmentDeadline]="'2020-05-02'"></app-course-assignment-item>
+</ion-list>

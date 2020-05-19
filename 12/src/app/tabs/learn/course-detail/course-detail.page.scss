@@ -1,0 +1,18 @@
+ion-toolbar {
+  --background: transparent;
+  background-color: var(--ion-color-primary-shade);
+  ion-icon,
+  ion-back-button {
+    color: #ffffff;
+  }
+  ion-title {
+    color: #ffffff;
+  }
+}
+ion-content {
+  .title {
+    --background: none;
+    background-color: var(--ion-color-primary-shade);
+    color: #ffffff;
+  }
+}

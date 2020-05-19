@@ -1,0 +1,22 @@
+ion-content {
+  & > * {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  & > ion-img {
+    padding-top: 30px;
+    height: 120px;
+  }
+
+  ion-slide {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .action-buttons {
+    padding-bottom: 30px;
+  }
+}

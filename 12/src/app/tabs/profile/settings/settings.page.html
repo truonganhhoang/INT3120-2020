@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ currentUser?.email }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngIf="isMobile">
+      <ion-list-header>
+        <ion-label class="ion-text-uppercase">Offline usage</ion-label>
+      </ion-list-header>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="cloud-offline-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <div class="setting-title">Use Coursera offiline</div>
+          <div>When you go offline, you'll be only able to use downloaded Coursera material</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="calendar-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <div class="setting-title">Sync to my calendar</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </div>
+
+    <!-- -->
+
+    <div *ngIf="isMobile">
+      <ion-list-header>
+        <ion-label class="ion-text-uppercase">Course content</ion-label>
+      </ion-list-header>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="wifi-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <div class="setting-title">Download on wifi only</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon color="primary" slot="start" name="close-outline"></ion-icon>
+        <div class="ion-padding-vertical">
+          <div class="setting-title">Delete automatically</div>
+          <div>Delete downloaded items after you finish assignments for the week</div>
+        </div>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </div>
+
+    <!-- -->
+
+    <ion-list-header>
+      <ion-label class="ion-text-uppercase">Push notifications</ion-label>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="phone-portrait-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Course-related</div>
+        <div>Send notfication after enrolling, when deadlines are approaching, and more</div>
+      </div>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="time-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Study reminders</div>
+        <div>
+          Receive device notification to remind you when to work on a course (device settings for Push Notifications
+          must be set to ON)
+        </div>
+      </div>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <!-- -->
+
+    <ion-list-header>
+      <ion-label class="ion-text-uppercase">Account</ion-label>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="lock-closed-outline"></ion-icon>
+      <div class="ion-padding-vertical" (click)="openChangePasswordModal()">
+        <div class="setting-title">Change password</div>
+      </div>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="send-outline"></ion-icon>
+      <div class="ion-padding-vertical" (click)="sendVerficationEmail()">
+        <div class="setting-title">Verify email</div>
+      </div>
+      <ion-icon *ngIf="currentUser?.emailVerified" color="success" slot="end" name="checkmark-outline"></ion-icon>
+    </ion-item>
+
+    <!-- -->
+
+    <ion-list-header>
+      <ion-label class="ion-text-uppercase">Support</ion-label>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="help-buoy-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Learner Help Center</div>
+      </div>
+    </ion-item>
+
+    <!-- -->
+
+    <ion-list-header>
+      <ion-label class="ion-text-uppercase">About</ion-label>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="information-circle-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Terms of Use</div>
+      </div>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-icon color="primary" slot="start" name="information-circle-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Privacy Policy</div>
+      </div>
+    </ion-item>
+
+    <!-- -->
+
+    <ion-list-header>
+      <ion-label class="ion-text-uppercase">Logout</ion-label>
+    </ion-list-header>
+    <ion-item lines="full" (click)="handleSignOut()">
+      <ion-icon color="primary" slot="start" name="log-out-outline"></ion-icon>
+      <div class="ion-padding-vertical">
+        <div class="setting-title">Logout</div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div class="ion-text-center ion-padding">
+    <ion-text>{{ versionString }}</ion-text>
+  </div>
+</ion-content>

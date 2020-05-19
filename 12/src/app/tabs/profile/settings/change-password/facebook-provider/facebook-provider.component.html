@@ -1,0 +1,21 @@
+<form [formGroup]="setPasswordForm" (ngSubmit)="handleSetPasswordForFacebookProvider()">
+  <mat-form-field appearance="outline">
+    <mat-label>New password (Required)</mat-label>
+    <input type="password" matInput="true" [formControl]="newPassword" />
+    <mat-error *ngIf="newPassword.errors">
+      <div *ngIf="newPassword.errors.required">Please enter your new password.</div>
+      <div *ngIf="newPassword.errors.minlength">New password must be at least 8 characters.</div>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm new password (Required)</mat-label>
+    <input type="password" matInput="true" [formControl]="confirmNewPassword" />
+    <mat-error *ngIf="confirmNewPassword.errors">
+      <div *ngIf="confirmNewPassword.errors.mismatch">Passwords do not match.</div>
+    </mat-error>
+  </mat-form-field>
+  <ion-button type="submit" [disabled]="isUpdating" color="primary" mat-flat-button="true">
+    Save&nbsp;
+    <ion-spinner *ngIf="isUpdating"></ion-spinner>
+  </ion-button>
+</form>

@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border" translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/learn/courses"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon size="large" name="alarm-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Multiplatform Mobile App Development with Web Technology</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content slot="fixed">
+  <div class="ion-padding-horizontal ion-padding-bottom title">
+    <ion-text>The Hong Kong University of Science and Technology</ion-text>
+    <ion-text class="ion-padding-bottom">
+      <h2>
+        <strong>
+          Multiplatform Mobile App Development with Web Technology
+        </strong>
+      </h2>
+    </ion-text>
+  </div>
+  <nav mat-tab-nav-bar [backgroundColor]="'primary'">
+    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive="active" #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{ link.label }}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</ion-content>

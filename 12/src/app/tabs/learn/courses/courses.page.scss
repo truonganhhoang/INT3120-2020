@@ -1,0 +1,57 @@
+:host {
+  --background: transparent;
+}
+
+ion-header,
+ion-content,
+ion-toolbar,
+ion-list,
+ion-item {
+  --background: none;
+  background: transparent;
+}
+
+ion-toolbar {
+  background-color: var(--ion-color-secondary-tint);
+  color: #ffffff;
+}
+
+ion-content {
+  --background: none;
+  background: linear-gradient(-15deg, transparent 50%, var(--ion-color-secondary-tint) 50%);
+}
+
+.no-course {
+  background-color: var(--ion-color-primary);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 5px 10px var(--ion-color-primary-shade);
+
+  ion-text:first-child {
+    @media (max-width: 575.99px) {
+      padding-top: 16px;
+    }
+  }
+
+  ion-button:last-child {
+    @media (max-width: 575.99px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .no-course--title {
+    font-weight: 500;
+  }
+
+  .no-course--button {
+    --background: none;
+    border-radius: 3px;
+    background: linear-gradient(to bottom right, var(--ion-color-secondary-tint), var(--ion-color-primary)) !important;
+  }
+}
+
+a {
+  cursor: pointer;
+}

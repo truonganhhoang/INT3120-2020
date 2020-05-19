@@ -1,0 +1,17 @@
+<ion-item lines="full">
+  <ion-icon *ngIf="!assignmentSubmitted; else submitted" slot="start" color="medium" name="time-outline"></ion-icon>
+  <ng-template #submitted>
+    <ion-icon slot="start" color="success" name="checkmark-circle"></ion-icon>
+  </ng-template>
+  <div class="ion-padding-vertical" (click)="openAssignment()">
+    <div class="assignment-title">
+      Assignment {{ assignmentNumber }}: {{ assignmentTitle }}
+    </div>
+    <ion-text *ngIf="!assignmentSubmitted" color="medium">
+      <small>Not submitted</small>
+    </ion-text>
+  </div>
+  <div *ngIf="!assignmentSubmitted" slot="end">
+    {{ assignmentDeadline | date:"MMM dd" }}
+  </div>
+</ion-item>

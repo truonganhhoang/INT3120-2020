@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToIntro()" defaultHref="/intro"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content">
+  <div class="header">
+    <ion-img [src]="'/assets/icon/favicon.png'"></ion-img>
+    <div>Create New Account</div>
+  </div>
+
+  <form class="sign-up-form-container" [formGroup]="signUpForm" (ngSubmit)="handleSignUp()">
+    <mat-form-field appearance="outline" class="fullName">
+      <mat-label>Full Name (Required)</mat-label>
+      <input type="text" matInput="true" [formControl]="fullName" />
+      <mat-error *ngIf="fullName.errors">
+        <div *ngIf="fullName.errors.required">Please enter your full name.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="email">
+      <mat-label>E-mail (Required)</mat-label>
+      <input type="email" matInput="true" [formControl]="email" />
+      <mat-error *ngIf="email.errors">
+        <div *ngIf="email.errors.email || email.errors.required">Email address format is invalid.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="password">
+      <mat-label>Password (Required)</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput="true" [formControl]="password" autocomplete="on" />
+      <button mat-icon-button matSuffix="true" (click)="togglePassword()">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.errors">
+        <div *ngIf="password.errors.minlength || password.errors.required">Password must be at least 8 characters.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <ion-button type="submit" [disabled]="isSubmitting" expand="block" color="primary" mat-flat-button="true">
+      Create new account&nbsp;<ion-spinner *ngIf="isSubmitting"></ion-spinner>
+    </ion-button>
+
+    <div class="text-divider">or</div>
+
+    <ion-button (click)="handleLoginWithFacebook()" [disabled]="isSubmitting" expand="block" fill="clear">
+      Continue with Facebook
+    </ion-button>
+
+    <div class="terms-and-policies">
+      By creating an account, you accept Coursera's
+      <a href="https://www.coursera.org/about/terms" target="_blank"
+        ><strong color="primary">Terms of Service</strong></a
+      >
+      and <a href="https://www.coursera.org/about/privacy" target="_blank"><strong>Privacy Policy</strong></a>
+    </div>
+  </form>
+</ion-content>

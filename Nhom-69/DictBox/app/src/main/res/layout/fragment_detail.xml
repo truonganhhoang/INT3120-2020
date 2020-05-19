@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FDFDFD"
+        android:elevation="1.46dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/tvWord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="A"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnVolume"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_volume_up" />
+
+        <ImageButton
+            android:id="@+id/btnBookmark"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_bookmark_border" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+        <WebView
+            android:id="@+id/tvWordTranslate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"/>
+
+    </ScrollView>
+
+</LinearLayout>

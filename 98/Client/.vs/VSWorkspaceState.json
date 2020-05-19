@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\images",
+    "\\components\\Home",
+    "\\components\\Video",
+    "\\screens",
+    "\\screens\\Map",
+    "\\screens\\Question",
+    "\\screens\\TFS",
+    "\\screens\\VideoHD",
+    "\\styles"
+  ],
+  "SelectedNode": "\\If",
+  "PreviewInSolutionExplorer": false
+}

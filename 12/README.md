@@ -13,4 +13,6 @@
   - Angular 9
   - Firebase
 
-## Về app được chọn để clone
+## [APK](https://drive.google.com/open?id=1AX_1lUYzauxtKvVxrfSk49bSzdPABFtd)
+
+## [Về app được chọn để clone](https://drive.google.com/open?id=1-lsbTOTQ_LODZcPzUnL7uXFzyb0DFhiACI7af3tUCuQ)
