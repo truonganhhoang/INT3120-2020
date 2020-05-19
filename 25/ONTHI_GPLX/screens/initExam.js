@@ -12,6 +12,7 @@ import {
     Text, 
     Title,
     Drawer,
+    Spinner
 } from 'native-base';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { useSelector, useDispatch } from 'react-redux';
@@ -82,13 +83,13 @@ const InitExam = (props) => {
                 renderTabBar={()=> <ScrollableTab />}
                 >
                     {
-                        data == undefined ? <Spinner style={{marginTop: 200}}/> : data.map((item) => {
-                            const { question, questionContent, answers } = item;
+                        data == undefined ? <Spinner style={{flex:1}}/> : data.map((item, index) => {
+                            const heading = "Câu "+ (index + 1);
                             return (
-                                <Tab heading={question} 
+                                <Tab heading={heading} 
                                 tabStyle={{backgroundColor: color.header }}
                                 activeTabStyle={{backgroundColor: color.header }}>
-                                    <InitQuestion questionContent={questionContent} answers={answers} />
+                                    <InitQuestion question={item} />
                                 </Tab>
                             );
                         })
@@ -103,7 +104,7 @@ const InitExam = (props) => {
 
 const data = [
     {
-        question: "Câu 1",
+        question: "1",
         questionContent: "noi dung cau 1",
         answers: [
             {
@@ -121,11 +122,16 @@ const data = [
                 answer: "3. dap an 3",
                 pass: false,
             },
+            {
+                id: 4,
+                answer: "4. dap an 4",
+                pass: false,
+            },
         ],
         status: null,
     },
     {
-        question: "Câu 2",
+        question: "2",
         questionContent: "noi dung cau 2",
         answers: [
             {
@@ -147,7 +153,7 @@ const data = [
         status: null,
     },
     {
-        question: "Câu 3",
+        question: "3",
         questionContent: "noi dung cau 3",
         answers: [
             {
@@ -169,7 +175,7 @@ const data = [
         status: null,
     },
     {
-        question: "Câu 4",
+        question: "4",
         questionContent: "noi dung cau 4",
         answers: [
             {

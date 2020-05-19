@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-  Container, Header,
-  Body, Left,
-  Title, Text, Icon,
-  Button, Thumbnail,
+  Container, 
+  Body, 
+  Left,
+  Text,
+  Thumbnail,
   Content,
   List, ListItem
 } from 'native-base';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { styles } from '../Component/Style.js';
-
 import { data } from '../data/dataTrafficSign';
-import { onDidFailWithError } from 'expo/build/AR';
+import MyHeader from '../itemComponent/Header';
 
 const ListTrafficSigns = (props) => {
   const { navigation, route } = props;
@@ -23,21 +22,7 @@ const ListTrafficSigns = (props) => {
   const [state, setState] = useState(initState);
   return (
     <Container>
-      <Header style={styles.header}>
-        <Left>
-          <Button transparent
-            onPress={() => navigation.navigate("ListComponent", {
-              itemId: itemId,
-              mainId: mainId
-            })}
-          >
-            <FontAwesome5Icon name="arrow-left" style={{ fontSize: 20, color: 'white' }} solid />
-          </Button>
-        </Left>
-        <Body>
-          <Title style={{fontSize: 20, marginLeft: 10}}>Biển báo giao thông</Title>
-        </Body>
-      </Header>
+      <MyHeader title="Biển báo giao thông" itemId={itemId} mainId={mainId} navigation={navigation} />
       <Content>
         <List>
           {

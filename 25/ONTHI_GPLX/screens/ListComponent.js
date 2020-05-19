@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, Dimensions } from 'react-native';
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import {
     Container, Header,
     Body, Right,
@@ -31,7 +31,10 @@ const ListComponent = (props) => {
             alert(key_id);
         }
         if (key_id == "ReviewQuestion") {
-            alert(key_id);
+            navigation.navigate("ReviewQuestion", {
+                itemId: key_id,
+                mainId: mainId
+            });
         }
         if (key_id == "TrafficSigns") {
             navigation.navigate("ListTrafficSigns", {
@@ -47,7 +50,10 @@ const ListComponent = (props) => {
             });
         }
         if (key_id == "PracticeExam") {
-            alert(key_id);
+            navigation.navigate("SaHinh", {
+                itemId: key_id,
+                mainId: mainId
+            });
         }
         if (key_id == "Top50Fail") {
             alert(key_id);

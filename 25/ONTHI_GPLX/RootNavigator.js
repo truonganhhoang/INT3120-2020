@@ -11,6 +11,8 @@ const ListTrafficSigns= React.lazy(() => import('./screens/ListTrafficSigns'));
 const ListTopicExam= React.lazy(() => import('./screens/ListTopicExam'));
 const InitExam = React.lazy(()=> import('./screens/initExam'));
 const TipRemember = React.lazy(()=> import('./screens/TipRemember'));
+const ReviewQuestion = React.lazy(()=> import('./screens/ReviewQuestion'));
+const SaHinh = React.lazy(()=> import('./screens/SaHinh'));
 
 const Stack = createStackNavigator();
 
@@ -25,6 +27,8 @@ const AuthNavigator = () => {
                 <Stack.Screen name= {"ListTopicExam"} component={ListTopicExam} />
                 <Stack.Screen name={"initExam"} component={InitExam} />
                 <Stack.Screen name={"TipRemember"} component={TipRemember} />
+                <Stack.Screen name={"ReviewQuestion"} component={ReviewQuestion} />
+                <Stack.Screen name={"SaHinh"} component={SaHinh} />
             </Stack.Navigator>
             </Suspense>
         </NavigationContainer>

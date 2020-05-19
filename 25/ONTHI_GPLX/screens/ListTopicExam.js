@@ -10,6 +10,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { styles } from '../Component/Style';
 import { color } from '../Component/color'
 import { ScrollView,View } from 'react-native';
+import MyHeader from '../itemComponent/Header';
 
 const ListTopicExam = (props) => {
 
@@ -19,26 +20,7 @@ const ListTopicExam = (props) => {
 
     return (
         <Container style={styles.container}>
-            <Header style={styles.header}>
-            <Left>
-                <Button transparent
-                onPress={() => navigation.navigate("ListComponent", {
-                    itemId: itemId,
-                    mainId: mainId
-                })}
-                >
-                <FontAwesome5Icon name="arrow-left" style={{fontSize: 20, color: 'white'}} solid/>
-                </Button>
-            </Left>
-            <Body style={styles.body}>
-                <Title>Danh sách đề thi</Title>
-            </Body>
-            <Right>
-            <Button transparent>
-                <FontAwesome5Icon name="bars" style={{fontSize: 20, color: 'white'}} solid/>
-            </Button>
-            </Right>
-            </Header>
+            <MyHeader title="Danh sách đề thi" itemId={itemId} mainId={mainId} navigation={navigation} />
             <ScrollView style={{backgroundColor: color.containerColor,}}>
                 <View style={{
                     paddingTop: 4,

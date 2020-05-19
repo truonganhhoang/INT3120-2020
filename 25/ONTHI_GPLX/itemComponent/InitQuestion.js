@@ -13,7 +13,8 @@ import {styles} from '../Component/Style';
 import {color} from '../Component/color';
 
 const InitQuestion = (props) => {
-    const { questionContent, answers } = props;
+    const { question } = props;
+    const { questionContent, answers } = question;
 
     const [answerState, setAnswerState] = useState();
     useLayoutEffect( () => {    
