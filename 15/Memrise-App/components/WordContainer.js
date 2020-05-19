@@ -22,7 +22,7 @@ export default function WordContainer(props) {
         <Image style={styles.WordImage} source={TreeImages[level]} />
 
         <View styles={styles.ThunderWater}>
-          <Image style={styles.ThunderImage} source={thunder} />
+          {/* <Image style={styles.ThunderImage} source={thunder} /> */}
           {/* <Image  style={styles.WaterImage}  source ={water}/> */}
         </View>
       </View>

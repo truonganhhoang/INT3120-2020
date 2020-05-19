@@ -17,16 +17,15 @@ const boxBackGroundColor = {
 };
 
 export default function ReviewWord(props) {
-  const { wordObj, onPress , check } = props;
+  const { wordObj, onPress , check ,index } = props;
   const [color , setColor ]= useState( boxBackGroundColor[check].toString() );
   // console.log('check va color ' ,check , color)ß
   useEffect(()=>{
     setColor(boxBackGroundColor[check].toString())
-    console.log('check va color ' ,check , color)
-
+   
   })
   return (
-    <TouchableOpacity activeOpacity={0.5} onPress={() => onPress(wordObj)}>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => onPress(wordObj,index)}>
       <View
         style={[
           styles.WordBox,

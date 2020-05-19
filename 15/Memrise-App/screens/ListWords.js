@@ -41,6 +41,7 @@ export default function ListWord({ navigation }) {
 //styled componet
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal:20,
     width: "100%",
     flex: 1,
     backgroundColor: "#fff",
