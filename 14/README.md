@@ -7,7 +7,7 @@ Nguyễn Thị Minh - 17020898
 Clone lại app Thi toeic - tflat\
 Link app: https://play.google.com/store/apps/details?id=tflat.co.thitoeic \
 Công nghệ sử dụng: React native.\
-Link download file apk: [APK file](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40ruong32/Toeic_test-1be5b35b7bbb4af2a7f23c012948dd5c-signed.apk) (updating) \
+Link download file apk: [APK file](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40ruong32/Toeic_test-5c7d579a107d4dfe89a98e02e848a255-signed.apk)  \
 Hướng dẫn: Tải file sau đó chạy trên máy hệ điều hành Android.
 
 
