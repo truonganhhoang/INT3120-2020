@@ -28,13 +28,31 @@ const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
 
 export default function Review({ navigation, route }) {
+
+
+  //function randomAnswer() {
+    let listTemp = JSON.parse(JSON.stringify(sample.listWordData))
+
+    let listAnswer = []
+
+    for (let i = 0; i < 4; i++) {
+      let rd = Math.floor(Math.random() * listTemp.length);
+      listAnswer.push(listTemp[rd]);
+      listTemp.splice(rd, 1);
+    }
+
+    let index = Math.floor(Math.random() * listAnswer.length);
+    let question = listAnswer[index]
+    
+    const numberQuestion = 5;
+    let indexNow = 0;
   return (
     <View style={styles.container}>
       <View style={styles.DetailsBox}>
         <View style={styles.WordContainer}>
-          <Text style={styles.Word}>登録</Text>
-          <Text style={styles.Title}>Means : </Text>
-          <Text style={styles.Mean}>Đăng ký</Text>
+          <Text style={styles.Word}>{question.word}</Text>
+          {/* <Text style={styles.Title}>Means : </Text>
+          <Text style={styles.Mean}>Đăng ký</Text> */}
         </View>
 
         <View>
@@ -52,8 +70,10 @@ export default function Review({ navigation, route }) {
       </View> */}
 
 
+      
+
       <FlatList
-        data={sample.listWordData}
+        data={listAnswer}
         numColumns={2}
         renderItem={({ item }) => 
           <View style={styles.wrapper}>
@@ -63,6 +83,7 @@ export default function Review({ navigation, route }) {
         keyExtractor = {item => `${item.id}`} 
         contentContainerStyle={styles.containerFlatList}
       />
+      
     </View>
   );
 }

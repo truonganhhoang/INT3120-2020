@@ -2,17 +2,16 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Learning(props) {
-    const { word } = props.wordLearning;
+    const { word, mean } = props.wordLearning;
     return (
         <TouchableOpacity>
             <View style={styles.shadow}>
                 <View style={styles.container}>
-                    <Text style={styles.text}>{word}</Text>
+                    <Text style={styles.text}>{mean}</Text>
                 </View>
             </View>
-
         </TouchableOpacity>
-
+        
     );
 }
 
