@@ -4,21 +4,25 @@ const HEIGHT=Dimensions.get('window').height;
 const styles = StyleSheet.create({
   containers:{
     height:HEIGHT*0.4,
-    padding:50,
+    padding:HEIGHT*0.06,
+    justifyContent:'center',
   },
   container: {
-    textAlign:'center',
     alignItems:'center',
+    justifyContent:'center',
   }, 
   title: {
     fontSize:22,
     fontWeight:'bold',
     color:'#FFF',
     lineHeight:50,
+    marginBottom:10
   }, 
   comment: {
     color:'#FFF',
     fontSize:16,
+    marginBottom:10,
+    textAlign:'center'
   }, 
   button:{
     width:150,

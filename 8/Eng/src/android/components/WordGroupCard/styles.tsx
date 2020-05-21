@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     containers: {
         top: HEIGHT * 0.05,
         height: 510,
-        width: WIDTH*0.7,
-        left: WIDTH*0.3/ 2,
+        width: WIDTH * 0.7,
+        left: WIDTH * 0.3 / 2,
         position: 'relative'
     },
     card: {
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     viewBtn: {
         alignItems: 'center',
         position: 'absolute',
-        bottom:60,
-        left: WIDTH*0.329/2,
+        bottom: 60,
+        left: WIDTH * 0.329 / 2,
         zIndex: 2,
     },
     btnDetail: {
         backgroundColor: '#ff5e00',
         alignItems: 'center',
         borderRadius: 20,
-        width: WIDTH*0.371
+        width: WIDTH * 0.378
     },
     viewImg: {
         alignItems: 'center',
@@ -72,10 +72,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     viewIcon: {
-        borderRadius: 100,
+        borderRadius: 35/2,
         borderWidth: 1,
         borderColor: 'white',
-        padding: 8,
+        justifyContent:'center',
+        alignItems:'center',
+        width:35,
+        height:35,
         marginTop: 5,
         marginBottom: 5,
     },

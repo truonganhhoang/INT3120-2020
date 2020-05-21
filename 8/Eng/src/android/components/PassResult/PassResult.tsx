@@ -23,23 +23,22 @@ const PassResult = (props: { navigation?: any, lessonInfo?: any, id?: any }) => 
 
   return (
     <Overlay isVisible={visible}
-    overlayBackgroundColor='green'
+    overlayBackgroundColor='#9CCC65'
     overlayStyle={styles.containers}
     >
       <View style={styles.container}>
         <Text style={styles.title}>HOÀN THÀNH</Text>
         <Text style={styles.comment}>Chúc mừng bạn đã vượt qua thử thách này.</Text>
-        {/* <Text style={[styles.comment,{marginBottom:10}]}>thử lại nào</Text> */}
         <Button 
         buttonStyle={styles.button}
           title='THỬ LẠI'
-          titleStyle={{color:'#f68383'}}
+          titleStyle={{color:'#ff5e00'}}
           onPress={tryAgain}
         />
         <Button 
          buttonStyle={styles.button}
           title='ĐÓNG'
-          titleStyle={{color:'#f68383'}}
+          titleStyle={{color:'#ff5e00'}}
           onPress={close}
         />
       </View>

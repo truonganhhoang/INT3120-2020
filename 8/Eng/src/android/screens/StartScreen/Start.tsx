@@ -6,8 +6,10 @@ import { StarButton } from '../../components/StarButton';
 import firebase from 'firebase';
 import styles from './styles';
 import { Activity } from '../Utils/activity';
+import { SplashScreen } from '../SplashScreen';
 
-const BackgroudUrl = "../../../../images/logo3.png";
+const BackgroudUrl = "../../../../images/logo.png";
+
 
 const ItemSeparator = () => {
   return (<View style={styles.separator}></View>)
@@ -21,30 +23,33 @@ const StartScreen = (props: { navigation: any }) => {
 
   useEffect(() => {
     topics_fb.on('value', function (snapshot: any) {
-      setData(snapshot.val());
+      setTimeout(() => {
+        setData(snapshot.val());
+      }, 3000);
     });
   }, [])
 
   if (Object.keys(data).length == 0) {
-    navigation.setOptions({headerTransparent: true, headerTitle: ""})
+    navigation.setOptions({ headerTransparent: true, headerTitle: "" })
     return (
-      <Activity />
+      // <Activity />
+      <SplashScreen />
     )
   }
   else {
     const topics: any = [];
-    let index = 0; 
+    let index = 0;
     for (let [key, value] of Object.entries(data)) {
-      topics.push(value); 
+      topics.push(value);
       topics[index++].topic_Name = key
     }
     navigation.setOptions({
-      headerTitleAlign: "center", 
+      headerTitleAlign: "center",
       headerTransparent: true,
       headerTitleContainerStyle: { marginHorizontal: 20, marginTop: 20 },
       headerTitle: () => (<Image source={require(BackgroudUrl)}
-        style={{ width: 120, height: 120 }}
-      />), 
+        style={{ width: 60, height: 60 }}
+      />),
       headerLeftContainerStyle: { marginTop: 16, padding: 16 },
       headerLeft: () => {
         return (<SettingButton navigation={navigation} />);
@@ -56,11 +61,11 @@ const StartScreen = (props: { navigation: any }) => {
     })
     return (
       <SafeAreaView style={styles.container}>
-        <ImageBackground 
+        <ImageBackground
           source={{ uri: 'https://i.pinimg.com/564x/ff/96/32/ff96328718afe299901820609a1139f5.jpg' }}
           style={styles.image}
         >
-          <FlatList 
+          <FlatList
             showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={ItemSeparator}
             contentContainerStyle={styles.listItems}

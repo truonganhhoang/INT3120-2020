@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { Image, Card } from 'react-native-elements'; 
-import  styles from './style';   
-
+import { Image, Card } from 'react-native-elements';
+import styles from './style';
+import layout from '../../../../android/constants/layout';
+const HEIGHT = layout.window.height;
 const TypeThree = (props: { content?: any; id?: any }) => {
-  const { content, id } = props; 
+  const { content, id } = props;
   const [status, setStatus] = useState('loading')
 
   useEffect(() => {
-    let check = 0; 
+    let check = 0;
     setStatus('loading')
     Object.keys(content).forEach((item, index) => {
       if (item == 'img_content') check++
     })
-    if ( check == 1 ) {
+    if (check == 1) {
       setStatus('run')
     } else {
       setStatus('null')
@@ -27,7 +28,7 @@ const TypeThree = (props: { content?: any; id?: any }) => {
         <Text>Waiting question...</Text>
       </View>
     )
-  } 
+  }
   else if (status == 'null') {
     return (
       <View style={styles.container}>
@@ -38,12 +39,12 @@ const TypeThree = (props: { content?: any; id?: any }) => {
   else {
     return (
       <View style={styles.container}>
-        <Card>
+        <View style={{ margin: HEIGHT * 0.05 }}>
           <Image
             source={{ uri: content.img_content }}
             style={styles.image}
           />
-        </Card>
+        </View>
       </View>
     )
   }

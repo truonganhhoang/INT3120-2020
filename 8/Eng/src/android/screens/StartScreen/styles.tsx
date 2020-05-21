@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 
     flex: 1,
     // backgroundColor: "#ff5e00",
-    flexDirection: "column", 
+    flexDirection: "column",
   },
   separator: {
     height: 2,
@@ -51,12 +51,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     // paddingLeft: 16,
     // paddingRight: 16,
-  }, 
+  },
   image: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
   },
+  loadingBackgroundStyle: {
+
+  }
 })
 
 export default styles; 
