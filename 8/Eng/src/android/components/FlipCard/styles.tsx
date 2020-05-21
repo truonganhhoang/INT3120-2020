@@ -3,21 +3,24 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     container: {
-        top: HEIGHT*0.14, 
-        width: WIDTH*0.82,
-        height: HEIGHT,
+        // top: HEIGHT * 0.14,
+        // width: WIDTH * 0.7,
+        height: HEIGHT * 0.5,
+        backgroundColor: 'white',
     },
     flipCard: {
-        width: 250,
-        height: 360,
+        width: WIDTH * 0.7,
+        height: HEIGHT * 0.5,
         backfaceVisibility: 'hidden',
         alignItems: 'center',
+        backgroundColor: 'white',
+        position: 'relative',
+        borderRadius: 15,
     },
     flipCardBack: {
         position: "absolute",
         top: 0,
         alignItems: 'center',
-        marginTop: 20
     },
     flipText: {
         width: 90,
@@ -29,22 +32,22 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20
     },
-    iconTool:{
-        flexDirection: 'row', 
+    iconTool: {
+        flexDirection: 'row',
         justifyContent: 'flex-end',
-        position:'absolute',
-        zIndex:5,
-        right:30,
-        top:30
+        position: 'absolute',
+        zIndex: 5,
+        right: 30,
+        top: 30
     },
-    containerCard:{
-        width: WIDTH / 1.4,
-        height: 500,
-        position:'relative',
-        marginBottom:HEIGHT/3,
-        zIndex:0,
-    },
-    speaking:{
+    // containerCard: {
+    //     width: WIDTH / 1.4,
+    //     height: 500,
+    //     position: 'relative',
+    //     marginBottom: HEIGHT / 3,
+    //     zIndex: 0,
+    // },
+    speaking: {
         backgroundColor: '#ff5e00',
         borderRadius: 100,
         paddingTop: 8,
@@ -52,15 +55,20 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 14,
         marginTop: 30,
-        position:'absolute',
-        zIndex:1,
-        top:200,
-        left:120,
+        position: 'absolute',
+        zIndex: 1,
+        top: 200,
+        left: 120,
         backfaceVisibility: 'hidden',
     },
-    footer:{
-        alignItems:'center',
-        marginTop:20
+    footer: {
+        alignItems: 'center',
+        marginTop: 20
+    },
+    iconStar: {
+        // right: 10,
+        // paddingRight: 5,
+        // marginBottom:10,
     }
 });
 export default styles;

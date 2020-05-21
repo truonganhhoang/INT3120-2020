@@ -36,14 +36,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         bottom: 60,
-        left: WIDTH * 0.329 / 2,
+        left: WIDTH*0.2,
         zIndex: 2,
     },
     btnDetail: {
         backgroundColor: '#ff5e00',
         alignItems: 'center',
-        borderRadius: 20,
-        width: WIDTH * 0.378
+        borderRadius: 5,
+        width: WIDTH * 0.3,
+        height:HEIGHT*0.04
     },
     viewImg: {
         alignItems: 'center',

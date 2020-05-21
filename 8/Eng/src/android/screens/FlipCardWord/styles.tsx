@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontSize: 20,  
   },
   carouselContainer: {
-    marginTop: 50
+    marginTop: HEIGHT*0.2
   },
   itemContainer: {
     width: ITEM_WIDTH,
