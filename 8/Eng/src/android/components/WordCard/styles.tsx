@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'; 
 import layout  from '../../constants/layout'; 
 
-console.log((layout.window.height - 60)/5)
+// console.log((layout.window.height - 60)/5)
 
 const leftWidth = (layout.window.width - 20)*0.41; 
 const rightWidth = (layout.window.width - 20)*0.59; 

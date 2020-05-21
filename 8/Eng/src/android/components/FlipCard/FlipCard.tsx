@@ -59,9 +59,10 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
             }).start();
         }
     }
-
-
     const [colorStar, setColorStar] = useState(icon);
+    useEffect(() => {
+        setColorStar(icon)
+    }, [icon])
     const changeFavor = () => {
         if (colorStar == 'staro') {
             setColorStar('star');
@@ -146,7 +147,7 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
                             style={styles.iconStar}
                         />
                     </View>
-
+        
                     <View style={{ top: HEIGHT * 0.05 }}>
                         <Image
                             source={{ uri: data.image_uri }}
@@ -164,7 +165,7 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
                     <Text style={{ top: HEIGHT*0.09, fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
                         {data.en_meaning}
                     </Text>
-                    <Text style={{ top: HEIGHT*0.09, color: '#666' }}>
+                    <Text style={{ top: HEIGHT*0.09, color: '#666', fontSize: 25 }}>
                         {data.spelling}
                     </Text>
                     <Text style={{ top: HEIGHT*0.09, marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
@@ -178,7 +179,7 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
                         style={{ top: HEIGHT*0.15 }}
                         onPress={onSpeaking}
                     />
-                    <View style={{ top: HEIGHT*0.2 }}>
+                    <View style={{ bottom: -HEIGHT*0.17 }}>
                         <Text style={{ fontWeight: '700', color: '#666' }}>
                             Lật về sau
                         </Text>

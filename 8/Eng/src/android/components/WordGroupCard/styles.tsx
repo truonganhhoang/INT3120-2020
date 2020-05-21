@@ -4,13 +4,13 @@ const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     containers: {
         top: HEIGHT * 0.05,
-        height: 510,
+        height: HEIGHT*0.65,
         width: WIDTH * 0.7,
         left: WIDTH * 0.3 / 2,
-        position: 'relative'
+        position: 'relative', 
     },
     card: {
-        height: 420,
+        height: HEIGHT*0.54,
         borderRadius: 10,
         alignItems: 'center',
         shadowColor: "#000",
@@ -26,17 +26,15 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         position: 'absolute',
-        zIndex: 0
-    },
-    container: {
-        width: WIDTH,
-        height: HEIGHT,
+        zIndex: 0, 
     },
     viewBtn: {
         alignItems: 'center',
         position: 'absolute',
-        bottom: 60,
-        left: WIDTH*0.2,
+        // bottom: HEIGHT*0.15,
+        // left: WIDTH*0.329/2,
+        top: HEIGHT*0.54,
+        left: WIDTH*0.4/2,
         zIndex: 2,
     },
     btnDetail: {
@@ -46,6 +44,25 @@ const styles = StyleSheet.create({
         width: WIDTH * 0.3,
         height:HEIGHT*0.04
     },
+    textWordGroupName: {
+        marginBottom: HEIGHT*0.7*0.01, 
+        textAlign: 'center', 
+        fontWeight: 'bold', 
+        fontSize: WIDTH*0.7*0.08, 
+        marginTop: HEIGHT*0.7*0.08
+    },
+    textVnMeaning: {
+        marginBottom: HEIGHT*0.7*0.05, 
+        textAlign: 'center', 
+        fontWeight: 'bold', 
+        color: '#ff5e00',
+        fontSize: WIDTH*0.7*0.06
+    }, 
+    textExplain: {
+        fontSize: WIDTH*0.7*0.06, 
+        textAlign: 'center', 
+        color: 'black'
+    }, 
     viewImg: {
         alignItems: 'center',
     },
@@ -59,14 +76,14 @@ const styles = StyleSheet.create({
     viewTool: {
         flexDirection: 'column',
         backgroundColor: '#ff5e00',
-        width: 50,
+        width: WIDTH*0.7*0.16,
         alignItems: 'center',
         padding: 5,
         position: 'absolute',
         right: -6,
         borderRadius: 6,
         zIndex: 2,
-        top: 100
+        top: HEIGHT*0.7*0.1
     },
     iconTool: {
         color: 'white',

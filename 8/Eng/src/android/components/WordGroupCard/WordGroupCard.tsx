@@ -71,17 +71,16 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
 
           <View style={{ alignItems: 'center', top: 15 }}>
           </View>
-          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', fontSize: 30,marginTop:30 }}>
+          <Text style={styles.textWordGroupName}>
             {data.wordGroupName}
           </Text>
-          <Text style={{ marginBottom: 30, textAlign: 'center', fontWeight: 'bold', color: '#ff5e00',fontSize:24 }}>
+          <Text style={styles.textVnMeaning}>
             {data.vn_meaning}
           </Text>
-          <Text style={{ marginBottom: 10, textAlign: 'center' }}>
+          <Text style={styles.textExplain}>
             Giúp bạn nắm vững {data.num_word} từ liên quan đến
              <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 18 }}> {data.vn_meaning}</Text> trong tiếng anh
-      </Text>
-
+          </Text>
         </Card>
       </View>
       <View style={styles.viewTool}>

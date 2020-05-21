@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, View, ImageBackground, Dimensions } from 'react-native';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const SLIDER_HEIGHT = Dimensions.get('window').height;
-import { CirclesLoader, PulseLoader, TextLoader, DotsLoader,EatBeanLoader } from 'react-native-indicator';
+import { CirclesLoader, PulseLoader, TextLoader, DotsLoader,EatBeanLoader } from 'react-native-indicator'
 const SplashScreen = () => {
     const backgroundImg = "../../../../images/bg.jpg";
     return (

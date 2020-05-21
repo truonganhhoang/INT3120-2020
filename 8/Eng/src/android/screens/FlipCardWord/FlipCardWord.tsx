@@ -28,6 +28,9 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
       await AsyncStorage.getItem('favoriteWords', (err, result: any) => {
         let data = JSON.parse(result); 
         setFavoriteWords({ keys: Object.keys(data) })
+        console.log( '[Flip Card Word]')
+        console.log(Object.keys(data))
+        console.log( '[Flip Card Word]')
       })
     } catch(error) {
       console.log(error); 
@@ -49,17 +52,18 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
 
   useEffect(() => {
     if ( favoriteWords.keys[0] === '' ) {
+      console.log('[Flip Card Word] favorite Words')
       getFavoriteWords()
     }
   }, [favoriteWords])
 
-  if (Data.status == 'loading') {
+  if (Data.status === 'loading') {
 	navigation.setOptions({headerTransparent: true, title: ""})
     return (
       <Activity />
     )
   } 
-  else if (Data.status == 'null') {
+  else if (Data.status === 'null') {
 	navigation.setOptions({
       title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
       headerTitleStyle: styles.centerComponent, 
@@ -90,20 +94,21 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
     let index = 0; 
     for (let [key, value] of Object.entries(Data)) {
       listWords.push(value); 
-      listWords[index++].word_name = key; 
+      listWords[index].word_name = key; 
+      if (
+        favoriteWords.keys.includes(value.en_meaning)
+      ){
+        listWords[index].icon = 'star'
+      } else {
+        listWords[index].icon = 'staro'
+      }
+      index++; 
     }
 
     const _renderItem = (item: any) => {
-      if ( favoriteWords.keys.includes(item.item.en_meaning) ) {
-        console.log('[FlipCardWord] favorite Word')
-        return (
-          <FlipCard data={item.item} icon='star' lessonInfo={lessonInfo}/>
-        );
-      } else {
-        return (
-          <FlipCard data={item.item} icon='staro' lessonInfo={lessonInfo}/>
-        );
-      }
+      return (
+        <FlipCard data={item.item} icon={item.item.icon} lessonInfo={lessonInfo}/>
+      )
     }
     return (
       <SafeAreaView style={{ backgroundColor: '#E65100', height: HEIGHT }}>

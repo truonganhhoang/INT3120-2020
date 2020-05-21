@@ -5,8 +5,8 @@ import styles from './styles';
 import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 import Sound from 'react-native-sound';
 import { getDataFromStorage, mergeItem, delFavoriteWordFromStorage } from '../../services';
-import { CirclesLoader, PulseLoader, TextLoader, DotsLoader, EatBeanLoader } from 'react-native-indicator';
 import { Activity } from '../../../android/screens/Utils/activity';
+
 const Word = (props: { data?: any; icon: string; lessonInfo?: any; remove?: any }) => {
   const { data, lessonInfo, icon, remove } = props;
   const [colorStar, setColorStar] = useState(icon)
