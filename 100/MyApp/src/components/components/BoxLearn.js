@@ -16,9 +16,9 @@ export default class BoxLearn extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{justifyContent:"space-evenly", marginTop: 3}}>
-                    <Text style={Styles.h4text}>Lorem ipsum dolor sit amet</Text>
+                    <Text style={Styles.h4text}>{name}</Text>
                     <Text>Tên tác giả</Text>
-                    <Text style={[Styles.h4text, {color: "hotpink"}]}>299.000đ</Text>
+                    <Text style={[Styles.h4text, {color: "hotpink"}]}>{price}.000đ</Text>
                 </View>
             </View>
     )

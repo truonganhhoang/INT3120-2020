@@ -18,6 +18,7 @@ import Author from '../screens/Author';
 import OutLog from '../components/OutLog';
 import User from '../components/User';
 import OldUi from '../screens/OldUi';
+import FooterScreen from '../components/Footer';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,7 @@ export default function Router() {
                 <Stack.Screen name="OutLog" component={OutLog} />
                 <Stack.Screen name="User" component={User} />
                 <Stack.Screen name="OldUi" component={OldUi} />
+                <Stack.Screen name="FooterScreen" component={FooterScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )

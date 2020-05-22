@@ -12,16 +12,10 @@
 //                 index={1}
 //                 showPagination={true}
 //                 autoplayInvertDirection={true}
-//                 // paginationStyleItem={
-//                 //    { width: 320,
-//                 //     height: 220,}
-//                 // }
-//                 // PaginationComponent = {Pagination}
 //             >
 //                 <Image style={localStyles.img} source={require('../../img/01.jpg')}/>
 //                 <Image style={localStyles.img} source={require('../../img/02.jpg')}/>
 //                 <Image style={localStyles.img} source={require('../../img/03.jpg')}/>
-//                 {/* <Image source={require('../../img/04.jpg')} /> */}
 //             </SwiperFlatList>
 //         </View>
 //         );
