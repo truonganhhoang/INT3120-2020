@@ -7,12 +7,16 @@ import Screen3 from '../screens/Screen3';
 import Screen5 from '../screens/Screen5';
 import Screen4 from '../screens/Screen4';
 import { Icon } from 'native-base';
+import { connect } from 'react-redux';
+import { Alert } from 'react-native';
 const Tab = createMaterialTopTabNavigator();
-export default function Main() {
+// const {screenOn} = props;
+function Main( {screenOn} ) {
+  // Alert.alert(screenOn);
   return (
       <Tab.Navigator
         tabBarPosition = "bottom"
-        // initialRouteName =
+        initialRouteName = {screenOn}
         tabBarOptions={{
           activeTintColor: '#fff',
           inactiveTintColor: '#90CAF9',
@@ -62,3 +66,9 @@ export default function Main() {
       </Tab.Navigator>
   );
 }
+function mapStateToProps(state){
+  return{ 
+    screenOn: state.screenOn
+  };
+}
+export default connect(mapStateToProps)(Main);

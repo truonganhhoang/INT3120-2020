@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Content, Header, Left, Button, Body, Right, Icon, Title, Card, CardItem, Fab } from 'native-base'
-import {  ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text } from 'react-native';
+import {  ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
 class EachCourses extends Component {
     constructor(props){
@@ -13,6 +13,15 @@ class EachCourses extends Component {
             key : id,
             price: price,
         });
+    }
+    goScreen3(){
+        this.props.dispatch({
+            type: 'CHANGE_SCREEN',
+            key: 'Screen3'
+        });
+        // this.props.navigation.navigate('Main')
+        this.props.navigation.navigate('Menu');
+        
     }
     render() {
         const {navigation } = this.props;
@@ -29,9 +38,17 @@ class EachCourses extends Component {
                         <Title>Chi tiết khóa học</Title>
                     </Body>
                     <Right>
-                        <TouchableOpacity onPress={()=>{navigation.navigate("Screen3")}}>
+                        <TouchableOpacity onPress={()=>this.goScreen3()}>
                             <Icon name="md-basket" style={{color: "#fff"}}/>
                         </TouchableOpacity>
+                        {/* <TouchableOpacity 
+                        onPress={()=>{
+                            this.props.navigation.navigate('Router');
+                            Alert.alert(this.props.screenOn);
+                        }}
+                        >
+                            <Icon name="md-basket" style={{color: "#fff"}}/>
+                        </TouchableOpacity> */}
                     </Right>
                 </Header>
                 <ScrollView>
@@ -67,7 +84,12 @@ class EachCourses extends Component {
         )
     }
 }
-export default connect(null)(EachCourses);
+function mapStateToProps(state){
+    return{ 
+      screenOn: state.screenOn
+    };
+  }
+export default connect(mapStateToProps)(EachCourses);
 const localStyles = StyleSheet.create({
     imgBack: {
         flex: 1, backgroundColor: "rgba(0, 0, 0, 0.5)", justifyContent:"flex-end"

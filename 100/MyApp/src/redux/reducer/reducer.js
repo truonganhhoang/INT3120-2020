@@ -23,6 +23,7 @@ const defaultState ={
     ],
     onLogin: false,
     myBill : 240,
+    screenOn : 'Screen1',
 };
   
 // reducer -> tien doan nhung hanh dong se xay ra
@@ -73,6 +74,11 @@ const reducer = ( state = defaultState, action )=>{
                 return { ...e, payed: !e.payed }}
                 )
             };
+        case "CHANGE_SCREEN":
+            return {
+                ...state,
+                screenOn: action.key,
+            }
         default:
             break;
     };

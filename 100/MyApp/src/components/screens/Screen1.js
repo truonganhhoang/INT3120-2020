@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import {  ScrollView } from 'react-native';
-import { Container, Content } from 'native-base';
+import {  ScrollView, Alert } from 'react-native';
+import { Container, Content, Text } from 'native-base';
 import { useScrollToTop } from '@react-navigation/native';
 import HeaderScreen1 from '../components/HeaderScreen1';
 import Course from '../components/Course';
 import { connect } from 'react-redux';
 import FilterScreen1 from '../components/FilterScreen1';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 class Store extends Component {
     constructor(props) {
         super(props)
@@ -63,7 +64,8 @@ function mapStateToProps(state){
     return{ 
         courses: state.courses,
         filterCourses: state.filterCourses,
-        authors: state.authors
+        authors: state.authors,
+        screenOn: state.screenOn
     };
 }
 export default connect(mapStateToProps)(Screen1);
