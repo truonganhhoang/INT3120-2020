@@ -2,9 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import User from '../components/User';
 import OutLog from '../components/OutLog';
+import auth from '@react-native-firebase/auth';
 class Screen5 extends Component {
     constructor(props){
         super(props);
+    }
+    goLogout = () =>{
+        this.props.dispatch({ type: 'ON_LOGOUT' });
+        this.props.navigation.navigate('Login');
+    }
+    onSignOut(){
+        auth()
+        .signOut()
+        .then(() => {this.goLogout()});
+        
     }
     render() {
         const{navigation, onLogin} = this.props;
@@ -13,7 +24,9 @@ class Screen5 extends Component {
                 ? <OutLog 
                     goLogin = {() => navigation.navigate('Login')}
                 /> 
-                : <User/>
+                : <User 
+                onSignOut = {()=> this.onSignOut()}
+                />
             )
     }
 }

@@ -47,10 +47,7 @@ export default class OutLog extends Component {
                             justifyContent: "center",
                             alignItems: "center"
                         }}
-                        onPress = {
-                            this.props.goLogin
-                            // () => Alert.alert("dasdas")
-                        }
+                        onPress = {this.props.goLogin}
                         >
                             <Text style={{fontSize: 16, color:"white"}}>Đăng nhập</Text>
                         </TouchableHighlight>

@@ -2,26 +2,12 @@ import React, { Component } from 'react'
 import { Text} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Container, Header, Body, Title, Content, ListItem, Left, Button, Right, List, Thumbnail, H3 } from 'native-base';
-import auth from '@react-native-firebase/auth';
 import { connect } from 'react-redux';
 class User extends Component {
     constructor(props){
         super(props);
     }
-
-    onSignOut(){
-        auth()
-        .signOut()
-        .then(() => 
-            {
-            this.props.dispatch({ type: 'ON_LOGIN' });
-            this.props.navigation.navigate('Login');
-            }
-        );
-        
-    }
     render() {
-        const{navigation} = this.props;
         return (
             <Container>
                 <Header>
@@ -91,7 +77,7 @@ class User extends Component {
                         <ListItem 
                             icon style={{marginBottom: 10, marginTop: 10}}
                             button
-                            onPress = {()=> this.onSignOut()}
+                            onPress = {this.props.onSignOut}
                         >
                             <Left>
                                 <Button danger>
