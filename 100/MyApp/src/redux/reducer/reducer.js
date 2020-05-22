@@ -61,6 +61,11 @@ const reducer = ( state = defaultState, action )=>{
                 ...state,
                 onLogin: true
             };
+        case 'ON_LOGOUT':
+            return {
+                ...state,
+                onLogin: false
+            };
         case 'ON_PAY':
             return {
                 ...state,

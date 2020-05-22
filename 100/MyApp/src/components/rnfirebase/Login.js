@@ -15,7 +15,11 @@ class Login extends Component {
     }
     setLogin(){
       this.props.dispatch({ type: 'ON_LOGIN' });
-      this.props.navigation.goBack()
+      this.props.navigation.goBack();
+      this.setState({
+        email: '',
+        password: '',
+      });
     }
     onLogin(){
       auth().signInWithEmailAndPassword( this.state.email, this.state.password)

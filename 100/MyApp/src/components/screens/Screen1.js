@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView, FlatList } from 'react-native';
-import { Container, Content, H3, Fab, Icon, Button } from 'native-base';
+import {  ScrollView } from 'react-native';
+import { Container, Content } from 'native-base';
 import { useScrollToTop } from '@react-navigation/native';
 import HeaderScreen1 from '../components/HeaderScreen1';
 import Course from '../components/Course';

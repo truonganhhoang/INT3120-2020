@@ -18,6 +18,10 @@ class Signup extends Component {
     setLogin(){
         this.props.dispatch({ type: 'ON_LOGIN' });
         this.props.navigation.goBack();
+        this.setState({
+            email: '',
+            password: '',
+        });
       }
     onSignup(){
       auth().createUserWithEmailAndPassword( this.state.email, this.state.password)

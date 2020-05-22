@@ -15,6 +15,8 @@ import FilterCourses from '../screens/FilterCourses';
 import Course from '../components/Course';
 import EachCourses from '../screens/EachCourses';
 import Author from '../screens/Author';
+import OutLog from '../components/OutLog';
+import User from '../components/User';
 
 const Stack = createStackNavigator();
 
@@ -40,6 +42,8 @@ export default function Router() {
                 <Stack.Screen name="Course" component={Course} />
                 <Stack.Screen name="Author" component={Author} />
                 <Stack.Screen name="EachCourses" component={EachCourses} />
+                <Stack.Screen name="OutLog" component={OutLog} />
+                <Stack.Screen name="User" component={User} />
             </Stack.Navigator>
         </NavigationContainer>
     )
