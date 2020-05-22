@@ -3,33 +3,44 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert  } from 'rea
 import auth from '@react-native-firebase/auth';
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-export default class Login extends Component {
+import onLogin from '../../redux/action';
+import { connect } from 'react-redux';
+class Login extends Component {
     constructor(props) {
         super(props);
         this.unsubscriber = null;
         this.state={
-            isAuthenticated: false,
+            // isAuthenticated: false,
             email: '',
             password: '',
             user: null,
         }
     }
+    setLogin(){
+      this.props.dispatch({ type: 'ON_LOGIN' });
+    }
     onLogin(){
       auth().signInWithEmailAndPassword( this.state.email, this.state.password)
-      .then(() => {
-          Alert.alert(
-            'Thong bao',
-            'Dang nhap thanh cong',
-            [
-                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                // { text: 'Quay lai dang nhap', onPress: () => this.props.navigation.goBack()},
-            ],
-        );
-        this.setState({
-            email: '',
-            password: ''
-        })
-      })
+       .then(() => 
+      // {
+      //   //   Alert.alert(
+      //   //     'Thong bao',
+      //   //     'Dang nhap thanh cong',
+      //   //     [
+      //   //         { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+      //   //         // { text: 'Quay lai dang nhap', onPress: () => this.props.navigation.goBack()},
+      //   //     ],
+      //   // );
+      //   this.setState({
+      //       email: '',
+      //       password: '',
+      //       // isAuthenticated : true
+      //   });
+        
+      //   this.props.navigation.goBack();
+      // }
+      this.setLogin()
+      )
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
@@ -124,7 +135,12 @@ export default class Login extends Component {
         )
     }
 }
-
+function mapStateToProps(state){
+  return{ 
+      onLogin : state.onLogin
+  };
+}
+export default connect(mapStateToProps, {onLogin})(Login);
 const Styles = StyleSheet.create({
     input:{
         width: "100%", 
@@ -133,7 +149,7 @@ const Styles = StyleSheet.create({
         fontSize: 20, 
         fontWeight: "800", 
         borderRadius: 8,
-        color: "white",
+        color: "#000",
         borderBottomColor: "gray",
         borderBottomWidth: 0.5,
         paddingHorizontal:16

@@ -7,10 +7,11 @@ class EachCourses extends Component {
         super(props);
     }
     onAdd(){
-        const { id } = this.props.route.params.course;
+        const { id, price } = this.props.route.params.course;
         this.props.dispatch({
             type: 'ADD_CART',
-            key : id
+            key : id,
+            price: price,
         });
     }
     render() {

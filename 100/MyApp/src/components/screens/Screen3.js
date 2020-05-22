@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView, Modal, TouchableOpacity, Alert, StyleSheet, TouchableHighlight } from 'react-native'
+import { View, Text, Modal, StyleSheet, TouchableHighlight, Alert } from 'react-native'
 import Moikhoahoc from '../components/Moikhoahoc';
-import { Header, Body, Title, Content, Container, Card, List } from 'native-base';
+import { Header, Body, Title, Content, Container, List, Fab, Icon } from 'native-base';
 import { connect } from 'react-redux';
 class Screen3 extends Component {
     constructor(props){
         super(props);
         this.state = {
             modalVisible: false,
-            onLogin: true,
             allPrice: 0,
         };
     }
@@ -16,7 +15,9 @@ class Screen3 extends Component {
         this.setState({ modalVisible: visible });
       }
     onCheckCart = () =>{
-        if (this.state.onLogin === true){
+        const { onLogin } = this.props;
+        // Alert.alert(String(onLogin));
+        if (onLogin === false){
             this.setState({
                 modalVisible: true
             });
@@ -25,21 +26,30 @@ class Screen3 extends Component {
             return this.props.navigation.navigate('Login')
         }
     }
-    allPrice = () =>{
+    componentDidMount(){
         const { courses, myCart } = this.props;
-        for(let i = 0; i< myCart.length; i++){
-            for(let j = 0; j< courses.length; j++){
-                if (myCart[i].key===courses[j].id){
-                    this.setState({
-                        allPrice: this.state.allPrice + courses[j].price
-                    })
-                }
-            }
-        }
+        myCart.map( (item) => {
+            let course = courses.filter( (e)=>(e.id == item.key))
+            this.setState({
+                allPrice: this.state.allPrice + course[0].price 
+            })
+        })  
     }
+    // allPrice = () =>{
+    //     const { courses, myCart } = this.props;
+    //     for(let i = 0; i< myCart.length; i++){
+    //         for(let j = 0; j< courses.length; j++){
+    //             if (myCart[i].key===courses[j].id){
+    //                 this.setState({
+    //                     allPrice: this.state.allPrice + courses[j].price
+    //                 })
+    //             }
+    //         }
+    //     }
+    // }
     render() {
         const { modalVisible } = this.state;
-        const { navigation, courses, myCart } = this.props;
+        const { navigation, courses, myCart, myBill } = this.props;
         const setColor = modalVisible? "#ddd" : "white"
         return (
             <Container style={{flex: 1, justifyContent: "space-evenly", backgroundColor: setColor}}>
@@ -69,7 +79,7 @@ class Screen3 extends Component {
                         })}
                     </List>
                 </Content>
-                <TouchableOpacity onPress={() => this.onCheckCart()}>
+                {/* <TouchableOpacity onPress={() => this.onCheckCart()}>
                     <View style={{
                         width: "100%",
                         height: 60,
@@ -81,28 +91,34 @@ class Screen3 extends Component {
                     }}>
                         <Text style={{color: "#212121", fontSize: 24, fontWeight: "600"}}>Thanh toán</Text>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <Fab
+                style={{backgroundColor:"#5067FF"}}
+                onPress = {() => this.onCheckCart()}
+                >
+                    <Icon name="md-card" />
+                </Fab>
                 <Modal
                 animationType="slide"
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
+                    this.setModalVisible(!modalVisible);
                 }}
                 >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <View style={styles.moneyBox}>
                             <Text style={styles.modalText}>Tổng đơn hàng: </Text>
-                            <Text>{this.allPrice()}.000 ₫</Text>
+                            <Text>{myBill}.000 ₫</Text>
                         </View>
                         <View style={styles.moneyBox}>
                             <Text style={styles.modalText}>Khuyến mãi</Text>
-                            <Text>{myCart[0].key}</Text>
+                            <Text>0 ₫</Text>
                         </View>
                         <View style={styles.moneyBox}>
                             <Text style={styles.modalText}>Tổng thanh toán</Text>
-                            <Text>{this.allPrice()}.000 ₫</Text>
+                            <Text>{myBill}.000 ₫</Text>
                         </View>
                         <TouchableHighlight
                             style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
@@ -123,6 +139,8 @@ function mapStateToProps(state){
     return{ 
         courses: state.courses,
         myCart: state.myCart,
+        onLogin: state.onLogin,
+        myBill: state.myBill
     };
 }
 export default connect(mapStateToProps)(Screen3);

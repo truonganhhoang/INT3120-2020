@@ -6,7 +6,7 @@ const defaultState ={
     {id: 4, idAuthor:4, date:"22/04/2020", price:100, name: "HTML 5 cơ bản", image:require("../../img/001.jpg"), beta: "HTML hay HyperText Markup Language, là thành phần quan trọng nhất của World Wide Web. Nó là ngôn ngữ dùng để mô tả những gì một trang web hiển thị", onMark: false, hot: true},
     {id: 5, idAuthor:3, date:"26/04/2020", price:210, name: "Frontend cơ bản", image:require("../../img/003.png"), beta: "HTML, CSS và Javascript cơ bản sẽ giúp bạn bước đầu xây dựng được những trang web.", onMark: true, hot: false},
     {id: 6, idAuthor:6, date:"28/04/2020", price:110, name: "Phát triển web cơ bản", image:require("../../img/004.jpg"), beta: "Với những công cụ như HTML, CSS, JS, PHP, ... bạn sẽ có thể xây dựng những trang web với đầy đủ những chức năng cơ bản.", onMark: false, hot: false},
-    {id: 7, idAuthor:5, date:"27/04/2020", price:"130.000 ₫", name: "Bootstrap 4 cơ bản", image:require("../../img/005.jpg"), beta: "Bootstrap 4 (viết tắt là BS4) là phiên bản mới của Bootstrap, là framework HTML, CSS và JavaScript phổ biến nhất để thiết kế web đáp ứng, ưu tiên trên nền tảng di động.", onMark: true, hot: true},
+    {id: 7, idAuthor:5, date:"27/04/2020", price:130, name: "Bootstrap 4 cơ bản", image:require("../../img/005.jpg"), beta: "Bootstrap 4 (viết tắt là BS4) là phiên bản mới của Bootstrap, là framework HTML, CSS và JavaScript phổ biến nhất để thiết kế web đáp ứng, ưu tiên trên nền tảng di động.", onMark: true, hot: true},
     ],
     filterCourses: 'SHOW_ALL',
     myCourses: [
@@ -25,7 +25,9 @@ const defaultState ={
     ],
     myCart : [
         {id: 1, key: 3},
-    ]
+    ],
+    onLogin: false,
+    myBill : 240,
 };
   
 // reducer -> tien doan nhung hanh dong se xay ra
@@ -47,6 +49,7 @@ const reducer = ( state = defaultState, action )=>{
         case 'ADD_CART':
             return {
                 ...state,
+                myBill: state.myBill + action.price,
                 myCart: [{
                     id: state.myCart.length + 1, 
                     key: action.key
@@ -56,7 +59,12 @@ const reducer = ( state = defaultState, action )=>{
             return {
                 ...state,
                 myCart: state.myCart.filter((index) => index !== action.payload)
-            }
+            };
+        case 'ON_LOGIN':
+            return {
+                ...state,
+                onLogin: true
+            };
         default:
             break;
     };
