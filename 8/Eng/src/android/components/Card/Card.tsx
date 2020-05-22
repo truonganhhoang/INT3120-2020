@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, ImageBackground, Dimensions, ProgressBarAndroid } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator, Dimensions } from 'react-native';
 import { Card, Icon, Image } from 'react-native-elements';
 import styles from './style';
 const WIDTH = Dimensions.get('window').width;
@@ -15,26 +15,6 @@ const CardExtend = (props: {
   }
   return (
     <TouchableOpacity onPress={() => { onPress() }}>
-      {/* <Card
-        title={topic_name}
-        image={{ uri: img_top }}
-        titleStyle={{ textTransform: 'uppercase', color: '#ff5e00' }}
-      >
-        <View style={styles.content}>
-          <View style={styles.icon}>
-            <Icon
-              name={icon_top}
-              color='#ff5e00'
-              size={30}
-              type={icon_type}
-            />
-          </View>
-          <View style={styles.text}>
-            <Text style={styles.nameCard}>{topic_name}</Text>
-            <Text style={styles.vi}>{vn_meaning}</Text>
-          </View>
-        </View>
-      </Card> */}
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", width: WIDTH - 10, margin: 5, position: 'relative' }}>
         <View style={{ backgroundColor: "#eee", borderRadius: 10, overflow: "hidden" }}>
           <View style={{justifyContent:'center'}}>
@@ -44,7 +24,9 @@ const CardExtend = (props: {
                 style={{
                   height: 100,
                   width: WIDTH - 15,
-                }} />
+                }} 
+                PlaceholderContent={<ActivityIndicator size="small" color="#ff5e00"/>}
+              />
             </View>
             <View style={{backgroundColor:'#000',width:WIDTH-15,height:100,position:'absolute',opacity:0.4,zIndex:1}}>
             </View>

@@ -161,6 +161,13 @@ const delFavoriteWordFromStorage = async (en_meaning: string, remove: any) => {
   getTobeHandleFromStorage('favoriteWords', remove)
 }
 
+const delFavoriteLessonFromStorage = async (wordGroupName: string, remove: any) => {
+  let lessons = await getDataFromStorage('favoriteLessons'); 
+  delete lessons[wordGroupName]; 
+  storeDataToStorage('favoriteLessons', JSON.stringify(lessons)); 
+  getTobeHandleFromStorage('favoriteLessons', remove)
+}
+
 const getTobeHandleFromStorage = async (key: string, action: any) => {
   try {
     await AsyncStorage.getItem(key, action); 
@@ -184,5 +191,6 @@ export {
   mergeItem, 
   delFavoriteLesFromStorage, 
   delFavoriteWordFromStorage, 
-  getTobeHandleFromStorage
+  getTobeHandleFromStorage, 
+  delFavoriteLessonFromStorage
 }; 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Icon, Image } from 'react-native-elements';
-import { Text, View, TouchableHighlight, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 import Sound from 'react-native-sound';
 import { getDataFromStorage, mergeItem, delFavoriteWordFromStorage } from '../../services';
-import { Activity } from '../../../android/screens/Utils/activity';
 
-const Word = (props: { data?: any; icon: string; lessonInfo?: any; remove?: any }) => {
-  const { data, lessonInfo, icon, remove } = props;
+const Word = (props: { data?: any; icon: string; 
+  lessonInfo?: any; remove?: any; keyW?: any; navigation?: any }) => {
+  const { data, lessonInfo, icon, remove, keyW, navigation } = props;
   const [colorStar, setColorStar] = useState(icon)
   const onPressStar = () => {
     if (colorStar == 'star') {
@@ -53,41 +53,50 @@ const Word = (props: { data?: any; icon: string; lessonInfo?: any; remove?: any 
     })
   }
 
+  const goFlipCardWord = () => {
+    if (navigation) {
+      navigation.navigate('FlipCardWord', { topicName: lessonInfo.topicName, 
+        lessonName: lessonInfo.lessonName, keyW: keyW });
+    }
+  }
+
   return (
-    <View style={styles.item}>
-      <View style={styles.left}>
-        <Image
-          source={{ uri: data.image_uri }}
-          style={styles.img}
-          PlaceholderContent={<ActivityIndicator size="small" color="#ff5e00"/>}
-        />
+    <TouchableWithoutFeedback onPress={goFlipCardWord}>
+      <View style={styles.item} onMagicTap={() => {console.log('[Word Card] taps')}}>
+        <View style={styles.left}>
+          <Image
+            source={{ uri: data.image_uri }}
+            style={styles.img}
+            PlaceholderContent={<ActivityIndicator size="small" color="#ff5e00"/>}
+          />
+        </View>
+        <View style={styles.right}>
+          <IconFontAwesome5
+            name={colorStar}
+            color='#ff5e00'
+            size={20}
+            style={styles.star_icon}
+            onPress={onPressStar}
+          />
+          <Text style={styles.en_text}>
+            {data.en_meaning}
+          </Text>
+          <Text style={styles.spelling_text}>
+            {data.spelling}
+          </Text>
+          <Icon
+            name='volume-up'
+            color='orange'
+            size={30}
+            iconStyle={styles.voice_icon}
+            onPress={() => onSpeaking()}
+          />
+          <Text style={styles.vn_text}>
+            {data.vn_meaning}
+          </Text>
+        </View>
       </View>
-      <View style={styles.right}>
-        <IconFontAwesome5
-          name={colorStar}
-          color='#ff5e00'
-          size={20}
-          style={styles.star_icon}
-          onPress={onPressStar}
-        />
-        <Text style={styles.en_text}>
-          {data.en_meaning}
-        </Text>
-        <Text style={styles.spelling_text}>
-          {data.spelling}
-        </Text>
-        <Icon
-          name='volume-up'
-          color='orange'
-          size={30}
-          iconStyle={styles.voice_icon}
-          onPress={() => onSpeaking()}
-        />
-        <Text style={styles.vn_text}>
-          {data.vn_meaning}
-        </Text>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 

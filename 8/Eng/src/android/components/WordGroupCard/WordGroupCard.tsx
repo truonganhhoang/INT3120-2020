@@ -4,11 +4,12 @@ import { Card, Button } from 'react-native-elements';
 import IconAntDeisign from 'react-native-vector-icons/AntDesign';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { getDataFromStorage, mergeItem, delFavoriteLesFromStorage } from '../../services'; 
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { getDataFromStorage, mergeItem, delFavoriteLessonFromStorage } from '../../services'; 
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
-const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, icon: string }) => {
-  const { data, topic_name, icon } = props;
+const CardWordGroup = (props: { data?: any; navigation?: any, 
+  topic_name: any, icon: string, remove?: any }) => {
+  const { data, topic_name, icon, remove } = props;
   const { navigation } = props;
   const [colorStar, setColorStar] = useState(icon);
   const changeStar = () => {
@@ -33,14 +34,15 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
     else if (colorStar == 'star') {
       setColorStar('staro');
       // Handel delele Object
-      delFavoriteLesFromStorage(data.wordGroupName); 
+      // delFavoriteLesFromStorage(data.wordGroupName); 
+      delFavoriteLessonFromStorage(data.wordGroupName, remove)
     }
   };
   const onPress = () => {
     navigation.navigate('DetailWordGroupScreen', { topicName: topic_name, lessonName: data.wordGroupName });
   }
   const onFlipCard = () => {
-    navigation.navigate('FlipCardWord', { topicName: topic_name, lessonName: data.wordGroupName });
+    navigation.navigate('FlipCardWord', { topicName: topic_name, lessonName: data.wordGroupName, keyW: 0 });
   };
 
   const goPracticeTest = () => {
