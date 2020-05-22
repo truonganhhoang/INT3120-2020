@@ -26,6 +26,7 @@ class Screen5 extends Component {
                 /> 
                 : <User 
                 onSignOut = {()=> this.onSignOut()}
+                goOldUi = {() => navigation.navigate('OldUi')}
                 />
             )
     }

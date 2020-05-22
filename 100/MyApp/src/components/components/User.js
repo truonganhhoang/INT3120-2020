@@ -35,7 +35,7 @@ class User extends Component {
                                 </Button>
                                 
                             </Left>
-                            <Body><H3>Thiết lập tài khoản</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Thiết lập tài khoản</Text></Body>
                             <Right></Right>
                         </ListItem>
                         <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
@@ -44,7 +44,7 @@ class User extends Component {
                                     <Icon size={24} color="#fff" name="md-lock" />
                                 </Button>
                             </Left>
-                            <Body><H3>Kích hoạt khóa học</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Kích hoạt khóa học</Text></Body>
                             <Right></Right>
                         </ListItem>
                         <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
@@ -53,7 +53,7 @@ class User extends Component {
                                     <Icon size={24} color="#fff"active name="md-paper" />
                                 </Button>
                             </Left>
-                            <Body><H3>Điều khoản chính sách</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Điều khoản chính sách</Text></Body>
                             <Right></Right>
                         </ListItem>
                         <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
@@ -62,7 +62,7 @@ class User extends Component {
                                     <Icon size={24} color="#fff" active name="md-help-buoy" />
                                 </Button>
                             </Left>
-                            <Body><H3>Trợ giúp</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Trợ giúp</Text></Body>
                             <Right></Right>
                         </ListItem>
                         <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
@@ -71,7 +71,21 @@ class User extends Component {
                                     <Icon size={24} color="#fff" active name="md-star-half" />
                                 </Button>
                             </Left>
-                            <Body><H3>Đánh giá Edumall</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Đánh giá Edumall</Text></Body>
+                            <Right></Right>
+                        </ListItem>
+                        <ListItem 
+                        icon 
+                        style={{marginBottom: 10, marginTop: 10}}
+                        button
+                        onPress = {this.props.goOldUi}
+                        >
+                            <Left>
+                                <Button info>
+                                    <Icon size={24} color="#fff" active name="md-color-palette" />
+                                </Button>
+                            </Left>
+                            <Body><Text style={{fontSize : 16}}>Sử dụng giao diện cũ</Text></Body>
                             <Right></Right>
                         </ListItem>
                         <ListItem 
@@ -84,7 +98,7 @@ class User extends Component {
                                     <Icon size={24} color="#fff" active name="md-log-out" />
                                 </Button>
                             </Left>
-                            <Body><H3>Đăng xuất</H3></Body>
+                            <Body><Text style={{fontSize : 16}}>Đăng xuất</Text></Body>
                             <Right></Right>
                         </ListItem>
                     </List>

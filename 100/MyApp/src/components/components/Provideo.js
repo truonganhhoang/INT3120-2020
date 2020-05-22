@@ -1,42 +1,31 @@
-import React from 'react'
 import { ScrollView, TouchableOpacity } from 'react-native'
-import BoxLearn from './BoxLearn'
-export default function Provideo(props,{navigation}) {
-    var image =[
-        {
-            key: 1,
-            href:require('../../img/05.jpg'),
-        },
-        {
-            key: 2,
-            href:require('../../img/05.jpg'),
-        },
-        {
-            key: 3,
-            href:require('../../img/05.jpg'),
-        },
-        {
-            key: 4,
-            href:require('../../img/05.jpg'),
-        },
-        {
-            key: 5,
-            href:require('../../img/05.jpg'),
-        },
-    ]
-    return (
-        <ScrollView 
+import BoxLearn from './BoxLearn';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+class Provideo extends Component {
+    render() {
+        const { courses } = this.props;
+        return (
+            <ScrollView 
             horizontal={true} 
             style={{flexDirection: "row"}} 
             showsHorizontalScrollIndicator={false}
         >
             {
-                image.map((value)=>(
-                    <TouchableOpacity onPress={props.toDetail} key={value.key}>
-                        <BoxLearn imglink={value.href} />
+                courses.map((value)=>(
+                    <TouchableOpacity key={value.key}>
+                        <BoxLearn course={value} />
                     </TouchableOpacity>
                 ))
             }
         </ScrollView>
-    )
+        )
+    }
 }
+function mapStateToProps(state){
+    return{ 
+        courses: state.courses,
+        authors: state.authors
+    };
+}
+export default connect(mapStateToProps)(Provideo);

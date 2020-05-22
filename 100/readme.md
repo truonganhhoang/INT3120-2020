@@ -19,7 +19,7 @@ Các công nghệ sử dung :
  * @react-native-firebase
  * Các thư viện khác được liệt kê trong file [package.json](https://github.com/phamquyetthang/INT3120-2020/blob/master/100/MyApp/package.json)
 
-> Toàn bộ code nằm trong folder MyApp
+> Toàn bộ code nằm trong folder MyApp/src
 
 Hướng dẫn chạy file apk:
 ------------------------
