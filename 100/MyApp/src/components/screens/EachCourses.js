@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Content, Header, Left, Button, Body, Right, Icon, Title, Card, CardItem, Fab } from 'native-base'
-import { Image, ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text } from 'react-native';
+import {  ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 class EachCourses extends Component {
     constructor(props){
@@ -67,7 +67,7 @@ class EachCourses extends Component {
         )
     }
 }
-export default connect(null,)(EachCourses);
+export default connect(null)(EachCourses);
 const localStyles = StyleSheet.create({
     imgBack: {
         flex: 1, backgroundColor: "rgba(0, 0, 0, 0.5)", justifyContent:"flex-end"

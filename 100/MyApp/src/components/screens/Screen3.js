@@ -17,7 +17,7 @@ class Screen3 extends Component {
     onCheckCart = () =>{
         const { onLogin } = this.props;
         // Alert.alert(String(onLogin));
-        if (onLogin === false){
+        if (onLogin === true){
             this.setState({
                 modalVisible: true
             });
@@ -35,18 +35,6 @@ class Screen3 extends Component {
             })
         })  
     }
-    // allPrice = () =>{
-    //     const { courses, myCart } = this.props;
-    //     for(let i = 0; i< myCart.length; i++){
-    //         for(let j = 0; j< courses.length; j++){
-    //             if (myCart[i].key===courses[j].id){
-    //                 this.setState({
-    //                     allPrice: this.state.allPrice + courses[j].price
-    //                 })
-    //             }
-    //         }
-    //     }
-    // }
     render() {
         const { modalVisible } = this.state;
         const { navigation, courses, myCart, myBill } = this.props;
