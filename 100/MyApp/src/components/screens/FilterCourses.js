@@ -14,6 +14,7 @@ class FilterCourses extends Component {
     }
     render() {
         const {navigation, authors} = this.props;
+        const { title } = this.props.route.params;
         const  courses  = this.getCourses();
         return (
             <Container>
@@ -24,7 +25,7 @@ class FilterCourses extends Component {
                     </Button>
                     </Left>
                     <Body>
-                        <Title>Theo danh muc</Title>
+                        <Title>{title}</Title>
                     </Body>
                     <Right></Right>
                 </Header>

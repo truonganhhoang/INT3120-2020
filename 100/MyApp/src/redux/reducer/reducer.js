@@ -9,11 +9,6 @@ const defaultState ={
     {id: 7, idAuthor:5, date:"27/04/2020", price:130, name: "Bootstrap 4 cơ bản", image:require("../../img/005.jpg"), beta: "Bootstrap 4 (viết tắt là BS4) là phiên bản mới của Bootstrap, là framework HTML, CSS và JavaScript phổ biến nhất để thiết kế web đáp ứng, ưu tiên trên nền tảng di động.", onMark: true, hot: true, type: 6},
     ],
     filterCourses: 'SHOW_ALL',
-    myCourses: [
-        {id: 1, key: 1},
-        {id: 2, key: 3},
-        {id: 3, key: 5},
-    ],
     authors: [
         {id: 1, name: "Phạm Quyết Thắng", avt:require("../../img/pqt.jpg")},
         {id: 2, name: "Phạm Mai Ly", avt:require("../../img/lyly.jpg")},
@@ -23,8 +18,8 @@ const defaultState ={
         {id: 6, name: "Ngô Thị Hoài Thanh", avt:require("../../img/ntht.jpg")},
         {id: 7, name: "Trần Thanh Thúy", avt:require("../../img/ttt.jpg")},
     ],
-    myCart : [
-        {id: 1, key: 3},
+    myCourses : [
+        {id: 1, key: 3, payed: false},
     ],
     onLogin: false,
     myBill : 240,
@@ -50,20 +45,28 @@ const reducer = ( state = defaultState, action )=>{
             return {
                 ...state,
                 myBill: state.myBill + action.price,
-                myCart: [{
-                    id: state.myCart.length + 1, 
-                    key: action.key
-                }].concat(state.myCart) // noi len dau
+                myCourses: [{
+                    id: state.myCourses.length + 1, 
+                    key: action.key,
+                    payed: false,
+                }].concat(state.myCourses) // noi len dau
             };
         case 'DELETE_CART':
             return {
                 ...state,
-                myCart: state.myCart.filter((index) => index !== action.payload)
+                myCourses: state.myCourses.filter((index) => index !== action.payload)
             };
         case 'ON_LOGIN':
             return {
                 ...state,
                 onLogin: true
+            };
+        case 'ON_PAY':
+            return {
+                ...state,
+                myCourses : state.myCourses.map(e => {
+                return { ...e, payed: !e.payed }}
+                )
             };
         default:
             break;

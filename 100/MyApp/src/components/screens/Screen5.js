@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet, Alert} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Container, Header, Body, Title, Content, ListItem, Left, Button, Right, List, Thumbnail, Card, CardItem, Footer, H3 } from 'native-base';
 import FooterScreen from '../components/Footer';
@@ -75,7 +75,11 @@ export default class Screen5 extends Component {
                             <Body><H3>Đánh giá Edumall</H3></Body>
                             <Right></Right>
                         </ListItem>
-                        <ListItem icon style={{marginBottom: 10, marginTop: 10}}>
+                        <ListItem 
+                            icon style={{marginBottom: 10, marginTop: 10}}
+                            button
+                            onPress = {()=> Alert.alert("dang xuat")}
+                        >
                             <Left>
                                 <Button danger>
                                     <Icon size={24} color="#fff" active name="md-log-out" />

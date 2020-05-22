@@ -8,15 +8,20 @@ class Screen3 extends Component {
         super(props);
         this.state = {
             modalVisible: false,
-            allPrice: 0,
         };
     }
     setModalVisible = (visible) => {
         this.setState({ modalVisible: visible });
-      }
+        this.actionPay();
+    }
+    actionPay = () =>{
+        this.props.dispatch({
+            type: 'ON_PAY',
+        });
+
+    }
     onCheckCart = () =>{
         const { onLogin } = this.props;
-        // Alert.alert(String(onLogin));
         if (onLogin === true){
             this.setState({
                 modalVisible: true
@@ -27,17 +32,22 @@ class Screen3 extends Component {
         }
     }
     componentDidMount(){
-        const { courses, myCart } = this.props;
-        myCart.map( (item) => {
+        const { courses, myCourses } = this.props;
+        myCourses.map( (item) => {
             let course = courses.filter( (e)=>(e.id == item.key))
             this.setState({
                 allPrice: this.state.allPrice + course[0].price 
             })
         })  
     }
+    getCourses(){
+        const {myCourses} = this.props;
+        return myCourses.filter( (item) => {return item.payed == false});
+    }
     render() {
         const { modalVisible } = this.state;
-        const { navigation, courses, myCart, myBill } = this.props;
+        const { navigation, courses, myBill } = this.props;
+        const myCourses = this.getCourses();
         const setColor = modalVisible? "#ddd" : "white"
         return (
             <Container style={{flex: 1, justifyContent: "space-evenly", backgroundColor: setColor}}>
@@ -48,7 +58,7 @@ class Screen3 extends Component {
                 </Header>
                 <Content scrollEnabled={false}>
                     <List>
-                        {myCart.map( (item) => {
+                        {myCourses.map( (item) => {
                             let course = courses.filter( (e)=>(e.id == item.key))
                             const DeleteCart = (item) => {
                                 this.props.dispatch({
@@ -67,19 +77,6 @@ class Screen3 extends Component {
                         })}
                     </List>
                 </Content>
-                {/* <TouchableOpacity onPress={() => this.onCheckCart()}>
-                    <View style={{
-                        width: "100%",
-                        height: 60,
-                        backgroundColor: "#42A5F5",
-                        borderTopLeftRadius: 8,
-                        borderTopRightRadius: 8,
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}>
-                        <Text style={{color: "#212121", fontSize: 24, fontWeight: "600"}}>Thanh toán</Text>
-                    </View>
-                </TouchableOpacity> */}
                 <Fab
                 style={{backgroundColor:"#5067FF"}}
                 onPress = {() => this.onCheckCart()}
@@ -126,7 +123,7 @@ class Screen3 extends Component {
 function mapStateToProps(state){
     return{ 
         courses: state.courses,
-        myCart: state.myCart,
+        myCourses: state.myCourses,
         onLogin: state.onLogin,
         myBill: state.myBill
     };
