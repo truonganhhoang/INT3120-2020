@@ -7,8 +7,14 @@ class FilterCourses extends Component {
     constructor(props){
         super(props);
     }
+    getCourses(){
+        const {courses} = this.props;
+        const { key } = this.props.route.params;
+        return courses.filter( (item) => {return item.type == key});
+    }
     render() {
-        const {navigation, courses} = this.props;
+        const {navigation, authors} = this.props;
+        const  courses  = this.getCourses();
         return (
             <Container>
                 <Header>
@@ -23,16 +29,18 @@ class FilterCourses extends Component {
                     <Right></Right>
                 </Header>
                 <Content>
-                    {
-                        courses.map( (item) => (
+                    {courses.map( (item) => {
+                        let a = authors.filter( (e)=>(e.id == item.idAuthor));
+                        return(
                             <Course 
-                                GoEach={()=> navigation.navigate('EachCourses')} 
-                                GoAuthor={()=> navigation.navigate('Author')}
-                                course = {item}
-                                key={item.id}
-                            />
-                        ))
-                    }
+                            GoEach={()=> navigation.navigate('EachCourses', {course: item})} 
+                            GoAuthor={()=> navigation.navigate('Author', {author : a})}
+                            course = {item}
+                            author = {a}
+                            key={item.id}
+                        />
+                        );
+                    })}
                 </Content>
             </Container>
         )
@@ -40,7 +48,8 @@ class FilterCourses extends Component {
 }
 function mapStateToProps(state){
     return{ 
-        courses: state.courses
+        courses: state.courses,
+        authors: state.authors,
     };
 }
 export default connect(mapStateToProps)(FilterCourses);
