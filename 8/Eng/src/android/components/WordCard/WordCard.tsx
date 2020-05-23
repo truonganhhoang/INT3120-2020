@@ -5,9 +5,22 @@ import styles from './styles';
 import IconFontAwesome5 from 'react-native-vector-icons/AntDesign';
 import Sound from 'react-native-sound';
 import { getDataFromStorage, mergeItem, delFavoriteWordFromStorage } from '../../services';
-
-const Word = (props: { data?: any; icon: string; 
-  lessonInfo?: any; remove?: any; keyW?: any; navigation?: any }) => {
+import { Grid, Row, Col } from 'react-native-easy-grid';
+import layout from '../../../android/constants/layout';
+const WIDTH = layout.window.width;
+const fontLarge = () => {
+  if (WIDTH > 400) {
+    return 26;
+  } else if (WIDTH > 250) {
+    return 24;
+  } else {
+    return 20;
+  }
+}
+const Word = (props: {
+  data?: any; icon: string;
+  lessonInfo?: any; remove?: any; keyW?: any; navigation?: any
+}) => {
   const { data, lessonInfo, icon, remove, keyW, navigation } = props;
   const [colorStar, setColorStar] = useState(icon)
   const onPressStar = () => {
@@ -55,14 +68,71 @@ const Word = (props: { data?: any; icon: string;
 
   const goFlipCardWord = () => {
     if (navigation) {
-      navigation.navigate('FlipCardWord', { topicName: lessonInfo.topicName, 
-        lessonName: lessonInfo.lessonName, keyW: keyW });
+      navigation.navigate('FlipCardWord', {
+        topicName: lessonInfo.topicName,
+        lessonName: lessonInfo.lessonName, keyW: keyW
+      });
     }
   }
 
   return (
     <TouchableWithoutFeedback onPress={goFlipCardWord}>
-      <View style={styles.item} onMagicTap={() => {console.log('[Word Card] taps')}}>
+      <Grid style={{ margin: '2%', position: 'relative' }}>
+        <Row style={{
+          padding: '2%', backgroundColor: 'white',
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,
+          borderRadius: 10
+        }}>
+          <IconFontAwesome5
+            name={colorStar}
+            color='#ff5e00'
+            size={20}
+            style={styles.star_icon}
+            onPress={onPressStar}
+          />
+          <Col size={40} style={{ padding: '2%' }}>
+            <Image
+              source={{ uri: data.image_uri }}
+              style={styles.img}
+              PlaceholderContent={<ActivityIndicator size="small" color="#ff5e00" />}
+            />
+          </Col>
+          <Col size={60} style={{ padding: '2%' }}>
+            <Row style={{ justifyContent: 'center', alignItems: 'flex-start' }}>
+              <Text style={styles.en_text}>
+                {data.en_meaning}
+              </Text>
+            </Row>
+            <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={styles.spelling_text}>
+                {data.spelling}
+              </Text>
+            </Row>
+            <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Icon
+                name='volume-up'
+                color='orange'
+                size={fontLarge()}
+                iconStyle={styles.voice_icon}
+                onPress={() => onSpeaking()}
+              />
+            </Row>
+            <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={styles.vn_text}>
+                {data.vn_meaning}
+              </Text>
+            </Row>
+          </Col>
+        </Row>
+      </Grid>
+      {/* <View style={styles.item} >
         <View style={styles.left}>
           <Image
             source={{ uri: data.image_uri }}
@@ -95,7 +165,7 @@ const Word = (props: { data?: any; icon: string;
             {data.vn_meaning}
           </Text>
         </View>
-      </View>
+      </View> */}
     </TouchableWithoutFeedback>
   )
 }

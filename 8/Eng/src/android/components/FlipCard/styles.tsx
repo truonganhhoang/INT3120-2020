@@ -5,17 +5,18 @@ const styles = StyleSheet.create({
     container: {
         // top: HEIGHT * 0.14,
         // width: WIDTH * 0.7,
-        height: HEIGHT * 0.5,
+        height: '50%',
         backgroundColor: 'white',
     },
     flipCard: {
-        width: WIDTH * 0.7,
-        height: HEIGHT * 0.5,
+        width: '100%',
+        height: '85%',
         backfaceVisibility: 'hidden',
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'relative',
         borderRadius: 15,
+        padding:'5%'
     },
     flipCardBack: {
         position: "absolute",

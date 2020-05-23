@@ -3,13 +3,14 @@ import { SafeAreaView, View, Text, Dimensions } from 'react-native';
 import styles from './styles';
 import firebase from 'firebase';
 import { random } from '../../services';
-import { QuestionContent } from '../../components/QuestionContent'; 
-import { AnswerContent } from '../../components/AnswerContent';  
+import { QuestionContent } from '../../components/QuestionContent';
+import { AnswerContent } from '../../components/AnswerContent';
 import { AskQuestionNumber } from '../../components/AskQuestionNumber';
 import { PracticeTestResult } from '../../components/PracticeTestResult';
 import { Activity } from '../Utils/activity';
 import * as Progress from 'react-native-progress';
 const WIDTH = Dimensions.get('window').width;
+import { Grid, Row, Col } from 'react-native-easy-grid';
 
 const Practice = (props: { route?: any; navigation?: any }) => {
   const { route, navigation } = props;
@@ -26,8 +27,8 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   useEffect(() => {
     navigation.setOptions({
       title: lessonInfo.lessonName === '' ? 'No title' : lessonInfo.lessonName,
-      headerTitleStyle: styles.headerTitle, 
-      headerTitleAlign: "center", 
+      headerTitleStyle: styles.headerTitle,
+      headerTitleAlign: "center",
       headerTintColor: "#ff5e00",
     })
     setAmountOfQ(0);
@@ -43,7 +44,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   useEffect(() => {
     if (amountOfQuestion > 0) {
       setQuestionNumber(random(0, 19));
-      setAmountOfTrue(amountOfQuestion); 
+      setAmountOfTrue(amountOfQuestion);
     }
   }, [amountOfQuestion])
 
@@ -56,7 +57,7 @@ const Practice = (props: { route?: any; navigation?: any }) => {
   }, [nextQuestion])
 
   useEffect(() => {
-    console.log(questionNumber); 
+    console.log(questionNumber);
     const question = database.ref('/topic_detail/' +
       lessonInfo.topicName + '/test_bank/' + lessonInfo.lessonName +
       '/questions/' + questionNumber);
@@ -101,25 +102,35 @@ const Practice = (props: { route?: any; navigation?: any }) => {
       }
       else {
         return (
-          <SafeAreaView style={styles.container}>
-            <View style={styles.count}>
-              <Text style={{ paddingTop: 10, fontSize: 16, color: '#ff5e00' }}>{count}/{amountOfQuestion}</Text>
-            </View>
-            <View style={styles.slider}>
-              <Progress.Bar progress={(count/amountOfQuestion)} width={WIDTH-15} borderColor="#dddee0" color='#ff5e00' style={{backgroundColor:'#dddee0'}} height={8}/>
-            </View>
-            {/* <Text style={{textAlign:'center'}}>{questionNumber}</Text> */}
-            <View>
-              <QuestionContent contentOfQuestion={contentOfQuestion} count={count}/>
-              <AnswerContent 
-                contentOfAnswer={contentOfAnswer} 
-                lessonInfo={lessonInfo}
-                setNextQuestion={setNextQuestion}
-                count={count}
-                heart={amountOfTrue}
-                setHeart={setAmountOfTrue}
-              />
-            </View>
+          <SafeAreaView style={{ flex: 1, flexDirection: 'column' }}>
+            <Grid>
+              <Row size={6} style={{ padding: '2%' }}>
+                <Col style={{ alignItems: 'center', justifyContent: 'center' }}>
+                  <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, color: '#ff5e00' }}>{count}/{amountOfQuestion}</Text>
+                  </Row>
+                  <Row>
+                    <Col size={50} style={{ alignItems: 'center', justifyContent: 'center' }}>
+                      {/* <Progress.Bar progress={(count / amountOfQuestion)} borderColor="#dddee0" width={WIDTH * 0.65} color="#ff5e00" height={6} style={{ backgroundColor: '#dddee0' }} /> */}
+                      <Progress.Bar progress={(count / amountOfQuestion)} width={WIDTH * 0.9} borderColor="#dddee0" color='#ff5e00' style={{ backgroundColor: '#dddee0' }} height={8} />
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row size={44} style={{ justifyContent: 'center' }}>
+                <QuestionContent contentOfQuestion={contentOfQuestion} count={count} />
+              </Row>
+              <Row size={50}>
+                <AnswerContent
+                  contentOfAnswer={contentOfAnswer}
+                  lessonInfo={lessonInfo}
+                  setNextQuestion={setNextQuestion}
+                  count={count}
+                  heart={amountOfTrue}
+                  setHeart={setAmountOfTrue}
+                />
+              </Row>
+            </Grid>
           </SafeAreaView>
         )
       }
@@ -131,8 +142,8 @@ const Practice = (props: { route?: any; navigation?: any }) => {
             content={{
               topicName: lessonInfo.topicName,
               lessonName: lessonInfo.lessonName,
-              correct: {amountOfTrue},
-              amountOfQuestion: {amountOfQuestion}
+              correct: { amountOfTrue },
+              amountOfQuestion: { amountOfQuestion }
             }}
             navigation={navigation}
           />

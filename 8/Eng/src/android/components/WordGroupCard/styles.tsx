@@ -1,17 +1,24 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, PixelRatio } from 'react-native';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
+const fontSize = () => {
+    if (WIDTH > 400) {
+        return 14;
+    } else if (WIDTH > 250) {
+        return 12;
+    } else {
+        return 10;
+    }
+}
 const styles = StyleSheet.create({
     containers: {
-        top:'10%',
+        top: '10%',
         height: '100%',
         width: '70%',
         left: '15%',
-        position: 'relative', 
+        position: 'relative',
     },
     card: {
-        height: '100%',
-        borderRadius: 10,
         alignItems: 'center',
         shadowColor: "#000",
         shadowOffset: {
@@ -21,58 +28,51 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.32,
         shadowRadius: 5.46,
         elevation: 9,
+        borderRadius: 10
+    },
+    cardContainer: {
+        height: '65%',
+        width: '100%',
+        position: 'absolute',
+        zIndex: 0,
     },
     viewCard: {
         borderRadius: 10,
         alignItems: 'center',
         position: 'absolute',
         zIndex: 0,
-        height:'70%'
+        height: '70%'
     },
-    viewBtn: {
-        alignItems: 'center',
-        position: 'absolute',
-        // bottom: HEIGHT*0.15,
-        // left: WIDTH*0.329/2,
-        top: '70%',
-        left: '25%',
-        zIndex: 2,
-    },
-    btnDetail: {
+    btnStyle: {
         backgroundColor: '#ff5e00',
-        alignItems: 'center',
-        borderRadius: 5,
-        width: '90%',
-        height:'75%',
-        justifyContent:'center'
+        width: '50%',
+        height:'95%'
     },
     textWordGroupName: {
-        marginBottom: '1%', 
-        textAlign: 'center', 
-        fontWeight: 'bold', 
-        fontSize: 24, 
-        marginTop: '20%'
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 24,
     },
     textVnMeaning: {
-        marginBottom: '12%', 
-        textAlign: 'center', 
-        fontWeight: 'bold', 
+        textAlign: 'center',
+        fontWeight: 'bold',
         color: '#ff5e00',
         fontSize: 16
-    }, 
+    },
     textExplain: {
-        fontSize: 14, 
-        textAlign: 'center', 
-        color: 'black'
-    }, 
+        fontSize: fontSize(),
+        textAlign: 'center',
+        color: 'black',
+    },
     viewImg: {
         alignItems: 'center',
-        height:'50%'
+        height: '50%',
+        justifyContent: 'center'
     },
     img: {
-        width: '80%',
-        height: '100%',
-        borderRadius: 100,
+        width: WIDTH * 0.35,
+        height: WIDTH * 0.35,
+        borderRadius: WIDTH * 0.35 / 2,
         borderWidth: 1,
         borderColor: '#80808085',
     },
@@ -81,25 +81,25 @@ const styles = StyleSheet.create({
         backgroundColor: '#ff5e00',
         width: '15%',
         alignItems: 'center',
-        padding: 5,
+        padding: '1%',
         position: 'absolute',
-        right: -6,
-        borderRadius: 6,
-        zIndex: 2,
-        top: '10%'
+        right: '-2%',
+        borderRadius: 10,
+        zIndex: 3,
+        top: '-25%',
     },
     iconTool: {
         color: 'white',
         fontSize: 16,
     },
     viewIcon: {
-        borderRadius: 35/2,
+        borderRadius: 35 / 2,
         borderWidth: 1,
         borderColor: 'white',
-        justifyContent:'center',
-        alignItems:'center',
-        width:35,
-        height:35,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 35,
+        height: 35,
         marginTop: 5,
         marginBottom: 5,
     },

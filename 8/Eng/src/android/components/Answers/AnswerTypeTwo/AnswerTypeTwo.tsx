@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, ImageBackground, SafeAreaView } from 'react-native';
 import { Image, Card } from 'react-native-elements';
 import firebase from 'firebase';
 import styles from './styles';
 import Sound from 'react-native-sound';
+import { Col, Row, Grid } from "react-native-easy-grid";
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const AnswerTypeTwo = (props: {
@@ -145,74 +146,72 @@ const AnswerTypeTwo = (props: {
   }
   else {
     return (
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: WIDTH, marginBottom: 10 }}>
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableOpacity
-              style={styles.view_a}
-              onPress={() => onPress('a', 1)}
-            >
-              <View style={{ alignItems: 'center' }}>
+      <Grid>
+        <Row>
+          <Col style={{padding:'2%'}}>
+            <View>
+              <TouchableOpacity
+                style={styles.view_a}
+                onPress={() => onPress('a', 1)}
+              >
                 <Image
                   source={{ uri: content.content_a }}
                   containerStyle={styles.image}
                 />
-              </View>
-              <View style={{ backgroundColor: backgrounColor1.color, width: WIDTH * 0.4, height: WIDTH * 0.4, position: 'absolute', opacity: backgrounColor1.opacity, zIndex: 1 }}>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableOpacity
-              style={styles.view_b}
-              onPress={() => onPress('b', 2)}
-            >
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ backgroundColor: backgrounColor1.color, width: '100%', height: '100%', position: 'absolute', opacity: backgrounColor1.opacity, zIndex: 1 }}>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </Col>
+          <Col style={{padding:'2%'}}>
+            <View>
+              <TouchableOpacity
+                style={styles.view_b}
+                onPress={() => onPress('b', 2)}
+              >
                 <Image
                   source={{ uri: content.content_b }}
                   style={styles.image}
                 />
-              </View>
-              <View style={{ backgroundColor: backgrounColor2.color, width: WIDTH * 0.4, height: WIDTH * 0.4, position: 'absolute', opacity: backgrounColor1.opacity, zIndex: 1 }}>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: WIDTH }}>
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableOpacity
-              style={styles.view_c}
-              onPress={() => onPress('c', 3)}
-            >
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ backgroundColor: backgrounColor2.color, width: '100%', height: '100%', position: 'absolute', opacity: backgrounColor1.opacity, zIndex: 1 }}>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{padding:'2%'}}>
+            <View style={{ flex: 1, }}>
+              <TouchableOpacity
+                style={styles.view_c}
+                onPress={() => onPress('c', 3)}
+              >
                 <Image
                   source={{ uri: content.content_c }}
                   style={styles.image}
                 />
-              </View>
-              <View style={{ backgroundColor: backgrounColor3.color, width: WIDTH * 0.4, height: WIDTH * 0.4, position: 'absolute', opacity: backgrounColor3.opacity, zIndex: 1 }}>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableOpacity
-              style={styles.view_d}
-              onPress={() => onPress('d', 4)}
-            >
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ backgroundColor: backgrounColor3.color, width: '100%', height: '100%', position: 'absolute', opacity: backgrounColor3.opacity, zIndex: 1 }}>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </Col>
+          <Col style={{padding:'2%'}}>
+            <View style={{ flex: 1, }}>
+              <TouchableOpacity
+                style={styles.view_d}
+                onPress={() => onPress('d', 4)}
+              >
                 <Image
                   source={{ uri: content.content_d }}
                   style={styles.image}
                 />
-              </View>
-              <View style={{ backgroundColor: backgrounColor4.color, width: WIDTH * 0.4, height: WIDTH * 0.4, position: 'absolute', opacity: backgrounColor4.opacity, zIndex: 1 }}>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
+                <View style={{ backgroundColor: backgrounColor4.color, width: '100%', height: '100%', position: 'absolute', opacity: backgrounColor4.opacity, zIndex: 1 }}>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

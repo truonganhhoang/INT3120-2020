@@ -134,10 +134,10 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Animated.View style={[styles.flipCard, frontAnimatedStyle, { opacity: frontOpacity }]}>
                     <View style={{
-                        width: WIDTH * 0.6,
+                        width: '100%',
                         justifyContent: 'flex-end',
                         alignItems: 'flex-end',
-                        top: 15
+                        right: '5%'
                     }}>
                         <IconAntDeisign
                             name={colorStar}
@@ -147,39 +147,47 @@ const FlipCard = (props: { data: any, icon: string, lessonInfo: any }) => {
                             style={styles.iconStar}
                         />
                     </View>
-        
-                    <View style={{ top: HEIGHT * 0.05 }}>
+
+                    <View style={{ marginTop: '5%', width: '80%', height: '50%' }}>
                         <Image
                             source={{ uri: data.image_uri }}
                             resizeMode='cover'
-                            style={{ width: WIDTH * 0.6, height: HEIGHT * 0.3 }}
+                            style={{ width: '100%', height: '100%' }}
                         />
                     </View>
-                    <View style={{ top: HEIGHT * 0.14 }}>
+                    <View style={{ marginTop: '40%' }}>
                         <Text style={{ fontWeight: '700', color: '#666' }}>
                             Lật về sau
                         </Text>
                     </View>
                 </Animated.View>
                 <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle, { opacity: backOpacity }]}>
-                    <Text style={{ top: HEIGHT*0.09, fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
-                        {data.en_meaning}
-                    </Text>
-                    <Text style={{ top: HEIGHT*0.09, color: '#666', fontSize: 25 }}>
-                        {data.spelling}
-                    </Text>
-                    <Text style={{ top: HEIGHT*0.09, marginTop: 50, color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
-                        {data.vn_meaning}
-                    </Text>
+                    <View style={{ height: '20%', justifyContent: 'center' }}>
+                        <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: '#ff5e00' }}>
+                            {data.en_meaning}
+                        </Text>
+                    </View>
+                    <View style={{ height: '20%', justifyContent: 'center' }}>
+                        <Text style={{ color: '#666', fontSize: 25 }}>
+                            {data.spelling}
+                        </Text>
+                    </View>
+                    <View style={{ height: '20%', justifyContent: 'center' }}>
+                        <Text style={{ color: 'blue', fontSize: 20, fontWeight: 'bold' }}>
+                            {data.vn_meaning}
+                        </Text>
+                    </View>
 
-                    <Ionicons
-                        name='ios-volume-high'
-                        color='#ff5e00'
-                        size={HEIGHT*0.1}
-                        style={{ top: HEIGHT*0.15 }}
-                        onPress={onSpeaking}
-                    />
-                    <View style={{ bottom: -HEIGHT*0.17 }}>
+                    <View style={{ height: '20%', justifyContent: 'center' }}>
+                        <Ionicons
+                            name='ios-volume-high'
+                            color='#ff5e00'
+                            size={HEIGHT * 0.1}
+
+                            onPress={onSpeaking}
+                        />
+                    </View>
+                    <View style={{ height: '20%', justifyContent: 'center' }}>
                         <Text style={{ fontWeight: '700', color: '#666' }}>
                             Lật về sau
                         </Text>

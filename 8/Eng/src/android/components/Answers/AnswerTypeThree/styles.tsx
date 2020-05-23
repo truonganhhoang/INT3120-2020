@@ -4,10 +4,7 @@ const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   text: {
     color: "black",
-    fontSize:18
-  },
-  btn: {
-    flexDirection: 'row',
+    fontSize: 18
   },
   button: {
     shadowColor: "#000",
@@ -17,11 +14,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
-    padding:20,
-    marginBottom:5,
-    bottom:HEIGHT*0.0001
+    width: '96%',
+    height: '90%'
   }
 });
 

@@ -3,33 +3,33 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   containers: {
-    height: HEIGHT * 0.4,
-    padding: WIDTH * 0.1,
+    height: '40%',
+    justifyContent:'center',
+    width:'80%',
+    alignItems:'center'
   },
   container: {
     textAlign: 'center',
     alignItems: 'center',
   },
   title: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#FFF',
-    lineHeight: 50,
+    marginBottom:'5%'
   },
   comment: {
     color: '#FFF',
     fontSize: 16,
     textAlign: 'center',
-    marginTop: 20,
-    marginBottom: 30
+    marginBottom:'5%'
   },
   button: {
-    width: 150,
-    marginBottom: 5,
+    width: '100%',
     borderRadius: 100,
     borderWidth: 2,
     backgroundColor: '#FFF',
-    borderColor: '#9CCC65'
+    borderColor: '#9CCC65',
   }
 })
 

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions, SafeAreaView } from 'react-native';
 import { WordGroupCard } from '../../components/WordGroupCard';
 import firebase from 'firebase';
 import styles from './styles';
 import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../Utils/animation';
 import { Activity } from '../Utils/activity';
-import { AsyncStorage } from 'react-native'; 
+import { AsyncStorage } from 'react-native';
+import { Grid, Row } from 'react-native-easy-grid';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const SLIDER_HEIGTH = Dimensions.get('window').height;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
@@ -21,18 +22,18 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   const getFavoriteLessons = async () => {
     try {
       await AsyncStorage.getItem('favoriteLessons', (err, result: any) => {
-        let data = JSON.parse(result); 
+        let data = JSON.parse(result);
         setFavoriteLesson({ keys: Object.keys(data) })
       })
-    } catch(error) {
-      console.log(error); 
+    } catch (error) {
+      console.log(error);
     }
   }
   useEffect(() => {
-	  navigation.setOptions({
+    navigation.setOptions({
       title: nameTopic === '' ? 'No title' : nameTopic,
-      headerTitleStyle: styles.centerComponent, 
-      headerTitleAlign: "center", 
+      headerTitleStyle: styles.centerComponent,
+      headerTitleAlign: "center",
       headerTintColor: "#ff5e00",
     })
     setLessons({ status: 'loading' })
@@ -42,32 +43,32 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       if (snapshot.val()) {
         setLessons(snapshot.val());
       } else {
-        setLessons({ status: 'null' }); 
+        setLessons({ status: 'null' });
       }
     });
   }, [nameTopic])
 
   useEffect(() => {
     if (favoriteLesson.keys[0] === '') {
-      getFavoriteLessons(); 
+      getFavoriteLessons();
     }
   }, [favoriteLesson])
 
   const _renderItem = (item: any) => {
-    if (favoriteLesson.keys.includes(item.item.wordGroupName)){
+    if (favoriteLesson.keys.includes(item.item.wordGroupName)) {
       console.log('[WordGroupScreen] favorite lesson')
       console.log(item.item.wordGroupName)
       return (
-        <WordGroupCard data={item.item} 
-          navigation={navigation} key={index++} 
-          topic_name={nameTopic} icon="star" 
+        <WordGroupCard data={item.item}
+          navigation={navigation} key={index++}
+          topic_name={nameTopic} icon="star"
         />
       )
     } else {
       return (
-        <WordGroupCard data={item.item} 
-          navigation={navigation} key={index++} 
-          topic_name={nameTopic} icon="staro" 
+        <WordGroupCard data={item.item}
+          navigation={navigation} key={index++}
+          topic_name={nameTopic} icon="staro"
         />
       );
     }
@@ -77,7 +78,7 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
       <Activity />
     )
   }
-  else if(lessons.status === 'null') {
+  else if (lessons.status === 'null') {
     return (
       <View style={styles.containers}>
         <View>
@@ -89,29 +90,48 @@ const WordGroupScreen = (props: { route?: any; navigation?: any }) => {
   else {
     var index = 0;
     const data: any = [];
-    let i = 0; 
+    let i = 0;
     for (let [key, value] of Object.entries(lessons)) {
-      data.push(value); 
+      data.push(value);
       data[i++].wordGroupName = key
     }
     return (
-      <View style={styles.containers}>
-        <View style={{top:ITEM_HEGHT*0.1}}>
-          <Carousel
-            ref={(ref: any) => ref = ref}
-            data={data}
-            renderItem={_renderItem}
-            sliderWidth={SLIDER_WIDTH}
-            itemWidth={ITEM_WIDTH}
-            // containerCustomStyle={styles.carouselContainer}
-            inactiveSlideShift={0}
-            //onSnapToItem={(index) => setState(index)}
-            scrollInterpolator={scrollInterpolator}
-            slideInterpolatedStyle={animatedStyles}
-            useScrollView={true}
-          />
-        </View>
-      </View>
+      <SafeAreaView style={{ flex: 1, flexDirection: 'column' }}>
+        <Grid>
+          <Row>
+            <Carousel
+              ref={(ref: any) => ref = ref}
+              data={data}
+              renderItem={_renderItem}
+              sliderWidth={SLIDER_WIDTH}
+              itemWidth={ITEM_WIDTH}
+              // containerCustomStyle={styles.carouselContainer}
+              inactiveSlideShift={0}
+              //onSnapToItem={(index) => setState(index)}
+              scrollInterpolator={scrollInterpolator}
+              slideInterpolatedStyle={animatedStyles}
+              useScrollView={true}
+            />
+          </Row>
+        </Grid>
+      </SafeAreaView>
+      // <View style={styles.containers}>
+      //   <View style={{top:ITEM_HEGHT*0.1}}>
+      //     <Carousel
+      //       ref={(ref: any) => ref = ref}
+      //       data={data}
+      //       renderItem={_renderItem}
+      //       sliderWidth={SLIDER_WIDTH}
+      //       itemWidth={ITEM_WIDTH}
+      //       // containerCustomStyle={styles.carouselContainer}
+      //       inactiveSlideShift={0}
+      //       //onSnapToItem={(index) => setState(index)}
+      //       scrollInterpolator={scrollInterpolator}
+      //       slideInterpolatedStyle={animatedStyles}
+      //       useScrollView={true}
+      //     />
+      //   </View>
+      // </View>
     )
   }
 }

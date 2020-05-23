@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Dimensions } from 'react-native';
+import { Text, View, Dimensions, SafeAreaView } from 'react-native';
 import { Button } from 'react-native-elements';
-import { checkObject5 } from '../../../services/auth'; 
+import { checkObject5 } from '../../../services/auth';
 import firebase from 'firebase';
 import styles from './styles';
 import Sound from 'react-native-sound';
+import { Grid, Row, Col } from 'react-native-easy-grid';
 const WIDTH = Dimensions.get('window').width;
 
-const TypeThree = (props: { content?: any; lessonInfo?: any;
-   setNextQuestion?: any; id?: any; heart?: any; setHeart?: any }) => {
+const TypeThree = (props: {
+  content?: any; lessonInfo?: any;
+  setNextQuestion?: any; id?: any; heart?: any; setHeart?: any
+}) => {
 
   const { content, lessonInfo, setNextQuestion, id, heart, setHeart } = props;
   const database = firebase.database();
@@ -20,12 +23,12 @@ const TypeThree = (props: { content?: any; lessonInfo?: any;
   const [colorAnswerC, setColorAnswerC] = useState('white');
   const [colorAnswerD, setColorAnswerD] = useState('white');
   const [disabled, setDisabled] = useState(false);
-  const [status, setStatus] = useState('loading'); 
+  const [status, setStatus] = useState('loading');
 
   useEffect(() => {
     console.log('type' + 3)
     setStatus('loading')
-    let check = 0; 
+    let check = 0;
     Object.keys(content).forEach((item, index) => {
       if (item == 'id') check++
       else if (item == 'content_a') check++
@@ -33,7 +36,7 @@ const TypeThree = (props: { content?: any; lessonInfo?: any;
       else if (item == 'content_c') check++
       else if (item == 'content_d') check++
     })
-    if ( check == 5 ) {
+    if (check == 5) {
       setColorAnswerA('white');
       setColorAnswerB('white');
       setColorAnswerC('white');
@@ -83,7 +86,7 @@ const TypeThree = (props: { content?: any; lessonInfo?: any;
         } else if (snapshot.val().text == "d") {
           setColorAnswerD('#81C784')
         }
-        setHeart(heart-1)
+        setHeart(heart - 1)
       }
       setDisabled(true);
       const speaker = new Sound(snapshot.val().void_uri, Sound.MAIN_BUNDLE, (error) => {
@@ -130,49 +133,54 @@ const TypeThree = (props: { content?: any; lessonInfo?: any;
   }
   else {
     return (
-      <View style={{ flexDirection: 'column', alignItems: "center" }}>
-        <View style={[styles.btn]}>
-          <Button
-            title={content.content_a}
-            type="clear"
-            onPress={() => onPress('a')}
-            disabled={disabled}
-            buttonStyle={[styles.button, { backgroundColor: colorAnswerA, width: WIDTH - 10 }]}
-            titleStyle={styles.text}
-          />
-        </View>
-        <View style={[styles.btn]}>
-          <Button
-            title={content.content_b}
-            type="clear"
-            onPress={() => onPress('b')}
-            disabled={disabled}
-            buttonStyle={[styles.button, { backgroundColor: colorAnswerB, width: WIDTH - 10 }]}
-            titleStyle={styles.text}
-          />
-        </View>
-        <View style={[styles.btn]}>
-          <Button
-            title={content.content_c}
-            type="clear"
-            onPress={() => onPress('c')}
-            disabled={disabled}
-            buttonStyle={[styles.button, { backgroundColor: colorAnswerC, width: WIDTH - 10 }]}
-            titleStyle={styles.text}
-          />
-
-        </View>
-        <View style={[styles.btn]}>
-          <Button
-            title={content.content_d}
-            type="clear"
-            onPress={() => onPress('d')}
-            disabled={disabled}
-            buttonStyle={[styles.button, { backgroundColor: colorAnswerD, width: WIDTH - 10 }]}
-            titleStyle={styles.text}
-          />
-        </View>
-      </View>
+      <Grid>
+        <Row>
+          <Col style={{ justifyContent: 'center', marginLeft: '4%' }}>
+            <Button
+              title={content.content_a}
+              type="clear"
+              onPress={() => onPress('a')}
+              // disabled={disabled}
+              buttonStyle={[styles.button, { backgroundColor: colorAnswerA }]}
+              titleStyle={styles.text}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ justifyContent: 'center', marginLeft: '4%' }}>
+            <Button
+              title={content.content_b}
+              type="clear"
+              onPress={() => onPress('b')}
+              // disabled={disabled}
+              buttonStyle={[styles.button, { backgroundColor: colorAnswerB }]}
+              titleStyle={styles.text}
+            /></Col>
+        </Row>
+        <Row>
+          <Col style={{ justifyContent: 'center', marginLeft: '4%' }}>
+            <Button
+              title={content.content_c}
+              type="clear"
+              onPress={() => onPress('c')}
+              // disabled={disabled}
+              buttonStyle={[styles.button, { backgroundColor: colorAnswerC }]}
+              titleStyle={styles.text}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ justifyContent: 'center', marginLeft: '4%' }}>
+            <Button
+              title={content.content_d}
+              type="clear"
+              onPress={() => onPress('d')}
+              // disabled={disabled}
+              buttonStyle={[styles.button, { backgroundColor: colorAnswerD }]}
+              titleStyle={styles.text}
+            /></Col>
+        </Row>
+      </Grid>
     )
   }
 }

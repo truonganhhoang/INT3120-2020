@@ -5,16 +5,20 @@ const imageSize = (layout.window.width) * 0.4;
 
 const styles = StyleSheet.create({
   image: {
-    width: imageSize,
-    height: imageSize,
+    width: '100%',
+    height: '100%',
   },
   view_a: {
+    width:'100%'
   },
   view_b: {
+    width:'100%'
   },
   view_c: {
+    width:'100%'
   },
   view_d: {
+    width:'100%'
   }
 });
 

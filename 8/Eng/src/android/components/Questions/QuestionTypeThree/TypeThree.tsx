@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { Image, Card } from 'react-native-elements';
 import styles from './style';
 import layout from '../../../../android/constants/layout';
+import { Grid, Row } from 'react-native-easy-grid';
 const HEIGHT = layout.window.height;
 const TypeThree = (props: { content?: any; id?: any }) => {
   const { content, id } = props;
@@ -38,14 +39,14 @@ const TypeThree = (props: { content?: any; id?: any }) => {
   }
   else {
     return (
-      <View style={styles.container}>
-        <View style={{ margin: HEIGHT * 0.05 }}>
+      <Grid>
+        <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Image
             source={{ uri: content.img_content }}
             style={styles.image}
           />
-        </View>
-      </View>
+        </Row>
+      </Grid >
     )
   }
 }

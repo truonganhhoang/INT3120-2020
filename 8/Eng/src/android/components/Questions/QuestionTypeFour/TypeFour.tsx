@@ -4,7 +4,9 @@ import { Image, Icon, Card } from 'react-native-elements';
 import styles from './styles';
 import Sound from 'react-native-sound';
 import layout from '../../../../android/constants/layout';
+import { Grid, Row, Col } from 'react-native-easy-grid';
 const HEIGHT = layout.window.height;
+const WIDTH = layout.window.width;
 const TypeFour = (props: { content?: any; id?: any }) => {
   const { content, id } = props;
   const [status, setStatus] = useState('loading');
@@ -70,34 +72,36 @@ const TypeFour = (props: { content?: any; id?: any }) => {
   }
   else {
     return (
-      <View style={styles.container}>
-        <View style={{padding:HEIGHT*0.05}}>
+      <Grid style={{ padding: '2%' }}>
+        <Row size={70} style={{ justifyContent: 'center', alignItems: 'center',marginBottom:'10%' }}>
           <Image
             source={{ uri: content.img_content }}
             style={styles.image}
           />
-        </View>
-        <TouchableOpacity
-          onPress={onPress}
-          style={{
-            borderWidth: 1,
-            borderColor: '#FFF',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 80,
-            height: 80,
-            backgroundColor: '#f57f17',
-            borderRadius: 50,
-          }}
-        >
-          <Icon
-            name="volume-up"
-            type="font-awesome"
-            iconStyle={{ fontSize: 50, color: '#FFF' }}
-            style={styles.speak}
-          />
-        </TouchableOpacity>
-      </View>
+        </Row>
+        <Row size={30} style={{ justifyContent: 'center', alignItems: 'center'}}>
+          <TouchableOpacity
+            onPress={onPress}
+            style={{
+              borderWidth: 1,
+              borderColor: '#FFF',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: WIDTH * 0.15,
+              height: WIDTH * 0.15,
+              backgroundColor: '#f57f17',
+              borderRadius: WIDTH * 0.15 / 2,
+            }}
+          >
+            <Icon
+              name="volume-up"
+              type="font-awesome"
+              iconStyle={{ fontSize: 30, color: '#FFF' }}
+              style={styles.speak}
+            />
+          </TouchableOpacity>
+        </Row>
+      </Grid>
     )
   }
 }

@@ -1,15 +1,15 @@
-import React from 'react'; 
-import { Button } from 'react-native-elements'; 
-import { StyleSheet } from 'react-native'; 
+import React from 'react';
+import { Button } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   title: {
-    color: "black"
+    color: "black",
   }
 })
 
 const CharacterShow = (props: { char?: any; onPress?: any; color?: any; disabled?: any }) => {
-  const { char, onPress, color, disabled } = props; 
+  const { char, onPress, color, disabled } = props;
   return (
     <Button
       title={char}
@@ -18,7 +18,7 @@ const CharacterShow = (props: { char?: any; onPress?: any; color?: any; disabled
         height: 40,
         marginLeft: 10,
         marginTop: 10,
-        borderColor:'red',
+        borderColor: 'red',
         backgroundColor: color,
         shadowColor: "#000",
         shadowOffset: {

@@ -72,8 +72,6 @@ const Screen = (props: { navigation?: any; route?: any }) => {
       words[i].key = i
       i++
     }
-    console.log('[Detail Word Group Screen] render')
-    console.log(words)
     return (
       <SafeAreaView style={styles.container}>
         <FlatList 

@@ -1,36 +1,36 @@
-import { StyleSheet, Dimensions } from 'react-native'; 
-const WIDTH=Dimensions.get('window').width;
-const HEIGHT=Dimensions.get('window').height;
+import { StyleSheet, Dimensions } from 'react-native';
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
-  containers:{
-    height:HEIGHT*0.4,
-    padding:HEIGHT*0.06,
-    justifyContent:'center',
+  containers: {
+    height: '40%',
+    justifyContent: 'center',
+    width: '80%',
+    alignItems: 'center'
   },
   container: {
-    alignItems:'center',
-    justifyContent:'center',
-  }, 
+    textAlign: 'center',
+    alignItems: 'center',
+  },
   title: {
-    fontSize:22,
-    fontWeight:'bold',
-    color:'#FFF',
-    lineHeight:50,
-    marginBottom:10
-  }, 
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFF',
+    marginBottom: '5%'
+  },
   comment: {
-    color:'#FFF',
-    fontSize:16,
-    marginBottom:10,
-    textAlign:'center'
-  }, 
-  button:{
-    width:150,
-    marginBottom:5,
-    borderRadius:100,
-    borderWidth:2,
-    backgroundColor:'#FFF',
-    borderColor:'#f68383'
+    color: '#FFF',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: '5%'
+  },
+  button: {
+    width: '100%',
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: 'white',
+    backgroundColor: '#FFF',
+    marginBottom:'5%',
   }
 })
 

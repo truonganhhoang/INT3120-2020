@@ -1,66 +1,57 @@
-import { StyleSheet } from 'react-native'; 
-import layout  from '../../constants/layout'; 
-
-const leftWidth = (layout.window.width - 20)*0.41; 
-const rightWidth = (layout.window.width - 20)*0.59; 
-const height = (layout.window.height - 60)/5; 
-
+import { StyleSheet } from 'react-native';
+import layout from '../../constants/layout';
+const WIDTH = layout.window.width;
+const leftWidth = (layout.window.width - 20) * 0.41;
+const rightWidth = (layout.window.width - 20) * 0.59;
+const height = (layout.window.height - 60) / 5;
+const fontLarge = () => {
+  if (WIDTH > 400) {
+    return 22;
+  } else if (WIDTH > 250) {
+    return 20;
+  } else {
+    return 16;
+  }
+}
+const fontSmall = () => {
+  if (WIDTH > 400) {
+    return 16;
+  } else if (WIDTH > 250) {
+    return 14;
+  } else {
+    return 12;
+  }
+}
 const styles = StyleSheet.create({
-  left: {
-    width: leftWidth, 
-    height: height, 
-    backgroundColor: 'white', 
-    position: "absolute", 
-    borderTopLeftRadius: 5, 
-    borderBottomLeftRadius: 5, 
-    paddingTop: 10, 
-    paddingLeft: 10
-  }, 
-  right: {
-    marginLeft: leftWidth, 
-    width: rightWidth, 
-    height: height, 
-    backgroundColor: 'white', 
-    borderTopRightRadius: 5, 
-    borderBottomRightRadius: 5
-  }, 
-  item: {
-    backgroundColor: '#DAD8D8',
-    marginVertical: 5,
-    marginLeft: 10, 
-    marginRight: 10
-  }, 
   img: {
-    width: leftWidth - 20,
-    height: height - 20,
-  }, 
+    width: '100%',
+    height: '100%',
+  },
   star_icon: {
     position: "absolute",
-    top: 10, 
-    right:10,
-    fontSize: 25,
-    zIndex:2
-  }, 
+    fontSize: 24,
+    zIndex: 2,
+    right: '2%',
+    top: '4%',
+  },
   en_text: {
-    top: 13, 
     textAlign: "center",
-    color: "#ff5e00", 
-    fontSize: 25, 
+    color: "#ff5e00",
+    fontSize: fontLarge(),
     fontWeight: "bold"
-  }, 
+  },
   spelling_text: {
     textAlign: "center",
-    fontSize: 18, 
-    paddingTop: 16, 
+    fontSize: fontSmall(),
     fontWeight: "bold"
-  }, 
+  },
   voice_icon: {
-    textAlign: "center", 
-  }, 
+    textAlign: "center",
+  },
   vn_text: {
-    textAlign: "center", 
-    color: "blue", 
-    fontSize: 18,
+    textAlign: "center",
+    color: "blue",
+    fontSize: fontSmall(),
     fontWeight: "bold"
   }
 })
