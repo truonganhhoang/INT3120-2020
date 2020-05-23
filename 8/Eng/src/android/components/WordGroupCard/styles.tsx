@@ -3,14 +3,14 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     containers: {
-        top: HEIGHT * 0.05,
-        height: HEIGHT*0.65,
-        width: WIDTH * 0.7,
-        left: WIDTH * 0.3 / 2,
+        top:'10%',
+        height: '100%',
+        width: '70%',
+        left: '15%',
         position: 'relative', 
     },
     card: {
-        height: HEIGHT*0.54,
+        height: '100%',
         borderRadius: 10,
         alignItems: 'center',
         shadowColor: "#000",
@@ -26,49 +26,52 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         position: 'absolute',
-        zIndex: 0, 
+        zIndex: 0,
+        height:'70%'
     },
     viewBtn: {
         alignItems: 'center',
         position: 'absolute',
         // bottom: HEIGHT*0.15,
         // left: WIDTH*0.329/2,
-        top: HEIGHT*0.54,
-        left: WIDTH*0.4/2,
+        top: '70%',
+        left: '25%',
         zIndex: 2,
     },
     btnDetail: {
         backgroundColor: '#ff5e00',
         alignItems: 'center',
         borderRadius: 5,
-        width: WIDTH * 0.3,
-        height:HEIGHT*0.04
+        width: '90%',
+        height:'75%',
+        justifyContent:'center'
     },
     textWordGroupName: {
-        marginBottom: HEIGHT*0.7*0.01, 
+        marginBottom: '1%', 
         textAlign: 'center', 
         fontWeight: 'bold', 
-        fontSize: WIDTH*0.7*0.08, 
-        marginTop: HEIGHT*0.7*0.08
+        fontSize: 24, 
+        marginTop: '20%'
     },
     textVnMeaning: {
-        marginBottom: HEIGHT*0.7*0.05, 
+        marginBottom: '12%', 
         textAlign: 'center', 
         fontWeight: 'bold', 
         color: '#ff5e00',
-        fontSize: WIDTH*0.7*0.06
+        fontSize: 16
     }, 
     textExplain: {
-        fontSize: WIDTH*0.7*0.06, 
+        fontSize: 14, 
         textAlign: 'center', 
         color: 'black'
     }, 
     viewImg: {
         alignItems: 'center',
+        height:'50%'
     },
     img: {
-        width: 150,
-        height: 150,
+        width: '80%',
+        height: '100%',
         borderRadius: 100,
         borderWidth: 1,
         borderColor: '#80808085',
@@ -76,14 +79,14 @@ const styles = StyleSheet.create({
     viewTool: {
         flexDirection: 'column',
         backgroundColor: '#ff5e00',
-        width: WIDTH*0.7*0.16,
+        width: '15%',
         alignItems: 'center',
         padding: 5,
         position: 'absolute',
         right: -6,
         borderRadius: 6,
         zIndex: 2,
-        top: HEIGHT*0.7*0.1
+        top: '10%'
     },
     iconTool: {
         color: 'white',

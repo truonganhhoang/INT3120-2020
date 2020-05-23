@@ -70,12 +70,12 @@ const SettingScreen = (props: { navigation?: any }) => {
                 shadowOpacity: 0.25,
                 shadowRadius: 3.84,
                 elevation: 5,
-                height: 60,
                 backgroundColor: 'white',
                 marginBottom: 10,
-                borderRadius: 3
+                borderRadius: 3,
+                padding: '3%'
               }}>
-                <View style={{ flex: 9, justifyContent: 'center', paddingLeft: 10 }}>
+                <View style={{ flex: 9, justifyContent: 'center' }}>
                   <Text style={{ fontSize: 18, color: "#ff5e00", fontWeight: 'bold' }}>
                     {item.title}
                   </Text>
@@ -101,26 +101,25 @@ const SettingScreen = (props: { navigation?: any }) => {
               shadowOpacity: 0.25,
               shadowRadius: 3.84,
               elevation: 5,
-              height: 220,
               backgroundColor: 'white',
               marginBottom: 10,
               borderRadius: 3,
-              padding: 10,
-              justifyContent:'center',
-              alignItems:'center'
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '3%',
             }}>
               <View>
-                <Text style={{ marginBottom: 10 }}>
+                <Text style={{ marginBottom: 5 }}>
                   {item.title}
                 </Text>
                 <Text>Sự ủng hộ của các bạn là động lực rất lớn đối với chúng tôi!</Text>
-                <Text style={{ marginBottom: 5 }}>Xin cảm ơn.</Text>
+                <Text style={{ marginBottom: 10 }}>Xin cảm ơn.</Text>
               </View>
-              <View>
+              <View style={{ width: '100%' }}>
                 <Button
                   onPress={showAlert}
                   title="Gửi phản hồi qua email"
-                  buttonStyle={{ backgroundColor: "#ff5e00", width: WIDTH * 0.5 }}
+                  buttonStyle={{ backgroundColor: "#ff5e00", width: '60%', marginLeft: '20%' }}
                 />
               </View>
             </View>
@@ -137,7 +136,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     margin: 10,
-    height: HEIGHT
+    height: '100%'
   },
 });
 export default SettingScreen; 

@@ -4,7 +4,7 @@ import { Card, Button } from 'react-native-elements';
 import IconAntDeisign from 'react-native-vector-icons/AntDesign';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { getDataFromStorage, mergeItem, delFavoriteLesFromStorage } from '../../services'; 
+import { getDataFromStorage, mergeItem, delFavoriteLesFromStorage } from '../../services';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, icon: string }) => {
@@ -17,14 +17,14 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
       if (topic_name) {
         let lessons = {
           [data.wordGroupName]: {
-            image_les: data.image_les, 
-            num_word: data.num_word, 
-            vn_meaning: data.vn_meaning, 
-            topic_name: topic_name, 
+            image_les: data.image_les,
+            num_word: data.num_word,
+            vn_meaning: data.vn_meaning,
+            topic_name: topic_name,
             wordGroupName: data.wordGroupName
           }
         }
-        mergeItem('favoriteLessons', JSON.stringify(lessons)); 
+        mergeItem('favoriteLessons', JSON.stringify(lessons));
         getDataFromStorage('favoriteLessons')
       } else {
         console.log('[WordGroupCard] topic_name errors for set.')
@@ -33,7 +33,7 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
     else if (colorStar == 'star') {
       setColorStar('staro');
       // Handel delele Object
-      delFavoriteLesFromStorage(data.wordGroupName); 
+      delFavoriteLesFromStorage(data.wordGroupName);
     }
   };
   const onPress = () => {
@@ -45,10 +45,10 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
 
   const goPracticeTest = () => {
     navigation.navigate('PracticeTestScreen', { topicName: topic_name, lessonName: data.wordGroupName });
-  }; 
+  };
 
   const goGameChallenge = () => {
-    navigation.navigate('GameChallengeScreen', { topicName: topic_name, lessonName: data.wordGroupName }); 
+    navigation.navigate('GameChallengeScreen', { topicName: topic_name, lessonName: data.wordGroupName });
   }
 
   return (
@@ -68,25 +68,24 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
               style={styles.img}
             />
           </View>
-
-          <View style={{ alignItems: 'center', top: 15 }}>
+          <View>
+            <Text style={styles.textWordGroupName}>
+              {data.wordGroupName}
+            </Text>
+            <Text style={styles.textVnMeaning}>
+              {data.vn_meaning}
+            </Text>
+            <Text style={styles.textExplain}>
+              Giúp bạn nắm vững {data.num_word} từ liên quan đến
+             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 15 }}> {data.vn_meaning}</Text> trong tiếng anh
+          </Text>
           </View>
-          <Text style={styles.textWordGroupName}>
-            {data.wordGroupName}
-          </Text>
-          <Text style={styles.textVnMeaning}>
-            {data.vn_meaning}
-          </Text>
-          <Text style={styles.textExplain}>
-            Giúp bạn nắm vững {data.num_word} từ liên quan đến
-             <Text style={{ fontStyle: 'italic', fontWeight: 'bold', textTransform: 'uppercase', fontSize: 18 }}> {data.vn_meaning}</Text> trong tiếng anh
-          </Text>
         </Card>
       </View>
       <View style={styles.viewTool}>
         {/* <View style={styles.viewIcon}> */}
         <TouchableOpacity style={styles.viewIcon} onPress={onFlipCard}>
-          <IconFeather 
+          <IconFeather
             style={styles.iconTool}
             name='copy'
           />
@@ -94,14 +93,14 @@ const CardWordGroup = (props: { data?: any; navigation?: any, topic_name: any, i
         {/* </View> */}
         <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 5 }}></View>
         <TouchableOpacity style={styles.viewIcon} onPress={goPracticeTest}>
-          <IconFeather 
+          <IconFeather
             style={styles.iconTool}
             name='edit'
           />
         </TouchableOpacity>
         <View style={{ borderWidth: 0.25, borderColor: 'white', width: 25, marginTop: 3, marginBottom: 5 }}></View>
         <TouchableOpacity style={styles.viewIcon} onPress={goGameChallenge}>
-          <IconFontAwesome5 
+          <IconFontAwesome5
             style={styles.iconTool}
             name='medal'
           />

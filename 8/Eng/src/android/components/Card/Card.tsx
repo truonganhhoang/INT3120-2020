@@ -35,7 +35,7 @@ const CardExtend = (props: {
           </View>
         </View>
       </Card> */}
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", width: WIDTH - 10, margin: 5, position: 'relative' }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", width: '100%',marginBottom:5, position: 'relative' }}>
         <View style={{ backgroundColor: "#eee", borderRadius: 10, overflow: "hidden" }}>
           <View style={{justifyContent:'center'}}>
             <View style={{zIndex: 0}}>
