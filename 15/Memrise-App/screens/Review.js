@@ -27,6 +27,8 @@ const treeArr = [tree0, tree1, tree2, tree3, tree4, tree5];
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
 
+
+// export default class Review extends React.Component {
 export default function Review({ navigation, route }) {
 
 
@@ -43,9 +45,11 @@ export default function Review({ navigation, route }) {
 
     let index = Math.floor(Math.random() * listAnswer.length);
     let question = listAnswer[index]
-    
+    // let answer =  question.get()
+
     const numberQuestion = 5;
-    let indexNow = 0;
+    let questionNow = 1;
+
   return (
     <View style={styles.container}>
       <View style={styles.DetailsBox}>
@@ -59,7 +63,7 @@ export default function Review({ navigation, route }) {
           <Image style={styles.WordImage} source={tree4} />
 
           <View styles={styles.ThunderWater}>
-            <Image style={styles.ThunderImage} source={thunder} />
+            {/* <Image style={styles.ThunderImage} source={thunder} /> */}
             {/* <Image  style={styles.WaterImage}  source ={water}/> */}
           </View>
         </View>
@@ -77,7 +81,7 @@ export default function Review({ navigation, route }) {
         numColumns={2}
         renderItem={({ item }) => 
           <View style={styles.wrapper}>
-            <Learning wordLearning={item}/>
+            <Learning wordLearning={item} />
           </View>
         }
         keyExtractor = {item => `${item.id}`} 

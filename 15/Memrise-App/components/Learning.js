@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         height: 100
     },
     text: {
-        //alignItems: 'center',
         fontSize: 16,
         color: '#4B4B4B',
         flex: 1

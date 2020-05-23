@@ -1,56 +1,22 @@
 import "react-native-gesture-handler";
 import React from 'react';
-import { StyleSheet, Text, View ,Button} from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Courses from './screens/Courses' ;
-import ListWord from './screens/ListWords';
-import WordDetail from './screens/WordDetail';
-import AddMem from './screens/AddMem';
-import Review from './screens/Review';
+import AppNavigator from './AppNavigator';
 
 const Stack = createStackNavigator();
 
-export default function App() {
-  return (
-    <NavigationContainer  style = {styles.container}>
-      <Stack.Navigator initialRouteName="Courses"  > 
-       
-       <Stack.Screen name="Courses" component={Courses} 
-        options={{ 
-          title: 'Course' ,
-          headerStyle:{
-            backgroundColor:'#0ab',
-          },
-          headerRight: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Info"
-              color="#fff"
-            />
-          )
-
-        }}
-        // initialParams={{ itemId: 42 }}
-        
-        /> 
-
-
-        <Stack.Screen name ='ListWord' component={ListWord}
-            options ={{
-              title: 'List Words' ,
-            }}
-        /> 
-        <Stack.Screen name ='WordDetail' component={WordDetail} /> 
-        <Stack.Screen name ='AddMem' component={AddMem} /> 
-        <Stack.Screen name ='Review' component={Review} /> 
-      </Stack.Navigator>
-      
-  </NavigationContainer>
-  );
-
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigationContainer style={styles.container}>
+        <AppNavigator />
+      </NavigationContainer>
+    );
+  }
 }
 
 
