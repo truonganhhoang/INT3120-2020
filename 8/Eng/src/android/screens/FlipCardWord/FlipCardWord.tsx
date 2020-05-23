@@ -21,7 +21,7 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
   const wordsOfLesson = database.ref('/topic_detail/' + 
   lessonInfo.topicName + '/lessons_detail/' + lessonInfo.lessonName); 
   const [Data, setData] = useState({ status: 'loading' });
-  const [state, setState] = useState(0);
+  const [state, setState] = useState(lessonInfo.keyW);
   const [favoriteWords, setFavoriteWords] = useState({ keys: [""] })
   const getFavoriteWords = async() => {
     try {
@@ -40,6 +40,7 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
   useEffect(() => {
     setData({ status: 'loading' })
     setFavoriteWords({ keys: [''] })
+    setState(lessonInfo.keyW)
     wordsOfLesson.on('value', function (snapshot: any) {
       if (snapshot.val()) {
         setData(snapshot.val());
@@ -124,6 +125,7 @@ const FlipCardWord = (props: { navigation?: any, route?: any }) => {
           scrollInterpolator={scrollInterpolator}
           slideInterpolatedStyle={animatedStyles}
           useScrollView={true}
+          firstItem={lessonInfo.keyW}
         />
         <Text style={styles.counter}>
           {state + 1}/{listWords.length}

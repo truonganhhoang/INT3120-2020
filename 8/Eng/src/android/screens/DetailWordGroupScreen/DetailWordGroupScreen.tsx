@@ -66,21 +66,27 @@ const Screen = (props: { navigation?: any; route?: any }) => {
   }
   else {
     const words: any = [];
+    let i = 0
     for (let [key, value] of Object.entries(data)) {
       words.push(value); 
+      words[i].key = i
+      i++
     }
+    console.log('[Detail Word Group Screen] render')
+    console.log(words)
     return (
       <SafeAreaView style={styles.container}>
         <FlatList 
           data={words}
           renderItem={({ item }) => {
             if ( favoriteWords.keys.includes(item.en_meaning) ){
-              console.log('[DetailWordGroupScreen] favorite word: ' + item.en_meaning)
               return (
                 <WordCard data={item}
                   icon="star"
-                  key={item.en_meaning}
+                  key={item.key}
+                  keyW={item.key}
                   lessonInfo={lessonInfo}
+                  navigation={navigation}
                 />
               )
             }
@@ -88,8 +94,10 @@ const Screen = (props: { navigation?: any; route?: any }) => {
               return (
                 <WordCard data={item}
                   icon="staro"
-                  key={item.en_meaning}
+                  key={item.key}
+                  keyW={item.key}
                   lessonInfo={lessonInfo}
+                  navigation={navigation}
                 />
               )
             }

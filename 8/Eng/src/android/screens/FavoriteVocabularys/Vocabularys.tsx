@@ -7,13 +7,16 @@ import styles from './styles';
 
 const Vocabularys = () => {
   const [load, setLoad] = useState(true)
-  const [dataWord, setDataWord] = useState([{lessonName: '', topicName: '', en_meaning: ''}])
+  const [dataWord, setDataWord] = useState([{lessonName: '', topicName: '', en_meaning: '', key: 0}])
 
   const updateFavorite = (err: any, result: any) => {
     let data = JSON.parse(result)
     let words: any = [];
+    let i = 0; 
     for (let [key, value] of Object.entries(data)) {
       words.push(value); 
+      words[i].key = i
+      i++
     }
     setDataWord(words)
     setLoad(false)
@@ -56,7 +59,7 @@ const Vocabularys = () => {
             return (
               <WordCard data={item}
                 icon="star"
-                key={item.en_meaning}
+                key={item.key}
                 lessonInfo={lessonInfo}
                 remove={remove}
               />

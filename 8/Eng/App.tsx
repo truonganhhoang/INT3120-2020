@@ -13,12 +13,13 @@ import { MyApp } from './src/android/navigation';
 import firebase from 'firebase'; 
 import firebaseConfig from './src/android/constants/firebaseConfig'; 
 import { getDataFromStorage, storeDataToStorage } from './src/android/services'; 
-import { AsyncStorage } from 'react-native'; 
+// import { AsyncStorage, View, Text } from 'react-native'; 
 
 const App = () => {
   if (!firebase.apps.length){
     firebase.initializeApp(firebaseConfig); 
   }
+
   const check = async () => {
     let lessons = await getDataFromStorage('favoriteLessons'); 
     if (lessons == null) {
