@@ -14,8 +14,7 @@ import WordContainer from "../components/WordContainer";
 
 import sample from "../Data";
 
-
-export default function listWord( { navigation, route } ) {
+export default function listWord({ navigation, route }) {
   // React.useEffect(() => {
   //   if (route.params?.post) {
   //     // Post updated, do something with `route.params.post`
@@ -24,7 +23,6 @@ export default function listWord( { navigation, route } ) {
   // }, [route.params?.post]);
   return (
     <View style={styles.container}>
-
       <WordContainer objWord={sample.listWordData[1]} hideMean={false} />
 
       <View style={styles.Mem}>
@@ -54,9 +52,7 @@ export default function listWord( { navigation, route } ) {
             - Nguyễn Văn A
           </Text>
         </View>
-
       </View>
-      
     </View>
   );
 }

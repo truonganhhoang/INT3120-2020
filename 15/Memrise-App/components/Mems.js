@@ -4,7 +4,7 @@ import { StyleSheet,Text, View, Button } from "react-native";
 function Mems() {
   return (
     <View style={styles.Mem}>
-    
+         <Text style ={ {textAlign:'center' , fontSize:20 , fontWeight:'50' ,color:'blue', marginBottom :30} }>Let's us help you Remember</Text>
 
       <View style={styles.MemText}>
         <Text>tu nay nen nghe nhu nay </Text>

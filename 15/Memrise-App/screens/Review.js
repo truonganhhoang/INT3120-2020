@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  FlatList,
-  Button,
-} from "react-native";
-import * as Progress from 'react-native-progress';
+import { StyleSheet, View, Dimensions, FlatList, Button } from "react-native";
+import * as Progress from "react-native-progress";
 import WordContainer from "../components/WordContainer";
 import ReviewWord from "../components/ReviewWord";
 import Mems from "../components/Mems";
@@ -15,13 +8,7 @@ import Mems from "../components/Mems";
 const screenHeight = Math.round(Dimensions.get("window").height);
 const screenwidth = Math.round(Dimensions.get("window").width);
 var testData = [
-  {
-    id: 1,
-    word: "ありがとう",
-    mean: "cảm ơn ",
-    miss: false,
-    level: 0,
-  },
+  { id: 1, word: "ありがとう", mean: "cảm ơn ", miss: false, level: 0 },
   { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
   { id: 3, word: "野菜", mean: "rau", miss: true, level: 1 },
   { id: 4, word: "指輪", mean: "nhẫn", miss: true, level: 2 },
@@ -30,7 +17,7 @@ var testData = [
   { id: 7, word: "物", mean: "vât", miss: true, level: 4 },
   { id: 8, word: "庭鶏", mean: "con gà", miss: true, level: 4 },
   { id: 9, word: "犬", mean: "cho", miss: true, level: 4 },
-  { id: 10, word: "ミカン", mean: "mit", miss: true, level: 4 },
+  { id: 10, word: "ミカン", mean: "quyt", miss: true, level: 4 },
 ];
 
 function shuffle(array) {
@@ -60,69 +47,97 @@ export default function Review({ navigation, route }) {
       arr.push("waiting");
     });
     return arr;
-  }); // mau cho cac oo
+  }); // Set white for all choice's Box
 
-  const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hocj
-  const [trueAnswer, setTrueAnswer] = useState(reviews[reviews.length - 1]);// tu duoc chon
-  const [choices, setChoices] = useState();// mang chua nhung tu hien ra
-  const [hideMean, setHideMean] = useState(true);//sau khi tra loi hien nghia
-  const [isYourAnswerIstrue, setIsYourAnswerIstrue] = useState(true); // minh chon dap an dung hay sai
-
-  useEffect(() => {
-    
-    setTrueAnswer( reviews[reviews.length - 1]);
-    // loc true answer ra
-    let falseAnser = testData.filter(
-      (idex) => idex.id !== trueAnswer.id
-    );
+  const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hoc
+  const [trueAnswer, setTrueAnswer] = useState(reviews[reviews.length - 1]); // tu duoc chon
+  const [choices, setChoices] = useState(() => {
+    let falseAnser = testData.filter((idex) => idex.id !== trueAnswer.id);
     shuffle(falseAnser);
     let choiceArray = [...falseAnser.slice(0, 5)];
     choiceArray.push(trueAnswer);
     shuffle(choiceArray);
-
-    setChoices(choiceArray);
-  }, [reviews]);
+    return choiceArray;
+  }); // mang chua nhung tu hien ra
+  const [hideMean, setHideMean] = useState(true); //sau khi tra loi hien nghia
+  const [hideMemScreen, setHideMemScreen] = useState(true); // minh chon dap an dung hay sai
 
   function handleOnPress(objWord, index) {
     if (objWord.id === trueAnswer.id) {
+      //update green for choice's box which is true
       var box = [
         ...check.slice(0, index),
         "correct",
         ...check.slice(index + 1),
       ];
+      setCheck(box);
+
       // update  word's level
 
-      setCheck(box);
+      //----------------------
+      //show mean of the word
       setHideMean(false);
     } else {
-      var box = [
+      let box = [
         ...check.slice(0, index),
         "incorrect",
         ...check.slice(index + 1),
       ];
+
       setCheck(box);
       setHideMean(false);
-      setTimeout(()=>(setIsYourAnswerIstrue(false)),1000);
-      
+
+      setTimeout(() => setHideMemScreen(false), 1500);
+
     }
   }
 
   // Review next's word
-  function onPressNextWord(){
-      let tempReview = reviews.filter( ele =>  ele.id !== trueAnswer.id  );
-      setReviews(tempReview);
-      setIsYourAnswerIstrue(true);
+  function onPressNextWord() {
+    if (hideMemScreen === false) {
+      setHideMemScreen(true);
       setCheck(() => {
         let arr = [];
         testData.forEach(() => {
           arr.push("waiting");
         });
         return arr;
-      })
-      setHideMean(true)
+      });
 
+      setHideMean(true);
+      setReviews(reviews);
+      setChoices(choiceArray);
+    } else {
+      //if your answer is True
+
+      // display choice box
+      setHideMemScreen(true);
+      // update all color of box is white
+      setCheck(() => {
+        let arr = [];
+        testData.forEach(() => {
+          arr.push("waiting");
+        });
+        return arr;
+      });
+
+      //update Reviews Array
+      reviews.pop();
+      let tempReviews = [...reviews];
+      let newTrueAnswer = reviews[reviews.length - 1];
+      setReviews(tempReviews);
+      //set True Anser
+      setTrueAnswer(newTrueAnswer);
+      // update choice Array
+      let falseAnser = testData.filter((idex) => idex.id !== newTrueAnswer.id);
+      shuffle(falseAnser);
+      let choiceArray = [...falseAnser.slice(0, 5)];
+      choiceArray.push(newTrueAnswer);
+      shuffle(choiceArray);
+      setChoices(choiceArray);
+      setHideMean(true);
+    }
   }
-
 
   const _renderItem = ({ item, index }) => {
     return (
@@ -137,20 +152,23 @@ export default function Review({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-    
-      <Progress.Bar progress={1-reviews.length/testData.length } width={screenwidth} />
+      <Progress.Bar
+        progress={1.00 - reviews.length / testData.length}
+        width={screenwidth}
+      />
       <WordContainer objWord={trueAnswer} hideMean={hideMean} />
 
-     {isYourAnswerIstrue && <FlatList
-        data={choices}
-        renderItem={_renderItem}
-        keyExtractor={(item) => `${item.id}`}
-        numColumns={2}
-        contentContainerStyle={styles.ReviewContainer}
-        scrollEnabled={false}
-      />||
-       <Mems/> }
-     
+      {(hideMemScreen && (
+        <FlatList
+          data={choices}
+          renderItem={_renderItem}
+          keyExtractor={(item) => `${item.id}`}
+          numColumns={2}
+          contentContainerStyle={styles.ReviewContainer}
+          scrollEnabled={false}
+        />
+      )) || <Mems />}
+
       <View style={styles.footer}>
         <Button
           onPress={onPressNextWord}
@@ -159,7 +177,6 @@ export default function Review({ navigation, route }) {
           style={styles.NextButton}
         />
       </View>
-
     </View>
   );
 }
@@ -176,10 +193,9 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     paddingTop: 0,
   },
-  NextButton: {},
   footer: {
     position: "absolute",
-    top: screenHeight - 180,
+    top: screenHeight - 150,
     paddingLeft: 50,
   },
   Mem: {
