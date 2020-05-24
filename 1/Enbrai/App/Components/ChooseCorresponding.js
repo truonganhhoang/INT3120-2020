@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Dimensions, TouchableOpacity, ProgressBarAndroid } from 'react-native'
+import { View, Text, Dimensions, ProgressBarAndroid } from 'react-native'
 import { withNavigation } from 'react-navigation';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 const ChooseCorresponding = (props) => {
 
@@ -68,7 +69,7 @@ const ChooseCorresponding = (props) => {
         <Text style={{ color: '#6E6E6E', fontSize: 18 }}>Chọn các từ và bản dịch theo cặp</Text>
       </View>
       <View style={{
-        flex: 7, 
+        flex: 3, 
         display: 'flex', 
         flexDirection: 'row',
         justifyContent: 'center',
@@ -76,7 +77,7 @@ const ChooseCorresponding = (props) => {
         flexWrap: 'wrap',
         width: widthW > 350 ? 350 : widthW }}>
         {list.map((i, index) => {
-          return  <TouchableOpacity flex={1} onPress={() => {handleItemSelected(i, index)}}>
+          return (<TouchableWithoutFeedback style={{position: 'relative'}} hitSlop={{top: 20, left: 20, right: 20, bottom: 20}} onPress={() => handleItemSelected(i, index)}>
             <Text style={{ 
               paddingLeft: 15,
               borderColor: borderColor[index],
@@ -92,7 +93,7 @@ const ChooseCorresponding = (props) => {
               textAlign: 'center',
               textAlignVertical: 'center'
               }}>{i}</Text>
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>)
         })}
       </View>
 
@@ -101,7 +102,7 @@ const ChooseCorresponding = (props) => {
           styleAttr="Horizontal"
           indeterminate={false}
           progress={0/17}
-          color='#000000'
+          color='#6E6E6E'
           style={{ transform: [{ scaleX: 1.0 }, { scaleY: 2.5 }], width: widthW*0.8, borderRadius: 5, flex: 2 }}
         />
         <Text style={{flex: 2}}>{`${a} / 17`}</Text>
