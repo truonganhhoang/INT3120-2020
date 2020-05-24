@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DictionaryFragment dictionaryFragment;
     BookmarkFragment bookmarkFragment;
+    TranslateFragment translateFragment;
 
     EditText edit_search;
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         dictionaryFragment = new DictionaryFragment();
         bookmarkFragment = BookmarkFragment.getNewInstance(dbHelper);
+        translateFragment = TranslateFragment.getNewInstance();
         goToFragment(dictionaryFragment, true);
 
         dictionaryFragment.setOnFragmentListener(new FragmentListener() {
@@ -174,7 +176,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if (id == R.id.nav_voice) {
-            speak();
+            String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
+            if (!activeFragment.equals(TranslateFragment.class.getSimpleName())) {
+                goToFragment(translateFragment, false);
+            }
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -182,38 +188,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void speak() {
-        //intent to show speech to text dialog
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Hi speak something");
-
-        //start intent
-        try {
-            //show dialog
-            startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
-        } catch (Exception e) {
-            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch (requestCode) {
-            case REQUEST_CODE_SPEECH_INPUT:{
-                if (resultCode == RESULT_OK && null!=data) {
-                    //get text array from voice intent
-                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    String value = result.get(0);
-                    goToFragment(DetailFragment.getNewInstance(value, dbHelper), false);
-                }
-                break;
-            }
-        }
-    }
 
     void goToFragment(Fragment fragment, boolean isTop) {
         FragmentManager fragmentManager = getSupportFragmentManager();
