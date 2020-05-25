@@ -70,7 +70,7 @@ const HomeSetting = props=> {
     return (
       <View style={{flex: 1, backgroundColor: '#fff'}}>
         <StatusBar
-          backgroundColor="#0592D2"
+          backgroundColor="#0288D1"
           barStyle="light-content"></StatusBar>
         <TouchableOpacity
           style={{

@@ -62,7 +62,8 @@ const pushParts = (userId) =>{
             name:item.name,
             levelCount:item.levelCount,
             levelCompleteCount:item.levelCompleteCount,
-            lock: item.lock
+            lock: item.lock,
+            isPartComplete: item.isPartComplete
           })
           pushLevels(userId,item.id)
         }
@@ -71,7 +72,7 @@ const pushParts = (userId) =>{
     
   });
 }
-const pushLevels = (userId,parId) =>{
+const pushLevels = (userId,partId) =>{
   var db = SQLite.openDatabase(
     {
       name: 'dataResult.db',
@@ -84,25 +85,26 @@ const pushLevels = (userId,parId) =>{
   db.transaction(tx => {
     tx.executeSql(
       'SELECT * FROM Levels where partId = ?',
-      [parId],
+      [partId],
       async (tx, res) => {
         var results = res.rows;
         for (let i = 0; i < results.length; i++) {
           var item = results.item(i);
-          firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${parId}`).child('levels').child(`${item.id}`).set({
+          firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').child(`${item.id}`).set({
             id:item.id,
             partId:item.partId,
             questCount:item.questCount,
             questCompleteCount:item.questCompleteCount,
-            lock: item.lock
+            lock: item.lock,
+            isLevelComplete: item.isLevelComplete
           })
-          pushQuestions(userId,parId,item.id)
+          pushQuestions(userId,partId,item.id)
         }
       },
     ); 
   })
 }
-const pushQuestions = (userId,parId,levelId) =>{
+const pushQuestions = (userId,partId,levelId) =>{
   var db = SQLite.openDatabase(
     {
       name: 'dataResult.db',
@@ -112,6 +114,7 @@ const pushQuestions = (userId,parId,levelId) =>{
     openDB,
     errorDB,
   );
+  console.log("hello")
   db.transaction(tx => {
     tx.executeSql(
       'SELECT * from Questions WHERE partId = ? AND levelId= ?; ',
@@ -120,16 +123,50 @@ const pushQuestions = (userId,parId,levelId) =>{
         var results = res.rows;
         for (let i = 0; i < results.length; i++) {
           var item = results.item(i);
-          firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${parId}`).child('levels').child(`${levelId}`).child('questions').child(`${item.id}`).set({
+          firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').child(`${levelId}`).child('questions').child(`${item.id}`).set({
             id:item.id,
             partId:item.partId,
             levelId:item.levelId,
             isReview:item.isReview,
             isCorrect:item.isCorrect,
           })
+          console.log('item')
         }
       },
     ); 
   })
 }
-export {requestGET, connectSQLite,pushParts}
+const updateQuestions = (userId,partId,levelId) =>{
+  var db = SQLite.openDatabase(
+    {
+      name: 'dataResult.db',
+      createFromLocation: '~www/Result.db',
+      location: 'Library',
+    },
+    openDB,
+    errorDB,
+  );
+  console.log("hello")
+  db.transaction(tx => {
+    tx.executeSql(
+      'SELECT * from Questions WHERE partId = ? AND levelId= ?; ',
+      [parId,levelId],
+      async (tx, res) => {
+        var results = res.rows;
+        for (let i = 0; i < results.length; i++) {
+          var item = results.item(i);
+          var temp = {
+            id:item.id,
+            partId:item.partId,
+            levelId:item.levelId,
+            isReview:item.isReview,
+            isCorrect:item.isCorrect,
+          }
+          firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').child(`${levelId}`).child('questions').child(`${item.id}`).update({temp})
+          console.log('item')
+        }
+      },
+    ); 
+  })
+}
+export {requestGET, connectSQLite,pushParts, pushQuestions, updateQuestions}

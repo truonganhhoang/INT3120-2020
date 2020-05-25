@@ -17,6 +17,7 @@ import EmptyFlatlist from './EmtyFlatList';
 import * as Animatable from 'react-native-animatable';
 const SelectSection = props => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async()=>{
       var userId = firebase.auth().currentUser.uid;
@@ -30,6 +31,7 @@ const SelectSection = props => {
                   levelCompleteCount: temp.levelCompleteCount,
                   levelCount : temp.levelCount,
                   name : temp.name,
+                  isPartComplete: temp.isPartComplete
               }
               data1.push(item)
             })
@@ -46,7 +48,7 @@ const SelectSection = props => {
   }
   return (
     <View style={{flex: 1}}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <View
         style={{
           flex: 0.8,
@@ -98,6 +100,7 @@ const SelectSection = props => {
                 >
                 <TouchableOpacity onPress={()=>{handlePress(item.item.id) }}>
                 <View style={{paddingLeft: 20}}>
+                  <View style={{flexDirection: 'row', justifyContent:'space-between', paddingRight:10}}>
                   <Text
                     style={{
                       fontSize: 22,
@@ -106,6 +109,14 @@ const SelectSection = props => {
                     }}>
                     {item.item.name}
                   </Text>
+                  <Icon
+                  name="check-circle"
+                  size={item.item.isPartComplete=="No"?0:25}
+                  color="#4CAF50"
+                  containerStyle={{}}
+                  onPress={() => props.navigation.goBack()}
+                />
+                  </View>
                   <Text style={{marginTop: 10, fontSize: 16, marginBottom: 10}}>
                     Hoàn thành: {item.item.levelCompleteCount}/
                     {item.item.levelCount}
@@ -132,7 +143,6 @@ const SelectSection = props => {
                   >
                   <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>
-                
               </TouchableOpacity>
               </Animatable.View>
             )}

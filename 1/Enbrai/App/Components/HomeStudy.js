@@ -28,7 +28,7 @@ const HomeStudy = (props) => {
     if (isReady) {
         return (
             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+                <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
                 <LinearGradient
                     style={styles.linearGradient}
                     colors={['#0592D2', '#39D57F']}
@@ -48,7 +48,7 @@ const HomeStudy = (props) => {
     } else {
         return (
             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+                <StatusBar backgroundColor='#1976D2' barStyle='light-content'></StatusBar>
                 <LinearGradient
                     style={styles.linearGradient}
                     colors={['#0592D2', '#39D57F']}
