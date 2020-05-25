@@ -9,14 +9,12 @@ import AppNavigator from './AppNavigator';
 
 const Stack = createStackNavigator();
 
-export default class App extends React.Component {
-  render() {
+export default function App() {
     return (
       <NavigationContainer style={styles.container}>
         <AppNavigator />
       </NavigationContainer>
     );
-  }
 }
 
 

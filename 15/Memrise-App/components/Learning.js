@@ -2,12 +2,14 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Learning(props) {
-    const { word, mean } = props.wordLearning;
+    const { wordLearning, onPress, findId } = props;
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+            onPress(wordLearning.id)
+        }}>
             <View style={styles.shadow}>
                 <View style={styles.container}>
-                    <Text style={styles.text}>{mean}</Text>
+                    <Text style={styles.text}>{wordLearning.mean}</Text>
                 </View>
             </View>
         </TouchableOpacity>

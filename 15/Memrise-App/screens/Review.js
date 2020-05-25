@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -33,25 +33,28 @@ export default function Review({ navigation, route }) {
 
 
   //function randomAnswer() {
-    let listTemp = JSON.parse(JSON.stringify(sample.listWordData))
+  let listTemp = JSON.parse(JSON.stringify(sample.listWordData))
 
-    let listAnswer = []
+  let listAnswer = []
 
-    for (let i = 0; i < 4; i++) {
-      let rd = Math.floor(Math.random() * listTemp.length);
-      listAnswer.push(listTemp[rd]);
-      listTemp.splice(rd, 1);
-    }
+  for (let i = 0; i < 4; i++) {
+    let rd = Math.floor(Math.random() * listTemp.length);
+    listAnswer.push(listTemp[rd]);
+    listTemp.splice(rd, 1);
+  }
 
-    let index = Math.floor(Math.random() * listAnswer.length);
-    let question = listAnswer[index]
-    // let answer =  question.get()
+  let index = Math.floor(Math.random() * listAnswer.length);
+  let question = listAnswer[index]
+  // let answer =  question.get()
 
-    const numberQuestion = 5;
-    let questionNow = 1;
+  const numberQuestion = 5;
+  const questionCurrent = useState(1);
 
   return (
     <View style={styles.container}>
+      <View style={styles.questionCurrent}>
+        <Text>of 10</Text>
+      </View>
       <View style={styles.DetailsBox}>
         <View style={styles.WordContainer}>
           <Text style={styles.Word}>{question.word}</Text>
@@ -74,22 +77,40 @@ export default function Review({ navigation, route }) {
       </View> */}
 
 
-      
+
 
       <FlatList
         data={listAnswer}
         numColumns={2}
-        renderItem={({ item }) => 
+        renderItem={({ item }) =>
           <View style={styles.wrapper}>
-            <Learning wordLearning={item} />
+            <Learning wordLearning={item} onPress={(value) => {
+              console.log('Parent component');
+              console.log(value);
+
+
+              console.log(question.mean);
+              if (value === question.id) {
+                alert("true");
+                // this.setState( { questionCurrent: this.state.questionCurrent + 1 } )
+                
+                
+              }
+              
+              // console.log(this.state.questionCurrent);
+            }}
+            />
           </View>
         }
-        keyExtractor = {item => `${item.id}`} 
+        keyExtractor={item => `${item.id}`}
         contentContainerStyle={styles.containerFlatList}
       />
-      
+
     </View>
   );
+
+
+
 }
 
 //styled componet
@@ -168,10 +189,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 1.0,
   },
   wrapper: {
-    flex: 1, 
+    flex: 1,
     paddingTop: 8
   },
   containerFlatList: {
     paddingHorizontal: 8
+  },
+  questionCurrent: {
+    fontSize: 16, textAlign: "right"
   }
 });
