@@ -131,31 +131,49 @@ public class TranslateFragment extends Fragment {
             case "vi":
                 langCode = FirebaseTranslateLanguage.VI;
                 break;
-                default:
-                    langCode = 0;
             case "en":
                 langCode = FirebaseTranslateLanguage.EN;
                 break;
+                default:
+                    langCode = 11;
         }
 
         translateText(langCode);
     }
 
     private void translateText(int langCode) {
-        FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.EN).build();
-        final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
-        FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
-        translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
-                    @Override
-                    public void onSuccess(String s) {
-                        transText.setText(s);
-                    }
-                });
-            }
-        });
+        if (langCode == 57) {
+            FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.EN).build();
+            final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
+            FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
+            translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            transText.setText(s);
+                        }
+                    });
+                }
+            });
+        }
+        else if (langCode == 11) {
+            FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.VI).build();
+            final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
+            FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
+            translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            transText.setText(s);
+                        }
+                    });
+                }
+            });
+        }
 
     }
 
