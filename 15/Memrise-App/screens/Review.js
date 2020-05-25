@@ -106,7 +106,7 @@ export default function Review({ navigation, route }) {
 
       setHideMean(true);
       setReviews(reviews);
-      setChoices(choiceArray);
+      
     } else {
       //if your answer is True
 
