@@ -23,10 +23,23 @@ export default function ListWord({ navigation }) {
 
   useEffect(()=>{
     // setSearchValue(searchValue)
-
+    // full text search owr day 
+    
   },[searchValue])
-  function onChangeText(value){
-      console.log(value)
+
+  function onChangeText(text){
+    text = text.toLocaleLowerCase().trim();
+    if (text ==''){
+
+      setList(listWordData);
+      return;
+    } 
+
+    let newList =list.filter( ls => {
+       ls.mean == text || ls.word == text
+    } );
+    setList(newList);
+
   }
   return (
     <View style={styles.container}>

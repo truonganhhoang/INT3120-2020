@@ -6,7 +6,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
+    "mock-server": "json-server ./mock-db/db.json"
+
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.7",
