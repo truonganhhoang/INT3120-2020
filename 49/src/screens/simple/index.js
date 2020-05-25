@@ -91,7 +91,7 @@ class Simple extends Component {
             </Button>
           </Left>
           <Body>
-            <Text>Các thì trong tiếng Anh</Text>
+            <Text style={{color:"white", fontWeight: "bold", fontSize: 20, marginLeft: -75}}>Các thì trong tiếng Anh</Text>
           </Body>
         </Header>
 

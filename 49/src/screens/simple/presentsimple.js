@@ -23,7 +23,7 @@ class PresentSimple extends Component {
             </Button>
           </Left>
           <Body>
-            <Text>Thì hiện tại đơn</Text>
+            <Text style={{color:"white", fontWeight: "bold", fontSize: 20, marginLeft: -75}}>Thì hiện tại đơn</Text>
           </Body>
         </Header>
 

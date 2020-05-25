@@ -31,21 +31,21 @@ const datas = [
   },
   {
     name: "Góp ý, ủng hộ 5*",
-    route: "Footer",
+    route: "Rate",
     icon: "arrow-down",
     bg: "#DA4437",
     //types: "4"
   },
   {
     name: "Ứng dụng khác",
-    route: "NHAccordion",
+    route: "OtherApp",
     icon: "repeat",
     bg: "#C5F442",
     //types: "5"
   },
   {
     name: "Học tiếng anh giao tiếp",
-    route: "Actionsheet",
+    route: "EnglishCommunicationApp",
     icon: "easel",
     bg: "#C5F442"
   }

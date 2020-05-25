@@ -9,7 +9,8 @@ import {
   Icon,
   Left,
   Right,
-  Body
+  Body,
+  Card
 } from "native-base";
 import Languages from './languages.json';
 import SpeechAndroid from 'react-native-android-voice';
@@ -74,16 +75,16 @@ export default class Translator extends Component {
                 </Button>
               </Left>
               <Body>
-                <Text>Tra từ, dịch văn bản</Text>
+                <Text style={{color:"white", fontWeight: "bold", fontSize: 20, marginLeft: -75}}>Tra từ, dịch văn bản</Text>
               </Body>
 
             </Header>
 
            <View style = {styles.container}>
-              <View style={styles.input}>
+              <Card style={styles.input}>
                   <TextInput
-                      style={{flex:1, height: 80}}
-                      placeholder="Enter Text"
+                      style={{flex:1, height: 80, fontSize: 15}}
+                      placeholder="Nhập văn bản"
                       underlineColorAndroid="transparent"
                       onChangeText = {inputText => this.setState({inputText})}
                       value={this.state.inputText}
@@ -91,7 +92,7 @@ export default class Translator extends Component {
                   <TouchableOpacity onPress={this._buttonClick}>
                       {this.state.micOn ? <Icon size={30} name="md-mic" style={styles.ImageStyle}/> : <Icon size={30} name="md-mic-off" style={styles.ImageStyle}/>}
                   </TouchableOpacity>
-              </View>
+              </Card>
               <Picker
               selectedValue={this.state.languageTo}
               onValueChange={ lang => this.setState({languageTo: lang, languageCode: lang})}
@@ -100,16 +101,16 @@ export default class Translator extends Component {
                       <Picker.Item label={Languages[key]} value={key} />
                   ))}
               </Picker>
-              <View style = {styles.output}>
+              <TouchableOpacity
+                style = {styles.submitButton}
+                onPress = {this.handleTranslate}>
+                <Text style = {styles.submitButtonText}> Dịch </Text>
+              </TouchableOpacity>
+              <Card style = {styles.output}>
                   {this.state.submit && <PowerTranslator text={this.state.inputText} />}
                   {/* onTranslationEnd={this.textToSpeech} */}
-              </View>
-              <TouchableOpacity
-                  style = {styles.submitButton}
-                  onPress = {this.handleTranslate}
-              >
-                  <Text style = {styles.submitButtonText}> Submit </Text>
-              </TouchableOpacity>
+              </Card>
+
           </View>
            </Container>
        )
@@ -144,13 +145,16 @@ const styles = StyleSheet.create({
       alignItems: 'center'
   },
   submitButton: {
-      backgroundColor: '#7a42f4',
+      backgroundColor: '#00bf00',
       padding: 10,
       margin: 15,
       borderRadius: 5 ,
       height: 40,
   },
   submitButtonText:{
-      color: 'white'
+      color: 'white',
+      fontWeight: "bold",
+      fontSize: 20,
+      textAlign: "center",
   },
 })
