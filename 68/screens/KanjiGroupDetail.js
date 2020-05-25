@@ -9,7 +9,7 @@ import KanjiCard from '../components/KanjiCard';
 
 export default class KanjiGroupDetail extends React.Component {
   static navigationOptions = () => ({
-    title: 'Kanji cơ bản 1',
+    title: 'Kanji chi tiết',
     headerTitleAlign: 'center',
     headerTitleStyle: {
       color: 'white',
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     flexDirection: 'row',
+    justifyContent: 'center',
     flexWrap: 'wrap'
   }
 });

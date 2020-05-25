@@ -3,8 +3,12 @@ import {
   Text,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from 'react-native';
+
+const deviceWidth = Dimensions.get('window').width;
+const screen = (percent) => (deviceWidth * percent) / 100;
 
 
 export default function KanjiCard(props) {
@@ -25,8 +29,8 @@ export default function KanjiCard(props) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    width: 107,
-    height: 150,
+    width: screen(30),
+    height: screen(45),
     backgroundColor: 'white',
     margin: 6,
     elevation: 3

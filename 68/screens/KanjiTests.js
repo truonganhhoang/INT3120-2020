@@ -9,7 +9,7 @@ import ProgressComponent from '../components/ProgressComponent';
 
 export default class KanjiTests extends React.Component {
   static navigationOptions = () => ({
-    title: 'Kanji cơ bản 1',
+    title: 'Kiểm tra kanji',
     headerTitleAlign: 'center',
     headerTitleStyle: {
       color: 'white',
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    justifyContent: "center",
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginHorizontal: 8,
