@@ -1,26 +1,47 @@
-import React from "react";
-import { StyleSheet, Text, View, FlatList, Dimensions, TextInput } from "react-native";
+import React, { useState,useEffect } from "react";
+
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  TextInput,
+} from "react-native";
 import Word from "../components/Word";
 
 import { Button } from "react-native-elements";
 
-import sample from "../Data";
-// const AppContainer = createAppContainer(AppNavigator);
+import {listWordData} from "../Data";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
 
 export default function ListWord({ navigation }) {
+  const [list, setList] = useState(listWordData);
+  const [searchValue, setSearchValue] = useState();
+
+  useEffect(()=>{
+    // setSearchValue(searchValue)
+
+  },[searchValue])
+  function onChangeText(value){
+      console.log(value)
+  }
   return (
     <View style={styles.container}>
-      <View style={{}}>{/* <Text> header </Text> */}</View>
-       <TextInput
-       style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom:30 }}
-      //  onChangeText={text => onChangeText(text)}
-      //  value={value}
-       />
+      <TextInput
+        style={{
+          height: 40,
+          borderColor: "gray",
+          borderWidth: 1,
+          marginBottom: 30,
+        }}
+         onChangeText={text => onChangeText(text)}
+         value={searchValue}
+      />
       <FlatList
-        data={sample.listWordData}
+        data={list}
         renderItem={({ item }) => (
           <Word unit={item} onPress={() => navigation.navigate("WordDetail")} />
         )}
@@ -34,7 +55,6 @@ export default function ListWord({ navigation }) {
           style={styles.review}
           onPress={() => navigation.navigate("Review")}
         >
-         
           Review now !!!
         </Text>
       </View>
@@ -45,7 +65,7 @@ export default function ListWord({ navigation }) {
 //styled componet
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal:20,
+    paddingHorizontal: 20,
     width: "100%",
     flex: 1,
     backgroundColor: "#fff",

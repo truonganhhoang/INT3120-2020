@@ -47,7 +47,7 @@ export default function Review({ navigation, route }) {
       arr.push("waiting");
     });
     return arr;
-  }); // Set white for all choice's Box
+  }); 
 
   const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hoc
   const [trueAnswer, setTrueAnswer] = useState(reviews[reviews.length - 1]); // tu duoc chon
