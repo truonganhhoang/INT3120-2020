@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DictionaryFragment dictionaryFragment;
     BookmarkFragment bookmarkFragment;
+    HistoryFragment historyFragment;
     TranslateFragment translateFragment;
 
     EditText edit_search;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dictionaryFragment = new DictionaryFragment();
         bookmarkFragment = BookmarkFragment.getNewInstance(dbHelper);
         translateFragment = TranslateFragment.getNewInstance();
+        historyFragment = HistoryFragment.newInstance(dbHelper);
         goToFragment(dictionaryFragment, true);
 
         dictionaryFragment.setOnFragmentListener(new FragmentListener() {
@@ -81,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             void onItemClick(String value) {
 //                String id = Global.getState(MainActivity.this, "dic_type");
 //                int dicType = id == null ? R.id.action_eng_vi : Integer.valueOf(id);
-
+                Word word = dbHelper.getWord(value);
+                dbHelper.addHistory(word);
                 goToFragment(DetailFragment.getNewInstance(value, dbHelper), false);
             }
         });
@@ -91,6 +94,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             void onItemClick(String value) {
 //                String id = Global.getState(MainActivity.this, "dic_type");
 //                int dicType = id == null ? R.id.action_eng_vi : Integer.valueOf(id);
+                goToFragment(DetailFragment.getNewInstance(value, dbHelper), false);
+            }
+        });
+
+        historyFragment.setOnFragmentListener(new FragmentListener(){
+            @Override
+            void onItemClick(String value) {
                 goToFragment(DetailFragment.getNewInstance(value, dbHelper), false);
             }
         });
@@ -129,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreateOptionsMenu(menu);
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        menuSetting = menu.findItem((R.id.action_settings));
+        //menuSetting = menu.findItem((R.id.action_settings));
 
 //        String id = Global.getState(this, "dic_type");
 //        if (id != null) {
@@ -175,6 +185,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
+        if (id == R.id.nav_history){
+            String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
+            if (!activeFragment.equals(HistoryFragment.class.getSimpleName())) {
+                goToFragment(historyFragment, false);
+            }
+        }
+
+        if (id == R.id.nav_translate){
+            String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
+            if (!activeFragment.equals(DictionaryFragment.class.getSimpleName())) {
+                goToFragment(dictionaryFragment, false);
+            }
+        }
+
         if (id == R.id.nav_voice) {
             String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
             if (!activeFragment.equals(TranslateFragment.class.getSimpleName())) {
@@ -204,11 +228,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onPrepareOptionsMenu(Menu menu) {
         String activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container).getClass().getSimpleName();
         if (activeFragment.equals(BookmarkFragment.class.getSimpleName())) {
-            menuSetting.setVisible(false);
+            //menuSetting.setVisible(false);
             toolbar.findViewById(R.id.edit_search).setVisibility(View.GONE);
             toolbar.setTitle("Bookmark");
-        } else {
-            menuSetting.setVisible(true);
+        } else if(activeFragment.equals(HistoryFragment.class.getSimpleName())) {
+                //menuSetting.setVisible(false);
+                toolbar.findViewById(R.id.edit_search).setVisibility(View.GONE);
+                toolbar.setTitle("History");
+        }
+        else {
+            //menuSetting.setVisible(true);
             toolbar.findViewById(R.id.edit_search).setVisibility(View.VISIBLE);
             toolbar.setTitle("");
         }
