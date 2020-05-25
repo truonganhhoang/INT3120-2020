@@ -153,7 +153,7 @@ const Game = (props: { route?: any; navigation?: any }) => {
               <Col size={15} style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <CountDown
                   hours={0}
-                  minutes={10}
+                  minutes={2}
                   seconds={10}
                   id={id}
                   setTimeOut={setFailed}
