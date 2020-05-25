@@ -22,6 +22,7 @@ const ReadyDetail = (props) => {
     list.push(i.word)
     list.push(i.meaning)
   })
+  console.log(list)
   var listCorresponding = []
   data.map(i => {
     listCorresponding.push(i.word)
@@ -68,7 +69,7 @@ const ReadyDetail = (props) => {
           buttonStyle={{ backgroundColor: '#0592D2', borderRadius: 30, height: 50 }}
           titleStyle={{ color: 'white', fontSize: 15 }}
           containerStyle={{ width: 150, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-          onPress={() => { props.navigation.navigate('ChooseCorrespondingScreen', { data: data, list: list, listCorresponding: listCorresponding }) }}
+          onPress={() => { props.navigation.navigate('LearningScreen', { data: data, list: list }) }}
         ></Button>
       </View>
     </View>

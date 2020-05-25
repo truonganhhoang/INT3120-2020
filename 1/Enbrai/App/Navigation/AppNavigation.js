@@ -16,7 +16,7 @@ import LoadingScreen from '../Containers/LoadingScreen';
 import ForgetPassScreen from '../Containers/ForgetPassScreen'
 import UpdatePassScreen from '../Containers/UpdatePassScreen'
 import ReadyScreen from '../Containers/ReadyScreen'
-import ChooseCorrespondingScreen from '../Containers/ChooseCorrespondingScreen'
+import LearningScreen from '../Containers/LearningScreen'
 import ExerciseScreen from '../Containers/ExerciseScreen'
 import SelectLevelScreen from '../Containers/SelectLevelScreen'
 import SelectSectionScreen from '../Containers/SelectSectionScreen'
@@ -72,8 +72,8 @@ const AppStackNavigation = createStackNavigator(
     ReadyScreen: {
       screen: ReadyScreen
     },
-    ChooseCorrespondingScreen: {
-      screen: ChooseCorrespondingScreen
+    LearningScreen: {
+      screen: LearningScreen
     },
     ExerciseTabScreen:{
       screen:ExerciseTabScreen
