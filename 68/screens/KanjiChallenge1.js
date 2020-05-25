@@ -28,12 +28,16 @@ export default class KanjiChallenge1 extends React.Component {
       progress: 0,
     };
   }
-
+  isUnmount = false;
   componentDidMount() {
-    this.timer();
-    this.dataRamdom = this.randomData();
-    this.result = this.listHantu.map(() => false);
+    if(this.isUnmount === false)
+    {
+      this.timer();
+      this.dataRamdom = this.randomData();
+      this.result = this.listHantu.map(() => false);
+    }
   }
+
 
   randomData = () => {
     const order = this.listHantu.map((kanji, i) => i);
@@ -60,6 +64,7 @@ export default class KanjiChallenge1 extends React.Component {
   nextQuestion = () => {
     const { questionIndex } = this.state;
     if (this.state.questionIndex < this.listHantu.length - 1) {
+      if(this.isUnmount == false)
       this.setState({
         questionIndex: questionIndex + 1,
         progress: 0
@@ -75,6 +80,8 @@ export default class KanjiChallenge1 extends React.Component {
     this.setInterval = setInterval(() => {
       const { progress } = this.state;
       if (this.state.progress < 100) {
+        if(this.isUnmount == false)
+
         this.setState({
           progress: progress + 0.2
         });
@@ -83,7 +90,9 @@ export default class KanjiChallenge1 extends React.Component {
       }
     }, 10);
   }
-
+  componentWillUnmount = ()=>{
+    this.isUnmount = true;
+  }
   render() {
     const kanjiList = this.props.navigation.getParam('kanjiList');
     this.listHantu = kanjiList.map((kanji) => kanji.hantu);

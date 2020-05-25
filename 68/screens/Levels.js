@@ -9,7 +9,6 @@ import CategoryListItem from '../components/CategoryListItem';
 
 export default class Levels extends React.Component {
   static navigationOptions = {
-
     title: 'Chọn Level',
     headerTitleAlign: 'center',
     headerTitleStyle: {

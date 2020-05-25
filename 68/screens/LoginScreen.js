@@ -4,9 +4,11 @@ import * as Google from 'expo-google-app-auth';
 import * as Facebook from 'expo-facebook';
 import firebase from 'firebase';
 import {
+  ActivityIndicator,
   StyleSheet, View, Button, Dimensions
 } from 'react-native';
 import Login from '../components/Login';
+import Levels from './Levels';
 
 const deviceWidth = Dimensions.get('window').width;
 const screen = (percent) => (deviceWidth * percent) / 100;
@@ -23,7 +25,31 @@ export default class LoginScreen extends React.Component {
       backgroundColor: '#006265',
     },
   });
+  constructor(props){
+    super(props);
+    this.state = {
+      ready : false,
+      stateLogin: false,
+    }
+  }
 
+  navigation = this.props.navigation;
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged((user)=> {
+      if (user) {
+        this.setState({stateLogin: true, ready: true });
+        console.log(user);
+        this.ready = true;
+        //this.navigation.push('Levels');
+        // User is signed in.
+      } else {
+        // No user is signed in.
+      }
+    });
+    
+  }
+  
   signInWithGoogleAsync = async () => {
     try {
       const result = await Google.logInAsync({
@@ -41,10 +67,8 @@ export default class LoginScreen extends React.Component {
         firebase.auth().signInWithCredential(credential);
         // console.log(result);
         // return result.accessToken;
-        const { navigation } = this.props;
-        navigation.navigate('Levels');
+        // this.navigation.navigate('Levels');
       }
-      console.log('asdasd');
       return { cancelled: true };
     } catch (e) {
       return { error: true };
@@ -65,8 +89,7 @@ export default class LoginScreen extends React.Component {
         firebase.auth().signInWithCredential(credential)
           .then((data) => {
             console.log(data);
-            const { navigation } = this.props;
-            navigation.navigate('Levels');
+           // this.navigation.navigate('Levels');
           })
           .catch((err) => console.log(err));
       } else {
@@ -85,26 +108,41 @@ export default class LoginScreen extends React.Component {
       // An error happened.
     });
   }
-
-  render() {
+  ComponentIndicator = ()=> {
     return (
-      <Login>
-        <View style={styles.button}>
-          <Button
-            onPress={this.logInFacebook}
-            title="Tiếp tục đăng nhập bằng Facebook"
-            color="#4267b2"
-          />
-        </View>
-        <View style={styles.button}>
-          <Button
-            onPress={this.signInWithGoogleAsync}
-            title="Tiếp tục đăng nhập bằng Google"
-            color="#e73232"
-          />
-        </View>
-      </Login>
+      <View style={[styles.container, styles.horizontal]}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
     );
+  }
+  render() {
+    if(this.state.ready === false){
+      return (<this.ComponentIndicator/>)
+    }
+    else if(this.state.stateLogin === false) {
+      return (
+        <Login>
+          <View style={styles.button}>
+            <Button
+              onPress={this.logInFacebook}
+              title="Tiếp tục đăng nhập bằng Facebook"
+              color="#4267b2"
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              onPress={this.signInWithGoogleAsync}
+              title="Tiếp tục đăng nhập bằng Google"
+              color="#e73232"
+            />
+          </View>
+        </Login>
+      );
+    } else {
+      //this.navigation.setParams({ title: 'Level' }) 
+      return (<Levels navigation={this.navigation}/>)
+    }
+   
   }
 }
 const styles = StyleSheet.create({
@@ -112,5 +150,14 @@ const styles = StyleSheet.create({
     marginTop: screen(5),
     width: screen(80),
     marginLeft: screen(10),
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
   }
 });

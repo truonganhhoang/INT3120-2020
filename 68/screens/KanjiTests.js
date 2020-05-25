@@ -20,7 +20,7 @@ export default class KanjiTests extends React.Component {
     },
   });
 
-  isMounted = false;
+  isUnmount = false;
 
   constructor(props) {
     super(props);
@@ -30,18 +30,15 @@ export default class KanjiTests extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.isMounted = true;
-  }
-
   componentWillUnmount() {
-    this.isMounted = false;
+    this.isUnmount = true;
   }
 
 
   nextQuestion = () => {
     if (this.isMounted === true) {
       const { questionIndex } = this.state;
+      if(this.isUnmount === false)
       this.setState({
         questionIndex: (questionIndex + 1) % this.answers.length,
         indexRan: Math.floor(Math.random() * 4)

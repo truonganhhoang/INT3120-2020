@@ -37,7 +37,7 @@ export default class KanjiLearning extends React.Component {
       ]
     };
   }
-
+ 
   render() {
     const { images } = this.state;
     const { navigation } = this.props;

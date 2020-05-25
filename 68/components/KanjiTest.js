@@ -6,24 +6,41 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function KanjiTest({ isAnswer, text, nextQuestion }) {
-  const [answerStatus, setAnswerStatus] = useState('default');
-  return (
-    <TouchableOpacity onPress={() => {
-      setAnswerStatus(isAnswer ? ('answerTrue') : ('answerFalse'));
-      setTimeout(() => {
-        if (isAnswer) {
-          nextQuestion();
-        }
-        setAnswerStatus('default');
-      }, 700);
-    }}
-    >
-      <View style={{ ...styles.container, ...styles[answerStatus] }}>
-        <Text style={(answerStatus === 'answerTrue' ? styles.textAnswerTrue : styles.text)}>{text}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+export default class KanjiTest extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      answerStatus : 'default'
+    }
+  }
+  isUnmount = false; 
+  componentWillUnmount = ()=>{
+    this.isUnmount = true;
+  }
+  
+  render(){
+    const { isAnswer, text, nextQuestion } = this.props;
+    const {answerStatus} = this.state;
+    return (
+      <TouchableOpacity onPress={() => {
+        if(this.isUnmount === false)
+        this.setState({answerStatus: (isAnswer ? ('answerTrue') : ('answerFalse'))});
+        setTimeout(() => {
+          if (isAnswer) {
+            nextQuestion();
+          }
+          if(this.isUnmount === false)
+          this.setState({answerStatus :'default'});
+        }, 700);
+      }}
+      >
+        <View style={{ ...styles.container, ...styles[answerStatus] }}>
+          <Text style={(answerStatus === 'answerTrue' ? styles.textAnswerTrue : styles.text)}>{text}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+ 
 }
 const styles = StyleSheet.create({
   container: {
