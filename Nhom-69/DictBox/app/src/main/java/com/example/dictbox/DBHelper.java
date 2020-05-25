@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private final String TBL_AV = "av";
     private final String TBL_BOOKMARK = "bookmark";
-
+    private final String TBL_HISTORY = "history";
     private final String COL_KEY = "key";
     private final String COL_VALUE = "value";
 
@@ -119,6 +119,15 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void addHistory(Word word){
+        try{
+            String q = "INSERT INTO " + TBL_HISTORY + " ([" + COL_KEY + "],[" + COL_VALUE + "]) VALUES (?, ?);";
+            mDB.execSQL(q, new Object[]{word.key, word.value});
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public void removeBookMark(Word word) {
         try {
             String q = "DELETE FROM " + TBL_BOOKMARK + " WHERE upper([" + COL_KEY + "]) = upper(?) AND [" + COL_VALUE + "] = ?;";
@@ -164,6 +173,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return source;
     }
 
+    public ArrayList<String> getAllWordFromHistory() {
+        String q = "SELECT * FROM " + TBL_HISTORY + " ORDER BY [date] DESC;";
+        Cursor result = mDB.rawQuery(q, null);
+
+        Word word = new Word();
+
+        ArrayList<String> source = new ArrayList<>();
+
+        while ((result.moveToNext())) {
+            source.add(result.getString(result.getColumnIndex(COL_KEY)));
+        }
+
+        return source;
+    }
+
     public boolean isWordMark(Word word) {
         String q = "SELECT * FROM " + TBL_BOOKMARK + " WHERE upper([key]) = upper (?) AND [value] = ?";
         Cursor result = mDB.rawQuery(q, new String[]{word.key, word.value});
@@ -173,6 +197,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Word getWordFromBookMark(String key) {
         String q = "SELECT * FROM " + TBL_BOOKMARK + " WHERE upper([key]) = upper (?)";
+        Cursor result = mDB.rawQuery(q, new String[]{key});
+
+        Word word = null;
+        while ((result.moveToNext())) {
+            word = new Word();
+            word.key = result.getString(result.getColumnIndex(COL_KEY));
+            word.value = result.getString(result.getColumnIndex(COL_VALUE));
+        }
+        return word;
+    }
+
+    public Word getWordFromHistory(String key) {
+        String q = "SELECT * FROM " + TBL_HISTORY + " WHERE upper([key]) = upper (?)";
         Cursor result = mDB.rawQuery(q, new String[]{key});
 
         Word word = null;

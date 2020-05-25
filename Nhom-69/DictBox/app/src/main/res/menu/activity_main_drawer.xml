@@ -16,6 +16,10 @@
                 android:icon="@drawable/ic_translate"
                 android:title="Dịch" />
             <item
+                android:id="@+id/nav_history"
+                android:icon="@drawable/ic_history"
+                android:title="Lịch sử" />
+            <item
                 android:id="@+id/nav_camera"
                 android:icon="@drawable/ic_menu_camera"
                 android:title="Tra từ với camera" />
@@ -23,10 +27,6 @@
                 android:id="@+id/nav_vocabulary"
                 android:icon="@drawable/ic_format_list_bulleted"
                 android:title="Học từ vựng" />
-            <item
-                android:id="@+id/nav_reminder"
-                android:icon="@drawable/ic_alarm"
-                android:title="Nhắc nhở từ vựng" />
             <item
                 android:id="@+id/nav_voice"
                 android:icon="@drawable/ic_record_voice_over"
