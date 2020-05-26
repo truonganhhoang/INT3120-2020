@@ -26,6 +26,11 @@ import Adjactive from "./screens/adjactive/";
 import Adverb from "./screens/adverb/";
 import Preposition from "./screens/preposition/";
 
+import Translator from "./screens/translator/";
+import Rate from "./screens/rate/";
+import OtherApp from "./screens/otherapp/";
+import EnglishCommunicationApp from "./screens/englishcommunicationapp/";
+
 const Drawer = createDrawerNavigator(
   {
 
@@ -60,6 +65,11 @@ const AppNavigator = createStackNavigator(
     Adjactive: { screen: Adjactive },
     Adverb: { screen: Adverb },
     Preposition: { screen: Preposition },
+
+    Translator: { screen: Translator },
+    Rate: { screen: Rate },
+    OtherApp: { screen: OtherApp },
+    EnglishCommunicationApp: { screen: EnglishCommunicationApp }
   },
   {
     initialRouteName: "Drawer",

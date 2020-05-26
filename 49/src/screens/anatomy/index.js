@@ -194,7 +194,7 @@ class Anatomy extends Component {
   }
 
   render() {
-  if(!this.state.dataFirebase) return null
+  //if(!this.state.dataFirebase) return null
     return (
       <Container style={styles.container}>
         <Header hasSegment>
@@ -210,14 +210,14 @@ class Anatomy extends Component {
                 first
                 onPress={() => this.setState({ seg: 1 })}
               >
-                <Text>CÂU</Text>
+                <Text style={{fontWeight: "bold", fontSize: 20, textDecorationLine: 'underline'}}>   CÂU   </Text>
               </Button>
               <Button
                 last
                 active={this.state.seg === 2 ? true : false}
                 onPress={() => this.setState({ seg: 2 })}
               >
-                <Text>TỪ</Text>
+                <Text style={{fontWeight: "bold", fontSize: 20, textDecorationLine: 'underline'}}>   TỪ   </Text>
               </Button>
             </Segment>
           </Body>

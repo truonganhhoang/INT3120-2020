@@ -51,7 +51,7 @@ class Noun extends Component {
             </Button>
           </Left>
           <Body>
-            <Text>Danh từ</Text>
+            <Text style={{color:"white", fontWeight: "bold", fontSize: 20}}>Danh từ</Text>
           </Body>
         </Header>
 
