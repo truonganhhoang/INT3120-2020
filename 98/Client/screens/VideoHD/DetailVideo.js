@@ -4,7 +4,7 @@ import { WebView } from 'react-native-webview';
 
 
 export default function DetailVideo(props) {
-    const { vid } = props.route.params;
+    const { vid } = props;
     return (
 
         <WebView

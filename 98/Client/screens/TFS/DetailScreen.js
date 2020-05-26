@@ -11,16 +11,6 @@ export default function DetailScreen(props) {
 
             <Image style={styles.image} source={{ uri: config.IP_SEVER + image }} />
 
-            <View style={styles.topic} >
-                <Text>Loại biển báo:</Text>
-                <Text style={styles.content_title} >.....category</Text>
-            </View>
-
-            <View style={styles.topic} >
-                <Text>Số hiệu:</Text>
-                <Text style={styles.content_number} >......</Text>
-            </View>
-
             <View style={{ marginLeft: 10, }}>
                 <Text>Mô tả:</Text>
                 <Text style={styles.content_detail} >{content}</Text>

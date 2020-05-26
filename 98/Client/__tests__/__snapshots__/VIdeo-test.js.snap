@@ -1,0 +1,1229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "color": "crimson",
+          "content": "Yêu cầu chung của 12 bài thi sát hạch ô tô hạng B2",
+          "id": 1,
+          "name": "YCC",
+          "title": "Yêu cầu chung thi sa hình ô tô",
+          "vid": "https://www.youtube.com/watch?v=guqQP1wOOBs",
+        },
+        Object {
+          "color": "lightseagreen",
+          "content": "Các bước thực hiện: Thắt dây an toàn. Xe nổ máy ở vị trí trước vạch xuất phát",
+          "id": 2,
+          "name": "BSH1",
+          "title": "Bài sát hạch 1: Xuất phát",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "tomato",
+          "content": "Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút",
+          "id": 3,
+          "name": "BSH2",
+          "title": "Bài sát hạch 2: Dừng xe nhường đường cho ngừi đi bộ",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "green",
+          "content": "Dừng xe cách vạch dừng quy định cách không quá 500m, khởi hành êm dịu, không bị tụt dốc quá 500mm",
+          "id": 4,
+          "name": "BSH3",
+          "title": "Bài sát hạch 3: Dừng và khởi hành xe ngang dốc",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "red",
+          "content": "Đi đúng hình quy định của hạng xe thi, bánh xe trước và bánh xe bên lái phụ qua vệt bánh xe",
+          "id": 5,
+          "name": "BSH4",
+          "title": "Bài sát hạch 4: Qua vệt bánh xe và đường vòng vuông góc",
+          "vid": "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+        },
+        Object {
+          "color": "orange",
+          "content": "Chấp hành theo tín hiệu đèn điều khiển giao thông; Dừng xe cách vạch dừng quy định không quá 500m",
+          "id": 6,
+          "name": "BSH5",
+          "title": "Bài sát hạch 5: Qua ngã tư có tín hiệu điều khiển giao thông",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "mediumspringgreen",
+          "content": "Lái xe qua đường vòng quanh co trong vùng giưới hạn của hình thi trong thời gian 2 phút",
+          "id": 7,
+          "name": "BSH6",
+          "title": "Bài sát hạch 6: Qua đường vòng quanh co",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "dodgerblue",
+          "content": "Đi đúng hình quy định của hạng xe thi; Bánh xe không đè vào đường giói hạn ống khí",
+          "id": 8,
+          "name": "BSH7",
+          "title": "Bài sát hạch 7: Ghép xe vào nơi đỗ (ghép dọc)",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "goldenrod",
+          "content": "Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút",
+          "id": 9,
+          "name": "BSH8",
+          "title": "Bài sát hạch 8: Tạm dừng ở chỗ cso đường sắt chạy qua",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+        Object {
+          "color": "indianred",
+          "content": "Trên quãng đường dài 25m kể từ khi bắt đầu vào bài thi, phải thay đổi số và tốc độ",
+          "id": 10,
+          "name": "BSH9",
+          "title": "Bài sát hạch 9: Thay đổi số trên đường bằng",
+          "vid": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "marginTop": 10,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "crimson",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                YCC
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Yêu cầu chung thi sa hình ô tô
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Yêu cầu chung của 12 bài thi sát hạch ô tô hạng B2
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "lightseagreen",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH1
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 1: Xuất phát
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Các bước thực hiện: Thắt dây an toàn. Xe nổ máy ở vị trí trước vạch xuất phát
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "tomato",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH2
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 2: Dừng xe nhường đường cho ngừi đi bộ
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "green",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH3
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 3: Dừng và khởi hành xe ngang dốc
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Dừng xe cách vạch dừng quy định cách không quá 500m, khởi hành êm dịu, không bị tụt dốc quá 500mm
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "red",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH4
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 4: Qua vệt bánh xe và đường vòng vuông góc
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Đi đúng hình quy định của hạng xe thi, bánh xe trước và bánh xe bên lái phụ qua vệt bánh xe
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "orange",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH5
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 5: Qua ngã tư có tín hiệu điều khiển giao thông
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Chấp hành theo tín hiệu đèn điều khiển giao thông; Dừng xe cách vạch dừng quy định không quá 500m
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "mediumspringgreen",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH6
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 6: Qua đường vòng quanh co
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Lái xe qua đường vòng quanh co trong vùng giưới hạn của hình thi trong thời gian 2 phút
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "dodgerblue",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH7
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 7: Ghép xe vào nơi đỗ (ghép dọc)
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Đi đúng hình quy định của hạng xe thi; Bánh xe không đè vào đường giói hạn ống khí
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "goldenrod",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH8
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 8: Tạm dừng ở chỗ cso đường sắt chạy qua
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Dừng xe cách vạch dừng quy định cách không quá 500m, giữ tốc độ cơ không quá 4000 vòng/phút
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#d3d3d3",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "indianred",
+                  "height": 45,
+                  "justifyContent": "flex-end",
+                  "width": 65,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": "#fff",
+                    "fontSize": 14,
+                  }
+                }
+              >
+                BSH9
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "black",
+                    "height": 15,
+                    "width": 35,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  1:30
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginEnd": 65,
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                Bài sát hạch 9: Thay đổi số trên đường bằng
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#a9a9a9",
+                    "fontSize": 13,
+                    "marginBottom": 10,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Trên quãng đường dài 25m kể từ khi bắt đầu vào bài thi, phải thay đổi số và tốc độ
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

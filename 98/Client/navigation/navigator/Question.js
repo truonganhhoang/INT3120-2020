@@ -22,7 +22,7 @@ export default function Question() {
                 name="QuestionSet"
                 component={QuestionSet}
                 options={{
-                    title: 'Ôn tập khái niệm',
+                    title: 'Ôn tập',
                 }}
             />
 

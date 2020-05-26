@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeItem snapshot 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "elevation": 1.6,
+        "flexDirection": "row",
+        "height": 70,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 10,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "http://192.168.1.174:3000undefined",
+        }
+      }
+      style={
+        Object {
+          "height": 50,
+          "marginLeft": 20,
+          "marginTop": 10,
+          "width": 50,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "alignContent": "center",
+          "color": "#696969",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "justifyContent": "center",
+          "marginLeft": 15,
+          "marginTop": 15,
+        }
+      }
+    />
+  </View>
+</View>
+`;

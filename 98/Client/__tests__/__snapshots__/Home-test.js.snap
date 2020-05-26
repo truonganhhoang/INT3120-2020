@@ -1,0 +1,621 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#3399ff",
+        "flexDirection": "row",
+        "paddingVertical": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 0.8,
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 25,
+          }
+        }
+      >
+        Nhóm chủ đề
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 16,
+            "marginVertical": 10,
+          }
+        }
+      >
+        Gồm 7 nhóm chủ đề chính, chia thành 2 loại lý thuyết và thực hành hỗ trợ bạn trong quá trình học.
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 50,
+              "height": 30,
+              "justifyContent": "center",
+              "width": 100,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#3399ff",
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            Bắt đầu
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 50,
+              "height": 30,
+              "justifyContent": "center",
+              "marginLeft": 15,
+              "width": 100,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#3399ff",
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            Tra câu hỏi
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.28,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "paddingHorizontal": 8,
+        }
+      }
+    >
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "button": "ÔN LUYỆN",
+              "content": "Danh sách 450 câu hỏi được chia dựa theo các phần học trong sách lý thuyết xe hạng B2.",
+              "iconColor": "#ff0000",
+              "iconName": "feather",
+              "id": "1",
+              "route": "QuestionPractice",
+              "title": "Ôn tập câu hỏi",
+            },
+            Object {
+              "button": "Xem video",
+              "content": "Tổng hợp tất cả video hướng dẫn làm bài thi.",
+              "iconColor": "gray",
+              "iconName": "video",
+              "id": "2",
+              "route": "VideoHD",
+              "title": "Video hướng dẫn",
+            },
+            Object {
+              "button": "XEM BẢN ĐỒ",
+              "content": "Xem vị trí thi bằng lái xe B2.",
+              "iconColor": "#3399ff",
+              "iconName": "zoom-in",
+              "id": "3",
+              "route": "Map",
+              "title": "Bản đồ",
+            },
+            Object {
+              "button": "TÌM HIỂU",
+              "content": "Danh sách 116 biển báo bạn hay gặp trong quá trình làm đề.",
+              "iconColor": "#7d26ff",
+              "iconName": "crosshair",
+              "id": "4",
+              "route": "TFS",
+              "title": "Biển báo",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={2}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "flex": 0.5,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 0.5,
+                      "borderColor": "#ebebe0",
+                      "borderRightWidth": 0.5,
+                      "flex": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <Text />
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "flex": 65,
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Ôn tập câu hỏi
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "fontSize": 15,
+                          "marginVertical": 15,
+                        }
+                      }
+                    >
+                      Danh sách 450 câu hỏi được chia dựa theo các phần học trong sách lý thuyết xe hạng B2.
+                    </Text>
+                  </View>
+                  <View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#ff0000",
+                          "borderRadius": 50,
+                          "height": 30,
+                          "justifyContent": "center",
+                          "width": 120,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#fff",
+                            "fontWeight": "bold",
+                            "textTransform": "uppercase",
+                          }
+                        }
+                      >
+                        ÔN LUYỆN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "flex": 0.5,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 0.5,
+                      "borderColor": "#ebebe0",
+                      "borderRightWidth": 0.5,
+                      "flex": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <Text />
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "flex": 65,
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Video hướng dẫn
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "fontSize": 15,
+                          "marginVertical": 15,
+                        }
+                      }
+                    >
+                      Tổng hợp tất cả video hướng dẫn làm bài thi.
+                    </Text>
+                  </View>
+                  <View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "gray",
+                          "borderRadius": 50,
+                          "height": 30,
+                          "justifyContent": "center",
+                          "width": 120,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#fff",
+                            "fontWeight": "bold",
+                            "textTransform": "uppercase",
+                          }
+                        }
+                      >
+                        Xem video
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "flex": 0.5,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 0.5,
+                      "borderColor": "#ebebe0",
+                      "borderRightWidth": 0.5,
+                      "flex": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <Text />
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "flex": 65,
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Bản đồ
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "fontSize": 15,
+                          "marginVertical": 15,
+                        }
+                      }
+                    >
+                      Xem vị trí thi bằng lái xe B2.
+                    </Text>
+                  </View>
+                  <View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#3399ff",
+                          "borderRadius": 50,
+                          "height": 30,
+                          "justifyContent": "center",
+                          "width": 120,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#fff",
+                            "fontWeight": "bold",
+                            "textTransform": "uppercase",
+                          }
+                        }
+                      >
+                        XEM BẢN ĐỒ
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "flex": 0.5,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 0.5,
+                      "borderColor": "#ebebe0",
+                      "borderRightWidth": 0.5,
+                      "flex": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <Text />
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "flex": 65,
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Biển báo
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "gray",
+                          "fontSize": 15,
+                          "marginVertical": 15,
+                        }
+                      }
+                    >
+                      Danh sách 116 biển báo bạn hay gặp trong quá trình làm đề.
+                    </Text>
+                  </View>
+                  <View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#7d26ff",
+                          "borderRadius": 50,
+                          "height": 30,
+                          "justifyContent": "center",
+                          "width": 120,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#fff",
+                            "fontWeight": "bold",
+                            "textTransform": "uppercase",
+                          }
+                        }
+                      >
+                        TÌM HIỂU
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;

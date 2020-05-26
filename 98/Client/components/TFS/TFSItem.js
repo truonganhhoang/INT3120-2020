@@ -29,7 +29,7 @@ export default function Item(props) {
 const styles = StyleSheet.create({
 
     item: {
-        backgroundColor: '#fdf5e6',
+        backgroundColor: '#f5f5f5',
         height: 165,
         width: 165,
         margin: 12,

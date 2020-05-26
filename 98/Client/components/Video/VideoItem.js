@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, Dimensions } from 'react-native';
 
-const windowWidth = Dimensions.get('window').width;
+//const windowWidth = Dimensions.get('window').width;
 
 export default function Item(props) {
     const { navigation, title, content, color, name, vid } = props;
@@ -17,9 +17,9 @@ export default function Item(props) {
                     </View>
                 </View>
 
-                <View style={styles.text}>
+                <View style={{ marginLeft: 10, marginEnd: 65, }}>
                     <Text style={{ fontSize: 15, }}>{title}</Text>
-                    <Text style={styles.content}>{content}</Text>
+                    <Text style={{ fontSize: 13, color: '#a9a9a9', marginBottom: 10, textAlign: 'justify', }}>{content}</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -34,14 +34,6 @@ const styles = StyleSheet.create({
         marginRight: 10,
         borderBottomColor: '#d3d3d3',
         borderBottomWidth: 1,
-    },
-    text: {
-        marginLeft: 10,
-    },
-    content: {
-        fontSize: 14,
-        color: '#a9a9a9',
-        marginBottom: 10,
     },
     tinyLogo: {
         backgroundColor: 'blue',
