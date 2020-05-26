@@ -9,13 +9,12 @@ import {
   TextInput,
 } from "react-native";
 import Word from "../components/Word";
-
+import MiniSearch from "minisearch";
 import { listWordData } from "../Data";
 
-import MiniSearch from "minisearch";
 
-const screenWidth = Math.round(Dimensions.get("window").width);
-const screenHeight = Math.round(Dimensions.get("window").height);
+const deviceWidth = Dimensions.get('window').width;
+const screen = (precent) => precent * deviceWidth/100;
 
 export default function ListWord({ navigation }) {
   const [list, setList] = useState(listWordData);
@@ -44,10 +43,13 @@ export default function ListWord({ navigation }) {
     <View style={styles.container}>
       <TextInput
         style={{
-          height: 40,
+          height: screen(10),
           borderColor: "gray",
           borderWidth: 1,
-          marginBottom: 30,
+          marginTop: screen(2),
+          marginBottom: screen(3),
+          borderRadius: screen(1),
+          paddingLeft: screen(2)
         }}
         onChangeText={(text) => onChangeText(text)}
         value={searchValue}
@@ -91,16 +93,13 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    top: screenHeight - 200,
+    bottom: screen(0),
     height: 70,
-    width: screenWidth,
+    width: screen(100),
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fffa00",
-    borderBottomWidth: 10,
+    backgroundColor: "#fff222",
     borderRadius: 50,
-    // borderStyle: "solid",
-    borderBottomColor: "#daa520",
   },
   review: {
     textTransform: "uppercase",
