@@ -6,7 +6,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "react-devtools": "react-devtools"
+    "react-devtools": "react-devtools",
+    "lint": "eslint *.js **/*.js **/**/*.js",
+    "test": "jest"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.5",
@@ -14,12 +16,17 @@
     "@react-native-firebase/firestore": "^6.3.4",
     "base-64": "^0.1.0",
     "expo": "~36.0.0",
+    "expo-cli": "^3.20.9",
+    "expo-facebook": "~8.0.0",
+    "expo-google-app-auth": "^8.1.0",
+    "expo-google-sign-in": "~8.0.0",
     "expo-speech": "~8.0.0",
     "firebase": "^7.9.0",
-    "lodash": "^4.17.15",
+    "nachos-ui": "^0.2.0-beta.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-elements": "^2.0.0",
     "react-native-firebase": "^5.6.0",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-reanimated": "~1.4.0",
@@ -32,8 +39,29 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "babel-eslint": "^10.1.0",
     "babel-preset-expo": "~8.0.0",
-    "react-devtools": "^3.6.3"
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^26.0.1",
+    "react-devtools": "^3.6.3",
+    "react-test-renderer": "^16.13.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|base-64|expo-speech|@react-navigation/.*))",
+      "node_modules/(?!${esModules})",
+      "node_modules/(?!vue-awesome)"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "private": true
 }

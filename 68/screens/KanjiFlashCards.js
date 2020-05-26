@@ -1,51 +1,46 @@
 import React from 'react';
 import {
-  Image,
-  FlatList,
   ScrollView,
   StyleSheet,
-  Text,
-  View,Dimensions
+  View,
 } from 'react-native';
-import KanjiFlashCard from '../components/KanjiFlashCard'
-const deviceWidth = Dimensions.get('window').width;
+import KanjiFlashCard from '../components/KanjiFlashCard';
 
 export default class KanjiFlashCards extends React.Component {
-  static navigationOptions = ({navigation}) => {
-    return {
-        title:'Kanji cơ bản 1',
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          color: 'white',
-        },
-        headerTintColor: 'white',
-        headerStyle: {
-          backgroundColor: '#006265',
-        },
-    };
-  };
-  render(){
+  static navigationOptions = () => ({
+    title: 'Kanji cơ bản 1',
+    headerTitleAlign: 'center',
+    headerTitleStyle: {
+      color: 'white',
+    },
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: '#006265',
+    },
+  });
+
+  render() {
+    const { navigation } = this.props;
+    const kanjiList = navigation.getParam('kanjiList');
     return (
-        <ScrollView 
-            horizontal
-        >
-         <View style={styles.container}>
-           <KanjiFlashCard/>
-           <KanjiFlashCard/>
-           <KanjiFlashCard/>
-           <KanjiFlashCard/>
-           <KanjiFlashCard/>
+      <ScrollView
+        horizontal
+      >
+        <View style={styles.container}>
+          {
+            kanjiList.map((kanji, i) => (<KanjiFlashCard key={i.toString()} kanji={kanji} />))
+          }
         </View>
-       </ScrollView>
+      </ScrollView>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'row',
+    flexDirection: 'row',
     backgroundColor: '#fff',
-    paddingLeft:14,
+    paddingLeft: 14,
     paddingRight: 14,
   },
 });
