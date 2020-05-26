@@ -5,8 +5,9 @@ import WordContainer from "../components/WordContainer";
 import ReviewWord from "../components/ReviewWord";
 import Mems from "../components/Mems";
 
-const screenHeight = Math.round(Dimensions.get("window").height);
-const screenwidth = Math.round(Dimensions.get("window").width);
+const deviceWidth = Dimensions.get('window').width;
+const screen = (percent) =>  percent * deviceWidth /100;
+
 var testData = [
   { id: 1, word: "ありがとう", mean: "cảm ơn ", miss: false, level: 0 },
   { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
@@ -154,7 +155,7 @@ export default function Review({ navigation, route }) {
     <View style={styles.container}>
       <Progress.Bar
         progress={1.00 - reviews.length / testData.length}
-        width={screenwidth}
+        width={screen(100)}
       />
       <WordContainer objWord={trueAnswer} hideMean={hideMean} />
 
@@ -174,7 +175,6 @@ export default function Review({ navigation, route }) {
           onPress={onPressNextWord}
           title="Next"
           color="#841584"
-          style={styles.NextButton}
         />
       </View>
     </View>
@@ -186,24 +186,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "flex-start",
+    
   },
   ReviewContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 0,
-    paddingTop: 0,
+    paddingLeft: screen(2),
   },
   footer: {
     position: "absolute",
-    top: screenHeight - 150,
-    paddingLeft: 50,
+    right: screen(2),
+    bottom: screen(2)
   },
   Mem: {
-    padding: 30,
+    
   },
   MemText: {
-    paddingTop: 5,
-    paddingBottom: 5,
     borderBottomWidth: 0.2,
     // borderStyle:'solid',
   },
