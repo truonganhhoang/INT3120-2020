@@ -1,5 +1,4 @@
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import { View, Image, TouchableOpacity, StyleSheet, Text } from 'react-native'
 import { Styles } from '../../styles';
 import React, { Component } from 'react'
 

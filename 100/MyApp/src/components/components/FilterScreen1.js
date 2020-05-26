@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Fab, Icon, Button } from 'native-base'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { Fab, Icon } from 'native-base'
 import { connect } from 'react-redux';
-import { Alert, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 class FilterScreen1 extends Component {
     constructor(props) {
         super(props)

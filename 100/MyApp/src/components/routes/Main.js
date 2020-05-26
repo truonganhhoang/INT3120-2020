@@ -8,7 +8,6 @@ import Screen5 from '../screens/Screen5';
 import Screen4 from '../screens/Screen4';
 import { Icon } from 'native-base';
 import { connect } from 'react-redux';
-import { Alert } from 'react-native';
 const Tab = createMaterialTopTabNavigator();
 // const {screenOn} = props;
 function Main( {screenOn} ) {

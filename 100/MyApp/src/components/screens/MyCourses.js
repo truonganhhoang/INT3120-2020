@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content} from 'native-base';
 import { connect } from 'react-redux';
-import { ScrollView } from 'react-native-gesture-handler';
 import Course from '../components/Course';
+import { ScrollView } from 'react-native';
 class MyCourses extends Component {
     getCourses(){
         const {myCourses} = this.props;
