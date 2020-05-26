@@ -1,0 +1,23 @@
+ion-header {
+    --background: #ffffff
+}
+ion-content {
+    margin: 10px 10px 10px 10px;
+    h1 {
+        text-align: left;
+        margin-left: 20px;
+
+    }
+    div {
+        text-align: center;
+        width: 100%;
+        margin: 20px 20px 10px 10px;
+        pointer-events: none;
+    }
+    
+}
+ion-footer {
+    h3 {
+        color: rgb(247, 18, 10);
+    }
+}
