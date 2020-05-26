@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Image,
-  Text,
-  StyleSheet
-} from 'react-native';
-import props from 'prop-types';
-import { createStackNavigator } from 'react-navigation';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Grid, Col, Row } from 'native-base';
 
 import AppStyle from '../them'
@@ -52,7 +45,7 @@ export default class ListSelects extends Component {
                 <BoxSelect srcImage={require('../asset/Layer1.png')} text={"Đề ngẫu nhiên"}  />
               </Col>
               <Col style={[AppStyle.StyleCommon.ColSelect, {backgroundColor: '#ff3334'}]}
-              onPress={() => navigation.navigate("ListTests", { "namePage": "Bộ đề thi"})}>
+                  onPress={() => navigation.navigate("ListTests", { "namePage": "Bộ đề thi"})}>
                 <BoxSelect srcImage={require('../asset/Layer2.png')} text={'Thi theo bộ đề'}/>
               </Col>
             </Row>

@@ -14,7 +14,8 @@ export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      loading:true
     };
   }
   componentDidMount() {
@@ -24,12 +25,18 @@ export default class Test extends Component {
         this.setState({ data: [...this.state.data, snapshot.val()] });
       })
     }
+    this.setState({loading:false});
   }
   render() {
-    const { namePage } = this.props.route.params;
-    const { navigation } = this.props;
-    return (
-      <Container>
+    if(this.state.loading){
+      return(
+        <View></View>
+      )
+    }
+      const { namePage } = this.props.route.params;
+      const { navigation } = this.props;
+      return (
+        <Container>
         <Header style={{}}>
           <Button onPress={() => { navigation.goBack() }
           }>
@@ -42,9 +49,8 @@ export default class Test extends Component {
             <Button onPress={() => {
               navigation.pop();
               navigation.navigate("Result", { "namePage": "Kết quả thi", "data": this.state.data });
-            }}
-              style={{ backgroundColor: 'green' }} >
-              <Text style={{ color: '#fff' }}>Nộp bài</Text>
+            }}>
+              <Text style={{ color: '#fff' }}> Nộp </Text>
             </Button>
           </Right>
         </Header>
@@ -57,17 +63,19 @@ export default class Test extends Component {
 
           <Tabs renderTabBar={() => <ScrollableTab />}>
             {this.state.data.map((question, i) => {
+              if(question != null){
               let count = i + 1;
               return (
                 <Tab heading={"Câu " + count} key={i}>
                   {this.ShowTabContent(question)}
                   <Tab />
                 </Tab>)
+              }
             })}
           </Tabs>
         </Content>
-      </Container>
-    );
+        </Container>
+      );
   }
   ShowTabContent(question) {
     const show = [];
