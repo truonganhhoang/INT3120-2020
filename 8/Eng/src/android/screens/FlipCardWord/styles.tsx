@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'; 
 const SLIDER_WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height; 
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
 const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 3 / 4);
 const styles = StyleSheet.create({
@@ -9,12 +10,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#E65100'
   }, 
   centerComponent: {
-    color: '#FFF', 
+    color: 'white', 
     fontWeight: '700', 
     fontSize: 20,  
   },
   carouselContainer: {
-    marginTop: 50
+    marginTop: HEIGHT*0.2
   },
   itemContainer: {
     width: ITEM_WIDTH,
@@ -27,13 +28,14 @@ const styles = StyleSheet.create({
     fontSize: 24
   },
   counter: {
-    marginTop: 50,
+    // top: HEIGHT*0.7,
     fontSize: 30,
     fontWeight: "500",
     textAlign: 'center',
-    position:'absolute',
-    bottom:ITEM_HEIGHT/1.2,
-    left:ITEM_WIDTH/1.6,
+    bottom: HEIGHT*0.1, 
+    // position:'absolute',
+    // bottom:ITEM_HEIGHT/1.2,
+    // left:ITEM_WIDTH/1.6,
     color:'#FFFFFF'
   }
 }); 

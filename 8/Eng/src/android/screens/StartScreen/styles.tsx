@@ -30,11 +30,36 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   container: {
-    //backgroundColor: '#f8a136'
-    backgroundColor: 'white',
-    paddingBottom: 70,
+    // backgroundColor: '#f8a136', 
+    // flex: 1,
+    // backgroundColor: "#ff5e00",
+    // alignItems: "stretch",
+    // justifyContent: "flex-start",
+
+    flex: 1,
+    // backgroundColor: "#ff5e00",
+    flexDirection: "column",
   },
-  
+  separator: {
+    height: 2,
+    width: "100%",
+    backgroundColor: "transparent",
+  },
+  listItems: {
+    paddingTop: 70,
+    paddingBottom: 20,
+    justifyContent: "space-around",
+    // paddingLeft: 16,
+    // paddingRight: 16,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  loadingBackgroundStyle: {
+
+  }
 })
 
 export default styles; 

@@ -10,12 +10,13 @@ const StarButton = (props: { navigation?: any }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
+      style={{ width: 30, height: 30 }}
     >
       <Icon
         name="star"
         type='font-awesome'
         color='white'
-
+        iconStyle={{ fontSize:30 }}
       />
     </TouchableOpacity>
   )

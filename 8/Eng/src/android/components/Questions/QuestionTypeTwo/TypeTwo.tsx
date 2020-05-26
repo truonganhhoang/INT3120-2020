@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'; 
-import { View, Text } from 'react-native'; 
-import layout from '../../../constants/layout'; 
+import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native';
+import layout from '../../../constants/layout';
+import { Grid, Row } from 'react-native-easy-grid';
 const HEIGHT = layout.window.height;
 const TypeTwo = (props: { content?: any; id?: any }) => {
-  const { content, id } = props; 
-  const [ status, setStatus ] = useState('loading'); 
+  const { content, id } = props;
+  const [status, setStatus] = useState('loading');
 
   useEffect(() => {
-    let check = 0; 
+    let check = 0;
     setStatus('loading')
     Object.keys(content).forEach((item, index) => {
       if (item == 'txt_content') check++
-    }) 
-    if ( check == 1 ) {
+    })
+    if (check == 1) {
       setStatus('run')
     } else {
       setStatus('null')
@@ -21,7 +22,7 @@ const TypeTwo = (props: { content?: any; id?: any }) => {
 
   if (status == 'loading') {
     return (
-      <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:HEIGHT*0.05,marginBottom: HEIGHT*0.1}}>
+      <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: HEIGHT * 0.05, marginBottom: HEIGHT * 0.1 }}>
         <Text>Waiting question...</Text>
       </View>
     )
@@ -34,9 +35,11 @@ const TypeTwo = (props: { content?: any; id?: any }) => {
     )
   }
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:HEIGHT*0.05,marginBottom: HEIGHT*0.1}}>
-      <Text  style={{ fontSize: 40, color: '#f57f17' }}>{content.txt_content}</Text>
-    </View>
+    <Grid>
+      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 40, color: '#f57f17' }}>{content.txt_content}</Text>
+      </Row>
+    </Grid>
   )
 }
 

@@ -5,11 +5,12 @@ const Menu = () => {
   const onPress = () => {
     
   }
+
   return (
     <Icon 
       name="ellipsis-v"
       type='font-awesome'
-      color='#fff'
+      color='white'
       onPress={onPress}
     />
   )

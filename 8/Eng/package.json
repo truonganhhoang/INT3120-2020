@@ -1,5 +1,5 @@
 {
-  "name": "Eng",
+  "name": "Vocabulary",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,16 +10,21 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-community/art": "^1.2.0",
     "@react-native-community/masked-view": "^0.1.7",
     "@react-navigation/drawer": "^5.4.1",
     "@react-navigation/material-top-tabs": "^5.1.8",
     "@react-navigation/native": "^5.1.5",
+    "@react-navigation/stack": "^5.3.7",
+    "@types/react-native-indicators": "^0.16.0",
     "@types/react-native-snap-carousel": "^3.8.1",
     "firebase": "^7.14.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-easy-grid": "^0.2.2",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-indicator": "^1.2.0",
     "react-native-progress": "^4.1.2",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
@@ -55,7 +60,6 @@
       "jsx",
       "json",
       "node"
-    ], 
-    "setupFiles": ["./node_modules/react-native-gesture-handler/jestSetup.js"]
+    ]
   }
 }

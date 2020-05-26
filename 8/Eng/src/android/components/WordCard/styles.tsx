@@ -1,58 +1,58 @@
-import { StyleSheet } from 'react-native'; 
-import layout  from '../../constants/layout'; 
-
+import { StyleSheet } from 'react-native';
+import layout from '../../constants/layout';
+const WIDTH = layout.window.width;
+const leftWidth = (layout.window.width - 20) * 0.41;
+const rightWidth = (layout.window.width - 20) * 0.59;
+const height = (layout.window.height - 60) / 5;
+const fontLarge = () => {
+  if (WIDTH > 400) {
+    return 22;
+  } else if (WIDTH > 250) {
+    return 20;
+  } else {
+    return 16;
+  }
+}
+const fontSmall = () => {
+  if (WIDTH > 400) {
+    return 16;
+  } else if (WIDTH > 250) {
+    return 14;
+  } else {
+    return 12;
+  }
+}
 const styles = StyleSheet.create({
   img: {
-    marginTop: 12, 
-    width: 100, 
-    height: 100, 
-    position: "absolute"
-  }, 
-  btn: {
-    width: layout.window.width, 
-    height: 148, 
-    marginTop: 5, 
-    marginBottom: 12, 
-  }, 
-  card: {
-    marginTop: 10, 
-    height: 148, 
-    borderRadius: 3
-  }, 
-  right_card: {
-    marginLeft: 110, 
-  }, 
-  en_text: {
-    marginLeft: 120, 
-    textAlign: "center", 
-    color: "orange", 
-    fontSize: 20, 
-    fontWeight: "bold"
-  }, 
-  spelling_text: {
-    marginLeft: 120, 
-    textAlign: "center", 
-    color: "black", 
-    fontSize: 15
-  }, 
-  vn_text: {
-    marginLeft: 120, 
-    marginTop: 15, 
-    textAlign: "center", 
-    color: "blue", 
-    fontSize: 18,
-    fontWeight: "bold"
-  }, 
+    width: '100%',
+    height: '100%',
+  },
   star_icon: {
     position: "absolute",
-    right:0,
-    fontSize:25,
-    zIndex:2
-  }, 
+    fontSize: 24,
+    zIndex: 2,
+    right: '2%',
+    top: '4%',
+  },
+  en_text: {
+    textAlign: "center",
+    color: "#ff5e00",
+    fontSize: fontLarge(),
+    fontWeight: "bold"
+  },
+  spelling_text: {
+    textAlign: "center",
+    fontSize: fontSmall(),
+    fontWeight: "bold"
+  },
   voice_icon: {
-    marginTop: 5, 
-    marginLeft: 200, 
-    textAlign: "center", 
+    textAlign: "center",
+  },
+  vn_text: {
+    textAlign: "center",
+    color: "blue",
+    fontSize: fontSmall(),
+    fontWeight: "bold"
   }
 })
 

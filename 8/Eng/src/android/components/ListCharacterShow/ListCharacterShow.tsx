@@ -1,41 +1,43 @@
-import React from 'react'; 
-import { View } from 'react-native'; 
-import { CharacterShow } from '../CharacterShow'; 
-import { StyleSheet } from 'react-native'; 
+import React from 'react';
+import { View } from 'react-native';
+import { CharacterShow } from '../CharacterShow';
+import { StyleSheet } from 'react-native';
+import { Grid, Row, Col } from 'react-native-easy-grid';
 
 const styles = StyleSheet.create({
   listItem: {
-    flexDirection: 'row', 
-    flexWrap: 'wrap', 
+    flexDirection: 'row',
   }
 })
 
 
 const List = (props: { data?: any; setListCharShow?: any; color?: any; disabled?: any }) => {
-  const { data, setListCharShow, color, disabled } = props; 
- 
+  const { data, setListCharShow, color, disabled } = props;
+
   function remove(char: any) {
-    console.log(char); 
-    const newList = []; 
-    let index = -1; 
+    console.log(char);
+    const newList = [];
+    let index = -1;
     for (let i = 0; i < data.length; i++) {
-      newList.push(data[i]); 
+      newList.push(data[i]);
       if (data[i] == char) {
-        index = i; 
+        index = i;
       }
     }
     if (index != -1) {
       newList[index] = "";
     }
-    setListCharShow(newList); 
+    setListCharShow(newList);
   }
 
   return (
-    <View style={styles.listItem}>
-      {data.map((e: any) => 
-        <CharacterShow char={e} onPress={() => remove(e)} color={color} disabled={disabled}/>
-      )}
-    </View>
+    <Grid>
+      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+        {data.map((e: any) =>
+          <CharacterShow char={e} onPress={() => remove(e)} color={color} disabled={disabled} />
+        )}
+      </Row>
+    </Grid>
   )
 }
 

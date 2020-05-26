@@ -9,12 +9,12 @@
         },
         "Beauty" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2FAppearance%2Fbeauty.jpg?alt=media&token=b633094b-08ef-4536-baf5-27c36c9553ae",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Vẻ đẹp"
         },
         "Clothing" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2FAppearance%2Fclothing.jpg?alt=media&token=fd2e9231-ea2e-46ef-8b2b-02fb44ee92d1",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Quần Áo"
         },
         "Hair" : {
@@ -117,6 +117,192 @@
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fscarf.mp3?alt=media&token=a1f07f29-d0da-4c49-a0d2-5e4f9819809d"
           }
         },
+        "Beauty" : {
+          "blusher" : {
+            "en_meaning" : "blusher",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "spelling" : "/'blʌ∫ə[r]/",
+            "vn_meaning" : "phấn má",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          },
+          "brush" : {
+            "en_meaning" : "brush",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fbrush.jpg?alt=media&token=fc8efc25-1204-4a58-a539-45cce850c469",
+            "spelling" : "/brʌ∫/",
+            "vn_meaning" : "chổi",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fbrush.mp3?alt=media&token=2dfc0b9f-957c-403b-8e3a-e9095421b531"
+          },
+          "exfoliate" : {
+            "en_meaning" : "exfoliate",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fexfoliate.jpg?alt=media&token=39dc6c29-0969-4bc6-8b4b-1132495bf760",
+            "spelling" : "/eks'foulieit/",
+            "vn_meaning" : "tẩy tế bào chết",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fexfoliate.mp3?alt=media&token=e995f2fc-879a-44ee-9246-c3fa0e16c28b"
+          },
+          "eyeliner" : {
+            "en_meaning" : "eyeliner",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Feyeliner.jpg?alt=media&token=c390a6cf-d0fc-4a33-a2f0-b0577cfd0c5b",
+            "spelling" : "/ˈaɪˌlaɪnɚ/",
+            "vn_meaning" : "bút kẻ mắt",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Feyeliner.mp3?alt=media&token=7eab6aaf-26b6-4419-8735-75d01f69a861"
+          },
+          "facial" : {
+            "en_meaning" : "facial",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffacial.jpg?alt=media&token=9d094863-b692-4156-863e-4ae108f74141",
+            "spelling" : "/'fei∫l/",
+            "vn_meaning" : "đắp mặt nạ",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ffacial.mp3?alt=media&token=c2e9e298-8d2a-4303-9811-bd240918f954"
+          },
+          "foundation" : {
+            "en_meaning" : "foundation",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffoundation.jpg?alt=media&token=3aafa15b-2f51-4d51-bfb4-313dfffaf3e7",
+            "spelling" : "/faʊn'dei∫n/ ",
+            "vn_meaning" : "phấn nền",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ffoundation.mp3?alt=media&token=255989ab-4dbd-4379-95ab-4290804f52cb"
+          },
+          "lipstick" : {
+            "en_meaning" : "lipstick",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Flipstick.jpg?alt=media&token=6dec4e39-6f11-493a-bbfd-2c016e42d253",
+            "spelling" : "/'lipstik/",
+            "vn_meaning" : "son môi",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Flipstick.mp3?alt=media&token=877acdcf-0878-4c4f-be59-fe9506c0a9d2"
+          },
+          "mascara" : {
+            "en_meaning" : "mascara",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmascara.jpg?alt=media&token=de3190c9-de65-434f-ae2c-1410c7b764a3",
+            "spelling" : "/mæs'kɑ:rə/",
+            "vn_meaning" : "mascara",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fmascara.mp3?alt=media&token=55279b52-23d0-4810-bdfa-2009a27e136f"
+          },
+          "mirror" : {
+            "en_meaning" : "mirror",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmirror.jpg?alt=media&token=620460b4-f33e-4e3b-84d2-a9bea2b8fb54",
+            "spelling" : "/'mirə[r]/",
+            "vn_meaning" : "gương",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fmirror.mp3?alt=media&token=716ca3f9-ecf6-41bf-9734-cb0924dd4e6e"
+          },
+          "pedicure" : {
+            "en_meaning" : "pedicure",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fpedicure.jpg?alt=media&token=e0d1a6e7-91d5-4195-995b-c120d1ead023",
+            "spelling" : "/'pedikjuə[r]/",
+            "vn_meaning" : "chăm sóc chân",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fpedicure.mp3?alt=media&token=2738dcda-b273-4922-9dff-7afd1d6f05f0"
+          },
+          "sunbed" : {
+            "en_meaning" : "sunbed",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fsunbed.jpg?alt=media&token=d28f1948-694b-4c4e-92c2-6e9eb7f4a3d9",
+            "spelling" : "/'sʌnbed/",
+            "vn_meaning" : "giường phơi nắng",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fsunbed.mp3?alt=media&token=555d1a01-3405-4b75-96f1-8dff72aa8a80"
+          },
+          "tweezers" : {
+            "en_meaning" : "tweezers",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ftweezers.jpg?alt=media&token=9152a412-ef29-47c1-b980-ebe3071c5a90",
+            "spelling" : "/'twi:zə[r]z/",
+            "vn_meaning" : "cái nhíp",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ftweezers.mp3?alt=media&token=612f44d3-7c06-4312-8ff4-b8715ddcf431"
+          },
+          "wax" : {
+            "en_meaning" : "wax",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fwax.jpg?alt=media&token=270e93b8-91d9-4242-82d2-dc6933d0e80d",
+            "spelling" : "/wæks/",
+            "vn_meaning" : "wax lông",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fwax.mp3?alt=media&token=529cc1b5-c90b-43c8-b973-d7a2fb38491d"
+          }
+        },
+        "Clothing" : {
+          "apron" : {
+            "en_meaning" : "apron",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fapron.jpg?alt=media&token=8c3de104-d735-488f-833a-ebd199057328",
+            "spelling" : "/'eiprən/",
+            "vn_meaning" : "tạp dề",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fapron.mp3?alt=media&token=df6b7f3f-18f5-41e9-b945-1571359bf96e"
+          },
+          "booties" : {
+            "en_meaning" : "booties",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fbooties.jpg?alt=media&token=95512a48-a493-42c9-a088-5efa943ef7c8",
+            "spelling" : "/'bu:ti/",
+            "vn_meaning" : "giày trẻ em",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fdress.mp3?alt=media&token=2ae18b8b-5d92-4a4d-91c2-e96e446edb23"
+          },
+          "dress" : {
+            "en_meaning" : "dress",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fdress.jpg?alt=media&token=8877738f-6bad-4b7d-afc8-f5d701bef362",
+            "spelling" : "/dres/",
+            "vn_meaning" : "áo đầm",
+            "void_uri" : ""
+          },
+          "hood" : {
+            "en_meaning" : "hood",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fhood.jpg?alt=media&token=d734bed1-fd39-4156-86ae-6461a962cc5e",
+            "spelling" : "/hʊd/",
+            "vn_meaning" : "mũ trùm đầu",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fjeans.mp3?alt=media&token=415a79be-97cc-4814-9365-600d58268add"
+          },
+          "jeans" : {
+            "en_meaning" : "jeans",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fjeans.jpg?alt=media&token=d58a73bf-301f-499c-ac1b-2fc869d0a9f0",
+            "spelling" : "/dʒi:nz/",
+            "vn_meaning" : "quần jean",
+            "void_uri" : ""
+          },
+          "mittens" : {
+            "en_meaning" : "mittens",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fmittens.jpg?alt=media&token=4b67953a-56af-4466-8ffc-84bb4e691aa7",
+            "spelling" : "/'mitn/",
+            "vn_meaning" : "găng tay",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1"
+          },
+          "raincoat" : {
+            "en_meaning" : "raincoat",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fraincoat.jpg?alt=media&token=fe15d0bd-f06f-4467-b9e6-8ceef8cebfff",
+            "spelling" : "/'reinkəʊt/",
+            "vn_meaning" : "áo mưa",
+            "void_uri" : ""
+          },
+          "sandals" : {
+            "en_meaning" : "sandals",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsandals.jpg?alt=media&token=3ab571ef-87ab-4e0e-9b6c-79c9a748baba",
+            "spelling" : "/'sændl/",
+            "vn_meaning" : "dép xăng đan",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsandal.mp3?alt=media&token=fa3b67d1-1226-41b0-84d9-14b122216033"
+          },
+          "skirt" : {
+            "en_meaning" : "skirt",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fskirt.jpg?alt=media&token=dfe14aa9-4f95-4883-8e8d-f02cd0d7f335",
+            "spelling" : "/skɜ:t/",
+            "vn_meaning" : "váy",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fskirt.mp3?alt=media&token=1b85c2fc-9bd6-4cd4-93b8-8b8db7b66b80"
+          },
+          "sleeper" : {
+            "en_meaning" : "sleeper",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsleeper.jpg?alt=media&token=3e3ca258-9d9c-4929-bb07-7b3b7da72596",
+            "spelling" : "/'sli:pə[r]/",
+            "vn_meaning" : "bộ đồ ngủ",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsleeper.mp3?alt=media&token=439decad-6e5a-4332-a80e-0c4af2903fe3"
+          },
+          "snap" : {
+            "en_meaning" : "snap",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsnap.jpg?alt=media&token=50aa8ae4-5131-4a9d-bf34-09cee481d101",
+            "spelling" : "/snæp/",
+            "vn_meaning" : "kim cài",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsnap.mp3?alt=media&token=a49046e5-bb70-4d89-8a36-ebe07533c6b9"
+          },
+          "t-shirt" : {
+            "en_meaning" : "t-shirt",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Ft-shirt.jpg?alt=media&token=ae89d812-421f-466d-990e-dd4e1e4d9633",
+            "spelling" : "/'ti:∫3:t/",
+            "vn_meaning" : "áo t-shirt",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2FT-shirt.mp3?alt=media&token=7bea5a37-99a9-4d20-a32a-ab07fee1e2c2"
+          },
+          "toggle" : {
+            "en_meaning" : "toggle",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Ftoggle.jpg?alt=media&token=ce764070-6e7a-454d-a2b8-11ecd56a4371",
+            "spelling" : "/'tɒgl/",
+            "vn_meaning" : "nút gỗ cài áo",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Ftoggle.mp3?alt=media&token=83f4c508-9f7d-40de-b608-98e6e419505a"
+          }
+        },
         "Hair" : {
           "brush" : {
             "en_meaning" : "brush",
@@ -191,6 +377,861 @@
         }
       },
       "test_bank" : {
+        "Accessories" : {
+          "answers" : [ {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 0,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 1,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 2,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 3,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 4,
+            "type" : 1
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbelt.jpg?alt=media&token=c4bf8c9c-9cac-454c-8a54-ec7390735d03",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbracelet.jpg?alt=media&token=ae051fa0-4489-4f06-b8e3-3dd0dead5f74",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbrooch.jpg?alt=media&token=606fb860-b29e-4ca7-9d4b-58bfd799bada",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbuckle.jpg?alt=media&token=582f3861-f638-42a4-8150-6303c651ee78",
+            "id" : 5,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fcap.jpg?alt=media&token=541341ea-22ea-439c-9db8-8e089e68d969",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbrooch.jpg?alt=media&token=606fb860-b29e-4ca7-9d4b-58bfd799bada",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fchain.jpg?alt=media&token=fbfcb49e-f6a1-4af6-866d-eec2310f22eb",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fearring.jpg?alt=media&token=69f7c381-3f3c-468f-aab5-f66fe5070769",
+            "id" : 6,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fgloves.jpg?alt=media&token=47f76ea3-fff9-4b78-9e7d-bfdd9ce3ccb2",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhandle.jpg?alt=media&token=94722802-fe00-4aac-82bb-d512b619dcbb",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbuckle.jpg?alt=media&token=582f3861-f638-42a4-8150-6303c651ee78",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhat.jpg?alt=media&token=d3e104d1-ef13-47a5-bba9-f000b0fb1992",
+            "id" : 7,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhat.jpg?alt=media&token=d3e104d1-ef13-47a5-bba9-f000b0fb1992",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbracelet.jpg?alt=media&token=ae051fa0-4489-4f06-b8e3-3dd0dead5f74",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fpendant.jpg?alt=media&token=1e003c1a-0a71-4329-b709-e09e498db31a",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fring.jpg?alt=media&token=1174137f-ef69-4590-b922-5bad6a617dc7",
+            "id" : 8,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fscarf.jpg?alt=media&token=9521da78-b1e1-4cef-a2b7-05bdff8197ed",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fearring.jpg?alt=media&token=69f7c381-3f3c-468f-aab5-f66fe5070769",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhandle.jpg?alt=media&token=94722802-fe00-4aac-82bb-d512b619dcbb",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbelt.jpg?alt=media&token=c4bf8c9c-9cac-454c-8a54-ec7390735d03",
+            "id" : 9,
+            "type" : 2
+          }, {
+            "content_a" : "belt",
+            "content_b" : "bracelet",
+            "content_c" : "buckle",
+            "content_d" : "bucke",
+            "id" : 10,
+            "type" : 3
+          }, {
+            "content_a" : "cap",
+            "content_b" : "chain",
+            "content_c" : "erring",
+            "content_d" : "handle",
+            "id" : 11,
+            "type" : 3
+          }, {
+            "content_a" : "hat",
+            "content_b" : "hot",
+            "content_c" : "handle",
+            "content_d" : "cap",
+            "id" : 12,
+            "type" : 3
+          }, {
+            "content_a" : "earring",
+            "content_b" : "scart",
+            "content_c" : "ring",
+            "content_d" : "glove",
+            "id" : 13,
+            "type" : 3
+          }, {
+            "content_a" : "belt",
+            "content_b" : "brooch",
+            "content_c" : "buckle",
+            "content_d" : "bracelet",
+            "id" : 14,
+            "type" : 3
+          }, {
+            "id" : 15,
+            "num_character" : 7,
+            "sugges_characters" : [ "t", "a", "i", "n", "d", "e", "p" ],
+            "type" : 4
+          }, {
+            "id" : 16,
+            "num_character" : 4,
+            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "g" ],
+            "type" : 4
+          }, {
+            "id" : 17,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "c", "o", "n", "s", "b", "h" ],
+            "type" : 4
+          }, {
+            "id" : 18,
+            "num_character" : 6,
+            "sugges_characters" : [ "l", "a", "i", "n", "d", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 19,
+            "num_character" : 5,
+            "sugges_characters" : [ "r", "a", "f", "n", "s", "e", "c" ],
+            "type" : 4
+          } ],
+          "questions" : [ {
+            "id" : 0,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbelt.jpg?alt=media&token=c4bf8c9c-9cac-454c-8a54-ec7390735d03",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbelt.mp3?alt=media&token=6243d3d5-2811-4c30-83f2-9fa915d01c99"
+          }, {
+            "id" : 1,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbracelet.jpg?alt=media&token=ae051fa0-4489-4f06-b8e3-3dd0dead5f74",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbrooch.mp3?alt=media&token=2cc37713-3826-4c2d-80a5-1534856777d8"
+          }, {
+            "id" : 2,
+            "txt_content" : "ring",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fring.mp3?alt=media&token=c9dfa9ff-613d-4a3b-8dbb-7aea0c1c5533"
+          }, {
+            "id" : 3,
+            "txt_content" : "glove",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fglove.mp3?alt=media&token=305bb5a2-319e-4296-b0e0-cbed25c91beb"
+          }, {
+            "id" : 4,
+            "txt_content" : "chain",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fcap.mp3?alt=media&token=b6056f57-8ab3-45bd-ba0e-bef03140788f"
+          }, {
+            "id" : 5,
+            "txt_content" : "bracelet",
+            "type" : "2"
+          }, {
+            "id" : 6,
+            "txt_content" : "chain",
+            "type" : "2"
+          }, {
+            "id" : 7,
+            "txt_content" : "hat",
+            "type" : "2"
+          }, {
+            "id" : 8,
+            "txt_content" : "pendant",
+            "type" : "2"
+          }, {
+            "id" : 9,
+            "txt_content" : "scarf",
+            "type" : "2"
+          }, {
+            "id" : 10,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbuckle.jpg?alt=media&token=582f3861-f638-42a4-8150-6303c651ee78",
+            "type" : "3"
+          }, {
+            "id" : 11,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhandle.jpg?alt=media&token=94722802-fe00-4aac-82bb-d512b619dcbb",
+            "type" : "3"
+          }, {
+            "id" : 12,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fhat.jpg?alt=media&token=d3e104d1-ef13-47a5-bba9-f000b0fb1992",
+            "type" : "3"
+          }, {
+            "id" : 13,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fscarf.jpg?alt=media&token=9521da78-b1e1-4cef-a2b7-05bdff8197ed",
+            "type" : "3"
+          }, {
+            "id" : 14,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbracelet.jpg?alt=media&token=ae051fa0-4489-4f06-b8e3-3dd0dead5f74",
+            "type" : "3"
+          }, {
+            "id" : 15,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fpendant.jpg?alt=media&token=1e003c1a-0a71-4329-b709-e09e498db31a",
+            "type" : "3"
+          }, {
+            "id" : 16,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fring.jpg?alt=media&token=1174137f-ef69-4590-b922-5bad6a617dc7",
+            "type" : "3"
+          }, {
+            "id" : 17,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FAccessories%2Fbrooch.jpg?alt=media&token=606fb860-b29e-4ca7-9d4b-58bfd799bada",
+            "type" : "3"
+          }, {
+            "id" : 18,
+            "txt_content" : "cán",
+            "type" : "2"
+          }, {
+            "id" : 19,
+            "txt_content" : "khăn quàng cổ",
+            "type" : "2"
+          } ],
+          "results" : [ {
+            "id" : 0,
+            "text" : "a"
+          }, {
+            "id" : 1,
+            "text" : "b"
+          }, {
+            "id" : 2,
+            "text" : "a"
+          }, {
+            "id" : 3,
+            "text" : "a"
+          }, {
+            "id" : 4,
+            "text" : "b"
+          }, {
+            "id" : 5,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbracelet.mp3?alt=media&token=062294a9-882d-4878-b11f-56467be78d4f"
+          }, {
+            "id" : 6,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fchain.mp3?alt=media&token=166b2a36-ab81-4035-8801-0f703c33ae4f"
+          }, {
+            "id" : 7,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fhat.mp3?alt=media&token=eb59e0c0-6560-42c8-bd73-980020b8328a"
+          }, {
+            "id" : 8,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fpendant.mp3?alt=media&token=1db66983-73fc-4649-9396-cdb0b214ec41"
+          }, {
+            "id" : 9,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fscarf.mp3?alt=media&token=a1f07f29-d0da-4c49-a0d2-5e4f9819809d"
+          }, {
+            "id" : 10,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbuckle.mp3?alt=media&token=a40bc176-4017-41e1-bf97-68d127d22537"
+          }, {
+            "id" : 11,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fhandle.mp3?alt=media&token=7166bd57-33c6-41d6-ad26-35c026ef7053"
+          }, {
+            "id" : 12,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fhat.mp3?alt=media&token=eb59e0c0-6560-42c8-bd73-980020b8328a"
+          }, {
+            "id" : 13,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fscarf.mp3?alt=media&token=a1f07f29-d0da-4c49-a0d2-5e4f9819809d"
+          }, {
+            "id" : 14,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbracelet.mp3?alt=media&token=062294a9-882d-4878-b11f-56467be78d4f"
+          }, {
+            "id" : 15,
+            "text" : "pendant",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fpendant.mp3?alt=media&token=1db66983-73fc-4649-9396-cdb0b214ec41"
+          }, {
+            "id" : 16,
+            "text" : "ring",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fring.mp3?alt=media&token=c9dfa9ff-613d-4a3b-8dbb-7aea0c1c5533"
+          }, {
+            "id" : 17,
+            "text" : "brooch",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fbrooch.mp3?alt=media&token=2cc37713-3826-4c2d-80a5-1534856777d8"
+          }, {
+            "id" : 18,
+            "text" : "handle",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fhandle.mp3?alt=media&token=7166bd57-33c6-41d6-ad26-35c026ef7053"
+          }, {
+            "id" : 19,
+            "text" : "scarf",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FAccessories%2Fscarf.mp3?alt=media&token=a1f07f29-d0da-4c49-a0d2-5e4f9819809d"
+          } ]
+        },
+        "Beauty" : {
+          "answers" : [ {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 0,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 1,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 2,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 3,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 4,
+            "type" : 1
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fbrush.jpg?alt=media&token=fc8efc25-1204-4a58-a539-45cce850c469",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fexfoliate.jpg?alt=media&token=39dc6c29-0969-4bc6-8b4b-1132495bf760",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Feyeliner.jpg?alt=media&token=c390a6cf-d0fc-4a33-a2f0-b0577cfd0c5b",
+            "id" : 5,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffacial.jpg?alt=media&token=9d094863-b692-4156-863e-4ae108f74141",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffoundation.jpg?alt=media&token=3aafa15b-2f51-4d51-bfb4-313dfffaf3e7",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Flipstick.jpg?alt=media&token=6dec4e39-6f11-493a-bbfd-2c016e42d253",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmascara.jpg?alt=media&token=de3190c9-de65-434f-ae2c-1410c7b764a3",
+            "id" : 6,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmirror.jpg?alt=media&token=620460b4-f33e-4e3b-84d2-a9bea2b8fb54",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fpedicure.jpg?alt=media&token=e0d1a6e7-91d5-4195-995b-c120d1ead023",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fsunbed.jpg?alt=media&token=d28f1948-694b-4c4e-92c2-6e9eb7f4a3d9",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ftweezers.jpg?alt=media&token=9152a412-ef29-47c1-b980-ebe3071c5a90",
+            "id" : 7,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffoundation.jpg?alt=media&token=3aafa15b-2f51-4d51-bfb4-313dfffaf3e7",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Feyeliner.jpg?alt=media&token=c390a6cf-d0fc-4a33-a2f0-b0577cfd0c5b",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fpedicure.jpg?alt=media&token=e0d1a6e7-91d5-4195-995b-c120d1ead023",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fwax.jpg?alt=media&token=270e93b8-91d9-4242-82d2-dc6933d0e80d",
+            "id" : 8,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Flipstick.jpg?alt=media&token=6dec4e39-6f11-493a-bbfd-2c016e42d253",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmirror.jpg?alt=media&token=620460b4-f33e-4e3b-84d2-a9bea2b8fb54",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fsunbed.jpg?alt=media&token=d28f1948-694b-4c4e-92c2-6e9eb7f4a3d9",
+            "id" : 9,
+            "type" : 2
+          }, {
+            "content_a" : "blusher",
+            "content_b" : "blushest",
+            "content_c" : "brush",
+            "content_d" : "exfoliate",
+            "id" : 10,
+            "type" : 3
+          }, {
+            "content_a" : "facial",
+            "content_b" : "exfoliate",
+            "content_c" : "eyeliner",
+            "content_d" : "lipstack",
+            "id" : 11,
+            "type" : 3
+          }, {
+            "content_a" : "foundation",
+            "content_b" : "mascara",
+            "content_c" : "mirrot",
+            "content_d" : "mirror",
+            "id" : 12,
+            "type" : 3
+          }, {
+            "content_a" : "eyeliner",
+            "content_b" : "sunbed",
+            "content_c" : "pedicure",
+            "content_d" : "tweezers",
+            "id" : 13,
+            "type" : 3
+          }, {
+            "content_a" : "mirror",
+            "content_b" : "facial",
+            "content_c" : "exfoliate",
+            "content_d" : "wax",
+            "id" : 14,
+            "type" : 3
+          }, {
+            "id" : 15,
+            "num_character" : 7,
+            "sugges_characters" : [ "r", "u", "b", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 16,
+            "num_character" : 6,
+            "sugges_characters" : [ "f", "a", "i", "c", "s", "e", "l" ],
+            "type" : 4
+          }, {
+            "id" : 17,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "a", "i", "m", "s", "e", "o" ],
+            "type" : 4
+          }, {
+            "id" : 18,
+            "num_character" : 6,
+            "sugges_characters" : [ "u", "b", "i", "n", "s", "e", "d" ],
+            "type" : 4
+          }, {
+            "id" : 19,
+            "num_character" : 3,
+            "sugges_characters" : [ "w", "a", "i", "n", "s", "e", "x" ],
+            "type" : 4
+          } ],
+          "questions" : [ {
+            "id" : 0,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          }, {
+            "id" : 1,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fbrush.jpg?alt=media&token=fc8efc25-1204-4a58-a539-45cce850c469",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          }, {
+            "id" : 2,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fexfoliate.jpg?alt=media&token=39dc6c29-0969-4bc6-8b4b-1132495bf760",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fexfoliate.mp3?alt=media&token=e995f2fc-879a-44ee-9246-c3fa0e16c28b"
+          }, {
+            "id" : 3,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffoundation.jpg?alt=media&token=3aafa15b-2f51-4d51-bfb4-313dfffaf3e7",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ffacial.mp3?alt=media&token=c2e9e298-8d2a-4303-9811-bd240918f954"
+          }, {
+            "id" : 4,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fsunbed.jpg?alt=media&token=d28f1948-694b-4c4e-92c2-6e9eb7f4a3d9",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fsunbed.mp3?alt=media&token=555d1a01-3405-4b75-96f1-8dff72aa8a80"
+          }, {
+            "id" : 5,
+            "txt_content" : "bursh",
+            "type" : "2"
+          }, {
+            "id" : 6,
+            "txt_content" : "facial",
+            "type" : "2"
+          }, {
+            "id" : 7,
+            "txt_content" : "sunbed",
+            "type" : "2"
+          }, {
+            "id" : 8,
+            "txt_content" : "wax",
+            "type" : "2"
+          }, {
+            "id" : 9,
+            "txt_content" : "blusher",
+            "type" : "2"
+          }, {
+            "id" : 10,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "type" : "3"
+          }, {
+            "id" : 11,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Feyeliner.jpg?alt=media&token=c390a6cf-d0fc-4a33-a2f0-b0577cfd0c5b",
+            "type" : "3"
+          }, {
+            "id" : 12,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmascara.jpg?alt=media&token=de3190c9-de65-434f-ae2c-1410c7b764a3",
+            "type" : "3"
+          }, {
+            "id" : 13,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ftweezers.jpg?alt=media&token=9152a412-ef29-47c1-b980-ebe3071c5a90",
+            "type" : "3"
+          }, {
+            "id" : 14,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fexfoliate.jpg?alt=media&token=39dc6c29-0969-4bc6-8b4b-1132495bf760",
+            "type" : "3"
+          }, {
+            "id" : 15,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fblusher.jpg?alt=media&token=ad1de8a0-1f49-425b-aec6-3af96ab74934",
+            "type" : "3"
+          }, {
+            "id" : 16,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Ffacial.jpg?alt=media&token=9d094863-b692-4156-863e-4ae108f74141",
+            "type" : "3"
+          }, {
+            "id" : 17,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FBeauty%2Fmirror.jpg?alt=media&token=620460b4-f33e-4e3b-84d2-a9bea2b8fb54",
+            "type" : "3"
+          }, {
+            "id" : 18,
+            "txt_content" : "giường phơi nắng",
+            "type" : "2"
+          }, {
+            "id" : 19,
+            "txt_content" : "wax lông",
+            "type" : "2"
+          } ],
+          "results" : [ {
+            "id" : 0,
+            "text" : "a"
+          }, {
+            "id" : 1,
+            "text" : "b"
+          }, {
+            "id" : 2,
+            "text" : "a"
+          }, {
+            "id" : 3,
+            "text" : "b"
+          }, {
+            "id" : 4,
+            "text" : "a"
+          }, {
+            "id" : 5,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fbrush.mp3?alt=media&token=2dfc0b9f-957c-403b-8e3a-e9095421b531"
+          }, {
+            "id" : 6,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fsunbed.mp3?alt=media&token=555d1a01-3405-4b75-96f1-8dff72aa8a80"
+          }, {
+            "id" : 7,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fsunbed.mp3?alt=media&token=555d1a01-3405-4b75-96f1-8dff72aa8a80"
+          }, {
+            "id" : 8,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fwax.mp3?alt=media&token=529cc1b5-c90b-43c8-b973-d7a2fb38491d"
+          }, {
+            "id" : 9,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          }, {
+            "id" : 10,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          }, {
+            "id" : 11,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Feyeliner.mp3?alt=media&token=7eab6aaf-26b6-4419-8735-75d01f69a861"
+          }, {
+            "id" : 12,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fmascara.mp3?alt=media&token=55279b52-23d0-4810-bdfa-2009a27e136f"
+          }, {
+            "id" : 13,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ftweezers.mp3?alt=media&token=612f44d3-7c06-4312-8ff4-b8715ddcf431"
+          }, {
+            "id" : 14,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fexfoliate.mp3?alt=media&token=e995f2fc-879a-44ee-9246-c3fa0e16c28b"
+          }, {
+            "id" : 15,
+            "text" : "blusher",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fblusher.mp3?alt=media&token=b2de4d29-1ebe-447f-852a-f0c10db6ea1a"
+          }, {
+            "id" : 16,
+            "text" : "facial",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Ffacial.mp3?alt=media&token=c2e9e298-8d2a-4303-9811-bd240918f954"
+          }, {
+            "id" : 17,
+            "text" : "mirror",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fmirror.mp3?alt=media&token=716ca3f9-ecf6-41bf-9734-cb0924dd4e6e"
+          }, {
+            "id" : 18,
+            "text" : "sunbed",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fsunbed.mp3?alt=media&token=555d1a01-3405-4b75-96f1-8dff72aa8a80"
+          }, {
+            "id" : 19,
+            "text" : "wax",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fbeauty%2Fwax.mp3?alt=media&token=529cc1b5-c90b-43c8-b973-d7a2fb38491d"
+          } ]
+        },
+        "Clothing" : {
+          "answers" : [ {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 0,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 1,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 2,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 3,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 4,
+            "type" : 1
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fapron.jpg?alt=media&token=8c3de104-d735-488f-833a-ebd199057328",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fbooties.jpg?alt=media&token=95512a48-a493-42c9-a088-5efa943ef7c8",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fdress.jpg?alt=media&token=8877738f-6bad-4b7d-afc8-f5d701bef362",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fhood.jpg?alt=media&token=d734bed1-fd39-4156-86ae-6461a962cc5e",
+            "id" : 5,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fdress.jpg?alt=media&token=8877738f-6bad-4b7d-afc8-f5d701bef362",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fbooties.jpg?alt=media&token=95512a48-a493-42c9-a088-5efa943ef7c8",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fjeans.jpg?alt=media&token=d58a73bf-301f-499c-ac1b-2fc869d0a9f0",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fmittens.jpg?alt=media&token=4b67953a-56af-4466-8ffc-84bb4e691aa7",
+            "id" : 6,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fmittens.jpg?alt=media&token=4b67953a-56af-4466-8ffc-84bb4e691aa7",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fraincoat.jpg?alt=media&token=fe15d0bd-f06f-4467-b9e6-8ceef8cebfff",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsandals.jpg?alt=media&token=3ab571ef-87ab-4e0e-9b6c-79c9a748baba",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fskirt.jpg?alt=media&token=dfe14aa9-4f95-4883-8e8d-f02cd0d7f335",
+            "id" : 7,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsandals.jpg?alt=media&token=3ab571ef-87ab-4e0e-9b6c-79c9a748baba",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsandals.jpg?alt=media&token=3ab571ef-87ab-4e0e-9b6c-79c9a748baba",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsleeper.jpg?alt=media&token=3e3ca258-9d9c-4929-bb07-7b3b7da72596",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsnap.jpg?alt=media&token=50aa8ae4-5131-4a9d-bf34-09cee481d101",
+            "id" : 8,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Ft-shirt.jpg?alt=media&token=ae89d812-421f-466d-990e-dd4e1e4d9633",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Ftoggle.jpg?alt=media&token=ce764070-6e7a-454d-a2b8-11ecd56a4371",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fbooties.jpg?alt=media&token=95512a48-a493-42c9-a088-5efa943ef7c8",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fraincoat.jpg?alt=media&token=fe15d0bd-f06f-4467-b9e6-8ceef8cebfff",
+            "id" : 9,
+            "type" : 2
+          }, {
+            "content_a" : "apron",
+            "content_b" : "dress",
+            "content_c" : "jeans",
+            "content_d" : "raincoat",
+            "id" : 10,
+            "type" : 3
+          }, {
+            "content_a" : "sleeper",
+            "content_b" : "snap",
+            "content_c" : "t-shirt",
+            "content_d" : "toggle",
+            "id" : 11,
+            "type" : 3
+          }, {
+            "content_a" : "apron",
+            "content_b" : "booties",
+            "content_c" : "dress",
+            "content_d" : "hood",
+            "id" : 12,
+            "type" : 3
+          }, {
+            "content_a" : "mittens",
+            "content_b" : "raincoat",
+            "content_c" : "sandals",
+            "content_d" : "skirt",
+            "id" : 13,
+            "type" : 3
+          }, {
+            "content_a" : "dress",
+            "content_b" : "mittens",
+            "content_c" : "skirt",
+            "content_d" : "t-shirt",
+            "id" : 14,
+            "type" : 3
+          }, {
+            "id" : 15,
+            "num_character" : 7,
+            "sugges_characters" : [ "d", "a", "i", "n", "s", "e", "l" ],
+            "type" : 4
+          }, {
+            "id" : 16,
+            "num_character" : 5,
+            "sugges_characters" : [ "j", "a", "i", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 17,
+            "num_character" : 4,
+            "sugges_characters" : [ "o", "a", "i", "d", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 18,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "o", "g", "l", "s", "e", "t" ],
+            "type" : 4
+          }, {
+            "id" : 19,
+            "num_character" : 4,
+            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "p" ],
+            "type" : 4
+          } ],
+          "questions" : [ {
+            "id" : 0,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fapron.jpg?alt=media&token=8c3de104-d735-488f-833a-ebd199057328",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2FT-shirt.mp3?alt=media&token=7bea5a37-99a9-4d20-a32a-ab07fee1e2c2"
+          }, {
+            "id" : 1,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fbooties.jpg?alt=media&token=95512a48-a493-42c9-a088-5efa943ef7c8",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fbooty.mp3?alt=media&token=037dd8e0-c7af-46af-8a94-3ba4fef20f94"
+          }, {
+            "id" : 2,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fdress.jpg?alt=media&token=8877738f-6bad-4b7d-afc8-f5d701bef362",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fdress.mp3?alt=media&token=2ae18b8b-5d92-4a4d-91c2-e96e446edb23"
+          }, {
+            "id" : 3,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fmittens.jpg?alt=media&token=4b67953a-56af-4466-8ffc-84bb4e691aa7",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fmitten.mp3?alt=media&token=1431b6b5-b089-4ce8-99b8-2fce950a034e"
+          }, {
+            "id" : 4,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fjeans.jpg?alt=media&token=d58a73bf-301f-499c-ac1b-2fc869d0a9f0",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fapron.mp3?alt=media&token=df6b7f3f-18f5-41e9-b945-1571359bf96e"
+          }, {
+            "id" : 5,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 6,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 7,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 8,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 9,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 10,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 11,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 12,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 13,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 14,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 15,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 16,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 17,
+            "img_content" : "",
+            "type" : "3"
+          }, {
+            "id" : 18,
+            "txt_content" : "",
+            "type" : "2"
+          }, {
+            "id" : 19,
+            "txt_content" : "",
+            "type" : "2"
+          } ],
+          "results" : [ {
+            "id" : 0,
+            "text" : "b"
+          }, {
+            "id" : 1,
+            "text" : "a"
+          }, {
+            "id" : 2,
+            "text" : "a"
+          }, {
+            "id" : 3,
+            "text" : "a"
+          }, {
+            "id" : 4,
+            "text" : "b"
+          }, {
+            "id" : 5,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fhood.mp3?alt=media&token=0b385e3f-59f2-4dec-8470-6e61795be82e"
+          }, {
+            "id" : 6,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fjeans.mp3?alt=media&token=415a79be-97cc-4814-9365-600d58268add"
+          }, {
+            "id" : 7,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fmitten.mp3?alt=media&token=1431b6b5-b089-4ce8-99b8-2fce950a034e"
+          }, {
+            "id" : 8,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsandal.mp3?alt=media&token=fa3b67d1-1226-41b0-84d9-14b122216033"
+          }, {
+            "id" : 9,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Ftoggle.mp3?alt=media&token=83f4c508-9f7d-40de-b608-98e6e419505a"
+          }, {
+            "id" : 10,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1"
+          }, {
+            "id" : 11,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsleeper.mp3?alt=media&token=439decad-6e5a-4332-a80e-0c4af2903fe3"
+          }, {
+            "id" : 12,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fdress.mp3?alt=media&token=2ae18b8b-5d92-4a4d-91c2-e96e446edb23"
+          }, {
+            "id" : 13,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1"
+          }, {
+            "id" : 14,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fskirt.mp3?alt=media&token=1b85c2fc-9bd6-4cd4-93b8-8b8db7b66b80"
+          }, {
+            "id" : 15,
+            "text" : "sandals",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsandal.mp3?alt=media&token=fa3b67d1-1226-41b0-84d9-14b122216033"
+          }, {
+            "id" : 16,
+            "text" : "jeans",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fjeans.mp3?alt=media&token=415a79be-97cc-4814-9365-600d58268add"
+          }, {
+            "id" : 17,
+            "text" : "hood",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fhood.mp3?alt=media&token=0b385e3f-59f2-4dec-8470-6e61795be82e"
+          }, {
+            "id" : 18,
+            "text" : "toggle",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Ftoggle.mp3?alt=media&token=83f4c508-9f7d-40de-b608-98e6e419505a"
+          }, {
+            "id" : 19,
+            "text" : "snap",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsnap.mp3?alt=media&token=a49046e5-bb70-4d89-8a36-ebe07533c6b9"
+          } ]
+        },
         "Hair" : {
           "answers" : [ {
             "content_a" : "True",
@@ -315,8 +1356,8 @@
           } ],
           "questions" : [ {
             "id" : 0,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fbtush.jpg?alt=media&token=5ab3f45a-2bd4-430b-95aa-e48e085a9902",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fbtush.jpg?alt=media&token=5ab3f45a-2bd4-430b-95aa-e48e085a9902",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fhair%2Fbrush.mp3?alt=media&token=2dd6c73f-77c1-4c27-ae9b-db261bf61846"
           }, {
             "id" : 1,
@@ -325,13 +1366,13 @@
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fhair%2Fbrush.mp3?alt=media&token=2dd6c73f-77c1-4c27-ae9b-db261bf61846"
           }, {
             "id" : 2,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcape.jpg?alt=media&token=8e9f7e4f-f215-4ce1-9eb7-24199aaff3b6",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcape.jpg?alt=media&token=8e9f7e4f-f215-4ce1-9eb7-24199aaff3b6",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fhair%2Fcomb.mp3?alt=media&token=217c9613-3678-466c-900d-62b4d9d89d4f"
           }, {
             "id" : 3,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcape.jpg?alt=media&token=8e9f7e4f-f215-4ce1-9eb7-24199aaff3b6",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcape.jpg?alt=media&token=8e9f7e4f-f215-4ce1-9eb7-24199aaff3b6",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2Fhair%2Fcut.mp3?alt=media&token=b9715320-ee5d-4f3e-8857-6003467cf96a"
           }, {
             "id" : 4,
@@ -360,12 +1401,12 @@
             "type" : "2"
           }, {
             "id" : 10,
-            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcomb.jpg?alt=media&token=a0d86270-2314-4880-856d-77f578e2ce08",
-            "type" : "3"
+            "txt_content" : "comb",
+            "type" : "2"
           }, {
             "id" : 11,
-            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fset.jpg?alt=media&token=1c73774b-efce-4b77-beb7-adbbad029a2d",
-            "type" : "3"
+            "txt_content" : "set",
+            "type" : "2"
           }, {
             "id" : 12,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcurler.jpg?alt=media&token=0bf92181-5368-4834-add0-bc8227fde858",
@@ -381,23 +1422,23 @@
           }, {
             "id" : 15,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Frinse.jpg?alt=media&token=c297e2be-a4ad-46e5-a724-4bcd2b194425",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 16,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fgel.jpg?alt=media&token=5f5db059-3afb-42a9-b358-17e23da7f602",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 17,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fcut.jpg?alt=media&token=527357ff-40d6-4d42-a0c4-16845822da1e",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 18,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fsink.jpg?alt=media&token=45127ca2-b496-40e3-98ad-dbfe2f793bc9",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 19,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FHair%2Fstraight.jpeg?alt=media&token=ce1ebca6-8f4b-4016-bf41-0e6f0f711481",
-            "type" : "4"
+            "type" : "3"
           } ],
           "results" : [ {
             "id" : 0,
@@ -487,7 +1528,7 @@
         },
         "Breakfast" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Feating%20out%2Fbreakfast.jpg?alt=media&token=2b9b987d-82fe-4df6-a5e6-b897c6a7c465",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Bữa Sáng"
         },
         "Cafe" : {
@@ -519,7 +1560,7 @@
             "en_meaning" : "bartender",
             "image_uri" : "\"\"https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fbartender.jpg?alt=media&token=9b4280c3-2aba-4867-b917-fd7f7218f7ec",
             "spelling" : "bartender",
-            "vn_meaning" : "bartender",
+            "vn_meaning" : "nhân viên pha chế",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fbartender.mp3?alt=media&token=bf99621f-37b7-4a33-95ce-78ce7433e6b3"
           },
           "coaster" : {
@@ -598,6 +1639,99 @@
             "spelling" : "/wain/",
             "vn_meaning" : "rượu",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fwine.mp3?alt=media&token=3f0e492b-5b39-4c37-a3a7-eaafdf4c5837"
+          }
+        },
+        "Breakfast" : {
+          "bacon" : {
+            "en_meaning" : "bacon",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "spelling" : "/'beikən/",
+            "vn_meaning" : "thịt xông khói",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          },
+          "bread" : {
+            "en_meaning" : "bread",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "spelling" : "/bred/",
+            "vn_meaning" : "bánh mì",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          },
+          "butter" : {
+            "en_meaning" : "butter",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "spelling" : "/'bʌtə[r]/",
+            "vn_meaning" : "bơ",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcereal.mp3?alt=media&token=c3fbe313-7540-4efa-81e3-1f51368ff3be"
+          },
+          "cereal" : {
+            "en_meaning" : "cereal",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcereal.jpg?alt=media&token=bced0de4-6d95-4b90-ba10-d99894e42dd5",
+            "spelling" : "/'siəriəl/",
+            "vn_meaning" : "ngũ cốc",
+            "void_uri" : ""
+          },
+          "cheese" : {
+            "en_meaning" : "cheese",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "spelling" : "/t∫i:z/",
+            "vn_meaning" : "phô mai",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcheese.mp3?alt=media&token=7c38d9dc-ac46-4298-9bdd-79871ae01408"
+          },
+          "coffee" : {
+            "en_meaning" : "coffee",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "spelling" : "/'kɒfi/",
+            "vn_meaning" : "cà phê",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          },
+          "ham" : {
+            "en_meaning" : "ham",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "spelling" : "/hæm/",
+            "vn_meaning" : "giăm bông",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          },
+          "jam" : {
+            "en_meaning" : "jam",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "spelling" : "/dʒæm/",
+            "vn_meaning" : "mứt",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
+          },
+          "marmalade" : {
+            "en_meaning" : "marmalade",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "spelling" : "/'mɑ:məleid/",
+            "vn_meaning" : "mứt cam",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmarmalade.mp3?alt=media&token=e786b6cb-ee5a-473f-a5df-ff317e9a04fa"
+          },
+          "milk" : {
+            "en_meaning" : "milk",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "spelling" : "/milk/",
+            "vn_meaning" : "sữa",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmilk.mp3?alt=media&token=3ca243c5-c433-4018-9fad-e866675441af"
+          },
+          "tea" : {
+            "en_meaning" : "tea",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "spelling" : "/ti:/",
+            "vn_meaning" : "trà",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftea.mp3?alt=media&token=f9292ab3-6db1-43fc-9005-0b18b75353b3"
+          },
+          "toast" : {
+            "en_meaning" : "toast",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "spelling" : "/təʊst/",
+            "vn_meaning" : "bánh mì nướng",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          },
+          "tomato" : {
+            "en_meaning" : "tomato",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "spelling" : "/tə'mɑ:təʊ/  /tə'meitəʊ/",
+            "vn_meaning" : "cà chua",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftomato.mp3?alt=media&token=e54cfb7c-5370-4dff-bdd9-81df2aa00a1d"
           }
         }
       },
@@ -741,7 +1875,7 @@
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fbartender.mp3?alt=media&token=bf99621f-37b7-4a33-95ce-78ce7433e6b3"
           }, {
             "id" : 3,
-            "txt_content" : "",
+            "txt_content" : "cocktail",
             "type" : "1",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2FMartini.mp3?alt=media&token=717f5924-8bfd-4a4b-a3fb-205321c10f01"
           }, {
@@ -775,16 +1909,16 @@
             "type" : "3"
           }, {
             "id" : 11,
-            "img_content" : "dispenser",
-            "type" : "3"
+            "txt_content" : "dispenser",
+            "type" : "2"
           }, {
             "id" : 12,
-            "img_content" : "measure",
-            "type" : "3"
+            "txt_content" : "measure",
+            "type" : "2"
           }, {
             "id" : 13,
-            "img_content" : "ashtray",
-            "type" : "3"
+            "txt_content" : "ashtray",
+            "type" : "2"
           }, {
             "id" : 14,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fglasses.jpg?alt=media&token=95227751-9ec9-4767-8f64-3769a99dd41f",
@@ -792,23 +1926,23 @@
           }, {
             "id" : 15,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Flever.jpg?alt=media&token=d91c370b-45f8-41ee-bc50-3b06ad7419b8",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 16,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fcocktail.jpg?alt=media&token=c1b716fc-f2b4-47d7-9246-4c423f85ef65",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 17,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fstirrer.jpg?alt=media&token=875f7b43-f0f8-43cf-92c3-e0a44d7a6d2a",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 18,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fdispenser.jpg?alt=media&token=f8d09c65-f2e2-49fe-b56c-adb8a114c2da",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 19,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBar%2Fcoaster.jpg?alt=media&token=8ea9ac6e-8a2e-4671-90cf-17be9974b9ba",
-            "type" : "4"
+            "type" : "3"
           } ],
           "results" : [ {
             "id" : 0,
@@ -885,6 +2019,291 @@
             "id" : 19,
             "text" : "coater",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fcoaster.mp3?alt=media&token=5dfd88a7-5d15-4c62-93ed-c7196469999b"
+          } ]
+        },
+        "Breakfast" : {
+          "answers" : [ {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 0,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 1,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 2,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 3,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 4,
+            "type" : 1
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "id" : 5,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcereal.jpg?alt=media&token=bced0de4-6d95-4b90-ba10-d99894e42dd5",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "id" : 6,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "id" : 7,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "id" : 8,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "id" : 9,
+            "type" : 2
+          }, {
+            "content_a" : "bacon",
+            "content_b" : "bread",
+            "content_c" : "bacom",
+            "content_d" : "butter",
+            "id" : 10,
+            "type" : 3
+          }, {
+            "content_a" : "cheese",
+            "content_b" : "coffee",
+            "content_c" : "ham",
+            "content_d" : "jam",
+            "id" : 11,
+            "type" : 3
+          }, {
+            "content_a" : "marmalade",
+            "content_b" : "milk",
+            "content_c" : "eat",
+            "content_d" : "tea",
+            "id" : 12,
+            "type" : 3
+          }, {
+            "content_a" : "tomato",
+            "content_b" : "tometo",
+            "content_c" : "toast",
+            "content_d" : "ham",
+            "id" : 13,
+            "type" : 3
+          }, {
+            "content_a" : "cereal",
+            "content_b" : "ham",
+            "content_c" : "milk",
+            "content_d" : "tea",
+            "id" : 14,
+            "type" : 3
+          }, {
+            "id" : 15,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "a", "c", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 16,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "b", "u", "t", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 17,
+            "num_character" : 5,
+            "sugges_characters" : [ "r", "a", "b", "n", "s", "e", "d" ],
+            "type" : 4
+          }, {
+            "id" : 18,
+            "num_character" : 5,
+            "sugges_characters" : [ "t", "a", "o", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 19,
+            "num_character" : 3,
+            "sugges_characters" : [ "j", "a", "i", "m", "s", "e", "h" ],
+            "type" : 4
+          } ],
+          "questions" : [ {
+            "id" : 0,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          }, {
+            "id" : 1,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          }, {
+            "id" : 2,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbutter.mp3?alt=media&token=b7f9116b-564e-4018-952b-ab6d5e326074"
+          }, {
+            "id" : 3,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          }, {
+            "id" : 4,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          }, {
+            "id" : 5,
+            "txt_content" : "tomoto",
+            "type" : "2"
+          }, {
+            "id" : 6,
+            "txt_content" : "cereal",
+            "type" : "2"
+          }, {
+            "id" : 7,
+            "txt_content" : "jam",
+            "type" : "2"
+          }, {
+            "id" : 8,
+            "txt_content" : "toast",
+            "type" : "2"
+          }, {
+            "id" : 9,
+            "txt_content" : "ham",
+            "type" : "2"
+          }, {
+            "id" : 10,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "type" : "3"
+          }, {
+            "id" : 11,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "type" : "3"
+          }, {
+            "id" : 12,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "type" : "3"
+          }, {
+            "id" : 13,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "type" : "3"
+          }, {
+            "id" : 14,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "type" : "3"
+          }, {
+            "id" : 15,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "type" : "3"
+          }, {
+            "id" : 16,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "3"
+          }, {
+            "id" : 17,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "type" : "3"
+          }, {
+            "id" : 18,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "type" : "2"
+          }, {
+            "id" : 19,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "type" : "2"
+          } ],
+          "results" : [ {
+            "id" : 0,
+            "text" : "a"
+          }, {
+            "id" : 1,
+            "text" : "a"
+          }, {
+            "id" : 2,
+            "text" : "a"
+          }, {
+            "id" : 3,
+            "text" : "b"
+          }, {
+            "id" : 4,
+            "text" : "b"
+          }, {
+            "id" : 5,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftomato.mp3?alt=media&token=e54cfb7c-5370-4dff-bdd9-81df2aa00a1d"
+          }, {
+            "id" : 6,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcereal.mp3?alt=media&token=c3fbe313-7540-4efa-81e3-1f51368ff3be"
+          }, {
+            "id" : 7,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
+          }, {
+            "id" : 8,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 9,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          }, {
+            "id" : 10,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          }, {
+            "id" : 11,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          }, {
+            "id" : 12,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftea.mp3?alt=media&token=f9292ab3-6db1-43fc-9005-0b18b75353b3"
+          }, {
+            "id" : 13,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 14,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmilk.mp3?alt=media&token=3ca243c5-c433-4018-9fad-e866675441af"
+          }, {
+            "id" : 15,
+            "text" : "cheese",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcheese.mp3?alt=media&token=7c38d9dc-ac46-4298-9bdd-79871ae01408"
+          }, {
+            "id" : 16,
+            "text" : "butter",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbutter.mp3?alt=media&token=b7f9116b-564e-4018-952b-ab6d5e326074"
+          }, {
+            "id" : 17,
+            "text" : "bread",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          }, {
+            "id" : 18,
+            "text" : "toast",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 19,
+            "text" : "jam",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
           } ]
         }
       }
@@ -1137,18 +2556,18 @@
           } ],
           "questions" : [ {
             "id" : 0,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fash.mp3?alt=media&token=dbfba58c-3db4-4097-8f1e-f8900f230c34"
           }, {
             "id" : 1,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fchamber.jpg?alt=media&token=514f0137-6c97-41ab-b422-07e32e0056c2",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fchamber.jpg?alt=media&token=514f0137-6c97-41ab-b422-07e32e0056c2",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
           }, {
             "id" : 2,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEnvironment%2FEarth%2Fcontinent.mp3?alt=media&token=8f45618a-aea2-4638-8c93-7954bb7f47e0"
           }, {
             "id" : 3,
@@ -1203,23 +2622,23 @@
           }, {
             "id" : 15,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fmantle.jpg?alt=media&token=8fbb25eb-86ac-48c4-813c-1fc2d19fdc1d",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 16,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fpole.jpg?alt=media&token=afa5e921-3775-4311-aa22-55172dc02a9c",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 17,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fash.jpg?alt=media&token=348e2735-147d-4822-8862-a86b5a039ed9",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 18,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fcrust.jpg?alt=media&token=0d668267-fb22-4ac3-b02f-4e8d25895678",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 19,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEnvironnment%2FEarth%2Fvolcano.jpg?alt=media&token=b0770992-f669-427a-9ff2-9b1af13b56e2",
-            "type" : "4"
+            "type" : "3"
           } ],
           "results" : [ {
             "id" : 0,
@@ -1548,28 +2967,28 @@
           } ],
           "questions" : [ {
             "id" : 0,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fbeans.jpg?alt=media&token=302a85f2-b29b-41e4-992a-c81b7a154b77",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fbeans.jpg?alt=media&token=302a85f2-b29b-41e4-992a-c81b7a154b77",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FFood%2FDrinks%2Fbeer.mp3?alt=media&token=964f93af-bd81-47d6-9eb5-98722ddec7b3"
           }, {
             "id" : 1,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fbeer.jpg?alt=media&token=c5db3279-1728-4be5-bf79-3d8c13a32d0a",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fbeer.jpg?alt=media&token=c5db3279-1728-4be5-bf79-3d8c13a32d0a",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FFood%2FDrinks%2Fbean.mp3?alt=media&token=c2fe7f68-b825-4008-b1f8-738d953e9a4a"
           }, {
             "id" : 2,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fcoffee.jpg?alt=media&token=c9f62301-5af6-46f9-ba63-b4ee3bb6792b",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fcoffee.jpg?alt=media&token=c9f62301-5af6-46f9-ba63-b4ee3bb6792b",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FFood%2FDrinks%2Fcoffee.mp3?alt=media&token=3c2bece3-db15-4e57-aedb-89f0b761ce46"
           }, {
             "id" : 3,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fcola.jpg?alt=media&token=d7e45a80-9e0a-45da-a6c6-dc118ffc58c5",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fcola.jpg?alt=media&token=d7e45a80-9e0a-45da-a6c6-dc118ffc58c5",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FFood%2FDrinks%2Fcola.mp3?alt=media&token=df518cdb-bf4d-4420-9a57-4a2502990c12"
           }, {
             "id" : 4,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fgin.jpg?alt=media&token=24dcc30e-1da3-4b60-8cf9-334029d94c8b",
-            "type" : "1",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fgin.jpg?alt=media&token=24dcc30e-1da3-4b60-8cf9-334029d94c8b",
+            "type" : "4",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FFood%2FDrinks%2Fgin.mp3?alt=media&token=e845f3c4-ffe4-4475-9b23-c30f72c8eaeb"
           }, {
             "id" : 5,
@@ -1593,8 +3012,8 @@
             "type" : "2"
           }, {
             "id" : 10,
-            "img_content" : "cola",
-            "type" : "3"
+            "txt_content" : "cola",
+            "type" : "2"
           }, {
             "id" : 11,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Forangeade.jpg?alt=media&token=8e598d77-21a3-44b1-b785-6690ff1b83dd",
@@ -1614,23 +3033,23 @@
           }, {
             "id" : 15,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fstraw.jpg?alt=media&token=bd1e125e-24a3-427c-960c-7677ace7a88c",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 16,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fstout.jpg?alt=media&token=a28b5bb7-8f29-487f-8026-0b5a98aec0f3",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 17,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fcola.jpg?alt=media&token=d7e45a80-9e0a-45da-a6c6-dc118ffc58c5",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 18,
             "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FFood%2FDrinks%2Fvodka.jpg?alt=media&token=6fb7536e-7653-4047-ba64-4af0da589054",
-            "type" : "4"
+            "type" : "3"
           }, {
             "id" : 19,
-            "img_content" : "beer",
-            "type" : "4"
+            "txt_content" : "beer",
+            "type" : "2"
           } ],
           "results" : [ {
             "id" : 0,
@@ -1862,262 +3281,262 @@
             "id" : 4,
             "type" : 1
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Furology.jpg?alt=media&token=2f6feac9-452f-41b6-8596-4441ca9a3584",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fsurgery.jpg?alt=media&token=379fdddb-0772-4d51-85e1-db792b3ed253",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Freferral.jpg?alt=media&token=e51552f2-e85a-4087-8022-04bdc5f096cb",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fradiology.jpg?alt=media&token=734dcece-09f0-41c6-9624-9ae70c7652ac",
             "id" : 5,
             "type" : 2
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fsurgery.jpg?alt=media&token=379fdddb-0772-4d51-85e1-db792b3ed253",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fpsychiatry.jpg?alt=media&token=2a4b5774-7d48-40fc-9cf9-ad98a79de2de",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fpediatrics.jpg?alt=media&token=2efb7af0-0369-4a94-8a58-cd7cc8e20dda",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Forthopedics.jpg?alt=media&token=062cc3b9-0c64-49d2-b504-e7f1a7dd7dd4",
             "id" : 6,
             "type" : 2
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fradiology.jpg?alt=media&token=734dcece-09f0-41c6-9624-9ae70c7652ac",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Forthopedics.jpg?alt=media&token=062cc3b9-0c64-49d2-b504-e7f1a7dd7dd4",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Foncology.jpg?alt=media&token=d3c2fb41-5b27-4f61-9621-d92a95761bc2",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fmaternity.jpg?alt=media&token=1cf08a3f-a29a-4cba-ae26-dad3b87be0a5",
             "id" : 7,
             "type" : 2
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2FOtorhinolaryngology.jpg?alt=media&token=73a15319-6e37-414c-a579-10480e92ee88",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fcardiologist.jpg?alt=media&token=4b4e9f2d-1f64-45ff-be0e-2ef0993d2fe7",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fdermatology.jpg?alt=media&token=a2604b2d-cb97-4434-948c-32bf78c7ae32",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fgynecology.jpg?alt=media&token=cd5abe65-a4a3-42ef-8b92-467256ed34c5",
             "id" : 8,
             "type" : 2
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fmaternity.jpg?alt=media&token=1cf08a3f-a29a-4cba-ae26-dad3b87be0a5",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fpsychiatry.jpg?alt=media&token=2a4b5774-7d48-40fc-9cf9-ad98a79de2de",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fsurgery.jpg?alt=media&token=379fdddb-0772-4d51-85e1-db792b3ed253",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fpediatrics.jpg?alt=media&token=2efb7af0-0369-4a94-8a58-cd7cc8e20dda",
             "id" : 9,
             "type" : 2
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "khoa tai mũi họng",
+            "content_b" : "khoa tim",
+            "content_c" : "khoa da liễu",
+            "content_d" : "khoa phụ khoa",
             "id" : 10,
             "type" : 3
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "oncologht",
+            "content_b" : "oncology",
+            "content_c" : "pediatrics",
+            "content_d" : "orthopedics",
             "id" : 11,
             "type" : 3
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "urology",
+            "content_b" : "surgery",
+            "content_c" : "referral",
+            "content_d" : "radiology",
             "id" : 12,
             "type" : 3
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "maternity",
+            "content_b" : "dermatolgy",
+            "content_c" : "cardialogist",
+            "content_d" : "dermatology",
             "id" : 13,
             "type" : 3
           }, {
-            "content_a" : "",
-            "content_b" : "",
-            "content_c" : "",
-            "content_d" : "",
+            "content_a" : "khoa nhi",
+            "content_b" : "khoa tâm lý học",
+            "content_c" : "khoa chấn thương chỉnh hình",
+            "content_d" : "khoa tiết liệu",
             "id" : 14,
             "type" : 3
           }, {
             "id" : 15,
-            "num_character" : 5,
-            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+            "num_character" : 7,
+            "sugges_characters" : [ "r", "u", "i", "y", "s", "e", "g" ],
             "type" : 4
           }, {
             "id" : 16,
-            "num_character" : 5,
-            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+            "num_character" : 8,
+            "sugges_characters" : [ "r", "a", "i", "n", "l", "e", "f" ],
             "type" : 4
           }, {
             "id" : 17,
-            "num_character" : 5,
-            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+            "num_character" : 8,
+            "sugges_characters" : [ "o", "a", "y", "n", "g", "l", "c" ],
             "type" : 4
           }, {
             "id" : 18,
-            "num_character" : 5,
-            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+            "num_character" : 7,
+            "sugges_characters" : [ "r", "o", "i", "r", "l", "g", "y" ],
             "type" : 4
           }, {
             "id" : 19,
-            "num_character" : 5,
-            "sugges_characters" : [ "r", "a", "i", "n", "s", "e", "h" ],
+            "num_character" : 9,
+            "sugges_characters" : [ "r", "a", "i", "d", "o", "l", "g" ],
             "type" : 4
           } ],
           "questions" : [ {
             "id" : 0,
-            "txt_content" : "",
+            "txt_content" : "cardiologist",
             "type" : "1",
-            "void_uri" : ""
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2FOtorhinolaryngology.mp3?alt=media&token=9ceedcf2-7abe-4a55-97f2-1b9aba21302b"
           }, {
             "id" : 1,
-            "txt_content" : "",
+            "txt_content" : "dermatology",
             "type" : "1",
-            "void_uri" : ""
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fdermatology.mp3?alt=media&token=8fa2903a-0635-414d-9270-6112aa96ad8a"
           }, {
             "id" : 2,
-            "txt_content" : "",
-            "type" : "1",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2FOtorhinolaryngology.jpg?alt=media&token=73a15319-6e37-414c-a579-10480e92ee88",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2FOtorhinolaryngology.mp3?alt=media&token=9ceedcf2-7abe-4a55-97f2-1b9aba21302b"
           }, {
             "id" : 3,
-            "txt_content" : "",
-            "type" : "1",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fmaternity.jpg?alt=media&token=1cf08a3f-a29a-4cba-ae26-dad3b87be0a5",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fmaternity.mp3?alt=media&token=b43e315a-fa7c-44f2-80b5-8e1e64cdb5d5"
           }, {
             "id" : 4,
-            "txt_content" : "",
-            "type" : "1",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fdermatology.jpg?alt=media&token=a2604b2d-cb97-4434-948c-32bf78c7ae32",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fmaternity.mp3?alt=media&token=b43e315a-fa7c-44f2-80b5-8e1e64cdb5d5"
           }, {
             "id" : 5,
-            "txt_content" : "",
+            "txt_content" : "urology",
             "type" : "2"
           }, {
             "id" : 6,
-            "txt_content" : "",
+            "txt_content" : "psychiatry",
             "type" : "2"
           }, {
             "id" : 7,
-            "txt_content" : "",
+            "txt_content" : "oncology",
             "type" : "2"
           }, {
             "id" : 8,
-            "txt_content" : "",
+            "txt_content" : "gynecology",
             "type" : "2"
           }, {
             "id" : 9,
-            "txt_content" : "",
+            "txt_content" : "surgery",
             "type" : "2"
           }, {
             "id" : 10,
-            "img_content" : "",
-            "type" : "3"
+            "txt_content" : "otorhinolaryngology",
+            "type" : "2"
           }, {
             "id" : 11,
-            "img_content" : "",
-            "type" : "3"
+            "txt_content" : "khoa ung thư",
+            "type" : "2"
           }, {
             "id" : 12,
-            "img_content" : "",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Freferral.jpg?alt=media&token=e51552f2-e85a-4087-8022-04bdc5f096cb",
             "type" : "3"
           }, {
             "id" : 13,
-            "img_content" : "",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fdermatology.jpg?alt=media&token=a2604b2d-cb97-4434-948c-32bf78c7ae32",
             "type" : "3"
           }, {
             "id" : 14,
-            "img_content" : "",
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fpediatrics.jpg?alt=media&token=2efb7af0-0369-4a94-8a58-cd7cc8e20dda",
             "type" : "3"
           }, {
             "id" : 15,
-            "img_content" : "",
-            "type" : "4",
-            "void_uri" : ""
+            "txt_content" : "khoa ngoại",
+            "type" : "2"
           }, {
             "id" : 16,
-            "img_content" : "",
-            "type" : "4",
-            "void_uri" : ""
+            "txt_content" : "xam và tham chiếu",
+            "type" : "2"
           }, {
             "id" : 17,
-            "img_content" : "",
-            "type" : "4",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Foncology.jpg?alt=media&token=d3c2fb41-5b27-4f61-9621-d92a95761bc2",
+            "type" : "3"
           }, {
             "id" : 18,
-            "img_content" : "",
-            "type" : "4",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Furology.jpg?alt=media&token=2f6feac9-452f-41b6-8596-4441ca9a3584",
+            "type" : "3"
           }, {
             "id" : 19,
-            "img_content" : "",
-            "type" : "4",
-            "void_uri" : ""
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fradiology.jpg?alt=media&token=734dcece-09f0-41c6-9624-9ae70c7652ac",
+            "type" : "3"
           } ],
           "results" : [ {
             "id" : 0,
-            "text" : ""
+            "text" : "a"
           }, {
             "id" : 1,
-            "text" : ""
+            "text" : "b"
           }, {
             "id" : 2,
-            "text" : ""
+            "text" : "b"
           }, {
             "id" : 3,
-            "text" : ""
+            "text" : "a"
           }, {
             "id" : 4,
-            "text" : ""
+            "text" : "b"
           }, {
             "id" : 5,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Furology.mp3?alt=media&token=4d73c556-df32-43a3-87fc-3f834f51068f"
           }, {
             "id" : 6,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fgynecology.mp3?alt=media&token=356227cf-a613-40a7-82c8-b9550f11ac64"
           }, {
             "id" : 7,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Foncology.mp3?alt=media&token=6d742474-4358-4561-87d3-917826c84079"
           }, {
             "id" : 8,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fgynecology.mp3?alt=media&token=356227cf-a613-40a7-82c8-b9550f11ac64"
           }, {
             "id" : 9,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fsurgery.mp3?alt=media&token=dfa6df5f-6b22-4f86-9596-a667f76fd2f1"
           }, {
             "id" : 10,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2FOtorhinolaryngology.mp3?alt=media&token=9ceedcf2-7abe-4a55-97f2-1b9aba21302b"
           }, {
             "id" : 11,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Foncology.mp3?alt=media&token=6d742474-4358-4561-87d3-917826c84079"
           }, {
             "id" : 12,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Freferral.mp3?alt=media&token=93490be9-4aab-420f-a390-3b289ed3bb30"
           }, {
             "id" : 13,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fdermatology.mp3?alt=media&token=8fa2903a-0635-414d-9270-6112aa96ad8a"
           }, {
             "id" : 14,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fpediatrics.mp3?alt=media&token=ee17a707-479a-4d83-bbd0-5604111b2b60"
           }, {
             "id" : 15,
-            "text" : ""
+            "text" : "khoa ngoại",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fsurgery.mp3?alt=media&token=dfa6df5f-6b22-4f86-9596-a667f76fd2f1"
           }, {
             "id" : 16,
-            "text" : ""
+            "text" : "referral",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Freferral.mp3?alt=media&token=93490be9-4aab-420f-a390-3b289ed3bb30"
           }, {
             "id" : 17,
-            "text" : ""
+            "text" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Foncology.jpg?alt=media&token=d3c2fb41-5b27-4f61-9621-d92a95761bc2",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Foncology.mp3?alt=media&token=6d742474-4358-4561-87d3-917826c84079"
           }, {
             "id" : 18,
-            "text" : ""
+            "text" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Furology.jpg?alt=media&token=2f6feac9-452f-41b6-8596-4441ca9a3584",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Furology.mp3?alt=media&token=4d73c556-df32-43a3-87fc-3f834f51068f"
           }, {
             "id" : 19,
-            "text" : ""
+            "text" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FHealth%2FDepartment%2Fradiology.jpg?alt=media&token=734dcece-09f0-41c6-9624-9ae70c7652ac",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FHealth%2FDepartments%2Fradiology.mp3?alt=media&token=069e6940-456d-44a2-af47-5d2c8ddad10f"
           } ]
         }
       }

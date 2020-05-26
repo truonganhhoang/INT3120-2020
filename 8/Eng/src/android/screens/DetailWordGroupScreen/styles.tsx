@@ -13,7 +13,14 @@ const styles = StyleSheet.create({
     fontSize: 20,  
   }, 
   list: {
-    marginBottom: 80
+    paddingTop: 5,
+    justifyContent: "space-around",
+  }, 
+  container: {
+    flex: 1,
+    backgroundColor: "#DAD8D8",
+    alignItems: "stretch",
+    justifyContent: "flex-start",
   }
 }); 
 

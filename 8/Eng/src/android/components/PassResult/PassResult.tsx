@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'; 
-import { View, Text } from 'react-native'; 
-import { Button, Overlay } from 'react-native-elements'; 
+import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native';
+import { Button, Overlay } from 'react-native-elements';
 import styles from './styles';
+import { Grid, Row } from 'react-native-easy-grid';
 
 const PassResult = (props: { navigation?: any, lessonInfo?: any, id?: any }) => {
-  const { navigation, lessonInfo, id } = props; 
-  const [visible, setVisible] = useState(true); 
+  const { navigation, lessonInfo, id } = props;
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     setVisible(true)
@@ -18,32 +19,42 @@ const PassResult = (props: { navigation?: any, lessonInfo?: any, id?: any }) => 
 
   const close = () => {
     setVisible(false)
-    navigation.goBack(); 
+    navigation.goBack();
   }
 
   return (
-    <Overlay isVisible={visible}
-    overlayBackgroundColor='green'
-    overlayStyle={styles.containers}
-    >
-      <View style={styles.container}>
-        <Text style={styles.title}>HOÀN THÀNH</Text>
-        <Text style={styles.comment}>Chúc mừng bạn đã vượt qua thử thách này.</Text>
-        {/* <Text style={[styles.comment,{marginBottom:10}]}>thử lại nào</Text> */}
-        <Button 
-        buttonStyle={styles.button}
-          title='THỬ LẠI'
-          titleStyle={{color:'#f68383'}}
-          onPress={tryAgain}
-        />
-        <Button 
-         buttonStyle={styles.button}
-          title='ĐÓNG'
-          titleStyle={{color:'#f68383'}}
-          onPress={close}
-        />
-      </View>
-    </Overlay>
+    <Grid>
+      <Overlay isVisible={visible}
+        overlayBackgroundColor='#9CCC65'
+        overlayStyle={styles.containers}
+      >
+        <Grid>
+          <Row size={20}>
+            <Text style={styles.title}>HOÀN THÀNH</Text>
+          </Row>
+          <Row size={20}>
+            <Text style={styles.comment}>Chúc mừng bạn đã vượt qua thử thách.</Text>
+          </Row>
+          <Row size={60}>
+            <View style={{ width: '60%' }}>
+              <Button
+                buttonStyle={styles.button}
+                title='THỬ LẠI'
+                titleStyle={{ color: '#ff5e00' }}
+                onPress={tryAgain}
+              />
+              <Button
+                buttonStyle={styles.button}
+                title='ĐÓNG'
+                titleStyle={{ color: '#ff5e00' }}
+                onPress={close}
+              />
+            </View>
+          </Row>
+        </Grid>
+      </Overlay>
+    </Grid>
+
   )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native'; 
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -10,11 +11,14 @@ const SettingButton = (props: { navigation?: any; }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      >
+      style={{ width: 30, height: 30 }}
+    >
       <Icon
         name="cog"
         type='font-awesome'
         color='white'
+        iconStyle={{ fontSize:30 }}
+        // style={{ width: 25, height: 25 }}
       />
     </TouchableOpacity>
 

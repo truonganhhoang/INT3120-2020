@@ -18,13 +18,14 @@ const Back = (props: { navigation?: any; color?: any; onPress?: any }) => {
     return (
       <TouchableOpacity
         onPress={onPress}
+        style={{ width: 60, height: 60 }}
       >
         <Icon
           name="arrow-left"
           type='font-awesome'
           color={color}
-          size={20}
-  
+          size={25}
+          iconStyle={{ paddingTop: 60,position: "absolute" }}
         />
       </TouchableOpacity>
     )
@@ -32,12 +33,13 @@ const Back = (props: { navigation?: any; color?: any; onPress?: any }) => {
     return (
       <TouchableOpacity
         onPress={Back}
+        style={{ margin: 5 }}
       >
         <Icon
           name="arrow-left"
           type='font-awesome'
           color={color}
-          size={20}
+          size={25}
   
         />
       </TouchableOpacity>

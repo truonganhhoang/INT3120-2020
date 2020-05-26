@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles=StyleSheet.create({
-    container:{
-        height:100
-    },
     button:{
         height: 45,
         backgroundColor:'#FFF',
@@ -14,8 +11,8 @@ const styles=StyleSheet.create({
         backgroundColor:'#f57f17'
     },
     txtTitle:{
-        marginBottom:25,
-        marginTop:20,
+        marginBottom:20,
+        marginTop:10,
         color:'#ff5e00',
         fontWeight:'bold',
         fontSize:16
