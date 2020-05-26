@@ -3,6 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { RowTrick } from '../components/RowTrick';
+import TabBarOptions from '../style/TabBarOptions';
 
 
 var dataLiThuyet = [
@@ -14,7 +15,7 @@ var dataLiThuyet = [
             '3. Câu khái niệm "Người điều khiển giao thông" là "Cảnh sát giao thông".\n' +
             '4. Câu khái niệm "Phần đường xe chạy" chọn câu không có chữ "An toàn giao thông".\n' +
             '5. Câu khái niệm "Làn đường" chọn câu có chữ "An toàn giao thông".\n' +
-            '6. Các câu "Đổ xe: không có giới hạn về thời gian và Dừng xe có giới hạn thời gian" chọn câu số 2.\n'
+            '6. Các câu "Đổ xe: không có giới hạn về thời gian và Dừng xe có giới hạn thời gian" chọn câu số 2.'
     },
     {
         id: "2",
@@ -129,31 +130,7 @@ const Tab = createMaterialTopTabNavigator();
 export default function Meo_thi() {
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                height: 60,
-                // activeTintColor: "#fff",
-                // inactiveTintColor: "#ccc",
-                renderIndicator: () => <Text> ahuhuh </Text>,
-
-                indicatorStyle: {
-                    backgroundColor: "blue",
-                },
-                indicatorContainerStyle: {
-                    backgroundColor: "red",
-                    borderRadius: 20,
-                },
-                tabStyle: {
-                    height: 60,
-                    backgroundColor: "#66BB6A",
-                },
-                labelStyle: {
-                    fontWeight: 'bold',
-                    // backgroundColor: 'green',
-                    // paddingHorizontal: 15,
-                    // paddingVertical: 5,
-                    // borderRadius: 15,
-                }
-            }}
+            tabBarOptions={TabBarOptions}
         >
 
             <Tab.Screen name='MẸO LÍ THUYẾT' component={Li_thuyet} />

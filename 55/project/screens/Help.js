@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { CellHome } from '../components/CellHome'
+
 
 const dataHelp = {
     Text1: 'Đây là ứng dụng giúp bạn học lí thuyết để chuẩn bị cho kì thi sát hạch lí thuyết lái xe chỉ trong 3 ngày.\n' +

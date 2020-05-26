@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Image, Alert } from 'react-native';
+import { Image, Alert, StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { connect } from 'react-redux';
 
 
 import Profile from './Profile';
@@ -17,14 +18,43 @@ import Hoc_li_thuyet from './Hoc_li_thuyet';
 import Tra_cuu_luat from './Tra_cuu_luat';
 import Meo_thi from './Meo_thi';
 import Bien_bao from './Bien_bao';
-import Help from './Help'
+import Help from './Help';
 import { Anima } from './Anima';
-import { Khai_niem } from './HocLiThuyet/Khai_niem';
-import { Navigation } from 'react-native-navigation';
+import Khai_niem from './HocLiThuyet/Khai_niem';
+import SearchLawDetail from './TraCuuLuat/SearchLawDetail';
+// import { Navigation } from 'react-native-navigation';
+
+
+
+
 
 const Stack = createStackNavigator();
 
-export default class StackScreen extends React.Component {
+class StackScreen extends React.Component {
+    Reset = () => {
+        let cf = Alert.alert(
+            'Đặt lại tất cả bài học',
+            'Bạn có muốn đặt lại tất cả các câu hỏi đã học không, sau khi đặt lại không thể khôi phục!',
+            [
+                { text: 'Đồng ý', onPress: () => this.props.dispatch({ type: 'reset-learn' }) },
+                { text: 'Hủy bỏ', style: 'cancel' },
+            ],
+            { cancelable: false },
+        )
+    }
+
+    GoPro = () => {
+        Alert.alert(
+            'Trở thành người dùng Pro',
+            'Bạn có muốn trả một khoản phí nhỏ để mở khóa chức năng nâng cao và chặn quảng cáo không?',
+            [
+                { text: 'Đồng ý' },
+                { text: 'Hủy bỏ', style: 'cancel' },
+            ],
+            { cancelable: false },
+        )
+    }
+
     render() {
         const { navigation } = this.props;
         return (
@@ -37,6 +67,7 @@ export default class StackScreen extends React.Component {
                         backgroundColor: "#66BB6A"
                     },
                 }}>
+
 
                 <Stack.Screen
                     name="Home"
@@ -52,11 +83,9 @@ export default class StackScreen extends React.Component {
                         ),
                         headerRight: () => (
                             <TouchableOpacity
-                                onPress={() => Alert.alert("Trả một khoản phí để dùng thêm chức năng nâng cao")}>
-                                <Image
-                                    // source={require("./images/menu.jpg")}
-                                    style={{ width: 55, height: 55 }}
-                                />
+                                onPress={this.GoPro}
+                            >
+                                <Icon style={{ marginRight: 10, color: 'white' }} size={40} name='professional-hexagon' />
                             </TouchableOpacity>
                         )
                     }}
@@ -75,14 +104,6 @@ export default class StackScreen extends React.Component {
                     name="Man"
                     component={Man}
                 />
-
-                {/* <Stack.Screen
-                        name="Drawer"
-                        component={Menu}
-                    // options={{
-                    //   headerShown: false,
-                    // }}
-                    /> */}
 
                 <Stack.Screen
                     name="test"
@@ -104,7 +125,7 @@ export default class StackScreen extends React.Component {
                         title: "Học lí thuyết",
                         headerRight: () => (
                             <TouchableOpacity
-                                onPress={() => Alert.alert("Chien", "Reset thành công")}>
+                                onPress={this.Reset}>
                                 <Image
                                     source={require("../images/reset.jpg")}
                                     style={{ width: 30, height: 30, marginRight: 15 }}
@@ -118,7 +139,7 @@ export default class StackScreen extends React.Component {
                     name="Bien_bao"
                     component={Bien_bao}
                     options={{
-                        title: "Biển báoa",
+                        title: "Biển báo giao thông",
                     }}
                 />
 
@@ -156,8 +177,18 @@ export default class StackScreen extends React.Component {
                     }}
                 />
 
+                <Stack.Screen
+                    name="SearchLawDetail"
+                    component={SearchLawDetail}
+                    options={{
+                        title: "Luật giao thông"
+                    }}
+                />
+
             </Stack.Navigator>
 
         )
     }
 }
+
+export default connect()(StackScreen);

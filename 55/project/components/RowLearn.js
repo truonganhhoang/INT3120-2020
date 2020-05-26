@@ -2,22 +2,27 @@ import * as React from 'react';
 import { View, Image, Text } from 'react-native';
 import { StyleSheet, Dimensions, ProgressBarAndroid } from "react-native"
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
 
-export class RowLearn extends React.Component {
+
+class RowLearn extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            pass: 0
-        }
+        // this.state = {
+        //     pass: 0
+        // }
     }
 
-    add = () => {
-        this.setState({ pass: this.state.pass + 1 })
-    }
+    // add = () => {
+    //     this.setState({ pass: this.state.pass + 1 })
+    // }
 
     render() {
         return (
-            <TouchableOpacity onPress={this.props.Press}>
+            <TouchableOpacity
+                //onPress={this.props.Press}
+                onPress={() => { this.props.dispatch({ type: 'add', id: this.props.element.id }) }}
+            >
                 <View style={styles.row}>
 
                     <View styles={styles.left}>
@@ -38,17 +43,19 @@ export class RowLearn extends React.Component {
                         </Text>
 
                         <Text style={styles.socau}>
-                            {this.props.element.number + " câu"}
+                            {this.props.element.total + " câu"}
                         </Text>
 
                         <Text style={styles.pass}>
-                            {this.state.pass + "/" + this.props.element.number}
+                            {/* {this.state.pass + "/" + this.props.element.number} */}
+                            {this.props.element.passed + "/" + this.props.element.total}
+
                         </Text>
 
                         <ProgressBarAndroid style={styles.progress}
                             styleAttr="Horizontal"
                             indeterminate={false}
-                            progress={this.state.pass / this.props.element.number}
+                            progress={this.props.element.passed / this.props.element.total}
                             color={"#66BB6A"}
                         />
                     </View>
@@ -57,6 +64,13 @@ export class RowLearn extends React.Component {
         )
     }
 }
+
+// function mapStateToProps(state) {
+//     return { MyPass: state.Learns }
+// }
+
+export default connect()(RowLearn);
+
 
 
 const { height, width } = Dimensions.get('window');
