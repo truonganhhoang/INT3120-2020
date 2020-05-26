@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "491891096598",
+    "firebase_url": "https://dicbox-af328.firebaseio.com",
+    "project_id": "dicbox-af328",
+    "storage_bucket": "dicbox-af328.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491891096598:android:e0d9f624c160d13fd4c937",
+        "android_client_info": {
+          "package_name": "com.example.dictbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491891096598-942sabs7g29gjnjl48fqklfqq67fqmth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dictbox",
+            "certificate_hash": "5d65bb56c5da5f9e8a110c2aeca65c6f3ba7a886"
+          }
+        },
+        {
+          "client_id": "491891096598-nvfjah06bi41b31j79q2tgpqm22p0qtk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfWEYPU8JTAfP-38mkqvhm964jpI1YUnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491891096598-nvfjah06bi41b31j79q2tgpqm22p0qtk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
