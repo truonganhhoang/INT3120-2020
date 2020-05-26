@@ -6,6 +6,7 @@ import TouchableScale from 'react-native-touchable-scale';
 import { ListItem } from 'react-native-elements';
 import auth from '../firebaseApi/auth';
 import { getInfo, updateInfo } from '../firebaseApi/user';
+import { sendEmail } from './sendEmail';
 
 let heightPhone = Dimensions.get('window').height;
 
@@ -322,6 +323,28 @@ class Setting extends React.Component {
           }
           style={styles.list}
         />
+
+	<View style={{height: 50}} /> 
+          <Text style={styles.titleGroup}> Help & Support </Text>
+          <ListItem
+            Component={TouchableScale}
+            friction={90}
+            tension={100}
+            activeScale={0.95}
+            title="Report a Problem"
+            titleStyle={{ fontWeight: 'bold', letterSpacing: 1, color: '#4f6a6e' }}
+            onPress={() => sendEmail(
+                            'quyet0quyet0nguyen@gmail.com',
+                            'Greeting!',
+                            'Thanks for your contribution!'
+                            ).then(() => {
+                                console.log('Our email successful provided to device mail ');
+                            })
+            }
+            style={styles.list}
+          />
+          <View style={{height: 50 }} />
+	
       </View>
     );
   }
