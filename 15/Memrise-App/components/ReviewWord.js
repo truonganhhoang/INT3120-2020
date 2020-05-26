@@ -7,8 +7,8 @@ import {
   Dimensions,
 } from "react-native";
 
-const screenWidth = Math.round(Dimensions.get("window").width);
-const boxSize = (screenWidth - 100) / 2;
+const deviceWidth = Dimensions.get('window').width;
+const screen = (percent) => percent * deviceWidth/100;
 
 const boxBackGroundColor = {
   correct: "#1a3",
@@ -42,17 +42,16 @@ export default function ReviewWord(props) {
 const styles = StyleSheet.create({
   WordBox: {
     flex: 1,
-    width: boxSize,
-    height: boxSize,
-    marginHorizontal: 10,
-    marginVertical: 10,
+    height: screen(30),
+    width: screen(40),
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 0.3,
     borderColor: "black",
     shadowColor: "black",
     shadowOpacity: 0.3,
-    
+    marginLeft: screen(5),
+    marginBottom: screen(4)
   },
 
 });
