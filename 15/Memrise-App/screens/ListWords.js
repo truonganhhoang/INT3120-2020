@@ -1,19 +1,4 @@
-import React, { useState,useEffect } from "react";
-const  fullTextSearch = require("full-text-search");
-var search = new fullTextSearch({
-  ignore_case: false,   // default = true, Ignore case during all search queries
-  index_amount: 8,      // default = 12, The more indexes you have, the faster can be your search but the slower the 'add' method  gets
-  minimum_chars: 3      // default = 1, The less minimum chars you want to use for your search, the slower the 'add' method gets
-});
-
-var filter = function (key, val) {
-  // Return false if you want to ignore field
-  if (key == 'word' || key == 'mean') {
-      return true;   // Accept field
-  }
-
-  return false;    // Ignore field/
-};
+import React, { useState, useEffect,useRef } from "react";
 
 import {
   StyleSheet,
@@ -25,41 +10,36 @@ import {
 } from "react-native";
 import Word from "../components/Word";
 
+import { listWordData } from "../Data";
 
-import {listWordData} from "../Data";
+import MiniSearch from "minisearch";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
-search.add(listWordData,filter);
-
 
 export default function ListWord({ navigation }) {
   const [list, setList] = useState(listWordData);
   const [searchValue, setSearchValue] = useState();
-
-  useEffect(()=>{
-    // setSearchValue(searchValue)
-    // full text search owr day 
-    search.add(listWordData,filter);
-    
-  },[])
-
-  function onChangeText(text){
+  
+  function onChangeText(text) {
     text = text.toLocaleLowerCase().trim();
-    if (text ==''){
-
+    if (text == "") {
       setList(listWordData);
       return;
-    } 
-    let result =search.search(text);
-    console.log(result)
-    let newList =list.filter( ls => {
-       ls.mean == text || ls.word == text
-    } );
+    }
+    const miniSearch = new MiniSearch({
+      fields: ["mean", "word"], // fields to index for full-text search
+      storeFields: [ "word" ,"mean" , "miss" , "level" ,"mems"], // fields to return with search results
+    });
+    
+    miniSearch.addAll(listWordData);
+    let result = miniSearch.search(text);
+        console.log(result);
 
-    setList(newList);
-
+    setList(result);
   }
+
+  
   return (
     <View style={styles.container}>
       <TextInput
@@ -69,8 +49,8 @@ export default function ListWord({ navigation }) {
           borderWidth: 1,
           marginBottom: 30,
         }}
-         onChangeText={text => onChangeText(text)}
-         value={searchValue}
+        onChangeText={(text) => onChangeText(text)}
+        value={searchValue}
       />
       <FlatList
         data={list}

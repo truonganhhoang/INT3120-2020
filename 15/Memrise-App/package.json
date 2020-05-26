@@ -21,6 +21,7 @@
     "global": "^4.4.0",
     "json-server": "^0.16.1",
     "lunr": "^2.3.8",
+    "minisearch": "^2.3.1",
     "prettier": "^2.0.4",
     "query-string": "^6.12.1",
     "react": "~16.9.0",
