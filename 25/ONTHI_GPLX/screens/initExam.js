@@ -12,27 +12,40 @@ import {
     Text, 
     Title,
     Drawer,
+    Spinner
 } from 'native-base';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { color } from '../Component/color';
 import { styles } from '../Component/Style.js';
 import InitQuestion from '../itemComponent/InitQuestion';
 import SideBar from '../itemComponent/SideBar';
+import Clock from '../itemComponent/Clock';
+import ModalEndExam from '../itemComponent/ModalEndExam';
 
-const initExam = (props) => {
+
+const InitExam = (props) => {
     const { navigation, route } = props;
     const { mainId,itemId,positionExam } = route.params;
-
-    // const [userAnswers, setUserAnswer] = useState();
     const [drawer, setDrawer] = useState();
-
+    
     const closeDrawer = () => {
         drawer._root.close();
     };
     const openDrawer = () => { 
         drawer._root.open();
     };
+    
+    
+    const dispatch = useDispatch();
 
+    function openModal() {
+        dispatch({
+            type: "OPEN_MODAL"
+        })
+    }
+    
     return (
         <Drawer 
         ref={(ref) => setDrawer(ref)} 
@@ -52,11 +65,16 @@ const initExam = (props) => {
                         <Title>Đề thi số {positionExam}</Title>
                     </Body>
                     <Right >
-                        <Button success bordered style={{alignItems: 'center'}}>
-                            <FontAwesome5Icon name="check" 
+                        <Clock />
+                        <Button success transparent 
+                        onPress = {openModal}
+                        style={{alignItems: 'center'}}>
+                            <FontAwesome5Icon name="check-double" 
                             style={{fontSize: 20, color: color.textButton}} solid/>
-                            <Text style={{color: color.textButton}}>Nộp bài</Text>
+                            {/* <Text style={{color: color.textButton}}>Nộp bài</Text> */}
+                        
                         </Button>
+                        
                     </Right>
                 </Header>
                 <Tabs 
@@ -65,18 +83,19 @@ const initExam = (props) => {
                 renderTabBar={()=> <ScrollableTab />}
                 >
                     {
-                        data == undefined ? <Spinner style={{marginTop: 200}}/> : data.map((item) => {
-                            const { question, questionContent, answers } = item;
+                        data == undefined ? <Spinner style={{flex:1}}/> : data.map((item, index) => {
+                            const heading = "Câu "+ (index + 1);
                             return (
-                                <Tab heading={question} 
+                                <Tab heading={heading} 
                                 tabStyle={{backgroundColor: color.header }}
                                 activeTabStyle={{backgroundColor: color.header }}>
-                                    <InitQuestion questionContent={questionContent} answers={answers} />
+                                    <InitQuestion question={item} />
                                 </Tab>
                             );
                         })
                     }
                 </Tabs>
+                <ModalEndExam />
             </Container>
             
         </Drawer>
@@ -85,7 +104,7 @@ const initExam = (props) => {
 
 const data = [
     {
-        question: "Câu 1",
+        question: "1",
         questionContent: "noi dung cau 1",
         answers: [
             {
@@ -103,11 +122,16 @@ const data = [
                 answer: "3. dap an 3",
                 pass: false,
             },
+            {
+                id: 4,
+                answer: "4. dap an 4",
+                pass: false,
+            },
         ],
         status: null,
     },
     {
-        question: "Câu 2",
+        question: "2",
         questionContent: "noi dung cau 2",
         answers: [
             {
@@ -129,7 +153,7 @@ const data = [
         status: null,
     },
     {
-        question: "Câu 3",
+        question: "3",
         questionContent: "noi dung cau 3",
         answers: [
             {
@@ -151,7 +175,7 @@ const data = [
         status: null,
     },
     {
-        question: "Câu 4",
+        question: "4",
         questionContent: "noi dung cau 4",
         answers: [
             {
@@ -173,4 +197,4 @@ const data = [
         status: null,
     },
 ];
-export default initExam;
+export default InitExam;

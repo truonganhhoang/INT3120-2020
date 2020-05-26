@@ -13,7 +13,8 @@ import {styles} from '../Component/Style';
 import {color} from '../Component/color';
 
 const InitQuestion = (props) => {
-    const { questionContent, answers } = props;
+    const { question } = props;
+    const { questionContent, answers } = question;
 
     const [answerState, setAnswerState] = useState();
     useLayoutEffect( () => {    
@@ -36,7 +37,7 @@ const InitQuestion = (props) => {
                 <H1>{questionContent}</H1>
             </ListItem>
             {
-                answerState == undefined ? <Spinner style={{marginTop: 200}}/> : answerState.map( (item) => {
+                answerState == undefined ? <Spinner style={{flex: 1}}/> : answerState.map( (item) => {
                     return <ListItem 
                             key={item.id}
                             button>

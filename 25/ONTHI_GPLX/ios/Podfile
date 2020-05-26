@@ -56,6 +56,8 @@ target 'ONTHI_GPLX' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
   target 'ONTHI_GPLXTests' do
     inherit! :complete
     # Pods for testing

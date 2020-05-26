@@ -1,10 +1,11 @@
 import React from 'react';
 import {
-    Container, Header,
-    Left, Body, Right,
-    Button, Icon, Title, Subtitle,
-    Content, List, ListItem, Text,
-    H1, H3
+    Container, 
+    Header,
+    Body,
+    Title,
+    Content, 
+    List,
 } from 'native-base';
 import { styles } from '../Component/Style.js';
 import { data } from '../data/DanhsachBang.js';
