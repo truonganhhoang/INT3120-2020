@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
 import { StyleSheet } from 'react-native';
 // import { connect } from 'react-redux';
-class FooterScreen extends Component {
+export default class FooterScreen extends Component {
     constructor(props){
         super(props);
     }

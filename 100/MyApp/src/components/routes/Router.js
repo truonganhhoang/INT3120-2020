@@ -15,9 +15,17 @@ import FilterCourses from '../screens/FilterCourses';
 import Course from '../components/Course';
 import EachCourses from '../screens/EachCourses';
 import Author from '../screens/Author';
+import OutLog from '../components/OutLog';
+import User from '../components/User';
+import OldUi from '../screens/OldUi';
+import FooterScreen from '../components/Footer';
 
 const Stack = createStackNavigator();
-
+function Menu(){
+    return(
+        <Main />
+    )
+}
 export default function Router() {
     return (
         <NavigationContainer>
@@ -26,7 +34,7 @@ export default function Router() {
                     header: ()=> null
                   }}
             >
-                <Stack.Screen name="Main" component={Main} />
+                <Stack.Screen name="Menu" component={Menu} />
                 <Stack.Screen name="Screen1" component={Screen1} />
                 <Stack.Screen name="Screen2" component={Screen2} />
                 <Stack.Screen name="Screen3" component={Screen3} />
@@ -40,6 +48,11 @@ export default function Router() {
                 <Stack.Screen name="Course" component={Course} />
                 <Stack.Screen name="Author" component={Author} />
                 <Stack.Screen name="EachCourses" component={EachCourses} />
+                <Stack.Screen name="OutLog" component={OutLog} />
+                <Stack.Screen name="User" component={User} />
+                <Stack.Screen name="OldUi" component={OldUi} />
+                <Stack.Screen name="FooterScreen" component={FooterScreen} />
+                {/* <Stack.Screen name="Router" component={Router} /> */}
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -3,33 +3,27 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert  } from 'rea
 import auth from '@react-native-firebase/auth';
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-export default class Login extends Component {
+import { connect } from 'react-redux';
+class Login extends Component {
     constructor(props) {
         super(props);
-        this.unsubscriber = null;
         this.state={
-            isAuthenticated: false,
             email: '',
             password: '',
             user: null,
         }
     }
+    setLogin(){
+      this.props.dispatch({ type: 'ON_LOGIN' });
+      this.props.navigation.goBack();
+      this.setState({
+        email: '',
+        password: '',
+      });
+    }
     onLogin(){
       auth().signInWithEmailAndPassword( this.state.email, this.state.password)
-      .then(() => {
-          Alert.alert(
-            'Thong bao',
-            'Dang nhap thanh cong',
-            [
-                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                // { text: 'Quay lai dang nhap', onPress: () => this.props.navigation.goBack()},
-            ],
-        );
-        this.setState({
-            email: '',
-            password: ''
-        })
-      })
+      .then(() => this.setLogin())
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
@@ -38,7 +32,6 @@ export default class Login extends Component {
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
         }
-    
         console.error(error);
       });
     }
@@ -124,7 +117,7 @@ export default class Login extends Component {
         )
     }
 }
-
+export default connect(null)(Login);
 const Styles = StyleSheet.create({
     input:{
         width: "100%", 
@@ -133,7 +126,7 @@ const Styles = StyleSheet.create({
         fontSize: 20, 
         fontWeight: "800", 
         borderRadius: 8,
-        color: "white",
+        color: "#000",
         borderBottomColor: "gray",
         borderBottomWidth: 0.5,
         paddingHorizontal:16

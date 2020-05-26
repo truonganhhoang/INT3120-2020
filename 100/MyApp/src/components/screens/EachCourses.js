@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
 import { Container, Content, Header, Left, Button, Body, Right, Icon, Title, Card, CardItem, Fab } from 'native-base'
-import { Image, ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text } from 'react-native';
+import {  ImageBackground, View, TouchableOpacity, ScrollView, StyleSheet, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
 class EachCourses extends Component {
     constructor(props){
         super(props);
     }
     onAdd(){
-        const { id } = this.props.route.params.course;
+        const { id, price } = this.props.route.params.course;
         this.props.dispatch({
             type: 'ADD_CART',
-            key : id
+            key : id,
+            price: price,
         });
+    }
+    goScreen3(){
+        this.props.dispatch({
+            type: 'CHANGE_SCREEN',
+            key: 'Screen3'
+        });
+        // this.props.navigation.navigate('Main')
+        this.props.navigation.navigate('Screen3');
+        // this.props.navigation.navigate('Menu');
+        
     }
     render() {
         const {navigation } = this.props;
@@ -28,9 +39,17 @@ class EachCourses extends Component {
                         <Title>Chi tiết khóa học</Title>
                     </Body>
                     <Right>
-                        <TouchableOpacity onPress={()=>{navigation.navigate("Screen3")}}>
+                        <TouchableOpacity onPress={()=>this.goScreen3()}>
                             <Icon name="md-basket" style={{color: "#fff"}}/>
                         </TouchableOpacity>
+                        {/* <TouchableOpacity 
+                        onPress={()=>{
+                            this.props.navigation.navigate('Router');
+                            Alert.alert(this.props.screenOn);
+                        }}
+                        >
+                            <Icon name="md-basket" style={{color: "#fff"}}/>
+                        </TouchableOpacity> */}
                     </Right>
                 </Header>
                 <ScrollView>
@@ -42,7 +61,7 @@ class EachCourses extends Component {
                                         <View style={{marginHorizontal: 4, }}>
                                             <Text style={{color: "#fff", fontSize: 20, fontWeight:"700"}}>{course.name}</Text>
                                             <Text style={{color: "#fff", fontSize: 16}}>{course.author}</Text>
-                                            <Text style={{color: "#fff", fontSize: 14, color: "hotpink", fontStyle:"italic"}}>{course.price}</Text>
+                                            <Text style={{color: "#fff", fontSize: 14, color: "hotpink", fontStyle:"italic"}}>{course.price}.000 ₫</Text>
                                         </View>
                                     </ImageBackground>
                                 </ImageBackground> 
@@ -66,7 +85,12 @@ class EachCourses extends Component {
         )
     }
 }
-export default connect(null,)(EachCourses);
+function mapStateToProps(state){
+    return{ 
+      screenOn: state.screenOn
+    };
+  }
+export default connect(mapStateToProps)(EachCourses);
 const localStyles = StyleSheet.create({
     imgBack: {
         flex: 1, backgroundColor: "rgba(0, 0, 0, 0.5)", justifyContent:"flex-end"

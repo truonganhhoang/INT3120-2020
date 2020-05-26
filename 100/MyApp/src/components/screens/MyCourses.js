@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content} from 'native-base';
 import { connect } from 'react-redux';
-import { ScrollView } from 'react-native-gesture-handler';
 import Course from '../components/Course';
+import { ScrollView } from 'react-native';
 class MyCourses extends Component {
     getCourses(){
-        const {myCourses, courses} = this.props;
-
-        return null;
+        const {myCourses} = this.props;
+        return myCourses.filter( (item) => {return item.payed == true});
     }
     render() {
-        const { navigation, authors, courses, myCourses } = this.props;
+        const { navigation, authors, courses } = this.props;
+        const myCourses = this.getCourses();
         return (
             <Container>
                 <Header>

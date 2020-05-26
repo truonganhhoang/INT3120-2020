@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Content, Header, Left, Button, Body, Right, Icon, Title, Text } from 'native-base';
+import { Container, Content, Header, Left, Button, Body, Icon, Text } from 'native-base';
 export default class Author extends Component {
     constructor(props){
         super(props);

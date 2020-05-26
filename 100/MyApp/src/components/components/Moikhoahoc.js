@@ -19,7 +19,7 @@ class Moikhoahoc extends Component {
                 <Body>
                     <TouchableOpacity onPress={this.props.GoEach}>
                         <Title>{name}</Title>
-                        <Text note style={{fontStyle: "italic", color: "hotpink"}}>{price}</Text>
+                        <Text note style={{fontStyle: "italic", color: "hotpink"}}>{price}.000 ₫</Text>
                     </TouchableOpacity>
                 </Body>
                 <Right>

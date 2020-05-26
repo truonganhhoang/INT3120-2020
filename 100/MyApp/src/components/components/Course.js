@@ -54,7 +54,7 @@ class Course extends Component {
                     </CardItem>
                     <CardItem button>
                         <Left>
-                            <Text>{price}</Text>
+                            <Text>{price}.000 ₫</Text>
                         </Left>
                         <Right>
                             <View style={{flexDirection: "row"}}>

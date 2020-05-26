@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert  } from 'rea
 import auth from '@react-native-firebase/auth';
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-export default class Signup extends Component {
+import { connect } from 'react-redux';
+class Signup extends Component {
     constructor(props) {
         super(props);
         // this.unsubscriber = null;
@@ -14,21 +15,17 @@ export default class Signup extends Component {
             rePassword: '',
         }
     }
-    onSignup(){
-      auth().createUserWithEmailAndPassword( this.state.email, this.state.password)
-      .then(() => {
-          Alert.alert(
-            'Thong bao',
-            'Dang ky thanh cong',
-            [
-                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-            ],
-        );
+    setLogin(){
+        this.props.dispatch({ type: 'ON_LOGIN' });
+        this.props.navigation.goBack();
         this.setState({
             email: '',
-            password: ''
-        })
-      })
+            password: '',
+        });
+      }
+    onSignup(){
+      auth().createUserWithEmailAndPassword( this.state.email, this.state.password)
+      .then(() => this.setLogin())
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
@@ -130,7 +127,7 @@ export default class Signup extends Component {
         )
     }
 }
-
+export default connect(null)(Signup);
 const Styles = StyleSheet.create({
     input:{
         width: "100%", 
