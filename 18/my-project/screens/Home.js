@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 import { TouchableOpacity } from 'react-native';
 
-export default class Home extends Component {
+export default function Home({ navigation }) {
   // constructor(props) {
   //   super(props);
 
@@ -21,96 +21,92 @@ export default class Home extends Component {
   // GetGridViewItem(item) {
   //   Alert.alert(item);
   // }
-  render() {
-    var lists = this.props.lists;
-    return (
-      <View style={styles.container}>
-        {/* <StatusBar
+  return (
+    <View style={styles.container}>
+      {/* <StatusBar
                   barStyle = "light-content"
                   hidden = {false}
                   backgroundColor = "#4cb050"
                   translucent = {false}
                />
                <View style={styles.Header}>
-                 <Icon name='ios-menu' size={40} color='white' onPress={() => this.props.navigation.openDrawer()} />
+                 <Icon name='ios-menu' size={40} color='white' onPress={() => navigation.openDrawer()} />
                  <Text style={styles.textHeader}>Ôn thi giấy phép lái xe</Text>
                </View> */}
 
-        <View style={{ backgroundColor: '#31edd1', flex: 3.5 }}>
-          <Image
-            source={require('../assets/img1.jpg')}
-            style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
-          />
-        </View>
+      <View style={{ backgroundColor: '#31edd1', flex: 3.5 }}>
+        <Image
+          source={require('../assets/img1.jpg')}
+          style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
+        />
+      </View>
 
-        <View style={styles.gridList}>
-          <View style={styles.button}>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Test')}
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/1.png')}
-              />
-              <Text style={styles.button1}>THI SÁT HẠNH</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Learn')}
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/2.png')}
-              />
-              <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() =>
-                this.props.navigation.navigate('Signs', { lists: { lists } })
-              }
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/3.png')}
-              />
-              <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.button}>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Tips')}
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/4.png')}
-              />
-              <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Rules')}
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/5.png')}
-              />
-              <Text style={styles.button1}>TRA CỨU LUẬT NHANH</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => this.props.navigation.navigate('Taplo')}
-            >
-              <Image
-                style={styles.imageButton}
-                source={require('../assets/home/6.png')}
-              />
-              <Text style={styles.button1}>ĐÈN CẢNH BÁO TÁP LÔ</Text>
-            </TouchableOpacity>
-          </View>
-          {/* <FlatList
+      <View style={styles.gridList}>
+        <View style={styles.button}>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Test')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/1.png')}
+            />
+            <Text style={styles.button1}>THI SÁT HẠNH</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Learn')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/2.png')}
+            />
+            <Text style={styles.button1}>HỌC LÝ THUYẾT</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Signs')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/3.png')}
+            />
+            <Text style={styles.button1}>BIỂN BÁO ĐƯỜNG BỘ</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.button}>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Tips')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/4.png')}
+            />
+            <Text style={styles.button1}>MẸO THIẾT QUẢ CAO</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Rules')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/5.png')}
+            />
+            <Text style={styles.button1}>TRA CỨU LUẬT NHANH</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate('Taplo')}
+          >
+            <Image
+              style={styles.imageButton}
+              source={require('../assets/home/6.png')}
+            />
+            <Text style={styles.button1}>ĐÈN CẢNH BÁO TÁP LÔ</Text>
+          </TouchableOpacity>
+        </View>
+        {/* <FlatList
                     data={ this.state.GridListItems }
                     renderItem={ ({item}) =>
                       <View style={styles.GridViewContainer}>
@@ -119,19 +115,18 @@ export default class Home extends Component {
                       </View> }
                     numColumns={3}
                 /> */}
-        </View>
-        <View style={{ flex: 2 }}>
-          <Image
-            style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
-            source={require('../assets/img2.webp')}
-          />
-          {/* <TouchableOpacity style={styles.addButton}>
+      </View>
+      <View style={{ flex: 2 }}>
+        <Image
+          style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
+          source={require('../assets/img2.webp')}
+        />
+        {/* <TouchableOpacity style={styles.addButton}>
             <Text style={styles.iconButton}>+</Text>
           </TouchableOpacity> */}
-        </View>
       </View>
-    );
-  }
+    </View>
+  );
 }
 const styles = StyleSheet.create({
   container: {

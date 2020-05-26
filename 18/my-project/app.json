@@ -3,11 +3,7 @@
     "name": "Ôn thi GPLX B1",
     "slug": "GPLX2",
     "privacy": "public",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.nhom18.onthiGPLXB1",
@@ -18,8 +14,8 @@
       "versionCode": 2
     },
     "androidStatusBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#2ea82b"
+      "barStyle": "light-content"
+      // "backgroundColor": "#2ea82b"
     },
     "version": "1.0.0",
     "orientation": "portrait",
@@ -32,9 +28,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "assets/*"
-    ],
+    "assetBundlePatterns": ["assets/*"],
     "description": ""
   }
 }
