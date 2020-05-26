@@ -9,12 +9,12 @@
         },
         "Beauty" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2FAppearance%2Fbeauty.jpg?alt=media&token=b633094b-08ef-4536-baf5-27c36c9553ae",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Vẻ đẹp"
         },
         "Clothing" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2FAppearance%2Fclothing.jpg?alt=media&token=fd2e9231-ea2e-46ef-8b2b-02fb44ee92d1",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Quần Áo"
         },
         "Hair" : {
@@ -1091,9 +1091,9 @@
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fmitten.mp3?alt=media&token=1431b6b5-b089-4ce8-99b8-2fce950a034e"
           }, {
             "id" : 4,
-            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1",
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fjeans.jpg?alt=media&token=d58a73bf-301f-499c-ac1b-2fc869d0a9f0",
             "type" : "1",
-            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FAppearance%2FClothing%2Fsnap.jpg?alt=media&token=50aa8ae4-5131-4a9d-bf34-09cee481d101"
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fapron.mp3?alt=media&token=df6b7f3f-18f5-41e9-b945-1571359bf96e"
           }, {
             "id" : 5,
             "txt_content" : "",
@@ -1157,78 +1157,79 @@
           } ],
           "results" : [ {
             "id" : 0,
-            "text" : ""
+            "text" : "b"
           }, {
             "id" : 1,
-            "text" : ""
+            "text" : "a"
           }, {
             "id" : 2,
-            "text" : ""
+            "text" : "a"
           }, {
             "id" : 3,
-            "text" : ""
+            "text" : "a"
           }, {
             "id" : 4,
-            "text" : ""
+            "text" : "b"
           }, {
             "id" : 5,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fhood.mp3?alt=media&token=0b385e3f-59f2-4dec-8470-6e61795be82e"
           }, {
             "id" : 6,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fjeans.mp3?alt=media&token=415a79be-97cc-4814-9365-600d58268add"
           }, {
             "id" : 7,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fmitten.mp3?alt=media&token=1431b6b5-b089-4ce8-99b8-2fce950a034e"
           }, {
             "id" : 8,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsandal.mp3?alt=media&token=fa3b67d1-1226-41b0-84d9-14b122216033"
           }, {
             "id" : 9,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Ftoggle.mp3?alt=media&token=83f4c508-9f7d-40de-b608-98e6e419505a"
           }, {
             "id" : 10,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1"
           }, {
             "id" : 11,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsleeper.mp3?alt=media&token=439decad-6e5a-4332-a80e-0c4af2903fe3"
           }, {
             "id" : 12,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fdress.mp3?alt=media&token=2ae18b8b-5d92-4a4d-91c2-e96e446edb23"
           }, {
             "id" : 13,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fraincoat.mp3?alt=media&token=b0df61b7-8014-4ab7-aad4-8b7a94cdc2d1"
           }, {
             "id" : 14,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fskirt.mp3?alt=media&token=1b85c2fc-9bd6-4cd4-93b8-8b8db7b66b80"
           }, {
             "id" : 15,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "sandals",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsandal.mp3?alt=media&token=fa3b67d1-1226-41b0-84d9-14b122216033"
           }, {
             "id" : 16,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "jeans",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fjeans.mp3?alt=media&token=415a79be-97cc-4814-9365-600d58268add"
           }, {
             "id" : 17,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "hood",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fhood.mp3?alt=media&token=0b385e3f-59f2-4dec-8470-6e61795be82e"
           }, {
             "id" : 18,
-            "text" : "",
-            "void_uri" : ""
+            "text" : "toggle",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Ftoggle.mp3?alt=media&token=83f4c508-9f7d-40de-b608-98e6e419505a"
           }, {
             "id" : 19,
-            "text" : ""
+            "text" : "snap",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FAppearance%2FClothing%2Fsnap.mp3?alt=media&token=a49046e5-bb70-4d89-8a36-ebe07533c6b9"
           } ]
         },
         "Hair" : {
@@ -1527,7 +1528,7 @@
         },
         "Breakfast" : {
           "image_les" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Ftopics%2Feating%20out%2Fbreakfast.jpg?alt=media&token=2b9b987d-82fe-4df6-a5e6-b897c6a7c465",
-          "num_word" : 4,
+          "num_word" : 13,
           "vn_meaning" : "Bữa Sáng"
         },
         "Cafe" : {
@@ -1638,6 +1639,99 @@
             "spelling" : "/wain/",
             "vn_meaning" : "rượu",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fwine.mp3?alt=media&token=3f0e492b-5b39-4c37-a3a7-eaafdf4c5837"
+          }
+        },
+        "Breakfast" : {
+          "bacon" : {
+            "en_meaning" : "bacon",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "spelling" : "/'beikən/",
+            "vn_meaning" : "thịt xông khói",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          },
+          "bread" : {
+            "en_meaning" : "bread",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "spelling" : "/bred/",
+            "vn_meaning" : "bánh mì",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          },
+          "butter" : {
+            "en_meaning" : "butter",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "spelling" : "/'bʌtə[r]/",
+            "vn_meaning" : "bơ",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcereal.mp3?alt=media&token=c3fbe313-7540-4efa-81e3-1f51368ff3be"
+          },
+          "cereal" : {
+            "en_meaning" : "cereal",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcereal.jpg?alt=media&token=bced0de4-6d95-4b90-ba10-d99894e42dd5",
+            "spelling" : "/'siəriəl/",
+            "vn_meaning" : "ngũ cốc",
+            "void_uri" : ""
+          },
+          "cheese" : {
+            "en_meaning" : "cheese",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "spelling" : "/t∫i:z/",
+            "vn_meaning" : "phô mai",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcheese.mp3?alt=media&token=7c38d9dc-ac46-4298-9bdd-79871ae01408"
+          },
+          "coffee" : {
+            "en_meaning" : "coffee",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "spelling" : "/'kɒfi/",
+            "vn_meaning" : "cà phê",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          },
+          "ham" : {
+            "en_meaning" : "ham",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "spelling" : "/hæm/",
+            "vn_meaning" : "giăm bông",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          },
+          "jam" : {
+            "en_meaning" : "jam",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "spelling" : "/dʒæm/",
+            "vn_meaning" : "mứt",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
+          },
+          "marmalade" : {
+            "en_meaning" : "marmalade",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "spelling" : "/'mɑ:məleid/",
+            "vn_meaning" : "mứt cam",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmarmalade.mp3?alt=media&token=e786b6cb-ee5a-473f-a5df-ff317e9a04fa"
+          },
+          "milk" : {
+            "en_meaning" : "milk",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "spelling" : "/milk/",
+            "vn_meaning" : "sữa",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmilk.mp3?alt=media&token=3ca243c5-c433-4018-9fad-e866675441af"
+          },
+          "tea" : {
+            "en_meaning" : "tea",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "spelling" : "/ti:/",
+            "vn_meaning" : "trà",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftea.mp3?alt=media&token=f9292ab3-6db1-43fc-9005-0b18b75353b3"
+          },
+          "toast" : {
+            "en_meaning" : "toast",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "spelling" : "/təʊst/",
+            "vn_meaning" : "bánh mì nướng",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          },
+          "tomato" : {
+            "en_meaning" : "tomato",
+            "image_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "spelling" : "/tə'mɑ:təʊ/  /tə'meitəʊ/",
+            "vn_meaning" : "cà chua",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftomato.mp3?alt=media&token=e54cfb7c-5370-4dff-bdd9-81df2aa00a1d"
           }
         }
       },
@@ -1925,6 +2019,291 @@
             "id" : 19,
             "text" : "coater",
             "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBar%2Fcoaster.mp3?alt=media&token=5dfd88a7-5d15-4c62-93ed-c7196469999b"
+          } ]
+        },
+        "Breakfast" : {
+          "answers" : [ {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 0,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 1,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 2,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 3,
+            "type" : 1
+          }, {
+            "content_a" : "True",
+            "content_b" : "False",
+            "id" : 4,
+            "type" : 1
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "id" : 5,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcereal.jpg?alt=media&token=bced0de4-6d95-4b90-ba10-d99894e42dd5",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "id" : 6,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "id" : 7,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmarmalade.jpg?alt=media&token=7cbb25f7-7e31-4e2c-a57d-55e6db0c5dcc",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "id" : 8,
+            "type" : 2
+          }, {
+            "content_a" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fham.jpg?alt=media&token=18a4df27-b91b-494d-846c-507f02b6267a",
+            "content_b" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "content_c" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftomato.jpg?alt=media&token=a00fc96c-9974-4583-b6d2-42806f90dfb8",
+            "content_d" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "id" : 9,
+            "type" : 2
+          }, {
+            "content_a" : "bacon",
+            "content_b" : "bread",
+            "content_c" : "bacom",
+            "content_d" : "butter",
+            "id" : 10,
+            "type" : 3
+          }, {
+            "content_a" : "cheese",
+            "content_b" : "coffee",
+            "content_c" : "ham",
+            "content_d" : "jam",
+            "id" : 11,
+            "type" : 3
+          }, {
+            "content_a" : "marmalade",
+            "content_b" : "milk",
+            "content_c" : "eat",
+            "content_d" : "tea",
+            "id" : 12,
+            "type" : 3
+          }, {
+            "content_a" : "tomato",
+            "content_b" : "tometo",
+            "content_c" : "toast",
+            "content_d" : "ham",
+            "id" : 13,
+            "type" : 3
+          }, {
+            "content_a" : "cereal",
+            "content_b" : "ham",
+            "content_c" : "milk",
+            "content_d" : "tea",
+            "id" : 14,
+            "type" : 3
+          }, {
+            "id" : 15,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "a", "c", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 16,
+            "num_character" : 6,
+            "sugges_characters" : [ "r", "b", "u", "t", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 17,
+            "num_character" : 5,
+            "sugges_characters" : [ "r", "a", "b", "n", "s", "e", "d" ],
+            "type" : 4
+          }, {
+            "id" : 18,
+            "num_character" : 5,
+            "sugges_characters" : [ "t", "a", "o", "n", "s", "e", "h" ],
+            "type" : 4
+          }, {
+            "id" : 19,
+            "num_character" : 3,
+            "sugges_characters" : [ "j", "a", "i", "m", "s", "e", "h" ],
+            "type" : 4
+          } ],
+          "questions" : [ {
+            "id" : 0,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          }, {
+            "id" : 1,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "type" : "4",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          }, {
+            "id" : 2,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbutter.mp3?alt=media&token=b7f9116b-564e-4018-952b-ab6d5e326074"
+          }, {
+            "id" : 3,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          }, {
+            "id" : 4,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "type" : "1",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          }, {
+            "id" : 5,
+            "txt_content" : "tomoto",
+            "type" : "2"
+          }, {
+            "id" : 6,
+            "txt_content" : "cereal",
+            "type" : "2"
+          }, {
+            "id" : 7,
+            "txt_content" : "jam",
+            "type" : "2"
+          }, {
+            "id" : 8,
+            "txt_content" : "toast",
+            "type" : "2"
+          }, {
+            "id" : 9,
+            "txt_content" : "ham",
+            "type" : "2"
+          }, {
+            "id" : 10,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbacon.jpg?alt=media&token=3f1ae1f3-204f-40d9-83ad-643d89296df4",
+            "type" : "3"
+          }, {
+            "id" : 11,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcoffee.jpg?alt=media&token=98b165a4-fb33-477e-a293-1ff4dd2bf32f",
+            "type" : "3"
+          }, {
+            "id" : 12,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftea.jpg?alt=media&token=ee94b054-d86e-4ea0-9cde-deb814fb6716",
+            "type" : "3"
+          }, {
+            "id" : 13,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "type" : "3"
+          }, {
+            "id" : 14,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fmilk.jpg?alt=media&token=a54346a8-ea1f-4a9d-9c27-005d1c15cd64",
+            "type" : "3"
+          }, {
+            "id" : 15,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fcheese.jpg?alt=media&token=baeaa5e6-73cc-4903-85c6-60c12ca496c9",
+            "type" : "3"
+          }, {
+            "id" : 16,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbutter.jpg?alt=media&token=0ab048bc-0e7e-4e58-86dd-41a0103aff5c",
+            "type" : "3"
+          }, {
+            "id" : 17,
+            "img_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fbread.jpg?alt=media&token=1d0b2790-9d30-47de-8303-308101fd9016",
+            "type" : "3"
+          }, {
+            "id" : 18,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Ftoast.jpg?alt=media&token=554cc07b-d058-46f8-82f3-a1df1cff5f31",
+            "type" : "2"
+          }, {
+            "id" : 19,
+            "txt_content" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/images%2Fvocabulary%2FEating%20Out%2FBreakfast%2Fjam.jpg?alt=media&token=35b66cf2-e30f-413e-9be6-e37bcf3659d2",
+            "type" : "2"
+          } ],
+          "results" : [ {
+            "id" : 0,
+            "text" : "a"
+          }, {
+            "id" : 1,
+            "text" : "a"
+          }, {
+            "id" : 2,
+            "text" : "a"
+          }, {
+            "id" : 3,
+            "text" : "b"
+          }, {
+            "id" : 4,
+            "text" : "b"
+          }, {
+            "id" : 5,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftomato.mp3?alt=media&token=e54cfb7c-5370-4dff-bdd9-81df2aa00a1d"
+          }, {
+            "id" : 6,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcereal.mp3?alt=media&token=c3fbe313-7540-4efa-81e3-1f51368ff3be"
+          }, {
+            "id" : 7,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
+          }, {
+            "id" : 8,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 9,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fham.mp3?alt=media&token=861247e3-b40f-44bf-8e8e-bc339f230529"
+          }, {
+            "id" : 10,
+            "text" : "a",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbacon.mp3?alt=media&token=7663494f-15cc-4a48-8c11-708e59fa1472"
+          }, {
+            "id" : 11,
+            "text" : "b",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcoffee.mp3?alt=media&token=eefeecd1-37c4-4964-b1d2-c4f1de123b27"
+          }, {
+            "id" : 12,
+            "text" : "d",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftea.mp3?alt=media&token=f9292ab3-6db1-43fc-9005-0b18b75353b3"
+          }, {
+            "id" : 13,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 14,
+            "text" : "c",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fmilk.mp3?alt=media&token=3ca243c5-c433-4018-9fad-e866675441af"
+          }, {
+            "id" : 15,
+            "text" : "cheese",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fcheese.mp3?alt=media&token=7c38d9dc-ac46-4298-9bdd-79871ae01408"
+          }, {
+            "id" : 16,
+            "text" : "butter",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbutter.mp3?alt=media&token=b7f9116b-564e-4018-952b-ab6d5e326074"
+          }, {
+            "id" : 17,
+            "text" : "bread",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fbread.mp3?alt=media&token=6dcdbbfc-8604-4f0e-af5d-fc1d02ad636a"
+          }, {
+            "id" : 18,
+            "text" : "toast",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Ftoast.mp3?alt=media&token=eafe4b62-0e21-48e2-9198-df74e0ccc17a"
+          }, {
+            "id" : 19,
+            "text" : "jam",
+            "void_uri" : "https://firebasestorage.googleapis.com/v0/b/english-uet-team.appspot.com/o/void%2FEating%20Out%2FBreakfast%2Fjam.mp3?alt=media&token=34e0e3e5-a96b-4c92-a634-c6d6ffd48e6d"
           } ]
         }
       }
