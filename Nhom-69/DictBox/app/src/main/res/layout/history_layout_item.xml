@@ -11,4 +11,9 @@
         android:layout_weight="1"
         android:text="Word"
         android:layout_gravity="center"/>
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_delete"/>
 </LinearLayout>
