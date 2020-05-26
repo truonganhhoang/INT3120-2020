@@ -11,7 +11,7 @@ import {
 import {withNavigation} from 'react-navigation';
 import {Button, Icon} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
-import {connectSQLite,requestGET} from './ConnectData';
+import {connectSQLite,pushQuestions,updateQuestions} from './ConnectData';
 import {EmptyFlatlist} from './EmtyFlatList';
 import firebase from 'react-native-firebase';
 import * as Animatable from 'react-native-animatable';
@@ -37,6 +37,7 @@ const SelectLevel = props => {
                   questCount : temp.questCount,
                   partId : temp.partId,
                   lock : temp.lock,
+                  isLevelComplete: temp.isLevelComplete
               }
               data.push(item)
           })
@@ -48,12 +49,26 @@ const SelectLevel = props => {
     fetchData()
     return () => {};
   }, [props]);
-  const handlePress = (partId, levelId, index)=>{
+  const handlePress = async (partId, levelId, index, isLevelComplete)=>{
+    if(isLevelComplete=="Yes"){
+      var userId = firebase.auth().currentUser.uid;
+      await updateQuestions(userId,partId,levelId);
+      var questCompleteCount = 0;
+      firebase
+        .database()
+        .ref('DataResult')
+        .child(`${userId}`)
+        .child('Part')
+        .child(`${partId}`)
+        .child('levels')
+        .child(`${levelId}`)
+        .update({questCompleteCount});
+    }
     props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index})
   }
   return (
     <View style={{flex: 1}}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <View
         style={{
           flex: 0.8,
@@ -104,9 +119,10 @@ const SelectLevel = props => {
                 animation = 'fadeInRight'
                 delay = {item.index*200}
               >
-                <TouchableOpacity disabled={item.item.lock=='No'? false: true} onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}>
+                <TouchableOpacity disabled={item.item.lock=='No'? false: true} onPress={()=>{handlePress(partId,item.item.id,item.index+1,item.item.isLevelComplete) }}>
                 <View style={{paddingLeft: 20}}>
-                  <Text
+                <View style={{flexDirection: 'row', justifyContent:'space-between', paddingRight:10}}>
+                <Text
                     style={{
                       fontSize: 22,
                       fontWeight: 'bold',
@@ -114,6 +130,15 @@ const SelectLevel = props => {
                     }}>
                     Level {item.index+1}
                   </Text>
+                  <Icon
+                  name="check-circle"
+                  size={item.item.isLevelComplete=="No"?0:25}
+                  color="#4CAF50"
+                  containerStyle={{}}
+                  onPress={() => props.navigation.goBack()}
+                />
+                  </View>
+                  
                   <Text style={{marginTop: 10, fontSize: 16, marginBottom: 10}}>
                     Hoàn thành: {item.item.questCompleteCount}/
                     {item.item.questCount}
@@ -137,7 +162,7 @@ const SelectLevel = props => {
                     justifyContent:'center',
                   }}
                   disabled={item.item.lock=='No'? false: true}
-                  onPress={()=>{handlePress(partId,item.item.id,item.index+1) }}
+                  onPress={()=>{handlePress(partId,item.item.id,item.index+1,item.item.isLevelComplete) }}
                   >
                   <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>

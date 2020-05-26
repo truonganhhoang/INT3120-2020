@@ -41,7 +41,7 @@ const PickNewWord = (props) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar backgroundColor='#009dd6' barStyle='light-content'></StatusBar>
+      <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
       <CustomHeader numWord={numWord} />
       <LinearGradient
         style={styles.linearGradient}

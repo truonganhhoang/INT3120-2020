@@ -6,13 +6,17 @@ import firebase from 'react-native-firebase'
 const Account = props => {
     const maxWidth = Dimensions.get('window').width;
     const [login, setLogin] = useState()
+    const [reload,setReload] = useState(false);
     useEffect(() => {
       setLogin(props.login)
       console.log(props.login)
+      setTimeout(() => {
+        setReload(false)
+      }, 500);
       return () => {
         
       }
-    }, [props.login])
+    }, [props.login,reload])
     if(login!=false){
       return(
           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
@@ -25,7 +29,8 @@ const Account = props => {
               .auth()
               .signOut()
               .then(() => {
-                props.navigation.navigate('HomeScreen');
+                setReload(true)
+                props.navigation.navigate('HomeScreen',{user: false});
               })
               .catch(error => console.log(error))
               

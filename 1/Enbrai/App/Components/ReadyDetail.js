@@ -37,7 +37,7 @@ const ReadyDetail = (props) => {
   }, [])
   return (
     <View style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+      <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
       <View style={{ flex: 2, display: 'flex', justifyContent: 'flex-end' }}>
         <Text style={{ color: '#0592D2', fontSize: 18 }}>Cố gắng ghi nhớ các từ sau đây</Text>
       </View>

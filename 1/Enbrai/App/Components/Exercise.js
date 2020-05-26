@@ -26,7 +26,7 @@ const Exercise = props => {
         flexDirection: 'row',
         alignContent: 'center',
       }}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <LinearGradient
         style={{flex: 1, paddingLeft: 15, paddingRight: 15}}
         colors={['#0592D2', '#39D57F']}>

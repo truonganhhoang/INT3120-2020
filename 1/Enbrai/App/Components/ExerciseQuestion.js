@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import firebase from 'react-native-firebase';
+import { firebaseAd, Banner, UNIT_ID_BANNER } from './FirbaseAd'
+
 const ExerciseQuestion = props => {
   const [data, setData] = useState([]);
   const [questResult, setQuestResult] = useState([]);
@@ -113,7 +115,7 @@ const ExerciseQuestion = props => {
     }
     return array;
   };
-  const checkResult = (quest, text, ind, correct) => {
+  const checkResult = async (quest, text, ind, correct) => {
     console.log(questResult);
     var id = props.questResult[ind].id;
     var isCorrect = props.questResult[ind].isCorrect;
@@ -138,7 +140,8 @@ const ExerciseQuestion = props => {
         .update({isReview});
     }
     if (correct == true) {
-      isCorrect = 'true';
+      if(isCorrect == "false"){
+        isCorrect = 'true';
       firebase
         .database()
         .ref('DataResult')
@@ -150,7 +153,8 @@ const ExerciseQuestion = props => {
         .child('questions')
         .child(`${id}`)
         .update({isCorrect});
-      questCompleteCount = questCompleteCount + 1;
+      if(questCompleteCount!==questCount){
+        questCompleteCount = questCompleteCount + 1;
       firebase
         .database()
         .ref('DataResult')
@@ -160,9 +164,14 @@ const ExerciseQuestion = props => {
         .child('levels')
         .child(`${levelId}`)
         .update({questCompleteCount});
-      if (questCompleteCount == questCount) {
-        levelCompleteCount = levelCompleteCount + 1;
+      }
+      }
+     
+      if (questCompleteCount == questCount ) {
+        if(props.isLevelComplete !="No"){
+          levelCompleteCount = levelCompleteCount + 1;
         var lock = 'No'
+        var isLevelComplete= "Yes"
         firebase
           .database()
           .ref('DataResult')
@@ -179,8 +188,22 @@ const ExerciseQuestion = props => {
         .child('levels')
         .child(`${levelId+1}`)
         .update({lock});
-        
+        firebase
+        .database()
+        .ref('DataResult')
+        .child(`${userId}`)
+        .child('Part')
+        .child(`${partId}`)
+        .child('levels')
+        .child(`${levelId}`)
+        .update({isLevelComplete});
+        await firebaseAd.showInterstitial()
+        }
+        else{
+          await firebaseAd.showInterstitial()
+        }
       }
+
     }
 
     props.setPage(1, quest, text, correct);
