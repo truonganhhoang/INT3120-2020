@@ -240,4 +240,14 @@ public class DBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
+    public void clearHistory() {
+        try {
+            String q = "DELETE FROM " + TBL_HISTORY;
+            mDB.execSQL(q);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -78,6 +78,8 @@ public class HistoryAdapter extends BaseAdapter {
         ImageView btnDelete;
     }
 
+    public void clear(){mSource.clear();}
+
     public void setOnItemClick(ListItemListener listItemListener) {
         this.listener = listItemListener;
     }
