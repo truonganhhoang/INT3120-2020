@@ -8,13 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.Locale;
 
 public class HistoryFragment extends Fragment {
 
@@ -59,6 +65,16 @@ public class HistoryFragment extends Fragment {
             }
         });
 
+        adapter.setOnItemDeleteClick(new ListItemListener() {
+            @Override
+            public void onItemClick(int position) {
+                String key = (String) adapter.getItem(position);
+                mDBHelper.removeHistory(key);
+                adapter.removeItem(position);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     @Override
@@ -71,13 +87,18 @@ public class HistoryFragment extends Fragment {
         super.onDetach();
     }
 
+    public void setOnFragmentListener(FragmentListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    public void setOnFragmentListener(FragmentListener listener) {
-        this.listener = listener;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
 }
