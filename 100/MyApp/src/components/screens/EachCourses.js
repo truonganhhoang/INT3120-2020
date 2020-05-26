@@ -20,7 +20,8 @@ class EachCourses extends Component {
             key: 'Screen3'
         });
         // this.props.navigation.navigate('Main')
-        this.props.navigation.navigate('Menu');
+        this.props.navigation.navigate('Screen3');
+        // this.props.navigation.navigate('Menu');
         
     }
     render() {
