@@ -9,8 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import Word from "../components/Word";
-
-import { Button } from "react-native-elements";
+import { SearchBar, Button } from 'react-native-elements';
 
 import {listWordData} from "../Data";
 
@@ -21,14 +20,16 @@ export default function ListWord({ navigation }) {
   const [list, setList] = useState(listWordData);
   const [searchValue, setSearchValue] = useState();
 
-  useEffect(()=>{
-    // setSearchValue(searchValue)
-    // full text search owr day 
+  // useEffect(()=>{
+  //   // setSearchValue(searchValue)
+  //   // full text search owr day 
     
-  },[searchValue])
+  // },[searchValue])
 
   function onChangeText(text){
+    
     text = text.toLocaleLowerCase().trim();
+    setSearchValue(text);
     if (text ==''){
 
       setList(listWordData);
@@ -43,11 +44,14 @@ export default function ListWord({ navigation }) {
   }
   return (
     <View style={styles.container}>
-      <TextInput
-        style={{
+      <SearchBar
+          lightTheme
+          placeholder='何か調べているか'
+        inputContainerStyle={{
           height: 40,
-          borderColor: "gray",
+         //  borderColor: "gray",
           borderWidth: 1,
+          backgroundColor: 'white',
           marginBottom: 30,
         }}
          onChangeText={text => onChangeText(text)}
