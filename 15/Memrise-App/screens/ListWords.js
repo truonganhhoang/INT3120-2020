@@ -33,7 +33,7 @@ export default function ListWord({ navigation }) {
     
     miniSearch.addAll(listWordData);
     let result = miniSearch.search(text);
-        console.log(result);
+       
 
     setList(result);
   }
@@ -93,14 +93,16 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    bottom: screen(0),
+    bottom: screen(10),
     height: 70,
     width: screen(100),
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff222",
     borderRadius: 50,
-  },
+    borderBottomColor:"#ffa222",
+    borderBottomWidth:10,
+  },  
   review: {
     textTransform: "uppercase",
     paddingLeft: 30,
