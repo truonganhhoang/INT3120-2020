@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Dimensions, FlatList, Button } from "react-native";
+import { StyleSheet, View, Dimensions, FlatList, Button ,Text} from "react-native";
 import * as Progress from "react-native-progress";
 import WordContainer from "../components/WordContainer";
 import ReviewWord from "../components/ReviewWord";
 import Mems from "../components/Mems";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const screenHeight = Math.round(Dimensions.get("window").height);
-const screenwidth = Math.round(Dimensions.get("window").width);
+const deviceWidth = Dimensions.get('window').width;
+const screen = (percent) =>  percent * deviceWidth /100;
+
 var testData = [
   { id: 1, word: "ありがとう", mean: "cảm ơn ", miss: false, level: 0 },
   { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
@@ -154,7 +156,7 @@ export default function Review({ navigation, route }) {
     <View style={styles.container}>
       <Progress.Bar
         progress={1.00 - reviews.length / testData.length}
-        width={screenwidth}
+        width={screen(100)}
       />
       <WordContainer objWord={trueAnswer} hideMean={hideMean} />
 
@@ -170,13 +172,16 @@ export default function Review({ navigation, route }) {
       )) || <Mems />}
 
       <View style={styles.footer}>
-        <Button
-          onPress={onPressNextWord}
-          title="Next"
-          color="#841584"
-          style={styles.NextButton}
-        />
+       
+        <TouchableOpacity 
+          activeOpacity={0.5}
+        onPress={onPressNextWord}
+        >
+            <Text style={styles.nextButton}>Next</Text>
+        </TouchableOpacity>
       </View>
+
+      
     </View>
   );
 }
@@ -186,24 +191,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "flex-start",
+    
   },
   ReviewContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 0,
-    paddingTop: 0,
+    paddingLeft: screen(2),
+    paddingTop:screen(20),
   },
   footer: {
     position: "absolute",
-    top: screenHeight - 150,
-    paddingLeft: 50,
+    right: screen(40),
+    bottom: screen(10),
   },
-  Mem: {
-    padding: 30,
+  nextButton: {
+    textTransform: "uppercase",
+    fontWeight: "500",
+    fontSize: 30,
+    color:"#0ab"
+    
   },
   MemText: {
-    paddingTop: 5,
-    paddingBottom: 5,
     borderBottomWidth: 0.2,
     // borderStyle:'solid',
   },
