@@ -1,26 +1,38 @@
 import express from 'express';
 import path from 'path';
-import controller from '../controllers/controller'
+import passport from 'passport';
+import controller from '../controllers/controller';
+import { initLocalPassport } from '../config/localPassport';
 
+initLocalPassport();
 const router = express.Router();
 
 const initRoutes = app => {
-  router.get('/', (req, res) => {
+
+  // admin
+  router.get('/', controller.checkLoggedIn, (req, res) => {
     const dir = path.resolve(__dirname, '..');
     res.sendFile(path.join(dir, 'public/html/index.html'));
   });
 
-  router.post('/insertword', controller.insertwords);
+  router.get('/login', controller.checkLoggedOut, (req, res) => {
+    const dir = path.resolve(__dirname, '..');
+    res.sendFile(path.join(dir, 'public/html/login.html'));
+  });
 
-  router.post('/insertQuestion', controller.insertQuestions);
+  router.post('/login', controller.checkLoggedOut, passport.authenticate("local", {successRedirect: "/", failureRedirect: "/login"}));
+
+  router.get('/logout', controller.checkLoggedIn, controller.logout);
+
+  router.post('/insertNewWord', controller.checkLoggedIn, controller.createNewWord);
+
+  router.post('/insertNewQuestion', controller.checkLoggedIn, controller.createNewQuestion);
+
+  // user
 
   router.get('/getAllWords', controller.getAllWords);
 
-  router.get('/getAllQuestions', controller.getAllQuestions);
-
-  router.post('/insertNewWord', controller.createNewWord);
-
-  router.post('/insertNewQuestion', controller.createNewQuestion);
+  router.get('/getAllQuestions',controller.getAllQuestions);
 
   router.post('/updateData', controller.updateData);
 
