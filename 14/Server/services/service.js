@@ -43,4 +43,4 @@ const getDataToUpdate = async time => {
   });
 }
 
-export default {createWords, getAllWords, createNewWord, createQuestions, getAllQuestions, createNewQuestion, getDataToUpdate}
+export default { getAllWords, createNewWord, getAllQuestions, createNewQuestion, getDataToUpdate}
