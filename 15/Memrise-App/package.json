@@ -8,7 +8,6 @@
     "eject": "expo eject",
     "test": "jest",
     "mock-server": "json-server ./mock-db/db.json"
-
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.7",
@@ -16,10 +15,15 @@
     "@react-navigation/native": "^5.1.4",
     "@react-navigation/stack": "^5.2.9",
     "add": "^2.0.6",
+    "axios": "^0.19.2",
     "expo": "~37.0.3",
+    "full-text-search": "^0.0.16",
     "global": "^4.4.0",
     "json-server": "^0.16.1",
+    "lunr": "^2.3.8",
+    "minisearch": "^2.3.1",
     "prettier": "^2.0.4",
+    "query-string": "^6.12.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
@@ -32,7 +36,8 @@
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.3.7",
     "react-navigation-stack": "^2.3.11",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "rn-nodeify": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

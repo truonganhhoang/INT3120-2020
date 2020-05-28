@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test WordDetail Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "row",
+        "marginBottom": 30,
+        "padding": 30,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "column",
+          "flexGrow": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 50,
+            "fontWeight": "700",
+            "marginBottom": 20,
+            "textTransform": "lowercase",
+          }
+        }
+      >
+        車
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#030",
+            "fontSize": 30,
+            "fontWeight": "500",
+            "textTransform": "lowercase",
+          }
+        }
+      >
+        xe hơi
+      </Text>
+    </View>
+    <View>
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/tree/tree0.png",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": "green",
+            "borderRadius": 80,
+            "borderWidth": 0.5,
+            "height": 65,
+            "width": 65,
+          }
+        }
+      />
+      <View
+        styles={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Create a new Mems
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderBottomWidth": 0.2,
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text>
+        đăng luc =))
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontStyle": "italic",
+            "paddingTop": 3,
+            "textAlign": "right",
+          }
+        }
+      >
+         
+        - Nguyễn Văn A
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "borderBottomWidth": 0.2,
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontStyle": "italic",
+            "paddingTop": 3,
+            "textAlign": "right",
+          }
+        }
+      >
+         
+        - Nguyễn Văn A
+      </Text>
+    </View>
+  </View>
+</View>
+`;

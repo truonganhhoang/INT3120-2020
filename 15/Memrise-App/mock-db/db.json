@@ -1,7 +1,7 @@
 {
     "courses":[
     {
-        "coursesID":1,
+        "courseId":1,
         "courseName":"人間",
         "listWord": [
        {  "mems":["viet nhu nay cho de nho"] ,      "id":1 , "word":"ありがとうございます" ,"mean":"cảm ơn " , "miss":false , "level":0 },
@@ -22,7 +22,7 @@
 
     },
     {
-        "coursesID":2,
+        "courseId":2,
         "courseName":"勉強",
         "listWord": [
        {  "mems":["viet nhu nay cho de nho"] ,      "id":1 , "word":"ありがとうございます" ,"mean":"cảm ơn " , "miss":false , "level":0 },
@@ -41,7 +41,7 @@
 
     },
     {
-        "courseID":3,
+        "courseId":3,
         "courseName":"人",
         "listWord":[
            {  "mems":["viet nhu nay cho de nho"] ,      "id": 1, "word": "ありがとう", "mean": "cảm ơn ", "miss": false, "level": 0 },

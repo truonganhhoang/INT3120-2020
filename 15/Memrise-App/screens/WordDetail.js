@@ -44,7 +44,7 @@ export default function listWord({ navigation, route }) {
         </View>
 
         <View style={styles.MemText}>
-          <Text>{route.params?.post}</Text>
+          {/* <Text>{route.params?.post}</Text> */}
           <Text
             style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
           >

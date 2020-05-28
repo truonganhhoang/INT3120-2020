@@ -9,6 +9,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const deviceWidth = Dimensions.get('window').width;
 const screen = (percent) =>  percent * deviceWidth /100;
 
+
 var testData = [
   { id: 1, word: "ありがとう", mean: "cảm ơn ", miss: false, level: 0 },
   { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
@@ -172,6 +173,7 @@ export default function Review({ navigation, route }) {
       )) || <Mems />}
 
       <View style={styles.footer}>
+
        
         <TouchableOpacity 
           activeOpacity={0.5}
@@ -179,6 +181,8 @@ export default function Review({ navigation, route }) {
         >
             <Text style={styles.nextButton}>Next</Text>
         </TouchableOpacity>
+
+
       </View>
 
       
@@ -195,6 +199,7 @@ const styles = StyleSheet.create({
   },
   ReviewContainer: {
     paddingLeft: screen(2),
+
     paddingTop:screen(20),
   },
   footer: {
@@ -207,6 +212,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 30,
     color:"#0ab"
+
     
   },
   MemText: {

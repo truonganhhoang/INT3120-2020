@@ -1,0 +1,1155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ListWords Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "paddingHorizontal": 20,
+      "width": "100%",
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderColor": "gray",
+        "borderWidth": 1,
+        "height": 40,
+        "marginBottom": 30,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "level": 0,
+          "mean": "cảm ơn ",
+          "miss": false,
+          "word": "ありがとうございます",
+        },
+        Object {
+          "id": 2,
+          "level": 0,
+          "mean": "xe hơi",
+          "miss": false,
+          "word": "車",
+        },
+        Object {
+          "id": 3,
+          "level": 1,
+          "mean": "rau",
+          "miss": true,
+          "word": "野菜",
+        },
+        Object {
+          "id": 4,
+          "level": 2,
+          "mean": "nhẫn",
+          "miss": true,
+          "word": "指輪",
+        },
+        Object {
+          "id": 5,
+          "level": 3,
+          "mean": "nồi",
+          "miss": false,
+          "word": "なべ",
+        },
+        Object {
+          "id": 6,
+          "level": 4,
+          "mean": "hoa quả",
+          "miss": true,
+          "word": "果物",
+        },
+        Object {
+          "id": 7,
+          "level": 5,
+          "mean": "quả quýt",
+          "miss": false,
+          "word": "ミカン",
+        },
+        Object {
+          "id": 8,
+          "level": 0,
+          "mean": "Nhà",
+          "miss": false,
+          "word": "家",
+        },
+        Object {
+          "id": 9,
+          "level": 0,
+          "mean": "Gia tộc",
+          "miss": false,
+          "word": "家",
+        },
+        Object {
+          "id": 10,
+          "level": 5,
+          "mean": "Hán tự",
+          "miss": false,
+          "word": "漢字",
+        },
+        Object {
+          "id": 11,
+          "level": 0,
+          "mean": "Gia đình",
+          "miss": false,
+          "word": "家庭",
+        },
+        Object {
+          "id": 12,
+          "level": 4,
+          "mean": "kinh tế",
+          "miss": false,
+          "word": "経済",
+        },
+        Object {
+          "id": 13,
+          "level": 4,
+          "mean": "Vườn",
+          "miss": false,
+          "word": "庭",
+        },
+        Object {
+          "id": 14,
+          "level": 4,
+          "mean": "Vườn",
+          "miss": false,
+          "word": "庭",
+        },
+        Object {
+          "id": 15,
+          "level": 0,
+          "mean": "Vườn",
+          "miss": false,
+          "word": "庭",
+        },
+        Object {
+          "id": 16,
+          "level": 0,
+          "mean": "Vườn",
+          "miss": false,
+          "word": "庭",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree0.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                ありがとうございます
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                cảm ơn 
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree0.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                車
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                xe hơi
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree1.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                野菜
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                rau
+                 
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/thunder.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 30,
+                  "marginRight": 5,
+                  "width": 30,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree2.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                指輪
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                nhẫn
+                 
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/thunder.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 30,
+                  "marginRight": 5,
+                  "width": 30,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree3.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                なべ
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                nồi
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree4.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                果物
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                hoa quả
+                 
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/thunder.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 30,
+                  "marginRight": 5,
+                  "width": 30,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree5.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                ミカン
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                quả quýt
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree0.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                家
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                Nhà
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree0.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                家
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                Gia tộc
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#000",
+                "borderBottomWidth": 0.3,
+                "display": "flex",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 5,
+                "marginTop": 5,
+                "paddingBottom": 3,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/tree/tree5.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginLeft": 3,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 30,
+                    "fontWeight": "700",
+                    "marginBottom": 3,
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                  
+                漢字
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "500",
+                    "textTransform": "lowercase",
+                  }
+                }
+              >
+                 
+                Hán tự
+                 
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fffa00",
+        "borderBottomColor": "#daa520",
+        "borderBottomWidth": 10,
+        "borderRadius": 50,
+        "height": 70,
+        "justifyContent": "center",
+        "position": "absolute",
+        "top": 1134,
+        "width": 750,
+      }
+    }
+  >
+    <Text
+      onPress={[Function]}
+      style={
+        Object {
+          "fontSize": 30,
+          "fontWeight": "500",
+          "paddingLeft": 30,
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      Review now !!!
+    </Text>
+  </View>
+</View>
+`;
