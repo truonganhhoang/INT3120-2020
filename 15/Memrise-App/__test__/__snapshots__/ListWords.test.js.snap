@@ -20,9 +20,12 @@ exports[`Test ListWords Screen 1`] = `
     style={
       Object {
         "borderColor": "gray",
+        "borderRadius": 7.5,
         "borderWidth": 1,
-        "height": 40,
-        "marginBottom": 30,
+        "height": 75,
+        "marginBottom": 22.5,
+        "marginTop": 15,
+        "paddingLeft": 15,
       }
     }
     underlineColorAndroid="transparent"
@@ -1125,14 +1128,14 @@ exports[`Test ListWords Screen 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#fffa00",
-        "borderBottomColor": "#daa520",
+        "backgroundColor": "#fff222",
+        "borderBottomColor": "#ffa222",
         "borderBottomWidth": 10,
         "borderRadius": 50,
+        "bottom": 75,
         "height": 70,
         "justifyContent": "center",
         "position": "absolute",
-        "top": 1134,
         "width": 750,
       }
     }

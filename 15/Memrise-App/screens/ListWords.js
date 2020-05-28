@@ -54,6 +54,7 @@ export default function ListWord({ navigation }) {
         onChangeText={(text) => onChangeText(text)}
         value={searchValue}
       />
+
       <FlatList
         data={list}
         renderItem={({ item }) => (

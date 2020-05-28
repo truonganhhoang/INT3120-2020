@@ -19,6 +19,7 @@ export default function Word (props){
     // const TreeImages = [tree0,tree1,tree2,tree3,tree4,tree5];
     const { id ,word ,mean , miss , level } = props.unit;
     const onPress = props.onPress;
+
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
@@ -32,7 +33,9 @@ export default function Word (props){
                         <Text style={styles.mean} > {mean} </Text>
                     </View>
                             
-            {  miss&&<Image style={styles.thunderImage} source = {thunder} />}
+
+
+            {  miss&&<Image style={styles.thunderImage} source = {thunder}   />}
                    
                     
             </View>

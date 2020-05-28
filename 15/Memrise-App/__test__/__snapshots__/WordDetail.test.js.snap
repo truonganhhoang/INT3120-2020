@@ -17,8 +17,10 @@ exports[`Test WordDetail Screen 1`] = `
       Object {
         "alignItems": "flex-start",
         "flexDirection": "row",
-        "marginBottom": 30,
-        "padding": 30,
+        "marginBottom": 37.5,
+        "paddingBottom": 33.75,
+        "paddingLeft": 52.5,
+        "paddingTop": 37.5,
       }
     }
   >
@@ -34,9 +36,9 @@ exports[`Test WordDetail Screen 1`] = `
       <Text
         style={
           Object {
-            "fontSize": 50,
+            "fontSize": 75,
             "fontWeight": "700",
-            "marginBottom": 20,
+            "paddingTop": 22.5,
             "textTransform": "lowercase",
           }
         }
@@ -47,7 +49,7 @@ exports[`Test WordDetail Screen 1`] = `
         style={
           Object {
             "color": "#030",
-            "fontSize": 30,
+            "fontSize": 67.5,
             "fontWeight": "500",
             "textTransform": "lowercase",
           }
@@ -68,18 +70,61 @@ exports[`Test WordDetail Screen 1`] = `
             "backgroundColor": "green",
             "borderRadius": 80,
             "borderWidth": 0.5,
-            "height": 65,
-            "width": 65,
+            "height": 187.5,
+            "marginRight": 52.5,
+            "width": 187.5,
           }
         }
       />
       <View
         styles={
           Object {
-            "flexDirection": "row",
+            "bottom": 15,
+            "position": "absolute",
+            "right": 15,
           }
         }
-      />
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/thunder.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 75,
+                  "marginVertical": 22.5,
+                  "position": "absolute",
+                  "right": 105,
+                  "width": 75,
+                },
+                Object {
+                  "opacity": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
     </View>
   </View>
   <View

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Dimensions, FlatList, Button } from "react-native";
+import { StyleSheet, View, Dimensions, FlatList, Button ,Text} from "react-native";
 import * as Progress from "react-native-progress";
 import WordContainer from "../components/WordContainer";
 import ReviewWord from "../components/ReviewWord";
 import Mems from "../components/Mems";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const deviceWidth = Dimensions.get('window').width;
 const screen = (percent) =>  percent * deviceWidth /100;
@@ -171,12 +172,16 @@ export default function Review({ navigation, route }) {
       )) || <Mems />}
 
       <View style={styles.footer}>
-        <Button
-          onPress={onPressNextWord}
-          title="Next"
-          color="#841584"
-        />
+       
+        <TouchableOpacity 
+          activeOpacity={0.5}
+        onPress={onPressNextWord}
+        >
+            <Text style={styles.nextButton}>Next</Text>
+        </TouchableOpacity>
       </View>
+
+      
     </View>
   );
 }
@@ -190,13 +195,18 @@ const styles = StyleSheet.create({
   },
   ReviewContainer: {
     paddingLeft: screen(2),
+    paddingTop:screen(20),
   },
   footer: {
     position: "absolute",
-    right: screen(2),
-    bottom: screen(2)
+    right: screen(40),
+    bottom: screen(10),
   },
-  Mem: {
+  nextButton: {
+    textTransform: "uppercase",
+    fontWeight: "500",
+    fontSize: 30,
+    color:"#0ab"
     
   },
   MemText: {
