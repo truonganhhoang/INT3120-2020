@@ -17,13 +17,14 @@ import wateringCan from '../assets/watering-can.png';
 
 export default function Word (props){
     // const TreeImages = [tree0,tree1,tree2,tree3,tree4,tree5];
-    const { id ,word ,mean , miss , level } = props.unit;
+    const { id ,word ,mean , miss , level } = props.word;
+    const {courseId} =props.courseId;
     const onPress = props.onPress;
 
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-            onPress={onPress}
+            onPress={()=>onPress(id,courseId)}
         >
             <View style ={styles.container}>
                     <Image style={styles.wordImage} source = {TreeImages[level]} />

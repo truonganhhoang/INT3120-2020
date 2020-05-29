@@ -1,18 +1,17 @@
-import React from "react";
+import React ,{useState ,useEffect}from "react";
 import {
   StyleSheet,
   Text,
   View,
-  Image,
-  Dimensions,
-  TextInput,
   Button,
-  ViewComponent,
+ 
 } from "react-native";
 import Word from "../components/Word";
 import WordContainer from "../components/WordContainer";
-
+import axios from 'axios'
 import sample from "../Data";
+import { cos } from "react-native-reanimated";
+
 
 export default function listWord({ navigation, route }) {
   // React.useEffect(() => {
@@ -21,9 +20,24 @@ export default function listWord({ navigation, route }) {
   //     // For example, send the post to the server
   //   }
   // }, [route.params?.post]);
+  const [word, setWord] = useState({});
+  useEffect(() => {
+    const {wordId,courseId} = route.params
+    
+    // full text search owr day
+    const queryString = `http://localhost:3000/courses?courseId=${courseId}`;
+
+    axios.get(queryString).then((res)=>{
+        const {courseId, courseName , listWord} = res.data[0];
+        const newWord = listWord.filter( (w)=> w.id ===wordId );
+        console.log(newWord)
+        setWord(newWord[0]);
+
+    }).catch(err=>console.log(err));
+  }, []);
   return (
     <View style={styles.container}>
-      <WordContainer objWord={sample.listWordData[1]} hideMean={false} />
+      <WordContainer objWord={word} hideMean={false} />
 
       <View style={styles.Mem}>
         <Button

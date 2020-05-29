@@ -6957,10 +6957,10 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-elements@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.2.7.tgz#1eca2db715c41722aeb67aea62bd2a4621adb134"
-  integrity sha512-0S+0R1cbItl15i64qrkWnyMztwpw60d0SUsZGVDKRAMf0Jvq9Clgyh/MzxJx2sr42mbedQP1sg5Et4fZM7Fp1w==
+react-native-elements@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-2.0.0.tgz#eebe36c3250808ebd4a7e9dcf97a666fb7a20930"
+  integrity sha512-xViTU/JlabYX94fDL2iu17gvMtgEOq2lFAToYlU3RBkwb/J13cdwSr8Ti9z6v6Iui4f8S3FjkpRJnFaOsZrK7w==
   dependencies:
     "@types/react-native-vector-icons" "^6.4.4"
     color "^3.1.0"
@@ -6968,7 +6968,7 @@ react-native-elements@^1.2.7:
     hoist-non-react-statics "^3.1.0"
     opencollective-postinstall "^2.0.0"
     prop-types "^15.7.2"
-    react-native-ratings "^6.3.0"
+    react-native-ratings "^6.5.0"
     react-native-status-bar-height "^2.2.0"
 
 react-native-gesture-handler@^1.6.1:
@@ -6994,7 +6994,7 @@ react-native-progress@^4.1.0:
     "@react-native-community/art" "^1.1.2"
     prop-types "^15.7.2"
 
-react-native-ratings@^6.3.0:
+react-native-ratings@^6.5.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"
   integrity sha512-YMcfQ7UQCmXGEc/WPlukHSHs5yvckTwjq5fTRk1FG8gaO7fZCNygEUGPuw4Dbvvp3IlsCUn0bOQd63RYsb7NDQ==

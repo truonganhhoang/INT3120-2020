@@ -1,5 +1,8 @@
-import React, { useEffect ,useState} from "react";
-import { Text, Image, View, StyleSheet, Dimensions , TouchableOpacity,Touchable } from "react-native";
+
+import React, {useEffect, useState} from "react";
+import { Text, Image, View, StyleSheet, Dimensions , TouchableOpacity } from "react-native";
+
+
 
 import TreeImages from "../TreeImages";
 import planet from "../assets/planet.png";

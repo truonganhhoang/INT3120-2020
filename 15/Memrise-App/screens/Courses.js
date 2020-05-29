@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text,Alert ,View ,FlatList ,Dimensions } from 'react-native';
 import * as Progress from 'react-native-progress';
- 
+
 
 import Unit from '../components/Unit';
+import axios from 'axios';
 
 // const AppContainer = createAppContainer(AppNavigator);
 
@@ -28,16 +29,32 @@ const screenWidth= Math.round(Dimensions.get('window').width);
 
 
 export default function Courses({navigation}) {
+  const [courses,setCourses]= useState({});
+
+  useEffect(()=>{
+    const queryString = `http://localhost:3000/courses`;
+    axios.get(queryString).then(res=>{
+
+      const newCourses = res.data;
+      setCourses(newCourses);
+
+    }).catch(err=>console.log('Error in courseScreen is ',err))
+  },[])
   
-  
+  function onPressNavigate(courseId){
+    const navigateCourse = courses.filter((course)=> course.courseId === courseId )
+    console.log('navigate　とい',navigateCourse )
+    return navigation.navigate('ListWord')
+  }
+
   return (
     <View style={styles.container}>
         <Progress.Bar progress={0.3} width={screenWidth } />
       
-        <FlatList   data ={ sampleData}
+        <FlatList   data ={ courses}
             renderItem={  ({item})=>
                <Unit unit={item}  
-                    onPress={()=>navigation.navigate('ListWord')}
+                    onPress={onPressNavigate}
                /> 
             }
             keyExtractor={item => `${item.id }`} 
@@ -54,11 +71,10 @@ export default function Courses({navigation}) {
 const styles = StyleSheet.create({
   container: {
     width :'100%',
-    // flex: 1,
     backgroundColor:'#fff',
-    alignItems: 'stretch',
-    
+    alignItems: 'stretch',  
     justifyContent: 'center',
+    flex:1,
   },
 
 });

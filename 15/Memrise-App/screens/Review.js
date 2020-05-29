@@ -9,6 +9,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const deviceWidth = Dimensions.get('window').width;
 const screen = (percent) =>  percent * deviceWidth /100;
 
+
 var testData = [
   { id: 1, word: "ありがとう", mean: "cảm ơn ", miss: false, level: 0 },
   { id: 2, word: "車", mean: "xe hơi", miss: false, level: 0 },
