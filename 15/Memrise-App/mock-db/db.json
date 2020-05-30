@@ -156,7 +156,7 @@
           "wordId": 2,
           "word": "車",
           "mean": "xe hơi",
-          "miss": false,
+          "miss": true,
           "level": 0
         },
         {

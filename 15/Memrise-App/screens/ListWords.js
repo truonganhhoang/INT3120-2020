@@ -38,15 +38,15 @@ export default function ListWord({ navigation, route }) {
     text = text.toLocaleLowerCase().trim();
     setSearchValue(text);
     if (text == "") {
-      setList(listWordData);
+      setList(list);
       return;
     }
     const miniSearch = new MiniSearch({
-      fields: ["mean", "word"], // fields to index for full-text search
+      fields: [ "wordId","mean", "word"], // fields to index for full-text search
       storeFields: ["word", "mean", "miss", "level", "mems"], // fields to return with search results
     });
 
-    miniSearch.addAll(listWordData);
+    miniSearch.addAll(list);
     let result = miniSearch.search(text);
 
     setList(result);
