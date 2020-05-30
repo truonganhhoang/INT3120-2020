@@ -137,7 +137,6 @@
       "id": 1
     },
     {
-      "id": 2,
       "courseName": "勉強",
       "listWord": [
         {
@@ -167,7 +166,7 @@
           "wordId": 3,
           "word": "野菜",
           "mean": "rau",
-          "miss": true,
+          "miss": false,
           "level": 1
         },
         {
@@ -230,7 +229,8 @@
           "miss": true,
           "level": 1
         }
-      ]
+      ],
+      "id": 2
     },
     {
       "id": 3,

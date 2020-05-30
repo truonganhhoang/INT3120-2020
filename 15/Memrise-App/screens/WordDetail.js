@@ -25,22 +25,17 @@ export default function listWord({ navigation, route }) {
       .get(queryString)
       .then((res) => {
         const { id, courseName, listWord } = res.data;
-
         const newWord = listWord.filter((w) => w.wordId === wordId);
-
         setWord(newWord[0]);
-
         setIsLoading(false);
-
         setCourseInfor({
-          id :id ,
+          id: id,
           listWord: listWord,
           courseName: courseName,
         });
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <View style={styles.container}>
