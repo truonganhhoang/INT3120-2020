@@ -10,21 +10,23 @@ import {
 } from "react-native";
 import Word from "../components/Word";
 
-import { SearchBar, Button } from "react-native-elements";
+import { SearchBar } from "react-native-elements";
 import MiniSearch from "minisearch";
 import { listWordData } from "../Data";
 
 const deviceWidth = Dimensions.get("window").width;
 const screen = (precent) => (precent * deviceWidth) / 100;
-const courseId = 1;
-export default function ListWord({ navigation }) {
-  const [list, setList] = useState(listWordData);
+
+
+export default function ListWord({ navigation ,route}) {
+  const {courseId , navigateCourse} = route.params;
+  const [list, setList] = useState(navigateCourse);
   const [searchValue, setSearchValue] = useState();
 
-  useEffect(() => {
-    // full text search owr day
-    const queryString = `http://localhost:3000/courses?courseId=${courseId}`;
+ 
 
+  useEffect(() => {   
+    const queryString = `http://localhost:3000/courses?courseId=${courseId}`;
     axios.get(queryString).then((res)=>{
         const {courseId, courseName , listWord} = res.data[0];
         setList(listWord);   
