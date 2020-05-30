@@ -23,16 +23,14 @@ export default function ListWord({ navigation, route }) {
   useEffect(() => {
     
     const queryString = `http://localhost:3000/courses/${id}`;
-   console.log(queryString)
+   
     axios
       .get(queryString)
-      .then((res) => {
-      
-        const { id, courseName, listWord } = res.data;
-        
+      .then((res) => {    
+        const { id, courseName, listWord } = res.data;      
         setList(listWord);
         setIsLoading(false);
-        
+        console.log(`axios lw , word` ,listWord[0])
       })
       .catch((err) => console.log(err));
   }, []);
@@ -55,7 +53,7 @@ export default function ListWord({ navigation, route }) {
     setList(result);
   }
 
-  function onPressNavigateWordDetail(wordId, id) {
+  function onPressNavigateWordDetail(wordId, id) {    
     return navigation.navigate("WordDetail", {
       wordId: wordId,
       id: id,

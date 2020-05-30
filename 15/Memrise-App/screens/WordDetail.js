@@ -15,6 +15,7 @@ export default function listWord({ navigation, route }) {
   // }, [route.params?.post]);
 
   const [word, setWord] = useState({});
+  const [courseInfor, setCourseInfor] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,57 +25,106 @@ export default function listWord({ navigation, route }) {
       .get(queryString)
       .then((res) => {
         const { id, courseName, listWord } = res.data;
-        const newWord = listWord.filter((w) => w.id === wordId);
+
+        const newWord = listWord.filter((w) => w.wordId === wordId);
+
         setWord(newWord[0]);
+
         setIsLoading(false);
+
+        setCourseInfor({
+          listWord: listWord,
+          courseName: courseName,
+        });
       })
       .catch((err) => console.log(err));
-     
   }, []);
 
-  function handleOnThunderPress(){
-    console.log('handleOnThunderPress(); run')
-    // const data
-    // axios.put().then().catch();
+  function handleOnThunderPress() {
+    console.log("handleOnThunderPress(); run");
+
+    const { wordId, id } = route.params;
+    const { listWord, courseName } = courseInfor;
+
+    // change miss
+    //============
+    let newWord = listWord.filter((wd) => wd.wordId === wordId)[0];
+    const index = listWord.indexOf(newWord);
+    const miss = newWord.miss;
+    newWord = {
+      ...newWord,
+      miss: !miss,
+    };
+    let newListWord = [
+      ...listWord.slice(0, index),
+      newWord,
+      ...listWord.slice(index + 1),
+    ];
+
+    const putData = {
+      courseName: courseName,
+      listWord: newListWord,
+    };
+    // ============
+
+    const queryString = `http://localhost:3000/courses/${id}`;
+    axios
+      .put(queryString,putData)
+      .then(res => console.log('success'))
+      .catch((error) => console.log(error));
 
     return true;
   }
 
   return (
     <View style={styles.container}>
-     {isLoading&&(<Spinner/>)||( <View>
-        <WordContainer objWord={word} hideMean={false} handleOnThunderPress={handleOnThunderPress} />
-
-        <View style={styles.Mem}>
-          <Button
-            title="Create a new Mems"
-            onPress={() => {
-              navigation.navigate("AddMem");
-            }}
+      {(isLoading && <Spinner />) || (
+        <View>
+          <WordContainer
+            objWord={word}
+            hideMean={false}
+            handleOnThunderPress={handleOnThunderPress}
           />
 
-          <View style={styles.MemText}>
-            <Text>đăng luc =))</Text>
+          <View style={styles.Mem}>
+            <Button
+              title="Create a new Mems"
+              onPress={() => {
+                navigation.navigate("AddMem");
+              }}
+            />
 
-            <Text
-              style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
-            >
-              {" "}
-              - Nguyễn Văn A
-            </Text>
-          </View>
+            <View style={styles.MemText}>
+              <Text>đăng luc =))</Text>
 
-          <View style={styles.MemText}>
-            {/* <Text>{route.params?.post}</Text> */}
-            <Text
-              style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
-            >
-              {" "}
-              - Nguyễn Văn A
-            </Text>
+              <Text
+                style={{
+                  paddingTop: 3,
+                  fontStyle: "italic",
+                  textAlign: "right",
+                }}
+              >
+                {" "}
+                - Nguyễn Văn A
+              </Text>
+            </View>
+
+            <View style={styles.MemText}>
+              {/* <Text>{route.params?.post}</Text> */}
+              <Text
+                style={{
+                  paddingTop: 3,
+                  fontStyle: "italic",
+                  textAlign: "right",
+                }}
+              >
+                {" "}
+                - Nguyễn Văn A
+              </Text>
+            </View>
           </View>
         </View>
-      </View>)}
+      )}
     </View>
   );
 }

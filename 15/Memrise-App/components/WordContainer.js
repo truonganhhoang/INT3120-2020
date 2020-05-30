@@ -1,8 +1,12 @@
-
-import React, {useEffect, useState} from "react";
-import { Text, Image, View, StyleSheet, Dimensions , TouchableOpacity } from "react-native";
-
-
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  Image,
+  View,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 
 import TreeImages from "../TreeImages";
 import planet from "../assets/planet.png";
@@ -11,27 +15,32 @@ import wateringCan from "../assets/watering-can.png";
 
 const deviceWidth = Dimensions.get("window").width;
 const screen = (percent) => (percent * deviceWidth) / 100;
-const blur =0.1;
-export default function WordContainer(props) {
-  const { word, mean, level } = props.objWord;
-  const hideMean = props.hideMean;
-  const { handleOnThunderPress} = props;
+const blur = 0.1;
 
-  const [blurThunder, setBlurThunder] = useState(1);
+export default function WordContainer(props) {
+  const { word, mean, level, miss } = props.objWord;
+  const hideMean = props.hideMean;
+  const { handleOnThunderPress } = props;
+
+  const [blurThunder, setBlurThunder] = useState(() => {
+    if (miss) {
+      return 1;
+    } else {
+      return blur;
+    }
+  });
 
   useEffect(() => {
     //call api
   }, [blurThunder]);
 
-  function handleOnPress(){
+  function handleOnPress() {
     if (!handleOnThunderPress) return;
 
-    if( blurThunder ===1 ){
-      
-      setBlurThunder(blur)
-    
-    }else{
-      setBlurThunder(1)
+    if (blurThunder === 1) {
+      setBlurThunder(blur);
+    } else {
+      setBlurThunder(1);
     }
     handleOnThunderPress();
   }
@@ -43,18 +52,17 @@ export default function WordContainer(props) {
 
         {hideMean || <Text style={styles.Mean}>{mean}</Text>}
       </View>
-    
+
       <View>
         <Image style={styles.WordImage} source={TreeImages[level]} />
 
         <View styles={styles.ThunderWater}>
-        <TouchableOpacity
-            
-            onPress={handleOnPress}
-        >
-             <Image style={ [styles.ThunderImage,{opacity: blurThunder }] } source={thunder} />
-        </TouchableOpacity>
-         
+          <TouchableOpacity onPress={handleOnPress}>
+            <Image
+              style={[styles.ThunderImage, { opacity: blurThunder }]}
+              source={thunder}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
     paddingTop: screen(5),
     paddingLeft: screen(7),
     paddingBottom: screen(4.5),
-    marginBottom:screen(5),
+    marginBottom: screen(5),
   },
   WordInfor: {
     flexDirection: "column",
@@ -94,7 +102,6 @@ const styles = StyleSheet.create({
     marginVertical: screen(3),
     width: screen(10),
     height: screen(10),
-    
   },
 
   Word: {
