@@ -29,8 +29,7 @@ export default function ListWord({ navigation, route }) {
       .then((res) => {    
         const { id, courseName, listWord } = res.data;      
         setList(listWord);
-        setIsLoading(false);
-        console.log(`axios lw , word` ,listWord[0])
+        setIsLoading(false); 
       })
       .catch((err) => console.log(err));
   }, []);

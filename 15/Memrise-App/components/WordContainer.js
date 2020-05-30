@@ -7,20 +7,19 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
+import axios from "axios";
 
 import TreeImages from "../TreeImages";
-import planet from "../assets/planet.png";
 import thunder from "../assets/thunder.png";
-import wateringCan from "../assets/watering-can.png";
 
 const deviceWidth = Dimensions.get("window").width;
 const screen = (percent) => (percent * deviceWidth) / 100;
 const blur = 0.1;
 
 export default function WordContainer(props) {
-  const { word, mean, level, miss } = props.objWord;
+  const { wordId, word, mean, level, miss } = props.objWord;
   const hideMean = props.hideMean;
-  const { handleOnThunderPress } = props;
+  const { id, listWord, courseName } = props.courseInfor;
 
   const [blurThunder, setBlurThunder] = useState(() => {
     if (miss) {
@@ -31,18 +30,45 @@ export default function WordContainer(props) {
   });
 
   useEffect(() => {
-    //call api
+    // ignore componentDidMount
+    if (Object.entries(props.courseInfor).length === 0) {
+      return;
+    }
+    // change miss
+    // ============
+    let newWord = listWord.filter((wd) => wd.wordId === wordId)[0];
+    const index = listWord.indexOf(newWord);
+    const miss = newWord.miss;
+    newWord = {
+      ...newWord,
+      miss: !miss,
+    };
+
+    let newListWord = [
+      ...listWord.slice(0, index),
+      newWord,
+      ...listWord.slice(index + 1),
+    ];
+
+    const putData = {
+      courseName: courseName,
+      listWord: newListWord,
+    };
+    // ============
+
+    const queryString = `http://localhost:3000/courses/${id}`;
+    axios
+      .put(queryString, putData)
+      .then((res) => console.log("success"))
+      .catch((error) => console.log(error));
   }, [blurThunder]);
 
   function handleOnPress() {
-    if (!handleOnThunderPress) return;
-
     if (blurThunder === 1) {
       setBlurThunder(blur);
     } else {
       setBlurThunder(1);
     }
-    handleOnThunderPress();
   }
 
   return (

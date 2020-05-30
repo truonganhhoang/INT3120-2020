@@ -50,7 +50,7 @@
           "wordId": 5,
           "word": "なべ",
           "mean": "nồi",
-          "miss": false,
+          "miss": true,
           "level": 3
         },
         {
@@ -70,7 +70,7 @@
           "wordId": 7,
           "word": "ミカン",
           "mean": "quả quýt",
-          "miss": false,
+          "miss": true,
           "level": 5
         },
         {
@@ -100,7 +100,7 @@
           "wordId": 10,
           "word": "漢字",
           "mean": "Hán tự",
-          "miss": false,
+          "miss": true,
           "level": 5
         },
         {

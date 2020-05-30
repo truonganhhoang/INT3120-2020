@@ -33,6 +33,7 @@ export default function listWord({ navigation, route }) {
         setIsLoading(false);
 
         setCourseInfor({
+          id :id ,
           listWord: listWord,
           courseName: courseName,
         });
@@ -40,41 +41,6 @@ export default function listWord({ navigation, route }) {
       .catch((err) => console.log(err));
   }, []);
 
-  function handleOnThunderPress() {
-    console.log("handleOnThunderPress(); run");
-
-    const { wordId, id } = route.params;
-    const { listWord, courseName } = courseInfor;
-
-    // change miss
-    //============
-    let newWord = listWord.filter((wd) => wd.wordId === wordId)[0];
-    const index = listWord.indexOf(newWord);
-    const miss = newWord.miss;
-    newWord = {
-      ...newWord,
-      miss: !miss,
-    };
-    let newListWord = [
-      ...listWord.slice(0, index),
-      newWord,
-      ...listWord.slice(index + 1),
-    ];
-
-    const putData = {
-      courseName: courseName,
-      listWord: newListWord,
-    };
-    // ============
-
-    const queryString = `http://localhost:3000/courses/${id}`;
-    axios
-      .put(queryString,putData)
-      .then(res => console.log('success'))
-      .catch((error) => console.log(error));
-
-    return true;
-  }
 
   return (
     <View style={styles.container}>
@@ -83,7 +49,7 @@ export default function listWord({ navigation, route }) {
           <WordContainer
             objWord={word}
             hideMean={false}
-            handleOnThunderPress={handleOnThunderPress}
+            courseInfor={courseInfor}
           />
 
           <View style={styles.Mem}>
