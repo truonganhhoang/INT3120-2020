@@ -33,14 +33,17 @@ export default function ({ navigation }) {
         />
         <Text style={{ paddingTop: 5 }}>THI SÁT HẠCH</Text>
       </View>
-      <View style={styles.item}>
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => navigation.navigate("hoclythuyet")}
+      >
         <Image
           source={appIcons.icon_book}
           style={styles.iconStyle}
           resizeMode="stretch"
         />
         <Text style={{ paddingTop: 5 }}>HỌC LÝ THUYẾT</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.item}>
         <Image
           source={appIcons.icon_bienbao}

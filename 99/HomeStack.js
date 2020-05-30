@@ -8,6 +8,8 @@ import appColors from "./constants/colors";
 import TrafficLaws from "./screens/trafficlawscreen/TrafficLaws";
 import LawDetail from "./screens/trafficlawscreen/lawDetail";
 import TipScreen from "./screens/tipScreen/TipScreen";
+import chooseLesson from "./screens/hoclythuyet/chooseLesson";
+import studying from "./screens/hoclythuyet/studying";
 
 const Stack = createStackNavigator();
 
@@ -52,8 +54,19 @@ export default function () {
         component={LawDetail}
         options={{ title: "Tra cứu luật xe máy", headerTitleAlign: "center" }}
       />
+      <Stack.Screen
+        name="hoclythuyet"
+        component={chooseLesson}
+        options={{ title: "Học lý thuyết", headerTitleAlign: "center" }}
+      />
+      <Stack.Screen
+        name="studying"
+        component={studying}
+        options={{
+          title: "Học khái niệm và quy tắc",
+          headerTitleAlign: "center",
+        }}
+      />
     </Stack.Navigator>
   );
 }
-
-//list accordian;
