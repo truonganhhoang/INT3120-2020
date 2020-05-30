@@ -42,7 +42,7 @@ export default function ListWord({ navigation, route }) {
       return;
     }
     const miniSearch = new MiniSearch({
-      fields: [ "wordId","mean", "word"], // fields to index for full-text search
+      fields: [ "mean", "word"], // fields to index for full-text search
       storeFields: ["word", "mean", "miss", "level", "mems"], // fields to return with search results
     });
 
@@ -52,9 +52,10 @@ export default function ListWord({ navigation, route }) {
     setList(result);
   }
 
-  function onPressNavigateWordDetail(wordId, id) {    
+  function onPressNavigateWordDetail(wordId, id) {   
+    console.log(`list  wordId ${wordId}, courseId ${id}`)
     return navigation.navigate("WordDetail", {
-      wordId: wordId,
+      wordId: wordId, // de nguyen wordI d
       id: id,
     });
   }

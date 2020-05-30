@@ -19,13 +19,15 @@ export default function listWord({ navigation, route }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { wordId, id } = route.params;
+    const { wordId, id } = route.params; // gui nguen word id  
     const queryString = `http://localhost:3000/courses/${id}`;
     axios
       .get(queryString)
       .then((res) => {
         const { id, courseName, listWord } = res.data;
-        const newWord = listWord.filter((w) => w.wordId === wordId);
+        // suwar w.wordI d  w.id  giu nguyen wordI d ve phai
+        const newWord = listWord.filter((w) => w.id === wordId);
+
         setWord(newWord[0]);
         setIsLoading(false);
         setCourseInfor({

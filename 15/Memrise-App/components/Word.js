@@ -14,15 +14,19 @@ import wateringCan from '../assets/watering-can.png';
 
 export default function Word (props){
     // const TreeImages = [tree0,tree1,tree2,tree3,tree4,tree5];
-    const { wordId ,word ,mean , miss , level } = props.word;
-  
+    const { word ,mean , miss , level } = props.word;
+     
+    const wordId =props.word.id; // giu nguyen 
+    // for purpose use MiniSearch word ( because it require field 'id')
+    
     const {id} =props.id;
     const onPress = props.onPress;
+   
     
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-            onPress={()=>onPress(wordId,id)}
+            onPress={()=>onPress(wordId,id)}  // giu nguyen w id ben trai
         >
             <View style ={styles.container}>
                     <Image style={styles.wordImage} source = {TreeImages[level]} />

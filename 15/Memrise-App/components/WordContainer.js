@@ -17,7 +17,8 @@ const screen = (percent) => (percent * deviceWidth) / 100;
 const blur = 0.1;
 
 export default function WordContainer(props) {
-  const { wordId, word, mean, level, miss } = props.objWord;
+  const {  word, mean, level, miss } = props.objWord;
+  const wordId= props.objWord.id; // giu nguyen word Id
   const hideMean = props.hideMean;
   const { id, listWord, courseName } = props.courseInfor;
 
@@ -36,7 +37,8 @@ export default function WordContainer(props) {
     }
     // change miss
     // ============
-    let newWord = listWord.filter((wd) => wd.wordId === wordId)[0];
+    // giu word Id ben phai
+    let newWord = listWord.filter((wd) => wd.id === wordId)[0];
     const index = listWord.indexOf(newWord);
     const miss = newWord.miss;
     newWord = {

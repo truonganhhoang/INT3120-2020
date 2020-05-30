@@ -7,7 +7,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 1,
+          "id": 1,
           "word": "ありがとうございます",
           "mean": "cảm ơn ",
           "miss": false,
@@ -17,17 +17,17 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 2,
+          "id": 2,
           "word": "車",
           "mean": "xe hơi",
-          "miss": false,
+          "miss": true,
           "level": 0
         },
         {
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 3,
+          "id": 3,
           "word": "野菜",
           "mean": "rau",
           "miss": true,
@@ -37,7 +37,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 4,
+          "id": 4,
           "word": "指輪",
           "mean": "nhẫn",
           "miss": true,
@@ -47,7 +47,7 @@
           "mems": [
             "viet nhu nay cho de sd asdasd nho"
           ],
-          "wordId": 5,
+          "id": 5,
           "word": "なべ",
           "mean": "nồi",
           "miss": true,
@@ -57,7 +57,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 6,
+          "id": 6,
           "word": "果物",
           "mean": "hoa quả",
           "miss": true,
@@ -67,7 +67,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 7,
+          "id": 7,
           "word": "ミカン",
           "mean": "quả quýt",
           "miss": true,
@@ -77,7 +77,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 8,
+          "id": 8,
           "word": "家",
           "mean": "Nhà",
           "miss": true,
@@ -87,7 +87,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 9,
+          "id": 9,
           "word": "家",
           "mean": "Gia tộc",
           "miss": false,
@@ -97,7 +97,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 10,
+          "id": 10,
           "word": "漢字",
           "mean": "Hán tự",
           "miss": true,
@@ -107,7 +107,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 11,
+          "id": 11,
           "word": "家庭",
           "mean": "Gia đình",
           "miss": false,
@@ -117,7 +117,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 12,
+          "id": 12,
           "word": "経済",
           "mean": "kinh tế",
           "miss": false,
@@ -127,7 +127,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 13,
+          "id": 13,
           "word": "庭",
           "mean": "Vườn",
           "miss": false,
@@ -143,7 +143,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 1,
+          "id": 1,
           "word": "ありがとうございます",
           "mean": "cảm ơn ",
           "miss": false,
@@ -153,7 +153,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 2,
+          "id": 2,
           "word": "車",
           "mean": "xe hơi",
           "miss": true,
@@ -163,7 +163,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 3,
+          "id": 3,
           "word": "野菜",
           "mean": "rau",
           "miss": false,
@@ -173,7 +173,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 1,
+          "id": 1,
           "word": "ありがとうございます",
           "mean": "cảm ơn ",
           "miss": false,
@@ -183,7 +183,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 2,
+          "id": 2,
           "word": "車",
           "mean": "xe hơi",
           "miss": false,
@@ -193,7 +193,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 3,
+          "id": 3,
           "word": "野菜",
           "mean": "rau",
           "miss": true,
@@ -203,7 +203,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 1,
+          "id": 1,
           "word": "ありがとうございます",
           "mean": "cảm ơn ",
           "miss": false,
@@ -213,7 +213,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 2,
+          "id": 2,
           "word": "車",
           "mean": "xe hơi",
           "miss": false,
@@ -223,7 +223,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 3,
+          "id": 3,
           "word": "野菜",
           "mean": "rau",
           "miss": true,
@@ -240,7 +240,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 1,
+          "id": 1,
           "word": "ありがとう",
           "mean": "cảm ơn ",
           "miss": false,
@@ -250,7 +250,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 2,
+          "id": 2,
           "word": "車",
           "mean": "xe hơi",
           "miss": false,
@@ -260,7 +260,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 3,
+          "id": 3,
           "word": "野菜",
           "mean": "rau",
           "miss": true,
@@ -270,7 +270,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 4,
+          "id": 4,
           "word": "指輪",
           "mean": "nhẫn",
           "miss": true,
@@ -280,7 +280,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 5,
+          "id": 5,
           "word": "なべ",
           "mean": "nồi",
           "miss": false,
@@ -290,7 +290,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 6,
+          "id": 6,
           "word": "果物",
           "mean": "hoa quả",
           "miss": true,
@@ -300,7 +300,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 7,
+          "id": 7,
           "word": "物",
           "mean": "vât",
           "miss": true,
@@ -310,7 +310,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 8,
+          "id": 8,
           "word": "庭鶏",
           "mean": "con gà",
           "miss": true,
@@ -320,7 +320,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 9,
+          "id": 9,
           "word": "犬",
           "mean": "cho",
           "miss": true,
@@ -330,7 +330,7 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "wordId": 10,
+          "id": 10,
           "word": "ミカン",
           "mean": "quyt",
           "miss": true,
