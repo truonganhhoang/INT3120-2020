@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btnTrans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dich" />
+
     <ImageButton
         android:id="@+id/voice"
         android:layout_width="48dp"
