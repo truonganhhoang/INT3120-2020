@@ -15,13 +15,13 @@ import flash from '../assets/splash.png';
 import wateringCan from '../assets/watering-can.png';
 
 export default function Unit (props){
-    const { courseId ,courseName  } = props.unit;
+    const { id ,courseName  } = props.unit;
     const  onPress  = props.onPress;
     // 
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-          onPress={()=>onPress(courseId) }
+          onPress={()=>onPress(id) }
         >
             <View style ={styles.container}>
                     <Image style={styles.unitImange} source = {planet} />

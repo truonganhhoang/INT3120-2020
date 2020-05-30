@@ -1,17 +1,10 @@
-import React ,{useState ,useEffect}from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
- 
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { StyleSheet, Text, View, Button } from "react-native";
+
 import Word from "../components/Word";
 import WordContainer from "../components/WordContainer";
-import axios from 'axios'
-import sample from "../Data";
-import { cos } from "react-native-reanimated";
-
+import Spinner from "../components/Spinner";
 
 export default function listWord({ navigation, route }) {
   // React.useEffect(() => {
@@ -20,53 +13,68 @@ export default function listWord({ navigation, route }) {
   //     // For example, send the post to the server
   //   }
   // }, [route.params?.post]);
+
   const [word, setWord] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    const {wordId,courseId} = route.params
-    
-    // full text search owr day
-    const queryString = `http://localhost:3000/courses?courseId=${courseId}`;
-
-    axios.get(queryString).then((res)=>{
-        const {courseId, courseName , listWord} = res.data[0];
-        const newWord = listWord.filter( (w)=> w.id ===wordId );
-        console.log(newWord)
+    const { wordId, id } = route.params;
+    const queryString = `http://localhost:3000/courses/${id}`;
+    axios
+      .get(queryString)
+      .then((res) => {
+        const { id, courseName, listWord } = res.data;
+        const newWord = listWord.filter((w) => w.id === wordId);
         setWord(newWord[0]);
-
-    }).catch(err=>console.log(err));
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+     
   }, []);
+
+  function handleOnThunderPress(){
+    console.log('handleOnThunderPress(); run')
+    // const data
+    // axios.put().then().catch();
+
+    return true;
+  }
+
   return (
     <View style={styles.container}>
-      <WordContainer objWord={word} hideMean={false} />
+     {isLoading&&(<Spinner/>)||( <View>
+        <WordContainer objWord={word} hideMean={false} handleOnThunderPress={handleOnThunderPress} />
 
-      <View style={styles.Mem}>
-        <Button
-          title="Create a new Mems"
-          onPress={() => {
-            navigation.navigate("AddMem");
-          }}
-        />
+        <View style={styles.Mem}>
+          <Button
+            title="Create a new Mems"
+            onPress={() => {
+              navigation.navigate("AddMem");
+            }}
+          />
 
-        <View style={styles.MemText}>
-          <Text>đăng luc =))</Text>
-          <Text
-            style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
-          >
-            {" "}
-            - Nguyễn Văn A
-          </Text>
+          <View style={styles.MemText}>
+            <Text>đăng luc =))</Text>
+
+            <Text
+              style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
+            >
+              {" "}
+              - Nguyễn Văn A
+            </Text>
+          </View>
+
+          <View style={styles.MemText}>
+            {/* <Text>{route.params?.post}</Text> */}
+            <Text
+              style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
+            >
+              {" "}
+              - Nguyễn Văn A
+            </Text>
+          </View>
         </View>
-
-        <View style={styles.MemText}>
-          {/* <Text>{route.params?.post}</Text> */}
-          <Text
-            style={{ paddingTop: 3, fontStyle: "italic", textAlign: "right" }}
-          >
-            {" "}
-            - Nguyễn Văn A
-          </Text>
-        </View>
-      </View>
+      </View>)}
     </View>
   );
 }

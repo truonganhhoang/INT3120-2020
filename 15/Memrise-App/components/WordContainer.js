@@ -15,20 +15,25 @@ const blur =0.1;
 export default function WordContainer(props) {
   const { word, mean, level } = props.objWord;
   const hideMean = props.hideMean;
+  const { handleOnThunderPress} = props;
 
   const [blurThunder, setBlurThunder] = useState(1);
+
   useEffect(() => {
     //call api
   }, [blurThunder]);
 
-  function handlOnPress(){
-    
+  function handleOnPress(){
+    if (!handleOnThunderPress) return;
+
     if( blurThunder ===1 ){
+      
       setBlurThunder(blur)
+    
     }else{
       setBlurThunder(1)
     }
-
+    handleOnThunderPress();
   }
 
   return (
@@ -45,7 +50,7 @@ export default function WordContainer(props) {
         <View styles={styles.ThunderWater}>
         <TouchableOpacity
             
-            onPress={handlOnPress}
+            onPress={handleOnPress}
         >
              <Image style={ [styles.ThunderImage,{opacity: blurThunder }] } source={thunder} />
         </TouchableOpacity>

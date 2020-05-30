@@ -1,37 +1,40 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Dimensions,
-  TextInput,
-} from "react-native";
+import MiniSearch from "minisearch";
+import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 import Word from "../components/Word";
 
 import { SearchBar } from "react-native-elements";
-import MiniSearch from "minisearch";
+
 import { listWordData } from "../Data";
+import Spinner from "../components/Spinner";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const deviceWidth = Dimensions.get("window").width;
 const screen = (precent) => (precent * deviceWidth) / 100;
 
-
-export default function ListWord({ navigation ,route}) {
-  const {courseId , navigateCourse} = route.params;
-  const [list, setList] = useState(navigateCourse);
+export default function ListWord({ navigation, route }) {
+  const { id, navigateCourse } = route.params;
+  
+  const [list, setList] = useState();
   const [searchValue, setSearchValue] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
- 
-
-  useEffect(() => {   
-    const queryString = `http://localhost:3000/courses?courseId=${courseId}`;
-    axios.get(queryString).then((res)=>{
-        const {courseId, courseName , listWord} = res.data[0];
-        setList(listWord);   
-
-    }).catch(err=>console.log(err));
+  useEffect(() => {
+    
+    const queryString = `http://localhost:3000/courses/${id}`;
+   console.log(queryString)
+    axios
+      .get(queryString)
+      .then((res) => {
+      
+        const { id, courseName, listWord } = res.data;
+        
+        setList(listWord);
+        setIsLoading(false);
+        
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   function onChangeText(text) {
@@ -51,55 +54,59 @@ export default function ListWord({ navigation ,route}) {
 
     setList(result);
   }
-  
-  function onPress(id,courseId){
-  //  console.log(id,' course id ' ,courseId)
-    return  navigation.navigate("WordDetail" ,{ wordId : id ,courseId:courseId });
+
+  function onPressNavigateWordDetail(wordId, id) {
+    return navigation.navigate("WordDetail", {
+      wordId: wordId,
+      id: id,
+    });
   }
 
   return (
     <View style={styles.container}>
-      <SearchBar
-        lightTheme
-        placeholder="何か調べているか"
-        ContainerStyle={{
-          height: 40,         
-          backgroundColor: "#ffffff",
-          marginBottom: 30,
-       
-        }}
-        inputContainerStyle={{
-          backgroundColor:'#ffffff',
-          
-        }}
-        onChangeText={(text) => onChangeText(text)}
-        value={searchValue}
-      />
+      {(!isLoading && (
+        <View style={styles.wrap}>
+          <SearchBar
+            lightTheme
+            placeholder="何か調べているか"
+            ContainerStyle={styles.searchbar}
+            inputContainerStyle={styles.inputContainerStyle}
+            onChangeText={(text) => onChangeText(text)}
+            value={searchValue}
+          />
 
-      <FlatList
-        data={list}
-        renderItem={({ item }) => (
-          <Word word={item} courseId={{courseId}} onPress={onPress} />
-        )}
-        keyExtractor={(item) => `${item.id}`}
-        scrollEnabled={true}
-        showsVerticalScrollIndicator={false}
-      />
+          <FlatList
+            data={list}
+            renderItem={({ item }) => (
+              <Word
+                word={item}
+                id={{ id }}
+                onPress={onPressNavigateWordDetail}
+              />
+            )}
+            keyExtractor={(item) => `${item.id}`}
+            scrollEnabled={true}
+            showsVerticalScrollIndicator={false}
+          />
 
-      <View style={styles.footer}>
-        <Text
-          style={styles.review}
-          onPress={() => navigation.navigate("Review")}
-        >
-          Review now !!!
-        </Text>
-      </View>
+          <View style={styles.footer}>
+            <TouchableOpacity onPress={() => navigation.navigate("Review")}>
+              <Text style={styles.review}>Review now !!!</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )) || <Spinner />}
     </View>
   );
 }
 
 //styled componet
 const styles = StyleSheet.create({
+  wrap: {
+    flex: 1,
+    padding: 0,
+    margin: 0,
+  },
   container: {
     paddingHorizontal: 20,
     width: "100%",
@@ -108,14 +115,10 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     justifyContent: "flex-start",
   },
-  header: {
-    paddingTop: 50,
-    backgroundColor: "#0ab",
-    height: 100,
-  },
   footer: {
     position: "absolute",
     bottom: screen(10),
+    left: screen(-5),
     height: 70,
     width: screen(100),
     justifyContent: "center",
@@ -131,4 +134,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 30,
   },
+  searchbar: {
+    height: 40,
+    backgroundColor: "#ffffff",
+    marginBottom: 30,
+  },
+  inputContainerStyle:{
+    backgroundColor: "#ffffff",
+  }
 });
