@@ -23,7 +23,7 @@
                 android:id="@+id/edit_search"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/radius_edit_text"
                 android:drawableLeft="@drawable/ic_search"
                 android:drawablePadding="3dp"
