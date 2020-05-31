@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
 const MemContent = ( props ) =>(
   <View style={styles.MemText}>
@@ -25,7 +26,8 @@ function Mems(props) {
         Your Mems
       </Text>
 
-        <MemContent  text ={'asdasd'}/>
+       {  !mems.length==0 && ( <Text style= {styles.MemText}>  Alisa ! No mem created for this ...</Text>  ) || mems.map( mem => <MemContent text = {mem} />  )  }
+        
     </View>
   );
 }
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 10,
     borderBottomWidth: 0.2,
-
+    textAlign:"center",
+    fontSize:20
     // borderStyle:'solid',
   },
 });
