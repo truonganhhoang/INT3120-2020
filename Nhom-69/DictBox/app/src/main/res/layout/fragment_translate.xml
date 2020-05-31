@@ -4,19 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="5dp"
     android:background="@color/colorGray"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="255dp"
-        android:layout_margin="10dp"
-        android:gravity="start"
-        android:background="@drawable/radius_edit_text"
+        android:layout_height="200dp"
         android:padding="10dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"></EditText>
+        android:layout_margin="10dp"
+        android:background="@drawable/radius_edit_text">
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:background="@null"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp">
+
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/speak"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?actionBarItemBackground"
+                android:src="@drawable/ic_volume_up" />
+
+            <ImageButton
+                android:id="@+id/voice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?actionBarItemBackground"
+                android:src="@drawable/ic_mic" />
+
+            <ImageButton
+                android:id="@+id/transCamera"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?actionBarItemBackground"
+                android:src="@drawable/ic_menu_camera" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,20 +67,13 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-        <ImageButton
-            android:id="@+id/voice"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="?actionBarItemBackground"
-            android:src="@drawable/ic_mic" />
 
         <Button
             android:id="@+id/btnTrans"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
             android:background="@color/colorPrimary"
             android:text="Dịch"
-            android:layout_marginLeft="50dp"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
@@ -48,10 +81,11 @@
     <TextView
         android:id="@+id/translateApi"
         android:layout_width="match_parent"
-        android:layout_height="255dp"
+        android:layout_height="200dp"
         android:layout_margin="10dp"
         android:background="@drawable/radius_edit_text"
-        android:padding="10dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp"
         android:textColor="@color/colorBlack"
         android:textSize="20sp" />
 
