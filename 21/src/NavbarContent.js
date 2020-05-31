@@ -68,7 +68,7 @@ export default function CustomDrawerContent(props) {
             )
           }>
           <View style={styles.btnClickContain}>
-            <Icon name="star-outline" size={30} color="yellow" />
+            <Icon name="star-outline" size={30} color="red" />
             <Text style={{paddingLeft: 30}}>Đánh giá</Text>
           </View>
         </TouchableOpacity>
