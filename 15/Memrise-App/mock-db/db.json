@@ -40,7 +40,7 @@
           "id": 4,
           "word": "指輪",
           "mean": "nhẫn",
-          "miss": true,
+          "miss": false,
           "level": 2
         },
         {
