@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-const mem = ( text ) =>(
+const MemContent = ( props ) =>(
   <View style={styles.MemText}>
-    <Text>tu nay nen nghe nhu nay </Text>
+    <Text>{ props.text } </Text>
   </View>
 );
 
 function Mems(props) {
-  const word = props.word;
-
+  const {mems} = props.word;
+  console.log(mems)
   // Alisa ! No mem created for this ...
   return (
     <View style={styles.Mem}>
@@ -25,9 +25,7 @@ function Mems(props) {
         Your Mems
       </Text>
 
-      <View style={styles.MemText}>
-        <Text>tu nay nen nghe nhu nay </Text>
-      </View>
+        <MemContent  text ={'asdasd'}/>
     </View>
   );
 }
