@@ -12,5 +12,6 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:text="Word"
-        android:textColor="@color/colorBlack" />
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp" />
 </LinearLayout>

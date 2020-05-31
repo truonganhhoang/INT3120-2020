@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="5dp"
     android:background="@color/colorGray"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:padding="10dp"
         android:layout_margin="10dp"
-        android:background="@drawable/radius_edit_text">
+        android:background="@drawable/radius_edit_text"
+        android:padding="10dp">
 
         <EditText
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="start"
             android:layout_weight="1"
-            android:paddingLeft="5dp"
             android:background="@null"
+            android:gravity="start"
+            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp">
 
@@ -84,8 +84,8 @@
         android:layout_height="200dp"
         android:layout_margin="10dp"
         android:background="@drawable/radius_edit_text"
-        android:paddingVertical="10dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
         android:textColor="@color/colorBlack"
         android:textSize="20sp" />
 
