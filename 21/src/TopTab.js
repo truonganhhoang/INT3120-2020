@@ -47,15 +47,15 @@ export default class createTopTabs extends Component {
           style: {backgroundColor: '#80aaff'},
           tabStyle: {flexDirection: 'row'},
         }}>
-        <MaterialTopTabs.Screen
-          name="CHỦ ĐỀ"
-          component={this.createTopicStack}
-          options={{
-            tabBarIcon: ({tintcolor}) => (
-              <Icon name="library-shelves" size={30} color={'white'} />
-            ),
-          }}
-        />
+//         <MaterialTopTabs.Screen
+//           name="CHỦ ĐỀ"
+//           component={this.createTopicStack}
+//           options={{
+//             tabBarIcon: ({tintcolor}) => (
+//               <Icon name="library-shelves" size={30} color={'white'} />
+//             ),
+//           }}
+//         />
         <MaterialTopTabs.Screen
           name="YÊU THÍCH"
           component={this.createLoveStack}
