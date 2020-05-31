@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{chuong.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides pager="true" [options]="slideOpts">
+
+      <ion-slide *ngFor="let item of chuong.details">
+        <div class="slide"  (click)="view(item)">
+          <img [src]="item"/>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-content>
+</ion-content>

@@ -1,0 +1,88 @@
+[
+    {
+        "1": "How many pages............... so far?",
+        "2": "We are too late. The plane ............... off ten minutes ago.",
+        "3": "“What a lovely boat!” “I ...............half a year building this boat.”",
+        "4": "How ............since we ............school?",
+        "5": "I think John ..............tomorrow.",
+        "6": "After he ------------ his driving test he bought a car.",
+        "7": "When I got to the office, I ----------- that I had forgot to lock the door.",
+        "8": "When she was 21 she -------------- across the United States.",
+        "9": "He often ------------ so nervous before his exams.",
+        "10": "How long have you ------------- he was a liar."
+    },
+    {
+        "1": {
+            "a": "have you studied",
+            "b": "did you study",
+            "c": "do you study",
+            "d": "had you studied"
+        },
+        "2": {
+            "a": "has taken",
+            "b": "took",
+            "c": "had taken",
+            "d": "was taken"
+        },
+        "3": {
+            "a": "spend",
+            "b": "spent",
+            "c": "spending",
+            "d": "have spent"
+        },
+        "4": {
+            "a": "are you/ left",
+            "b": "have you been/ have left",
+            "c": "were you/ left",
+            "d": "have you been/ left"
+        },
+        "5": {
+            "a": "would come",
+            "b": "come",
+            "c": "will come",
+            "d": "comes"
+        },
+        "6": {
+            "a": "had passed",
+            "b": "pass",
+            "c": "passed",
+            "d": "passing"
+        },
+        "7": {
+            "a": "realized",
+            "b": "had realized",
+            "c": "realize",
+            "d": "have realized"
+        },
+        "8": {
+            "a": "drove",
+            "b": "drive",
+            "c": "driven",
+            "d": "wasdriving"
+        },
+        "9": {
+            "a": "feels",
+            "b": "felt",
+            "c": "was feeling",
+            "d": "had felt"
+        },
+        "10": {
+            "a": "been knowing",
+            "b": "knew",
+            "c": "know",
+            "d": "known"
+        }
+    },
+    {
+        "1": "have you studied",
+        "2": "took",
+        "3": "spent",
+        "4": "have you been/ left",
+        "5": "will come",
+        "6": "had passed",
+        "7": "realized",
+        "8": "drove",
+        "9": "feels",
+        "10": "known"
+    }
+]

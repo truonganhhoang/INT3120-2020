@@ -3,6 +3,8 @@ import {View, Text,TextInput, Alert,Dimensions, StatusBar, ToastAndroid} from 'r
 import {Input, Icon, Button, Header} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import firebase from 'react-native-firebase';
+import SQLite from 'react-native-sqlite-storage'
+import {pushParts} from './ConnectData';
 const SignUp = props =>{
     const [email,setEmail] = useState('');
     const [pass,setPass] = useState('');
@@ -33,19 +35,29 @@ const SignUp = props =>{
       firebase
         .auth()
         .createUserWithEmailAndPassword(email,pass)
-        .then(() =>{
+        .then((res) =>{
           ToastAndroid.showWithGravity(
             'Đăng kí thành công.',
             ToastAndroid.SHORT,
             ToastAndroid.CENTER,
           )
-          setTimeout(()=> props.navigation.navigate('HomeScreen'), 1000)
+            console.log(res.user.uid);
+            var userId = res.user.uid;
+            firebase.database().ref('User').child(`${userId}`).set({
+                userId: userId,
+                email: res.user.email,
+                name : " ",
+                phone : " ",
+                age : " "
+            })
+            pushParts(userId)
+          setTimeout(()=> props.navigation.navigate('HomeScreen',{user: true}), 1000)
       }) 
         .catch(error => console.log(error))
     }}
     return (    
       <View style = {{flex : 1}}>
-        <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+        <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
         <View style = {{flex : 1, backgroundColor: '#0592D2', flexDirection: 'row', alignItems:'flex-end'}}>
           <View style = {{marginBottom: 15, marginLeft: 15, flexDirection: 'row'}}>
             <Icon

@@ -217,4 +217,61 @@ ionic g page profile -f
 # 2020-04-14
 
 - Thêm UI cho:
-  - `/tabs/learn/courses`
+  - `/tabs/learn/courses`.
+
+# 2020-04-17
+
+- Cập nhật UI cho:
+  - `/tabs/learn/courses`.
+- Thêm UI cho:
+  - `/tabs/learn/course/:courseId` (tab overview, info).
+
+# 2019-04-19
+
+- Thêm service `UserService`.
+- Thêm menu cho từng course ở `/tab/learn/courses`.
+- Thêm component `course-lesson-content`, cho phép xem nội dung bài học trong modal.
+- Sửa lại ảnh được dùng trong splash screen: trasnparent background -> white background.
+- Gửi email xác nhận.
+- Sửa mật khẩu (cho email provider và facebook provider).
+
+# 2019-04-21
+
+- Thêm spinner ở change password component.
+- Initialize cloud function projects.
+
+# 2019-04-24
+
+- `@angular/fire/storage`, `@angular/fire/functions`.
+- `UpdateProfileComponent`: tạo UI và hiển thị dữ liệu hiện tại.
+
+# 2019-04-25
+
+- Xóa tab forum ở trang `/tabs/learn/course/:courseId`.
+- Thêm UI cho tab grades ở trang `/tabs/learn/course/:courseId`.
+- UI cho trang `/tabs/learn/courses`, `/tabs/downloads/courses` khi chưa có nội dung.
+
+# 2019-05-02
+
+- Update to `@angular/core@~9.1.4`
+- Bắt chước UI của coursera ở `/tabs/learn/courses`.
+
+# 2019-05-03
+
+- Thêm UI:
+  - `/tabs/profile/my-profile`
+  - `/tabs/explore/overview`
+
+# 2019-05-05
+
+- Thêm UI:
+  - `/tabs/recommended`
+
+# 2019-05-09
+
+- Chỉnh sửa các test suite cho một số component.
+- Chỉnh sửa test suite cho các service.
+
+# 2019-05-10
+
+- Chỉnh sửa xong tất cả các test suite.

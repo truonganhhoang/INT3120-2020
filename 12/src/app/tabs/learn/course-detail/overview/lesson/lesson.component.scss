@@ -1,0 +1,9 @@
+ion-item {
+  cursor: pointer;
+  .lesson-title {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

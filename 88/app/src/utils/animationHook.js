@@ -1,5 +1,5 @@
-import { Animated } from 'react-native';
-import { useState, useEffect } from 'react';
+import {Animated} from 'react-native';
+import {useState, useEffect} from 'react';
 
 /**
  * @typedef {Object} Animation - Contains parameters of animation
@@ -13,20 +13,20 @@ import { useState, useEffect } from 'react';
  * @returns {Animated.Value} - Time variable
  */
 const useAnimation = (animation) => {
-	const { doAnimation, duration } = animation;
+  const {doAnimation, duration} = animation;
 
-	const [variable] = useState(new Animated.Value(0));
+  const [variable] = useState(new Animated.Value(0));
 
-	useEffect(() => {
-		Animated.timing(variable, {
-			toValue: doAnimation ? 1 : 0,
-			duration,
-			useNativeDriver: true
-		}).start();
+  useEffect(() => {
+    Animated.timing(variable, {
+      toValue: doAnimation ? 1 : 0,
+      duration,
+      useNativeDriver: true,
+    }).start();
+  }, [doAnimation]);
 
-	}, [doAnimation]);
-
-	return variable;
-}
+  return variable;
+};
 
 export default useAnimation;
+

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CourseDetailPage } from './course-detail.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: CourseDetailPage,
@@ -17,16 +17,13 @@ const routes: Routes = [
         loadChildren: () => import('./grades/grades.module').then((m) => m.GradesPageModule)
       },
       {
-        path: 'forums',
-        loadChildren: () => import('./forums/forums.module').then((m) => m.ForumsPageModule)
-      },
-      {
         path: 'info',
         loadChildren: () => import('./info/info.module').then((m) => m.InfoPageModule)
       },
       {
         path: '',
-        redirectTo: 'overview'
+        redirectTo: 'overview',
+        pathMatch: 'full'
       }
     ]
   }

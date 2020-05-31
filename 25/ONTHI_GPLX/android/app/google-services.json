@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "904079082251",
+    "firebase_url": "https://driving-exam-review.firebaseio.com",
+    "project_id": "driving-exam-review",
+    "storage_bucket": "driving-exam-review.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904079082251:android:8350f86cf2362cf003d80e",
+        "android_client_info": {
+          "package_name": "com.onthi_gplx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904079082251-512fls0ojk7on7jrd57jv3svp5u8hs3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onthi_gplx",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "904079082251-dhahouimdmlri29oc3q7om8vh5it360m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUHR59y4ILV1e7Xaol1VgDPnRUz9PclzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904079082251-dhahouimdmlri29oc3q7om8vh5it360m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

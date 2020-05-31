@@ -1,5 +1,5 @@
-﻿﻿import * as React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity,Image } from 'react-native';
+﻿import * as React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const DATA = [
@@ -10,9 +10,9 @@ const DATA = [
         button: 'ÔN LUYỆN',
         iconName: 'feather',
         iconColor: '#ff0000',
-        route:"QuestionPractice",
+        route: "QuestionPractice",
     },
-   
+
     {
         id: '2',
         title: 'Video hướng dẫn',
@@ -20,7 +20,7 @@ const DATA = [
         button: 'Xem video',
         iconName: 'video',
         iconColor: 'gray',
-        route:"MemoryTricks",
+        route: "VideoHD",
     },
     {
         id: '3',
@@ -29,7 +29,7 @@ const DATA = [
         button: 'XEM BẢN ĐỒ',
         iconName: 'zoom-in',
         iconColor: '#3399ff',
-        route: "TFS",
+        route: "Map",
     },
     {
         id: '4',
@@ -43,12 +43,12 @@ const DATA = [
 ];
 
 
-function Item( props) {
-    const {route,navigation,iconName,iconColor,title,content,button}=props;
+function Item(props) {
+    const { route, navigation, iconName, iconColor, title, content, button } = props;
     return (
-        <TouchableOpacity 
-            style={{ flex: 0.5, backgroundColor: '#fff',  }}
-            onPress={ () => navigation.navigate(route)}
+        <TouchableOpacity
+            style={{ flex: 0.5, backgroundColor: '#fff', }}
+            onPress={() => navigation.navigate(route)}
         >
             <View style={{ flex: 1, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderColor: '#ebebe0', padding: 15, }}>
                 <View style={{ flexDirection: 'row', }}>
@@ -61,8 +61,8 @@ function Item( props) {
                 </View>
 
                 <View>
-                    <View style={{backgroundColor: iconColor, height: 30, width: 120, borderRadius: 50, alignItems: 'center', justifyContent: 'center'}}>
-                        <Text style={{textTransform: "uppercase", color: '#fff', fontWeight: "bold"}}>{button}</Text>
+                    <View style={{ backgroundColor: iconColor, height: 30, width: 120, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ textTransform: "uppercase", color: '#fff', fontWeight: "bold" }}>{button}</Text>
                     </View>
                 </View>
             </View>
@@ -72,19 +72,19 @@ function Item( props) {
 }
 
 export default function HomeItem(props) {
-const {navigation}=props;
+    const { navigation } = props;
 
     return (
         <View style={{ flex: 1 }}>
             <View style={{ flexDirection: 'row', paddingHorizontal: 8, }}>
-            <FlatList
-                horizontal={false}
-                numColumns={2}
-                keyExtractor={(item) => item.id}
-                data={DATA}
-                renderItem={({ item }) => 
-                <Item title={item.title} route={item.route} content={item.content} button={item.button} iconName={item.iconName} iconColor={item.iconColor} navigation ={navigation}/>}
-            />
+                <FlatList
+                    horizontal={false}
+                    numColumns={2}
+                    keyExtractor={(item) => item.id}
+                    data={DATA}
+                    renderItem={({ item }) =>
+                        <Item title={item.title} route={item.route} content={item.content} button={item.button} iconName={item.iconName} iconColor={item.iconColor} navigation={navigation} />}
+                />
             </View>
         </View>
     );

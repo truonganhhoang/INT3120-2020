@@ -35,7 +35,7 @@ export class SignInService {
     });
   }
 
-  signInWithFacebook() {
+  signInWithFacebook(): Observable<firebase.auth.UserCredential | void> {
     if (this.platform.is('cordova')) {
       return this.signInWithFacebookNative();
     }
@@ -43,7 +43,7 @@ export class SignInService {
   }
 
   signInWithFacebookNative() {
-    return new Observable<firebase.User>((observer) => {
+    return new Observable<firebase.auth.UserCredential>((observer) => {
       this.facebook
         .login(['public_profile', 'email'])
         .then((facebookResponse) => {
@@ -51,26 +51,26 @@ export class SignInService {
           return this.ngFireAuth.auth.signInWithCredential(credential);
         })
         .then((userCredentials) => {
-          observer.next(userCredentials.user);
+          observer.next(userCredentials);
           observer.complete();
         })
         .catch((err) => {
-          observer.error(err?.message);
+          observer.error(err);
         });
     });
   }
 
   signInWithFacebookWeb() {
     const facebookProvider = new firebase.auth.FacebookAuthProvider();
-    return new Observable<firebase.User>((observer) => {
+    return new Observable<firebase.auth.UserCredential>((observer) => {
       this.ngFireAuth.auth
         .signInWithPopup(facebookProvider)
         .then((userCredentials) => {
-          observer.next(userCredentials.user);
+          observer.next(userCredentials);
           observer.complete();
         })
         .catch((err) => {
-          observer.error(err?.message);
+          observer.error(err);
         });
     });
   }

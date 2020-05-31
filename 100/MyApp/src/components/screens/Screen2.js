@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { Styles } from '../../styles'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-
+import { useScrollToTop } from '@react-navigation/native'
+import { Container, Header, Left, Body, Title, Right, Content, List, ListItem, Icon, Text } from 'native-base'
+import FooterScreen from '../components/Footer';
 export default function Screen2({navigation}) {
     const [danhmuc, setdanhmuc] = useState([
         {danhmuc: "Ngoại ngữ", key: "1"},
@@ -21,21 +21,40 @@ export default function Screen2({navigation}) {
         {danhmuc: "Nuôi dạy con", key: "14"},
         {danhmuc: "Phong thủy", key: "15"},
     ])
+    const ref = React.useRef(null);
+
+    useScrollToTop(ref);
     return (
-        <View >
-            <View style={Styles.header}>
-                <Text style={[Styles.h1text, {color: "#E1F5FE", margin: 10}]}>Danh mục</Text>
-            </View>
-            <ScrollView>
-                {danhmuc.map( (value) =>(
-                        <View key={value.key}>
-                            <TouchableOpacity onPress={()=>(navigation.navigate('Tungdanhmuc'))}>
-                                <Text style={Styles.list2s}>{value.danhmuc}</Text>
-                            </TouchableOpacity>
-                        </View>
-                    )
-                )}
+        <Container>
+            <Header>
+                <Body>
+                    <Title>Danh mục</Title>
+                </Body>
+            </Header>
+            <ScrollView ref={ref}>
+                <Content>
+                    <List ref={ref}>
+                        {danhmuc.map( (value) =>(
+                            <ListItem key={value.key} button onPress={()=>{ navigation.navigate('FilterCourses', {key: value.key, title: value.danhmuc})}}>
+                                <Left>
+                                    <Text>{value.danhmuc}</Text>
+                                </Left>
+                                <Right>
+                                    <Icon name="arrow-forward" />
+                                </Right>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Content>
             </ScrollView>
-        </View>
+            {/* <FooterScreen
+                active2={true}
+                Go3={()=> navigation.navigate('Screen3')}
+                Go1={()=> navigation.navigate('Screen1')}
+                Go2={()=> navigation.navigate('Screen2')}
+                Go4={()=> navigation.navigate('Screen4')}
+                Go5={()=> navigation.navigate('Screen5')}
+                /> */}
+        </Container>
     )
 }

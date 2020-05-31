@@ -163,6 +163,16 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void removeHistory(String key) {
+        try {
+            String q = "DELETE FROM " + TBL_HISTORY + " WHERE upper([" + COL_KEY + "]) = upper(?)";
+            mDB.execSQL(q, new Object[]{key});
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 //    public String getTableName(int dicType) {
 //        String tableName = "";
 //        if (dicType == R.id.action_eng_vi) {
@@ -254,6 +264,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public void clearBookmark() {
         try {
             String q = "DELETE FROM " + TBL_BOOKMARK;
+            mDB.execSQL(q);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearHistory() {
+        try {
+            String q = "DELETE FROM " + TBL_HISTORY;
             mDB.execSQL(q);
 
         } catch (SQLException e) {

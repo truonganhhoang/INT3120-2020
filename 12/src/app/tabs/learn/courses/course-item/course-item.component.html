@@ -4,7 +4,11 @@
       <ion-text class="subtitle">
         The Hong Kong University of Science and Technology
       </ion-text>
-      <ion-icon class="options" ion-button size="large" name="ellipsis-horizontal"></ion-icon>
+      <mat-menu #courseMenu xPosition="before" yPosition="below">
+        <button mat-menu-item="true">Unenroll</button>
+        <button mat-menu-item="true">View specification</button>
+      </mat-menu>
+      <ion-icon class="options" mat-icon-button size="large" name="ellipsis-horizontal" (click)="handleClickCourseMenuTrigger($event)" [mat-menu-trigger-for]="courseMenu"></ion-icon>
     </ion-card-subtitle>
     <ion-card-title>Multiplatform Mobile App Development with Web Technology</ion-card-title>
   </ion-card-header>

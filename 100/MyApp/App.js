@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-
-import 'react-native-gesture-handler';
-import MyDrawer from './src/components/routes/MyDrawer';
-import Stack1 from './src/components/routes/Stack1';
+import Router from './src/components/routes/Router';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 export default class App extends Component {
   render() {
+    console.disableYellowBox = true; 
     return (
-      <View style={{flex:1}}>
-        <MyDrawer />
-        {/* <Stack1></Stack1> */}
-      </View>
+      <Provider store={store}>
+          <Router />
+      </Provider>
     )
   }
 }
+

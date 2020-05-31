@@ -1,0 +1,926 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginLeft": 10,
+      "marginRight": 10,
+      "marginTop": 10,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-102.jpg",
+          "Key": "a1",
+          "Name": "Cấm đi ngược chiêu",
+          "Noidung": "báo đường cấm tất cả các loại xe (cơ giới và thô sơ) đi vào theo chiều đặt biển, trừ các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-101.jpg",
+          "Key": "a1",
+          "Name": "Đường cấm",
+          "Noidung": "báo đường cấm tất cả các loại phương tiện (cơ giới và thô sơ) đi lại cả hai hướng, trừ các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-109.jpg",
+          "Key": "a1",
+          "Name": "Cấm đi ngược chiêu",
+          "Noidung": "báo đường cấm tất cả các loại phương tiện (cơ giới và thô sơ) qua lại cả hai hướng trừ các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-103a.jpg",
+          "Key": "a1",
+          "Name": "Cấm ô tô",
+          "Noidung": "báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng đi qua, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-103b.jpg",
+          "Key": "a1",
+          "Name": "Cấm rẽ phải",
+          "Noidung": "báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng rẽ phải, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-103c.jpg",
+          "Key": "a1",
+          "Name": "Cấm rẽ trái",
+          "Noidung": "báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng rẽ trái, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-104.jpg",
+          "Key": "a1",
+          "Name": "Cấm xe mô tô",
+          "Noidung": "báo đường cấm tất cả các loại môtô , xe máy ,  xe gắn máy đi qua, trừ các xe môtô được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-105.jpg",
+          "Key": "a1",
+          "Name": "Cấm mô tô và ô tô",
+          "Noidung": "báo đường cấm tất cả các loại xe cơ giới và môtô đi qua trừ xe gắn máy và các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-106a.jpg",
+          "Key": "a1",
+          "Name": "Cấm ô tô tải",
+          "Noidung": "báo đường cấm tất cả các loại ôtô chở hàng có trọng tải từ 1,5 tấn trở lên. Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng.",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-106c.jpg",
+          "Key": "a1",
+          "Name": "Cấm xe chở hàng nguy hiểm ",
+          "Noidung": "áo đường cấm các xe chở hàng,cồng kềnh , ccas loại hàng có thể gây nguy hiểm cho người tham gia giao thông nguy hiểm",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-107.jpg",
+          "Key": "a1",
+          "Name": "Cấm xe khách và ô tô tải",
+          "Noidung": "báo đường cấm ôtô chở khách và các loại ôtô tải kể cả xe máy thi công chuyên dùng đi qua trừ các xe được ưu tiên theo quy định",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-110a.jpg",
+          "Key": "a1",
+          "Name": "Cấm xe đạp",
+          "Noidung": "báo đường cấm xe đạp đi qua. Biển không có giá trị cấm những người dắt xe đạp. ",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-110b.jpg",
+          "Key": "a1",
+          "Name": "Cấm xe thô xơ",
+          "Noidung": "báo đường cấm xe đạp thồ đi qua. Biển không có giá trị cấm những người dắt xe đạp. Biển này không cấm người dắt loại xe này.",
+        },
+        Object {
+          "Img": "http://carly.vn/upload/images/bien-bao-cam-125.jpg",
+          "Key": "a1",
+          "Name": "Cấm vượt",
+          "Noidung": "báo cấm các loại xe cơ giới vượt nhau kể cả xe được ưu tiên theo quy định. ",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-102.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm đi ngược chiêu
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại xe (cơ giới và thô sơ) đi vào theo chiều đặt biển, trừ các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-101.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Đường cấm
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại phương tiện (cơ giới và thô sơ) đi lại cả hai hướng, trừ các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-109.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm đi ngược chiêu
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại phương tiện (cơ giới và thô sơ) qua lại cả hai hướng trừ các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-103a.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm ô tô
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng đi qua, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-103b.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm rẽ phải
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng rẽ phải, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-103c.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm rẽ trái
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại xe cơ giới kể cả môtô 3 bánh có thùng rẽ trái, trừ môtô hai bánh, xe gắn máy và các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-104.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm xe mô tô
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại môtô , xe máy ,  xe gắn máy đi qua, trừ các xe môtô được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-105.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm mô tô và ô tô
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại xe cơ giới và môtô đi qua trừ xe gắn máy và các xe được ưu tiên theo quy định
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-106a.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm ô tô tải
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                báo đường cấm tất cả các loại ôtô chở hàng có trọng tải từ 1,5 tấn trở lên. Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng.
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 100,
+                  "width": 50,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "http://carly.vn/upload/images/bien-bao-cam-106c.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "91%",
+                    "marginTop": 10,
+                    "paddingBottom": 10,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 3.3,
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 20,
+                  }
+                }
+              >
+                Cấm xe chở hàng nguy hiểm 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A4A4A4",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                áo đường cấm các xe chở hàng,cồng kềnh , ccas loại hàng có thể gây nguy hiểm cho người tham gia giao thông nguy hiểm
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#A4A4A4",
+                "height": 2,
+                "marginTop": 10,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;

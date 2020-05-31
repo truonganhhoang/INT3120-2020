@@ -1,7 +1,9 @@
+
 import React,{Component} from 'react';
 import { StyleSheet,Text, View,SafeAreaView,ScrollView } from 'react-native';
 
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Grid, Col, Row } from 'native-base';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 export default class Practice extends Component{
     constructor(props){
         super(props);
@@ -41,6 +43,10 @@ export default class Practice extends Component{
                         <View style={{paddingLeft:10}}>{this.show(obj[key].request)}</View>
                         <Text style={[styles.title,{paddingLeft:5}]}>Lỗi phạt:</Text>
                         <View style={{paddingLeft:10}}>{this.show(obj[key].error)}</View>
+                        <TouchableHighlight onPress={()=>this.props.navigation.push("ViewPageWeb")}>
+                            <Text style={styles.link}>Video hướng dẫn</Text>
+                        </TouchableHighlight>
+                    
                     </View>
 
                 );
@@ -64,9 +70,18 @@ export default class Practice extends Component{
 styles=StyleSheet.create({
     nameTest:{
         fontSize:18,
+        fontWeight:'bold'
     },
     title:{
         fontSize:16,
+        fontWeight:'bold'
+    },
+    link:{
+        color:'green',
+        fontSize:18,
+        margin:10,
+        fontStyle:'italic',
+        backgroundColor:'orange'
     }
-}
-)
+
+})

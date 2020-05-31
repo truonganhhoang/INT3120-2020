@@ -1,0 +1,755 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <RCTScrollView
+    collapsable={false}
+    data={
+      Array [
+        Object {
+          "id": "1",
+          "name": "Không chấp hành hiệu lệnh, chỉ dẫn của biển báo hiệu, vạch kẻ đường",
+          "value": "Phạt tiền từ 200.000 đồng đến 400.000 đồng",
+        },
+        Object {
+          "id": "2",
+          "name": "Điều khiển xe lạng lách, đánh võng không chấp hành hiệu lệnh dừng xe của người thi hành hiệu lệnh dùng xe của người thi hành công vụ hoặc gây tai nạn giao thông",
+          "value": "Phạt tiền từ 18.000.000 đồng đến 20.000.000 đồng",
+        },
+        Object {
+          "id": "3",
+          "name": "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông",
+          "value": "Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng",
+        },
+        Object {
+          "id": "4",
+          "name": "Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông",
+          "value": "Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng",
+        },
+        Object {
+          "id": "5",
+          "name": "Không chấp hành hiệu lệnh, chỉ dẫn của biển báo hiệu, vạch kẻ đường khi đi qua đường ngang, cầu chung",
+          "value": "Phạt tiền từ 800.000 đồng đến 1.000.000 đồng",
+        },
+        Object {
+          "id": "6",
+          "name": "Vượt đường ngang, cầu chung khi đèn đỏ đã bật sáng",
+          "value": "Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng",
+        },
+        Object {
+          "id": "7",
+          "name": "Chuyển hướng không nhường quyền đi trước cho người đi bộ, xe lăn của người khuyết tật qua đường tại nơi có vạch kẻ đường dành cho người đi bộ",
+          "value": "Phạt tiền từ 200.000 đồng đến 400.000 đồng",
+        },
+        Object {
+          "id": "8",
+          "name": "Chuyển hướng không nhường quyền đi trước cho xe thô sơ đang đi trên phần đường dành cho xe thô sơ",
+          "value": "Phạt tiền từ 200.000 đồng đến 400.000 đồng",
+        },
+        Object {
+          "id": "9",
+          "name": "Chuyển hướng không nhường đường cho các xe đi ngược chiều",
+          "value": "Phạt tiền từ 200.000 đồng đến 400.000 đồng",
+        },
+        Object {
+          "id": "10",
+          "name": "Dừng xe, đỗ xe không sát mép đường phía bên phải theo chiều đi ở nơi đường có lề đường hẹp hoặc không có lề đường",
+          "value": "Phạt tiền từ 400.000 đồng đến 600.000 đồng",
+        },
+        Object {
+          "id": "11",
+          "name": "Không giữ khoảng cách an toàn để xảy ra va chạm với xe chạy liền trước hoặc không giữ khoảng cách theo quy định của biển báo hiệu \\"Cự ly tối thiểu giữa hai xe\\"",
+          "value": "Phạt tiền từ 800.000 đồng đến 1.000.000 đồng",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    renderScrollComponent={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Không chấp hành hiệu lệnh, chỉ dẫn của biển báo hiệu, vạch kẻ đường
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 200.000 đồng đến 400.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Điều khiển xe lạng lách, đánh võng không chấp hành hiệu lệnh dừng xe của người thi hành hiệu lệnh dùng xe của người thi hành công vụ hoặc gây tai nạn giao thông
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 18.000.000 đồng đến 20.000.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Không chấp hành hiệu lệnh của đèn tín hiệu giao thông
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Không chấp hành hiệu lệnh, chỉ dẫn của biển báo hiệu, vạch kẻ đường khi đi qua đường ngang, cầu chung
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 800.000 đồng đến 1.000.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Vượt đường ngang, cầu chung khi đèn đỏ đã bật sáng
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Chuyển hướng không nhường quyền đi trước cho người đi bộ, xe lăn của người khuyết tật qua đường tại nơi có vạch kẻ đường dành cho người đi bộ
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 200.000 đồng đến 400.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Chuyển hướng không nhường quyền đi trước cho xe thô sơ đang đi trên phần đường dành cho xe thô sơ
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 200.000 đồng đến 400.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Chuyển hướng không nhường đường cho các xe đi ngược chiều
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 200.000 đồng đến 400.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "center",
+                "top": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 10,
+                  "marginHorizontal": 10,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 15,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                  }
+                }
+              >
+                Dừng xe, đỗ xe không sát mép đường phía bên phải theo chiều đi ở nơi đường có lề đường hẹp hoặc không có lề đường
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "red",
+                  }
+                }
+              >
+                Phạt tiền từ 400.000 đồng đến 600.000 đồng
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

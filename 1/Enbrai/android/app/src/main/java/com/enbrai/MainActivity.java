@@ -6,6 +6,8 @@ import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import org.pgsqlite.SQLitePluginPackage;
 import org.devio.rn.splashscreen.SplashScreen; 
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends ReactActivity {
 
   /**
@@ -20,6 +22,7 @@ public class MainActivity extends ReactActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen.show(this, R.style.SplashScreenTheme);  // here
         super.onCreate(savedInstanceState);
+        
     }
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {

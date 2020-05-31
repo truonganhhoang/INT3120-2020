@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OverviewPage } from './overview.page';
+import { CourseOverviewPage } from './overview.page';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
-    component: OverviewPage,
-    children: [
-      {
-        path: ':week',
-        loadChildren: () => import('./week/week.module').then((m) => m.WeekPageModule)
-      }
-    ]
+    component: CourseOverviewPage
   }
 ];
 

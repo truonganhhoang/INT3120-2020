@@ -1,0 +1,31 @@
+ion-header {
+    --background: #fff
+}
+ion-content > div {
+    width: 50%;
+    display: inline-block;
+    padding: 8px;
+    height: 25%;
+    
+
+    &>div {
+        background: #dd9206;
+        width: 100%;
+        height: 100%;
+        padding: 35px 10px 10px 10px;
+        border-radius: 6px;
+        h1 {
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+    p {
+        text-align: center;
+        color: #eee;
+    }
+}
+
+ion-content {
+    --padding-top: 10px
+}

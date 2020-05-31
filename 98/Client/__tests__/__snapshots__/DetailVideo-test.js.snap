@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailVideo snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <RNCWebView
+    cacheEnabled={true}
+    javaScriptEnabled={true}
+    messagingEnabled={false}
+    onContentProcessDidTerminate={[Function]}
+    onHttpError={[Function]}
+    onLoadingError={[Function]}
+    onLoadingFinish={[Function]}
+    onLoadingProgress={[Function]}
+    onLoadingStart={[Function]}
+    onMessage={[Function]}
+    onShouldStartLoadWithRequest={[Function]}
+    source={
+      Object {
+        "uri": "https://truongdaotaolaixehcm.com/wp-content/uploads/2017/03/Thi-B2-Ch%C3%ADp-Sa-H%C3%ACnh-m%E1%BB%9Bi-nh%E1%BA%A5t-2018.mp4?_=1",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "overflow": "hidden",
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+    useSharedProcessPool={true}
+  />
+</View>
+`;

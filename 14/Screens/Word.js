@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import {  View, FlatList, TouchableOpacity } from 'react-native';
 import { ListItem, Header, ButtonGroup } from 'react-native-elements';
 import Words from '../components/Words';
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable';
+import styles from '../AppStyles/Word';
+import PickColor from '../Config/Color'
 
 const list = [
     {
@@ -36,9 +38,9 @@ const list = [
       subtitle: 'Time'
     },
     {
-        name: 'Công nghệ',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/1003/7610/products/Technological_vector_Wall_Mural_Wallpaper_a.jpg?v=1578614214',
-        subtitle: 'Technology'
+        name: 'Ăn uống',
+        avatar_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg',
+        subtitle: 'Food'
       },
       
   ]
@@ -74,7 +76,7 @@ export default class Word extends React.Component{
     renderSelectedCaterory = selectedIndex => {
       if (selectedIndex == 0){
         return (<FlatList
-          style={styles.flatlist}
+          style={styles().flatlist}
           keyExtractor={this.keyExtractor}
           data={list}
           renderItem={this.renderItem}
@@ -97,14 +99,21 @@ export default class Word extends React.Component{
       }
       return(
       <Animatable.View animation={animation} delay={index*100}>
-        <ListItem
-            onPress = {() => this._onPress(item)}
-            title={item.name}
-            subtitle={item.subtitle}
-            leftAvatar={{ source: { uri: item.avatar_url } }}
-            bottomDivider
-            chevron
-        />
+        <TouchableOpacity
+          onPress = {() => this._onPress(item)}
+          activeOpacity={0.5}
+        >
+          <ListItem
+              title={item.name}
+              subtitle={item.subtitle}
+              subtitleStyle={styles().textColor}
+              leftAvatar={{ source: { uri: item.avatar_url } }}
+              titleStyle={styles().textColor}
+              containerStyle={styles().listItemContainer}
+              bottomDivider
+              chevron
+          />
+        </TouchableOpacity>
       </Animatable.View>
     )}
 
@@ -112,34 +121,25 @@ export default class Word extends React.Component{
         const {navigate,state} = this.props.navigation;
         const buttons = ['Từ vựng', 'Từ yêu thích', 'Từ nhắc nhở']
         const { selectedIndex } = this.state
+        const color = PickColor(global.darkmode);
         return(
-            <View style={styles.container}>
+            <View style={styles().container}>
                 <Header
                     leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigate('Home') }}
                     centerComponent={{ text: 'Danh mục', style: { color: '#fff' } }}
+                    backgroundColor={color.headerColor}
                 />
                 <ButtonGroup
                   onPress={this.updateIndex}
                   selectedIndex={selectedIndex}
                   buttons={buttons}
+                  selectedButtonStyle={styles().selectedButton}
+                  buttonStyle={styles().button}
+                  containerStyle={{backgroundColor: color.cardColor, borderRadius: 5}}
+                  innerBorderStyle={{color: color.cardColor}}
                 />
                 {this.renderSelectedCaterory(selectedIndex)}
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#d2d6d9',
-    },
-    flatlist:{
-        paddingLeft: 16,
-        paddingRight: 16
-    },
-    listitem:{
-        marginTop: 8,
-        marginBottom: 8
-    }
-});
-

@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
     container:{
         flex: 1,
-        marginHorizontal: 5,
-        margin: 5,
-        paddingHorizontal: 5,
+        marginHorizontal: 4,
+        margin: 4,
+        paddingHorizontal: 4,
         backgroundColor: "#E1F5FE"
     },
     header:{
@@ -14,27 +14,29 @@ const Styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center"
     },
-    vbox : {
-        width: 210,
-        height: 250,
+    vbox: {
+        width: 212,
+        height: 248,
         borderRadius: 8,
-        marginRight: 10,
+        marginRight: 8,
+        marginBottom: 12,
+        marginHorizontal:8,
         backgroundColor: "#fff",
         shadowColor: "#000",
         shadowOffset: {
             width: 1,
-            height: 3,
+            height: 4,
         },
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
         
-        elevation: 3,
+        elevation: 4,
     },
     avt: {
-        width: 70,
-        height: 70,
+        width: 72,
+        height: 72,
         borderColor: "gray",
-        borderRadius: 35,
+        borderRadius: 36,
         borderWidth: 1,
         backgroundColor: "violet",
         alignItems: "stretch"
@@ -45,17 +47,17 @@ const Styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: "gray",
         alignItems:"center",
-        paddingHorizontal: 30,
+        paddingHorizontal: 28,
     },
     list2s: {
         padding: 12,
-        borderRadius: 5,
-        fontSize: 22,
+        borderRadius: 4,
+        fontSize: 24,
         fontWeight: "600",
         backgroundColor: "#81D4FA",
         color: "#000",
-        marginTop: 10,
-        marginHorizontal: 10,
+        marginTop: 8,
+        marginHorizontal: 8,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -64,14 +66,14 @@ const Styles = StyleSheet.create({
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
         
-        elevation: 3,
+        elevation: 4,
     },
     h1text: {
-        fontSize: 30,
+        fontSize: 28,
         fontWeight: "bold",
     },
     h2text:{
-        fontSize: 25,
+        fontSize: 24,
         fontWeight:"800",
     },
     h3text: {
@@ -83,8 +85,8 @@ const Styles = StyleSheet.create({
         fontWeight: "700",
     },
     minimg: {
-        width: 210,
-        height: 150,
+        width: 212,
+        height: 152,
         borderRadius: 8
     }
 });

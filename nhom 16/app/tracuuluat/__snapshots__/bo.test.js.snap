@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#F5ECCE",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Điều khiển xe đi không đúng chiều, làn đường
+        </Text>
+        <Text>
+          300.000 - 400.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Dừng đỗ xe trong hầm đường sai quy định
+        </Text>
+        <Text>
+          500.000 - 1.000.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          KHông chấp hành biển báo vạch kẻ đường
+        </Text>
+        <Text>
+          300.000 - 400.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          không chấp hành hiệu lệnh đèn giao thông
+        </Text>
+        <Text>
+          300.000 - 400.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Đi vào đường cấm, đi ngược chiều
+        </Text>
+        <Text>
+          500.000 - 1000.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          điều khiển xe máy trên cao tốc
+        </Text>
+        <Text>
+          300.000 - 400.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Vượt xe trong trường hợp cấm vượt
+        </Text>
+        <Text>
+          500.000 - 1.000.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Không giữ khoảng cách
+        </Text>
+        <Text>
+          60.000 - 80.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          Không giảm tốc độ khi ra từ ngõ
+        </Text>
+        <Text>
+          100.000 - 200.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          chạy xe dàn hàng ngang
+        </Text>
+        <Text>
+          80.000 - 100.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          sử dụng đèn sai
+        </Text>
+        <Text>
+          80.000 - 100.000 vnđ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          bấm còi rú ga
+        </Text>
+        <Text>
+          100.000 - 200.000 vnđ
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

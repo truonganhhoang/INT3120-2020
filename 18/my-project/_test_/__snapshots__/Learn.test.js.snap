@@ -1,0 +1,484 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "content": "145 câu",
+          "image": 1,
+          "name": "KHÁI NIỆM VÀ QUY TẮC",
+        },
+        Object {
+          "content": "145 câu",
+          "image": 1,
+          "name": "HỆ THỐNG BIỂN BÁO ĐƯỜNG BỘ",
+        },
+        Object {
+          "content": "145 câu",
+          "image": 1,
+          "name": "SA HÌNH",
+        },
+        Object {
+          "content": "145 câu",
+          "image": 1,
+          "name": "NGHIỆP VỤ VẬN TẢI",
+        },
+        Object {
+          "content": "145 câu",
+          "image": 1,
+          "name": "KỸ THUẬT LÁI XE",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "backgroundColor": "#FAFCFB",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "margin": 5,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 125,
+                    "tintColor": "#66bb6a",
+                    "width": 125,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 6,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                KHÁI NIỆM VÀ QUY TẮC
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "gray",
+                  }
+                }
+              >
+                145 câu
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "backgroundColor": "#FAFCFB",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "margin": 5,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 125,
+                    "tintColor": "#66bb6a",
+                    "width": 125,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 6,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                HỆ THỐNG BIỂN BÁO ĐƯỜNG BỘ
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "gray",
+                  }
+                }
+              >
+                145 câu
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "backgroundColor": "#FAFCFB",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "margin": 5,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 125,
+                    "tintColor": "#66bb6a",
+                    "width": 125,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 6,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                SA HÌNH
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "gray",
+                  }
+                }
+              >
+                145 câu
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "backgroundColor": "#FAFCFB",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "margin": 5,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 125,
+                    "tintColor": "#66bb6a",
+                    "width": 125,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 6,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                NGHIỆP VỤ VẬN TẢI
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "gray",
+                  }
+                }
+              >
+                145 câu
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <RNGestureHandlerButton
+          collapsable={false}
+          onGestureEvent={[Function]}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onHandlerStateChange={[Function]}
+          rippleColor={0}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            style={
+              Object {
+                "backgroundColor": "#FAFCFB",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "margin": 5,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 125,
+                    "tintColor": "#66bb6a",
+                    "width": 125,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 6,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                  }
+                }
+              >
+                KỸ THUẬT LÁI XE
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "gray",
+                  }
+                }
+              >
+                145 câu
+              </Text>
+            </View>
+          </View>
+        </RNGestureHandlerButton>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

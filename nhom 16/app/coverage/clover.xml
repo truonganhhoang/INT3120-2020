@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1589219288703" clover="3.2.0">
+  <project timestamp="1589219288704" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12" elements="30" coveredelements="30" complexity="0" loc="18" ncloc="18" packages="4" files="8" classes="8"/>
+    <package name="Data">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="bienbaocam.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\Data\bienbaocam.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+      </file>
+      <file name="bienphu.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\Data\bienphu.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+      </file>
+      <file name="vach.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\Data\vach.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="bienbao">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <file name="BienBaoPhu.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\bienbao\BienBaoPhu.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="30" count="9" type="stmt"/>
+      </file>
+      <file name="BienCam.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\bienbao\BienCam.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="29" count="10" type="stmt"/>
+      </file>
+      <file name="VachKeDuong.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\bienbao\VachKeDuong.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="component">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="MeoThi.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\component\MeoThi.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tracuuluat">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="bo.js" path="C:\Users\LaptopAZ.vn\Documents\GitHub\INT3120-2020\nhom 16\app\tracuuluat\bo.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

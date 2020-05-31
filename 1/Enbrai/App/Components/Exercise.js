@@ -7,6 +7,7 @@ import {
   Text,
   AsyncStorage,
   BackHandler,
+  Alert
 } from 'react-native';
 import {Button,Icon} from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient';
@@ -25,7 +26,7 @@ const Exercise = props => {
         flexDirection: 'row',
         alignContent: 'center',
       }}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <LinearGradient
         style={{flex: 1, paddingLeft: 15, paddingRight: 15}}
         colors={['#0592D2', '#39D57F']}>
@@ -52,7 +53,26 @@ const Exercise = props => {
               marginBottom: 25,
             }}
             onPress={()=>{
-              props.navigation.navigate('SelectSectionScreen')
+              var user = firebase.auth().currentUser;
+
+              if (user) {
+                props.navigation.navigate('SelectSectionScreen')
+              } else {
+                Alert.alert(
+                  "Nhắc nhở",
+                  "Bạn cần đăng nhập để thực hiện chức năng này!",
+                  [
+                    {
+                      text: "Hủy",
+                      onPress: () => {},
+                      style: "cancel"
+                    },
+                    { text: "Đăng nhập", onPress: () =>  {props.navigation.navigate('SignInScreen')}}
+                  ],
+                  { cancelable: false }
+                );
+              }
+              
             }}
           />
           <Text style={{textAlign:'center', marginLeft:30, marginRight:30, fontSize:14, color:'#F5F5F5'}}> Hãy nâng cao trình độ của bản thân bằng cách thử sức với các bài tập bằng tiếng anh nhé!</Text>

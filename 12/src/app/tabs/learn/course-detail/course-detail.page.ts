@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-course-detail',
@@ -7,19 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./course-detail.page.scss']
 })
 export class CourseDetailPage implements OnInit {
-  private courseUrl = '';
-  navLinks = [];
+  navLinks: { path: string; label: string }[];
   selectedTab = 'overview';
+  courseId?: number;
 
-  constructor(private router: Router) {
-    this.courseUrl = this.router.url.split('/').reverse().slice(1).reverse().join('/');
-    this.navLinks = [
-      { path: `${this.courseUrl}/overview`, label: 'Overview' },
-      { path: `${this.courseUrl}/grades`, label: 'Grades' },
-      { path: `${this.courseUrl}/forums`, label: 'Forums' },
-      { path: `${this.courseUrl}/info`, label: 'Info' }
-    ];
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap) => {
+      this.courseId = Number(paramMap.get('id')) || undefined;
+      this.navLinks = [
+        { path: `/tabs/learn/course/${this.courseId}/overview`, label: 'Overview' },
+        { path: `/tabs/learn/course/${this.courseId}/grades`, label: 'Grades' },
+        { path: `/tabs/learn/course/${this.courseId}/info`, label: 'Info' }
+      ];
+    });
   }
-
-  ngOnInit() {}
 }

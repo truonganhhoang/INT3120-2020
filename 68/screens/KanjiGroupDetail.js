@@ -1,45 +1,45 @@
 import React from 'react';
 import {
-  Image,
-  FlatList,
   ScrollView,
   StyleSheet,
-  Text,
-  View,Dimensions
+  View,
 } from 'react-native';
 import KanjiCard from '../components/KanjiCard';
-const deviceWidth = Dimensions.get('window').width;
+
 
 export default class KanjiGroupDetail extends React.Component {
-  static navigationOptions = ({navigation}) => {
-    return {
-        title:'Kanji cơ bản 1',
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          color: 'white',
-        },
-        headerTintColor: 'white',
-        headerStyle: {
-          backgroundColor: '#006265',
-        },
-    };
-  };
+  static navigationOptions = () => ({
+    title: 'Kanji chi tiết',
+    headerTitleAlign: 'center',
+    headerTitleStyle: {
+      color: 'white',
+    },
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: '#006265',
+    },
+  });
+
   // constructor({text, navigation, object}){
   //   super({text, navigation, object});
   // }
-  render(){
-    const {navigation} =  this.props;
-    const kanjiList = navigation.getParam('kanjiList')
-
+  render() {
+    const { navigation } = this.props;
+    const kanjiList = navigation.getParam('kanjiList');
     return (
       <ScrollView>
-       <View style={styles.listItem}>
-       
-         {
-           kanjiList.map((kanjiItem)=><KanjiCard kanjiText={kanjiItem.kanji} onPress={()=> navigation.navigate('KanjiDetail')}/>)
-         }
-       </View>
-       </ScrollView>
+        <View style={styles.listItem}>
+          {
+            kanjiList.map((kanjiItem, i) => (
+              <KanjiCard
+                key={i.toString()}
+                hantu={kanjiItem.hantu}
+                kanjiText={kanjiItem.kanji}
+              />
+            ))
+          }
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     flexDirection: 'row',
+    justifyContent: 'center',
     flexWrap: 'wrap'
-}
+  }
 });

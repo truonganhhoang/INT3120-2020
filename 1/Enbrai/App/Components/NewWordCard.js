@@ -18,8 +18,8 @@ const NewWordCard = (props) => {
       setSelected(true)
     }
     else {
+      props.navigation.getParam('handleDataSelected')(props.data)
       props.navigation.getParam('handleReady')()
-      props.navigation.setParams({isReady: true})
       props.navigation.navigate('HomeScreen')
     }
   }

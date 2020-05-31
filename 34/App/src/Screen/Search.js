@@ -21,7 +21,7 @@ export default class Search extends React.Component {
         containerStyle = {{ backgroundColor: 'green', marginTop: -2 }}
         inputContainerStyle={{backgroundColor: 'white', height: 40}}
         inputStyle = {{backgroundColor: 'white', fontSize: 18, padding: 3}}
-        searchIcon = {{color: 'green', size: 30}}
+        searchIcon = {{color: 'gray', size: 30}}
         round= {true}
         
       />

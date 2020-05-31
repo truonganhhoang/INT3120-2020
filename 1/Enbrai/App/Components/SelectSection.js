@@ -12,35 +12,43 @@ import {withNavigation} from 'react-navigation';
 import {Button, Icon} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
 import {connectSQLite} from './ConnectData';
-import {EmptyFlatlist} from './EmtyFlatList';
+import firebase from 'react-native-firebase'
+import EmptyFlatlist from './EmtyFlatList';
+import * as Animatable from 'react-native-animatable';
 const SelectSection = props => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      var db = await connectSQLite();
-      db.transaction(tx => {
-        tx.executeSql('select * from Part', [], async (tx, res) => {
-          var results = res.rows;
-          const temp = [];
-          for (let i = 0; i < results.length; i++) {
-            var item = results.item(i);
-            temp.push({
-              id: item.id,
-              name: item.name,
-              levelCount: item.levelCount,
-              levelCompleteCount: item.levelCompleteCount,
-            });
-          }
-          setData(temp);
-        });
-      });
-    };
-    fetchData();
+    const fetchData = async()=>{
+      var userId = firebase.auth().currentUser.uid;
+      firebase.database().ref('DataResult').child(`${userId}`).child('Part').on('value', (snap)=>{
+          var data1=[];
+          var data=[];
+            snap.forEach((child)=>{
+              var temp = child.val();
+              var item ={
+                  id: temp.id,
+                  levelCompleteCount: temp.levelCompleteCount,
+                  levelCount : temp.levelCount,
+                  name : temp.name,
+                  isPartComplete: temp.isPartComplete
+              }
+              data1.push(item)
+            })
+            data.push(data1[1],data1[0],data1[2])
+            setData(data)
+        })
+  }
+  fetchData()
     return () => {};
   }, []);
+  
+  const handlePress = (partId)=>{
+    props.navigation.navigate('SelectLevelScreen', {id: partId})
+  }
   return (
     <View style={{flex: 1}}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <View
         style={{
           flex: 0.8,
@@ -66,11 +74,10 @@ const SelectSection = props => {
           <FlatList
             data={data}
             keyExtractor={(item, index) => index.toString()}
-            ListEmptyComponent={EmptyFlatlist}
             renderItem={(item, index) => (
-              <TouchableOpacity
-                style={{
-                  marginLeft:20,
+              <Animatable.View
+              style={{
+                marginLeft:20,
                   marginRight:20,
                   marginBottom:15,
                   borderRadius: 8,
@@ -81,14 +88,19 @@ const SelectSection = props => {
                   shadowColor: '#000',
                   shadowOffset: {
                     width: 0,
-                    height: 2,
+                    height: 3,
                   },
-                  shadowOpacity: 0.25,
-                  shadowRadius: 3.84,
+                  shadowOpacity: 0.5,
+                  shadowRadius: 8,
           
                   elevation: 5,
-                }}>
+                }}
+                animation = 'fadeInRight'
+                delay = {item.index*200}
+                >
+                <TouchableOpacity onPress={()=>{handlePress(item.item.id) }}>
                 <View style={{paddingLeft: 20}}>
+                  <View style={{flexDirection: 'row', justifyContent:'space-between', paddingRight:10}}>
                   <Text
                     style={{
                       fontSize: 22,
@@ -97,6 +109,14 @@ const SelectSection = props => {
                     }}>
                     {item.item.name}
                   </Text>
+                  <Icon
+                  name="check-circle"
+                  size={item.item.isPartComplete=="No"?0:25}
+                  color="#4CAF50"
+                  containerStyle={{}}
+                  onPress={() => props.navigation.goBack()}
+                />
+                  </View>
                   <Text style={{marginTop: 10, fontSize: 16, marginBottom: 10}}>
                     Hoàn thành: {item.item.levelCompleteCount}/
                     {item.item.levelCount}
@@ -111,7 +131,7 @@ const SelectSection = props => {
                 <TouchableOpacity
                   style={{
                     marginTop: 10,
-                    height: 50,
+                    height: 60,
                     backgroundColor: '#FAFAFA',
                     borderBottomLeftRadius: 10,
                     borderBottomRightRadius:10,
@@ -119,12 +139,12 @@ const SelectSection = props => {
                     alignItems:'center',
                     justifyContent:'center',
                   }}
-                  onPress={()=>{props.navigation.navigate('SelectLevelScreen')}}
+                  onPress={()=>{handlePress(item.item.id)}}
                   >
-                  <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
+                  <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>
-                
               </TouchableOpacity>
+              </Animatable.View>
             )}
           />
         </View>

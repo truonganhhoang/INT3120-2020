@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\images",
-    "\\assets\\images\\home",
+    "\\components",
     "\\components\\Home",
-    "\\components\\TFS",
-    "\\screens"
+    "\\components\\__tests__",
+    "\\components\\__tests__\\__snapshots__",
+    "\\__tests__",
+    "\\__tests__\\__snapshots__"
   ],
-  "SelectedNode": "\\components",
+  "SelectedNode": "\\__tests__\\HomeItem-test.js",
   "PreviewInSolutionExplorer": false
 }

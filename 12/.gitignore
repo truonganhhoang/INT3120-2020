@@ -36,5 +36,3 @@ npm-debug.log*
 
 .now
 .firebase
-.firebaserc
-firebase.json

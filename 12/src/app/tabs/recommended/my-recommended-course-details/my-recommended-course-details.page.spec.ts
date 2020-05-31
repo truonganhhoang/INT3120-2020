@@ -10,7 +10,7 @@ describe('MyRecommendedCourseDetailsPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MyRecommendedCourseDetailsPage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MyRecommendedCourseDetailsPage);

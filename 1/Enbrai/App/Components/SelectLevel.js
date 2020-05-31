@@ -11,36 +11,64 @@ import {
 import {withNavigation} from 'react-navigation';
 import {Button, Icon} from 'react-native-elements';
 import SQLite from 'react-native-sqlite-storage';
-import {connectSQLite} from './ConnectData';
+import {connectSQLite,pushQuestions,updateQuestions} from './ConnectData';
 import {EmptyFlatlist} from './EmtyFlatList';
+import firebase from 'react-native-firebase';
+import * as Animatable from 'react-native-animatable';
 const SelectLevel = props => {
-  const [data, setData] = useState([]);
+  const [dataResult, setDataResult] = useState([]);
+  const [data, setData] = useState();
+  const [partId, setPartId] = useState();
   useEffect(() => {
-    const fetchData = async () => {
-      var db = await connectSQLite();
-      db.transaction(tx => {
-        tx.executeSql('select * from Levels', [], async (tx, res) => {
-          var results = res.rows;
-          const temp = [];
-          for (let i = 0; i < results.length; i++) {
-            var item = results.item(i);
-            temp.push({
-              id: item.id,
-              partId: item.partId,
-              questCount: item.questCount,
-              questCompleteCount: item.questCompleteCount,
-            });
-          }
-          setData(temp);
-        });
-      });
+    const fetchData = async()=>{
+   
+    }
+    const fetchDataResult =() => {
+      var userId = firebase.auth().currentUser.uid;
+      var partId = props.navigation.getParam('id');
+      setPartId(partId);
+      firebase.database().ref('DataResult').child(`${userId}`).child('Part').child(`${partId}`).child('levels').on('value', (snap)=>{
+        var data=[];
+          snap.forEach((child)=>{
+            var temp = child.val();
+              var item ={
+                  id: temp.id,
+                  questCompleteCount: temp.questCompleteCount,
+                  questCount : temp.questCount,
+                  partId : temp.partId,
+                  lock : temp.lock,
+                  isLevelComplete: temp.isLevelComplete
+              }
+              data.push(item)
+          })
+          //console.log(data)
+          setDataResult(data)
+      })
     };
-    fetchData();
+    fetchDataResult();
+    fetchData()
     return () => {};
-  }, []);
+  }, [props]);
+  const handlePress = async (partId, levelId, index, isLevelComplete)=>{
+    if(isLevelComplete=="Yes"){
+      var userId = firebase.auth().currentUser.uid;
+      await updateQuestions(userId,partId,levelId);
+      var questCompleteCount = 0;
+      firebase
+        .database()
+        .ref('DataResult')
+        .child(`${userId}`)
+        .child('Part')
+        .child(`${partId}`)
+        .child('levels')
+        .child(`${levelId}`)
+        .update({questCompleteCount});
+    }
+    props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index})
+  }
   return (
     <View style={{flex: 1}}>
-      <StatusBar backgroundColor="#0592D2" barStyle="light-content" />
+      <StatusBar backgroundColor="#0288D1" barStyle="light-content" />
       <View
         style={{
           flex: 0.8,
@@ -64,12 +92,12 @@ const SelectLevel = props => {
       <View style={{flex: 9.2}}>
         <View style={{flex:1, height:'100%', marginTop:30}}>
           <FlatList
-            data={data}
+            data={dataResult}
             keyExtractor={(item, index) => index.toString()}
             ListEmptyComponent={EmptyFlatlist}
             renderItem={(item, index) => (
-              <TouchableOpacity
-                style={{
+              <Animatable.View
+              style={{
                   marginLeft:20,
                   marginRight:20,
                   marginBottom:15,
@@ -77,19 +105,24 @@ const SelectLevel = props => {
                   borderColor: '#E0E0E0',
                   paddingTop: 15,
                   marginTop: 10,
-                  backgroundColor: 'white',
+                  backgroundColor: item.item.lock=='No'?'white':'#E0E0E0',
                   shadowColor: '#000',
                   shadowOffset: {
                     width: 0,
-                    height: 2,
+                    height: 3,
                   },
-                  shadowOpacity: 0.25,
-                  shadowRadius: 3.84,
+                  shadowOpacity: 0.5,
+                  shadowRadius: 8,
           
                   elevation: 5,
-                }}>
+                }}
+                animation = 'fadeInRight'
+                delay = {item.index*200}
+              >
+                <TouchableOpacity disabled={item.item.lock=='No'? false: true} onPress={()=>{handlePress(partId,item.item.id,item.index+1,item.item.isLevelComplete) }}>
                 <View style={{paddingLeft: 20}}>
-                  <Text
+                <View style={{flexDirection: 'row', justifyContent:'space-between', paddingRight:10}}>
+                <Text
                     style={{
                       fontSize: 22,
                       fontWeight: 'bold',
@@ -97,6 +130,15 @@ const SelectLevel = props => {
                     }}>
                     Level {item.index+1}
                   </Text>
+                  <Icon
+                  name="check-circle"
+                  size={item.item.isLevelComplete=="No"?0:25}
+                  color="#4CAF50"
+                  containerStyle={{}}
+                  onPress={() => props.navigation.goBack()}
+                />
+                  </View>
+                  
                   <Text style={{marginTop: 10, fontSize: 16, marginBottom: 10}}>
                     Hoàn thành: {item.item.questCompleteCount}/
                     {item.item.questCount}
@@ -111,20 +153,22 @@ const SelectLevel = props => {
                 <TouchableOpacity
                   style={{
                     marginTop: 10,
-                    height: 50,
-                    backgroundColor: '#FAFAFA',
+                    height: 60,
+                    backgroundColor: item.item.lock=='No'?'#FAFAFA':'#EEEEEE',
                     borderBottomLeftRadius: 10,
                     borderBottomRightRadius:10,
                     flexDirection:'row',
                     alignItems:'center',
                     justifyContent:'center',
                   }}
-                  onPress={()=>{props.navigation.navigate('ExerciseTabScreen', {level: item.index+1})}}
+                  disabled={item.item.lock=='No'? false: true}
+                  onPress={()=>{handlePress(partId,item.item.id,item.index+1,item.item.isLevelComplete) }}
                   >
-                  <Text style={{fontSize: 20, color:"#9E9E9E"}}>Bắt đầu</Text>
+                  <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
                 </TouchableOpacity>
                 
               </TouchableOpacity>
+              </Animatable.View>
             )}
           />
         </View>

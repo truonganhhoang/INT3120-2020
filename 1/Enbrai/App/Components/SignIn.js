@@ -19,7 +19,7 @@ const SignIn = props =>{
       .auth()
       .signInWithEmailAndPassword(email, pass)
       .then(() => {
-        props.navigation.navigate('HomeScreen')
+        props.navigation.navigate('HomeScreen',{user: true})
       })
       .catch(error => ToastAndroid.showWithGravity(
         'Tài khoản mật khẩu không chính xác!',
@@ -29,7 +29,7 @@ const SignIn = props =>{
     }}
     return (    
       <View style = {{flex : 1}}>
-        <StatusBar backgroundColor='#0592D2' barStyle='light-content'></StatusBar>
+        <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
         <View style = {{flex : 1, backgroundColor: '#0592D2', flexDirection: 'row', alignItems:'flex-end'}}>
           <View style = {{marginBottom: 15, marginLeft: 15, flexDirection: 'row'}}>
             <Icon
@@ -78,9 +78,17 @@ const SignIn = props =>{
             buttonStyle = {{backgroundColor: '#FFB74D',width: 300}}
             onPress={()=>{handleSignIn(email,pass)}}
           />
+           <Text style ={{marginTop: 10,marginBottom:10, color: '#9E9E9E'}}>--hoặc--</Text>
+            <Button
+              title = 'Đăng ký'
+              type= 'clear'
+              buttonStyle = {{width: 300}}
+              onPress={()=>props.navigation.navigate('SignUpScreen')}
+            />
           <Button
             title = 'Quên mật khẩu'
             type= 'clear'
+            titleStyle={{color:'#FFA726', textDecorationLine:  'underline'}}
             buttonStyle = {{width: 300}}
             containerStyle={{marginTop:10}}
             onPress={()=>props.navigation.navigate('ForgetPassScreen')}
