@@ -54,7 +54,6 @@ export default function Review({ navigation, route }) {
   }); 
 
   const [reviews, setReviews] = useState(() => shuffle(listWord)); //mang chua nhung tu se hoc
-  // const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hoc
   const [trueAnswer, setTrueAnswer] = useState(reviews[reviews.length - 1]); // tu duoc chon
   const [choices, setChoices] = useState(() => {
     let falseAnser = listWord.filter((idex) => idex.id !== trueAnswer.id);
@@ -64,6 +63,7 @@ export default function Review({ navigation, route }) {
     shuffle(choiceArray);
     return choiceArray;
   }); // mang chua nhung tu hien ra
+
   const [hideMean, setHideMean] = useState(true); //sau khi tra loi hien nghia
   const [hideMemScreen, setHideMemScreen] = useState(true); // minh chon dap an dung hay sai
 
@@ -78,6 +78,15 @@ export default function Review({ navigation, route }) {
       setCheck(box);
 
       // update  word's level
+      let newLevel = trueAnswer.level;
+      console.log(`level `,newLevel);
+      if ( newLevel <5 ){
+        let newTrueAnswer ={ 
+          ...trueAnswer,
+          level : ++newLevel
+        }
+        setTrueAnswer(newTrueAnswer)
+      }
 
       //----------------------
       //show mean of the word
@@ -134,7 +143,7 @@ export default function Review({ navigation, route }) {
       //set True Anser
       setTrueAnswer(newTrueAnswer);
       // update choice Array
-      let falseAnser = listWord .filter((idex) => idex.id !== newTrueAnswer.id);
+      let falseAnser = listWord.filter((idex) => idex.id !== newTrueAnswer.id);
       shuffle(falseAnser);
       let choiceArray = [...falseAnser.slice(0, 5)];
       choiceArray.push(newTrueAnswer);
@@ -155,7 +164,7 @@ export default function Review({ navigation, route }) {
     );
   };
 
-  console.log(trueAnswer)
+  
 
   return (
     <View style={styles.container}>
