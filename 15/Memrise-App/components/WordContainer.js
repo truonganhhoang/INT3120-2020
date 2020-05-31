@@ -18,15 +18,9 @@ const blur = 0.1;
 
 export default function WordContainer(props) {
   const { word, mean, level, miss } = props.objWord;
-  const wordId = props.objWord.id; // giu nguyen word Id
   const hideMean = props.hideMean;
-  const { id, courseName } = props.courseInfor;
-  const [listWord, setListWord] = useState(()=>props.courseInfor.listWord);
-
-  useEffect(() => {
-    setListWord(props.courseInfor.listWord);
-    // console.log(' use effect ' ,listWord.length)
-  }, []);
+  const handleOnThunderPress =props.onPress;
+  
 
   const [blurThunder, setBlurThunder] = useState(() => {
     if (miss) {
@@ -36,58 +30,15 @@ export default function WordContainer(props) {
     }
   });
 
-  useEffect(() => {
-    // setListWord(props.courseInfor.listWord);
-   
-    // ignore componentDidMount
-
-    if (
-      Object.entries(props.courseInfor).length === 0 ||
-      typeof listWord == "undefined"
-    ) {
-      return;
-    }
-    // console.log(listWord);
-
-    // change miss
-    // ============
-    // giu word Id ben phai
-    let newWord = listWord.filter((wd) => wd.id === wordId)[0];
-    const index = listWord.indexOf(newWord);
-    const miss = newWord.miss;
-    newWord = {
-      ...newWord,
-      miss: !miss,
-    };
-
-    let newListWord = [
-      ...listWord.slice(0, index),
-      newWord,
-      ...listWord.slice(index + 1),
-    ];
-
-    const putData = {
-      courseName: courseName,
-      listWord: newListWord,
-    };
-    // ============
-
-    const queryString = `http://localhost:3000/courses/${id}`;
-    axios
-      .put(queryString, putData)
-      .then((res) => {
-        console.log(res.data);
-        console.log("success");
-        const newListWord = res.data.listWord;
-        setListWord(newListWord);
-      })
-      .catch((error) => console.log(error));
-  }, [blurThunder]);
+  
 
   function handleOnPress() {
+    if(!handleOnThunderPress) return;
     if (blurThunder === 1) {
+      handleOnThunderPress(blur)
       setBlurThunder(blur);
     } else {
+      handleOnThunderPress(1);
       setBlurThunder(1);
     }
   }

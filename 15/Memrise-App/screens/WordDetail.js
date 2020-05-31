@@ -39,6 +39,49 @@ export default function listWord({ navigation, route }) {
       .catch((err) => console.log(err));
   }, []);
 
+  function handleOnThunderPress(blur){
+    const { id, courseName, listWord } = courseInfor;
+    const wordId = word.id;
+    let newWord = listWord.filter((wd) => wd.id === wordId)[0];
+    const index = listWord.indexOf(newWord);
+    // const miss = newWord.miss;
+  
+
+    if( blur ===1 ){    // current is false. set true
+      newWord = {
+        ...newWord,
+        miss: true,
+      };   
+   
+    }else{
+      newWord = {
+        ...newWord,
+        miss: false,
+      };   
+  
+    }   
+    let newListWord = [
+        ...listWord.slice(0, index),
+        newWord,
+        ...listWord.slice(index + 1),
+      ];
+
+    const putData = {
+        courseName: courseName,
+        listWord: newListWord,
+      };
+    
+    const queryString = `http://localhost:3000/courses/${id}`;
+    axios
+      .put(queryString, putData)
+      .then((res) => {
+        console.log(" set thunder success");
+        const newListWord = res.data.listWord;
+      })
+      .catch((error) => console.log(error));
+
+  }
+
   return (
     <View style={styles.container}>
       {(isLoading && <Spinner />) || (
@@ -47,6 +90,7 @@ export default function listWord({ navigation, route }) {
             objWord={word}
             hideMean={false}
             courseInfor={courseInfor}
+            onPress={handleOnThunderPress}
           />
 
           <View style={styles.Mem}>
@@ -92,7 +136,9 @@ export default function listWord({ navigation, route }) {
   );
 }
 
-//styled componet
+
+
+
 const styles = StyleSheet.create({
   container: {
     width: "100%",
