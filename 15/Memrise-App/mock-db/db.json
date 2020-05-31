@@ -20,7 +20,7 @@
           "id": 2,
           "word": "車",
           "mean": "xe hơi",
-          "miss": true,
+          "miss": false,
           "level": 0
         },
         {
@@ -30,7 +30,7 @@
           "id": 3,
           "word": "野菜",
           "mean": "rau",
-          "miss": true,
+          "miss": false,
           "level": 1
         },
         {

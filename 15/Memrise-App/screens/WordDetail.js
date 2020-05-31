@@ -14,15 +14,29 @@ export default function listWord({ navigation, route }) {
   //   }
   // }, [route.params?.post]);
 
-
   const [word, setWord] = useState({});
+  const [courseInfor, setCourseInfor] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { wordId, id ,listWord} = route.params;    
-    const newWord = listWord.filter((w) => w.id === wordId);
-    setWord(newWord[0]);
-    setIsLoading(false);
+    const { wordId, id } = route.params; // gui nguen word id  
+    const queryString = `http://localhost:3000/courses/${id}`;
+    axios
+      .get(queryString)
+      .then((res) => {
+        const { id, courseName, listWord } = res.data;
+        // suwar w.wordI d  w.id  giu nguyen wordI d ve phai
+        const newWord = listWord.filter((w) => w.id === wordId);
+
+        setWord(newWord[0]);
+        setIsLoading(false);
+        setCourseInfor({
+          id: id,
+          listWord: listWord,
+          courseName: courseName,
+        });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -32,8 +46,7 @@ export default function listWord({ navigation, route }) {
           <WordContainer
             objWord={word}
             hideMean={false}
-            // courseInfor={courseInfor}
-            courseInfor={route.params}
+            courseInfor={courseInfor}
           />
 
           <View style={styles.Mem}>
@@ -79,6 +92,7 @@ export default function listWord({ navigation, route }) {
   );
 }
 
+//styled componet
 const styles = StyleSheet.create({
   container: {
     width: "100%",
