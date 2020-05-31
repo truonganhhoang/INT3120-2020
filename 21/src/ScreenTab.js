@@ -8,8 +8,8 @@ import Icon1 from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 import TextTicker from 'react-native-text-ticker';
 
-import createTopTabs from './TopTab.js';
 
+//import createTopTabs from './TopTab.js';
 import TraiDat from './screens/TraiDat/TraiDat.js';
 
 import KhoaHocVuTru from './screens/KhoaHocVuTru/KhoaHocVuTru.js';
