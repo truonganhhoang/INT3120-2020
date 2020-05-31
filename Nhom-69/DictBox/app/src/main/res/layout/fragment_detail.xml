@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="A"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp" />
 
@@ -44,11 +43,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff">
+
         <WebView
             android:id="@+id/tvWordTranslate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff"/>
+            android:background="#fff" />
 
     </ScrollView>
 

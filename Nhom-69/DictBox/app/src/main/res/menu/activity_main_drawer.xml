@@ -24,9 +24,9 @@
                 android:icon="@drawable/ic_menu_camera"
                 android:title="Tra từ với camera" />
             <item
-                android:id="@+id/nav_vocabulary"
+                android:id="@+id/nav_sentence"
                 android:icon="@drawable/ic_format_list_bulleted"
-                android:title="Học từ vựng" />
+                android:title="Học ngữ pháp" />
             <item
                 android:id="@+id/nav_voice"
                 android:icon="@drawable/ic_record_voice_over"
