@@ -18,10 +18,10 @@ const blur = 0.1;
 
 export default function WordContainer(props) {
   const {  word, mean, level, miss } = props.objWord;
-  const wordId= props.objWord.id; // giu nguyen word Id
+  const wordId= props.objWord.id; // giu nguyen word Id  
   const hideMean = props.hideMean;
-  const { id, listWord, courseName } = props.courseInfor;
-
+  const { id, courseName } = props.courseInfor;
+  const [listWord, setListWord ] =useState(props.courseInfor.listWord)
   const [blurThunder, setBlurThunder] = useState(() => {
     if (miss) {
       return 1;
@@ -31,16 +31,25 @@ export default function WordContainer(props) {
   });
 
   useEffect(() => {
+    if (typeof wordId =='undefined') return;
+    // console.log(Object.entries(props.courseInfor).length)
+    // console.log(typeof props.courseInfor)
+    // console.log(`wordid `, wordId);
     // ignore componentDidMount
-    if (Object.entries(props.courseInfor).length === 0) {
-      return;
-    }
-    // change miss
-    // ============
-    // giu word Id ben phai
+    // if (Object.entries(props.courseInfor).length === 0) {
+    //   return;
+    // }
+
+    // // change miss
+    // // ============
+    // // giu word Id ben phai
     let newWord = listWord.filter((wd) => wd.id === wordId)[0];
+    console.log(newWord)
     const index = listWord.indexOf(newWord);
+
     const miss = newWord.miss;
+    // console.log(miss )
+
     newWord = {
       ...newWord,
       miss: !miss,
@@ -51,6 +60,8 @@ export default function WordContainer(props) {
       newWord,
       ...listWord.slice(index + 1),
     ];
+    //update listWord
+    setListWord(newListWord);
 
     const putData = {
       courseName: courseName,
@@ -63,6 +74,7 @@ export default function WordContainer(props) {
       .put(queryString, putData)
       .then((res) => console.log("success"))
       .catch((error) => console.log(error));
+
   }, [blurThunder]);
 
   function handleOnPress() {

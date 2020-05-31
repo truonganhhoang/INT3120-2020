@@ -19,14 +19,20 @@ export default function ListWord({ navigation, route }) {
   const [cloneList, setCloneList] = useState();
   const [searchValue, setSearchValue] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
+  const [ courseInfor ,setCourseInfor  ] =useState();
   const typingTimeOut = useRef(null);
+
   useEffect(() => {
     const queryString = `http://localhost:3000/courses/${id}`;
     axios
       .get(queryString)
       .then((res) => {
         const { id, courseName, listWord } = res.data;
+        setCourseInfor({
+          id: id,
+          listWord: listWord,
+          courseName: courseName,
+        });
         setList(listWord);
         setCloneList(listWord);
         setIsLoading(false);
@@ -35,7 +41,8 @@ export default function ListWord({ navigation, route }) {
   }, []);
 
   useEffect(() => {
-    if (typeof list == "undefined") return; //ignore componentDidMount
+    if (typeof list == "undefined" || typeof searchValue == "undefined" ) return; //ignore componentDidMount
+   
     //Debounce
 
     //Clear previous timeOut
@@ -54,6 +61,7 @@ export default function ListWord({ navigation, route }) {
       });
 
       miniSearch.addAll(list);
+      
       let result = miniSearch.search(searchValue.trim());
       setList(result); // be careful this line .it can cause the bug
     }, 500);
@@ -66,10 +74,22 @@ export default function ListWord({ navigation, route }) {
   }
 
   function onPressNavigateWordDetail(wordId, id) {
+    // return navigation.navigate("WordDetail", {
+    //   wordId: wordId, // de nguyen wordI d
+    //   id: id,
+    // });
     return navigation.navigate("WordDetail", {
-      wordId: wordId, // de nguyen wordI d
-      id: id,
+      ...courseInfor,
+      wordId:wordId
     });
+  }
+
+  function onPressNavigateReview(){
+
+    return navigation.navigate("Review" , {
+      id : id, // course Id
+      listWord:list
+    })
   }
 
   return (

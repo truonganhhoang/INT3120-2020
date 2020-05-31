@@ -159,7 +159,7 @@ export default function Review({ navigation, route }) {
         progress={1.00 - reviews.length / testData.length}
         width={screen(100)}
       />
-      <WordContainer objWord={trueAnswer} hideMean={hideMean} />
+      {/* <WordContainer objWord={trueAnswer} hideMean={hideMean} /> */}
 
       {(hideMemScreen && (
         <FlatList
@@ -187,7 +187,7 @@ export default function Review({ navigation, route }) {
   );
 }
 
-//styled componet
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
