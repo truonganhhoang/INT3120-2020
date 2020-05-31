@@ -30,7 +30,7 @@
           "id": 3,
           "word": "野菜",
           "mean": "rau",
-          "miss": false,
+          "miss": true,
           "level": 1
         },
         {

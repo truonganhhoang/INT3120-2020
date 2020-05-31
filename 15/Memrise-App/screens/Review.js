@@ -44,18 +44,20 @@ function shuffle(array) {
 }
 
 export default function Review({ navigation, route }) {
+  const listWord =route.params.listWord;
   const [check, setCheck] = useState(() => {
     let arr = [];
-    testData.forEach(() => {
+    listWord.forEach(() => {
       arr.push("waiting");
     });
     return arr;
   }); 
 
-  const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hoc
+  const [reviews, setReviews] = useState(() => shuffle(listWord)); //mang chua nhung tu se hoc
+  // const [reviews, setReviews] = useState(() => shuffle(testData)); //mang chua nhung tu se hoc
   const [trueAnswer, setTrueAnswer] = useState(reviews[reviews.length - 1]); // tu duoc chon
   const [choices, setChoices] = useState(() => {
-    let falseAnser = testData.filter((idex) => idex.id !== trueAnswer.id);
+    let falseAnser = listWord.filter((idex) => idex.id !== trueAnswer.id);
     shuffle(falseAnser);
     let choiceArray = [...falseAnser.slice(0, 5)];
     choiceArray.push(trueAnswer);
@@ -101,7 +103,7 @@ export default function Review({ navigation, route }) {
       setHideMemScreen(true);
       setCheck(() => {
         let arr = [];
-        testData.forEach(() => {
+        listWord.forEach(() => {
           arr.push("waiting");
         });
         return arr;
@@ -118,7 +120,7 @@ export default function Review({ navigation, route }) {
       // update all color of box is white
       setCheck(() => {
         let arr = [];
-        testData.forEach(() => {
+        listWord.forEach(() => {
           arr.push("waiting");
         });
         return arr;
@@ -132,7 +134,7 @@ export default function Review({ navigation, route }) {
       //set True Anser
       setTrueAnswer(newTrueAnswer);
       // update choice Array
-      let falseAnser = testData.filter((idex) => idex.id !== newTrueAnswer.id);
+      let falseAnser = listWord .filter((idex) => idex.id !== newTrueAnswer.id);
       shuffle(falseAnser);
       let choiceArray = [...falseAnser.slice(0, 5)];
       choiceArray.push(newTrueAnswer);
@@ -153,13 +155,15 @@ export default function Review({ navigation, route }) {
     );
   };
 
+  console.log(trueAnswer)
+
   return (
     <View style={styles.container}>
       <Progress.Bar
-        progress={1.00 - reviews.length / testData.length}
+        progress={1.00 - reviews.length / listWord.length}
         width={screen(100)}
       />
-      {/* <WordContainer objWord={trueAnswer} hideMean={hideMean} /> */}
+      <WordContainer objWord={trueAnswer} hideMean={hideMean} />
 
       {(hideMemScreen && (
         <FlatList
@@ -170,7 +174,11 @@ export default function Review({ navigation, route }) {
           contentContainerStyle={styles.ReviewContainer}
           scrollEnabled={false}
         />
-      )) || <Mems />}
+      ))
+      //  ||
+      //  <Mems  word ={trueAnswer}/>
+       
+       }
 
       <View style={styles.footer}>
        

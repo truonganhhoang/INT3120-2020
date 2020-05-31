@@ -35,7 +35,7 @@ export default function ListWord({ navigation, route }) {
   }, []);
 
   useEffect(() => {
-    if (typeof list == "undefined") return; //ignore componentDidMount
+    if (typeof list == "undefined" || typeof searchValue =="undefined" ) return; //ignore componentDidMount
     //Debounce
 
     //Clear previous timeOut
@@ -59,7 +59,7 @@ export default function ListWord({ navigation, route }) {
       setList(result); // be careful this line .it can cause the bug
     }, 300);
 
-  }, [searchValue]);
+  });
 
   function onChangeText(text) {
     text = text.toLocaleLowerCase();
@@ -72,6 +72,11 @@ export default function ListWord({ navigation, route }) {
       id: id,
     });
   }
+  function onPressNavigateReview(){
+    return navigation.navigate("Review",{listWord:list}) ;
+  }
+
+
 
   return (
     <View style={styles.container}>
@@ -101,7 +106,9 @@ export default function ListWord({ navigation, route }) {
           />
 
           <View style={styles.footer}>
-            <TouchableOpacity onPress={() => navigation.navigate("Review")}>
+            <TouchableOpacity 
+            onPress={onPressNavigateReview}
+            >
               <Text style={styles.review}>Review now !!!</Text>
             </TouchableOpacity>
           </View>

@@ -10,7 +10,7 @@ const MemContent = ( props ) =>(
 
 function Mems(props) {
   const {mems} = props.word;
-  console.log(mems)
+ 
   // Alisa ! No mem created for this ...
   return (
     <View style={styles.Mem}>
@@ -26,7 +26,7 @@ function Mems(props) {
         Your Mems
       </Text>
 
-       {  !mems.length==0 && ( <Text style= {styles.MemText}>  Alisa ! No mem created for this ...</Text>  ) || mems.map( mem => <MemContent text = {mem} />  )  }
+       {  mems.length==0 && ( <Text style= {styles.MemText}>  Alisa ! No mem created for this ...</Text>  ) || mems.map( mem => <MemContent text = {mem} />  )  }
         
     </View>
   );
