@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import Word from "../components/Word";
 import WordContainer from "../components/WordContainer";
 import Spinner from "../components/Spinner";
+import Mems from "../components/Mems";
 
 export default function listWord({ navigation, route }) {
   // React.useEffect(() => {
@@ -44,9 +45,6 @@ export default function listWord({ navigation, route }) {
     const wordId = word.id;
     let newWord = listWord.filter((wd) => wd.id === wordId)[0];
     const index = listWord.indexOf(newWord);
-    // const miss = newWord.miss;
-  
-
     if( blur ===1 ){    // current is false. set true
       newWord = {
         ...newWord,
@@ -82,6 +80,7 @@ export default function listWord({ navigation, route }) {
 
   }
 
+
   return (
     <View style={styles.container}>
       {(isLoading && <Spinner />) || (
@@ -94,41 +93,18 @@ export default function listWord({ navigation, route }) {
           />
 
           <View style={styles.Mem}>
+           
+         
+            <Mems word={word}/>
+                
+
             <Button
-              title="Create a new Mems"
+              title="Create your own mens"
               onPress={() => {
                 navigation.navigate("AddMem");
               }}
             />
 
-            <View style={styles.MemText}>
-              <Text>đăng luc =))</Text>
-
-              <Text
-                style={{
-                  paddingTop: 3,
-                  fontStyle: "italic",
-                  textAlign: "right",
-                }}
-              >
-                {" "}
-                - Nguyễn Văn A
-              </Text>
-            </View>
-
-            <View style={styles.MemText}>
-              {/* <Text>{route.params?.post}</Text> */}
-              <Text
-                style={{
-                  paddingTop: 3,
-                  fontStyle: "italic",
-                  textAlign: "right",
-                }}
-              >
-                {" "}
-                - Nguyễn Văn A
-              </Text>
-            </View>
           </View>
         </View>
       )}
@@ -179,9 +155,7 @@ const styles = StyleSheet.create({
     height: 35,
     marginLeft: "auto",
   },
-  Mem: {
-    padding: 30,
-  },
+  
   MemText: {
     paddingTop: 5,
     paddingBottom: 5,
