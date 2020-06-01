@@ -61,14 +61,14 @@ class QuizGameState extends State<QuizGame>{
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Container(
+       
                 
                 new DropdownButton(
                   value: _currentClass, 
                   items: _dropDownMenuItems,
                   onChanged: changedDropDownItem,
                 ),
-              )
+              
               
               new Container(
                 padding: new EdgeInsets.all(16.0),
@@ -91,7 +91,7 @@ class QuizGameState extends State<QuizGame>{
                 
 
               )
-
+            
             ],
           ),
         )

@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'sidemenu.dart';
 import 'setup/login.dart';
@@ -21,8 +22,21 @@ class MyApp extends StatelessWidget {
   // #enddocregion build
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({
+    Key key,
+    @required this.user
+  }) : super(key : key);
+  final FirebaseUser user;
+
   @override
+  _HomepageState createState() => _HomepageState();
+}
+
+
+
+class _HomepageState extends State<MyHomePage>{
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),

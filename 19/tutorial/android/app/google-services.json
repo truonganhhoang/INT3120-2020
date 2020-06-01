@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "104853769637",
-    "firebase_url": "https://mathapp-fe207.firebaseio.com",
-    "project_id": "mathapp-fe207",
-    "storage_bucket": "mathapp-fe207.appspot.com"
+    "project_number": "678437160927",
+    "firebase_url": "https://flutter-test-911da.firebaseio.com",
+    "project_id": "flutter-test-911da",
+    "storage_bucket": "flutter-test-911da.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:104853769637:android:8e8dcc353e268275abec4c",
+        "mobilesdk_app_id": "1:678437160927:android:590ac0351ab9138093266a",
         "android_client_info": {
           "package_name": "com.example.tutorial"
         }
       },
       "oauth_client": [
         {
-          "client_id": "104853769637-cir8rhb8cqrg2lnhd2g1c5folmhmvefd.apps.googleusercontent.com",
+          "client_id": "678437160927-utel5q2ok7pis0l168jji3qiukcn53l0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBzfS6t6eS_pFGdpJ5LDkGQ2BUsxdN8j0s"
+          "current_key": "AIzaSyBwfuVsCrKSpLUDkyXKArh9zbbLFF2zw9A"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "104853769637-cir8rhb8cqrg2lnhd2g1c5folmhmvefd.apps.googleusercontent.com",
+              "client_id": "678437160927-utel5q2ok7pis0l168jji3qiukcn53l0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
