@@ -79,7 +79,9 @@ export default function listWord({ navigation, route }) {
       .catch((error) => console.log(error));
 
   }
-
+  useEffect(()=>{
+    console.log('asdasdasdas')
+  },[route.params.post])
 
   return (
     <View style={styles.container}>
@@ -93,15 +95,38 @@ export default function listWord({ navigation, route }) {
           />
 
           <View style={styles.Mem}>
-           
+          <Text
+        style={{
+          textAlign: "center",
+          fontSize: 20,
+          fontWeight: "500",
+          color: "blue",
+          marginBottom: 30,
+        }}
+      >
+        Your Mems
+      </Text>
          
             <Mems word={word}/>
-                
+           
+            {/* <Text style={{ 
+    paddingTop: 5,
+    paddingBottom: 10,
+    borderBottomWidth: 0.2,
+    textAlign: "center",
+    fontSize: 20,
+    
+            }}> Alisa ! No mem created for this ... {route.params?.post } </Text> */}
+           
+            {/* {route.params.post &&   <Mems word={route.params.post}/>}        */}
 
             <Button
               title="Create your own mens"
               onPress={() => {
-                navigation.navigate("AddMem");
+                navigation.navigate("AddMem",{
+                  courseInfor :courseInfor,
+                  wordId:word.id
+                });
               }}
             />
 

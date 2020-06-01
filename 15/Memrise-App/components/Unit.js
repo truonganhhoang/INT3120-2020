@@ -15,9 +15,11 @@ import flash from '../assets/splash.png';
 import wateringCan from '../assets/watering-can.png';
 
 export default function Unit (props){
-    const { id ,courseName  } = props.unit;
+    const { id ,courseName ,listWord } = props.unit;
     const  onPress  = props.onPress;
     // 
+    const level5Word=listWord.filter( (word) => word.level ===5 ); 
+    
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
@@ -25,7 +27,7 @@ export default function Unit (props){
         >
             <View style ={styles.container}>
                     <Image style={styles.unitImange} source = {planet} />
-                    <Progress.Bar progress={0.3}  />
+                    <Progress.Bar progress={level5Word.length/listWord.length  }  />
                     <Text style={styles.unitTitle}> {courseName } </Text>
             </View>
         </TouchableOpacity>

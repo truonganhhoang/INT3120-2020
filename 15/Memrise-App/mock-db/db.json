@@ -7,91 +7,11 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "id": 1,
-          "word": "ありがとうございます",
-          "mean": "cảm ơn ",
-          "miss": false,
-          "level": 0
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 2,
-          "word": "車",
-          "mean": "xe hơi",
-          "miss": true,
-          "level": 0
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 3,
-          "word": "野菜",
-          "mean": "rau",
-          "miss": true,
-          "level": 1
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 4,
-          "word": "指輪",
-          "mean": "nhẫn",
-          "miss": false,
-          "level": 2
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de sd asdasd nho"
-          ],
-          "id": 5,
-          "word": "なべ",
-          "mean": "nồi",
-          "miss": false,
-          "level": 3
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 6,
-          "word": "果物",
-          "mean": "hoa quả",
-          "miss": true,
-          "level": 4
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 7,
-          "word": "ミカン",
-          "mean": "quả quýt",
-          "miss": false,
-          "level": 5
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 8,
-          "word": "家",
-          "mean": "Nhà",
-          "miss": true,
-          "level": 0
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
           "id": 9,
           "word": "家",
           "mean": "Gia tộc",
-          "miss": false,
-          "level": 0
+          "level": 2,
+          "miss": true
         },
         {
           "mems": [
@@ -107,19 +27,49 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
+          "id": 7,
+          "word": "ミカン",
+          "mean": "quả quýt",
+          "miss": false,
+          "level": 5
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de nho"
+          ],
           "id": 11,
           "word": "家庭",
           "mean": "Gia đình",
           "miss": false,
-          "level": 0
+          "level": 5
         },
         {
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "id": 12,
-          "word": "経済",
-          "mean": "kinh tế",
+          "id": 2,
+          "word": "車",
+          "mean": "xe hơi",
+          "level": 5,
+          "miss": true
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de nho"
+          ],
+          "id": 6,
+          "word": "果物",
+          "mean": "hoa quả",
+          "level": 5,
+          "miss": false
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de sd asdasd nho"
+          ],
+          "id": 5,
+          "word": "なべ",
+          "mean": "nồi",
           "miss": false,
           "level": 4
         },
@@ -127,11 +77,11 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "id": 13,
-          "word": "庭",
-          "mean": "Vườn",
-          "miss": false,
-          "level": 4
+          "id": 4,
+          "word": "指輪",
+          "mean": "nhẫn",
+          "level": 5,
+          "miss": true
         }
       ],
       "id": 1
@@ -147,7 +97,7 @@
           "word": "ありがとうございます",
           "mean": "cảm ơn ",
           "miss": false,
-          "level": 0
+          "level": 5
         },
         {
           "mems": [
@@ -233,32 +183,12 @@
       "id": 2
     },
     {
-      "id": 3,
       "courseName": "人",
       "listWord": [
         {
           "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 1,
-          "word": "ありがとう",
-          "mean": "cảm ơn ",
-          "miss": false,
-          "level": 0
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 2,
-          "word": "車",
-          "mean": "xe hơi",
-          "miss": false,
-          "level": 0
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
+            " ya sai",
+            " âm hán là  Dã thái"
           ],
           "id": 3,
           "word": "野菜",
@@ -268,7 +198,7 @@
         },
         {
           "mems": [
-            "viet nhu nay cho de nho"
+            "Am hán việt là  Chỉ luân"
           ],
           "id": 4,
           "word": "指輪",
@@ -278,33 +208,13 @@
         },
         {
           "mems": [
-            "viet nhu nay cho de nho"
+            "Inu hay con chó, chữ đại có dấu `"
           ],
-          "id": 5,
-          "word": "なべ",
-          "mean": "nồi",
-          "miss": false,
+          "id": 9,
+          "word": "犬",
+          "mean": "cho",
+          "miss": true,
           "level": 3
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 6,
-          "word": "果物",
-          "mean": "hoa quả",
-          "miss": true,
-          "level": 4
-        },
-        {
-          "mems": [
-            "viet nhu nay cho de nho"
-          ],
-          "id": 7,
-          "word": "物",
-          "mean": "vât",
-          "miss": true,
-          "level": 4
         },
         {
           "mems": [
@@ -320,11 +230,11 @@
           "mems": [
             "viet nhu nay cho de nho"
           ],
-          "id": 9,
-          "word": "犬",
-          "mean": "cho",
-          "miss": true,
-          "level": 4
+          "id": 2,
+          "word": "車",
+          "mean": "xe hơi",
+          "miss": false,
+          "level": 5
         },
         {
           "mems": [
@@ -335,8 +245,39 @@
           "mean": "quyt",
           "miss": true,
           "level": 4
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de nho"
+          ],
+          "id": 6,
+          "word": "果物",
+          "mean": "hoa quả",
+          "miss": true,
+          "level": 1
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de nho"
+          ],
+          "id": 5,
+          "word": "なべ",
+          "mean": "nồi",
+          "miss": false,
+          "level": 3
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de nho"
+          ],
+          "id": 7,
+          "word": "物",
+          "mean": "vât",
+          "miss": true,
+          "level": 4
         }
-      ]
+      ],
+      "id": 3
     }
   ]
 }

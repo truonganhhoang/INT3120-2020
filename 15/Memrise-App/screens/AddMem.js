@@ -17,9 +17,15 @@ const treeArr = [tree0,tree1,tree2,tree3,tree4,tree5];
 const screenWidth= Math.round(Dimensions.get('window').width);
 const screenHeight= Math.round(Dimensions.get('window').height);
 
-export default function AddMem({navigation}) {
+export default function AddMem({navigation,route}) {
     const [postText, setPostText] = React.useState('');
+    // const courseInFor=route.params.courseInFor
+    // console.log(courseInFor)
+    function onPress(){
 
+      return navigation.navigate('WordDetail', { post:{mems: [...postText]} });
+      return navigation.navigate('WordDetail', { post:postText });
+    }
   return (
     <View style={styles.container}>
         <TextInput
@@ -31,10 +37,7 @@ export default function AddMem({navigation}) {
       />
       <Button
         title="Done"    
-        onPress={() => {
-          // Pass params back to home screen
-          navigation.navigate('WordDetail', { post: postText });
-        }}
+        onPress={onPress}
       />
 
     </View>

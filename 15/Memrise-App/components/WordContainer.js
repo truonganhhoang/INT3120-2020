@@ -29,8 +29,14 @@ export default function WordContainer(props) {
       return blur;
     }
   });
-
   
+  useEffect( ()=>{
+    if(miss) {
+      setBlurThunder(1)
+    } else{
+      setBlurThunder(blur);
+    }
+  } ,[miss])
 
   function handleOnPress() {
     if(!handleOnThunderPress) return;

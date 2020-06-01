@@ -38,7 +38,7 @@ export default function Courses({ navigation }) {
     <View style={styles.container}>
       {(isLoading && <Spinner />) || (
         <View style={styles.container}>
-          <Progress.Bar progress={0.3} width={screenWidth} />
+          {/* <Progress.Bar progress={0.3} width={screenWidth} /> */}
           <FlatList
             data={courses}
             renderItem={({ item }) => (

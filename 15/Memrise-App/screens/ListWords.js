@@ -2,18 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import MiniSearch from "minisearch";
 import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
-import Word from "../components/Word";
-
 import { SearchBar } from "react-native-elements";
-
-import { listWordData } from "../Data";
-import Spinner from "../components/Spinner";
 import { TouchableOpacity } from "react-native-gesture-handler";
+
+
+import Word from "../components/Word";
+import Spinner from "../components/Spinner";
 
 const deviceWidth = Dimensions.get("window").width;
 const screen = (precent) => (precent * deviceWidth) / 100;
 
 export default function ListWord({ navigation, route }) {
+
+  
   const { id, navigateCourse } = route.params;
   const [list, setList] = useState();
   const [cloneList, setCloneList] = useState();
@@ -32,7 +33,7 @@ export default function ListWord({ navigation, route }) {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [route.params]);
 
   useEffect(() => {
     if (typeof list == "undefined" || typeof searchValue =="undefined" ) return; //ignore componentDidMount
@@ -73,18 +74,22 @@ export default function ListWord({ navigation, route }) {
     });
   }
   function onPressNavigateReview(){
-    return navigation.navigate("Review",{listWord:list}) ;
+    return navigation.navigate("Review",{
+      listWord:list,
+      id: id,
+      courseName:navigateCourse[0].courseName
+    }) ;
   }
-
 
 
   return (
     <View style={styles.container}>
       {(!isLoading && (
         <View style={styles.wrap}>
+          
           <SearchBar
             lightTheme
-            placeholder="何か調べているか"
+            placeholder="Search"
             ContainerStyle={styles.searchbar}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={(text) => onChangeText(text)}
