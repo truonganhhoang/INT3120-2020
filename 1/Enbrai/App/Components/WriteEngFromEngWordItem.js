@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, TextInput, TouchableOpacity, Button, ScrollView, KeyboardAvoidingView } from "react-native";
+import { View, TextInput, TouchableOpacity, Button, ScrollView, KeyboardAvoidingView, Keyboard } from "react-native";
 import { Text, Icon } from "react-native-elements";
 import Tts from 'react-native-tts'
 import { withNavigation } from "react-navigation";
@@ -104,7 +104,8 @@ const ChooseEngFromVieWordItem = (props) => {
             else {
               checkAnswer()
               setTimeout(() => {
-                props.navigation.navigate('HomeStudyScreen')
+                Keyboard.dismiss()
+                props.navigation.navigate('HomeScreen')
               }, 500)
             }
             
