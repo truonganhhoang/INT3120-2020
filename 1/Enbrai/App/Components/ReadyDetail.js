@@ -22,11 +22,6 @@ const ReadyDetail = (props) => {
     list.push(i.word)
     list.push(i.meaning)
   })
-  var listCorresponding = []
-  data.map(i => {
-    listCorresponding.push(i.word)
-    listCorresponding.push(i.meaning)
-  })
 
   shuffleArray(list)
 
@@ -51,7 +46,7 @@ const ReadyDetail = (props) => {
               alignItems: 'center',
               paddingTop: heightW * 0.03,
               paddingBottom: heightW * 0.01,
-              borderBottomWidth: (item.order % 4 != 3) ? 0.7 : 0,
+              borderBottomWidth: (item.id % 5 != 4) ? 0.7 : 0,
               width: widthW * 0.7,
               borderBottomColor: '#D0D0D0'
             }}>
@@ -68,7 +63,7 @@ const ReadyDetail = (props) => {
           buttonStyle={{ backgroundColor: '#0592D2', borderRadius: 30, height: 50 }}
           titleStyle={{ color: 'white', fontSize: 15 }}
           containerStyle={{ width: 150, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-          onPress={() => { props.navigation.navigate('ChooseCorrespondingScreen', { data: data, list: list, listCorresponding: listCorresponding }) }}
+          onPress={() => { props.navigation.navigate('LearningScreen', { data: data, list: list }) }}
         ></Button>
       </View>
     </View>
