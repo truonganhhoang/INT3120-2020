@@ -65,7 +65,7 @@ const SelectSection = props => {
             onPress={() => props.navigation.goBack()}
           />
           <Text style={{marginLeft: 30, fontSize: 20, color: '#fff'}}>
-            Các cấp độ từ
+            Chọn độ khó
           </Text>
         </View>
       </View>

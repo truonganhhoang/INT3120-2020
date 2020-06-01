@@ -118,7 +118,7 @@ const pushQuestions = (userId,partId,levelId) =>{
   db.transaction(tx => {
     tx.executeSql(
       'SELECT * from Questions WHERE partId = ? AND levelId= ?; ',
-      [parId,levelId],
+      [partId,levelId],
       async (tx, res) => {
         var results = res.rows;
         for (let i = 0; i < results.length; i++) {

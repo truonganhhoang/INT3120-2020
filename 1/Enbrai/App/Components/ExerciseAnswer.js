@@ -89,8 +89,8 @@ const ExerciseAnswer = props => {
           />
           <Text style={{ fontSize: 18, color: '#424242' }}>{ans[0].text}</Text>
         </View>
-        <Text style={{ fontSize: 20, color: '#424242', fontWeight: 'bold', marginBottom: 5, paddingLeft: 20 }}>Exame:</Text>
-        <View style={{ paddingLeft: 30, paddingBottom: 15, borderBottomWidth: 0.5, borderBottomColor: '#E0E0E0' }}>
+        <Text style={{ fontSize: 20, color: '#424242', fontWeight: 'bold', marginBottom: 5, paddingLeft: 20 }}>Example:</Text>
+        <View style={{ paddingLeft: 45, paddingRight: 8, paddingBottom: 20, borderBottomWidth: 0.5, borderBottomColor: '#E0E0E0' }}>
 
           <Text style={{ fontSize: 18, color: '#424242' }}>
             {eg[0]}
@@ -103,7 +103,7 @@ const ExerciseAnswer = props => {
           </Text>
         </View>
         <View style={{ paddingLeft: 20, paddingRight: 10, paddingBottom: 15, paddingTop: 10 }}>
-          {props.questCount == props.questCompleteCount? (<></>):(<Text style={{ fontSize: 18, color: '#424242', marginBottom: 10 }}>Bạn cần hoàn thành từ <Text style={{ fontWeight: 'bold' }}>{props.questCount - props.questCompleteCount}</Text> nữa để mở khóa <Text style={{ fontWeight: 'bold' }}>level {props.levelIndex}</Text></Text>)}
+          {props.questCount == props.questCompleteCount? (<></>):(<Text style={{ fontSize: 18, color: '#424242', marginBottom: 10 }}>Bạn cần hoàn thành <Text style={{ fontWeight: 'bold' }}>{props.questCount - props.questCompleteCount}</Text> từ nữa để mở khóa <Text style={{ fontWeight: 'bold' }}>level {props.levelIndex}</Text></Text>)}
           <ProgressBarAndroid
             styleAttr="Horizontal"
             indeterminate={false}
