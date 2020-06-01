@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "104853769637",
+    "firebase_url": "https://mathapp-fe207.firebaseio.com",
+    "project_id": "mathapp-fe207",
+    "storage_bucket": "mathapp-fe207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104853769637:android:8e8dcc353e268275abec4c",
+        "android_client_info": {
+          "package_name": "com.example.tutorial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104853769637-cir8rhb8cqrg2lnhd2g1c5folmhmvefd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzfS6t6eS_pFGdpJ5LDkGQ2BUsxdN8j0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104853769637-cir8rhb8cqrg2lnhd2g1c5folmhmvefd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
