@@ -221,7 +221,10 @@ class _DictionaryResultState extends State<DictionaryResult> {
                         "VIỆT - ANH",
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () => translateToEnglish(),
+                      onPressed: () {
+                        translateToEnglish();
+                        FocusScope.of(context).unfocus();
+                      }
                     ),
                   ),
                 ),
@@ -239,7 +242,10 @@ class _DictionaryResultState extends State<DictionaryResult> {
                         "ANH - VIỆT",
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () => translateToVietNamese(),
+                      onPressed: () {
+                        translateToVietNamese();
+                        FocusScope.of(context).unfocus();
+                      }
                     ),
                   ),
                 ),
