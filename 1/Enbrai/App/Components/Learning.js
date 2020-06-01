@@ -5,10 +5,13 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import  ChooseEngFromViewWord  from './ChooseEngFromVieWord'
 import  ChooseVieFromEngWord  from './ChooseVieFromEngWord'
 import ChooseVieFromEngPronouce from './ChooseVieFromEngPronouce';
+import WriteEngFromEngWord from './WriteEngFromEngWord';
 
 const Learning = (props) => {
 
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(0) 
+  const data = props.navigation.getParam('data')
+  const list = props.navigation.getParam('list')
 
   const updatePage = (pageNum) => {
     setPage(pageNum)
@@ -30,15 +33,27 @@ const Learning = (props) => {
       >
         <ChooseVieFromEngWord
           updatePage={updatePage}
+          data={data}
+          list={list}
         ></ChooseVieFromEngWord>
 
         <ChooseEngFromViewWord 
           updatePage={updatePage}
+          data={data}
+          list={list}
         ></ChooseEngFromViewWord>
 
         <ChooseVieFromEngPronouce 
           updatePage={updatePage}
+          data={data}
+          list={list}
         > </ChooseVieFromEngPronouce>
+
+        <WriteEngFromEngWord
+          updatePage={updatePage}
+          data={data}
+          list={list}
+        ></WriteEngFromEngWord>
       </ScrollableTabView>
     </View>
   )

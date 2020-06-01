@@ -22,12 +22,6 @@ const ReadyDetail = (props) => {
     list.push(i.word)
     list.push(i.meaning)
   })
-  console.log(list)
-  var listCorresponding = []
-  data.map(i => {
-    listCorresponding.push(i.word)
-    listCorresponding.push(i.meaning)
-  })
 
   shuffleArray(list)
 
@@ -52,7 +46,7 @@ const ReadyDetail = (props) => {
               alignItems: 'center',
               paddingTop: heightW * 0.03,
               paddingBottom: heightW * 0.01,
-              borderBottomWidth: (item.order % 4 != 3) ? 0.7 : 0,
+              borderBottomWidth: (item.id % 5 != 4) ? 0.7 : 0,
               width: widthW * 0.7,
               borderBottomColor: '#D0D0D0'
             }}>

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { View, AsyncStorage, StatusBar, Image } from "react-native";
-import ChooseEngFromVieWordItem from './ChooseEngFromVieWordItem'
+import WriteEngFromEngWordItem from './WriteEngFromEngWordItem'
 import { firebaseAd, Banner, UNIT_ID_BANNER } from './FirbaseAd'
 
-const ChooseEngFromVieWord = (props) => {
-
+const WriteEngFromEngWord = (props) => {
   const [count, setCount] = useState(0)
   const [question, setQuestion] = useState(props.data[0])
 
   var meaningList = []
   const shuffleQuestionItem = () => {
     props.data.map(i => {
-      meaningList.push(i.word)
+      meaningList.push(i.meaning)
     })
 
     const shuffleArray = array => {
@@ -46,9 +45,9 @@ const ChooseEngFromVieWord = (props) => {
   }, [props, question, count])
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <ChooseEngFromVieWordItem 
+        <WriteEngFromEngWordItem
           data={props.data}
           question={question}
           updateCount={updateCount}
@@ -70,4 +69,4 @@ const ChooseEngFromVieWord = (props) => {
     </View>
   );
 }
-export default ChooseEngFromVieWord
+export default WriteEngFromEngWord
