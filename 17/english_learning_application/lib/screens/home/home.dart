@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:englishlearningapplication/screens/grammar/sentence.dart';
 import 'package:englishlearningapplication/screens/grammar/word.dart';
@@ -50,6 +52,7 @@ class Home extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
+                currentAccountPicture: Image.asset('images/logo.jpg'),
                 accountName: Text(
                   'English Grammar Tutorial',
                   style: TextStyle(
@@ -81,6 +84,13 @@ class Home extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pop();
                   Navigator.pushNamed(context, '/dictionary');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text("Đánh giá, góp ý"),
+                onTap: () {
+                  Navigator.of(context).pop();
                 },
               ),
             ],
