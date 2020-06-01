@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/main.dart';
 import 'startquiz.dart';
 import 'package:tutorial/basicknowledge/basicwindow.dart';
+import 'package:tutorial/setup/login.dart';
 
 
 
@@ -65,7 +66,10 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Đăng xuất'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: ()  {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => new LoginPage()));
+            },
           ),
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tutorial/main.dart';
 import 'package:tutorial/setup/signup.dart';
+import 'package:tutorial/setup/loading.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -16,12 +17,14 @@ class LoginPage extends StatefulWidget {
   //final AuthService _auth = AuthService();
   String _email, _password;
   String error = '';
+  bool loading = false;
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.blue[100],
       
       appBar: AppBar(
@@ -35,7 +38,7 @@ class LoginPage extends StatefulWidget {
         key: _formKey,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10.0,),
+            
             TextFormField(
               decoration: InputDecoration(
                 hintText: 'Email',
@@ -56,7 +59,7 @@ class LoginPage extends StatefulWidget {
             SizedBox(height: 10.0),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'password',
+                hintText: 'Password',
                 fillColor: Colors.white,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
@@ -105,12 +108,14 @@ class LoginPage extends StatefulWidget {
   Future<void> signIn() async {
     final formState = _formKey.currentState;
     if(formState.validate()){
+      setState(() => loading = true);  
       formState.save();
       try{
         FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
         Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(user : user)));
       } catch (e){
-        setState(() => error = 'Can log in bru!' );
+        setState(() => error = 'Cant log in bru!' );
+        loading = false;
       }
       
     }

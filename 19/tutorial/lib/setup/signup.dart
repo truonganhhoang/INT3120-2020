@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tutorial/setup/login.dart';
+import 'package:tutorial/setup/loading.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -12,12 +13,14 @@ class SignUpPage extends StatefulWidget {
   class _SignUpPageState extends State<SignUpPage> {
 
   String _email, _password;
+  String error;
+  bool loading = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.blue[100],
       appBar: AppBar(
         backgroundColor: Colors.blue[400],
@@ -29,11 +32,11 @@ class SignUpPage extends StatefulWidget {
         key: _formKey,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10.0,),
+           
             TextFormField(
                 decoration: InputDecoration(
-                hintText: 'password',
-                fillColor: Colors.grey,
+                hintText: 'Email',
+                fillColor: Colors.white,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color : Colors.white, width: 2.0),
@@ -50,7 +53,7 @@ class SignUpPage extends StatefulWidget {
             SizedBox(height: 10.0),
             TextFormField(
                 decoration: InputDecoration(
-                hintText: 'password',
+                hintText: 'Password',
                 fillColor: Colors.white,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
@@ -82,6 +85,7 @@ class SignUpPage extends StatefulWidget {
   Future<void> signUp() async {
     final formState = _formKey.currentState;
     if(formState.validate()){
+      setState(() => loading = true); 
       formState.save();
       try{
         FirebaseUser user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email.trim(), password: _password.trim())).user;
@@ -89,7 +93,8 @@ class SignUpPage extends StatefulWidget {
         Navigator.of(context).pop();
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
       } catch (e){
-        print(e.message);
+        setState(() => error = 'Ono sumthing broken' );
+        loading = false;
       }
       
     }
