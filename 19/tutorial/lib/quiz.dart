@@ -87,7 +87,7 @@ class QuizState extends State<Quiz> {
     
     return WillPopScope(
       child: Scaffold(
-    
+      backgroundColor: Colors.blue[100],
       body: Column(
         
         children: <Widget>[
