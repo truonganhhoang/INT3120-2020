@@ -15,6 +15,8 @@ const ReadyDetail = (props) => {
   const heightW = Dimensions.get('window').height
   const widthW = Dimensions.get('window').width
 
+  props.navigation.getParam('handleFinished')()
+  console.log(props.navigation.getParam('isFinished'))
   
   var data = props.navigation.getParam('dataSelected')
   var list = []

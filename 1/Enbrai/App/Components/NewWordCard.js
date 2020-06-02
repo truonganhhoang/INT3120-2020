@@ -6,9 +6,8 @@ import { withNavigation } from 'react-navigation';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-
 const NewWordCard = (props) => {
-
+  console.log(props.ref)
   const [selected, setSelected] = useState(false)
 
   const handleClick = async() => {

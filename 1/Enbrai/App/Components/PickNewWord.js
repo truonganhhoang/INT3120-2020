@@ -8,6 +8,7 @@ import Carousel from 'react-native-snap-carousel'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+var carouselRef = React.createRef()
 
 const data = [
   {
@@ -33,7 +34,7 @@ const data = [
 ]
 
 const PickNewWord = (props) => {
-  const [numWord, setNumWord] = useState(0); 
+  const [numWord, setNumWord] = useState(0);
 
   const updateNumWord = (newNum) => {
     setNumWord(newNum)
@@ -57,7 +58,10 @@ const PickNewWord = (props) => {
               numWord={numWord}
               navigation={props.navigation}
               data={data}
+              index={index}
+              ref={carouselRef}
             ></NewWordCard>}
+            ref={carouselRef}
             layout={'default'}
             sliderWidth={windowWidth}
             itemWidth={windowWidth * 0.75}
