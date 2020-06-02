@@ -60,10 +60,10 @@ const ExerciseAnswer = props => {
     var buttonColor, buttonTitle
     if (props.questCount == props.questCompleteCount) {
       buttonColor = '#FFB74D'
-      buttonTitle = 'Level tiếp theo >'
+      buttonTitle = 'Level tiếp theo'
     } else {
       buttonColor = '#FAFAFA'
-      buttonTitle = 'Từ tiếp theo >'
+      buttonTitle = 'Từ tiếp theo'
     }
     return (
       <View>

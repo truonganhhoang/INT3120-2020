@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar, StyleSheet, FlatList, View, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomHeader from './CustomHeaderPicker';
@@ -34,11 +34,13 @@ const data = [
 
 const PickNewWord = (props) => {
   const [numWord, setNumWord] = useState(0); 
-
+  const carousel = useRef('carousel');
   const updateNumWord = (newNum) => {
     setNumWord(newNum)
   }
-
+  const nextPage = ()=>{
+    carousel.snapToNext()
+  }
   return (
     <View style={{ flex: 1 }}>
       <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
@@ -49,6 +51,7 @@ const PickNewWord = (props) => {
       >
         <View style={{ flex: 9 }}>
           <Carousel
+            ref= {carousel}
             data={data}
             renderItem={(item, index) => <NewWordCard
               word={item.item.word}
@@ -57,6 +60,7 @@ const PickNewWord = (props) => {
               numWord={numWord}
               navigation={props.navigation}
               data={data}
+              nextPage = {nextPage}
             ></NewWordCard>}
             layout={'default'}
             sliderWidth={windowWidth}

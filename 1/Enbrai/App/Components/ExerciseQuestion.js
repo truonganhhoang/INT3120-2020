@@ -68,7 +68,7 @@ const ExerciseQuestion = props => {
     );
   };
   const renderQuestion = () => {
-    var ind = Math.floor(Math.random() * props.length);
+    var ind = props.ind;
     var quest = props.data[ind];
     var choices = shuffleArray(quest.choices);
     console.log(props.questResult[ind]);

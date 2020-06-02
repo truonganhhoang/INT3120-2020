@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Card, Text, Icon, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-
+import Tts from 'react-native-tts'
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+Tts.setDefaultLanguage('en-US')
 
 const NewWordCard = (props) => {
 
@@ -16,6 +17,7 @@ const NewWordCard = (props) => {
       var numberWords = props.numWord;
       props.updateNumWord(numberWords + 1)
       setSelected(true)
+      props.nextPage()
     }
     else {
       props.navigation.getParam('handleDataSelected')(props.data)
@@ -64,6 +66,7 @@ const NewWordCard = (props) => {
                 <Icon
                   name='volume-up'
                   size={30}
+                  onPress={() => { Tts.speak(props.word) }}
                 />
               }></Button>
           </View>
