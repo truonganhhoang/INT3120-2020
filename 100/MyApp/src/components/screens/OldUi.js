@@ -17,11 +17,11 @@ export default class OldUi extends Component {
             <ScrollView>
                 <Content>
                     <View style={{marginTop: 8}}>
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                         onPress = {()=> navigation.navigate('Login')}
                         >
                             <Text>Press</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                         <Provideo />
                         <Provideo />
                         <Provideo />

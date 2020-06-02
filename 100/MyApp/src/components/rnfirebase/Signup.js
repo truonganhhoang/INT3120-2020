@@ -4,6 +4,7 @@ import auth from '@react-native-firebase/auth';
 import { Container, Header, Left, Button, Icon, Body, Title, Right, Content } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
+
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +39,23 @@ class Signup extends Component {
         console.error(error);
       });
     }
+    loginFacebook = () =>{
+        LoginManager.logInWithPermissions(['public_profile', 'email'])
+        .then((result)=>{
+          if (result.isCancelled){
+            return Promise.reject(new Error('the user cancelled the request'))
+          }
+          console.log(result.grantedPermissions.toString())
+          return AccessToken.getCurrentAccessToken();
+        }
+        )
+        .then((data)=>{
+          const credential = auth.FacebookAuthProvider.credential(data.accessToken);
+          return auth().signInWithCredential(credential);
+        }
+        )
+        .then(() => this.setLogin())
+      }
     render() {
         return (
             <Container>
@@ -97,7 +115,10 @@ class Signup extends Component {
                             width: "100%",
                             marginTop: 32,
                             }}>
-                            <TouchableOpacity style={Styles.link}>
+                            <TouchableOpacity 
+                            style={Styles.link}
+                            onPress = {this.loginFacebook}
+                            >
                                 <FontAwesome name="facebook-square" color="#1976D2" size={28} />
                             </TouchableOpacity>
                             <TouchableOpacity style={Styles.link}>
