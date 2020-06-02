@@ -23,7 +23,7 @@ const ChooseEngFromVieWordItem = (props) => {
   }
 
   const checkAnswer = () => {
-    if (value == props.question.word) {
+    if (value.toLocaleLowerCase() == props.question.word) {
       setBGColor('#81C784')
       setIsShow(false)
     } else {
