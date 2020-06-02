@@ -31,11 +31,11 @@ export default class OldUi extends Component {
             </ScrollView>
             <FooterScreen
                 active1={true}
-                Go3={()=> navigation.navigate('Screen3')}
-                Go1={()=> navigation.navigate('Screen1')}
-                Go2={()=> navigation.navigate('Screen2')}
-                Go4={()=> navigation.navigate('Screen4')}
-                Go5={()=> navigation.navigate('Screen5')}
+                Go3={()=> navigation.navigate('Main')}
+                Go1={()=> navigation.navigate('Main')}
+                Go2={()=> navigation.navigate('Main')}
+                Go4={()=> navigation.navigate('Main')}
+                Go5={()=> navigation.navigate('Main')}
                 />
         </Container>
             

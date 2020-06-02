@@ -21,11 +21,6 @@ import OldUi from '../screens/OldUi';
 import FooterScreen from '../components/Footer';
 
 const Stack = createStackNavigator();
-function Menu(){
-    return(
-        <Main />
-    )
-}
 export default function Router() {
     return (
         <NavigationContainer>
@@ -34,7 +29,7 @@ export default function Router() {
                     header: ()=> null
                   }}
             >
-                <Stack.Screen name="Menu" component={Menu} />
+                <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="Screen1" component={Screen1} />
                 <Stack.Screen name="Screen2" component={Screen2} />
                 <Stack.Screen name="Screen3" component={Screen3} />

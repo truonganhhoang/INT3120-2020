@@ -22,8 +22,8 @@ class User extends Component {
                                 <Thumbnail square large source={require('../../img/avt.png')} />
                             </Left>
                             <Body>
-                                <H3>Sankhadeep</H3>
-                                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
+                                <H3>Tên người dùng</H3>
+                                <Text note numberOfLines={1}>Cố lên bạn nhé</Text>
                             </Body>
                             <Right>
                             </Right>

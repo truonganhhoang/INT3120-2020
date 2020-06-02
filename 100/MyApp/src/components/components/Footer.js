@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
 import { StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 // import { connect } from 'react-redux';
-export default class FooterScreen extends Component {
+class FooterScreen extends Component {
     constructor(props){
         super(props);
     }
+    getMyCourses(){
+      const { myCourses } = this.props;
+      myCourses.filter((item) => {return item.payed == false})
+      return myCourses;
+    }
   render() {
     const { active1, active2 , active3, active4 , active5} = this.props;
+    const mCs = this.getMyCourses();
     return (
         <Footer>
           <FooterTab>
             <Button 
-                badge vertical active={active1}
+                vertical active={active1}
                 style={styles.button}
                 onPress={this.props.Go1}
             >
-              <Badge><Text>2</Text></Badge>
+              {/* <Badge><Text>2</Text></Badge> */}
               <Icon name='md-home' style={{fontSize:28}}/>
             </Button>
             <Button 
@@ -32,7 +39,9 @@ export default class FooterScreen extends Component {
                 style={styles.button}
                 onPress={this.props.Go3}
             >
-              <Badge ><Text>51</Text></Badge>
+              <Badge >
+                <Text>{mCs.length}</Text>
+              </Badge>
                 <Icon name="md-basket" style={{fontSize:28}}/>
             </Button>
             <Button 
@@ -57,4 +66,10 @@ export default class FooterScreen extends Component {
 const styles = StyleSheet.create({
     button: {width: 50, height: 50}
 });
+function mapStateToProps(state){
+  return{ 
+    myCourses: state.myCourses
+  }
+}
+export default connect(mapStateToProps)(FooterScreen);
 // export default connect(null,)(FooterScreen);
