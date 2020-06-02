@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useEffect, useRef } from 'react';
-import { StatusBar, StyleSheet, FlatList, View, Dimensions } from 'react-native';
-=======
 import React, { useState, useEffect } from 'react';
 import { StatusBar, StyleSheet, AsyncStorage, View, Dimensions } from 'react-native';
->>>>>>> b10c270456494a21f7813e72a059bb4fcad92c18
 import LinearGradient from 'react-native-linear-gradient';
 import CustomHeader from './CustomHeaderPicker';
 import NewWordCard from './NewWordCard'
