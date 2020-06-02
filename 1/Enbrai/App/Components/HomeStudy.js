@@ -6,8 +6,9 @@ import { withNavigation } from 'react-navigation';
 
 const HomeStudy = (props) => {
     const [isReady, setIsReady] = useState(false)
-    const [isFinished, setIsFinished] = useState(false)
     const [dataSelected, setDataSelected] = useState([])
+
+    console.log(dataSelected)
 
     const handleDataSelected = (data) => {
         var selected = dataSelected
@@ -22,9 +23,6 @@ const HomeStudy = (props) => {
     
     const handleReady = () => {
         setIsReady(true)
-    }
-    const handleFinished = () => {
-        setIsFinished(true)
     }
     useEffect(() => {
     }, [isReady])
@@ -43,35 +41,13 @@ const HomeStudy = (props) => {
                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-                            onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected, isFinished: isFinished, handleFinished: handleFinished})}}
+                            onPress={() => { props.navigation.navigate('ReadyScreen', { dataSelected: dataSelected})}}
                         />
                     </View>
                 </LinearGradient>
             </View>
         )
     }
-    // else if (isReady && isFinished) {
-    //     return (
-    //         <KeyboardAvoidingView>
-    //             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-    //                 <StatusBar backgroundColor='#0288D1' barStyle='light-content'></StatusBar>
-    //                 <LinearGradient
-    //                     style={styles.linearGradient}
-    //                     colors={['#0592D2', '#39D57F']}
-    //                 >
-    //                     <View style={{ flex: 1, display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
-    //                         <Button
-    //                             title='BẠN ĐÃ HỌC HẾT TỪ CHO HÔM NAY!'
-    //                             buttonStyle={{ backgroundColor: 'white', borderRadius: 30, height: 50 }}
-    //                             titleStyle={{ color: '#0592D2', fontSize: 15 }}
-    //                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
-    //                         />
-    //                     </View>
-    //                 </LinearGradient>
-    //             </View>
-    //         </KeyboardAvoidingView>
-    //     )
-    // }
     else {
         return (
             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>

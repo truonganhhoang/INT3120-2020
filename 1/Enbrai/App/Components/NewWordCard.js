@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, AsyncStorage } from 'react-native';
 import { Card, Text, Icon, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+
 const NewWordCard = (props) => {
-  console.log(props.ref)
   const [selected, setSelected] = useState(false)
 
   const handleClick = async() => {
+    var value = props.dataSelect
     if (props.numWord < 3) {
       var numberWords = props.numWord;
       props.updateNumWord(numberWords + 1)
       setSelected(true)
+      value.push(props.data[props.index])
+      props.handleChangeDataSelect(value)
     }
     else {
-      props.navigation.getParam('handleDataSelected')(props.data)
+      value.push(props.data[props.index])
+      props.handleChangeDataSelect(value)
+      props.navigation.getParam('handleDataSelected')(props.dataSelect)
       props.navigation.getParam('handleReady')()
       props.navigation.navigate('HomeScreen')
     }
@@ -90,7 +95,7 @@ const NewWordCard = (props) => {
               type="clear"
               titleStyle={{ color: '#feb52b' }}
               disabled={selected}
-              onPress={handleClick} />
+              onPress={() => { handleClick() }} />
           </View>
         </Card>
       </View>
