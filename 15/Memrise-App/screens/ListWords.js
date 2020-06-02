@@ -13,8 +13,6 @@ const deviceWidth = Dimensions.get("window").width;
 const screen = (precent) => (precent * deviceWidth) / 100;
 
 export default function ListWord({ navigation, route }) {
-
-  
   const { id, navigateCourse } = route.params;
   const [list, setList] = useState();
   const [cloneList, setCloneList] = useState();

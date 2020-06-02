@@ -17,7 +17,7 @@ const screen = (percent) => (percent * deviceWidth) / 100;
 const blur = 0.1;
 
 export default function WordContainer(props) {
-  const { word, mean, level, miss } = props.objWord;
+  const { word, mean, yomikata,level, miss } = props.objWord;
   const hideMean = props.hideMean;
   const handleOnThunderPress =props.onPress;
   
@@ -54,7 +54,9 @@ export default function WordContainer(props) {
       <View style={styles.WordInfor}>
         <Text style={styles.Word}>{word}</Text>
 
+        {hideMean || <Text style={styles.yomikata}>{yomikata}</Text>}
         {hideMean || <Text style={styles.Mean}>{mean}</Text>}
+
       </View>
 
       <View>
@@ -118,6 +120,15 @@ const styles = StyleSheet.create({
     textTransform: "lowercase",
     fontWeight: "500",
     color: "#030",
-    fontSize: screen(9),
+    fontSize: screen(5),
+    marginTop:screen(5)
   },
+  yomikata: {
+    textTransform: "lowercase",
+    fontWeight: "500",
+    color: "#030",
+    fontSize: screen(4),
+    marginTop:screen(5)
+  },
+
 });

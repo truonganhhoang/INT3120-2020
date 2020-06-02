@@ -132,8 +132,15 @@ export default function Review({ navigation, route }) {
 
       let newTrueAnswer = {
         ...trueAnswer,
-        miss: true,
+        miss: true,       
       };
+      if(trueAnswer.level>0){
+        newTrueAnswer = {
+          ...trueAnswer,
+          miss: true, 
+          level: --trueAnswer.level      
+        };
+      }
       setTrueAnswer(newTrueAnswer);
 
       let newFalse =++statistic.false;

@@ -1,0 +1,273 @@
+{
+    "courses": [
+      {
+        "courseName": "人間",
+        "listWord": [
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 9,
+            "word": "家",
+            "mean": "Gia tộc",
+            "level": 2,
+            "miss": true
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 10,
+            "word": "漢字",
+            "mean": "Hán tự",
+            "miss": true,
+            "level": 5
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 7,
+            "word": "ミカン",
+            "mean": "quả quýt",
+            "miss": false,
+            "level": 5
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 11,
+            "word": "家庭",
+            "mean": "Gia đình",
+            "miss": false,
+            "level": 5
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 2,
+            "word": "車",
+            "mean": "xe hơi",
+            "level": 5,
+            "miss": true
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 6,
+            "word": "果物",
+            "mean": "hoa quả",
+            "level": 5,
+            "miss": false
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de sd asdasd nho"
+            ],
+            "id": 5,
+            "word": "なべ",
+            "mean": "nồi",
+            "miss": false,
+            "level": 4
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 4,
+            "word": "指輪",
+            "mean": "nhẫn",
+            "level": 5,
+            "miss": true
+          }
+        ],
+        "id": 1
+      },
+      {
+        "courseName": "勉強",
+        "listWord": [
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 1,
+            "word": "ありがとうございます",
+            "mean": "cảm ơn ",
+            "miss": false,
+            "level": 5
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 2,
+            "word": "車",
+            "mean": "xe hơi",
+            "miss": true,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 3,
+            "word": "野菜",
+            "mean": "rau",
+            "miss": false,
+            "level": 1
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 1,
+            "word": "ありがとうございます",
+            "mean": "cảm ơn ",
+            "miss": false,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 2,
+            "word": "車",
+            "mean": "xe hơi",
+            "miss": false,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 3,
+            "word": "野菜",
+            "mean": "rau",
+            "miss": true,
+            "level": 1
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 1,
+            "word": "ありがとうございます",
+            "mean": "cảm ơn ",
+            "miss": false,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 2,
+            "word": "車",
+            "mean": "xe hơi",
+            "miss": false,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 3,
+            "word": "野菜",
+            "mean": "rau",
+            "miss": true,
+            "level": 1
+          }
+        ],
+        "id": 2
+      },
+      {
+        "courseName": "人",
+        "listWord": [
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 10,
+            "word": "ミカン",
+            "mean": "quyt",
+            "miss": true,
+            "level": 0
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 2,
+            "word": "車",
+            "mean": "xe hơi",
+            "miss": false,
+            "level": 5
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 6,
+            "word": "果物",
+            "mean": "hoa quả",
+            "miss": true,
+            "level": 1
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 5,
+            "word": "なべ",
+            "mean": "nồi",
+            "miss": false,
+            "level": 3
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 7,
+            "word": "物",
+            "mean": "vât",
+            "miss": true,
+            "level": 4
+          },
+          {
+            "mems": [
+              "Am hán việt là  Chỉ luân"
+            ],
+            "id": 4,
+            "word": "指輪",
+            "mean": "nhẫn",
+            "miss": true,
+            "level": 2
+          },
+          {
+            "mems": [
+              " ya sai",
+              " âm hán là  Dã thái"
+            ],
+            "id": 3,
+            "word": "野菜",
+            "mean": "rau",
+            "level": 1,
+            "miss": true
+          },
+          {
+            "mems": [
+              "viet nhu nay cho de nho"
+            ],
+            "id": 8,
+            "word": "庭鶏",
+            "mean": "con gà",
+            "level": 5,
+            "miss": true
+          }
+        ],
+        "id": 3
+      }
+    ]
+  }
