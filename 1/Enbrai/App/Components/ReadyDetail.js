@@ -14,7 +14,6 @@ const ReadyDetail = (props) => {
 
   const heightW = Dimensions.get('window').height
   const widthW = Dimensions.get('window').width
-
   
   var data = props.navigation.getParam('dataSelected')
   var list = []

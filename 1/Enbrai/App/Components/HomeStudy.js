@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { withNavigation } from 'react-navigation';
@@ -7,6 +7,8 @@ import { withNavigation } from 'react-navigation';
 const HomeStudy = (props) => {
     const [isReady, setIsReady] = useState(false)
     const [dataSelected, setDataSelected] = useState([])
+
+    console.log(dataSelected)
 
     const handleDataSelected = (data) => {
         var selected = dataSelected
@@ -45,7 +47,8 @@ const HomeStudy = (props) => {
                 </LinearGradient>
             </View>
         )
-    } else {
+    }
+    else {
         return (
             <View style={{ flex: 1, display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
                 <StatusBar backgroundColor='#1976D2' barStyle='light-content'></StatusBar>
@@ -61,12 +64,6 @@ const HomeStudy = (props) => {
                             containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginBottom: 25 }}
                             onPress={() => props.navigation.navigate('PickNewWordScreen', { handleReady: handleReady, handleDataSelected: handleDataSelected })}
                         />
-                        <Button
-                            title='TÌM KIẾM MỘT TỪ'
-                            type='clear'
-                            titleStyle={{ color: 'white', fontSize: 14 }}
-                            containerStyle={{ width: 265, display: 'flex', alignSelf: 'center', marginTop: 25 }}
-                        ></Button>
                     </View>
                 </LinearGradient>
             </View>
