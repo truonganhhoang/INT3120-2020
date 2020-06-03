@@ -15,18 +15,20 @@ import flash from '../assets/splash.png';
 import wateringCan from '../assets/watering-can.png';
 
 export default function Unit (props){
-    const { id ,unitName  } = props.unit;
+    const { id ,courseName ,listWord } = props.unit;
     const  onPress  = props.onPress;
-
+    // 
+    const level5Word=listWord.filter( (word) => word.level ===5 ); 
+    
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-          onPress={onPress}
+          onPress={()=>onPress(id) }
         >
             <View style ={styles.container}>
                     <Image style={styles.unitImange} source = {planet} />
-                    <Progress.Bar progress={0.3}  />
-                    <Text style={styles.unitTitle}> {id} - {unitName} </Text>
+                    <Progress.Bar progress={level5Word.length/listWord.length  }  />
+                    <Text style={styles.unitTitle}> {courseName } </Text>
             </View>
         </TouchableOpacity>
 
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
     unitTitle:{
         textTransform:'uppercase',
         marginTop :10 ,
-        fontWeight: '700'
-
+        fontWeight: '700',
+        fontSize:30
     }
 });

@@ -1,65 +1,65 @@
-import React from 'react';
-import { StyleSheet, Text,Alert ,View ,FlatList ,Dimensions } from 'react-native';
-import * as Progress from 'react-native-progress';
- 
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList, Dimensions } from "react-native";
+import * as Progress from "react-native-progress";
 
-import Unit from '../components/Unit';
+import Unit from "../components/Unit";
+import axios from "axios";
+import Spinner from "../components/Spinner";
 
-// const AppContainer = createAppContainer(AppNavigator);
+const screenWidth = Math.round(Dimensions.get("window").width);
 
-// import sampleData from '../sampleData';
+export default function Courses({ navigation }) {
+  const [courses, setCourses] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const queryString = `http://localhost:3000/courses`;
+    axios
+      .get(queryString)
+      .then((res) => {
+        const newCourses = res.data;
+        setCourses(newCourses);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log("Error in courseScreen is ", err));
+  }, []);
 
-const sampleData= [
-    { id:1 , unitName : 'lession 1'  },
-    { id:2 , unitName : 'lession 2 '  },
-    { id:3 , unitName : 'lession 3'  },
-    { id:4 , unitName : 'lession 4'  },
-    { id:5 , unitName : 'lession 5'  },
-    { id:6 , unitName : 'lession 6'  },
-    { id:7 , unitName : 'lession 7'  },
-    { id:8 , unitName : 'lession 8'  }
-];
+  function onPressNavigate(id) {
+    const navigateCourse = courses.filter(
+      (course) => course.id === id
+    );
+      
+    return navigation.navigate("ListWord", {
+      id: id,
+      navigateCourse: navigateCourse,
+    });
+  }
 
-
-
-const screenWidth= Math.round(Dimensions.get('window').width);
-
-
-
-
-export default function Courses({navigation}) {
-  
-  
   return (
     <View style={styles.container}>
-        <Progress.Bar progress={0.3} width={screenWidth } />
-      
-        <FlatList   data ={ sampleData}
-            renderItem={  ({item})=>
-               <Unit unit={item}  
-                    onPress={()=>navigation.navigate('ListWord')}
-               /> 
-            }
-            keyExtractor={item => `${item.id }`} 
-            scrollEnabled={true}  
+      {(isLoading && <Spinner />) || (
+        <View style={styles.container}>
+          {/* <Progress.Bar progress={0.3} width={screenWidth} /> */}
+          <FlatList
+            data={courses}
+            renderItem={({ item }) => (
+              <Unit unit={item} onPress={onPressNavigate} />
+            )}
+            keyExtractor={(item) => `${item.id}`}
+            scrollEnabled={true}
             showsVerticalScrollIndicator={false}
-        />
-    
+          />
+        </View>
+      )}
     </View>
-    )
+  );
 }
 
-
-//styled componet
 const styles = StyleSheet.create({
   container: {
-    width :'100%',
-    // flex: 1,
-    backgroundColor:'#fff',
-    alignItems: 'stretch',
-    
-    justifyContent: 'center',
+    width: "100%",
+    backgroundColor: "#fff",
+    alignItems: "stretch",
+    justifyContent: "center",
+    flex: 1,
   },
-
 });
-

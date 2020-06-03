@@ -1,0 +1,707 @@
+{
+  "courses": [
+    {
+      "courseName": "人間",
+      "listWord": [
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 9,
+          "word": "家",
+          "mean": "nhà",
+          "level": 2,
+          "yomikata": [
+            "いえ",
+            "おや"
+          ],
+          "miss": true
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 10,
+          "word": "漢字",
+          "mean": "Hán tự",
+          "miss": true,
+          "yomikata": [
+            "かんじ"
+          ],
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 7,
+          "word": "ミカン",
+          "mean": "quả quýt",
+          "yomikata": [
+            "みかん"
+          ],
+          "miss": false,
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 11,
+          "word": "家庭",
+          "mean": "Gia đình",
+          "miss": false,
+          "yomikata": [
+            "かてい"
+          ],
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 2,
+          "word": "車",
+          "mean": "xe hơi",
+          "level": 5,
+          "yomikata": [
+            "くるま",
+            "しゃ"
+          ],
+          "miss": true
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 6,
+          "word": "果物",
+          "mean": "hoa quả",
+          "level": 5,
+          "yomikata": [
+            "くだもの"
+          ],
+          "miss": false
+        },
+        {
+          "mems": [
+            "viet nhu nay cho de sd asdasd nho"
+          ],
+          "id": 5,
+          "word": "なべ",
+          "mean": "nồi",
+          "miss": false,
+          "yomikata": [
+            "なべ"
+          ],
+          "level": 4
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 4,
+          "word": "指輪",
+          "mean": "nhẫn",
+          "level": 5,
+          "yomikata": [
+            "ゆびわ"
+          ],
+          "miss": true
+        }
+      ],
+      "id": 1
+    },
+    {
+      "courseName": "勉強",
+      "listWord": [
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 1,
+          "word": "ありがとう",
+          "yomikata": [
+            "ありがとう"
+          ],
+          "mean": "cảm ơn ",
+          "miss": false,
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 2,
+          "word": "区",
+          "mean": "Khu",
+          "yomikata": [
+            "く"
+          ],
+          "miss": true,
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 3,
+          "word": "野菜",
+          "mean": "rau",
+          "yomikata": [
+            "やさい"
+          ],
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 4,
+          "word": "ありがとう",
+          "mean": "cảm ơn ",
+          "miss": false,
+          "yomikata": [
+            "ありがとう"
+          ],
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 5,
+          "word": "車",
+          "mean": "xe hơi",
+          "miss": false,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 3,
+          "word": "野菜",
+          "mean": "rau",
+          "yomikata": [
+            "しんぶん"
+          ],
+          "miss": true,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 6,
+          "word": "ねつ",
+          "mean": "cảm",
+          "miss": false,
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 7,
+          "word": "自動車",
+          "mean": "xe",
+          "yomikata": [
+            "じどうしゃ"
+          ],
+          "miss": false,
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 30,
+          "word": "ミルク",
+          "mean": "sữa",
+          "miss": true,
+          "yomikata": [
+            "みるく"
+          ],
+          "level": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "courseName": "人",
+      "listWord": [
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 10,
+          "word": "ミカン",
+          "mean": "quyt",
+          "miss": true,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 2,
+          "word": "車",
+          "mean": "xe hơi",
+          "miss": false,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 6,
+          "word": "果物",
+          "mean": "hoa quả",
+          "miss": true,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 5,
+          "word": "なべ",
+          "mean": "nồi",
+          "miss": false,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 3
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 7,
+          "word": "物",
+          "mean": "vât",
+          "miss": true,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "level": 4
+        },
+        {
+          "mems": [
+            "Am hán việt là  Chỉ luân"
+          ],
+          "id": 4,
+          "word": "指輪",
+          "mean": "nhẫn",
+          "miss": true,
+          "level": 2
+        },
+        {
+          "mems": [
+            " ya sai",
+            " âm hán là  Dã thái"
+          ],
+          "id": 3,
+          "word": "野菜",
+          "mean": "rau",
+          "level": 1,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "miss": true
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 8,
+          "word": "庭鶏",
+          "mean": "con gà",
+          "level": 5,
+          "yomikata": [
+            "しんぶん"
+          ],
+          "miss": true
+        }
+      ],
+      "id": 3
+    },
+    {
+      "courseName": "人生",
+      "listWord": [
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 10,
+          "word": "お国",
+          "yomikata": [
+            "おくに"
+          ],
+          "mean": "Đất nước",
+          "miss": false,
+          "level": 3
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 11,
+          "word": "電話",
+          "yomikata": [
+            "でんわ"
+          ],
+          "mean": "Điện thoại",
+          "miss": true,
+          "level": 3
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 7,
+          "word": "部屋",
+          "yomikata": [
+            "へや"
+          ],
+          "mean": "Căn phòng",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 13,
+          "word": "靴下",
+          "yomikata": [
+            "くつした"
+          ],
+          "mean": "Tất, bít tất",
+          "miss": false,
+          "level": 3
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 18,
+          "word": "眼鏡",
+          "yomikata": [
+            "めがね"
+          ],
+          "mean": "Kính mắt",
+          "miss": true,
+          "level": 3
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 20,
+          "word": "化粧品",
+          "yomikata": [
+            "けしょうひん"
+          ],
+          "mean": "Mỹ phẩm, đồ hóa trang",
+          "miss": false,
+          "level": 4
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 1,
+          "word": "新聞",
+          "yomikata": [
+            "しんぶん"
+          ],
+          "mean": "Báo",
+          "miss": false,
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 6,
+          "word": "受付",
+          "yomikata": [
+            "うけつけ"
+          ],
+          "mean": "Bộ phận tiếp tân",
+          "miss": false,
+          "level": 5
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 9,
+          "word": "会社",
+          "yomikata": [
+            "かいしゃ"
+          ],
+          "mean": "Công ty",
+          "miss": true,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 5,
+          "word": "会議室",
+          "yomikata": [
+            "かいぎしつ"
+          ],
+          "mean": "Phòng họp",
+          "miss": false,
+          "level": 4
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 17,
+          "word": "万",
+          "yomikata": [
+            "まん"
+          ],
+          "mean": "Vạn, mười nghìn",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 19,
+          "word": "服",
+          "yomikata": [
+            "ふく"
+          ],
+          "mean": "Quần áo",
+          "miss": true,
+          "level": 3
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 2,
+          "word": "教室",
+          "yomikata": [
+            "きょうしつ"
+          ],
+          "mean": "Lớp học, phòng học",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 16,
+          "word": "千",
+          "yomikata": [
+            "せん"
+          ],
+          "mean": "Nghìn",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 3,
+          "word": "食堂",
+          "yomikata": [
+            "しょくどう"
+          ],
+          "mean": "Nhà ăn",
+          "miss": false,
+          "level": 2
+        },
+        {
+          "mems": [
+            ""
+          ],
+          "id": 14,
+          "word": "地下",
+          "yomikata": [
+            "ちか"
+          ],
+          "mean": "Tầng hầm, dưới mặt đất",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 4,
+          "word": "事務所",
+          "yomikata": [
+            "じむしょ"
+          ],
+          "mean": "Văn phòng",
+          "miss": false,
+          "level": 3
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 12,
+          "word": "靴",
+          "yomikata": [
+            "くつ"
+          ],
+          "mean": "Giầy",
+          "miss": false,
+          "level": 0
+        },
+        {
+          "mems": [
+            "Hãy Thêm cách bạn ghi nhớ từ này nào ...."
+          ],
+          "id": 8,
+          "word": "階段",
+          "yomikata": [
+            "かいだん"
+          ],
+          "mean": "Cầu thang",
+          "miss": false,
+          "level": 2
+        }
+      ],
+      "id": 4
+    },
+    {
+      "courseName": "動詞",
+      "listWord": [
+        {
+          "mems": [
+            "Chữ V người Nhật đọc là Bề "
+          ],
+          "id": 6,
+          "word": "ベトナム",
+          "yomikata": [
+            "べとなむ"
+          ],
+          "mean": "Việt Nam",
+          "miss": false,
+          "level": 2
+        },
+        {
+          "mems": [
+            "tự đông xa "
+          ],
+          "id": 12,
+          "word": "自動車",
+          "yomikata": [
+            "じどうしゃ"
+          ],
+          "mean": "Xe hơi",
+          "miss": true,
+          "level": 2
+        },
+        {
+          "mems": [
+            " TỪ gốc là 'Ngân Hành' người việt gọi là ngân hàng "
+          ],
+          "id": 7,
+          "word": "銀行",
+          "yomikata": [
+            "ぎんこう"
+          ],
+          "mean": "Ngân hàng",
+          "level": 0,
+          "miss": true
+        },
+        {
+          "mems": [
+            "Thời trong thời gian , Kế trong kê toán => cái tính toán thời gian là "
+          ],
+          "id": 10,
+          "word": "時計",
+          "yomikata": [
+            "とけい"
+          ],
+          "mean": "Đồng hồ",
+          "miss": false,
+          "level": 2
+        },
+        {
+          "mems": [
+            "Tự chuyển xa , xe mình tự di chuyển"
+          ],
+          "id": 13,
+          "word": "自転車",
+          "yomikata": [
+            "じてんしゃ"
+          ],
+          "mean": "Xe đạp",
+          "miss": false,
+          "level": 1
+        },
+        {
+          "mems": [
+            "Hán việt là Duyên Bút"
+          ],
+          "id": 9,
+          "word": "鉛筆",
+          "yomikata": [
+            "えんぴつ"
+          ],
+          "mean": "Bút chì",
+          "miss": false,
+          "level": 3
+        },
+        {
+          "mems": [
+            "shain, nhân viên công ty"
+          ],
+          "id": 2,
+          "word": "社員",
+          "yomikata": [
+            "しゃいん"
+          ],
+          "mean": "Nhân viên công ty",
+          "level": 0,
+          "miss": true
+        },
+        {
+          "mems": [
+            "Hán việt là bản"
+          ],
+          "id": 8,
+          "word": "本",
+          "yomikata": [
+            "ほん"
+          ],
+          "mean": "Sách",
+          "miss": false,
+          "level": 1
+        }
+      ],
+      "id": 5
+    }
+  ]
+}

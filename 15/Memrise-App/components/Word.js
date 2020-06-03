@@ -5,39 +5,40 @@ import {
     View,
     StyleSheet,
     TouchableOpacity,
-    Alert
 } from "react-native";
 
+import TreeImages from '../TreeImages';
 import planet from '../assets/planet.png';
 import thunder from '../assets/thunder.png';
 import wateringCan from '../assets/watering-can.png';
 
-import tree0 from '../assets/tree/tree0.png'
-import tree1 from '../assets/tree/tree1.png'
-import tree2 from '../assets/tree/tree2.png'
-import tree3 from '../assets/tree/tree3.png'
-import tree4 from '../assets/tree/tree4.png'
-import tree5 from '../assets/tree/tree5.png'
-
-
 export default function Word (props){
-    const treeArr = [tree0,tree1,tree2,tree3,tree4,tree5];
-    const { id ,word ,mean , miss , level } = props.unit;
+    // const TreeImages = [tree0,tree1,tree2,tree3,tree4,tree5];
+    const { word ,mean , miss , level } = props.word;
+     
+    const wordId =props.word.id; // giu nguyen 
+    // for purpose use MiniSearch word ( because it require field 'id')
+    
+    const {id} =props.id;
     const onPress = props.onPress;
+   
+    
     return( 
         <TouchableOpacity 
             activeOpacity ={0.5}
-            onPress={onPress}
+            onPress={()=>onPress(wordId,id)}  // giu nguyen w id ben trai
         >
             <View style ={styles.container}>
-                    <Image style={styles.wordImage} source = {treeArr[level]} />
+                    <Image style={styles.wordImage} source = {TreeImages[level]} />
                     <View style ={styles.wordContainer}>
                      
                         <Text style={styles.word} >  {word} </Text>
                         <Text style={styles.mean} > {mean} </Text>
                     </View>
                             
-            {  miss&&<Image style={styles.thunderImage} source = {thunder} />}
+
+
+            {  miss&&<Image style={styles.thunderImage} source = {thunder}   />}
                    
                     
             </View>

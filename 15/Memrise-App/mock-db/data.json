@@ -1,0 +1,530 @@
+{
+    "courses":[
+        {
+            "id" : 1 , 
+            "courseName": "一",
+            "listWord":[
+                {  
+                    "id":1,
+                    "word":"車",
+                    "yomikata": ["クルマ"　,"しゃ"],
+                    "mean":"Xe hơi",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "XA"]
+                },
+                {  
+                    "id":2,
+                    "word":"食べ物",
+                    "yomikata": ["たべもの"],
+                    "mean":"Đồ ăn, thức ăn",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THỰC VẬT" ]
+                },
+                {  
+                    "id":3,
+                    "word":"飲み物",
+                    "yomikata": ["のみもの"],
+                    "mean":"Đồ uống",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "ẨM VẬT"]
+                },
+                {  
+                    "id":4,
+                    "word":"果物",
+                    "yomikata": ["くだもの"],
+                    "mean":"Hoa quả",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "QUẢ VẬT"]
+                },
+                {  
+                    "id":5,
+                    "word":"動物",
+                    "yomikata": ["どうぶつ"],
+                    "mean":"Động vật",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "ĐỘNG VẬT"]
+                },
+                {  
+                    "id":6,
+                    "word":"物価",
+                    "yomikata": ["ぶっか"],
+                    "mean":"Giá thành",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "VẬT GIÁ"]
+                },
+                {  
+                    "id":7,
+                    "word":"建物",
+                    "yomikata": ["たてもの"],
+                    "mean":"Tòa nhà, tòa kiến trúc",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "KIẾN VẬT" ]
+                },
+                {  
+                    "id":8,
+                    "word":"社会",
+                    "yomikata": ["しゃかい"],
+                    "mean":"Xã hội",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "XÃ HỘI" ]
+                },
+                {  
+                    "id":9,
+                    "word":"本社",
+                    "yomikata": ["ほんしゃ"],
+                    "mean":"Trụ sở chính của công ty",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CƠ XÃ" ]
+                },
+                {  
+                    "id":10,
+                    "word":"社員",
+                    "yomikata": ["しゃいん"],
+                    "mean":"Nhân viên công ty",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "XÃ VIÊN" ]
+                },
+                {  
+                    "id":11,
+                    "word":"支社",
+                    "yomikata": ["ししゃ"],
+                    "mean":"Chi nhánh con công ty",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CHI XÃ"]
+                }
+            ]
+        },
+        {
+            "id" : 1 , 
+            "courseName": "二",
+            "listWord":[
+                {  
+                    "id":1,
+                    "word":"洗",
+                    "yomikata": ["あらう",　"せん"],
+                    "mean":"Giặt, rửa",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "TẨY"]
+                },
+                {  
+                    "id":2,
+                    "word":"洗濯",
+                    "yomikata": ["せんたく"],
+                    "mean":"Sự giặt, giặt đồ",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "TẨY TRẠC"]
+                },
+                {  
+                    "id":3,
+                    "word":"自然",
+                    "yomikata": ["しぜん"],
+                    "mean":"Tự nhiên",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "TỰ NHIÊN"]
+                },
+                {  
+                    "id":4,
+                    "word":"当然",
+                    "yomikata": ["とうぜん"],
+                    "mean":"Điều đương nhiên, dĩ nhiên là như vậy",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "ĐƯƠNG NHIÊN" ]
+                },
+                {  
+                    "id":5,
+                    "word":"偶然",
+                    "yomikata": ["ぐうぜん"],
+                    "mean":"Sự tình cờ, ngẫu nhiên",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "NGẪU NHIÊN"]
+                },
+                {  
+                    "id":6,
+                    "word":"発表",
+                    "yomikata": ["はっぴょう"],
+                    "mean":"Phát biểu, trình bày",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "PHÁT BIỂU"]
+                },
+                {  
+                    "id":7,
+                    "word":"開発",
+                    "yomikata": ["かいはつ"],
+                    "mean":"Sự phát triển",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "KHAI TRIỂN" ]
+                },
+                {  
+                    "id":8,
+                    "word":"発展",
+                    "yomikata": ["はってん"],
+                    "mean":"Sự phát triển",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "PHÁT TRIỂN" ]
+                },
+                {  
+                    "id":9,
+                    "word":"発行",
+                    "yomikata": ["はっこう"],
+                    "mean":"Sự phát hành",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "PHÁT HÀNH" ]
+                },
+                {  
+                    "id":10,
+                    "word":"発足",
+                    "yomikata": ["はっそく"],
+                    "mean":"Sự bắt đầu, thành lập, mở đầu một hoạt động",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "PHÁT TÚC" ]
+                },
+                {  
+                    "id":11,
+                    "word":"支社",
+                    "yomikata": ["ししゃ"],
+                    "mean":"Chi nhánh con công ty",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CHI XÃ"]
+                }
+            ]
+        },
+        {
+            "id" : 1 , 
+            "courseName": "三",
+            "listWord":[
+                {  
+                    "id":1,
+                    "word":"行う",
+                    "yomikata": ["おこなう"],
+                    "mean":"Việc tổ chức, thực hiện",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "HÀNH"]
+                },
+                {  
+                    "id":2,
+                    "word":"銀行",
+                    "yomikata": ["ぎんこう"],
+                    "mean":"Ngân hàng",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "KIM HÀNH"]
+                },
+                {  
+                    "id":3,
+                    "word":"行政",
+                    "yomikata": ["ぎょうせい"],
+                    "mean":"Hành chính",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "HÀNH CHÍNH"]
+                },
+                {  
+                    "id":4,
+                    "word":"旅行",
+                    "yomikata": ["りょこう"],
+                    "mean":"Du lịch",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "LỮ HÀNH" ]
+                },
+                {  
+                    "id":5,
+                    "word":"実行",
+                    "yomikata": ["じっこう"],
+                    "mean":"Sự thi hành, thực hành",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THỰC HÀNH"]
+                },
+                {  
+                    "id":6,
+                    "word":"政治",
+                    "yomikata": ["せいじ"],
+                    "mean":"Chính trị",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CHÍNH TRỊ"]
+                },
+                {  
+                    "id":7,
+                    "word":"正しい",
+                    "yomikata": ["ただしい"],
+                    "mean":"Chính xác",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CHÍNH" ]
+                },
+                {  
+                    "id":8,
+                    "word":"改正",
+                    "yomikata": ["かいせい"],
+                    "mean":"Sự cải chính, sửa chữa",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CẢI CHÍNH" ]
+                },
+                {  
+                    "id":9,
+                    "word":"世界",
+                    "yomikata": ["せかい"],
+                    "mean":"Thế giới",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THẾ GIỚI" ]
+                },
+                {  
+                    "id":10,
+                    "word":"世代",
+                    "yomikata": ["せだい"],
+                    "mean":"Thế hệ, thời kỳ",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THẾ ĐẠI" ]
+                },
+                {  
+                    "id":11,
+                    "word":"世紀",
+                    "yomikata": ["せいき"],
+                    "mean":"Thế kỷ",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THẾ KỶ"]
+                }
+            ]
+        },
+        {
+            "id" : 1 , 
+            "courseName": "四",
+            "listWord":[
+                {  
+                    "id":1,
+                    "word":"世話",
+                    "yomikata": ["せわ"],
+                    "mean":"Sự chăm  sóc",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THẾ THOẠI"]
+                },
+                {  
+                    "id":2,
+                    "word":"話す",
+                    "yomikata": ["話す"],
+                    "mean":"Trò chuyện, nói chuyện, câu chuyện",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THOẠI"]
+                },
+                {  
+                    "id":3,
+                    "word":"電話",
+                    "yomikata": ["でんわ"],
+                    "mean":"Điện thoại",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "Điện thoại"]
+                },
+                {  
+                    "id":4,
+                    "word":"話題",
+                    "yomikata": ["わだい"],
+                    "mean":"Chủ đề, đề tài",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "THOẠI ĐỀ" ]
+                },
+                {  
+                    "id":5,
+                    "word":"会話",
+                    "yomikata": ["かいわ"],
+                    "mean":"Cuộc hội thoại, nói chuyện",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "HỘI THOẠI"]
+                },
+                {  
+                    "id":6,
+                    "word":"来る",
+                    "yomikata": ["くる"],
+                    "mean":"Đi đến",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "LAI"]
+                },
+                {  
+                    "id":7,
+                    "word":"将来",
+                    "yomikata": ["しょうらい"],
+                    "mean":"Tương lai, mai này, mai sau",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "TƯƠNG LAI" ]
+                },
+                {  
+                    "id":8,
+                    "word":"来日",
+                    "yomikata": ["らいにち"],
+                    "mean":"Việc đến Nhật",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "LAI NHẬT" ]
+                },
+                {  
+                    "id":9,
+                    "word":"未来",
+                    "yomikata": ["みらい"],
+                    "mean":"Tương lai",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "VỊ LAI" ]
+                },
+                {  
+                    "id":10,
+                    "word":"仕事",
+                    "yomikata": ["しごと"],
+                    "mean":"Công việc",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "CÔNG VIỆC" ]
+                },
+                {  
+                    "id":11,
+                    "word":"事件",
+                    "yomikata": ["じけん"],
+                    "mean":"Sự việc, vụ việc",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "SỰ KIỆN"]
+                }
+            ]
+        },
+        {
+            "id" : 1 , 
+            "courseName": "五",
+            "listWord":[
+                {  
+                    "id":1,
+                    "word":"問題",
+                    "yomikata": ["もんだい"],
+                    "mean":"Vấn đề, câu hỏi",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "VẤN ĐỀ"]
+                },
+                {  
+                    "id":2,
+                    "word":"宿題",
+                    "yomikata": ["しゅくだい"],
+                    "mean":"Bài tập về nhà",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "TÚC ĐỀ"]
+                },
+                {  
+                    "id":3,
+                    "word":"訪問",
+                    "yomikata": ["ほうもん"],
+                    "mean":"Sự thăm hỏi, viếng thăm",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "PHỎNG VẤN"]
+                },
+                {  
+                    "id":4,
+                    "word":"許す",
+                    "yomikata": ["ゆるす"],
+                    "mean":"Tha thứ, miễn",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "HỨA" ]
+                },
+                {  
+                    "id":5,
+                    "word":"間違う",
+                    "yomikata": ["まちがう"],
+                    "mean":"Nhầm lẫn, sai sót",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "GIAN VI"]
+                },
+                {  
+                    "id":6,
+                    "word":"役に立つ",
+                    "yomikata": ["やくにたつ"],
+                    "mean":"Có ích, giúp đỡ có ích",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "DỊCH LẬP"]
+                },
+                {  
+                    "id":7,
+                    "word":"約束",
+                    "yomikata": ["やくそく"],
+                    "mean":"Cuộc hẹn trước, lời hứa",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "ƯỚC THÚC" ]
+                },
+                {  
+                    "id":8,
+                    "word":"事務所",
+                    "yomikata": ["じむしょ"],
+                    "mean":"Văn phòng làm việc",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "SỰ VỤ SỞ" ]
+                },
+                {  
+                    "id":9,
+                    "word":"論文",
+                    "yomikata": ["ろんぶん"],
+                    "mean":"Luận văn",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "LUẬN VĂN" ]
+                },
+                {  
+                    "id":10,
+                    "word":"誤解",
+                    "yomikata": ["ごかい"],
+                    "mean":"Sự hiểu nhầm",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "NGỘ GIẢI" ]
+                },
+                {  
+                    "id":11,
+                    "word":"後悔",
+                    "yomikata": ["こうかい"],
+                    "mean":"Sự hối hận",
+                    "miss":true,
+                    "level":0,
+                    "mems":[ "HẬU HỐI"]
+                }
+            ]
+        }
+        
+    ]
+}
