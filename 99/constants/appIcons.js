@@ -18,4 +18,10 @@ export default appIcons = {
   uutien: require("../assets/icons/uutien.png"),
   vanchuyen: require("../assets/icons/vanchuyen.png"),
   menu: require("../assets/icons/open-menu.png"),
+  back: require("../assets/icons/back.png"),
+  next: require("../assets/icons/next.png"),
+  partner: require("../assets/icons/partners.png"),
+  signage: require("../assets/icons/signage.png"),
+  motor: require("../assets/icons/motorcycle.png"),
+  checklist: require("../assets/icons/checklist.png"),
 };
