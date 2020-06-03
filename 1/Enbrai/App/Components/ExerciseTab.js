@@ -151,7 +151,7 @@ const ExerciseTab = props => {
                 data={data}
                 partId={partId}
                 levelId={levelId}
-                length={length}
+                ind={Math.floor(Math.random() *length)}
                 setPage={updatePage}
                 questResult={questResult}
                 questCompleteCount={questCompleteCount}

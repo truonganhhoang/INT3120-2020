@@ -50,20 +50,6 @@ const SelectLevel = props => {
     return () => {};
   }, [props]);
   const handlePress = async (partId, levelId, index, isLevelComplete)=>{
-    if(isLevelComplete=="Yes"){
-      var userId = firebase.auth().currentUser.uid;
-      await updateQuestions(userId,partId,levelId);
-      var questCompleteCount = 0;
-      firebase
-        .database()
-        .ref('DataResult')
-        .child(`${userId}`)
-        .child('Part')
-        .child(`${partId}`)
-        .child('levels')
-        .child(`${levelId}`)
-        .update({questCompleteCount});
-    }
     props.navigation.navigate('ExerciseTabScreen', {partId: partId, levelId: levelId, index:index})
   }
   return (
@@ -85,7 +71,7 @@ const SelectLevel = props => {
             onPress={() => props.navigation.goBack()}
           />
           <Text style={{marginLeft: 30, fontSize: 20, color: '#fff'}}>
-            Levels
+            Chọn mức độ
           </Text>
         </View>
       </View>
@@ -128,11 +114,11 @@ const SelectLevel = props => {
                       fontWeight: 'bold',
                       color: '#424242',
                     }}>
-                    Level {item.index+1}
+                    Mức {item.index+1}
                   </Text>
                   <Icon
                   name="check-circle"
-                  size={item.item.isLevelComplete=="No"?0:25}
+                  size={item.item.questCompleteCount!=item.item.questCount?0:25}
                   color="#4CAF50"
                   containerStyle={{}}
                   onPress={() => props.navigation.goBack()}
@@ -164,7 +150,7 @@ const SelectLevel = props => {
                   disabled={item.item.lock=='No'? false: true}
                   onPress={()=>{handlePress(partId,item.item.id,item.index+1,item.item.isLevelComplete) }}
                   >
-                  <Text style={{fontSize: 20, color:"#616161"}}>Bắt đầu</Text>
+                  <Text style={{fontSize: 20, color:"#616161"}}>{item.item.questCompleteCount==item.item.questCount ? 'Đã hoàn thành' : 'Bắt đầu'}</Text>
                 </TouchableOpacity>
                 
               </TouchableOpacity>
