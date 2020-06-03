@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguag
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -44,6 +46,7 @@ public class TranslateFragment extends Fragment {
     EditText yourText;
     TextView transText;
     String value;
+    Button btnTrans;
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
 
@@ -73,7 +76,36 @@ public class TranslateFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         yourText = view.findViewById(R.id.text);
         btn = view.findViewById(R.id.voice);
+        btnTrans = view.findViewById(R.id.btnTrans);
         transText = view.findViewById(R.id.translateApi);
+        btnTrans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                value = yourText.getText().toString();
+                FirebaseLanguageIdentification identifier = FirebaseNaturalLanguage.getInstance().getLanguageIdentification();
+                identifier.identifyLanguage(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String s) {
+                        FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(57).setTargetLanguage(FirebaseTranslateLanguage.EN).build();
+                        final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
+                        FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
+                        translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                                    @Override
+                                    public void onSuccess(String s) {
+                                        getLanguageCode(s);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +121,7 @@ public class TranslateFragment extends Fragment {
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Hi speak something");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi speak something");
 
         //start intent
         try {
@@ -104,8 +136,8 @@ public class TranslateFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case REQUEST_CODE_SPEECH_INPUT:{
-                if (resultCode == RESULT_OK && null!=data) {
+            case REQUEST_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
                     //get text array from voice intent
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     value = result.get(0);
@@ -131,31 +163,48 @@ public class TranslateFragment extends Fragment {
             case "vi":
                 langCode = FirebaseTranslateLanguage.VI;
                 break;
-                default:
-                    langCode = 0;
             case "en":
                 langCode = FirebaseTranslateLanguage.EN;
                 break;
+            default:
+                langCode = 11;
         }
 
         translateText(langCode);
     }
 
     private void translateText(int langCode) {
-        FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.EN).build();
-        final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
-        FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
-        translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
-                    @Override
-                    public void onSuccess(String s) {
-                        transText.setText(s);
-                    }
-                });
-            }
-        });
+        if (langCode == 57) {
+            FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.EN).build();
+            final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
+            FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
+            translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            transText.setText(s);
+                        }
+                    });
+                }
+            });
+        } else if (langCode == 11) {
+            FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder().setSourceLanguage(langCode).setTargetLanguage(FirebaseTranslateLanguage.VI).build();
+            final FirebaseTranslator translator = FirebaseNaturalLanguage.getInstance().getTranslator(options);
+            FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
+            translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    translator.translate(value).addOnSuccessListener(new OnSuccessListener<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            transText.setText(s);
+                        }
+                    });
+                }
+            });
+        }
 
     }
 

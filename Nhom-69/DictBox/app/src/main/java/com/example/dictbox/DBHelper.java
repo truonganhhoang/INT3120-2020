@@ -25,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private final String TBL_AV = "av";
     private final String TBL_BOOKMARK = "bookmark";
     private final String TBL_HISTORY = "history";
+    private final String TBL_SENTENCES = "sentences";
     private final String COL_KEY = "key";
     private final String COL_VALUE = "value";
 
@@ -97,6 +98,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Word getWord(String key) {
         String q = "SELECT [key], [value] FROM " + TBL_AV + " WHERE upper([key]) = upper(?)";
+        Cursor result = mDB.rawQuery(q, new String[]{key});
+
+        Word word = new Word();
+
+        while ((result.moveToNext())) {
+            word.key = result.getString(result.getColumnIndex(COL_KEY));
+            word.value = result.getString(result.getColumnIndex(COL_VALUE));
+        }
+
+        return word;
+    }
+
+    public Word getSentence(String key) {
+        String q = "SELECT [key], [value] FROM " + TBL_SENTENCES + " WHERE upper([key]) = upper(?)";
         Cursor result = mDB.rawQuery(q, new String[]{key});
 
         Word word = new Word();
@@ -185,6 +200,21 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public ArrayList<String> getAllWordFromHistory() {
         String q = "SELECT * FROM " + TBL_HISTORY + " ORDER BY [date] DESC;";
+        Cursor result = mDB.rawQuery(q, null);
+
+        Word word = new Word();
+
+        ArrayList<String> source = new ArrayList<>();
+
+        while ((result.moveToNext())) {
+            source.add(result.getString(result.getColumnIndex(COL_KEY)));
+        }
+
+        return source;
+    }
+
+    public ArrayList<String> getAllFromSentences() {
+        String q = "SELECT * FROM " + TBL_SENTENCES + " ORDER BY [id] DESC;";
         Cursor result = mDB.rawQuery(q, null);
 
         Word word = new Word();
