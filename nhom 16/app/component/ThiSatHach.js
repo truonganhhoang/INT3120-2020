@@ -7,7 +7,7 @@ export default class Test extends Component {
         <View style={styles.gridList}>
           <View style={styles.button}>
   
-            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Test')}>
+            <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate('Đề thi số 1')}>
               <Text style={styles.button1}>Làm bài</Text>
               <View style={styles.button6}>
                 <Text style={styles.button7}>

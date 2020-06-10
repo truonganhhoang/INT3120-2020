@@ -8,7 +8,7 @@ import BienBao from './component/BienBao';
 import ThiSatHach from './component/ThiSatHach';
 import MeoThi from './component/MeoThi';
 import TraCuuLuat from './component/TraCuuLuat';
-import de1 from './component/de1';
+import De1 from './DeThi/De1';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {
@@ -37,6 +37,11 @@ import vanhoa from './HocLiThuyet/vanHoa';
 
 import LoiThucHanh from './component/LoiThucHanh';
 
+import chinhsach from './giaotiep/chinhsach';
+import danhgia from './giaotiep/danhgia';
+import email from './giaotiep/email';
+import chiase from './giaotiep/chiase'; 
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -63,49 +68,49 @@ function CustomDrawerContent(props) {
             <DrawerItem
               label='các biển báo đường bộ'
               onPress={() => props.navigation.navigate('Bien bao')}
-              icon={() => <Icon  name='caretright' style={{fontSize:35}}/>}
+              icon={() => <Icon  name='circle' style={{fontSize:35,color:"#A4A4A4"}}/>}
             />
             <DrawerItem
               label='Mẹo thi kết quả cao'
               onPress={() => props.navigation.navigate('Mẹo thi kết quả cao')}
-              icon={() => <Icon  name='balance-scale' style={{fontSize:35}}/>}
+              icon={() => <Icon  name='contacts' style={{fontSize:35,color:"#A4A4A4"}}/>}
             />
             <DrawerItem
               label='Tra cứu luật nhanh'
               onPress={() => props.navigation.navigate('Lithuyet')}
-              icon={() => <Icon  name='book' style={{fontSize:35}}/>}
+              icon={() => <Icon  name='comment-account-outline' style={{fontSize:35,color:"#A4A4A4"}}/>}
             />
             <DrawerItem
               label='các câu hỏi hay sai'
               onPress={() => props.navigation.navigate('Lithuyet')}
-              icon={() => <Icon  name='book' style={{fontSize:35}}/>}
+              icon={() => <Icon  name='book' style={{fontSize:35,color:"#A4A4A4"}}/>}
             />
       </View>
       <Text style={{color:"#6E6E6E",marginTop:10,marginLeft:16,fontSize:17,marginBottom:20}}> Giao tiếp</Text>
         <DrawerItem
           label='Đánh giá ứng dụng'
-          onPress={() => props.navigation.navigate('Lithuyet')}
-          icon={() => <Icon  name='comment-account-outline' style={{fontSize:35}}/>}
+          onPress={() => props.navigation.navigate('Đánh giá ứng dụng')}
+          icon={() => <Icon  name='comment-account-outline' style={{fontSize:35,color:"#A4A4A4"}}/>}
         />
         <DrawerItem
           label='Chia sẻ ứng dụng'
-          onPress={() => props.navigation.navigate('Lithuyet')}
-          icon={() => <Icon  name='share-variant' style={{fontSize:35}}/>}
+          onPress={() => props.navigation.navigate('chia sẻ ứng dụng')}
+          icon={() => <Icon  name='share-variant' style={{fontSize:35,color:"#A4A4A4"}}/>}
         />
         <DrawerItem
           label='Gửi email hỗ trợ'
-          onPress={() => props.navigation.navigate('Lithuyet')}
-          icon={() => <Icon  name='email' style={{fontSize:35}}/>}
+          onPress={() => props.navigation.navigate('email')}
+          icon={() => <Icon  name='email' style={{fontSize:35,color:"#A4A4A4"}}/>}
         />
         <DrawerItem
           label='Chính sách bảo mật'
-          onPress={() => props.navigation.navigate('Lithuyet')}
-          icon={() => <Icon  name='contacts' style={{fontSize:35}}/>}
+          onPress={() => props.navigation.navigate('chính sách')}
+          icon={() => <Icon  name='contacts' style={{fontSize:35,color:"#A4A4A4"}}/>}
         />
         <DrawerItem
           label='Phiên bản: 1.1.7'
 
-          icon={() => <Icon  name='book' style={{fontSize:35}}/>}
+          icon={() => <Icon  name='book' style={{fontSize:35,color:"#A4A4A4"}}/>}
         />
     </DrawerContentScrollView>
   );
@@ -244,11 +249,15 @@ function Mystack({navigation}) {
         <Stack.Screen name="Mẹo thi kết quả cao" component={tab} />
         <Stack.Screen name="Tra cứu luật nhanh" component={luattab} />
         <Stack.Screen name="Lỗi thường gặp" component={loitab} />
-        <Stack.Screen name="de1" component={de1} />
+        <Stack.Screen name="Đề thi số 1" component={De1} />
         <Stack.Screen name="Khái Niệm và quy tắc" component={khainiem} />
         <Stack.Screen name="Hệ thống các biển báo đường bộ" component={bienbao} />
         <Stack.Screen name="Các thế sa hình" component={sahinh} />
         <Stack.Screen name="Văn hóa đạo đức nghề nghiệp " component={vanhoa} />
+        <Stack.Screen name="chính sách" component={chinhsach} />
+        <Stack.Screen name="Đánh giá ứng dụng" component={danhgia} />
+        <Stack.Screen name="email" component={email} />
+        <Stack.Screen name="chia sẻ ứng dụng" component={chiase} />
         
       </Stack.Navigator>
   );
