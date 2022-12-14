@@ -19,7 +19,7 @@
     "expo-permissions": "~8.0.0",
     "expo-speech": "~8.0.0",
     "expo-sqlite": "~8.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.9",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
